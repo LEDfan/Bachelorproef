@@ -1,0 +1,14 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+table.noborder {
+    border-collapse: collapse;
+    padding: 0;
+    border-style: none;
+    td, th {
+        padding: 0;
+        border-style: none;
+    }
+}
