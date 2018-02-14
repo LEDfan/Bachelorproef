@@ -1,18 +1,5 @@
-Hello World!
+# Het team
 
-# Het Team
-Niels Aerens (Github: PurgingPanda)
-
-![Foto van Niels Aerens](images/niels.jpg)
-
-Thomas Avé
-
-![Foto van Thomas Avé](images/thomas.png)
-
-Tobia De Koninck (Github: LEDfan)
-
-![Foto van Tobia De Koninck](images/tobia.jpg)
-
-Robin Jadoul
-
-![Foto van Robin Jadoul](images/robin.jpg)
+![Foto van Niels Aerens](assets/images/niels.jpg) | ![Foto van Thomas Avé](assets/images/thomas.png) | ![Foto van Tobia De Koninck](assets/images/tobia.jpg) | ![Foto van Robin Jadoul](assets/images/robin.jpg)
+Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda)) | Thomas Avé ([@thomasave](http://github.com/thomasave)) | Tobia De Koninck ([@LEDfan](https://github.com/LEDfan)) | Robin Jadoul ([@RobinJadoul](https://github.com/RobinJadoul))
+{:.noborder}
