@@ -4,6 +4,10 @@
 Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda)) | Thomas Avé ([@thomasave](http://github.com/thomasave)) | Tobia De Koninck ([@LEDfan](https://github.com/LEDfan)) | Robin Jadoul ([@RobinJadoul](https://github.com/RobinJadoul))
 {:.noborder}
 
+# Assignments
+
+- [Introductory exercise](introduction)
+
 
 # Links
 
