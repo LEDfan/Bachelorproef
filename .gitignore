@@ -107,3 +107,9 @@ doc/doxygen/tex
 main/resources/lib/g3log/g3log-FATAL-*
 main/resources/lib/g3log/*.so
 main/resources/lib/g3log/scripts/
+_site/
+.sass-cache/
+.jekyll-metadata
+Gemfile*
+.bundle/
+vendor/
