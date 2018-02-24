@@ -33,7 +33,7 @@ INSTALL ( FILES
 
 add_test( NAME python_environment
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
+    COMMAND python3 "${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py"
 )
 
 #add_test( NAME  ${EXEC}_all 		

@@ -12,14 +12,15 @@ env:
 cache:
   directories:
     - $HOME/.ccache
-    - $HOME/boost_1_64_0_cache
+    - $HOME/boost_1_66_0_cache
 
 addons:
   apt:
     sources: &default_sources
       - ubuntu-toolchain-r-test
     packages: &default_packages
-      # - libhdf5-dev
+      - swig3.0
+      - libhdf5-dev
 
 matrix:
   include:
@@ -59,31 +60,33 @@ before_install:
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb; sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb; fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
 
 install:
   # Check for presence of boost cache, otherwise build boost
   - |
-    if [[ -z "$(ls -A $HOME/boost_1_64_0_cache)" ]]; then
+    if [[ -z "$(ls -A $HOME/boost_1_66_0_cache)" ]]; then
       # Download & unpack
-      sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
-      sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
+      sudo wget -O boost_1_66_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz/download -q
+      sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       # Move into source directory
-      cd boost_1_64_0/
+      cd boost_1_66_0/
       # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
-      sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      sudo ./bootstrap.sh --prefix=$HOME/boost_1_66_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
       # Build boost
-      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
+      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
       # Move out of boost source directory
       cd ..
     else
       echo "Already have boost cache"
     fi
+    export LD_LIBRARY_PATH=$HOME/boost_1_66_0_cache/lib
 
 script:
   # Build stride and run tests
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - STRIDE_BOOST_ROOT=$HOME/boost_1_64_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - make test
