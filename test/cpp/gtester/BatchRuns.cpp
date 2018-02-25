@@ -97,7 +97,7 @@ public:
                 if (tag == "measles_16") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 16U);
-                        target = 599900U;
+                        target = 590086;
                         sigma = 660.8227044636814;
                 }
                 if (tag == "measles_60") {
