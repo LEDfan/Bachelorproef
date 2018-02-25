@@ -9,6 +9,12 @@ For license info, see LICENSE.txt.
 
 Current contributors are (in alphabetical order):
 
+* Niels Aerens 
+* Thomas Avé
+* Tobia De Koninck
+* Robin Jadoul
+
+Upstream:
 * Jan Broeckhove (jan.broeckhove@uantwerpen.be)
 * Elise Kuylen (elise.kuylen@student.uantwerpen.be)
 * Lander Willem (lander.willem@uantwerpen.be)
