@@ -25,9 +25,9 @@ The QQ-plot clearly indicates that the data is rather normally distributed.
 Therefore the bounds can be determined by using 2 times the standard deviation.
 In the boxplot we can however see that there are quite a few outliers. 
 If such outliers occur in actual tests, this might result in false negatives.
-In the test results we can see that the outliers 22843 and 26341 do not fall in the range [23219, 25615].
-When we compare this interval to [21975.736,26859.234] obtained by using the 10% from the assignment, 
-we see that our chosen interval is more strict, but adjusts better for the actual observed variability in the data.
+In the test results we can see that for example the outliers 1803 and 2443 do not fall in the range [1859.34, 2325.76].
+When we compare this interval to [1883.30,2301.81] obtained by using the 10% from the assignment, 
+we see that our chosen interval is a bit less strict, but adjusts better for the actual observed variability in the data.
 
 
 ## Influenza B
@@ -63,7 +63,7 @@ The bounds for this test is fixed at 5.
 Just like in the Seeding Rate test it can be concluded that the data is rather normally distributed by looking at the QQ-Plot.
 Again the bounds are set to 2 times the standard deviation.
 Unfortunately we also notice an outlier in the data of this test that would be rejected by the chosen interval.
-We find the interval [588764.19, 591407] which is again smaller than [531077.258, 649094.427] obtained by using the 10%.
+We find the interval [588764.19, 591407] which is stricter than [531077.258, 649094.427] obtained by using the 10%.
 
 
 ## Measles 60
