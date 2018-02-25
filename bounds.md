@@ -30,7 +30,7 @@ When we compare this interval to [21975.736,26859.234] obtained by using the 10%
 we see that our chosen interval is more strict, but adjusts better for the actual observed variability in the data.
 
 
-## Seeding Rate
+## Influenza B
  - n = 100
  - mean = 0
  - standard deviation = 0
@@ -39,7 +39,7 @@ In this test nobody ever gets infected since the `seeding_rate` is set to 0.
 Therefore the standard deviation is also 0, which makes plots for this run not very useful.
 The bounds for this test is fixed at 0.
 
-## Immunity Rate
+## Influenza C
  - n = 100
  - mean = 5
  - standard deviation = 0
