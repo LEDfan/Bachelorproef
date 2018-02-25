@@ -10,6 +10,8 @@ As suggested we started by running the tests multiple times with different seeds
 By analysing the amount of infected people at the end, we can extract reasonable bounds for the tests.
 The analysis were done using QQ-Plots, Histograms and boxplots.
 
+The changes to the `BatchRuns` test were made in commit [17d64e173f41d6048fb3320edae4fce5d345a874](https://github.com/LEDfan/Bachelorproef/commit/17d64e173f41d6048fb3320edae4fce5d345a874).
+
 # Results
 ## Influenza A
  - n = 161
