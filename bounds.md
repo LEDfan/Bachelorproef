@@ -37,7 +37,7 @@ we see that our chosen interval is a bit less strict, but adjusts better for the
 
 In this test nobody ever gets infected since the `seeding_rate` is set to 0.
 Therefore the standard deviation is also 0, which makes plots for this run not very useful.
-The bounds for this test is fixed at 0.
+The bounds for this test are fixed at 0.
 
 ## Influenza C
  - n = 100
@@ -46,8 +46,8 @@ The bounds for this test is fixed at 0.
 
 This test always gave as result 5 thus the standard deviation is 0.
 Plots for this run aren't very informative.
-The low result is expected since the immunity rate is very high. In this test the `seeding_rate` is decreased, but looking at the Stride source code this parameter seems unused.
-The bounds for this test is fixed at 5.
+The low result is expected since the immunity rate is very high. 
+The bounds for this test are fixed at 5.
 
 
 ## Measles 16
@@ -71,7 +71,7 @@ We find the interval [588764.19, 591407] which is stricter than [531077.258, 649
  - mean = 600 000
  - standard deviation = 0
 
-In this test the whole population is infected. Since the r0 parameter is at the highest possible level this is expected.
+In this test the whole population is infected. Since the $R_0$ parameter is at the highest possible level this is expected.
 The bounds for this test are fixed at 600 000.
 
 ## Source code
