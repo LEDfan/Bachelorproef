@@ -5,6 +5,10 @@
 language: cpp
 dist: trusty
 
+notifications:
+    webhooks:
+        secure: "IOa3ajectkRNTnMOqWLNo/6xxWmlpLlzcGlmmhm8Hz5ZyooqHZ/+IApIqaR3xCpbh3SVDGttAOBRDCF9QTNifYPElgOQzpXLEm90p8ekmoud18cLrrViLAJO9En83Rw0hBl4uYBsCx7PJQwy3yxuHC05oRE4nW+xAt1Tj+P687uC60yu9fOJw0P9l/8YP2YBeT02WJ6cq4zmv5ru7AR+b0sRLQWykPFgMaiu1uffb6nMB9mGqtsYhUkj+KVDi3LQxBpJ59UP/un1Z2cPhgTP1GsYHZtgw4gBW8Dtz+aql0KmjlzEGK5IsmNTm3wz/FxFy2CAZ5CbEqyTi/6mL/hHOwJUMG/dpN1AE7P1lY8espEd9yefniKu5ctSq3mcxZ0EknMYg8gMPYyEn4DLzIYZyMe7xBi6xv12wlH887mKCshlDhfi18iX7VmmR1ERLtbZ+na10LtW/1laTaz43HpAM7zMGz0VQc2XUA4MO7nt9l8CvpV2kNiy0Ek8gdqAo4pTNoEL661JKVrOhYPsfeowNAED2TMIDKPLflJzmfbrCX1tFe6JIiXfPBB0Zc+Ez5hX2hC+8KZQmKVRZY0HkVPnAswu/+htYNuS00QVVYzgisFvvEAwuzPtx7LzBSdA3+0AsQLgDvGyCyhNvyEBiXF9zjSZ25SzFbAEjZ8YJxCwXXE="
+
 env:
   global:
     - MAKEFLAGS="-j 2"
