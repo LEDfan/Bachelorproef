@@ -80,8 +80,8 @@ public:
                 double       sigma  = 0;
 
                 if (tag == "influenza_a") {
-                        target = 24417;
-                        sigma = 599.440833924;
+                        target = 2093;
+                        sigma = 116.60326645015648;
                 }
                 if (tag == "influenza_b") {
                         pt.put("run.seeding_rate", 0.0);
