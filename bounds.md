@@ -27,7 +27,7 @@ In the boxplot we can however see that there are quite a few outliers.
 If such outliers occur in actual tests, this might result in false negatives.
 In the test results we can see that the outliers 22843 and 26341 do not fall in the range [23219, 25615].
 When we compare this interval to [21975.736,26859.234] obtained by using the 10% from the assignment, 
-we see that our chosen interval is more strict, but more adaptive to the actual results.
+we see that our chosen interval is more strict, but adjusts better for the actual observed variability in the data.
 
 
 ## Seeding Rate
