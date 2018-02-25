@@ -1,8 +1,17 @@
-# Method
-We searched for good bounds for the tests. We did this by running the tests multiple times with different seeds. We then analyse the amount of infected people at the end. We will use this data to extrapolate good bounds for the tests.
+# Assignment
+> Establish reasonable ‘bounds’ for the output of the simulator.
 
-# Gevonden waarden
-## seedingRate
+More precisely: we have to find bounds for the different [test cases of the BatchRuns](https://github.com/broeckho/stride/blob/deb54e1e7be43e104aa404f83329640229f7c894/test/cpp/gtester/BatchRuns.cpp#L45-L49) test.
+Reasonable bounds are bounds for which the tests don't fail due to the randomness of the simulation, but do fail when a significant difference in output is made by the simulator.
+The suggested methods is to run the simulation a few times and then take a range of 10% around the mean as bounds.
+
+# Used method
+As suggested we started by running the tests multiple times with different seeds by using a Python script.
+By analysing the amount of infected people at the end, we can extract reasonable bounds for the tests.
+The analysis were done using QQ-Plots, Histograms and boxplots.
+
+# Results
+## Seeding Rate
  - n = 173
  - mean = 24417.4855491
  - standard deviation = 599.440833924
@@ -12,34 +21,41 @@ We searched for good bounds for the tests. We did this by running the tests mult
 ![Histogram](assets/images/week2/seeding_hist.png)
 ![QQ-Plot](assets/images/week2/seeding_qq.png)
 
-We can conclude that the data of this test is rather normally distributed. We can see this in the QQ-plot above.
+The QQ-plot clearly indicates that the data is rather normally distributed.
+Therefore the bounds can be determined by using x times the standard deviation.
 
-
-
-## immunityRate
+## Immunity Rate
  - n = 100
  - mean = 5
- - std dev = 0
-As the standard deviation is zero, the plots are not usefull here.
+ - standard deviation = 0
 
-## measles
+This test always gave as result 5 thus the standard derivation is 5.
+Plots for this run aren't very informative.
+The low result is expected since the immunity rate is very high. In this test the `seeding_rate` is decreased, but looking at the Stride source code this parameter seems unused.
+The bounds for this test is fixed at 5.
+
+
+## Measles
  - n = 210
  - mean = 590085.8428571429
- - std dev = 660.8227044636814
+ - standard deviation = 660.8227044636814
  - results = \[589099, 589827, 590222, 589587, 589876, 589258, 589788, 590521, 589706, 590845, 589493, 588884, 589427, 589357, 590802, 589521, 588462, 589893, 590515, 589968, 590389, 590248, 589314, 589536, 590317, 590196, 590688, 589428, 590628, 591380, 590135, 589944, 590342, 590746, 589702, 590633, 590110, 590548, 590011, 590272, 589925, 591040, 590114, 591246, 589692, 590668, 590339, 590143, 590511, 590234, 590912, 588997, 591009, 590016, 589926, 589724, 589664, 590360, 590766, 590549, 589469, 590185, 589304, 591606, 589252, 590372, 589502, 590908, 591226, 589399, 590555, 590149, 590946, 589890, 589649, 590008, 590170, 589843, 589584, 588925, 589584, 590953, 590291, 590087, 589766, 590608, 590420, 589437, 589975, 590260, 590589, 590366, 590533, 590400, 590886, 590431, 589250, 590050, 590260, 589298, 590256, 590617, 590079, 589205, 590837, 590481, 589377, 589204, 589828, 590482, 592118, 590631, 589110, 589949, 591403, 590604, 589459, 589506, 590891, 591128, 589777, 590119, 590263, 587079, 590794, 590758, 589081, 590159, 590054, 590127, 589576, 589880, 589913, 590214, 590398, 590364, 590709, 590379, 589798, 589564, 591080, 590171, 590227, 590262, 590139, 588990, 588559, 589083, 589280, 590945, 589847, 590772, 589957, 589890, 591122, 590406, 590549, 590345, 589535, 590073, 589561, 590596, 589460, 590387, 590917, 589919, 590022, 590779, 589306, 589501, 591241, 590022, 589955, 590345, 589921, 589248, 588672, 589001, 589169, 590396, 589676, 590603, 590114, 589584, 590941, 590427, 590681, 589994, 590612, 590470, 589941, 589257, 590881, 590315, 590366, 590012, 590224, 588878, 589030, 588645, 589376, 590762, 589699, 590493, 590417, 590314, 590946, 590544, 590483, 590682\]
 
 ![Boxplot](assets/images/week2/measles_boxplot.png)
 ![Histogram](assets/images/week2/measles_hist.png)
 ![QQ-Plot](assets/images/week2/measles_qq.png)
 
-We can conclude that the data of this test is rather normally distributed. We can see this in the QQ-plot above.
+Just like in the Seeding Rate test it can be concluded that the data is rather normally distributed by looking at the QQ-Plot.
+Again the bounds are set to x times the standard deviation.
+
 
 ## maximum
  - n = 100
  - mean = 600 000
- - std dev = 0
-As the standard deviation is zero, the plots are not usefull here.
+ - standard deviation = 0
 
+In this test the whole population is infected. Since the r0 parameter is at the highest possible level this is expected.
+The bounds for this text are fixed at 600 0000.
 
 ## Source code
  - [Data Gathering](assets/src/week2/mean.py)
