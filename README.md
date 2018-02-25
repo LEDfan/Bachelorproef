@@ -9,8 +9,14 @@ For license info, see LICENSE.txt.
 
 Current contributors are (in alphabetical order):
 
+* Niels Aerens 
+* Thomas Avé
+* Tobia De Koninck
+* Robin Jadoul
+
+Upstream:
 * Jan Broeckhove (jan.broeckhove@uantwerpen.be)
 * Elise Kuylen (elise.kuylen@student.uantwerpen.be)
 * Lander Willem (lander.willem@uantwerpen.be)
 
-The current status of the project build is : [![Build Status](https://travis-ci.org/broeckho/stride.svg?branch=master)](https://travis-ci.org/broeckho/stride)
+The current status of the project build is : ![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
