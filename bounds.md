@@ -12,14 +12,14 @@ The analysis were done using QQ-Plots, Histograms and boxplots.
 
 # Results
 ## Influenza A
- - n = 173
- - mean = 24417.4855491
- - standard deviation = 599.440833924
- - results: [data points](assets/src/week2/default_data.txt)
+ - n = 161
+ - mean = 2092.552795031056
+ - standard deviation = 116.60326645015648
+ - results: [data points](assets/src/week2/influenza_a_data.txt)
 
-![Boxplot](assets/images/week2/default_boxplot.png)
-![Histogram](assets/images/week2/default_hist.png)
-![QQ-Plot](assets/images/week2/default_qq.png)
+![Boxplot](assets/images/week2/influenza_a_boxplot.png)
+![Histogram](assets/images/week2/influenza_a_hist.png)
+![QQ-Plot](assets/images/week2/influenza_a_qq.png)
 
 The QQ-plot clearly indicates that the data is rather normally distributed.
 Therefore the bounds can be determined by using 2 times the standard deviation.
