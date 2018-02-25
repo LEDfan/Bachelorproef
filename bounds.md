@@ -24,7 +24,8 @@ The analysis were done using QQ-Plots, Histograms and boxplots.
 The QQ-plot clearly indicates that the data is rather normally distributed.
 Therefore the bounds can be determined by using 2 times the standard deviation.
 In the boxplot we can however see that there are quite a few outliers. 
-If such outliers occur in actual tests, this might result in fake negatives.
+If such outliers occur in actual tests, this might result in false negatives.
+In the test results we can see that the outliers 22843 and 26341 do not fall in the range [23219, 25615].
 
 ## Seeding Rate
  - n = 100
@@ -58,7 +59,7 @@ The bounds for this test is fixed at 5.
 
 Just like in the Seeding Rate test it can be concluded that the data is rather normally distributed by looking at the QQ-Plot.
 Again the bounds are set to 2 times the standard deviation.
-Unfortunately we also notice quite a few outliers in the data.
+Unfortunately we also notice an outlier in the data of this test that would be rejected by the chosen interval.
 
 
 ## maximum
