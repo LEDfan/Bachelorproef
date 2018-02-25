@@ -11,7 +11,7 @@ By analysing the amount of infected people at the end, we can extract reasonable
 The analysis were done using QQ-Plots, Histograms and boxplots.
 
 # Results
-## Default
+## Influenza A
  - n = 173
  - mean = 24417.4855491
  - standard deviation = 599.440833924
@@ -50,7 +50,7 @@ The low result is expected since the immunity rate is very high. In this test th
 The bounds for this test is fixed at 5.
 
 
-## Measles
+## Measles 16
  - n = 210
  - mean = 590085.8428571429
  - standard deviation = 660.8227044636814
@@ -66,7 +66,7 @@ Unfortunately we also notice an outlier in the data of this test that would be r
 We find the interval [588764.19, 591407] which is again smaller than [531077.258, 649094.427] obtained by using the 10%.
 
 
-## maximum
+## Measles 60
  - n = 100
  - mean = 600 000
  - standard deviation = 0
