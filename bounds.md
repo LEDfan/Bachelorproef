@@ -72,7 +72,7 @@ We find the interval [588764.19, 591407] which is stricter than [531077.258, 649
  - standard deviation = 0
 
 In this test the whole population is infected. Since the r0 parameter is at the highest possible level this is expected.
-The bounds for this text are fixed at 600 0000.
+The bounds for this test are fixed at 600 000.
 
 ## Source code
  - [Data Gathering](assets/src/week2/mean.py)
