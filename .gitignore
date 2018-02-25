@@ -1,0 +1,115 @@
+#--------------
+# Generic stuff
+#--------------
+*.cache
+*.Debug
+*.o
+*.orig
+*.out
+*.Release
+*~
+.\#*
+*.bak
+*.DS_Store
+*._*
+*.directory
+*-eps-converted-to.pdf
+*.Rhistory
+
+#------------------------------------
+# Local make config & build directory
+#------------------------------------
+/.cproject
+/.project
+/MakeLocalConfig
+/.settings/
+target*/
+build*/
+/CMakeLocal.cmake
+
+#-----------------------------
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+#-----------------------------
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# CMake
+cmake-build-*
+
+## File-based project format:
+*.iws
+
+#------------------------------------
+# Latex stuff
+#------------------------------------
+/src/doc/latex_user_man/UserManual.aux
+/src/doc/latex_user_man/UserManual.bbl
+/src/doc/latex_user_man/UserManual.blg
+/src/doc/latex_user_man/UserManual.out
+/src/doc/latex_user_man/UserManual.synctex.gz
+/src/doc/latex_user_man/UserManual.toc
+
+#------------------------------------
+# Python stuff
+#------------------------------------
+.pydevproject
+
+#----------------
+# Random OS stuff
+#----------------
+.DS_Store
+Thumbs.db
+._*
+.directory
+
+#----------------
+# LaTeX build stuff
+#----------------
+*.synctex.gz
+*.log
+*.aux
+
+#----------------
+# CMake-generated stuff
+#----------------
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+run_cmake.sh
+CPackConfig.cmake
+CPackSourceConfig.cmake
+*.[oa]
+
+#----------------
+# Doxygen stuff
+#----------------
+doc/doxygen/Doxyfile
+doc/doxygen/html
+doc/doxygen/latex
+doc/doxygen/tex
+
+#----------------
+# g3log stuff
+#----------------
+main/resources/lib/g3log/g3log-FATAL-*
+main/resources/lib/g3log/*.so
+main/resources/lib/g3log/scripts/
+_site/
+.sass-cache/
+.jekyll-metadata
+Gemfile*
+.bundle/
+vendor/

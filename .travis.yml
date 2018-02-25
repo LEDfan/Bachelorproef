@@ -1,0 +1,98 @@
+# This .travis.yml on:
+# https://github.com/loot/loot/blob/dev/.travis.yml
+# https://genbattle.bitbucket.io/blog/2016/01/17/c++-travis-ci/?
+
+language: cpp
+dist: trusty
+
+notifications:
+    webhooks:
+        secure: "IOa3ajectkRNTnMOqWLNo/6xxWmlpLlzcGlmmhm8Hz5ZyooqHZ/+IApIqaR3xCpbh3SVDGttAOBRDCF9QTNifYPElgOQzpXLEm90p8ekmoud18cLrrViLAJO9En83Rw0hBl4uYBsCx7PJQwy3yxuHC05oRE4nW+xAt1Tj+P687uC60yu9fOJw0P9l/8YP2YBeT02WJ6cq4zmv5ru7AR+b0sRLQWykPFgMaiu1uffb6nMB9mGqtsYhUkj+KVDi3LQxBpJ59UP/un1Z2cPhgTP1GsYHZtgw4gBW8Dtz+aql0KmjlzEGK5IsmNTm3wz/FxFy2CAZ5CbEqyTi/6mL/hHOwJUMG/dpN1AE7P1lY8espEd9yefniKu5ctSq3mcxZ0EknMYg8gMPYyEn4DLzIYZyMe7xBi6xv12wlH887mKCshlDhfi18iX7VmmR1ERLtbZ+na10LtW/1laTaz43HpAM7zMGz0VQc2XUA4MO7nt9l8CvpV2kNiy0Ek8gdqAo4pTNoEL661JKVrOhYPsfeowNAED2TMIDKPLflJzmfbrCX1tFe6JIiXfPBB0Zc+Ez5hX2hC+8KZQmKVRZY0HkVPnAswu/+htYNuS00QVVYzgisFvvEAwuzPtx7LzBSdA3+0AsQLgDvGyCyhNvyEBiXF9zjSZ25SzFbAEjZ8YJxCwXXE="
+
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+
+cache:
+  directories:
+    - $HOME/.ccache
+    - $HOME/boost_1_66_0_cache
+
+addons:
+  apt:
+    sources: &default_sources
+      - ubuntu-toolchain-r-test
+    packages: &default_packages
+      - swig3.0
+      - libhdf5-dev
+
+matrix:
+  include:
+
+    - os: linux
+      compiler: gcc
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
+      addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
+
+    - os: linux
+      compiler: gcc
+      env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU
+      addons: { apt: { packages: [*default_packages, g++-7], sources: [*default_sources]} }
+
+    - os: linux
+      compiler: clang
+      env: CXX_COMPILER_NAME='clang++-5.0' CXX_COMPILER_ID=CLANG
+      addons: { apt: { packages: [*default_packages, clang-5.0], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
+
+    - os: osx
+      osx_image: xcode8.3
+      compiler: clang
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+
+    - os: osx
+      osx_image: xcode9.2
+      compiler: clang
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+
+    - os: osx
+      osx_image: xcode8.3
+      compiler: clang
+      env: CXX_COMPILER_NAME='/usr/local/bin/clang++-3.8' CXX_COMPILER_ID=LLVM
+
+before_install:
+  # Check commit matches expected commit (because of Travis bug)
+  - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache python3 swig; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb; sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb; fi
+  # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
+  - export CXX="$CXX_COMPILER_NAME"
+
+install:
+  # Check for presence of boost cache, otherwise build boost
+  - |
+    if [[ -z "$(ls -A $HOME/boost_1_66_0_cache)" ]]; then
+      # Download & unpack
+      sudo wget -O boost_1_66_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz/download -q
+      sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
+      # Move into source directory
+      cd boost_1_66_0/
+      # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
+      sudo ./bootstrap.sh --prefix=$HOME/boost_1_66_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      # Build boost
+      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
+      # Move out of boost source directory
+      cd ..
+    else
+      echo "Already have boost cache"
+    fi
+    export LD_LIBRARY_PATH=$HOME/boost_1_66_0_cache/lib
+    sudo rm -f /usr/local/lib/libboost*.dylib*
+    sudo ln -s $HOME/boost_1_66_0_cache/lib/*.{so,dylib}* /usr/local/lib
+
+script:
+  # Build stride and run tests
+  #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
+  #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
+  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - make test
