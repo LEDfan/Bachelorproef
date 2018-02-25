@@ -73,7 +73,7 @@ install:
   - |
     if [[ -z "$(ls -A $HOME/boost_1_66_0_cache)" ]]; then
       # Download & unpack
-      sudo wget -O boost_1_66_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz/download -q
+      sudo wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       # Move into source directory
       cd boost_1_66_0/
