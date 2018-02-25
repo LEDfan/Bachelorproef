@@ -11,25 +11,34 @@ By analysing the amount of infected people at the end, we can extract reasonable
 The analysis were done using QQ-Plots, Histograms and boxplots.
 
 # Results
-## Seeding Rate
+## Default
  - n = 173
  - mean = 24417.4855491
  - standard deviation = 599.440833924
- - results: [data points](assets/src/week2/seeding_rate_data.txt)
+ - results: [data points](assets/src/week2/default_data.txt)
 
-![Boxplot](assets/images/week2/seeding_boxplot.png)
-![Histogram](assets/images/week2/seeding_hist.png)
-![QQ-Plot](assets/images/week2/seeding_qq.png)
+![Boxplot](assets/images/week2/default_boxplot.png)
+![Histogram](assets/images/week2/default_hist.png)
+![QQ-Plot](assets/images/week2/default_qq.png)
 
 The QQ-plot clearly indicates that the data is rather normally distributed.
-Therefore the bounds can be determined by using x times the standard deviation.
+Therefore the bounds can be determined by using 2 times the standard deviation.
+
+## Seeding Rate
+ - n = 100
+ - mean = 0
+ - standard deviation = 0
+
+In this test nobody ever gets infected since the `seeding_rate` is set to 0.
+Therefore the standard deviation is also 0, which makes plots for this run not very useful.
+The bounds for this test is fixed at 0.
 
 ## Immunity Rate
  - n = 100
  - mean = 5
  - standard deviation = 0
 
-This test always gave as result 5 thus the standard derivation is 5.
+This test always gave as result 5 thus the standard deviation is 0.
 Plots for this run aren't very informative.
 The low result is expected since the immunity rate is very high. In this test the `seeding_rate` is decreased, but looking at the Stride source code this parameter seems unused.
 The bounds for this test is fixed at 5.
@@ -46,7 +55,7 @@ The bounds for this test is fixed at 5.
 ![QQ-Plot](assets/images/week2/measles_qq.png)
 
 Just like in the Seeding Rate test it can be concluded that the data is rather normally distributed by looking at the QQ-Plot.
-Again the bounds are set to x times the standard deviation.
+Again the bounds are set to 2 times the standard deviation.
 
 
 ## maximum
