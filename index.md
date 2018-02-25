@@ -7,6 +7,7 @@ Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda)) | Thomas Avé ([
 # Assignments
 
 - [Introductory exercise](introduction)
+- [Bounds research](bounds)
 
 
 # Links
