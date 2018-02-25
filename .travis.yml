@@ -17,6 +17,7 @@ cache:
   directories:
     - $HOME/.ccache
     - $HOME/boost_1_66_0_cache
+    - /var/cache/apt/archives/
 
 addons:
   apt:
