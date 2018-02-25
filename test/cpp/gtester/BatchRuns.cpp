@@ -77,31 +77,36 @@ public:
         {
                 ptree        pt     = BasicConfig();
                 unsigned int target = 0U;
-                double       margin = 0.1;
+                double       sigma  = 0;
 
                 if (tag == "influenza_a") {
-                        target = 2000U;
+                        target = 24417;
+                        sigma = 599.440833924;
                 }
                 if (tag == "influenza_b") {
                         pt.put("run.seeding_rate", 0.0);
                         target = 0U;
+                        sigma = 0;
                 }
                 if (tag == "influenza_c") {
                         pt.put("run.seeding_rate", (1 - 0.9991) / 100);
                         pt.put("run.immunity_rate", 0.9991);
                         target = 5U;
+                        sigma = 0;
                 }
                 if (tag == "measles_16") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 16U);
                         target = 599900U;
+                        sigma = 660.8227044636814;
                 }
                 if (tag == "measles_60") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 60U);
                         target = 600000U;
+                        sigma = 0;
                 }
-                return make_tuple(pt, target, margin);
+                return make_tuple(pt, target, sigma);
         };
 
 protected:
@@ -133,7 +138,7 @@ TEST_P(BatchRuns, Run)
         const auto d         = ScenarioData(test_tag);
         const auto pt_config = get<0>(d);
         const auto target    = get<1>(d);
-        const auto margin    = get<2>(d);
+        const auto sigma     = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Initialize the logger.
@@ -164,7 +169,8 @@ TEST_P(BatchRuns, Run)
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
         const unsigned int res = sim->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(res, target, target * margin) << "!! CHANGES for " << test_tag << "with threads: " << num_threads;
+        // Check within a 95% confidence interval (distance of 2 std deviations)
+        EXPECT_NEAR(res, target, sigma * 2) << "!! CHANGES for " << test_tag << "with threads: " << num_threads;
 }
 
 namespace {
