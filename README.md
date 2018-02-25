@@ -19,4 +19,4 @@ Upstream:
 * Elise Kuylen (elise.kuylen@student.uantwerpen.be)
 * Lander Willem (lander.willem@uantwerpen.be)
 
-The current status of the project build is : [![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
+The current status of the project build is : ![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
