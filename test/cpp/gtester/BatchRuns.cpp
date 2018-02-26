@@ -91,7 +91,7 @@ public:
                 if (tag == "influenza_c") {
                         pt.put("run.seeding_rate", (1 - 0.9991) / 100);
                         pt.put("run.immunity_rate", 0.9991);
-                        target = 5U;
+                        target = 5000000000U;
                         sigma = 0;
                 }
                 if (tag == "measles_16") {
