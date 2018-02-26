@@ -1,5 +1,6 @@
 # Stride project
 
+
 Stride is an Open Source project to simulate transmission of infectious diseases.
  
 The project is hosted in a GitHub [code repository](https://github.com/broeckho/stride.git) and it has a continous integration cycle [build & test](https://travis-ci.org/broeckho/stride) at Travis CI.
