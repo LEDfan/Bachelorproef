@@ -1,19 +1,8 @@
 # Stride project
 
-## Status Badges
-[![CodeFactor](https://www.codefactor.io/repository/github/ledfan/bachelorproef/badge)](https://www.codefactor.io/repository/github/ledfan/bachelorproef)
-
-Clang 5: 
-[![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-clang-5)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-clang-5/)
-
-GCC 6: 
-[![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-6)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-6/)
-
-GCC 7: 
-[![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-7)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-7/)
-
-Travis: 
-[![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=csyiPstpMdAYGLr6wqxd&branch=master)](https://travis-ci.com/LEDfan/Bachelorproef)
+|CodeFactor|Travis|Clang 5|GCC 6| GCC 7|
+|--|--|--|--|--|
+|[![CodeFactor](https://www.codefactor.io/repository/github/ledfan/bachelorproef/badge)](https://www.codefactor.io/repository/github/ledfan/bachelorproef)|[![Build|Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=csyiPstpMdAYGLr6wqxd&branch=master)](https://travis-ci.com/LEDfan/Bachelorproef)|[![Build|Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-clang-5)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-clang-5/)|[![Build|Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-6)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-6/)|[![Build|Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-7)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-7/)|
 
 Stride is an Open Source project to simulate transmission of infectious diseases.
  
