@@ -91,16 +91,17 @@ private:
                        unsigned int time_symptomatic, double risk_averseness = 0,
                        boost::property_tree::ptree pt_belief = boost::property_tree::ptree())
         {
-                static util::SegmentedVector<BeliefPolicy> beliefs_container;
-                const BeliefPolicy                         b(pt_belief);
+                std::unique_ptr<Belief> b = std::make_unique<BeliefPolicy>(pt_belief);
 
                 assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
-                BeliefPolicy* bp = beliefs_container.emplace_back(b);
+                BeliefPolicy* bp = dynamic_cast<BeliefPolicy*>(beliefs_container.push_back(std::move(b))->get());
                 this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
                                           secondary_community_id, start_infectiousness, start_symptomatic,
                                           time_infectious, time_symptomatic, risk_averseness, bp));
                 assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
         }
+
+        util::SegmentedVector<std::unique_ptr<Belief>> beliefs_container;
 };
 
 } // namespace stride
