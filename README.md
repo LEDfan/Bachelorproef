@@ -16,7 +16,9 @@ Current contributors are (in alphabetical order):
 
 Contact Person:
 
-* Tobia De Koninck ([@LEDfan](https://github.com/LEDfan))
+* Name: Tobia De Koninck
+* Github: ([@LEDfan](https://github.com/LEDfan))
+* E-Mail: tobia.dekoninck@student.uantwerpen.be
 
 Upstream:
 * Jan Broeckhove (jan.broeckhove@uantwerpen.be)
