@@ -8,6 +8,12 @@ Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda)) | Thomas Avé ([
 Tobia De Koninck
 ([tobia.dekoninck@student.uantwerpen.be](mailto:tobia.dekoninck@student.uantwerpen.be))
 
+# Status
+
+| CodeFactor | Travis | Clang 5 |GCC 6 | GCC 7 |
+| :--: | :--: | :--: | :--: | :--: |
+| [![CodeFactor](https://www.codefactor.io/repository/github/ledfan/bachelorproef/badge)](https://www.codefactor.io/repository/github/ledfan/bachelorproef) | [![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=csyiPstpMdAYGLr6wqxd&branch=master)](https://travis-ci.com/LEDfan/Bachelorproef) | [![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-clang-5)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-clang-5/) | [![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-6)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-6/) | [![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-7)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-7/) |
+
 # Assignments
 
 - [Introductory exercise](introduction)
