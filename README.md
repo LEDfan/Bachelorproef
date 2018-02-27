@@ -9,10 +9,14 @@ For license info, see LICENSE.txt.
 
 Current contributors are (in alphabetical order):
 
-* Niels Aerens 
-* Thomas Avé
-* Tobia De Koninck
-* Robin Jadoul
+* Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda))
+* Thomas Avé  ([@thomasave](http://github.com/thomasave))
+* Tobia De Koninck ([@LEDfan](https://github.com/LEDfan))
+* Robin Jadoul ([@RobinJadoul](https://github.com/RobinJadoul))
+
+Contact Person:
+
+* Tobia De Koninck ([@LEDfan](https://github.com/LEDfan))
 
 Upstream:
 * Jan Broeckhove (jan.broeckhove@uantwerpen.be)
