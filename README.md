@@ -1,17 +1,18 @@
 # Stride project
 
 ## Status Badges
-Code Quality:
 [![CodeFactor](https://www.codefactor.io/repository/github/ledfan/bachelorproef/badge)](https://www.codefactor.io/repository/github/ledfan/bachelorproef)
 
-Clang 5 Build Status:
+Clang 5: 
 [![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-clang-5)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-clang-5/)
-Clang 6 Build Status:
-[![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-clang-5)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-clang-6/)
-GCC 7 Build Status:
+
+GCC 6: 
+[![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-6)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-6/)
+
+GCC 7: 
 [![Build Status](https://ci.ledfan.be/buildStatus/icon?job=BachelorProef/Tests-compile-docker-gcc-7)](https://ci.ledfan.be/job/BachelorProef/job/Tests-compile-docker-gcc-7/)
 
-Travis:
+Travis: 
 [![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=csyiPstpMdAYGLr6wqxd&branch=master)](https://travis-ci.com/LEDfan/Bachelorproef)
 
 Stride is an Open Source project to simulate transmission of infectious diseases.
