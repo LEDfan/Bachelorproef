@@ -1,5 +1,5 @@
-import QtQuick 2.10
-import QtQuick.Controls 2.3
+import QtQuick 2.0
+import QtQuick.Controls 1.3
 
 ApplicationWindow {
     id: window
@@ -8,6 +8,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("Stack")
 
+   /* Page/Header is 5.7
     header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
@@ -51,7 +52,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
+        initialItem: "qrc:/HomeForm.ui.qml"
         anchors.fill: parent
     }
 }

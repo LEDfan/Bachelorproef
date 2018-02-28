@@ -1,10 +1,12 @@
-import QtQuick 2.10
-import QtQuick.Controls 2.3
+import QtQuick 2.0
+import QtQuick.Controls 1.3
 import QtQuick.Dialogs 1.2
 import QtLocation 5.6
 import QtPositioning 5.6
 import QtQuick.Window 2.0
 
+/*
+Page is Qt 5.7
 Page {
     width: 600
     height: 400
@@ -50,3 +52,4 @@ Page {
         }
     }
 }
+*/

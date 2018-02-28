@@ -102,6 +102,8 @@ install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
 #target_link_libraries(popgen2 ${LIBS} libstride)
 #install(TARGETS popgen2  DESTINATION   ${BIN_INSTALL_LOCATION})
 
+add_subdirectory(visualizer)
+
 #============================================================================
 # Clean up.
 #============================================================================
