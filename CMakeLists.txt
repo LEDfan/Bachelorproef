@@ -73,8 +73,8 @@ endif()
 # Configuration for DEBUG: coverage + warnings
 #============================================================================
 if(CMAKE_BUILD_TYPE MATCHES Debug)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage -Wall -Wextra -pedantic -Weffc++")
-    SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage -Wall -Wextra -pedantic -Weffc++")
+    SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 endif()
 
 
