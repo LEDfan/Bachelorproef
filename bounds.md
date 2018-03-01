@@ -7,6 +7,7 @@ The suggested methods is to run the simulation a few times and then take a range
 
 # Used method
 As suggested we started by running the tests multiple times with different seeds by using a Python script.
+The python code that we use to run with multiple seeds, has a random number generator seeded with 0 itself. We use this generator to determine the random seeds for the stride simulation. This way the seeds are random, but the end result is still reproducible.
 By analysing the amount of infected people at the end, we can extract reasonable bounds for the tests.
 The analysis were done using QQ-Plots, Histograms and boxplots.
 
