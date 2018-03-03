@@ -105,8 +105,7 @@ GeoGridJSONReader --|> GeoGridReader
 GeoGridJSONWriter --|> GeoGridWriter
 
 GeoGrid o-- ContactPool
-
-MeetingPlace o-- Place
+GeoGridFactory o-- GeoGridConfig
 
 Coordinate --o Place
 @enduml
