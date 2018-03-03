@@ -1,0 +1,84 @@
+@startuml
+
+/'
+1) We read the 'flanders_cities.csv' file and transform the input into a list of Places.
+2)
+3)
+4)
+'/
+
+class CitiesReader {
+	getPlacesFromCSV()	
+}
+
+' This holds all info needed to generate a specific geogrid
+class GeoGridConfig {
+	+ GeoGridConfig(config_csv)
+	+ getHouseholds() : List<Houshold>
+	+ getCities() : List<City>
+	+ getCommute() : Map<City, Map<City, Integer>>
+	- parseCities(input_file : csv)
+	- parseHouseholds(input_file : csv)
+	- parseCommute(input_file : csv)
+}
+
+' This is a factory for the GeoGrid
+class GeoGridGenerator {
+	+ createGeoGrid(config : GeoGridConfig) : GeoGrid
+	- placeSchools() 
+	- placeHighSchools()
+	- PlaceWorkplaces()
+}
+
+class GeoGrid {
+
+}
+
+class Community {
+	Capacity: integer
+	Name: String
+}
+
+class School {
+
+}
+
+class HighSchool {
+
+}
+
+class Workplace {
+
+}
+
+class Place {
+	- id : integer
+	- name : String
+	- province : String
+	- capacity: integer
+	- : integer
+	- primaryCommunity: Community 'Dorpskern
+	- secondaryCommunities: List<Community> 'Andere woonkernen
+}
+
+class Coordinate {
+	x : float
+	y : float
+}
+
+class GeoGridWriter {
+
+}
+
+School --|> Community
+HighSchool --|> Community 
+Workplace --|> Community 
+
+GeoGrid o-- Community 
+
+MeetingPlace o-- Location
+Community o-- Location
+
+Coordinate --o Location
+Community o-- Coordinate
+@enduml
