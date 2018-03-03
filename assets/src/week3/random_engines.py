@@ -64,6 +64,7 @@ amtRuns = 15
 engines = ['lgc64', 'lgc64_shift', 'mrg2', 'mrg3', 'yarn2', 'yarn3']
 
 for engine in engines:
+    startTime = time.time()
     shutil.rmtree('simulations/test')
     results = []
     simulation.runConfig.setParameter("engine", 'trng/' + engine);
@@ -77,3 +78,5 @@ for engine in engines:
         print(i, " of ", amtRuns, ' engine ', engine)
     out.write(engine + ' ' + str(numpy.mean(results)) + ' ' + str(numpy.std(results)) + ' ' + str(results) + '\n')
     out.flush()
+    elapsed = time.time() - startTime
+    print("Time needed: ", elapsed)
