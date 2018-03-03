@@ -31,8 +31,8 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
-      addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU STRIDE_GENERATE_COVERAGE=True
+      addons: { apt: { packages: [*default_packages, g++-6, lcov], sources: [*default_sources]} }
 
     - os: linux
       compiler: gcc
@@ -42,7 +42,7 @@ matrix:
     - os: linux
       compiler: clang
       env: CXX_COMPILER_NAME='clang++-5.0' CXX_COMPILER_ID=CLANG
-      addons: { apt: { packages: [*default_packages, clang-5.0], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
+      addons: { apt: { packages: [*default_packages, clang-5.0, libstdc++-5-dev], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
 
     - os: osx
       osx_image: xcode8.3
@@ -92,7 +92,18 @@ install:
 
 script:
   # Build stride and run tests
+  #         CMAKE_BUILD_TYPE: enable assertions
+  #         STRIDE_GENERATE_COVERAGE: enable coverage -- set in `matrix`
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - make test
+
+after_success:
+    - |
+        cd ${TRAVIS_BUILD_DIR}
+        if [[ "$STRIDE_GENERATE_COVERAGE" != "True" ]]; then exit 0; fi
+        lcov --directory . --capture --output-file coverage.info # capture coverage info
+        lcov --remove coverage.info '/usr/*' 'main/resources/*' "${HOME}/boost_1_66_0_cache/\*\*" --output-file coverage.info # filter out system + boost
+        lcov --list coverage.info #debug info
+        bash <(curl -s https://codecov.io/bash) -t f7c8a447-9ce0-48b8-bbe5-b80a4f607cd8 || echo "Codecov did not collect coverage reports"
