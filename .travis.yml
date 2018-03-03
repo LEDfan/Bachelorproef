@@ -31,7 +31,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU STRIDE_GENERATE_COVERAGE=True
       addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
 
     - os: linux
@@ -92,7 +92,8 @@ install:
 
 script:
   # Build stride and run tests
-  #         CMAKE_BUILD_TYPE: enable assertions and code coverage
+  #         CMAKE_BUILD_TYPE: enable assertions
+  #         STRIDE_GENERATE_COVERAGE: enable coverage -- set in `matrix`
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
   - CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
