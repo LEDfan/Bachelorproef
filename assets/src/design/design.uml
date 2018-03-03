@@ -1,14 +1,13 @@
 @startuml
 
 /'
-1) We read the 'flanders_cities.csv' file and transform the input into a list of Places.
-2)
-3)
-4)
+1) We create a GeoGridConfig by passing a config file containing the filename of the households, cities and commutes csv files.
+2) We create a GeoGrid by passing the created GeoGridConfig to the "createGeoGrid" method of the GeoGridFactory.
+3) This method requests the necessary information from the GeoGridConfig.
 '/
 
 class CitiesReader {
-	getPlacesFromCSV()	
+	getPlacesFromCSV() : List<Places>
 }
 
 ' This holds all info needed to generate a specific geogrid
@@ -23,20 +22,33 @@ class GeoGridConfig {
 }
 
 ' This is a factory for the GeoGrid
-class GeoGridGenerator {
-	+ createGeoGrid(config : GeoGridConfig) : GeoGrid
-	- placeSchools() 
-	- placeHighSchools()
-	- PlaceWorkplaces()
+class GeoGridFactory {
+	{static} + createGeoGrid(config : GeoGridConfig) : GeoGrid
+	{static} - placeSchools() 
+	{static} - placeHighSchools()
+	{static} - PlaceWorkplaces()
 }
 
 class GeoGrid {
 
 }
 
-class Community {
+class ContactPool {
 	Capacity: integer
+	capacityUsed : integer
 	Name: String
+}
+
+class Community {
+    
+}
+
+class PrimaryCommunity {
+
+}
+
+class SecondaryCommunity {
+
 }
 
 class School {
@@ -55,30 +67,46 @@ class Place {
 	- id : integer
 	- name : String
 	- province : String
-	- capacity: integer
-	- : integer
-	- primaryCommunity: Community 'Dorpskern
-	- secondaryCommunities: List<Community> 'Andere woonkernen
+    ' GEN POP ATTR
+    + addHousehold(household : Household)
 }
 
 class Coordinate {
-	x : float
-	y : float
+	longitude : double 
+	latitude : double 
+}
+
+class GeoGridReader {
+    + write(grid : GeoGrid, output_stream : Stream)
 }
 
 class GeoGridWriter {
-
+    + read(input_stream: Stream) : GeoGrid
 }
 
-School --|> Community
-HighSchool --|> Community 
-Workplace --|> Community 
+class GeoGridJSONWriter {
+    + read(input_stream: Stream) : GeoGrid
+}
 
-GeoGrid o-- Community 
+class GeoGridJSONReader {
+    + write(grid : GeoGrid, output_stream : Stream)
+}
 
-MeetingPlace o-- Location
-Community o-- Location
+School --|> Place
+HighSchool --|> Place 
+Workplace --|> Place 
+Community --|> ContactPool
+Place --|> ContactPool
 
-Coordinate --o Location
-Community o-- Coordinate
+PrimaryCommunity --|> Community
+SecondaryCommunity --|> Community
+
+GeoGridJSONReader --|> GeoGridReader
+GeoGridJSONWriter --|> GeoGridWriter
+
+GeoGrid o-- ContactPool
+
+MeetingPlace o-- Place
+
+Coordinate --o Place
 @enduml
