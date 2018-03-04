@@ -1,0 +1,44 @@
+{
+	places: [
+			id: 1,
+			long: 50.1,
+			lat: 4.7,
+			name: "",
+			province: "",
+			capacity: 9000,
+			capacityLeft: 0,
+	],
+
+	schools: [
+		{
+			id: 1,
+			place_id: 1,
+			capacity: 2000,
+		}	
+	],
+
+	workplaces: [
+		{
+			id: 1,
+			place_id: 1,
+			capacity: 2000,
+		}
+	],
+
+	highschools: [
+		{
+			id: 1,
+			place_id: 1,
+			capacity: 2000,
+		}
+	],
+	
+	communities: [
+		{
+			place_id: 1,
+			capacity: 900,
+			type: "primary",
+		}
+	]
+
+}
