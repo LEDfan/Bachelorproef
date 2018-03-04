@@ -15,5 +15,6 @@ plt.figure()
 plt.xlabel("RNG Engine")
 plt.ylabel("Runtime (s)")
 plt.bar(data.keys(), map(lambda x: float(data[x]), data.keys()), 0.35)
+plt.ylim(ymin=300, ymax=max(data.values()) + 20)
 plt.show()
 
