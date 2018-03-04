@@ -12,6 +12,7 @@ Tobia De Koninck
 
 - [Introductory exercise](introduction)
 - [Bounds research](bounds)
+- [Follow-up Bounds research](follow-up)
 
 
 # Links
