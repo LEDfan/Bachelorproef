@@ -6,25 +6,41 @@
 3) This method requests the necessary information from the GeoGridConfig.
 '/
 
+class ReaderFactory {
+    + createCitiesReader(filename: String): CitiesReader
+    + createCommutesReader(filename: String): CommutesReader 
+    + createHouseholdsReader(filename: String): HouseholdsReader 
+}
+
 class CitiesReader {
-	{static} + getLocationsFromCSV(locations_csv: Stream) : List<Locations>
+    - locations: List<Locations>
+    - CitiesReader(locations: Stream)
+	+ getLocations() : List<Locations>
 }
 class CommutesReader {
-	{static} + getCommutesFromCSV(commute_csv: Stream) : Map<City, Map<City, Integer>>
+    - commutes: Map<City, Map<City, Integer>>
+    - CommutesReader(commutes: Stream)
+	+ getCommutes() : Map<City, Map<City, Integer>>
 }
 class HouseholdsReader {
-	{static} + getHouseholdsFromCSV(household_csv: Stream) : List<Household>
+    - households: List<Household>
+    - HouseholdsReader(households: Stream)
+	+ getHouseholds() : List<Household>
+}
+
+class CitiesCSVReader {
+}
+class CommutesCSVReader {
+}
+class HouseholdsCSVReader {
 }
 
 ' This holds all info needed to generate a specific geogrid
 class GeoGridConfig {
-	+ GeoGridConfig(config_csv)
+	+ GeoGridConfig(input_stream: Stream)
 	+ getHouseholds() : List<Houshold>
 	+ getCities() : List<City>
 	+ getCommute() : Map<City, Map<City, Integer>>
-	- parseCities(input_file : csv)
-	- parseHouseholds(input_file : csv)
-	- parseCommute(input_file : csv)
 }
 
 class GeoGrid {
@@ -35,14 +51,6 @@ class Community {
     + getPoolSize(): integer 
     + getCapacity(): integer
     + addHousehold(household: Household)    
-}
-
-class PrimaryCommunity {
-
-}
-
-class SecondaryCommunity {
-
 }
 
 class School {
@@ -61,10 +69,10 @@ class Workplace {
 }
 
 class ContactPool {
-    people: List<Person>
+    - people: List<Person>
 }
 
-class Institute {
+class ContactCenter {
     - pools: List<ContactPool>
     + getPoolSize(): integer 
 }
@@ -79,7 +87,7 @@ class Location {
 	- id : integer
 	- name : String
 	- province : String
-    - institutes: List<Institute>
+    - contactCenters: List<ContactCenter>
 }
 
 class Household {
@@ -89,51 +97,52 @@ class Household {
 }
 
 class Coordinate {
-	longitude : double 
-	latitude : double 
+	+ longitude : double 
+	+ latitude : double 
 }
 
 class GeoGridReader {
-    + write(grid : GeoGrid, output_stream : Stream)
+    + read(input_stream: Stream) : GeoGrid
 }
 
 class GeoGridWriter {
-    + read(input_stream: Stream) : GeoGrid
+    + write(grid : GeoGrid, output_stream : Stream)
 }
 
 class GeoGridJSONWriter {
-    + read(input_stream: Stream) : GeoGrid
+    + write(grid : GeoGrid, output_stream : Stream)
 }
 
 class GeoGridJSONReader {
-    + write(grid : GeoGrid, output_stream : Stream)
+    + read(input_stream: Stream) : GeoGrid
 }
 
 class Person {
     
 }
 
-School --|> Institute
-HighSchool --|> Institute 
-Workplace --|> Institute 
-Community --|> Institute
-Household --|> Institute
+School --|> ContactCenter
+HighSchool --|> ContactCenter 
+Workplace --|> ContactCenter 
+Community --|> ContactCenter
+Household --|> ContactCenter
 
-Institute --|> Cluster
+ContactCenter --|> Cluster
 ContactPool --|> Cluster
 
-Location o-- Institute
+Location o-- ContactCenter
 ContactPool o-- Person
-
-PrimaryCommunity --|> Community
-SecondaryCommunity --|> Community
 
 GeoGridJSONReader --|> GeoGridReader
 GeoGridJSONWriter --|> GeoGridWriter
 
+CitiesCSVReader --|> CitiesReader
+CommutesCSVReader --|> CommutesReader
+HouseholdsCSVReader --|> HouseholdsReader
+
 GeoGrid o-- Location
 
-Institute o-- ContactPool
+ContactCenter o-- ContactPool
 
-Coordinate --o Location
+Coordinate --* Location
 @enduml
