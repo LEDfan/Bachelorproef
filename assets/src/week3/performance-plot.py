@@ -35,8 +35,9 @@ data = """
 415.18087553977966
 412.6926236152649
 """.strip().splitlines()
-plt.plot(range(1,33),map(float, data))
-plt.scatter(range(1,33), map(float, data), marker="x", color="red")
+data = map(lambda x: float(x)/15, data)
+plt.plot(range(1,33),data)
+plt.scatter(range(1,33), data, marker="x", color="red")
 plt.xlabel("Threads")
 plt.ylabel("Runtime (s)")
 plt.show()
@@ -45,5 +46,5 @@ plt.figure()
 plt.title("Boxplot")
 plt.xlabel('Runtime (s)')
 plt.ylabel('Amount of occurences')
-plt.boxplot(map(float, data), 0, 'rs', 0, 0.75)
+plt.boxplot(data, 0, 'rs', 0, 0.75)
 plt.show()
