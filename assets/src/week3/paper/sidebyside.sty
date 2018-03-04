@@ -1,0 +1,34 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             SIDE BY SIDE          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usage:
+% \sidebyside[float_position][sublabel1][sublabel2]{captiona}{image1}{captionb}{image2}{caption}{label}
+%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{sidebyside}[2017/10/28 Mon]
+\RequirePackage{xparse}
+
+\ProcessOptions\relax
+
+
+\DeclareDocumentCommand{\sidebyside}{O{}O{}O{}mmmmmm}{%
+%newcommand{\sidebyside}[9][][][]{%
+	\begin{figure}[#1]%
+	   	\makebox[\textwidth][c]{%
+	   		\centering%
+	   		\subfloat[#4]{%
+	   			{\includegraphics[width=0.5\textwidth]{#5}}%
+	   			\label{#2}
+	   		}%
+	   		\qquad%
+	   		\subfloat[#6]{%
+	   			{\includegraphics[width=0.5\textwidth]{#7}}%
+	   			\label{#3}
+	   		}%
+	   	}%
+	   	\caption{#8}%
+	   	\label{#9}%
+	\end{figure}%
+}		
+\endinput
