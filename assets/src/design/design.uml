@@ -7,7 +7,7 @@
 '/
 
 class CitiesReader {
-	getPlacesFromCSV() : List<Places>
+	getLocationsFromCSV() : List<Locations>
 }
 
 ' This holds all info needed to generate a specific geogrid
@@ -26,17 +26,11 @@ class GeoGridFactory {
 	{static} + createGeoGrid(config : GeoGridConfig) : GeoGrid
 	{static} - placeSchools() 
 	{static} - placeHighSchools()
-	{static} - PlaceWorkplaces()
+	{static} - LocationWorkplaces()
 }
 
 class GeoGrid {
 
-}
-
-class ContactPool {
-	Capacity: integer
-	capacityUsed : integer
-	Name: String
 }
 
 class Community {
@@ -63,12 +57,19 @@ class Workplace {
 
 }
 
-class Place {
+class ContactPool {
+	- Capacity: integer
+	- capacityUsed : integer
+}
+
+class Location {
 	- id : integer
 	- name : String
 	- province : String
-    ' GEN POP ATTR
-    + addHousehold(household : Household)
+}
+
+class Household {
+
 }
 
 class Coordinate {
@@ -96,7 +97,9 @@ School --|> ContactPool
 HighSchool --|> ContactPool 
 Workplace --|> ContactPool 
 Community --|> ContactPool
-ContactPool --|> Place
+Household --|> ContactPool
+
+Location o-- ContactPool
 
 PrimaryCommunity --|> Community
 SecondaryCommunity --|> Community
@@ -104,8 +107,8 @@ SecondaryCommunity --|> Community
 GeoGridJSONReader --|> GeoGridReader
 GeoGridJSONWriter --|> GeoGridWriter
 
-GeoGrid o-- ContactPool
+GeoGrid o-- Location
 GeoGridFactory o-- GeoGridConfig
 
-Coordinate --o Place
+Coordinate --o Location
 @enduml
