@@ -32,7 +32,9 @@ class GeoGrid {
 }
 
 class Community {
-    
+    + getPoolSize(): integer 
+    + getCapacity(): integer
+    + addHousehold(household: Household)    
 }
 
 class PrimaryCommunity {
@@ -44,19 +46,32 @@ class SecondaryCommunity {
 }
 
 class School {
-
+    + getPoolSize(): integer 
+    + getCapacity(): integer
 }
 
 class HighSchool {
-
+    + getPoolSize(): integer 
+    + getCapacity(): integer
 }
 
 class Workplace {
-
+    + getPoolSize(): integer 
+    + getCapacity(): integer
 }
 
 class ContactPool {
-	- Capacity: integer
+    people: List<Person>
+}
+
+class Institute {
+    - pools: List<ContactPool>
+    + getPoolSize(): integer 
+}
+
+class Cluster {
+    + getCapacity(): integer
+	- capacity: integer
 	- capacityUsed : integer
 }
 
@@ -64,10 +79,13 @@ class Location {
 	- id : integer
 	- name : String
 	- province : String
+    - institutes: List<Institute>
 }
 
 class Household {
-
+    ' PoolSize == Capacity
+    + getPoolSize(): integer 
+    + getCapacity(): integer
 }
 
 class Coordinate {
@@ -91,13 +109,21 @@ class GeoGridJSONReader {
     + write(grid : GeoGrid, output_stream : Stream)
 }
 
-School --|> ContactPool
-HighSchool --|> ContactPool 
-Workplace --|> ContactPool 
-Community --|> ContactPool
-Household --|> ContactPool
+class Person {
+    
+}
 
-Location o-- ContactPool
+School --|> Institute
+HighSchool --|> Institute 
+Workplace --|> Institute 
+Community --|> Institute
+Household --|> Institute
+
+Institute --|> Cluster
+ContactPool --|> Cluster
+
+Location o-- Institute
+ContactPool o-- Person
 
 PrimaryCommunity --|> Community
 SecondaryCommunity --|> Community
@@ -106,6 +132,8 @@ GeoGridJSONReader --|> GeoGridReader
 GeoGridJSONWriter --|> GeoGridWriter
 
 GeoGrid o-- Location
+
+Institute o-- ContactPool
 
 Coordinate --o Location
 @enduml
