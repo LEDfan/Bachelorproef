@@ -1,10 +1,10 @@
-# Het team
+# The Team
 
-![Foto van Niels Aerens](assets/images/niels.jpg) | ![Foto van Thomas Avé](assets/images/thomas.jpg) | ![Foto van Tobia De Koninck](assets/images/tobia.jpg) | ![Foto van Robin Jadoul](assets/images/robin.jpg)
+![Picture of Niels Aerens](assets/images/niels.jpg) | ![Picture of Thomas Avé](assets/images/thomas.jpg) | ![Picture of Tobia De Koninck](assets/images/tobia.jpg) | ![Picture of Robin Jadoul](assets/images/robin.jpg)
 Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda)) | Thomas Avé ([@thomasave](http://github.com/thomasave)) | Tobia De Koninck ([@LEDfan](https://github.com/LEDfan)) | Robin Jadoul ([@RobinJadoul](https://github.com/RobinJadoul))
 {:.noborder}
 
-# Contactpersoon
+# Contact person
 Tobia De Koninck
 ([tobia.dekoninck@student.uantwerpen.be](mailto:tobia.dekoninck@student.uantwerpen.be))
 
@@ -20,6 +20,7 @@ Tobia De Koninck
 - [Bounds research](bounds)
 - [Follow-up Bounds research](follow-up)
 - [Design](design)
+- [Test Plan](test-plan)
 
 
 # Links
