@@ -79,6 +79,9 @@ endif
 ifneq ($(STRIDE_FORCE_NO_HDF5),)
 	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=${STRIDE_FORCE_NO_HDF5}
 endif
+ifneq ($(STRIDE_GENERATE_COVERAGE),)
+	CMAKE_ARGS += -DGENERATE_COVERAGE:BOOL=${STRIDE_GENERATE_COVERAGE}
+endif
 
 #============================================================================
 #   Targets
