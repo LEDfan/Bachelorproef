@@ -18,7 +18,7 @@
                 ]
             }
         ]
-    }
+    },
     "people": [
         {
             "id": 0,
@@ -28,7 +28,7 @@
             "Household": 2,
             "Workplace":3,
             "PrimaryCommunity": 4,
-            "SecondaryCommunity": 5,
+            "SecondaryCommunity": 5
         }
     ]
 }
