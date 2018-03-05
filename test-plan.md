@@ -1,10 +1,10 @@
 # Method
 
 Travis CI and Jenkins are used to run the tests automatically after every push to Github.
-Each Pull Request is also tested and flagges with the result. 
+Each Pull Request is also tested and flagged with the result. 
 If a commit causes a failure we will be notified by email or Telegram (Instant Messaging).
 
-To have an overview of how much code is tested by the test code coverage tools are used. For exmaple lcov is used to generate the code coverage using GCC.
+To have an overview of how much code is tested by the test code coverage tools are used. For example lcov is used to generate the code coverage using GCC.
 Code coverage is generated and stored on [Codecov](https://codecov.io/gh/LEDfan/Bachelorproef).
 
 # Unit tests
@@ -19,7 +19,7 @@ The different readers used can be easily tested, they get some input (i.e. an in
 By using white-box testing the internal structure of the code can be studied, allowing us to more easily identify edge cases (e.g. character escaping in the input format, missing keys ...).
 The same holds for the `GeoGridReader` and `GeoGridWriter` classes.
 
-The main datastrucute classes (`Location`, `GeoGrid`, `ContactCenter`, `ContactPool` and `Cluster`) are rather easy to test because they only have a few simple methods.
+The main datastructure classes (`Location`, `GeoGrid`, `ContactCenter`, `ContactPool` and `Cluster`) are rather easy to test because they only have a few simple methods.
 The tests of the `School`, `HighSchool`, `Workplace`, `Household` are trivial since they only implement some simple acccesor methods.
 Generating the GeoGrid is done by the `GeoGridGenerator` class. This class contains a list of classes implementing the `IPartialGenerator` interface.
 
@@ -34,7 +34,7 @@ The outcome of the complete Simulator is tested by a [Scenario Test](https://git
 The GeoGrid Generator must also be tested by scenario tests. 
 By splitting up the generator into subparts the influence of the different parts on the outcome of the GeoGenerator can be compared and verified. 
 The scenario tests can also be splitted into the different parts.
-A similar reserach as for the BatchRuns can be done in order to determine the acceptable values.
+A similar research as for the BatchRuns can be done in order to determine the acceptable values.
 
 The Python interface is currently tested by a [simple smoke test](https://github.com/LEDfan/Bachelorproef/blob/master/test/python/testSimple.py). 
 It doesn't cover all parts of the interface but any compile or link error will be discovered.
