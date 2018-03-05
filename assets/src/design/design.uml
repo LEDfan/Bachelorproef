@@ -132,17 +132,16 @@ class Workplace {
 
 class ContactPool {
     - people: List<Person>
+    + getCapacity(): integer
+	- capacity: integer
+	- capacityUsed : integer
 }
 
 class ContactCenter {
     - pools: List<ContactPool>
     + getPoolSize(): integer 
-}
-
-class Cluster {
-    + getCapacity(): integer
-	- capacity: integer
-	- capacityUsed : integer
+    + getMaxPools(): integer
+    - maxPools: integer
 }
 
 class Location {
@@ -170,9 +169,6 @@ HighSchool --|> ContactCenter
 Workplace --|> ContactCenter 
 Community --|> ContactCenter
 Household --|> ContactCenter
-
-ContactCenter --|> Cluster
-ContactPool --|> Cluster
 
 Location o-- ContactCenter
 ContactPool o-- Person
