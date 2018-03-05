@@ -1,4 +1,5 @@
-# Method
+Test plan
+===
 
 Travis CI and Jenkins are used to run the tests automatically after every push to Github.
 Each Pull Request is also tested and flagged with the result. 
@@ -11,8 +12,6 @@ Code coverage is generated and stored on [Codecov](https://codecov.io/gh/LEDfan/
 
 Using the Google Test and Google Mock frameworks the individual units of the program will be tested. 
 The difference with scenario tests is that only one unit is tested at a time.
-
-## GeoGrid Generator
 
 Given that at the time of writing the design for gen-geo isn't entirely finished, the test plan should not be considered completely accurate.
 The different readers used can be easily tested, they get some input (i.e. an input stream to read/parse) and will output the data using some datastructure. 
