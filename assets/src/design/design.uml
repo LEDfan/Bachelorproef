@@ -133,8 +133,8 @@ class Workplace {
 class ContactPool {
     - people: List<Person>
     + getCapacity(): integer
+    + getUsedCapacity(): integer
 	- capacity: integer
-	- capacityUsed : integer
 }
 
 class ContactCenter {

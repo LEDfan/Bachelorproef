@@ -1,44 +1,34 @@
 {
-	places: [
-			id: 1,
-			long: 50.1,
-			lat: 4.7,
-			name: "",
-			province: "",
-			capacity: 9000,
-			capacityLeft: 0,
-	],
-
-	schools: [
-		{
-			id: 1,
-			place_id: 1,
-			capacity: 2000,
-		}	
-	],
-
-	workplaces: [
-		{
-			id: 1,
-			place_id: 1,
-			capacity: 2000,
-		}
-	],
-
-	highschools: [
-		{
-			id: 1,
-			place_id: 1,
-			capacity: 2000,
-		}
-	],
-	
-	communities: [
-		{
-			place_id: 1,
-			capacity: 900,
-			type: "primary",
-		}
-	]
-
+    "Locations": {
+        "id": 6,
+        "name": "Berchem",
+        "province":"Antwerp",
+        "coordinate": {
+            "longitude": 4.420527,
+            "latitude": 51.184528
+        },
+        "contactCenters" : [
+            {
+                "type": "School",
+                "pools": [
+                    {
+                        "id": 1,
+                        "people": [0]
+                    }
+                ]
+            }
+        ]
+    }
+    "people": [
+        {
+            "id": 0,
+            "age": 20,
+            "gender": "F",
+            "School": 1,
+            "Household": 2,
+            "Workplace":3,
+            "PrimaryCommunity": 4,
+            "SecondaryCommunity": 5,
+        }
+    ]
 }
