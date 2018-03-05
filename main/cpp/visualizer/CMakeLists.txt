@@ -25,6 +25,6 @@ target_link_libraries(visualizer
     Qt5::Quick
 )
 
-install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
+#install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
 
 unset(VISUALIZER_SRC)
