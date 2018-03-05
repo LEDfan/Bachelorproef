@@ -35,6 +35,14 @@ class CommutesCSVReader implements CommutesReader {
 class HouseholdsCSVReader implements HouseholdsReader {
 }
 
+class GeoGridJSONWriter implements GeoGridWriter {
+}
+
+class GeoGridJSONReader implements GeoGridReader {
+}
+
+newpage
+
 class GeoGridGenerator {
     + addPartialGenerator(generator: IPartialGenerator)
     + generateGeoGrid(filename: String): GeoGrid
@@ -60,6 +68,8 @@ class CommunityGenerator implements IPartialGenerator {
 class HouseholdGenerator implements IPartialGenerator {
 
 }
+
+newpage
 
 class GeoGrid {
     - locations: List<Locations>
@@ -115,12 +125,6 @@ interface GeoGridReader {
 
 interface GeoGridWriter {
     + write(grid : GeoGrid, output_stream : Stream)
-}
-
-class GeoGridJSONWriter implements GeoGridWriter {
-}
-
-class GeoGridJSONReader implements GeoGridReader {
 }
 
 class Person {
