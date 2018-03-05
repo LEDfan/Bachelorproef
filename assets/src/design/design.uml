@@ -41,6 +41,48 @@ class GeoGridJSONWriter implements GeoGridWriter {
 class GeoGridJSONReader implements GeoGridReader {
 }
 
+interface GeoGridReader {
+    + read(input_stream: Stream) : GeoGrid
+}
+
+interface GeoGridWriter {
+    + write(grid : GeoGrid, output_stream : Stream)
+}
+
+newpage
+
+class GeoPopulator {
+    + addPartialPopulator(generator: IPartialPopulator)
+    + generateGeoGrid(filename: String): GeoGrid
+    - partialPopulators: List<IPartialPopulator>
+
+}
+
+interface IPartialPopulator {
+    + apply(grid: GeoGrid)
+}
+
+
+class HouseholdPopulator implements IPartialPopulator {
+
+}
+
+class StudentPopulator implements IPartialPopulator {
+
+}
+
+class SchoolPopulator implements IPartialPopulator {
+
+}
+
+class WorkspacePopulator implements IPartialPopulator {
+
+}
+
+class CommunityPopulator implements IPartialPopulator {
+
+}
+
 newpage
 
 class GeoGridGenerator {
@@ -117,14 +159,6 @@ class Household {
 class Coordinate {
 	+ longitude : double 
 	+ latitude : double 
-}
-
-interface GeoGridReader {
-    + read(input_stream: Stream) : GeoGrid
-}
-
-interface GeoGridWriter {
-    + write(grid : GeoGrid, output_stream : Stream)
 }
 
 class Person {
