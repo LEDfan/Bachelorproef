@@ -1,4 +1,4 @@
-The UML-diagram of the current design for the `GeoGrid Generator` and `GeoPop Generator` can be found below (click to enlarge):
+The UML-diagram of the current design for the `GeoGrid Generator` and `Pop Generator` can be found below (click to enlarge):
 [![Readers](assets/src/design/design_readers.png)](assets/src/design/design_readers.png)
 
 [![Generator](assets/src/design/design_generator.png)](assets/src/design/design_generator.png)
