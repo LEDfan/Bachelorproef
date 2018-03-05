@@ -4,7 +4,7 @@
 Niels Aerens ([@PurgingPanda](https://github.com/PurgingPanda)) | Thomas Avé ([@thomasave](http://github.com/thomasave)) | Tobia De Koninck ([@LEDfan](https://github.com/LEDfan)) | Robin Jadoul ([@RobinJadoul](https://github.com/RobinJadoul))
 {:.noborder}
 
-# Contactperson
+# Contact person
 Tobia De Koninck
 ([tobia.dekoninck@student.uantwerpen.be](mailto:tobia.dekoninck@student.uantwerpen.be))
 
