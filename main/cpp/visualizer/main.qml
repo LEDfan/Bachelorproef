@@ -3,6 +3,7 @@ import QtQuick.Controls 1.3
 import QtLocation 5.3
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.2
+import QtQuick.Dialogs 1.0
 
 ApplicationWindow {
 	id: window
@@ -51,6 +52,7 @@ ApplicationWindow {
 			Button {
 				id: button
 				text: qsTr("Open File")
+                onClicked: fileSelector.open()
 			}
 
 
@@ -79,4 +81,17 @@ ApplicationWindow {
 			}
 		}
 
-	}
+
+		FileDialog {
+			id: fileSelector
+			title: "Please choose a file"
+			folder: shortcuts.home
+			onAccepted: {
+				console.log("You chose: " + fileDialog.fileUrls)
+			}
+			onRejected: {
+				console.log("Canceled")
+				Qt.quit()
+			}
+		}
+}
