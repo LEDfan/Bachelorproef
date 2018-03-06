@@ -16,7 +16,11 @@ public:
     void setUserName(const QString &userName);
 
     Q_INVOKABLE
-    void loadGeoGridFromFile(const QString &file, QObject* map);
+    void loadGeoGridFromFile(const QString &file);
+
+
+    Q_INVOKABLE
+    void setObjects(QObject* map);
 
 signals:
     void userNameChanged();

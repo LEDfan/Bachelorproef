@@ -83,6 +83,7 @@ ApplicationWindow {
             plugin: mapPlugin
             zoomLevel: 14
             center: QtPositioning.coordinate(51.2, 4.4)
+            Component.onCompleted: backend.setObjects(map)
 
             function addMarker(lon, lat) {
                 console.log("qml ADDING MARKER")

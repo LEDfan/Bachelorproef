@@ -22,10 +22,9 @@ void BackEnd::setUserName(const QString &userName)
 }
 
 
-void BackEnd::loadGeoGridFromFile(const QString &file, QObject* map) {
+void BackEnd::loadGeoGridFromFile(const QString &file) {
     // TODO Send the file to the geoGridReader and keep the geoGrid Loaded
     std::cout << file.toStdString() << std::endl;
-    _map = map;
     placeMarkers();
 }
 
@@ -38,4 +37,8 @@ void BackEnd::placeMarkers() {
     QVariant returnVal;
     std::cout << _map << std::endl;
     QMetaObject::invokeMethod(_map,"addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal), Q_ARG(QVariant, 51.2), Q_ARG(QVariant, 4.4));
+}
+
+void BackEnd::setObjects(QObject *map) {
+    _map = map;
 }
