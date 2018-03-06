@@ -1,8 +1,14 @@
 #include "backend.h"
+#include <iostream>
+#include <QtCore/QVariant>
 
 BackEnd::BackEnd(QObject *parent) :
     QObject(parent)
 {
+    // Keep a reference to the map Object
+    _parent = parent;
+    _map = parent->findChild<QObject*>("map");
+
 }
 
 QString BackEnd::userName()
@@ -17,4 +23,19 @@ void BackEnd::setUserName(const QString &userName)
 
     m_userName = userName;
     emit userNameChanged();
+}
+
+
+void BackEnd::loadGeoGridFromFile(const QString &file, QObject* map) {
+    // TODO Send the file to the geoGridReader and keep the geoGrid Loaded
+    std::cout << file.toStdString() << std::endl;
+    _map = map;
+    placeMarkers();
+}
+
+void BackEnd::placeMarkers() {
+    std::cout << "Placing markers" << std::endl;
+    QVariant returnVal;
+    std::cout << _map << std::endl;
+    QMetaObject::invokeMethod(_map,"addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal), Q_ARG(QVariant, 51.2), Q_ARG(QVariant, 4.4));
 }

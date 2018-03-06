@@ -4,6 +4,8 @@ import QtLocation 5.3
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.0
+import QtPositioning 5.6
+import io.bistromatics.backend 1.0
 
 ApplicationWindow {
 	id: window
@@ -80,20 +82,35 @@ ApplicationWindow {
 			}
 
 			Map {
+			    id: map
 				anchors.fill: parent
 				plugin: mapPlugin
-				center: QtPositioning.coordinate(59.91, 10.75) // Oslo
 				zoomLevel: 14
+                center: QtPositioning.coordinate(51.2, 4.4) // Oslo
+
+                function addMarker(lon, lat) {
+                    console.log("qml ADDING MARKER")
+                    var circle = Qt.createQmlObject("import QtLocation 5.3; MapCircle {}", map)
+                    circle.center = QtPositioning.coordinate(lon, lat)
+                    circle.radius = 40.0
+                    circle.color = "green"
+                    circle.border.width = 3
+                    map.addMapItem(circle)
+                }
+			}
+
+			BackEnd {
+			    id: backend
 			}
 		}
-
 
 		FileDialog {
 			id: fileSelector
 			title: "Please choose a file"
 			folder: shortcuts.home
 			onAccepted: {
-				console.log("You chose: " + fileDialog.fileUrls)
+				console.log("You chose: " + fileSelector.fileUrls)
+                backend.loadGeoGridFromFile(fileSelector.fileUrl, map)
 			}
 			onRejected: {
 				console.log("Canceled")
