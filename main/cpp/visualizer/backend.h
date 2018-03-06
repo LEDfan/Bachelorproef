@@ -24,10 +24,10 @@ signals:
 private:
     QString m_userName;
     QObject *_map = nullptr;
-    QObject *_parent = nullptr;
 
     /*
      * Places the markers on the map, according to the current checked boxes.
+     * @Pre: _map is initialized correctly and holds the map we want to place markers on
      */
     void placeMarkers();
 };

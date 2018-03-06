@@ -5,10 +5,6 @@
 BackEnd::BackEnd(QObject *parent) :
     QObject(parent)
 {
-    // Keep a reference to the map Object
-    _parent = parent;
-    _map = parent->findChild<QObject*>("map");
-
 }
 
 QString BackEnd::userName()
@@ -34,6 +30,10 @@ void BackEnd::loadGeoGridFromFile(const QString &file, QObject* map) {
 }
 
 void BackEnd::placeMarkers() {
+    // Clear the present markers
+    QMetaObject::invokeMethod(_map, "clearMapItems");
+
+    // Place the new markers
     std::cout << "Placing markers" << std::endl;
     QVariant returnVal;
     std::cout << _map << std::endl;

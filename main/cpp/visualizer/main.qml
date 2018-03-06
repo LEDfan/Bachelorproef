@@ -64,57 +64,53 @@ ApplicationWindow {
 			}
 
 
-		}}
-
-		Window {
-			width: 512
-			height: 512
-			visible: true
-
-			Plugin {
-				id: mapPlugin
-				name: "esri" // "mapboxgl", "esri", ...
-				// specify plugin parameters if necessary
-				// PluginParameter {
-				//     name:
-				//     value:
-				// }
-			}
-
-			Map {
-			    id: map
-				anchors.fill: parent
-				plugin: mapPlugin
-				zoomLevel: 14
-                center: QtPositioning.coordinate(51.2, 4.4) // Oslo
-
-                function addMarker(lon, lat) {
-                    console.log("qml ADDING MARKER")
-                    var circle = Qt.createQmlObject("import QtLocation 5.3; MapCircle {}", map)
-                    circle.center = QtPositioning.coordinate(lon, lat)
-                    circle.radius = 40.0
-                    circle.color = "green"
-                    circle.border.width = 3
-                    map.addMapItem(circle)
-                }
-			}
-
-			BackEnd {
-			    id: backend
-			}
 		}
+    }
 
-		FileDialog {
-			id: fileSelector
-			title: "Please choose a file"
-			folder: shortcuts.home
-			onAccepted: {
-				console.log("You chose: " + fileSelector.fileUrls)
-                backend.loadGeoGridFromFile(fileSelector.fileUrl, map)
-			}
-			onRejected: {
-				console.log("Canceled")
-				Qt.quit()
-			}
-		}
+    Window {
+        width: 512
+        height: 512
+        visible: true
+
+        Plugin {
+            id: mapPlugin
+            name: "esri"
+        }
+
+        Map {
+            id: map
+            anchors.fill: parent
+            plugin: mapPlugin
+            zoomLevel: 14
+            center: QtPositioning.coordinate(51.2, 4.4)
+
+            function addMarker(lon, lat) {
+                console.log("qml ADDING MARKER")
+                var circle = Qt.createQmlObject("import QtLocation 5.3; MapCircle {}", map)
+                circle.center = QtPositioning.coordinate(lon, lat)
+                circle.radius = 40.0
+                circle.color = "green"
+                circle.border.width = 3
+                map.addMapItem(circle)
+            }
+        }
+
+        BackEnd {
+            id: backend
+        }
+    }
+
+    FileDialog {
+        id: fileSelector
+        title: "Please choose a file"
+        folder: shortcuts.home
+        onAccepted: {
+            console.log("You chose: " + fileSelector.fileUrls)
+            backend.loadGeoGridFromFile(fileSelector.fileUrl, map)
+        }
+        onRejected: {
+            console.log("Canceled")
+            Qt.quit()
+        }
+    }
 }
