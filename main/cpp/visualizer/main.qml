@@ -28,31 +28,37 @@ ApplicationWindow {
 			CheckBox {
 				id: checkBox_School
 				text: qsTr("School")
+				checked: true
 			}
 
 			CheckBox {
 				id: checkBox_HighSchool
 				text: qsTr("HighSchool")
+				checked: true
 			}
 
 			CheckBox {
 				id: checkBox_Workplace
 				text: qsTr("Workplace")
+				checked: true
 			}
 
 			CheckBox {
 				id: checkBox_HouseHold
 				text: qsTr("HouseHold")
+				checked: true
 			}
 			CheckBox {
 				id: checkBox_Commutes
 				text: qsTr("Commutes")
+				checked: true
 			}
 
 			Button {
 				id: button
 				text: qsTr("Open File")
                 onClicked: fileSelector.open()
+				checked: true
 			}
 
 
