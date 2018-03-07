@@ -12,75 +12,136 @@ class ReaderFactory {
     + createHouseholdsReader(filename: String): HouseholdsReader 
 }
 
-class CitiesReader {
+interface CitiesReader {
     - locations: List<Locations>
     - CitiesReader(locations: Stream)
 	+ getLocations() : List<Locations>
 }
-class CommutesReader {
+interface CommutesReader {
     - commutes: Map<City, Map<City, Integer>>
     - CommutesReader(commutes: Stream)
 	+ getCommutes() : Map<City, Map<City, Integer>>
 }
-class HouseholdsReader {
+interface HouseholdsReader {
     - households: List<Household>
     - HouseholdsReader(households: Stream)
 	+ getHouseholds() : List<Household>
 }
 
-class CitiesCSVReader {
+class CitiesCSVReader implements CitiesReader {
 }
-class CommutesCSVReader {
+class CommutesCSVReader implements CommutesReader {
 }
-class HouseholdsCSVReader {
+class HouseholdsCSVReader implements HouseholdsReader {
 }
 
-' This holds all info needed to generate a specific geogrid
-class GeoGridConfig {
-	+ GeoGridConfig(input_stream: Stream)
-	+ getHouseholds() : List<Houshold>
-	+ getCities() : List<City>
-	+ getCommute() : Map<City, Map<City, Integer>>
+class GeoGridJSONWriter implements GeoGridWriter {
 }
+
+class GeoGridJSONReader implements GeoGridReader {
+}
+
+interface GeoGridReader {
+    + read(input_stream: Stream) : GeoGrid
+}
+
+interface GeoGridWriter {
+    + write(grid : GeoGrid, output_stream : Stream)
+}
+
+newpage
+
+class GeoPopulator {
+    + addPartialPopulator(generator: IPartialPopulator)
+    + generateGeoGrid(filename: String): GeoGrid
+    - partialPopulators: List<IPartialPopulator>
+
+}
+
+interface IPartialPopulator {
+    + apply(grid: GeoGrid)
+}
+
+
+class HouseholdPopulator implements IPartialPopulator {
+
+}
+
+class StudentPopulator implements IPartialPopulator {
+
+}
+
+class SchoolPopulator implements IPartialPopulator {
+
+}
+
+class WorkspacePopulator implements IPartialPopulator {
+
+}
+
+class CommunityPopulator implements IPartialPopulator {
+
+}
+
+newpage
+
+class GeoGridGenerator {
+    + addPartialGenerator(generator: IPartialGenerator)
+    + generateGeoGrid(filename: String): GeoGrid
+    - partialGenerators: List<IPartialGenerator>
+}
+
+interface IPartialGenerator {
+    + apply(grid: GeoGrid)
+}
+
+class SchoolGenerator implements IPartialGenerator {
+
+}
+
+class WorkplaceGenerator implements IPartialGenerator {
+
+}
+
+class CommunityGenerator implements IPartialGenerator {
+
+}
+
+class HouseholdGenerator implements IPartialGenerator {
+
+}
+
+newpage
 
 class GeoGrid {
-	+ GeoGrid(config : GeoGridConfig)
+    - locations: List<Locations>
 }
 
 class Community {
-    + getPoolSize(): integer 
-    + getCapacity(): integer
     + addHousehold(household: Household)    
 }
 
 class School {
-    + getPoolSize(): integer 
-    + getCapacity(): integer
 }
 
 class HighSchool {
-    + getPoolSize(): integer 
-    + getCapacity(): integer
 }
 
 class Workplace {
-    + getPoolSize(): integer 
-    + getCapacity(): integer
 }
 
 class ContactPool {
     - people: List<Person>
+    + getCapacity(): integer
+    + getUsedCapacity(): integer
+	- capacity: integer
 }
 
 class ContactCenter {
     - pools: List<ContactPool>
     + getPoolSize(): integer 
-}
-
-class Cluster {
-    + getCapacity(): integer
-	- capacity: integer
-	- capacityUsed : integer
+    + getMaxPools(): integer
+    - maxPools: integer
 }
 
 class Location {
@@ -92,29 +153,11 @@ class Location {
 
 class Household {
     ' PoolSize == Capacity
-    + getPoolSize(): integer 
-    + getCapacity(): integer
 }
 
 class Coordinate {
 	+ longitude : double 
 	+ latitude : double 
-}
-
-class GeoGridReader {
-    + read(input_stream: Stream) : GeoGrid
-}
-
-class GeoGridWriter {
-    + write(grid : GeoGrid, output_stream : Stream)
-}
-
-class GeoGridJSONWriter {
-    + write(grid : GeoGrid, output_stream : Stream)
-}
-
-class GeoGridJSONReader {
-    + read(input_stream: Stream) : GeoGrid
 }
 
 class Person {
@@ -127,18 +170,8 @@ Workplace --|> ContactCenter
 Community --|> ContactCenter
 Household --|> ContactCenter
 
-ContactCenter --|> Cluster
-ContactPool --|> Cluster
-
 Location o-- ContactCenter
 ContactPool o-- Person
-
-GeoGridJSONReader --|> GeoGridReader
-GeoGridJSONWriter --|> GeoGridWriter
-
-CitiesCSVReader --|> CitiesReader
-CommutesCSVReader --|> CommutesReader
-HouseholdsCSVReader --|> HouseholdsReader
 
 GeoGrid o-- Location
 
