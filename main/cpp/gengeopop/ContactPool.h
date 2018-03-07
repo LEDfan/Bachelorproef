@@ -1,5 +1,4 @@
-#ifndef STRIDE_GENGEOPOP_CONTACTPOOL_H
-#define STRIDE_GENGEOPOP_CONTACTPOOL_H
+#pragma once
 
 #include "pop/Person.h"
 
@@ -17,5 +16,3 @@ namespace gengeopop {
         unsigned int m_capacity = 0;
     };
 }
-
-#endif //STRIDE_CONTACTPOOL_H

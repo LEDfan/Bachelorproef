@@ -1,6 +1,4 @@
-#ifndef STRIDE_HOUSEHOLD_H
-#define STRIDE_HOUSEHOLD_H
-
+#pragma once
 
 #include "ContactCenter.h"
 
@@ -14,6 +12,3 @@ namespace gengeopop {
     };
 
 }
-
-
-#endif //STRIDE_HOUSEHOLD_H

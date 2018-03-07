@@ -1,6 +1,4 @@
-//
-#ifndef STRIDE_LOCATION_H
-#define STRIDE_LOCATION_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -21,6 +19,3 @@ namespace gengeopop {
     };
 
 }
-
-
-#endif //STRIDE_LOCATION_H

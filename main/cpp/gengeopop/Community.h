@@ -1,5 +1,4 @@
-#ifndef STRIDE_COMMUNITY_H
-#define STRIDE_COMMUNITY_H
+#pragma once
 
 #include "ContactCenter.h"
 #include "Household.h"
@@ -14,5 +13,3 @@ namespace gengeopop {
 
 }
 
-
-#endif //STRIDE_COMMUNITY_H

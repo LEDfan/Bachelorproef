@@ -1,6 +1,4 @@
-#ifndef STRIDE_CONTACTCENTER_H
-#define STRIDE_CONTACTCENTER_H
-
+#pragma once
 #include "ContactPool.h"
 
 
@@ -21,5 +19,3 @@ namespace gengeopop {
     };
 
 }
-
-#endif //STRIDE_CONTACTCENTER_H

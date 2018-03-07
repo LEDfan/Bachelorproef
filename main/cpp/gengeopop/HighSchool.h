@@ -1,5 +1,4 @@
-#ifndef STRIDE_HIGHSCHOOL_H
-#define STRIDE_HIGHSCHOOL_H
+#pragma once
 
 #include "ContactCenter.h"
 

@@ -1,5 +1,4 @@
-#ifndef STRIDE_SCHOOL_H
-#define STRIDE_SCHOOL_H
+#pragma once
 
 #include "ContactCenter.h"
 
@@ -10,7 +9,3 @@ namespace gengeopop {
         unsigned int getPoolSize();
     };
 }
-
-
-
-#endif //STRIDE_SCHOOL_H

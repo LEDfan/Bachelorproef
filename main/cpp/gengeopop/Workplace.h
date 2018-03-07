@@ -1,5 +1,4 @@
-#ifndef STRIDE_WORKPLACE_H
-#define STRIDE_WORKPLACE_H
+#pragma once
 
 namespace gengeopop {
 
@@ -9,7 +8,3 @@ namespace gengeopop {
 
     };
 }
-
-
-
-#endif //STRIDE_WORKPLACE_H
