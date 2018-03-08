@@ -23,6 +23,8 @@ set( SRC
 		main.cpp
 		BatchRuns.cpp
 		InfluenceR0Runs.cpp
+		testTemplate.cpp
+		CitiesCSVReaderTest.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )

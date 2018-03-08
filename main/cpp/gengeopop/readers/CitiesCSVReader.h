@@ -5,7 +5,7 @@
 namespace gengeopop {
     class CitiesCSVReader : public CitiesReader {
     public:
-        CitiesCSVReader(std::istream inputStream);
+        CitiesCSVReader(std::istream& inputStream);
 
     };
 }
