@@ -3,7 +3,6 @@
 
 gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::istream &inputStream) {
     stride::util::CSV reader(inputStream);
-    assert(reader.getColumnCount() == 8);
 
     for (const stride::util::CSVRow &row : reader) {
         gengeopop::Household household;
