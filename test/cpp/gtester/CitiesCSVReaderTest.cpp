@@ -33,7 +33,7 @@ namespace {
         ASSERT_EQ(locs.size(), (unsigned int)1);
         ASSERT_EQ(locs[0]->getName(),std::string("AARTSELAAR"));
         ASSERT_EQ(locs[0]->getProvince(),1);
-        ASSERT_EQ(locs[0]->getID(),1101);
+        ASSERT_EQ(locs[0]->getID(),11001);
     }
 
 

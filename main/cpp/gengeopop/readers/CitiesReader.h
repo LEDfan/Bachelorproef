@@ -7,7 +7,8 @@ namespace gengeopop {
     class CitiesReader {
     public:
         std::vector<std::shared_ptr<Location> > getLocations();
-    private:
+
+    protected:
         std::vector<std::shared_ptr<Location> > m_locations;
     };
 }
