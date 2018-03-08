@@ -4,7 +4,6 @@
 gengeopop::CitiesCSVReader::CitiesCSVReader(std::istream& inputStream) {
     // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude 	name
     stride::util::CSV reader(inputStream);
-    assert(reader.getColumnCount() == 8);
 
     for(const stride::util::CSVRow& row : reader){
         Location* newLoc = new Location(
