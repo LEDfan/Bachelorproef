@@ -12,7 +12,7 @@ namespace gengeopop {
         void addPool(std::shared_ptr<ContactPool> pool);
 
     private:
-        std::vector<ContactPool> m_pools;
+        std::vector<std::shared_ptr<ContactPool> > m_pools;
         unsigned int m_max_pools;
 
 

@@ -14,21 +14,19 @@
  */
 
 #include <gtest/gtest.h>
-#include <gengeopop/readers/CitiesCSVReader.h>
-
+#include <gengeopop/readers/HouseholdCSVReader.h>
 
 namespace {
 
-    TEST(CitiesCSVReaderTest, test1) {
-        std::string csvString =     "id,province,population,x_coord,y_coord,latitude,longitude,name\n"
-                                    "11001,1,8249,150964.3953,202431.664,51.1340539,4.3844742,AARTSELAAR";
+    TEST(HouseholdCSVReader, test1) {
+        std::string csvString = "hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12\n"
+                                "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n";
         std::istringstream instream(csvString);
-        gengeopop::CitiesCSVReader reader(instream);
-         std::vector<std::shared_ptr<gengeopop::Location> >  locs = reader.getLocations();
+        gengeopop::HouseholdCSVReader reader(instream);
+        std::vector<gengeopop::Household> HHs = reader.getHouseHolds();
 
-        ASSERT_EQ(locs.size(), (unsigned int)1);
-        ASSERT_EQ(locs[0]->getName(),std::string("AARTSELAAR"));
-        ASSERT_EQ(locs[0]->getProvince(),1);
+        ASSERT_EQ(HHs.size(), (unsigned int)1);
+        // TODO test more
     }
 
 

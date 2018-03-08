@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include "pop/Person.h"
 
 namespace gengeopop {
@@ -10,9 +11,8 @@ namespace gengeopop {
         unsigned int getUsedCapacity();
         void addMember(std::shared_ptr<stride::Person> p);
 
-
     private:
-        std::vector<stride::Person> m_people;
+        std::vector<std::shared_ptr<stride::Person> > m_people;
         unsigned int m_capacity = 0;
     };
 }

@@ -98,6 +98,9 @@ public:
         ///
         void Update(Person* p);
 
+        /// Set the age of the person
+        void setAge(unsigned int newAge);
+
 private:
         unsigned int m_id;     ///< The id.
         double       m_age;    ///< The age.

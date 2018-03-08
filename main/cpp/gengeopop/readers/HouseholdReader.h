@@ -9,7 +9,8 @@ namespace gengeopop {
     class HouseholdReader {
     public:
         std::vector<Household> getHouseHolds();
-    private:
+
+    protected:
         std::vector<Household> m_households;
     };
 }
