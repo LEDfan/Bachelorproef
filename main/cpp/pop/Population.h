@@ -20,6 +20,7 @@
  */
 
 #include "pop/Person.h"
+#include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <cassert>
@@ -56,6 +57,8 @@ private:
                        unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
                        unsigned int time_symptomatic, const boost::property_tree::ptree& pt_belief,
                        double risk_averseness = 0);
+
+        util::SegmentedVector<std::unique_ptr<Belief>> beliefs_container;
 };
 
 } // namespace stride
