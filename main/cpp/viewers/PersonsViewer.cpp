@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -11,35 +10,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * DaysOffAll class: everybody gets the day off.
+ * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include "DaysOffInterface.h"
+#include "PersonsViewer.h"
+#include "sim/SimRunner.h"
+#include "sim/Simulator.h"
+
+using namespace std;
+using namespace stride::sim_event;
 
 namespace stride {
+namespace viewers {
 
-/**
- * Schools closed.
- */
-class DaysOffSchool : public DaysOffInterface
+void PersonsViewer::update(const sim_event::Payload& p)
 {
-public:
-        /// Initialize calendar.
-        DaysOffSchool(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
+        switch (p.m_event_id) {
+        case Id::AtStart: break;
+        case Id::Stepped: break;
+        case Id::Finished: m_persons_file.Print(p.m_runner->GetSim()->GetPopulation()); break;
+        }
+}
 
-        /// See DaysOffInterface.
-        bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }
-
-        /// See DaysOffInterface.
-        bool IsSchoolOff() override { return true; }
-
-private:
-        std::shared_ptr<Calendar> m_calendar; ///< Management of calendar.
-};
-
+} // namespace viewers
 } // namespace stride

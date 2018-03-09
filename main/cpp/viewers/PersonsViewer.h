@@ -11,35 +11,36 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * DaysOffAll class: everybody gets the day off.
+ * Observer for Persons output.
  */
 
-#include "DaysOffInterface.h"
+#include "output/PersonsFile.h"
+#include "sim/event/Payload.h"
+
+#include <iostream>
+#include <spdlog/spdlog.h>
 
 namespace stride {
+namespace viewers {
 
-/**
- * Schools closed.
- */
-class DaysOffSchool : public DaysOffInterface
+/// Viewer of Simulator for cases output.
+class PersonsViewer
 {
 public:
-        /// Initialize calendar.
-        DaysOffSchool(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
+        /// Instantiate cases viewer.
+        PersonsViewer(const std::string& output_prefix) : m_persons_file(output_prefix) {}
 
-        /// See DaysOffInterface.
-        bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }
-
-        /// See DaysOffInterface.
-        bool IsSchoolOff() override { return true; }
+        /// Let viewer perform update.
+        void update(const sim_event::Payload& p);
 
 private:
-        std::shared_ptr<Calendar> m_calendar; ///< Management of calendar.
+        output::PersonsFile m_persons_file;
 };
 
+} // namespace viewers
 } // namespace stride

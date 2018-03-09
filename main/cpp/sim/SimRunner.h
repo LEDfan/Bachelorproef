@@ -20,7 +20,6 @@
  */
 
 #include "event/Subject.h"
-#include "sim/Simulator.h"
 #include "sim/event/Payload.h"
 #include "sim/python/SimulatorObserver.h"
 #include "util/Stopwatch.h"
@@ -33,10 +32,12 @@
 
 namespace stride {
 
+class Simulator;
+
 /**
  * Managing a run of the simulator.
  */
-class SimRunner : public util::Subject<stride::sim_event::Payload>
+class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
 {
 public:
         /// Constructor
@@ -45,31 +46,31 @@ public:
         /// Destructor
         virtual ~SimRunner() = default;
 
-        /// Actually setup de run of the simulator
+        /// Return the run & sim configuration.
+        const util::Stopwatch<>& GetClock() const { return m_clock; }
 
-        ///
+        /// Return the run & sim configuration.
+        const boost::property_tree::ptree& GetConfig() const { return m_pt_config; }
+
+        /// Return the Simulator.
+        std::shared_ptr<Simulator> GetSim() const { return m_sim; }
+
+        /// Setup the context for the simulation run.
         /// \param run_config_pt        config info for run and for config of simulator
-        /// \param logger               generela logger
+        /// \param logger               general logger
         /// \return                     status value
-        bool Setup(const boost::property_tree::ptree& run_config_pt, std::shared_ptr<spdlog::logger> logger);
+        bool Setup(const boost::property_tree::ptree& run_config_pt);
 
         /// Run the simulator with config information provided.
         void Run();
 
 private:
-        /// Generate output files (at the end of the simulation).
-        void GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
-                                 const std::vector<unsigned int>& adopted, const boost::property_tree::ptree& pt_config,
-                                 unsigned int run_time, unsigned int total_time);
-
-private:
-        bool                            m_is_running;    ///< Sim is running.
+        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
+        std::shared_ptr<spdlog::logger> m_logger;        ///< General logger.
         bool                            m_operational;   ///< Input config is OK to be run
         std::string                     m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.
-        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
         std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
-        std::shared_ptr<spdlog::logger> m_logger;
 };
 
 } // namespace stride

@@ -12,38 +12,32 @@
  *
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
-
 /**
  * @file
- * Implementation of the CasesFile class.
+ * Implementation of ptree utils.
  */
 
-#include "CasesFile.h"
-#include "util/FileSys.h"
+#include "PtreeUtils.h"
+
+#include <boost/property_tree/ptree.hpp>
+
+using namespace boost::property_tree;
+using namespace std;
 
 namespace stride {
-namespace output {
+namespace util {
 
-using namespace std;
-using namespace stride::util;
+// const boost::property_tree::ptree stride::util::PtreeUtils::emptyTree = boost::property_tree::ptree();
 
-CasesFile::CasesFile(const std::string& output_prefix) { Initialize(output_prefix); }
-
-CasesFile::~CasesFile() { m_fstream.close(); }
-
-void CasesFile::Initialize(const std::string& output_prefix)
+vector<double> PtreeUtils::GetDistribution(const ptree& pt_root, const string& xml_tag)
 {
-        const auto p = FileSys::BuildPath(output_prefix, "cases.csv");
-        m_fstream.open(p.c_str());
-}
-
-void CasesFile::Print(const vector<unsigned int>& cases)
-{
-        for (unsigned int i = 0; i < (cases.size() - 1); i++) {
-                m_fstream << cases[i] << ",";
+        vector<double>              values;
+        boost::property_tree::ptree subtree = pt_root.get_child(xml_tag);
+        for (const auto& tree : subtree) {
+                values.push_back(tree.second.get<double>(""));
         }
-        m_fstream << cases[cases.size() - 1] << endl;
+        return values;
 }
 
-} // namespace output
+} // namespace util
 } // namespace stride

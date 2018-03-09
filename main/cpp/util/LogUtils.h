@@ -16,41 +16,33 @@
 
 /**
  * @file
- * Header for the PersonFile class.
+ * Logging (spdlog) utilities.
  */
 
-#include <fstream>
 #include <memory>
+#include <spdlog/spdlog.h>
 #include <string>
 
 namespace stride {
-
-class Population;
-
-namespace output {
+namespace util {
 
 /**
- * Produces a file with daily cases count.
+ * Utilities for logging (spdlog).
  */
-class PersonFile
+class LogUtils
 {
 public:
-        /// Constructor: initialize.
-        explicit PersonFile(const std::string& output_dir = "output");
+        ///
+        /// \param logger_name
+        /// \param file_name
+        /// \return
+        static std::shared_ptr<spdlog::logger> GetCliLogger(const std::string& logger_name,
+                                                            const std::string& file_name);
 
-        /// Destructor: close the file stream.
-        ~PersonFile();
-
-        /// Print the given cases with corresponding tag.
-        void Print(std::shared_ptr<const Population> population);
-
-private:
-        /// Generate file name and open the file stream.
-        void Initialize(const std::string& output_dir);
-
-private:
-        std::ofstream m_fstream;
+        /// \param logger_name
+        /// \return
+        static std::shared_ptr<spdlog::logger> GetNullLogger(const std::string& logger_name);
 };
 
-} // namespace output
+} // namespace util
 } // namespace stride
