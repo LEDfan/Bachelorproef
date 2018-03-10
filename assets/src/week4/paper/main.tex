@@ -37,7 +37,7 @@ performance analysis of the running time of tests and the influence of paralleli
 The scenario tests are using the Attack Rate as parameter to assert the simulator outcome. Since Stride is a stochastic
 system and thus relies on randomness, the output of its tests are variable. Therefore the tests use an acceptability range
 for the test outcome. We determined these ranges by running the tested simulations multiple times (100+). We noticed
-using a QQ-Plot and hypothesis tests that the Attack Rate can be considered to follow a normal distribution.
+by using a QQ-Plot and hypothesis tests that the Attack Rate can be considered to follow a normal distribution.
 For the accepted ranges, we decided to allow a distance of 2 standard deviations from the observed mean.
 
 The second topic of this paper is to analyze the influence of the random number generator engine on the Attack Rate.
@@ -49,14 +49,13 @@ Stride uses the Trng library \cite{bauke2015tina} as random number generator. Th
 
 \subsection{Influence of multi-threading}
 
-The analysis described in this section was performed on a 32 core AMD machine. Therefore the tests were executed with a maximum of 32 threads, which is a reasonable maximum for any workstation at time of writing. By using a Bash-script\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/597e9d14356a40f10c52dbd789ce495f0891720e/assets/src/week3/bench.sh}} % TODO update links to website
+The analysis described in this section was performed on a 32 core AMD machine. Therefore the tests were executed with a maximum of 32 threads, which is a reasonable maximum for any workstation at the time of writing. By using a Bash-script\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/597e9d14356a40f10c52dbd789ce495f0891720e/assets/src/week3/bench.sh}} % TODO update links to website
 the Stride tests were run with an increasing amount of threads, starting at 1 up to 32.
 
 \subsection{Influence of random engine}
 
 Using a Python3 script\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/b8b67f7083ba8a523bdb16f0c6fd0fdfeea7dacf/assets/src/week3/random_engines.py}} % TODO update links to website
-the simulation was run using the different random engines, at the same time the running time
-was measured.
+the simulation was run using the different random engines, at the same time measuring the running time.
 
 \section{Results}
 
@@ -74,8 +73,8 @@ Note that for each number of threads, the values are obtained by running the Inf
     {Running time in function of number of threads}
     {fig:threads}
 \subsection{Influence of random engine}
-The engine which needs the least amount of time is the \texttt{lgc64} engine, the \texttt{yarn3} engine needs the most time. The difference in time is 60 seconds when running the tests 15 times, which means that for one run the difference is only about 6 seconds. Thus there isn’t a big difference. A complete comparison of running times can be found in \cref{fig:engine:running}.
-The distribution analysis of the results with different random engines was done with 100 data points for each random engine. While this is still a relatively sample size, much larger sample sizes were not feasible due to the time requirements to run them all.
+The engine which needs the least amount of time is the \texttt{lgc64} engine, the \texttt{yarn3} engine requires the most amount of time. The difference in time is 60 seconds when running the tests 15 times, which means that for one run the difference is only about 6 seconds. Thus there isn’t a big difference. A complete comparison of running times can be found in \cref{fig:engine:running}.
+The distribution analysis of the results with different random engines was done with 100 data points for each random engine. While this is still a relatively small sample size, much larger sample sizes were not feasible due to the time requirements to run them all.
 
 
 \begin{figure}
@@ -90,8 +89,8 @@ The first test case of Stride (Influenza A\footnote{\url{https://github.com/LEDf
 performs a simulation of influenza in Flanders, with an $R_0$ value\footnote{Basic reproduction number, a measure for the infectiousness of a disease: the amount of people will 1 infected person infect directly in a completely
 susceptible population.} of 3.0. For this test case the range of allowed attack rates doesn't change much. 
 The second test case (Influenza B\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L86}}) uses a seeding rate of 0, which results in a constant attack rate of 0. As expected the RNG engine doesn't have influence on this outcome.
-The same holds for the third test case (Influenza C\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L91}}) which uses very low seeding rate and a large immunity factor. The attack vector for every engine is 5.
-The Measles 16\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L97}} testcase is more interesting for the analysis of the RNG engines. The disease simulated is not influeanza but the measles. The $R_0$ value is set to 16, which results in a very large part of the population becoming infected.
+The same holds for the third test case (Influenza C\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L91}}) which uses a very low seeding rate and a large immunity factor. The attack vector for every engine is 5.
+The Measles 16\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L97}} testcase is more interesting for the analysis of the RNG engines. The disease simulated is not influenza but the measles. The $R_0$ value is set to 16, which results in a very large part of the population becoming infected.
 The last testcase (Measles 60) sets the $R_0$ value to 60. It infects the whole population, so the attack rate is for all the engines the same.
     
 \subsection{Normality of the output}
@@ -153,7 +152,7 @@ A few of the plots can be seen in \cref{fig:normality}, and for those who would 
 
 \subsection{Equality of acceptable ranges for the test cases}
 
-In this section the equality of the different value ranges which are accepted by the tests for each random engine is verified. Only the Influenza A and Measles 16 test cases are studied since they provide have a variable range. The tests are done using a Levene test for the standard deviations and a t-test for related samples for the means.
+In this section the equality of the different value ranges which are accepted by the tests for each random engine is verified. Only the Influenza A and Measles 16 test cases are studied since they provide a variable range. The tests are done using a Levene test for the standard deviations and a t-test for related samples for the means.
 
 The hypotheses for the Levene test:
 \[
@@ -171,7 +170,7 @@ and for the t-test:
 \end{aligned}
 \]
 
-The p-values for these tests are listed in \cref{tab:influenza:p_values} and \cref{tab:measles_16:p_values}. They clearly indicates that the \(H_0\) should not be rejected for both tests on a confidence level of $\alpha = 0.05$. Consequently, we can fairly confidently conclude that the distribution of the attack rate does not differ significantly when using a different random engine.
+The p-values for these tests are listed in \cref{tab:influenza:p_values} and \cref{tab:measles_16:p_values}. They clearly indicate that the \(H_0\) should not be rejected for both tests on a confidence level of $\alpha = 0.05$. Consequently, we can fairly confidently conclude that the distribution of the attack rate does not differ significantly when using a different random engine.
 
 
 \begin{table}[!hbt]
@@ -234,7 +233,6 @@ The p-values for these tests are listed in \cref{tab:influenza:p_values} and \cr
     \caption{P-values of the Influenza A test case}
     \label{tab:influenza:p_values}
 \end{table}
-
 
 \begin{table}[!hbt]
     \begin{tabular}{c|c|c|c|c|c|c}
