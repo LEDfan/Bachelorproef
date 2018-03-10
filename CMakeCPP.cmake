@@ -1,8 +1,8 @@
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -16,8 +16,8 @@
 #############################################################################
 #
 #  This file contains the C++ compile & link configuration.
-#  It is meant to be included in the src/CMakeLists.txt and 
-#  to provide identical C++ configuration for the main/cpp 
+#  It is meant to be included in the src/CMakeLists.txt and
+#  to provide identical C++ configuration for the main/cpp
 #  and the test/ccp directories and subdirectories.
 #
 #############################################################################
@@ -42,6 +42,8 @@ set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #----------------------------------------------------------------------------
 if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
 	add_definitions( -D__APPLE__ )
+    set(CMAKE_PREFIX_PATH           "${CMAKE_PREFIX_PATH} /usr/local/Cellar/qt/5.10.1
+")
 	set(CMAKE_CXX_FLAGS           "${CMAKE_CXX_FLAGS} -Wno-unused-private-field -stdlib=libc++")
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
 	set( CMAKE_CXX_FLAGS           "${CMAKE_CXX_FLAGS} -pthread -Wno-unused-private-field -Wno-unused-command-line-argument")
@@ -109,13 +111,13 @@ endif()
 if( NOT OPENMP_FOUND )
     include_directories( ${CMAKE_HOME_DIRECTORY}/main/resources/lib/domp/include )
 endif()
- 
+
 #----------------------------------------------------------------------------
 # HDF5 Library
 # Try to find the C variant of libhdf5, if found, USE_HDF5 is defined
 # and passed to the compilers to allow compilation of selective features
 # through preprocessor commands like #ifdef USE_HDF5 and friends.
-# Additional defs are required on Ubuntu where lib are installed 
+# Additional defs are required on Ubuntu where lib are installed
 # with hdf5 v1.6 as default behavior.
 #----------------------------------------------------------------------------
 if( STRIDE_FORCE_NO_HDF5 )
@@ -132,7 +134,7 @@ else()
 	else()
 		# This is done to eliminate blank output of undefined CMake variables.
 		set( HDF5_FOUND FALSE )
-	endif()    
+	endif()
 endif()
 
 #############################################################################
