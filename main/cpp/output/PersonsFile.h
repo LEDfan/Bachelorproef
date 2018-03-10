@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -15,35 +16,41 @@
 
 /**
  * @file
- * Implementation of the CasesFile class.
+ * Header for the PersonFile class.
  */
 
-#include "CasesFile.h"
-#include "util/FileSys.h"
+#include <fstream>
+#include <memory>
+#include <string>
 
 namespace stride {
+
+class Population;
+
 namespace output {
 
-using namespace std;
-using namespace stride::util;
-
-CasesFile::CasesFile(const std::string& output_prefix) { Initialize(output_prefix); }
-
-CasesFile::~CasesFile() { m_fstream.close(); }
-
-void CasesFile::Initialize(const std::string& output_prefix)
+/**
+ * Produces a file with daily cases count.
+ */
+class PersonsFile
 {
-        const auto p = FileSys::BuildPath(output_prefix, "cases.csv");
-        m_fstream.open(p.c_str());
-}
+public:
+        /// Constructor: initialize.
+        explicit PersonsFile(const std::string& output_dir = "output");
 
-void CasesFile::Print(const vector<unsigned int>& cases)
-{
-        for (unsigned int i = 0; i < (cases.size() - 1); i++) {
-                m_fstream << cases[i] << ",";
-        }
-        m_fstream << cases[cases.size() - 1] << endl;
-}
+        /// Destructor: close the file stream.
+        ~PersonsFile();
+
+        /// Print the given cases with corresponding tag.
+        void Print(std::shared_ptr<const Population> population);
+
+private:
+        /// Generate file name and open the file stream.
+        void Initialize(const std::string& output_dir);
+
+private:
+        std::ofstream m_fstream;
+};
 
 } // namespace output
 } // namespace stride

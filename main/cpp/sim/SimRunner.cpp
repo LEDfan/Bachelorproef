@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -20,156 +20,107 @@
 
 #include "SimRunner.h"
 
-#include "output/AdoptedFile.h"
-#include "output/CasesFile.h"
-#include "output/PersonFile.h"
-#include "output/SummaryFile.h"
+#include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
-#include "sim/event/Id.h"
-#include "sim/event/Payload.h"
-#include "util/ConfigInfo.h"
-#include "util/InstallDirs.h"
-#include "util/StringUtils.h"
-#include "util/TimeStamp.h"
-#include "viewers/CliViewer.h"
+#include "util/FileSys.h"
+#include "util/LogUtils.h"
 
+#include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <functional>
-#include <omp.h>
-#include <spdlog/spdlog.h>
+#include <spdlog/sinks/null_sink.h>
 
 namespace stride {
 
-using namespace output;
+using namespace sim_event;
 using namespace util;
 using namespace boost::filesystem;
 using namespace boost::property_tree;
+using namespace spdlog;
 using namespace std;
-using namespace std::chrono;
 
 SimRunner::SimRunner()
-    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"),
-      m_sim(make_shared<Simulator>()), m_logger(nullptr)
+    : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(),
+      m_sim(nullptr)
 {
 }
 
-bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> logger)
+bool SimRunner::Setup(const ptree& run_config_pt)
 {
+        // -----------------------------------------------------------------------------------------
+        // Intro.
+        // -----------------------------------------------------------------------------------------
+        m_clock.Start();
         bool status = true;
         m_pt_config = run_config_pt;
-        m_logger    = logger;
-
-        // -----------------------------------------------------------------------------------------
-        // Set output path prefix.
-        // -----------------------------------------------------------------------------------------
-        m_output_prefix = m_pt_config.get<string>("run.output_prefix", "");
-        if (m_output_prefix.length() == 0) {
-                m_output_prefix = TimeStamp().ToTag();
+        m_logger    = spdlog::get("stride_logger");
+        if (!m_logger) {
+                m_logger = m_pt_config.get<bool>("run.silent_mode")
+                               ? LogUtils::GetNullLogger("stride_logger")
+                               : LogUtils::GetCliLogger("stride_logger", "stride_log.txt");
         }
-        m_logger->info("Run output prefix:  {}", m_output_prefix);
+        m_output_prefix = m_pt_config.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
-        // Create logger
-        // Transmissions:     [TRANSMISSION] <infecterID> <infectedID> <contactpoolID>
-        // <day>
-        // General contacts:  [CNT] <person1ID> <person1AGE> <person2AGE>  <at_home>
-        // <at_work> <at_school> <at_other>
+        // Create logger for use by the simulator during time step computations.
+        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
+        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
         spdlog::set_async_mode(1048576);
-        boost::filesystem::path logfile_path = m_output_prefix;
-        if (run_config_pt.get<bool>("run.use_install_dirs")) {
-                logfile_path += "_logfile";
-        } else {
-                logfile_path /= "logfile";
-        }
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(),
-                                                      numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
-        file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
+        const auto log_path       = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
+        auto       contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
+                                                         numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
+        contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // ------------------------------------------------------------------------------
-        // Create the simulator.
+        // Create the simulator builder.
         //------------------------------------------------------------------------------
-        const auto track_index_case = m_pt_config.get<bool>("run.track_index_case");
-        const auto num_threads      = m_pt_config.get<unsigned int>("run.num_threads");
-        m_clock.Start();
+        m_logger->info("Creating the simulator builder");
+        SimulatorBuilder builder(m_pt_config);
+        m_logger->info("Done creating the simulator builder");
+
+        // ------------------------------------------------------------------------------
+        // Build simulator.
+        //------------------------------------------------------------------------------
         m_logger->info("Building the simulator.");
-        m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
+        m_sim = builder.Build();
         m_logger->info("Done building the simulator.");
 
         // -----------------------------------------------------------------------------------------
         // Check the simulator.
         // -----------------------------------------------------------------------------------------
-        if (m_sim->IsOperational()) {
-                m_logger->info("Done checking the simulator.");
-        } else {
-                m_logger->critical("Invalid configuration => terminate without output");
+        if (!m_sim) {
+                m_logger->critical("Simulation build failed!");
                 status = false;
+        } else {
+                if (m_sim->IsOperational()) {
+                        m_logger->info("Done checking the simulator. OK.");
+                } else {
+                        m_logger->critical("Invalid configuration => terminate without output");
+                        status = false;
+                }
         }
+
+        // -----------------------------------------------------------------------------------------
+        // Done.
+        // -----------------------------------------------------------------------------------------
+        m_clock.Stop();
         return status;
 }
 
-/// Run the simulator with config information provided.
 void SimRunner::Run()
 {
         // -----------------------------------------------------------------------------------------
-        // Intro.
-        // -----------------------------------------------------------------------------------------
-        m_logger->info("\n\n Starting the run");
-
-        // -----------------------------------------------------------------------------------------
         // Run the simulator.
         // -----------------------------------------------------------------------------------------
-        Stopwatch<>          run_clock("run_clock");
-        const auto           num_days{m_pt_config.get<unsigned int>("run.num_days")};
-        vector<unsigned int> cases(num_days);
-        vector<unsigned int> adopted(num_days);
+        m_clock.Start();
+        const auto num_days = m_pt_config.get<unsigned int>("run.num_days");
+        Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
-                run_clock.Start();
                 m_sim->TimeStep();
-                run_clock.Stop();
-                cases[i]   = m_sim->GetPopulation()->GetInfectedCount();
-                adopted[i] = m_sim->GetPopulation()->GetAdoptedCount();
-                m_logger->info("     Simulated day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", i,
-                               cases[i], adopted[i]);
+                Notify({shared_from_this(), Id::Stepped});
         }
-
-        // -----------------------------------------------------------------------------------------
-        // Generate output files.
-        // -----------------------------------------------------------------------------------------
-        GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config,
-                            static_cast<unsigned int>(duration_cast<milliseconds>(run_clock.Get()).count()),
-                            static_cast<unsigned int>(duration_cast<milliseconds>(m_clock.Get()).count()));
-
-        // -----------------------------------------------------------------------------------------
-        // Final.
-        // -----------------------------------------------------------------------------------------
-        m_logger->info("\n\nRun finished  run_time: {} -- total time: {}", run_clock.ToString(), m_clock.ToString());
-}
-
-/// Generate output files (at the end of the simulation).
-void SimRunner::GenerateOutputFiles(const string& output_prefix, const vector<unsigned int>& cases,
-                                    const vector<unsigned int>& adopted, const ptree& pt_config, unsigned int run_time,
-                                    unsigned int total_time)
-{
-        // Cases
-        CasesFile cases_file(output_prefix);
-        cases_file.Print(cases);
-
-        // Adopted
-        AdoptedFile adopted_file(output_prefix);
-        adopted_file.Print(adopted);
-
-        // Summary
-        SummaryFile summary_file(output_prefix);
-        summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetTransmissionRate(),
-                           run_time, total_time);
-
-        // Persons
-        if (pt_config.get<double>("run.generate_person_file") == 1) {
-                PersonFile person_file(output_prefix);
-                person_file.Print(m_sim->GetPopulation());
-        }
+        Notify({shared_from_this(), Id::Finished});
+        m_clock.Stop();
 }
 
 } // namespace stride
