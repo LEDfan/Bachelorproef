@@ -8,5 +8,3 @@ namespace gengeopop {
     };
 }
 
-
-#endif //STRIDE_HIGHSCHOOL_H

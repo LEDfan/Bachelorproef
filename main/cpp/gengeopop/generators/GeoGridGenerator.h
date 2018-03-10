@@ -5,7 +5,7 @@
 namespace gengeopop {
    class GeoGridGenerator {
    public:
-       std::shared_ptr<GeoGrid> addPartialGenerator(std::shared_ptr<IPartialGenerator> gen);
+       void addPartialGenerator(std::shared_ptr<IPartialGenerator> gen);
 
        /**
         * @param filename Filename with the config of the wanted geogrid.
@@ -14,6 +14,7 @@ namespace gengeopop {
        std::shared_ptr<GeoGrid> generateGeoGrid(std::string filename);
    private:
        std::vector<std::shared_ptr<IPartialGenerator> > m_partialGenerators;
+       std::shared_ptr<GeoGrid> m_geoGrid; // FIXME unique pointer?
     };
 }
 

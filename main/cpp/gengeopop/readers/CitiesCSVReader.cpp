@@ -1,5 +1,6 @@
 #include "CitiesCSVReader.h"
 #include "../../util/CSV.h"
+#include "../../util/CSVRow.h"
 
 gengeopop::CitiesCSVReader::CitiesCSVReader(std::istream& inputStream) {
     // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude 	name
