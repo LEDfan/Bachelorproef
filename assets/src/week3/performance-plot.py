@@ -35,9 +35,9 @@ data = """
 415.18087553977966
 412.6926236152649
 """.strip().splitlines()
-data = map(lambda x: float(x)/15, data)
-plt.plot(range(1,33),data)
-plt.scatter(range(1,33), data, marker="x", color="red")
+data = list(map(lambda x: float(x)/15, data))
+plt.plot(list(range(1,33)), data)
+plt.scatter(list(range(1,33)), data, marker="x", color="red")
 plt.xlabel("Threads")
 plt.ylabel("Runtime (s)")
 plt.show()
