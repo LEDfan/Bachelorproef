@@ -26,13 +26,10 @@ addons:
       - swig3.0
       - libhdf5-dev
       - qtdeclarative5-dev
-      - qml-module-qtquick-controls
-      - qml-module-qtquick-dialogs
-      - qml-module-qtlocation
-      - qml-module-qtpositioning
-      - qml-module-qt-labs-folderlistmodel
-      - qml-module-qt-labs-settings
-
+      - qtdeclarative5-qtlocation-plugin
+      - qtdeclarative5-controls-plugin
+      - qtdeclarative5-dialogs-plugin
+      - qtdeclarative5-qtpositioning-plugin
 
 matrix:
   include:
