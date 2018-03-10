@@ -20,6 +20,7 @@ ApplicationWindow {
         anchors.margins: 20
         Layout.fillWidth: true
 
+        // LEFT COLUMN
         ColumnLayout {
             Layout.fillWidth: true
             Text {
@@ -37,28 +38,69 @@ ApplicationWindow {
             Text {
                 text: 'ContactCenters:'
             }
-            ScrollView {
+            TableView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                ListView {
-					id: cclist
-                    width: parent.width
-                    height: 50
-                    spacing: 5
-                    orientation: ListView.Vertical
-                    model: ContactCenterModel {}
-                    delegate: Text {
-                        text: name + "( " + type +"): " + ID
-						MouseArea {
-							anchors.fill: parent
-							onClicked: cclist.currentIndex = index
-						}
-                    }
-                    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
-                    focus: true
+
+                id: cclist
+                width: parent.width
+                height: 50
+                model: ContactCenterModel {}
+                focus: true
+                TableViewColumn {
+                    role: "ID"
+                    title: "ID"
+                    width: 50
+                }
+                TableViewColumn {
+                    role: "type"
+                    title: "Type"
+                    width: 100
+                }
+
+
+            }
+		}
+
+        // MIDDLE COLUMN
+        ColumnLayout {
+            Layout.fillWidth: true
+            Text {
+                id: textSelCCID
+                text: 'Contact Center: 24'
+            }
+            Text {
+                id: textSelCCMaxPoolSize
+                text: 'Max pool size: 42'
+            }
+            Text {
+                id: textSelCCMaxPools
+                text: 'Max pools: 42'
+            }
+            Text {
+                text: 'ContactPools:'
+            }
+            TableView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                id: cplist
+                width: parent.width
+                height: 50
+                model: ContactPoolModel {}
+                focus: true
+                TableViewColumn {
+                    role: "capacity"
+                    title: "Capacity"
+                    width: 100
+                }
+                TableViewColumn {
+                    role: "usedCapacity"
+                    title: "Used Capacity"
+                    width: 100
                 }
             }
-        }
+		}
 
 		ColumnLayout {
 			Layout.rightMargin: 4
