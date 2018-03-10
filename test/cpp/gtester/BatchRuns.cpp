@@ -81,30 +81,30 @@ public:
 
                 if (tag == "influenza_a") {
                         target = 2093;
-                        sigma = 116.60326645015648;
+                        sigma  = 116.60326645015648;
                 }
                 if (tag == "influenza_b") {
                         pt.put("run.seeding_rate", 0.0);
                         target = 0U;
-                        sigma = 0;
+                        sigma  = 0;
                 }
                 if (tag == "influenza_c") {
                         pt.put("run.seeding_rate", (1 - 0.9991) / 100);
                         pt.put("run.immunity_rate", 0.9991);
                         target = 5U;
-                        sigma = 0;
+                        sigma  = 0;
                 }
                 if (tag == "measles_16") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 16U);
                         target = 590086;
-                        sigma = 660.8227044636814;
+                        sigma  = 660.8227044636814;
                 }
                 if (tag == "measles_60") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 60U);
                         target = 600000U;
-                        sigma = 0;
+                        sigma  = 0;
                 }
                 return make_tuple(pt, target, sigma);
         };
