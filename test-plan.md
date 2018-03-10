@@ -14,8 +14,6 @@ Using the Google Test and Google Mock frameworks the individual units of the pro
 The difference with scenario tests is that only one unit is tested at a time.
 
 Given that at the time of writing the design for gen-geo isn't entirely finished, the test plan should not be considered completely accurate.
-The different readers used can be easily tested. They get some input (i.e. an input stream to read/parse) and will output the data using some datastructure. 
-The unit tests will test some input and expected output pairs.
 By using white-box testing the internal structure of the code can be studied, allowing us to more easily identify edge cases (e.g. character escaping in the input format, missing keys ...).
 The same holds for the `GeoGridReader` and `GeoGridWriter` classes.
 
@@ -28,14 +26,9 @@ In comparison with one `GeoGridGenerator` this design is easier to test. The dif
 The algorithm used in the `GeoGridGenerator` is very simple: loop over the different generators and execute them, hence it's easy to test it.
 
 ## Input and output
-### Cities CSV Reader
-Functionality: This reader converts a an input cities csv file to the internal data structure.
+### CSV Reader
+Functionality: The Cities, Commuting and Household reader converts an input csv file to the internal data structure.
 Test Method: This will be tested by giving a specific input file. We will then run the reader on the file and then check if the returned object has the correct values. For example the amount of cities returned, the name, id and province of the read cities etc.
-
-### Commuting CSV Reader
-Analogous to Cities CSV Reader
-### Household CSV Reader
-Analogous to Cities CSV Reader
 
 ### GeoGrid JSON Writer
 Functionality: The GeoGrid Reader converts a generated GeoGrid to a JSON file. This can be done after the GeoGrid or population was generated, since they use the same internal data structure.
@@ -45,16 +38,20 @@ Test Method: Manually construct a GeoGrid and compare the resulting JSON with th
 Functionality: Convert a JSON file containing the necessary information to a valid GeoGrid.
 Test Method: Construct manual JSON input files and compare the generated GeoGrid to the expected values. The criteria for building good GeoGrids for testing is analogous to the GeoGrid Writer.
 ## Logic
-### Household Generator
-Functionality: Given a GeoGrid, add Households to Locations based on a probabilistic method as described in the assignment.
-Test Method: Given a specific GeoGrid, check if the decorated GeoGrid by the Household Generator is the same as expected. As the generator uses a probabilistic method, the testing wil need to be done using a fixed seed for the tests. Or the test could use the bounds method on the output. 
-### School Generator
-Analogous to household generator. But with different expected outputs.
-### Workplace Generator
-Analogous to household generator. But with different expected outputs.
-### Community Generator
-Analogous to household generator. But with different expected outputs.
+### Generators
+Functionality: Given a GeoGrid, add Schools, Workplaces and Communities to Locations based on a probabilistic method as described in the assignment.
+Test Method: Given a specific GeoGrid, check if the decorated GeoGrid by the Generator is the same as expected. As the generator uses a probabilistic method, the testing wil need to be done using a fixed seed for the tests or it could compare the output to reasonable bounds. 
 
+### Populators
+List of populators:
+ - HouseholdPopulator
+ - StudentPopulator
+ - SchoolPopulator
+ - WorkplacePopulator
+ - CommunityPopulator
+
+Functionality: These are all implemented as a partial populator and thus can apply their functionality on the passed GeoGrid.
+Test Method: This similarity also means the testing method can be quite similar. For each populator, we construct a set of GeoGrids which have certain characteristics to reliably test certain corresponding functionality. Since these methods are also probabilistic in nature, we have to apply a similar comparison method to the one used in the Generator tests.
 
 # Scenario
 The outcome of the complete Simulator is tested by a [Scenario Test](https://github.com/LEDfan/Bachelorproef/blob/master/test/cpp/gtester/BatchRuns.cpp), more information can be found in [Bounds Research](bounds.md) and [Paper](week3/main/paper.pdf).
@@ -72,7 +69,12 @@ As the design is subject to change when it is implemented. We do not know perfec
 ## GeoGrid JSON Reader and Writer
 Functionality: same as the combination of the individual components, but we have to make sure they can work together.
 Test Method: Create a manual GeoGrid, convert it to JSON by using the GeoGrid writer and parse this again in the GeoGrid reader. We can then compare this to the original GeoGrid, which should be the identical.
-## Complete pipeline
+
+## Reader Factory
+Functionality: The factory must return a reader that gives the correct output given a specific input file.
+Test Method: We test the reader factory by asking to create a reader for a file. We then check if the output of the reader is as expected.
+
+## Complete pipeline / GeoGridGenerator
 Functionality: The complete functionality of the GeoGen.
 Test Method:
  - Give the program specific cities, commutes and household input files. And then check that GeoGrid is generated from this. This also has the extra difficulty of being probabilistic, so bounds need to be used. 
