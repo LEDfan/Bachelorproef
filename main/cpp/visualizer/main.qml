@@ -87,7 +87,7 @@ ApplicationWindow {
 
             function addMarker(lon, lat, markerID) {
                 console.log("qml ADDING MARKER")
-                var circle = Qt.createQmlObject("   import QtLocation 5.3;
+                var marker = Qt.createQmlObject("   import QtLocation 5.3;
                                                     import QtQuick 2.7;
                                                     MapQuickItem {
                                                         id: marker
@@ -99,20 +99,25 @@ ApplicationWindow {
                                                         opacity: 1.0
 
 
+                                                        property var markerID: ''
+
+                                                        function setID(newID) {
+                                                            markerID = newID
+                                                        }
                                                         signal clicked(string id)
                                                         MouseArea {
                                                             anchors.fill: parent
-                                                            onClicked: {parent.clicked('"+markerID+"')}
+                                                            onClicked: {parent.clicked(markerID)}
                                                         }
 
                                                     }", map)
-                circle.clicked.connect(markerClicked)
-                map.addMapItem(circle)
+                marker.clicked.connect(markerClicked)
+                marker.setID(markerID)
+                map.addMapItem(marker)
             }
 
             function markerClicked(id) {
-                zoomLevel = 40
-                console.warn("LOGG", id)
+                backend.onMarkerClicked(id)
             }
         }
 

@@ -18,9 +18,12 @@ public:
     Q_INVOKABLE
     void loadGeoGridFromFile(const QString &file);
 
-
     Q_INVOKABLE
     void setObjects(QObject* map);
+
+    Q_INVOKABLE
+    void onMarkerClicked(const QString &idOfClicked);
+
 
 signals:
     void userNameChanged();

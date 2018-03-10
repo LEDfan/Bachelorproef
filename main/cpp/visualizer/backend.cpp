@@ -39,6 +39,10 @@ void BackEnd::placeMarkers() {
     QMetaObject::invokeMethod(_map,"addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal), Q_ARG(QVariant, 51.2), Q_ARG(QVariant, 4.4),Q_ARG(QVariant, "test") );
 }
 
+void BackEnd::onMarkerClicked(const QString& idOfClicked){
+        std::cout << "CPP: Marker clicked " << idOfClicked.toStdString() << std::endl;
+}
+
 void BackEnd::setObjects(QObject *map) {
     _map = map;
 }
