@@ -49,12 +49,12 @@ Stride uses the Trng library \cite{bauke2015tina} as random number generator. Th
 
 \subsection{Influence of multi-threading}
 
-The analysis described in this section was performed on a 32 core AMD machine. Therefore the tests were executed with a maximum of 32 threads, which is a reasonable maximum for any workstation at the time of writing. By using a Bash-script\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/597e9d14356a40f10c52dbd789ce495f0891720e/assets/src/week3/bench.sh}} % TODO update links to website
+The analysis described in this section was performed on a 32 core AMD machine. Therefore the tests were executed with a maximum of 32 threads, which is a reasonable maximum for any workstation at the time of writing. By using a Bash-script\footnote{\url{https://ledfan.github.io/Bachelorproef/assets/src/week4/bench.sh}} % TODO update links to website
 the Stride tests were run with an increasing amount of threads, starting at 1 up to 32.
 
 \subsection{Influence of random engine}
 
-Using a Python3 script\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/b8b67f7083ba8a523bdb16f0c6fd0fdfeea7dacf/assets/src/week3/random_engines.py}} % TODO update links to website
+Using a Python3 script\footnote{\url{https://ledfan.github.io/Bachelorproef/assets/src/week4/random\_engines.py}} 
 the simulation was run using the different random engines, at the same time measuring the running time.
 
 \section{Results}
@@ -123,7 +123,7 @@ For the Measles 16 testcase, resulting P-values for the Shapiro-Wilkes test can 
 
 We can consider the attack rate to be normally distributed in all presented cases.
 
-A few of the plots can be seen in \cref{fig:normality}, and for those who would like to see more of them, they can be generated with the script and datafiles found at \url{TODO TODO TODO}. % TODO: update url once published to gh-pages
+A few of the plots can be seen in \cref{fig:normality}, and for those who would like to see more of them, they can be generated with the script and datafiles found at our website \footnote{\url{https://ledfan.github.io/Bachelorproef/assets/src/week4/random\_engines\_stats.py}}.
 
 \begin{figure}%
    	\makebox[\textwidth][c]{%
