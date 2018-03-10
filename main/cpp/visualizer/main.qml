@@ -85,7 +85,7 @@ ApplicationWindow {
             center: QtPositioning.coordinate(51.2, 4.4)
             Component.onCompleted: backend.setObjects(map)
 
-            function addMarker(lon, lat) {
+            function addMarker(lon, lat, markerID) {
                 console.log("qml ADDING MARKER")
                 var circle = Qt.createQmlObject("   import QtLocation 5.3;
                                                     import QtQuick 2.7;
@@ -98,17 +98,21 @@ ApplicationWindow {
                                                                }
                                                         opacity: 1.0
 
+
+                                                        signal clicked(string id)
                                                         MouseArea {
                                                             anchors.fill: parent
-                                                            onClicked: {parent.sourceItem.color = 'green'}
+                                                            onClicked: {parent.clicked('"+markerID+"')}
                                                         }
 
                                                     }", map)
+                circle.clicked.connect(markerClicked)
                 map.addMapItem(circle)
             }
 
-            function printLogg() {
-                console.log("LOGG")
+            function markerClicked(id) {
+                zoomLevel = 40
+                console.warn("LOGG", id)
             }
         }
 

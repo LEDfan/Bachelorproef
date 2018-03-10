@@ -36,7 +36,7 @@ void BackEnd::placeMarkers() {
     std::cout << "Placing markers" << std::endl;
     QVariant returnVal;
     std::cout << _map << std::endl;
-    QMetaObject::invokeMethod(_map,"addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal), Q_ARG(QVariant, 51.2), Q_ARG(QVariant, 4.4));
+    QMetaObject::invokeMethod(_map,"addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal), Q_ARG(QVariant, 51.2), Q_ARG(QVariant, 4.4),Q_ARG(QVariant, "test") );
 }
 
 void BackEnd::setObjects(QObject *map) {
