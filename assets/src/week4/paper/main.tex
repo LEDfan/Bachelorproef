@@ -41,7 +41,7 @@ by using a QQ-Plot and hypothesis tests that the Attack Rate can be considered t
 For the accepted ranges, we decided to allow a distance of 2 standard deviations from the observed mean.
 
 The second topic of this paper is to analyze the influence of the random number generator engine on the Attack Rate.
-Stride uses the Trng library \cite{bauke2015tina} as random number generator. The inspected engines are \texttt{lgc64}, \texttt{lgc64\_shift}, \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2} and \texttt{yarn3}.
+Stride uses the TRNG library \cite{bauke2015tina} as random number generator. The inspected engines are \texttt{lgc64}, \texttt{lgc64\_shift}, \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2} and \texttt{yarn3}.
 
 \pagebreak
 
@@ -49,13 +49,13 @@ Stride uses the Trng library \cite{bauke2015tina} as random number generator. Th
 
 \subsection{Influence of multi-threading}
 
-The analysis described in this section was performed on a 32 core AMD machine. Therefore the tests were executed with a maximum of 32 threads, which is a reasonable maximum for any workstation at the time of writing. By using a Bash-script\footnote{\url{https://ledfan.github.io/Bachelorproef/assets/src/week4/bench.sh}} % TODO update links to website
+The analysis described in this section was performed on a 32 core AMD machine. Therefore the tests were executed with a maximum of 32 threads, which is a reasonable maximum for any workstation at the time of writing. By using a Bash-script\footnote{\url{https://ledfan.github.io/Bachelorproef/assets/src/week4/bench.sh}}
 the Stride tests were run with an increasing amount of threads, starting at 1 up to 32.
 
 \subsection{Influence of random engine}
 
 Using a Python3 script\footnote{\url{https://ledfan.github.io/Bachelorproef/assets/src/week4/random\_engines.py}} 
-the simulation was run using the different random engines, at the same time measuring the running time.
+the simulation was run using the different random engines, while also measuring the running time.
 
 \section{Results}
 
@@ -91,33 +91,33 @@ susceptible population.} of 3.0. For this test case the range of allowed attack 
 The second test case (Influenza B\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L86}}) uses a seeding rate of 0, which results in a constant attack rate of 0. As expected the RNG engine doesn't have influence on this outcome.
 The same holds for the third test case (Influenza C\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L91}}) which uses a very low seeding rate and a large immunity factor. The attack vector for every engine is 5.
 The Measles 16\footnote{\url{https://github.com/LEDfan/Bachelorproef/blob/dd1ef48867238d62446813f47d6718908505b7f2/test/cpp/gtester/BatchRuns.cpp\#L97}} testcase is more interesting for the analysis of the RNG engines. The disease simulated is not influenza but the measles. The $R_0$ value is set to 16, which results in a very large part of the population becoming infected.
-The last testcase (Measles 60) sets the $R_0$ value to 60. It infects the whole population, so the attack rate is for all the engines the same.
+The last testcase (Measles 60) sets the $R_0$ value to 60. It infects the whole population, so the attack rate is the same for all engines.
     
 \subsection{Normality of the output}
 \label{par:normality}
-To validate our assumption that the distribution of the attack rate was normal for our tests, we both looked at QQ-plots and histograms of the outputs of different runs against a reference normal distribution with $\mu = \bar{X}, \sigma=S_X$, verified that histograms had a more or less normal look to them, and verified with the Shapiro-Wilkes test.
+To validate our assumption that the distribution of the attack rate was normal for our tests, we both looked at QQ-plots and histograms of the outputs of different runs against a reference normal distribution with $\mu = \bar{X}, \sigma=S_X$, verified that histograms had a more or less normal look to them, and verified with the Shapiro-Wilk test.
 
 % Influenza A
-Looking at the Influenza A testcase, we find the resulting P-values for Shapiro-Wilkes test in \cref{tab:influenza_a:shapiro}. Here, all random engines result in an (at least approximately) normal distribution for the attack rate.
+Looking at the Influenza A testcase, we find the resulting P-values for Shapiro-Wilk test in \cref{tab:influenza_a:shapiro}. Here, all random engines result in an (at least approximately) normal distribution for the attack rate.
 \begin{table}[!hbt]
     \begin{tabular}{c c c c c c}
        \textbf{lgc64} & \textbf{lgc64\_shift} & \textbf{mrg2} & \textbf{mrg3} & \textbf{yarn2} & \textbf{yarn3}\\
         0.8719 & 0.4609 & 0.9385 & 0.6556 & 0.7254 & 0.7089
     \end{tabular}
-    \caption{P-values of the Influenza A test case for the Shapiro-Wilkes normality test}
+    \caption{P-values of the Influenza A test case for the Shapiro-Wilk normality test}
     \label{tab:influenza_a:shapiro}
 \end{table}
 
 
 % Measles 16
-For the Measles 16 testcase, resulting P-values for the Shapiro-Wilkes test can be found in \cref{tab:measles_16:shapiro}.
+For the Measles 16 testcase, resulting P-values for the Shapiro-Wilk test can be found in \cref{tab:measles_16:shapiro}.
 
 \begin{table}[!hbt]
     \begin{tabular}{c c c c c c}
        \textbf{lgc64} & \textbf{lgc64\_shift} & \textbf{mrg2} & \textbf{mrg3} & \textbf{yarn2} & \textbf{yarn3}\\
         0.8231 & 0.4216 & 0.9115 & 0.4199 & 0.1473 & 0.4431
     \end{tabular}
-    \caption{P-values of the Measles 16 test case for the Shapiro-Wilkes normality test}
+    \caption{P-values of the Measles 16 test case for the Shapiro-Wilk normality test}
     \label{tab:measles_16:shapiro}
 \end{table}
 
@@ -146,8 +146,8 @@ A few of the plots can be seen in \cref{fig:normality}, and for those who would 
   			{\includegraphics[width=0.5\textwidth]{images/measles_histo_mrg2.png}}%
    		}%
    	}%
-   	\label{fig:normality}
    	\caption{Visually evaluating the normality of the attack rate}
+   	\label{fig:normality}
 \end{figure}
 
 \subsection{Equality of acceptable ranges for the test cases}
