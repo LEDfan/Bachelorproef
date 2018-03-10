@@ -87,12 +87,28 @@ ApplicationWindow {
 
             function addMarker(lon, lat) {
                 console.log("qml ADDING MARKER")
-                var circle = Qt.createQmlObject("import QtLocation 5.3; MapCircle {}", map)
-                circle.center = QtPositioning.coordinate(lon, lat)
-                circle.radius = 40.0
-                circle.color = "green"
-                circle.border.width = 3
+                var circle = Qt.createQmlObject("   import QtLocation 5.3;
+                                                    import QtQuick 2.7;
+                                                    MapQuickItem {
+                                                        id: marker
+                                                        sourceItem: Rectangle { width: 14; height: 14; color: '#e41e25'; border.width: 2; border.color: 'white'; smooth: true; radius: 7 }
+                                                       coordinate {
+                                                                   latitude: 51.2
+                                                                   longitude: 4.4
+                                                               }
+                                                        opacity: 1.0
+
+                                                        MouseArea {
+                                                            anchors.fill: parent
+                                                            onClicked: {parent.sourceItem.color = 'green'}
+                                                        }
+
+                                                    }", map)
                 map.addMapItem(circle)
+            }
+
+            function printLogg() {
+                console.log("LOGG")
             }
         }
 
