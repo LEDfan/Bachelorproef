@@ -15,6 +15,7 @@
 
 #include <gtest/gtest.h>
 #include <gengeopop/readers/HouseholdCSVReader.h>
+#include <memory>
 
 namespace {
 
@@ -23,7 +24,7 @@ namespace {
                                 "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n";
         std::istringstream instream(csvString);
         gengeopop::HouseholdCSVReader reader(instream);
-        std::vector<gengeopop::Household> HHs = reader.getHouseHolds();
+        std::vector<std::shared_ptr<gengeopop::Household>> HHs = reader.getHouseHolds();
 
         ASSERT_EQ(HHs.size(), (unsigned int)1);
         // TODO test more

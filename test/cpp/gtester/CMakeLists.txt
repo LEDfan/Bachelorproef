@@ -1,7 +1,7 @@
 #############################################################################
 #  This is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -29,15 +29,15 @@ set( SRC
 )
 
 add_executable(${EXEC}   ${SRC} )
-target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride) 
+target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Define tests.
 #============================================================================
-add_test( NAME  ${EXEC}_all 		
+add_test( NAME  ${EXEC}_all
         WORKING_DIRECTORY  ${TESTS_DIR}
-		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC} 
+		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
 		         --gtest_output=xml:gtester_all.xml
 )
 

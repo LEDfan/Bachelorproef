@@ -4,14 +4,15 @@
 #include <gengeopop/Location.h>
 #include <gengeopop/Household.h>
 #include <vector>
+#include <memory>
 
 namespace gengeopop {
     class HouseholdReader {
     public:
-        std::vector<Household> getHouseHolds();
+        std::vector<std::shared_ptr<Household>> getHouseHolds();
 
     protected:
-        std::vector<Household> m_households;
+        std::vector<std::shared_ptr<Household>> m_households;
     };
 }
 
