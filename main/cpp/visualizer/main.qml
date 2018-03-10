@@ -17,16 +17,52 @@ ApplicationWindow {
 	RowLayout {
 		spacing: 6
 		anchors.fill: parent
-		TextArea {
-			width: 240
-			Layout.fillWidth: true
-			Layout.fillHeight: true
-			text:
-			"Lorem ipsum dolor sit amet, consectetur adipisicing elit, "
-		}
+        anchors.margins: 20
+        Layout.fillWidth: true
+
+        ColumnLayout {
+            Layout.fillWidth: true
+            Text {
+                id: textName
+                text: 'Location: Deurne-Noord'
+            }
+            Text {
+                id: textProvince
+                text: 'Province: Antwerpen'
+            }
+            Text {
+                id: textID
+                text: 'ID: 42'
+            }
+            Text {
+                text: 'ContactCenters:'
+            }
+            ScrollView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                ListView {
+					id: cclist
+                    width: parent.width
+                    height: 50
+                    spacing: 5
+                    orientation: ListView.Vertical
+                    model: ContactCenterModel {}
+                    delegate: Text {
+                        text: name + "( " + type +"): " + ID
+						MouseArea {
+							anchors.fill: parent
+							onClicked: cclist.currentIndex = index
+						}
+                    }
+                    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+                    focus: true
+                }
+            }
+        }
 
 		ColumnLayout {
 			Layout.rightMargin: 4
+            Layout.fillWidth: false
 			CheckBox {
 				id: checkBox_School
 				text: qsTr("School")
