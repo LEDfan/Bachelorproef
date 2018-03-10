@@ -18,7 +18,7 @@ Tobia De Koninck
 
 - [Introductory exercise](introduction)
 - [Bounds research](bounds)
-- [Follow-up Bounds research](follow-up)
+- [Follow-up Bounds research](https://ledfan.github.io/Bachelorproef/assets/src/week3/paper/main.pdf)
 - [Design](design)
 - [Test Plan](test-plan)
 
