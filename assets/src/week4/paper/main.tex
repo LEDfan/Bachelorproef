@@ -116,7 +116,7 @@ For the Measles 16 testcase, resulting P-values for the Shapiro-Wilkes test can 
 \begin{table}[!hbt]
     \begin{tabular}{c c c c c c}
        \textbf{lgc64} & \textbf{lgc64\_shift} & \textbf{mrg2} & \textbf{mrg3} & \textbf{yarn2} & \textbf{yarn3}\\
-        0.8231 & 0.4216 & 0.9115 & 0.4199 & 0.1473 & 0.0.4431
+        0.8231 & 0.4216 & 0.9115 & 0.4199 & 0.1473 & 0.4431
     \end{tabular}
     \caption{P-values of the Measles 16 test case for the Shapiro-Wilkes normality test}
     \label{tab:measles_16:shapiro}
@@ -124,6 +124,32 @@ For the Measles 16 testcase, resulting P-values for the Shapiro-Wilkes test can 
 
 We can consider the attack rate to be normally distributed in all presented cases.
 
+A few of the plots can be seen in \cref{fig:normality}, and for those who would like to see more of them, they can be generated with the script and datafiles found at \url{TODO TODO TODO}. % TODO: update url once published to gh-pages
+
+\begin{figure}%
+   	\makebox[\textwidth][c]{%
+   		\centering%
+   		\subfloat[QQ plot of Influenza A results with \texttt{lgc64}]{%
+   			{\includegraphics[width=0.5\textwidth]{images/influenza_qq_lgc64.png}}%
+   		}%
+   		\qquad%
+   		\subfloat[Histogram of Influenza A results with \texttt{lgc64}]{%
+  			{\includegraphics[width=0.5\textwidth]{images/influenza_histo_lgc64.png}}%
+   		}%
+   	}\\
+   	\makebox[\textwidth][c]{%
+   		\centering%
+   		\subfloat[QQ plot of Measles 16 results with \texttt{mrg2}]{%
+   			{\includegraphics[width=0.5\textwidth]{images/measles_qq_mrg2.png}}%
+   		}%
+   		\qquad%
+   		\subfloat[Histogram of Measles 16 results with \texttt{mrg2}]{%
+  			{\includegraphics[width=0.5\textwidth]{images/measles_histo_mrg2.png}}%
+   		}%
+   	}%
+   	\label{fig:normality}
+   	\caption{Visually evaluating the normality of the attack rate}
+\end{figure}
 
 \subsection{Equality of acceptable ranges for the test cases}
 
@@ -252,43 +278,6 @@ The p-values for these tests are listed in \cref{tab:influenza:p_values} and \cr
     \caption{P-values of the Measles 16 test case}
     \label{tab:measles_16:p_values}
 \end{table}
-
-\clearpage
-
-\begin{figure}%
-   	\makebox[\textwidth][c]{%
-   		\centering%
-   		\subfloat[Boxplot of Influenza A run with \texttt{lgc64}]{%
-   			{\includegraphics[width=0.5\textwidth]{images/boxplot_lgc64.png}}%
-   		}%
-   		\qquad%
-   		\subfloat[Boxplot of Influenza A run with \texttt{lgc64\_shift}]{%
-  			{\includegraphics[width=0.5\textwidth]{images/boxplot_lgc64_shift.png}}%
-   		}%
-   	}\\
-   	\makebox[\textwidth][c]{%
-   		\centering%
-   		\subfloat[Boxplot of Influenza A run with \texttt{mrg2}]{%
-   			{\includegraphics[width=0.5\textwidth]{images/boxplot_mrg2.png}}%
-   		}%
-   		\qquad%
-   		\subfloat[Boxplot of Influenza A run with \texttt{mrg3}]{%
-  			{\includegraphics[width=0.5\textwidth]{images/boxplot_mrg3.png}}%
-   		}%
-   	}\\
-   	\makebox[\textwidth][c]{%
-   		\centering%
-   		\subfloat[Boxplot of Influenza A run with \texttt{yarn2}]{%
-   			{\includegraphics[width=0.5\textwidth]{images/boxplot_yarn2.png}}%
-   		}%
-   		\qquad%
-   		\subfloat[Boxplot of Influenza A run with \texttt{yarn3}]{%
-  			{\includegraphics[width=0.5\textwidth]{images/boxplot_yarn3.png}}%
-   		}%
-   	}%
-   	\caption{Running time in function of number of threads}
-   	
-\end{figure}
 
 \section{Future work}
 
