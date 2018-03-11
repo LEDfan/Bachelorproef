@@ -23,9 +23,9 @@
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
 #include <memory>
-#include <boost/property_tree/ptree_fwd.hpp>
 #include <vector>
 
 namespace stride {
