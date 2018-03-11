@@ -18,6 +18,8 @@ namespace gengeopop {
         GeoGridIterator begin();
         GeoGridIterator end();
 
+        std::shared_ptr<Location> operator[](size_t index);
+
     private:
         std::vector<std::shared_ptr<Location> > m_locations;
 

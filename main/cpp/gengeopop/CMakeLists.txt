@@ -32,6 +32,7 @@ set(GENGEOPOP_LIB
     readers/CitiesCSVReader.h
     readers/HouseholdCSVReader.h
     readers/HouseholdReader.h
+    GeoGridConfig.h
 )
 
 #============================================================================

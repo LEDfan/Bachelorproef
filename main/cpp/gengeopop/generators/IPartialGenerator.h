@@ -1,6 +1,7 @@
 #pragma once
 
 #include <gengeopop/GeoGrid.h>
+#include <gengeopop/GeoGridConfig.h>
 
 namespace gengeopop {
     /**
@@ -8,7 +9,7 @@ namespace gengeopop {
      */
     class IPartialGenerator {
     public:
-        virtual void apply(std::shared_ptr<GeoGrid> geogrid) = 0;
+        virtual void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
         virtual ~IPartialGenerator() {};
     };
 }

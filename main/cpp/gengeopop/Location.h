@@ -14,11 +14,13 @@ namespace gengeopop {
         std::string getName();
         unsigned int getProvince();
         unsigned int getID();
+        unsigned int getPopulation();
 
     private:
         unsigned int m_id = 0;
         std::string m_name;
         unsigned int m_province;
+        unsigned int m_population;
         std::vector<std::shared_ptr<ContactCenter> >  m_contactCenters;
 
     };

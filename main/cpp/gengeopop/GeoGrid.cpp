@@ -14,4 +14,9 @@ namespace gengeopop {
         m_locations.push_back(location);
     }
 
+    std::shared_ptr<Location> GeoGrid::operator[](size_t index) {
+        // TODO range check needed?
+        return *(begin() + index);
+    }
+
 }

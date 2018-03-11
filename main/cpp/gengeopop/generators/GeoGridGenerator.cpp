@@ -2,11 +2,20 @@
 #include <memory>
 
 namespace gengeopop {
-    std::shared_ptr<gengeopop::GeoGrid> GeoGridGenerator::generateGeoGrid(std::string filename) {
+
+    GeoGridGenerator::GeoGridGenerator(GeoGridConfig geoGridConfig) : m_geoGridConfig(geoGridConfig) {
+    
+        m_geoGrid = std::make_shared<GeoGrid>();
+    }
+
+    void GeoGridGenerator::generateGeoGrid() {
             for (std::shared_ptr<IPartialGenerator> &partialGen : m_partialGenerators) {
-                partialGen->apply(m_geoGrid);
+                partialGen->apply(m_geoGrid, m_geoGridConfig);
             }
-            return m_geoGrid;
+    }
+
+    std::shared_ptr<GeoGrid> GeoGridGenerator::getGeoGrid() {
+        return m_geoGrid;
     }
 
     void GeoGridGenerator::addPartialGenerator(std::shared_ptr<IPartialGenerator> gen) {
