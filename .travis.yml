@@ -57,7 +57,7 @@ matrix:
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='/usr/local/bin/clang++-3.9' CXX_COMPILER_ID=LLVM
+      env: CXX_COMPILER_NAME='clang++' CXX_COMPILER_ID=LLVM
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
