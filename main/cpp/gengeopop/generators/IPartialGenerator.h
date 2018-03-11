@@ -9,5 +9,6 @@ namespace gengeopop {
     class IPartialGenerator {
     public:
         virtual void apply(std::shared_ptr<GeoGrid> geogrid) = 0;
+        virtual ~IPartialGenerator() {};
     };
 }
