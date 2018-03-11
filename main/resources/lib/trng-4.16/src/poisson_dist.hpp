@@ -30,87 +30,51 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 // OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#if !(defined TRNG_DISCRETE_DIST_HPP)
+#if !(defined TRNG_POISSON_DIST_HPP)
 
-#define TRNG_DISCRETE_DIST_HPP
+#define TRNG_POISSON_DIST_HPP
 
 #include <trng/limits.hpp>
 #include <trng/utility.hpp>
 #include <trng/math.hpp>
+#include <trng/special_functions.hpp>
 #include <ostream>
-#include <iomanip>
 #include <istream>
+#include <iomanip>
 #include <vector>
-#include <algorithm>
-#include <numeric>
 
 namespace trng {
 
   // non-uniform random number generator class
-  class discrete_dist {
+  class poisson_dist {
   public:
     typedef int result_type;
     class param_type;
     
     class param_type {
     private:
-      typedef std::vector<double>::size_type size_type;
-      std::vector<double> P;
-      size_type N, offset, layers;
+      double mu_;
+      std::vector<double> P_;
+      
+      void calc_probabilities() {
+	P_=std::vector<double>();
+	int x=0;
+	double p=0.0;
+	while (p<1.0-512.0/4096.0) {
+	  p=math::GammaQ(x+1.0, mu_);
+	  P_.push_back(p);
+	  ++x;
+	}
+	P_.push_back(1);
+      }
       
     public:
-      template<typename iter>
-      param_type(iter first, iter last) :
-	P(first, last) {
-	N=P.size();
-	layers=math::log2_ceil(N);
-	offset=math::pow2(layers)-1;
-	P.resize(N+offset);
-	std::copy_backward(P.begin(), P.begin()+N, P.end());
-	std::fill(P.begin(), P.begin()+N, 0);
-	update_all_layers();
+      double mu() const { return mu_; }
+      void mu(double mu_new) { mu_=mu_new;  calc_probabilities(); }
+      explicit param_type(double mu) : mu_(mu) {
+	calc_probabilities();
       }
-      explicit param_type(int n) :
-	P(n, 1.0) {
-	N=P.size();
-	layers=math::log2_ceil(N);
-	offset=math::pow2(layers)-1;
-	P.resize(N+offset);
-	std::copy_backward(P.begin(), P.begin()+N, P.end());
-	std::fill(P.begin(), P.begin()+N, 0);
-	update_all_layers();
-      }
-    private:
-      void update_layer(size_type layer, size_type n) {
-	size_type first=math::pow2(layer)-1, last=first+n;
-	for (size_type i=first; i<last; ++i, ++i) 
-	  if (i+1<last)
-	    P[(i-1)/2]=P[i]+P[i+1];
-	  else
-	    P[(i-1)/2]=P[i];
-      }
-      void update_all_layers() {
-	size_type layer=layers;
-	if (layer>0) {
-	  update_layer(layer, N);
-	  --layer;
-	}
-	while (layer>0) {
-	  update_layer(layer, math::pow2(layer));
-	  --layer;
-	}
-      }
-    public:
-      friend class discrete_dist;
-      friend bool operator==(const param_type &, const param_type &);
-      template<typename char_t, typename traits_t>
-      friend std::basic_ostream<char_t, traits_t> &
-      operator<<(std::basic_ostream<char_t, traits_t> &,
-		 const discrete_dist::param_type &);
-      template<typename char_t, typename traits_t>
-      friend std::basic_istream<char_t, traits_t> &
-      operator>>(std::basic_istream<char_t, traits_t> &,
-		 discrete_dist::param_type &);
+      friend class poisson_dist;
     };
     
   private:
@@ -118,73 +82,59 @@ namespace trng {
     
   public:
     // constructor
-    template<typename iter>
-    discrete_dist(iter first, iter last) : P(first, last) {
+    explicit poisson_dist(double mu) : P(mu) {
     }
-    explicit discrete_dist(int N) : P(N) {
-    }
-    explicit discrete_dist(const param_type &P) : P(P) {
+    explicit poisson_dist(const param_type &P) : P(P) {
     }
     // reset internal state
     void reset() { }
     // random numbers
     template<typename R>
     int operator()(R &r) {
-      double u=utility::uniformco<double>(r)*P.P[0];
-      param_type::size_type x=0;
-      while (x<P.offset) {
-	if (u<P.P[2*x+1]) {
-	  x=2*x+1;
-	} else {
-	  u-=P.P[2*x+1];
-	  x=2*x+2;
+      double p(utility::uniformco<double>(r));
+      int x(utility::discrete(p, P.P_.begin(), P.P_.end()));
+      if (x+1==P.P_.size()) {
+	p-=cdf(x);
+        while (p>0) {
+          ++x;
+	  p-=pdf(x);
 	}
       }
-      return x-P.offset;
+      return x;
     }
     template<typename R>
     int operator()(R &r, const param_type &p) {
-      discrete_dist g(p);
+      poisson_dist g(p);
       return g(r);
     }
     // property methods
     int min() const { return 0; }
-    int max() const { return P.N-1; }
+    int max() const { return math::numeric_limits<int>::max(); }
     param_type param() const { return P; }
     void param(const param_type &P_new) { P=P_new; }
-    void param(int x, double p) {
-      x+=P.offset;
-      P.P[x]=p;
-      if (x>0) {
-	do {
-	  x=(x-1)/2;
-	  P.P[x]=P.P[2*x+1]+P.P[2*x+2];
-	} while (x>0);
-      }
-    }
+    double mu() const { return P.mu(); }
+    void mu(double mu_new) { P.mu(mu_new); }
     // probability density function  
     double pdf(int x) const {
-      return (x<0 or x>=static_cast<int>(P.N)) ? 0.0 : P.P[x+P.offset]/P.P[0];
+      return x<0 ? 0.0 : math::exp(-P.mu()
+				   -math::ln_Gamma(x+1.0)
+				   +x*math::ln(P.mu()));
     }
     // cumulative density function 
     double cdf(int x) const {
-      if (x<0)
-	return 0.0;
-      if (x<static_cast<int>(P.N))
-	return std::accumulate(&P.P[P.offset], &P.P[x+P.offset+1], 0.0)/P.P[0];
-      return 1.0;
+      return x<0 ? 0.0 : math::GammaQ(x+1.0, P.mu());
     }
   };
-
+  
   // -------------------------------------------------------------------
 
   // EqualityComparable concept
-  inline bool operator==(const discrete_dist::param_type &p1, 
-			 const discrete_dist::param_type &p2) {
-    return p1.P==p2.P;
+  inline bool operator==(const poisson_dist::param_type &p1, 
+			 const poisson_dist::param_type &p2) {
+    return p1.mu()==p2.mu();
   }
-  inline bool operator!=(const discrete_dist::param_type &p1, 
-			 const discrete_dist::param_type &p2) {
+  inline bool operator!=(const poisson_dist::param_type &p1, 
+			 const poisson_dist::param_type &p2) {
     return !(p1==p2);
   }
   
@@ -192,17 +142,13 @@ namespace trng {
   template<typename char_t, typename traits_t>
   std::basic_ostream<char_t, traits_t> &
   operator<<(std::basic_ostream<char_t, traits_t> &out,
-	     const discrete_dist::param_type &P) {
+	     const poisson_dist::param_type &P) {
     std::ios_base::fmtflags flags(out.flags());
     out.flags(std::ios_base::dec | std::ios_base::fixed |
 	      std::ios_base::left);
-    out << '(' << P.N << ' ';
-    for (std::vector<double>::size_type i=P.offset; i<P.P.size(); ++i) {
-      out << std::setprecision(17) << P.P[i];
-      if (i+1<P.P.size())
-	out << ' ';
-    }
-    out	<< ')';
+    out << '('
+	<< std::setprecision(17) << P.mu()
+	<< ')';
     out.flags(flags);
     return out;
   }
@@ -210,24 +156,15 @@ namespace trng {
   template<typename char_t, typename traits_t>
   std::basic_istream<char_t, traits_t> &
   operator>>(std::basic_istream<char_t, traits_t> &in,
-	     discrete_dist::param_type &P) {
-    double p;
-    std::vector<double>::size_type n;
-    std::vector<double> P_new;
+	     poisson_dist::param_type &P) {
+    double mu;
     std::ios_base::fmtflags flags(in.flags());
     in.flags(std::ios_base::dec | std::ios_base::fixed |
 	     std::ios_base::left);
     in >> utility::delim('(')
-       >> n >> utility::delim(' ');
-    for (std::vector<double>::size_type i=0; i<n; ++i) {
-      in >> p;
-      if (i+1<n)
-	in >> utility::delim(' ');
-      P_new.push_back(p);
-    }
-    in >> utility::delim(')');
+       >> mu >> utility::delim(')');
     if (in)
-      P=discrete_dist::param_type(P_new.begin(), P_new.end());
+      P=poisson_dist::param_type(mu);
     in.flags(flags);
     return in;
   }
@@ -235,12 +172,12 @@ namespace trng {
   // -------------------------------------------------------------------
 
   // EqualityComparable concept
-  inline bool operator==(const discrete_dist &g1, 
-			 const discrete_dist &g2) {
+  inline bool operator==(const poisson_dist &g1, 
+			 const poisson_dist &g2) {
     return g1.param()==g2.param();
   }
-  inline bool operator!=(const discrete_dist &g1, 
-			 const discrete_dist &g2) {
+  inline bool operator!=(const poisson_dist &g1, 
+			 const poisson_dist &g2) {
     return g1.param()!=g2.param();
   }
   
@@ -248,11 +185,11 @@ namespace trng {
   template<typename char_t, typename traits_t>
   std::basic_ostream<char_t, traits_t> &
   operator<<(std::basic_ostream<char_t, traits_t> &out,
-	     const discrete_dist &g) {
+	     const poisson_dist &g) {
     std::ios_base::fmtflags flags(out.flags());
     out.flags(std::ios_base::dec | std::ios_base::fixed |
 	      std::ios_base::left);
-    out << "[discrete " << g.param() << ']';
+    out << "[poisson " << g.param() << ']';
     out.flags(flags);
     return out;
   }
@@ -260,13 +197,13 @@ namespace trng {
   template<typename char_t, typename traits_t>
   std::basic_istream<char_t, traits_t> &
   operator>>(std::basic_istream<char_t, traits_t> &in,
-	     discrete_dist &g) {
-    discrete_dist::param_type p;
+	     poisson_dist &g) {
+    poisson_dist::param_type p;
     std::ios_base::fmtflags flags(in.flags());
     in.flags(std::ios_base::dec | std::ios_base::fixed |
 	     std::ios_base::left);
     in >> utility::ignore_spaces()
-       >> utility::delim("[discrete ") >> p >> utility::delim(']');
+       >> utility::delim("[poisson ") >> p >> utility::delim(']');
     if (in)
       g.param(p);
     in.flags(flags);
@@ -276,3 +213,4 @@ namespace trng {
 }
 
 #endif
+
