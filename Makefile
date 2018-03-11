@@ -134,4 +134,7 @@ test installcheck: install
 format:
 	resources/bash/clang-format-all .
 
+format-check:
+	resources/bash/clang-format-all --check .
+
 #############################################################################
