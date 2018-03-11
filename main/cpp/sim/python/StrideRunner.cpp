@@ -22,11 +22,11 @@
 
 #include "output/AdoptedFile.h"
 #include "output/CasesFile.h"
-#include "output/PersonFile.h"
+#include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/ConfigInfo.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
 
@@ -35,6 +35,7 @@
 #include <spdlog/spdlog.h>
 
 namespace stride {
+namespace python {
 
 using namespace output;
 using namespace util;
@@ -60,7 +61,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         cout << "Starting up at:      " << TimeStamp().ToString() << endl;
 
         if (use_install_dirs) {
-                InstallDirs dirs;
+                FileSys dirs;
                 cout << "Executing:           " << dirs.GetExecPath().string() << endl;
                 cout << "Current directory:   " << dirs.GetCurrentDir().string() << endl;
                 cout << "Install directory:   " << dirs.GetRootDir().string() << endl;
@@ -102,6 +103,18 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         } else {
                 cout << "Not using OpenMP threads." << endl;
         }
+
+        // -----------------------------------------------------------------------------------------
+        // Configuration.
+        // -----------------------------------------------------------------------------------------
+        // track_index_case (-r switch on commandline)
+        m_pt_config.put("run.track_index_case", track_index_case);
+
+        // use_install_dirs (-w or --working_dir switch on commandline)
+        m_pt_config.put("run.use_install_dirs", use_install_dirs);
+
+        // num_threads
+        m_pt_config.put("run.num_threads", num_threads);
 
         // -----------------------------------------------------------------------------------------
         // Set output path prefix.
@@ -148,7 +161,8 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         //------------------------------------------------------------------------------
         m_clock.Start();
         cout << "Building the simulator. " << endl;
-        m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
+        SimulatorBuilder builder(m_pt_config);
+        m_sim = builder.Build();
         cout << "Done building the simulator. " << endl;
 
         // -----------------------------------------------------------------------------------------
@@ -240,9 +254,10 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
 
         // Persons
         if (pt_config.get<double>("run.generate_person_file") == 1) {
-                PersonFile person_file(output_prefix);
+                PersonsFile person_file(output_prefix);
                 person_file.Print(m_sim->GetPopulation());
         }
 }
 
+} // namespace python
 } // namespace stride
