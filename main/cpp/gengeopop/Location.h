@@ -16,6 +16,9 @@ namespace gengeopop {
         unsigned int getID();
         unsigned int getPopulation();
 
+        const std::vector<std::shared_ptr<ContactCenter> >& getContactCenters() const;
+
+
     private:
         unsigned int m_id = 0;
         std::string m_name;

@@ -28,13 +28,19 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
         weights.push_back((double) loc->getPopulation() / (double) geoGridConfig.populationSize);
     }
 
+        if (weights.size() == 0) {
+                // trng can't handle empty vectors
+                return;
+        }
+
+
     auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
 
     for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
         int locationId = dist();
         std::shared_ptr<Location> loc = (*geoGrid)[locationId];
         loc->addContactCenter(std::make_shared<School>());
-        std::cout << "Assign school " << schoolId << " to " << loc->getName() << std::endl;
+//        std::cout << "Assign school " << schoolId << " to " << loc->getName() << std::endl;
     }
 
 }

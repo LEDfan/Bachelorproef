@@ -26,6 +26,7 @@ set( SRC
 		testTemplate.cpp
 		CitiesCSVReaderTest.cpp
 		HouseholdCSVReaderTest.cpp
+        gengeopop/generators/SchoolGeneratorTest.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )

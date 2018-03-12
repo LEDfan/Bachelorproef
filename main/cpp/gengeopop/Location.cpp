@@ -26,5 +26,9 @@ namespace gengeopop {
         m_contactCenters.push_back(contactCenter);
     }
 
+    const std::vector<std::shared_ptr<ContactCenter> >& Location::getContactCenters() const {
+            return m_contactCenters;
+    }
+
 }
 
