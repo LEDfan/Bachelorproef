@@ -1,10 +1,10 @@
 #include "Household.h"
 
-unsigned int gengeopop::Household::getMaxPools() {
+unsigned int gengeopop::Household::getMaxPools() const {
     return 1;
 }
 
-unsigned int gengeopop::Household::getPoolSize() {
+unsigned int gengeopop::Household::getPoolSize() const {
     return 15;
 }
 

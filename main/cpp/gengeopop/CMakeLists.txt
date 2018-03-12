@@ -14,6 +14,7 @@ set(GENGEOPOP_LIB
     generators/GeoGridGenerator.cpp
     generators/SchoolGenerator.cpp
     generators/PartialGenerator.cpp
+    generators/HighSchoolGenerator.cpp
     io/CitiesCSVReader.cpp
     io/CitiesReader.cpp
     io/CommutesReader.cpp

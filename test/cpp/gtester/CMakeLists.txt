@@ -27,6 +27,7 @@ set( SRC
 		CitiesCSVReaderTest.cpp
 		HouseholdCSVReaderTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
+        gengeopop/generators/HighSchoolGeneratorTest.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )

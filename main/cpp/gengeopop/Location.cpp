@@ -17,7 +17,7 @@ namespace gengeopop {
         return m_id;
     }
 
-    unsigned int Location::getPopulation() {
+    unsigned int Location::getPopulation() const {
         return m_population;
     }
 

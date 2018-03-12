@@ -20,7 +20,7 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
      */
 
     int amountOfPupils = std::floor(geoGridConfig.populationSize * geoGridConfig.fraction_compulsoryPupils);
-    int amountOfSchools = std::floor(amountOfPupils / 500.0); // TODO magic constant
+    int amountOfSchools = std::ceil(amountOfPupils / 500.0); // TODO magic constant
 
     std::vector<double> weights;
 

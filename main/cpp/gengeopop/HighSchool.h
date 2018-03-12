@@ -4,7 +4,10 @@
 
 namespace gengeopop {
     class HighSchool : public ContactCenter {
-        std::string getType();
+            std::string getType();
+            unsigned int getPoolSize() const;
+            unsigned int getMaxPools() const;
+
     };
 }
 

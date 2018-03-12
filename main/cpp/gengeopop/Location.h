@@ -15,7 +15,9 @@ namespace gengeopop {
         std::string getName();
         unsigned int getProvince();
         unsigned int getID();
-        unsigned int getPopulation();
+
+            unsigned int getPopulation() const;
+
         Coordinate& getCoordinate();
 
         LocationIterator begin();

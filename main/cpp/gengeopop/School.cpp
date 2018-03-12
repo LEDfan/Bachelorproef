@@ -1,10 +1,10 @@
 #include "School.h"
 
-unsigned int gengeopop::School::getMaxPools() {
+unsigned int gengeopop::School::getMaxPools() const {
     return 25;
 }
 
-unsigned int gengeopop::School::getPoolSize() {
+unsigned int gengeopop::School::getPoolSize() const {
     return 20;
 }
 

@@ -9,23 +9,23 @@ namespace {
 
         TEST(SchoolGeneratorTest, OneLocationTest) {
 
-            stride::util::RNManager::Info rnInfo;
-            rnInfo.m_seed = 2;
-            stride::util::RNManager rnManager(rnInfo);
+                stride::util::RNManager::Info rnInfo;
+                rnInfo.m_seed = 2;
+                stride::util::RNManager rnManager(rnInfo);
 
-            SchoolGenerator schoolGenerator(rnManager);
-            GeoGridConfig config;
-            config.populationSize = 10000;
-            config.fraction_compulsoryPupils = 0.20;
+                SchoolGenerator schoolGenerator(rnManager);
+                GeoGridConfig config;
+                config.populationSize = 10000;
+                config.fraction_compulsoryPupils = 0.20;
 
-            auto geoGrid = std::make_shared<GeoGrid>();
-            auto loc1 = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
-            geoGrid->addLocation(loc1);
+                auto geoGrid = std::make_shared<GeoGrid>();
+                auto loc1 = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
+                geoGrid->addLocation(loc1);
 
-            schoolGenerator.apply(geoGrid, config);
+                schoolGenerator.apply(geoGrid, config);
 
-            const auto& centersOfLoc1 = loc1->getContactCenters();
-            EXPECT_EQ(centersOfLoc1.size(), 4);
+                const auto& centersOfLoc1 = loc1->getContactCenters();
+                EXPECT_EQ(centersOfLoc1.size(), 4);
 
         }
 
@@ -43,6 +43,7 @@ namespace {
                 auto geoGrid = std::make_shared<GeoGrid>();
                 schoolGenerator.apply(geoGrid, config);
 
+                EXPECT_EQ(geoGrid->size(), 0);
         }
 
         TEST(SchoolGeneratorTest, FiveLocationsTest) {
@@ -81,7 +82,7 @@ namespace {
                 EXPECT_EQ(centersOfLoc3.size(), 335);
 
                 const auto& centersOfLoc4 = loc4->getContactCenters();
-                EXPECT_EQ(centersOfLoc4.size(), 131);
+                EXPECT_EQ(centersOfLoc4.size(), 132);
 
                 const auto& centersOfLoc5 = loc5->getContactCenters();
                 EXPECT_EQ(centersOfLoc5.size(), 174);
