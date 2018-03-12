@@ -15,10 +15,10 @@
 
 /**
  * @file
- * Interface for install directory queries.
+ * Utilities for interaction with filesystem.
  */
 
-#include "InstallDirs.h"
+#include "FileSys.h"
 
 #include "util/StringUtils.h"
 
@@ -43,33 +43,57 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
-void InstallDirs::Print(ostream& os)
+boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, const std::string& filename)
 {
-        os << "Local      directory:   " << InstallDirs::GetExecPath().string() << endl;
-        os << "Current    directory:   " << InstallDirs::GetCurrentDir().string() << endl;
-        os << "Install    directory:   " << InstallDirs::GetRootDir().string() << endl;
-        os << "Config     directory:   " << InstallDirs::GetConfigDir().string() << endl;
-        os << "Data       directory:   " << InstallDirs::GetDataDir().string() << endl;
-        os << "Checkpoint directory:   " << InstallDirs::GetCheckpointsDir().string() << endl;
+        boost::filesystem::path p = output_prefix;
+        if (FileSys::IsDirectoryString(output_prefix)) {
+                // file <filename> in dircetor <output_prefix>
+                p /= filename;
+        } else {
+                // full name is <output_prefix><filename>
+                p += filename;
+        }
+        return p;
 }
 
-void InstallDirs::Check()
+bool FileSys::CheckInstallEnv(function<void(const string&)> logger)
 {
-        if (InstallDirs::GetCurrentDir().compare(InstallDirs::GetRootDir()) != 0) {
-                throw runtime_error(string(__func__) + "> Current directory is not install root! Aborting.");
+        bool status = true;
+
+        // Current working dir has to be install root dir.
+        if (GetCurrentDir().compare(GetRootDir()) != 0) {
+                if (logger)
+                        logger("Current working dir not install root!");
+                status = false;
         }
-        if (InstallDirs::GetDataDir().empty()) {
-                throw runtime_error(string(__func__) + "> Data directory not present! Aborting.");
+        /// There has to be a config dir in the install root dir.
+        if (GetConfigDir().empty()) {
+                if (logger)
+                        logger("Config dir not present in install root!");
+                status = false;
         }
+        /// There has to be a data dir in the install root dir.
+        if (GetDataDir().empty()) {
+                if (logger)
+                        logger("Data dir not present in install root!");
+                status = false;
+        }
+        /// There has to be a data dir in the install root dir.
+        if (GetTestsDir().empty()) {
+                if (logger)
+                        logger("Tests dir not present in install root!");
+                status = false;
+        }
+        return status;
 }
 
-InstallDirs::Dirs& InstallDirs::Get()
+FileSys::Dirs& FileSys::Get()
 {
         static Dirs dirs = Initialize();
         return dirs;
 }
 
-InstallDirs::Dirs InstallDirs::Initialize()
+FileSys::Dirs FileSys::Initialize()
 {
         Dirs dirs;
         //------- Retrieving path of executable
@@ -137,31 +161,33 @@ InstallDirs::Dirs InstallDirs::Initialize()
                         }
                 }
         }
-        //------- Data Dir
-        {
-                dirs.m_data_dir = dirs.m_root_dir / "data";
-                dirs.m_data_dir = is_directory(dirs.m_data_dir) ? dirs.m_data_dir : path();
-        }
         //------- Current Dir
         {
                 dirs.m_current_dir = system_complete(current_path());
-        }
-        //------- Checkpoints Dir
-        {
-                dirs.m_checkpoints_dir = dirs.m_root_dir / "checkpoints";
-                dirs.m_checkpoints_dir = is_directory(dirs.m_checkpoints_dir) ? dirs.m_checkpoints_dir : path();
-        }
-        //------- Tests Dir
-        {
-                dirs.m_tests_dir = dirs.m_root_dir / "tests";
-                dirs.m_tests_dir = is_directory(dirs.m_tests_dir) ? dirs.m_tests_dir : path();
         }
         //------- Config Dir
         {
                 dirs.m_config_dir = dirs.m_root_dir / "config";
                 dirs.m_config_dir = is_directory(dirs.m_config_dir) ? dirs.m_config_dir : path();
         }
+        //------- Data Dir
+        {
+                dirs.m_data_dir = dirs.m_root_dir / "data";
+                dirs.m_data_dir = is_directory(dirs.m_data_dir) ? dirs.m_data_dir : path();
+        }
+        //------- Tests Dir
+        {
+                dirs.m_tests_dir = dirs.m_root_dir / "tests";
+                dirs.m_tests_dir = is_directory(dirs.m_tests_dir) ? dirs.m_tests_dir : path();
+        }
+
         return dirs;
+}
+
+bool FileSys::IsDirectoryString(const string& s)
+{
+        const auto n = s.find('/');
+        return n != string::npos;
 }
 
 } // namespace util

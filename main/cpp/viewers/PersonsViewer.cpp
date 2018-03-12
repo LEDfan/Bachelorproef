@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -11,40 +10,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Header file for Belief.
+ * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include "PersonsViewer.h"
+#include "sim/SimRunner.h"
+#include "sim/Simulator.h"
+
+using namespace std;
+using namespace stride::sim_event;
 
 namespace stride {
+namespace viewers {
 
-/**
- * Base class for all belief policies.
- */
-class Belief
+void PersonsViewer::update(const sim_event::Payload& p)
 {
-public:
-        ///
-        Belief(const boost::property_tree::ptree& pt) {}
+        switch (p.m_event_id) {
+        case Id::AtStart: break;
+        case Id::Stepped: break;
+        case Id::Finished: m_persons_file.Print(p.m_runner->GetSim()->GetPopulation()); break;
+        }
+}
 
-        ///
-        virtual ~Belief() {}
-
-        ///
-        // boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        // void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
-
-        virtual bool HasAdopted() const { return false; }
-
-private:
-        // boost::property_tree::ptree m_pt; ///<
-};
-
+} // namespace viewers
 } // namespace stride

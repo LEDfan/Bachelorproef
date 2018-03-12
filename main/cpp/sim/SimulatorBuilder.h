@@ -23,6 +23,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -32,23 +33,29 @@ namespace stride {
 class SimulatorBuilder
 {
 public:
-        ///
-        static std::shared_ptr<Simulator> Build(const std::string& config_file_name, unsigned int num_threads,
-                                                bool track_index_case = false);
+        /// Initializing SimulatorBuilder.
+        SimulatorBuilder(const boost::property_tree::ptree& config_pt);
 
         /// Build the simulator.
-        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config, unsigned int num_threads,
-                                                bool track_index_case = false);
-
-        /// Build the simulator.
-        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
-                                                const boost::property_tree::ptree& pt_disease,
-                                                const boost::property_tree::ptree& pt_contact,
-                                                unsigned int num_threads = 1U, bool track_index_case = false);
+        std::shared_ptr<Simulator> Build();
 
 private:
+        /// Build the simulator.
+        std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_disease,
+                                         const boost::property_tree::ptree& pt_contact);
+
         /// Initialize the contactpoolss.
         static void InitializeContactPools(std::shared_ptr<Simulator> sim);
+
+        /// Get the contact configuration data.
+        boost::property_tree::ptree ReadContactPtree();
+
+        /// Get the disease configuration data.
+        boost::property_tree::ptree ReadDiseasePtree();
+
+private:
+        std::shared_ptr<spdlog::logger> m_logger;
+        boost::property_tree::ptree     m_pt_config;
 };
 
 } // namespace stride

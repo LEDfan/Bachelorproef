@@ -35,28 +35,35 @@ set(LIB_SRC
 #---
 	output/AdoptedFile.cpp
 	output/CasesFile.cpp
-	output/PersonFile.cpp
+    output/PersonsFile.cpp
 	output/SummaryFile.cpp
 #---
     pop/Person.cpp
+    pop/Population.cpp
     pop/PopulationBuilder.cpp
 #---
     sim/CliController.cpp
 	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
-	sim/StrideRunner.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
+	sim/python/StrideRunner.cpp
 #---
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileUtils.cpp
-	util/InstallDirs.cpp
+    util/FileSys.cpp
+	util/LogUtils.cpp
+	util/PtreeUtils.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
 #---
+	viewers/AdoptedViewer.cpp
+	viewers/CasesViewer.cpp
     viewers/CliViewer.cpp
+    viewers/PersonsViewer.cpp
+	viewers/SummaryViewer.cpp
 )
 
 #============================================================================

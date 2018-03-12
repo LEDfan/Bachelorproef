@@ -11,40 +11,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Header file for Belief.
+ * Observer for Cases output.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include "output/CasesFile.h"
+#include "sim/event/Payload.h"
+
+#include <iostream>
+#include <spdlog/spdlog.h>
 
 namespace stride {
+namespace viewers {
 
-/**
- * Base class for all belief policies.
- */
-class Belief
+/// Viewer of Simulator for cases output.
+class CasesViewer
 {
 public:
-        ///
-        Belief(const boost::property_tree::ptree& pt) {}
+        /// Instantiate cases viewer.
+        CasesViewer(const std::string& output_prefix) : m_cases_file(output_prefix) {}
 
-        ///
-        virtual ~Belief() {}
-
-        ///
-        // boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        // void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
-
-        virtual bool HasAdopted() const { return false; }
+        /// Let viewer perform update.
+        void update(const sim_event::Payload& p);
 
 private:
-        // boost::property_tree::ptree m_pt; ///<
+        std::vector<unsigned int> m_cases;
+        output::CasesFile         m_cases_file;
 };
 
+} // namespace viewers
 } // namespace stride

@@ -16,35 +16,41 @@
 
 /**
  * @file
- * Header file for Belief.
+ * Header for the PersonFile class.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include <fstream>
+#include <memory>
+#include <string>
 
 namespace stride {
 
+class Population;
+
+namespace output {
+
 /**
- * Base class for all belief policies.
+ * Produces a file with daily cases count.
  */
-class Belief
+class PersonsFile
 {
 public:
-        ///
-        Belief(const boost::property_tree::ptree& pt) {}
+        /// Constructor: initialize.
+        explicit PersonsFile(const std::string& output_dir = "output");
 
-        ///
-        virtual ~Belief() {}
+        /// Destructor: close the file stream.
+        ~PersonsFile();
 
-        ///
-        // boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        // void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
-
-        virtual bool HasAdopted() const { return false; }
+        /// Print the given cases with corresponding tag.
+        void Print(std::shared_ptr<const Population> population);
 
 private:
-        // boost::property_tree::ptree m_pt; ///<
+        /// Generate file name and open the file stream.
+        void Initialize(const std::string& output_dir);
+
+private:
+        std::ofstream m_fstream;
 };
 
+} // namespace output
 } // namespace stride

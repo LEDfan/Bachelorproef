@@ -68,6 +68,8 @@ public:
                         pt_config.put("run.global_information_policy", "NoGlobalInformation");
                         pt_config.put("run.belief_policy.name", "NoBelief");
                         pt_config.put("run.behaviour_policy", "NoBehaviour");
+                        pt_config.put("run.use_install_dirs", true);
+                        pt_config.put("run.track_index_case", false);
                 }
                 return pt_config;
         }
@@ -81,30 +83,30 @@ public:
 
                 if (tag == "influenza_a") {
                         target = 2093;
-                        sigma = 116.60326645015648;
+                        sigma  = 116.60326645015648;
                 }
                 if (tag == "influenza_b") {
                         pt.put("run.seeding_rate", 0.0);
                         target = 0U;
-                        sigma = 0;
+                        sigma  = 0;
                 }
                 if (tag == "influenza_c") {
                         pt.put("run.seeding_rate", (1 - 0.9991) / 100);
                         pt.put("run.immunity_rate", 0.9991);
                         target = 5U;
-                        sigma = 0;
+                        sigma  = 0;
                 }
                 if (tag == "measles_16") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 16U);
                         target = 590086;
-                        sigma = 660.8227044636814;
+                        sigma  = 660.8227044636814;
                 }
                 if (tag == "measles_60") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 60U);
                         target = 600000U;
-                        sigma = 0;
+                        sigma  = 0;
                 }
                 return make_tuple(pt, target, sigma);
         };
@@ -136,7 +138,7 @@ TEST_P(BatchRuns, Run)
         // Scenario configuration and target number.
         // -----------------------------------------------------------------------------------------
         const auto d         = ScenarioData(test_tag);
-        const auto pt_config = get<0>(d);
+        auto       pt_config = get<0>(d);
         const auto target    = get<1>(d);
         const auto sigma     = get<2>(d);
 
@@ -153,7 +155,9 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         cout << "Building the simulator. " << endl;
         cout << " ----> test_tag: " << test_tag << endl << " ----> threadcount:  " << num_threads << endl;
-        auto sim = SimulatorBuilder::Build(pt_config, num_threads);
+        pt_config.put("run.num_threads", num_threads);
+        SimulatorBuilder builder(pt_config);
+        const auto       sim = builder.Build();
         cout << "Done building the simulator" << endl;
 
         // -----------------------------------------------------------------------------------------
