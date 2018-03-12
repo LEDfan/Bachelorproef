@@ -101,6 +101,16 @@ public:
         /// Set the age of the person
         void setAge(unsigned int newAge);
 
+        unsigned int GetHouseholdId() { return m_household_id; }
+
+        unsigned int GetSchoolId() { return m_school_id; }
+
+        unsigned int GetWorkId() { return m_work_id; }
+
+        unsigned int GetPrimaryCommunityId() { return m_primary_community_id; }
+
+        unsigned int GetSecondaryCommunityId() { return m_secondary_community_id; }
+
 private:
         unsigned int m_id;     ///< The id.
         double       m_age;    ///< The age.

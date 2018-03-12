@@ -8,7 +8,7 @@ namespace gengeopop {
     public:
         unsigned int getMaxPools();
         unsigned int getPoolSize();
-
+        std::string getType();
     };
 
 }

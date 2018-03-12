@@ -2,6 +2,7 @@
 #include <memory>
 #include "generators/GeoGridGenerator.h"
 #include "generators/SchoolGenerator.h"
+#include "io/GeoGridJSONWriter.h"
 #include "GeoGrid.h"
 
 using namespace gengeopop;
@@ -13,10 +14,12 @@ int main() {
 
         GeoGridGenerator geoGridGenerator(config);
         std::shared_ptr<GeoGrid> geoGrid = geoGridGenerator.getGeoGrid();
-        geoGrid->addLocation(std::make_shared<Location>(1, 4, 2500, 0, 0, 0, 0, "Bavikhove"));
-        geoGrid->addLocation(std::make_shared<Location>(2, 3, 5000, 0, 0, 0, 0, "Gent"));
-        geoGrid->addLocation(std::make_shared<Location>(3, 2, 2500, 0, 0, 0, 0, "Mons"));
+        geoGrid->addLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove"));
+        geoGrid->addLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent"));
+        geoGrid->addLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons"));
 
+        GeoGridJSONWriter writer;
+        writer.write(geoGrid, std::cout);
 
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 100;

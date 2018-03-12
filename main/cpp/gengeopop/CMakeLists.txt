@@ -14,12 +14,14 @@ set(GENGEOPOP_LIB
     generators/GeoGridGenerator.cpp
     generators/SchoolGenerator.cpp
     generators/PartialGenerator.cpp
-    readers/CitiesCSVReader.cpp
-    readers/CitiesReader.cpp
-    readers/CommutesReader.cpp
-    readers/HouseholdCSVReader.cpp
-    readers/HouseholdReader.cpp
-    readers/ReaderFactory.cpp
+    io/CitiesCSVReader.cpp
+    io/CitiesReader.cpp
+    io/CommutesReader.cpp
+    io/HouseholdCSVReader.cpp
+    io/HouseholdReader.cpp
+    io/ReaderFactory.cpp
+    io/GeoGridWriter.cpp
+    io/GeoGridJSONWriter.cpp
 
     # TOOD remove header files after initial implementation
     Community.h
@@ -30,9 +32,9 @@ set(GENGEOPOP_LIB
     generators/PartialGenerator.h
     generators/SchoolGenerator.h
     generators/PartialGenerator.h
-    readers/CitiesCSVReader.h
-    readers/HouseholdCSVReader.h
-    readers/HouseholdReader.h
+    io/CitiesCSVReader.h
+    io/HouseholdCSVReader.h
+    io/HouseholdReader.h
     GeoGridConfig.h
 )
 

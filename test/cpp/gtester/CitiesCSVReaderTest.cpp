@@ -14,7 +14,7 @@
  */
 
 #include <gtest/gtest.h>
-#include <gengeopop/readers/CitiesCSVReader.h>
+#include <gengeopop/io/CitiesCSVReader.h>
 
 
 namespace {

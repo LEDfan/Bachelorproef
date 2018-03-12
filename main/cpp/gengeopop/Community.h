@@ -8,7 +8,7 @@ namespace gengeopop {
     class Community : public ContactCenter {
     public:
         void addHouseHold(std::shared_ptr<Household> household);
-
+        std::string getType();
     };
 
 }

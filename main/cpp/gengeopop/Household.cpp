@@ -7,3 +7,7 @@ unsigned int gengeopop::Household::getMaxPools() {
 unsigned int gengeopop::Household::getPoolSize() {
     return 15;
 }
+
+std::string gengeopop::Household::getType() {
+    return "Household";
+}

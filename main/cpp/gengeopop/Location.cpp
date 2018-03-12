@@ -1,8 +1,7 @@
 #include "Location.h"
 
 namespace gengeopop {
-    Location::Location(unsigned int id, unsigned int province, unsigned int population, double x_coord, double y_coord,
-                       double latittude, double longitude, std::string name) : m_id(id), m_province(province), m_name(name), m_population(population) {
+    Location::Location(unsigned int id, unsigned int province, unsigned int population, Coordinate coordinate, std::string name) : m_id(id), m_province(province), m_coordinate(coordinate), m_name(name), m_population(population) {
 
     }
 
@@ -28,6 +27,18 @@ namespace gengeopop {
 
     const std::vector<std::shared_ptr<ContactCenter> >& Location::getContactCenters() const {
             return m_contactCenters;
+    }
+
+    Coordinate &Location::getCoordinate() {
+        return m_coordinate;
+    }
+
+    LocationIterator Location::begin() {
+        return m_contactCenters.begin();
+    }
+
+    LocationIterator Location::end() {
+        return m_contactCenters.end();
     }
 
 }

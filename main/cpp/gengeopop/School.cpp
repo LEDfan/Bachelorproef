@@ -7,3 +7,7 @@ unsigned int gengeopop::School::getMaxPools() {
 unsigned int gengeopop::School::getPoolSize() {
     return 20;
 }
+
+std::string gengeopop::School::getType() {
+    return "School";
+}

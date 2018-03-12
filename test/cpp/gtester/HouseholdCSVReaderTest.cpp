@@ -14,7 +14,7 @@
  */
 
 #include <gtest/gtest.h>
-#include <gengeopop/readers/HouseholdCSVReader.h>
+#include <gengeopop/io/HouseholdCSVReader.h>
 #include <memory>
 
 namespace {
