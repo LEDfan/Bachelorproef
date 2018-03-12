@@ -13,7 +13,7 @@ set(GENGEOPOP_LIB
     Workplace.cpp
     generators/GeoGridGenerator.cpp
     generators/SchoolGenerator.cpp
-    generators/IPartialGenerator.h
+    generators/PartialGenerator.cpp
     readers/CitiesCSVReader.cpp
     readers/CitiesReader.cpp
     readers/CommutesReader.cpp
@@ -27,8 +27,9 @@ set(GENGEOPOP_LIB
     School.h
     Workplace.h
     generators/GeoGridGenerator.h
-    generators/IPartialGenerator.h
+    generators/PartialGenerator.h
     generators/SchoolGenerator.h
+    generators/PartialGenerator.h
     readers/CitiesCSVReader.h
     readers/HouseholdCSVReader.h
     readers/HouseholdReader.h

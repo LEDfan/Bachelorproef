@@ -17,7 +17,12 @@ int main() {
         geoGrid->addLocation(std::make_shared<Location>(2, 3, 5000, 0, 0, 0, 0, "Gent"));
         geoGrid->addLocation(std::make_shared<Location>(3, 2, 2500, 0, 0, 0, 0, "Mons"));
 
-        auto schoolGenerator = std::make_shared<SchoolGenerator>();
+
+        stride::util::RNManager::Info rnInfo;
+        rnInfo.m_seed = 100;
+        stride::util::RNManager rnManager(rnInfo);
+
+        auto schoolGenerator = std::make_shared<SchoolGenerator>(rnManager);
 
         geoGridGenerator.addPartialGenerator(schoolGenerator);
 
