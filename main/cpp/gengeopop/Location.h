@@ -48,7 +48,7 @@ namespace gengeopop {
         int incomingCommutingPeople(double fractionOfPopulationCommuting) const;
 
 
-        Coordinate& getCoordinate();
+        const Coordinate& getCoordinate() const;
 
         iterator begin();
         iterator end();

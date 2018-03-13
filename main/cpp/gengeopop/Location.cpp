@@ -30,7 +30,7 @@ namespace gengeopop {
             return m_contactCenters;
     }
 
-    Coordinate &Location::getCoordinate() {
+    const Coordinate &Location::getCoordinate() const {
         return m_coordinate;
     }
 
