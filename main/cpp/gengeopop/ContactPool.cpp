@@ -1,25 +1,29 @@
 #include "ContactPool.h"
 
-void gengeopop::ContactPool::addMember(std::shared_ptr<stride::Person> p) {
-    m_people.push_back(p);
+namespace gengeopop {
+
+void ContactPool::addMember(std::shared_ptr<stride::Person> p) {
+        m_people.push_back(p);
 }
 
-unsigned int gengeopop::ContactPool::getID() {
-    return m_id;
+unsigned int ContactPool::getID() const {
+        return m_id;
 }
 
-unsigned long gengeopop::ContactPool::getCapacity() {
-    return m_capacity;
+unsigned long ContactPool::getCapacity() const {
+        return m_capacity;
 }
 
-unsigned long gengeopop::ContactPool::getUsedCapacity() {
-    return m_people.size();
+unsigned long ContactPool::getUsedCapacity() const {
+        return m_people.size();
 }
 
-gengeopop::ContactPoolIterator gengeopop::ContactPool::begin() {
-    return m_people.begin();
+ContactPool::iterator gengeopop::ContactPool::begin() {
+        return m_people.begin();
 }
 
-gengeopop::ContactPoolIterator gengeopop::ContactPool::end() {
-    return m_people.end();
+ContactPool::iterator gengeopop::ContactPool::end() {
+        return m_people.end();
+}
+
 }

@@ -1,18 +1,17 @@
 #include "Workplace.h"
 
-unsigned int gengeopop::Workplace::getPoolSize() {
-    return 20;
+namespace gengeopop {
+
+std::string Workplace::getType() const {
+        return "Workplace";
 }
 
-std::string gengeopop::Workplace::getType() {
-    return "Workplace";
+unsigned int Workplace::getPoolSize() const {
+        return 20;
 }
 
-unsigned int gengeopop::Workplace::getPoolSize() const {
+unsigned int Workplace::getMaxPools() const {
         return 0;
 }
 
-unsigned int gengeopop::Workplace::getMaxPools() const {
-        return 0;
 }
-

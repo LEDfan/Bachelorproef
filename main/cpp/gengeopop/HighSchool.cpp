@@ -1,13 +1,16 @@
 #include "HighSchool.h"
 
-std::string gengeopop::HighSchool::getType() {
+namespace gengeopop {
+
+std::string HighSchool::getType() const {
         return "HighSchool";
 }
 
-unsigned int gengeopop::HighSchool::getMaxPools() const {
+unsigned int HighSchool::getMaxPools() const {
         return 0; // TODO
 }
 
-unsigned int gengeopop::HighSchool::getPoolSize() const {
+unsigned int HighSchool::getPoolSize() const {
         return 0; // TODO
+}
 }

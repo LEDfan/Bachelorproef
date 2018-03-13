@@ -1,5 +1,9 @@
 #include "Community.h"
 
-std::string gengeopop::Community::getType() {
-    return "Community";
+namespace gengeopop {
+
+std::string Community::getType() const {
+        return "Community";
+}
+
 }

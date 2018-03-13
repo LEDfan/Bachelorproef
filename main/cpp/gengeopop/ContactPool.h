@@ -4,16 +4,16 @@
 #include "pop/Person.h"
 
 namespace gengeopop {
-    using ContactPoolIterator = std::vector<std::shared_ptr<stride::Person>>::iterator;
     class ContactPool {
     public:
-        unsigned int getID();
-        unsigned long getCapacity();
-        unsigned long getUsedCapacity();
+        using iterator = std::vector<std::shared_ptr<stride::Person>>::iterator;
+        unsigned int getID() const;
+        unsigned long getCapacity() const;
+        unsigned long getUsedCapacity() const;
         void addMember(std::shared_ptr<stride::Person> p);
 
-        ContactPoolIterator begin();
-        ContactPoolIterator end();
+        iterator begin();
+        iterator end();
 
     private:
         std::vector<std::shared_ptr<stride::Person> > m_people;

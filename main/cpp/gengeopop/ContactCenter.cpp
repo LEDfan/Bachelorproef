@@ -1,13 +1,17 @@
 #include "ContactCenter.h"
 
-void gengeopop::ContactCenter::addPool(std::shared_ptr<gengeopop::ContactPool> pool) {
-    m_pools.push_back(pool);
+namespace gengeopop {
+
+void ContactCenter::addPool(std::shared_ptr<gengeopop::ContactPool> pool) {
+        m_pools.push_back(pool);
 }
 
-gengeopop::ContactCenterIterator gengeopop::ContactCenter::begin() {
-    return m_pools.begin();
+ContactCenter::iterator ContactCenter::begin() {
+        return m_pools.begin();
 }
 
-gengeopop::ContactCenterIterator gengeopop::ContactCenter::end() {
-    return m_pools.end();
+ContactCenter::iterator ContactCenter::end() {
+        return m_pools.end();
+}
+
 }

@@ -6,15 +6,15 @@ namespace gengeopop {
 
     }
 
-    std::string Location::getName(){
+    std::string Location::getName() const {
         return m_name;
     }
 
-    unsigned int Location::getProvince(){
+    unsigned int Location::getProvince() const {
         return m_province;
     }
 
-    unsigned int Location::getID(){
+    unsigned int Location::getID() const {
         return m_id;
     }
 
@@ -34,11 +34,11 @@ namespace gengeopop {
         return m_coordinate;
     }
 
-    LocationIterator Location::begin() {
+    Location::iterator Location::begin() {
         return m_contactCenters.begin();
     }
 
-    LocationIterator Location::end() {
+    Location::iterator Location::end() {
         return m_contactCenters.end();
     }
 

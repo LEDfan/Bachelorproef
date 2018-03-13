@@ -6,15 +6,16 @@
 #include "Coordinate.h"
 
 namespace gengeopop {
-    using LocationIterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
     class Location {
     public:
+        using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
+
         Location(unsigned int id, unsigned int province, unsigned int population = 0, Coordinate coordinate = Coordinate(0.0,0.0,0.0,0.0), std::string name = "");
 
         void addContactCenter(std::shared_ptr<ContactCenter> center);
-        std::string getName();
-        unsigned int getProvince();
-        unsigned int getID();
+        std::string getName() const;
+        unsigned int getProvince() const;
+        unsigned int getID() const;
 
         unsigned int getPopulation() const;
 
@@ -49,8 +50,8 @@ namespace gengeopop {
 
         Coordinate& getCoordinate();
 
-        LocationIterator begin();
-        LocationIterator end();
+        iterator begin();
+        iterator end();
 
         const std::vector<std::shared_ptr<ContactCenter> >& getContactCenters() const;
 
