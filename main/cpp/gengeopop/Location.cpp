@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Location.h"
 
 namespace gengeopop {
@@ -40,6 +41,40 @@ namespace gengeopop {
     LocationIterator Location::end() {
         return m_contactCenters.end();
     }
+
+        const std::vector<std::pair<std::shared_ptr<Location>, double>> &Location::getIncomingCommuningCities() const {
+                return m_incomingCommutingLocations;
+        }
+
+        void Location::addIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion) {
+                m_incomingCommutingLocations.emplace_back(location, proportion);
+        }
+
+        const std::vector<std::pair<std::shared_ptr<Location>, double>> &Location::getOutgoingCommuningCities() const {
+                return m_outgoingCommutingLocations;
+        }
+
+        void Location::addOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion) {
+                m_outgoingCommutingLocations.emplace_back(location, proportion);
+        }
+
+        int Location::incomingCommutingPeople(double fractionOfPopulationCommuting) const {
+                double value = 0;
+                for (const auto& locProportion : m_incomingCommutingLocations) {
+                        // locProportion.second of the people in locProportion.first are commuting to this
+                        value += locProportion.second * (fractionOfPopulationCommuting * (double) locProportion.first->getPopulation());
+                }
+                return static_cast<int>(std::floor(value));
+        }
+
+        int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) const {
+                double totalProportion = 0;
+                for (const auto& locProportion : m_outgoingCommutingLocations) {
+                        // locProportion.second of the people in this are commuting to locProportion.first
+                        totalProportion += locProportion.second;
+                }
+                return static_cast<int>(std::floor(totalProportion * (fractionOfPopulationCommuting * (double) m_population)));
+        }
 
 }
 

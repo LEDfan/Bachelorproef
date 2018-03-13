@@ -16,7 +16,36 @@ namespace gengeopop {
         unsigned int getProvince();
         unsigned int getID();
 
-            unsigned int getPopulation() const;
+        unsigned int getPopulation() const;
+
+       /**
+         *
+         * @return a vector with the outgoing cities which people are commuting to + the proportion
+         */
+        const std::vector<std::pair<std::shared_ptr<Location>, double>>& getIncomingCommuningCities() const;
+
+        /**
+         * Adds a Location and a proportion to the incoming commutng vector
+         * I.e. $proportion of the commuting population in $locatoin are commuting to $this
+         */
+        void addIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
+
+        /**
+         *
+         * @return a vector with the outgoing cities which people are commuting to + the proportion
+         */
+        const std::vector<std::pair<std::shared_ptr<Location>, double>>& getOutgoingCommuningCities() const;
+
+        /**
+         * Adds a Location and a proportion to the incoming commuting vector
+         * I.e. $proportion of the commuting population in $this are commuting to $location
+         */
+        void addOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion);
+
+
+        int outGoingCommutingPeople(double fractionOfPopulationCommuting) const;
+        int incomingCommutingPeople(double fractionOfPopulationCommuting) const;
+
 
         Coordinate& getCoordinate();
 
@@ -33,6 +62,8 @@ namespace gengeopop {
         unsigned int m_population;
         Coordinate m_coordinate;
         std::vector<std::shared_ptr<ContactCenter> >  m_contactCenters;
+        std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
+        std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
 
     };
 

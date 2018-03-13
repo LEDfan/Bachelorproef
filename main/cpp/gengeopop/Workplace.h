@@ -6,6 +6,8 @@ namespace gengeopop {
     class Workplace: public ContactCenter {
     public:
         unsigned int getPoolSize();
+        unsigned int getPoolSize() const;
+        unsigned int getMaxPools() const;
         std::string getType();
     };
 }
