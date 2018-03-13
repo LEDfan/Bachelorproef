@@ -29,6 +29,7 @@ set( SRC
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
+        gengeopop/generators/CommunityGeneratorTest.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )

@@ -28,7 +28,7 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
         weights.push_back((double) loc->getPopulation() / (double) geoGridConfig.populationSize);
     }
 
-        if (weights.size() == 0) {
+        if (weights.empty()) {
                 // trng can't handle empty vectors
                 return;
         }

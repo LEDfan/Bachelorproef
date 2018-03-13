@@ -16,6 +16,7 @@ set(GENGEOPOP_LIB
     generators/PartialGenerator.cpp
     generators/HighSchoolGenerator.cpp
     generators/WorkplaceGenerator.cpp
+    generators/CommunityGenerator.cpp
     io/CitiesCSVReader.cpp
     io/CitiesReader.cpp
     io/CommutesReader.cpp
