@@ -1,8 +1,8 @@
 #pragma once
 
 #include <gengeopop/Location.h>
-#include <string>
 #include <map>
+#include <string>
 
 namespace gengeopop {
 class CitiesReader

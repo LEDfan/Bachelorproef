@@ -22,9 +22,9 @@ TEST(CitiesCSVReaderTest, test1)
 {
         std::string csvString = "id,province,population,x_coord,y_coord,latitude,longitude,name\n"
                                 "11001,1,8249,150964.3953,202431.664,51.1340539,4.3844742,AARTSELAAR";
-        std::istringstream                                instream(csvString);
-        gengeopop::CitiesCSVReader                        reader(instream);
-        auto locs = reader.getLocations();
+        std::istringstream         instream(csvString);
+        gengeopop::CitiesCSVReader reader(instream);
+        auto                       locs = reader.getLocations();
 
         ASSERT_EQ(locs.size(), (unsigned int)1);
         ASSERT_EQ(locs.at(11001)->getName(), std::string("AARTSELAAR"));
