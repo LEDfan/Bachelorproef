@@ -44,6 +44,9 @@ public:
         /// constructor.
         explicit CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
 
+        /// Constructor that uses a stream as input
+        explicit CSV(std::istream& inputStream, std::initializer_list<std::string> optLabels = {});
+
         /// Initialize with header.
         CSV(std::initializer_list<std::string> labels);
 
@@ -77,6 +80,9 @@ public:
 
         /// Compare operator.
         bool operator==(const CSV& other) const;
+
+private:
+        void readFromStream(std::istream& inputStream);
 };
 
 template <typename... T>
