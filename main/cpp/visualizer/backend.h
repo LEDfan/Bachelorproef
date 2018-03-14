@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <gengeopop/GeoGrid.h>
 
 class BackEnd : public QObject
 {
@@ -24,8 +25,11 @@ signals:
         void userNameChanged();
 
 private:
-        QString  m_userName;
-        QObject* _map = nullptr;
+        QString                             m_userName;
+        QObject*                            _map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid> _grid;
+
+        void placeMarker(Coordinate coordinate, std::string id);
 
         /*
          * Places the markers on the map, according to the current checked boxes.

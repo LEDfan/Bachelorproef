@@ -20,6 +20,7 @@ set(CMAKE_AUTOUIC ON)
 #source_group("Source Files" FILES ${SOURCES})
 add_executable(visualizer ${VISUALIZER_SRC} ${QT_RESOURCES})
 target_link_libraries(visualizer
+    libgengeopop
     Qt5::Widgets
     Qt5::Qml
     Qt5::Quick

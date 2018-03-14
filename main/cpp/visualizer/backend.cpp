@@ -2,7 +2,12 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-BackEnd::BackEnd(QObject* parent) : QObject(parent) {}
+BackEnd::BackEnd(QObject* parent) : QObject(parent)
+{
+        _grid = std::make_shared<gengeopop::GeoGrid>();
+        std::shared_ptr<gengeopop::Location> newLoc =
+            std::make_shared<gengeopop::Location>(0, 0, 0, Coordinate(0, 0, 51.2, 4.4));
+}
 
 void BackEnd::loadGeoGridFromFile(const QString& file)
 {
@@ -18,10 +23,8 @@ void BackEnd::placeMarkers()
 
         // Place the new markers
         std::cout << "Placing markers" << std::endl;
-        QVariant returnVal;
         std::cout << _map << std::endl;
-        QMetaObject::invokeMethod(_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
-                                  Q_ARG(QVariant, 51.2), Q_ARG(QVariant, 4.4), Q_ARG(QVariant, "test"));
+        placeMarker({0, 0, 51.1, 4.4}, "1");
 }
 
 void BackEnd::onMarkerClicked(const QString& idOfClicked)
@@ -30,3 +33,11 @@ void BackEnd::onMarkerClicked(const QString& idOfClicked)
 }
 
 void BackEnd::setObjects(QObject* map) { _map = map; }
+
+void BackEnd::placeMarker(Coordinate coordinate, std::string id)
+{
+        QVariant returnVal;
+        QMetaObject::invokeMethod(_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
+                                  Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
+                                  Q_ARG(QVariant, "test"));
+}

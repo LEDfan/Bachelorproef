@@ -6,6 +6,8 @@ import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.0
 import QtPositioning 5.5
 import io.bistromatics.backend 1.0
+import "components"
+import "models"
 
 ApplicationWindow {
 	id: window
@@ -21,86 +23,10 @@ ApplicationWindow {
         Layout.fillWidth: true
 
         // LEFT COLUMN
-        ColumnLayout {
-            Layout.fillWidth: true
-            Text {
-                id: textName
-                text: 'Location: Deurne-Noord'
-            }
-            Text {
-                id: textProvince
-                text: 'Province: Antwerpen'
-            }
-            Text {
-                id: textID
-                text: 'ID: 42'
-            }
-            Text {
-                text: 'ContactCenters:'
-            }
-            TableView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+        LocationViewer {}
 
-                id: cclist
-                width: parent.width
-                height: 50
-                model: ContactCenterModel {}
-                focus: true
-                TableViewColumn {
-                    role: "ID"
-                    title: "ID"
-                    width: 50
-                }
-                TableViewColumn {
-                    role: "type"
-                    title: "Type"
-                    width: 100
-                }
-
-
-            }
-		}
-
-        // MIDDLE COLUMN
-        ColumnLayout {
-            Layout.fillWidth: true
-            Text {
-                id: textSelCCID
-                text: 'Contact Center: 24'
-            }
-            Text {
-                id: textSelCCMaxPoolSize
-                text: 'Max pool size: 42'
-            }
-            Text {
-                id: textSelCCMaxPools
-                text: 'Max pools: 42'
-            }
-            Text {
-                text: 'ContactPools:'
-            }
-            TableView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                id: cplist
-                width: parent.width
-                height: 50
-                model: ContactPoolModel {}
-                focus: true
-                TableViewColumn {
-                    role: "capacity"
-                    title: "Capacity"
-                    width: 100
-                }
-                TableViewColumn {
-                    role: "usedCapacity"
-                    title: "Used Capacity"
-                    width: 100
-                }
-            }
-		}
+        // MIDDLE COLUMN Contact Center info
+        ContactCenterViewer {}
 
 		ColumnLayout {
 			Layout.rightMargin: 4
