@@ -1,18 +1,19 @@
-#include <iostream>
-#include <memory>
+#include "GeoGrid.h"
 #include "generators/GeoGridGenerator.h"
 #include "generators/SchoolGenerator.h"
 #include "io/GeoGridJSONWriter.h"
-#include "GeoGrid.h"
+#include <iostream>
+#include <memory>
 
 using namespace gengeopop;
 
-int main() {
+int main()
+{
         GeoGridConfig config;
-        config.populationSize = 10000;
+        config.populationSize            = 10000;
         config.fraction_compulsoryPupils = 0.20;
 
-        GeoGridGenerator geoGridGenerator(config);
+        GeoGridGenerator         geoGridGenerator(config);
         std::shared_ptr<GeoGrid> geoGrid = geoGridGenerator.getGeoGrid();
         geoGrid->addLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove"));
         geoGrid->addLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent"));

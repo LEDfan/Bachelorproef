@@ -1,16 +1,15 @@
 #pragma once
 
-#include "PartialGenerator.h"
 #include "../GeoGridConfig.h"
+#include "PartialGenerator.h"
 
 namespace gengeopop {
 
-class CommunityGenerator : public PartialGenerator {
+class CommunityGenerator : public PartialGenerator
+{
 public:
+        CommunityGenerator(stride::util::RNManager& rn_manager);
 
-    CommunityGenerator(stride::util::RNManager &rn_manager);
-
-    void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
-
+        void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
-}
+} // namespace gengeopop

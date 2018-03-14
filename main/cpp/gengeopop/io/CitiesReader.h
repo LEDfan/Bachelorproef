@@ -1,16 +1,16 @@
-#pragma  once
+#pragma once
 
-#include <string>
 #include <gengeopop/Location.h>
+#include <string>
 
 namespace gengeopop {
-    class CitiesReader {
-    public:
-            CitiesReader();
-        const std::vector<std::shared_ptr<Location> >& getLocations() const;
+class CitiesReader
+{
+public:
+        CitiesReader();
+        const std::vector<std::shared_ptr<Location>>& getLocations() const;
 
-    protected:
-        std::vector<std::shared_ptr<Location> > m_locations;
-    };
-}
-
+protected:
+        std::vector<std::shared_ptr<Location>> m_locations;
+};
+} // namespace gengeopop

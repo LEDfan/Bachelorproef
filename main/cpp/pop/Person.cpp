@@ -80,8 +80,6 @@ void Person::Update(Person*)
         // TODO update beliefs
 }
 
-void Person::setAge(unsigned int newAge) {
-    m_age = newAge;
-}
+void Person::setAge(unsigned int newAge) { m_age = newAge; }
 
 } // namespace stride

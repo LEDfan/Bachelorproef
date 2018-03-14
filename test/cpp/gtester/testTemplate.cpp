@@ -15,37 +15,39 @@
 
 #include <gtest/gtest.h>
 
-
 /**
  * This is a basic test file. It has a simple usage of the most frequent needed features.
  * Can be copied and adapted to create new tests quickly.
  */
 namespace {
 
-    class AFixture : public testing::Test {
-    protected:
-        virtual void SetUp() {
-            // Set up test environ for every case
-            i = 3;
+class AFixture : public testing::Test
+{
+protected:
+        virtual void SetUp()
+        {
+                // Set up test environ for every case
+                i = 3;
         }
 
-        virtual void TearDown() {
-            // Clean up after test case
+        virtual void TearDown()
+        {
+                // Clean up after test case
         }
 
         int i;
+};
 
-    };
-
-    TEST(Basic, Zero) {
+TEST(Basic, Zero)
+{
         EXPECT_EQ(1, 1);
         EXPECT_LT(1, 2);
-    }
+}
 
-    TEST_F(AFixture, basicFixtureTest){
-       // You can use the fixture here
+TEST_F(AFixture, basicFixtureTest)
+{
+        // You can use the fixture here
         EXPECT_EQ(i, 3);
-    }
+}
 
-}  // namespace
-
+} // namespace

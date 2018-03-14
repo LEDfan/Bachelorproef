@@ -13,24 +13,22 @@
  *  Copyright 2017, 2018 Willem L, Kuylen E, Stijven S & Broeckhove J
  */
 
-#include <gtest/gtest.h>
 #include <gengeopop/io/CitiesCSVReader.h>
-
+#include <gtest/gtest.h>
 
 namespace {
 
-    TEST(CitiesCSVReaderTest, test1) {
-        std::string csvString =     "id,province,population,x_coord,y_coord,latitude,longitude,name\n"
-                                    "11001,1,8249,150964.3953,202431.664,51.1340539,4.3844742,AARTSELAAR";
-        std::istringstream instream(csvString);
-        gengeopop::CitiesCSVReader reader(instream);
-         std::vector<std::shared_ptr<gengeopop::Location> >  locs = reader.getLocations();
+TEST(CitiesCSVReaderTest, test1)
+{
+        std::string csvString = "id,province,population,x_coord,y_coord,latitude,longitude,name\n"
+                                "11001,1,8249,150964.3953,202431.664,51.1340539,4.3844742,AARTSELAAR";
+        std::istringstream                                instream(csvString);
+        gengeopop::CitiesCSVReader                        reader(instream);
+        std::vector<std::shared_ptr<gengeopop::Location>> locs = reader.getLocations();
 
         ASSERT_EQ(locs.size(), (unsigned int)1);
-        ASSERT_EQ(locs[0]->getName(),std::string("AARTSELAAR"));
-        ASSERT_EQ(locs[0]->getProvince(),1);
-    }
+        ASSERT_EQ(locs[0]->getName(), std::string("AARTSELAAR"));
+        ASSERT_EQ(locs[0]->getProvince(), 1);
+}
 
-
-}  // namespace
-
+} // namespace

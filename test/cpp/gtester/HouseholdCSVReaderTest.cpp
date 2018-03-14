@@ -13,23 +13,23 @@
  *  Copyright 2017, 2018 Willem L, Kuylen E, Stijven S & Broeckhove J
  */
 
-#include <gtest/gtest.h>
 #include <gengeopop/io/HouseholdCSVReader.h>
+#include <gtest/gtest.h>
 #include <memory>
 
 namespace {
 
-    TEST(HouseholdCSVReader, test1) {
-        std::string csvString = "hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12\n"
-                                "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n";
-        std::istringstream instream(csvString);
-        gengeopop::HouseholdCSVReader reader(instream);
+TEST(HouseholdCSVReader, test1)
+{
+        std::string csvString =
+            "hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12\n"
+            "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n";
+        std::istringstream                                 instream(csvString);
+        gengeopop::HouseholdCSVReader                      reader(instream);
         std::vector<std::shared_ptr<gengeopop::Household>> HHs = reader.getHouseHolds();
 
         ASSERT_EQ(HHs.size(), (unsigned int)1);
         // TODO test more
-    }
+}
 
-
-}  // namespace
-
+} // namespace

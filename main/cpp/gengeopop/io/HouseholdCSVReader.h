@@ -3,9 +3,9 @@
 #include "HouseholdReader.h"
 
 namespace gengeopop {
-   class HouseholdCSVReader : public HouseholdReader {
-   public:
-       HouseholdCSVReader(std::istream& inputStream);
-
-    };
-}
+class HouseholdCSVReader : public HouseholdReader
+{
+public:
+        HouseholdCSVReader(std::istream& inputStream);
+};
+} // namespace gengeopop

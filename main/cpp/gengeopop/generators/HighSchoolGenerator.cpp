@@ -1,22 +1,21 @@
 #include "HighSchoolGenerator.h"
 #include "../HighSchool.h"
-#include <iostream>
-#include <cmath>
-#include <trng/lcg64.hpp>
 #include <trng/discrete_dist.hpp>
-#include <queue>
+#include <trng/lcg64.hpp>
+#include <cmath>
 #include <gengeopop/HighSchool.h>
+#include <iostream>
+#include <queue>
 
 namespace gengeopop {
 
-HighSchoolGenerator::HighSchoolGenerator(stride::util::RNManager &rn_manager) : PartialGenerator(rn_manager) {
+HighSchoolGenerator::HighSchoolGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
 
-}
-
-void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig) {
-        int amountOfPupils = std::floor(geoGridConfig.populationSize * geoGridConfig.fraction_1826Years_WhichAreStudents);
+void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+{
+        int amountOfPupils =
+            std::floor(geoGridConfig.populationSize * geoGridConfig.fraction_1826Years_WhichAreStudents);
         int amountOfSchools = std::ceil(amountOfPupils / 3000.0); // TODO magic constant
-
 
         std::vector<std::shared_ptr<Location>> cities = geoGrid->topK(10);
 
@@ -34,17 +33,16 @@ void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : cities) {
-                weights.push_back((double) loc->getPopulation() / (double) totalCitiesPopulation);
+                weights.push_back((double)loc->getPopulation() / (double)totalCitiesPopulation);
         }
 
         auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
 
         for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
-                int locationId = dist();
-                std::shared_ptr<Location> loc = cities[locationId];
+                int                       locationId = dist();
+                std::shared_ptr<Location> loc        = cities[locationId];
                 loc->addContactCenter(std::make_shared<HighSchool>());
         }
-
 }
 
-}
+} // namespace gengeopop

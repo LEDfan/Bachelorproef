@@ -1,15 +1,15 @@
 #pragma once
 #include "ContactPool.h"
 
-
 namespace gengeopop {
-    class ContactCenter {
-    public:
+class ContactCenter
+{
+public:
         using iterator = std::vector<std::shared_ptr<ContactPool>>::iterator;
 
-            ContactCenter();
+        ContactCenter();
 
-        virtual std::string getType() const = 0;
+        virtual std::string  getType() const     = 0;
         virtual unsigned int getPoolSize() const = 0;
         virtual unsigned int getMaxPools() const = 0;
 
@@ -18,11 +18,10 @@ namespace gengeopop {
         iterator begin();
         iterator end();
 
-        virtual ~ContactCenter() {};
-    private:
-        std::vector<std::shared_ptr<ContactPool> > m_pools;
+        virtual ~ContactCenter(){};
 
+private:
+        std::vector<std::shared_ptr<ContactPool>> m_pools;
+};
 
-    };
-
-}
+} // namespace gengeopop

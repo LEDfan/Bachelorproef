@@ -53,7 +53,6 @@ public:
         /// Default constructor. Mainly used for swig.
         CSV() = default;
 
-
         /// iterators
         using std::vector<CSVRow>::begin;
         using std::vector<CSVRow>::end;
@@ -81,8 +80,9 @@ public:
 
         /// Compare operator.
         bool operator==(const CSV& other) const;
+
 private:
-    void readFromStream(std::istream& inputStream);
+        void readFromStream(std::istream& inputStream);
 };
 
 template <typename... T>

@@ -3,10 +3,11 @@
 
 namespace gengeopop {
 
-    class Workplace: public ContactCenter {
-    public:
+class Workplace : public ContactCenter
+{
+public:
         unsigned int getPoolSize() const;
         unsigned int getMaxPools() const;
-        std::string getType() const;
-    };
-}
+        std::string  getType() const;
+};
+} // namespace gengeopop
