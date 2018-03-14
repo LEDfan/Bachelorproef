@@ -1,8 +1,8 @@
 #############################################################################
-#  This file is part of the indismo software. 
+#  This file is part of the indismo software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -20,7 +20,7 @@
 #============================================================================
 set( GTEST_RESOURCE_DIR	   ${CMAKE_SOURCE_DIR}/test/resources/lib/gtest/ )
 set( CMAKE_CXX_FLAGS       "${CMAKE_CXX_FLAGS} -w" )
-include_directories( ${GTEST_RESOURCE_DIR} )
+include_directories(SYSTEM ${GTEST_RESOURCE_DIR} )
 add_definitions( -DGTEST_LANG_CXX11 )
 add_library( gtest STATIC ${GTEST_RESOURCE_DIR}/src/gtest-all.cc )
 
