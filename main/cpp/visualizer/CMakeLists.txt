@@ -3,7 +3,6 @@ set(VISUALIZER_SRC
     backend.cpp
 #    backend.h
     main.cpp
-    HomeForm.ui.qml
     backends/LocationViewerBackend.cpp
         objects/LocationQWrapper.cpp objects/LocationQWrapper.h)
 
