@@ -4,7 +4,6 @@
         <file>ContactCenterModel.qml</file>
         <file>ContactPoolModel.qml</file>
         <file>HomeForm.ui.qml</file>
-        <file>Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

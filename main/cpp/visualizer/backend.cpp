@@ -4,17 +4,6 @@
 
 BackEnd::BackEnd(QObject* parent) : QObject(parent) {}
 
-QString BackEnd::userName() { return m_userName; }
-
-void BackEnd::setUserName(const QString& userName)
-{
-        if (userName == m_userName)
-                return;
-
-        m_userName = userName;
-        emit userNameChanged();
-}
-
 void BackEnd::loadGeoGridFromFile(const QString& file)
 {
         // TODO Send the file to the geoGridReader and keep the geoGrid Loaded

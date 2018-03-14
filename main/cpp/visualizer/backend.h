@@ -7,13 +7,9 @@
 class BackEnd : public QObject
 {
         Q_OBJECT
-        Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
 
 public:
         explicit BackEnd(QObject* parent = nullptr);
-
-        QString userName();
-        void setUserName(const QString& userName);
 
         Q_INVOKABLE
         void loadGeoGridFromFile(const QString& file);
