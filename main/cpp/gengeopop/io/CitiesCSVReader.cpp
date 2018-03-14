@@ -9,11 +9,20 @@ gengeopop::CitiesCSVReader::CitiesCSVReader(std::istream& inputStream)
         stride::util::CSV reader(inputStream);
 
         for (const stride::util::CSVRow& row : reader) {
-                Location* newLoc = new Location(stoi(row.getValue(0)), stoi(row.getValue(1)), stoi(row.getValue(2)),
-                                                Coordinate(stoi(row.getValue(3)), stoi(row.getValue(4)),
-                                                           stoi(row.getValue(5)), stoi(row.getValue(6))),
-                                                row.getValue(7));
+                int id = stoi(row.getValue(0));
+                auto location = std::make_shared<Location>(
+                       id, // id
+                       stoi(row.getValue(1)), // province
+                       stoi(row.getValue(2)), // relative population
+                       Coordinate(
+                               stod(row.getValue(3)), // x_coord
+                               stod(row.getValue(4)), // y_coord
+                               stod(row.getValue(5)), // latitude
+                               stod(row.getValue(6))  // longtitude
+                       ),
+                       row.getValue(7)
+                );
 
-                m_locations.emplace_back(newLoc);
+                m_locations.insert({id, location});
         }
 }

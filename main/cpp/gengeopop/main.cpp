@@ -4,33 +4,34 @@
 #include "io/GeoGridJSONWriter.h"
 #include <iostream>
 #include <memory>
+#include <gengeopop/io/CommutesReader.h>
+#include <gengeopop/io/CitiesReader.h>
+#include <gengeopop/io/CitiesCSVReader.h>
+#include <util/FileSys.h>
 
 using namespace gengeopop;
 
 int main()
 {
-        GeoGridConfig config;
-        config.populationSize            = 10000;
-        config.fraction_compulsoryPupils = 0.20;
 
-        GeoGridGenerator         geoGridGenerator(config);
-        std::shared_ptr<GeoGrid> geoGrid = geoGridGenerator.getGeoGrid();
-        geoGrid->addLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove"));
-        geoGrid->addLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent"));
-        geoGrid->addLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons"));
+        std::ifstream file(stride::util::FileSys::GetDataDir().string() + "/flanders_cities.csv");
+        std::ifstream fileCommutes(stride::util::FileSys::GetDataDir().string() + "/flanders_commuting.csv");
 
-        GeoGridJSONWriter writer;
-        writer.write(geoGrid, std::cout);
+        CitiesCSVReader citiesReader(file);
+        const auto& locs = citiesReader.getLocations();
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 100;
-        stride::util::RNManager rnManager(rnInfo);
+        for (const auto& loc : locs) {
+                std::cout << loc.first << "\t" << loc.second->getName() << std::endl;
+        }
 
-        auto schoolGenerator = std::make_shared<SchoolGenerator>(rnManager);
 
-        geoGridGenerator.addPartialGenerator(schoolGenerator);
+        CommutesReader commutesReader(fileCommutes, locs);
+        const auto& commuting = commutesReader.getCommutes();
 
-        geoGridGenerator.generateGeoGrid();
+        for (const auto& commute : commuting) {
+                std::cout << commute.first->getName() << " to " << commute.second.first->getName() << " proportion: " << commute.second.second << std::endl;
+
+        }
 
         return 0;
 }

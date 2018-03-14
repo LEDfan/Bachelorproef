@@ -8,9 +8,13 @@ namespace gengeopop {
 class CommutesReader
 {
 public:
-        std::map<Location, std::map<Location, unsigned int>> getCommutes();
+
+        CommutesReader(std::istream& inputStream, const std::map<int, std::shared_ptr<Location>>& locations);
+
+        const std::map<std::shared_ptr<Location>, std::pair<std::shared_ptr<Location>, double>>& getCommutes() const;
 
 private:
-        std::map<Location, std::map<Location, unsigned int>> m_commutes;
+        std::map<std::shared_ptr<Location>, std::pair<std::shared_ptr<Location>, double>> m_commutes;
+        std::istream& m_inputStream;
 };
 } // namespace gengeopop

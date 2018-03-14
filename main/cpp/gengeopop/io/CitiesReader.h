@@ -2,15 +2,16 @@
 
 #include <gengeopop/Location.h>
 #include <string>
+#include <map>
 
 namespace gengeopop {
 class CitiesReader
 {
 public:
         CitiesReader();
-        const std::vector<std::shared_ptr<Location>>& getLocations() const;
+        const std::map<int, std::shared_ptr<Location>>& getLocations() const;
 
 protected:
-        std::vector<std::shared_ptr<Location>> m_locations;
+        std::map<int, std::shared_ptr<Location>> m_locations;
 };
 } // namespace gengeopop

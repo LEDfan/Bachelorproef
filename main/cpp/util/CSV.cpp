@@ -133,5 +133,9 @@ void CSV::readFromStream(std::istream& inputStream)
         }
 }
 
+const std::vector<std::string>& CSV::getLabels() const {
+        return labels;
+}
+
 } // namespace util
 } // namespace stride

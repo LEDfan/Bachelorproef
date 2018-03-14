@@ -81,6 +81,8 @@ public:
         /// Compare operator.
         bool operator==(const CSV& other) const;
 
+        const std::vector<std::string>& getLabels() const;
+
 private:
         void readFromStream(std::istream& inputStream);
 };
