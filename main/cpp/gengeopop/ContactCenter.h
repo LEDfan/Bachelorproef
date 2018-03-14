@@ -7,6 +7,8 @@ namespace gengeopop {
     public:
         using iterator = std::vector<std::shared_ptr<ContactPool>>::iterator;
 
+            ContactCenter();
+
         virtual std::string getType() const = 0;
         virtual unsigned int getPoolSize() const = 0;
         virtual unsigned int getMaxPools() const = 0;
@@ -15,9 +17,10 @@ namespace gengeopop {
 
         iterator begin();
         iterator end();
+
+        virtual ~ContactCenter() {};
     private:
         std::vector<std::shared_ptr<ContactPool> > m_pools;
-        unsigned int m_max_pools;
 
 
     };

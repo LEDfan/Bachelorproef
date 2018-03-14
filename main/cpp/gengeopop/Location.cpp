@@ -1,8 +1,17 @@
 #include <cmath>
+#include <utility>
 #include "Location.h"
 
 namespace gengeopop {
-    Location::Location(unsigned int id, unsigned int province, unsigned int population, Coordinate coordinate, std::string name) : m_id(id), m_province(province), m_coordinate(coordinate), m_name(name), m_population(population) {
+    Location::Location(unsigned int id, unsigned int province, unsigned int population, Coordinate coordinate, std::string name) :
+            m_id(id),
+            m_name(std::move(name)),
+            m_province(province),
+            m_population(population),
+            m_coordinate(coordinate),
+            m_contactCenters(),
+            m_incomingCommutingLocations(),
+            m_outgoingCommutingLocations() {
 
     }
 

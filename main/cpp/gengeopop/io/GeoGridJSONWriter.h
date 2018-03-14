@@ -10,6 +10,8 @@ namespace gengeopop {
 
     class GeoGridJSONWriter: public GeoGridWriter{
     public:
+            GeoGridJSONWriter();
+
         void write(std::shared_ptr<GeoGrid> geoGrid, std::ostream &stream);
 
     private:
@@ -19,7 +21,7 @@ namespace gengeopop {
         boost::property_tree::ptree parseContactPool(std::shared_ptr<ContactPool> contactPool);
         boost::property_tree::ptree parsePerson(std::shared_ptr<stride::Person> person);
 
-        std::set<std::shared_ptr<stride::Person>> persons_found;
+        std::set<std::shared_ptr<stride::Person>> m_persons_found;
     };
 }
 

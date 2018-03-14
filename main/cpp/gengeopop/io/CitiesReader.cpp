@@ -1,6 +1,14 @@
 #include "CitiesReader.h"
 
-std::vector<std::shared_ptr<gengeopop::Location> > gengeopop::CitiesReader::getLocations(){
-    return m_locations;
+namespace gengeopop {
+
+CitiesReader::CitiesReader() : m_locations() {
+
 }
 
+const std::vector<std::shared_ptr<Location> >& CitiesReader::getLocations() const {
+        return m_locations;
+}
+
+
+}

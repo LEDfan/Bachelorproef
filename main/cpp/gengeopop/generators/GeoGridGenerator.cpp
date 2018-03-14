@@ -3,9 +3,10 @@
 
 namespace gengeopop {
 
-    GeoGridGenerator::GeoGridGenerator(GeoGridConfig geoGridConfig) : m_geoGridConfig(geoGridConfig) {
-
-        m_geoGrid = std::make_shared<GeoGrid>();
+    GeoGridGenerator::GeoGridGenerator(GeoGridConfig geoGridConfig) :
+            m_partialGenerators(),
+            m_geoGrid(std::make_shared<GeoGrid>()),
+            m_geoGridConfig(geoGridConfig) {
     }
 
     void GeoGridGenerator::generateGeoGrid() {

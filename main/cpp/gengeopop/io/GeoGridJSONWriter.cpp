@@ -3,6 +3,11 @@
 #include "GeoGridJSONWriter.h"
 
 namespace gengeopop {
+
+        GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {
+
+        }
+
     void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream &stream) {
         boost::property_tree::ptree root;
 
@@ -13,12 +18,12 @@ namespace gengeopop {
         root.add_child("locations", locations);
 
         boost::property_tree::ptree persons;
-        for (const auto &person: persons_found) {
+        for (const auto &person: m_persons_found) {
             locations.push_back(std::make_pair("", parsePerson(person)));
         }
         root.add_child("persons", persons);
 
-        persons_found.clear();
+        m_persons_found.clear();
         boost::property_tree::write_json(std::cout, root);
     }
 
@@ -63,7 +68,7 @@ namespace gengeopop {
         boost::property_tree::ptree people;
         for (const auto& person: *contactPool) {
             boost::property_tree::ptree person_root;
-            persons_found.insert(person);
+            m_persons_found.insert(person);
             person_root.put("", person->GetId());
             people.push_back(std::make_pair("", person_root));
         }
