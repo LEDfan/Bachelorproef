@@ -4,7 +4,7 @@ import QtLocation 5.3
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.0
-import QtPositioning 5.6
+import QtPositioning 5.5
 import io.bistromatics.backend 1.0
 
 ApplicationWindow {
@@ -152,7 +152,13 @@ ApplicationWindow {
 
         Plugin {
             id: mapPlugin
-            name: "esri"
+            name: "osm"
+			PluginParameter { name: "osm.mapping.host"; value: "https://tile.openstreetmap.org/" }
+			PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
+			PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
+			PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
+			PluginParameter { name: "osm.mapping.copyright"; value: "" }
+			PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }
         }
 
         Map {
@@ -161,7 +167,16 @@ ApplicationWindow {
             plugin: mapPlugin
             zoomLevel: 14
             center: QtPositioning.coordinate(51.2, 4.4)
-            Component.onCompleted: backend.setObjects(map)
+
+			Component.onCompleted: {
+				backend.setObjects(map)
+				for( var i_type in supportedMapTypes  ) {
+					if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
+                    activeMapType = supportedMapTypes[i_type]
+                
+					}
+				}
+			}
 
             function addMarker(lon, lat, markerID) {
                 console.log("qml ADDING MARKER")
