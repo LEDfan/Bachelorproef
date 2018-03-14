@@ -1,5 +1,4 @@
-#ifndef BACKEND_H
-#define BACKEND_H
+#pragma once
 
 #include <QObject>
 #include <QString>
@@ -37,5 +36,3 @@ private:
          */
         void placeMarkers();
 };
-
-#endif // BACKEND_H

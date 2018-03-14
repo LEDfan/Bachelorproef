@@ -4,7 +4,8 @@ set(VISUALIZER_SRC
 #    backend.h
     main.cpp
     HomeForm.ui.qml
-)
+    backends/LocationViewerBackend.cpp
+        objects/LocationQWrapper.cpp objects/LocationQWrapper.h)
 
 find_package(Qt5 COMPONENTS Widgets Qml Quick REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
