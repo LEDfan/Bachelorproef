@@ -58,7 +58,7 @@ A templatized C++ command line parser library developped by M. E. Smoot and
 D. Arano. Available at http://http://tclap.sourceforge.net/
 
 -----------------------------------------------------------------------------
-    TRNG4: see src/main/resources/lib/trng-4.15
+    TRNG4: see src/main/resources/lib/trng-4.16
 -----------------------------------------------------------------------------
 Version 4.0 of Tina's Random Number Generators Library developed by Heiko 
 Bauke and available at htt:/http://numbercrunch.de/trng/. Tina's Random Number 

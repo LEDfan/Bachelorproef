@@ -38,27 +38,8 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
                         throw std::runtime_error("Error opening csv file: " + full_path.string());
                 }
 
-                std::string line;
+                readFromStream(file);
 
-                // header
-                getline(file, line);
-                line = Trim(line);
-                std::vector<std::string> headerLabels =
-                    Split(line, ","); // Split is bad! There is no option to escape ",".
-                for (const std::string& label : headerLabels) {
-                        labels.push_back(Trim(label, "\""));
-                }
-                columnCount = labels.size();
-
-                // body
-                while (getline(file, line)) {
-                        line = Trim(line);
-                        if (!line.empty()) {
-                                std::vector<std::string> values =
-                                    Split(line, ","); // Split is bad! There is no option to escape ",".
-                                addRow(values);
-                        }
-                }
         } catch (std::runtime_error& error) {
                 // thrown by util::checkFile
                 if (optLabels.size() == 0) {
@@ -68,6 +49,11 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
                         columnCount = labels.size();
                 }
         }
+}
+
+CSV::CSV(std::istream& inputStream, std::initializer_list<std::string> optLabels) : columnCount(0)
+{
+        readFromStream(inputStream);
 }
 
 CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
@@ -121,6 +107,30 @@ void stride::util::CSV::write(const boost::filesystem::path& path) const
 bool CSV::operator==(const CSV& other) const
 {
         return labels == other.labels && (const std::vector<CSVRow>&)*this == (const std::vector<CSVRow>&)other;
+}
+
+void CSV::readFromStream(std::istream& inputStream)
+{
+        std::string line;
+
+        // header
+        getline(inputStream, line);
+        line                                  = Trim(line);
+        std::vector<std::string> headerLabels = Split(line, ","); // Split is bad! There is no option to escape ",".
+        for (const std::string& label : headerLabels) {
+                labels.push_back(Trim(label, "\""));
+        }
+        columnCount = labels.size();
+
+        // body
+        while (getline(inputStream, line)) {
+                line = Trim(line);
+                if (!line.empty()) {
+                        std::vector<std::string> values =
+                            Split(line, ","); // Split is bad! There is no option to escape ",".
+                        addRow(values);
+                }
+        }
 }
 
 } // namespace util

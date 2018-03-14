@@ -67,7 +67,7 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 #----------------------------------------------------------------------------
 # Tina's Random Number Generator (TRNG) library and paths
 #----------------------------------------------------------------------------
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/trng-4.15/include)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/trng-4.16/include)
 set(LIBS ${LIBS} trng)
 
 #----------------------------------------------------------------------------
