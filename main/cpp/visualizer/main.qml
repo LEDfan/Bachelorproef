@@ -23,7 +23,9 @@ ApplicationWindow {
         Layout.fillWidth: true
 
         // LEFT COLUMN
-        LocationViewer {}
+        LocationViewer {
+            id: locViewer
+        }
 
         // MIDDLE COLUMN Contact Center info
         ContactCenterViewer {}
@@ -139,9 +141,16 @@ ApplicationWindow {
                 backend.onMarkerClicked(id)
             }
         }
+    }
 
-        BackEnd {
-            id: backend
+    BackEnd {
+        id: backend
+        Component.onCompleted: {
+            backend.locationSelected.connect(clickSignal)
+        }
+
+        function clickSignal (arg) {
+            locViewer.showLocation(arg)
         }
     }
 

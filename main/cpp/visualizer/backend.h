@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QString>
 #include <gengeopop/GeoGrid.h>
+#include <visualizer/objects/LocationQWrapper.h>
 
 class BackEnd : public QObject
 {
@@ -18,14 +19,15 @@ public:
         void setObjects(QObject* map);
 
         Q_INVOKABLE
-        void onMarkerClicked(const QString& idOfClicked);
+        void onMarkerClicked(int idOfClicked);
 
 signals:
-        void userNameChanged();
+        void locationSelected(std::shared_ptr<gengeopop::Location> location);
 
 private:
         QString                             m_userName;
-        QObject*                            _map = nullptr;
+        QObject*                            _map    = nullptr;
+        QObject*                            _parent = nullptr;
         std::shared_ptr<gengeopop::GeoGrid> _grid;
 
         void placeMarker(Coordinate coordinate, std::string id);

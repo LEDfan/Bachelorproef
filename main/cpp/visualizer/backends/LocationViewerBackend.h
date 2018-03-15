@@ -4,19 +4,19 @@
 #include <QString>
 #include <gengeopop/GeoGrid.h>
 
-class LocationViewerBackEnd : public QObject
+class LocationViewerBackend : public QObject
 {
         Q_OBJECT
 
 public:
-        explicit LocationViewerBackEnd(QObject* parent = nullptr);
+        explicit LocationViewerBackend(QObject* parent = nullptr);
 
         Q_INVOKABLE
-        void showLocation(const QObject& location);
+        void showLocation(std::shared_ptr<gengeopop::Location> location);
 
 signals:
-
         void contactCenterSelected();
 
 private:
+        QObject* _parent = nullptr;
 };
