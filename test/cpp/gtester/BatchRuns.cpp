@@ -82,12 +82,8 @@ public:
                 double       sigma  = 0;
 
                 if (tag == "influenza_a") {
-<<<<<<< HEAD
-                        target = 2093;
-                        sigma  = 116.60326645015648;
-=======
                         target = 1085U;
->>>>>>> Correct logic error in PopulationBuilder::Sample (spotted by De Gratis Wafels). Adjusted test target values.
+                        sigma  = 116.60326645015648;
                 }
                 if (tag == "influenza_b") {
                         pt.put("run.seeding_rate", 0.0);
