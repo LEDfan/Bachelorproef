@@ -12,7 +12,7 @@ public:
 
         const std::map<std::shared_ptr<Location>, std::pair<std::shared_ptr<Location>, double>>& getCommutes() const;
 
-private:
+protected:
         std::map<std::shared_ptr<Location>, std::pair<std::shared_ptr<Location>, double>> m_commutes;
         std::istream&                                                                     m_inputStream;
 };

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "CitiesCSVReader.h"
 #include "../../util/CSV.h"
 #include "../../util/CSVRow.h"

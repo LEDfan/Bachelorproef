@@ -20,6 +20,7 @@ set(GENGEOPOP_LIB
     io/CitiesCSVReader.cpp
     io/CitiesReader.cpp
     io/CommutesReader.cpp
+    io/CommutesCSVReader.cpp
     io/HouseholdCSVReader.cpp
     io/HouseholdReader.cpp
     io/ReaderFactory.cpp

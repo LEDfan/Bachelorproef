@@ -24,8 +24,9 @@ set( SRC
 		BatchRuns.cpp
 		InfluenceR0Runs.cpp
 		testTemplate.cpp
-		CitiesCSVReaderTest.cpp
-		HouseholdCSVReaderTest.cpp
+		gengeopop/io/CitiesCSVReaderTest.cpp
+		gengeopop/io/HouseholdCSVReaderTest.cpp
+        gengeopop/io/CommutesReaderTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include <util/FileSys.h>
+#include <gengeopop/io/ReaderFactory.h>
 
 using namespace gengeopop;
 
