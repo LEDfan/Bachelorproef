@@ -3,6 +3,7 @@ import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.2
 import "../models"
 import io.bistromatics.locationviewerbackend 1.0
+import io.bistromatics.contactcenterlistmodel 1.0
 
 ColumnLayout {
     Layout.fillWidth: true
@@ -32,13 +33,9 @@ ColumnLayout {
         width: parent.width
         objectName: 'cclist'
         height: 50
-        model: ListModel {
-            id: locListModel
-            objectName: 'locListModel'
-        }//ContactCenterModel {}
-        focus: true
+        model: ccModel
         TableViewColumn {
-            role: "ID"
+            role: "id"
             title: "ID"
             width: 50
         }
@@ -47,16 +44,6 @@ ColumnLayout {
             title: "Type"
             width: 100
         }
-
-        function addRow(map) {
-            locListModel.append(map);
-        }
-
-        function clearTable() {
-            locListModel.clear();
-        }
-
-
     }
 
     LocationViewerBackend {

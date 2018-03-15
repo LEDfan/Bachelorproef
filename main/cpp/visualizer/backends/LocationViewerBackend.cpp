@@ -9,6 +9,7 @@ void LocationViewerBackend::showLocation(std::shared_ptr<gengeopop::Location> lo
         QObject* provinceText = parent()->findChild<QObject*>(QString("textProvince"));
         QObject* idText       = parent()->findChild<QObject*>(QString("textID"));
         QObject* ccList       = parent()->findChild<QObject*>(QString("cclist"));
+        QObject* ccListModel  = parent()->findChild<QObject*>(QString("ccListModel"));
 
         QString nameString     = "Location: " + QString::fromStdString(location->getName());
         QString provinceString = "Province: " + QString::number(location->getProvince());
