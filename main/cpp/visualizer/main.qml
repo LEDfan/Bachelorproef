@@ -107,7 +107,7 @@ ApplicationWindow {
 			}
 
             function addMarker(lon, lat, markerID) {
-                console.log("qml ADDING MARKER")
+                console.warn("qml ADDING MARKER" + lon +  lat + markerID)
                 var marker = Qt.createQmlObject("   import QtLocation 5.3;
                                                     import QtQuick 2.7;
                                                     MapQuickItem {
@@ -118,8 +118,6 @@ ApplicationWindow {
                                                                    longitude: 4.4
                                                                }
                                                         opacity: 1.0
-
-
                                                         property var markerID: ''
 
                                                         function setID(newID) {
@@ -134,6 +132,8 @@ ApplicationWindow {
                                                     }", map)
                 marker.clicked.connect(markerClicked)
                 marker.setID(markerID)
+                marker.coordinate.latitude = lat
+                marker.coordinate.longitude = lon
                 map.addMapItem(marker)
             }
 

@@ -1,5 +1,6 @@
 #include "backend.h"
 #include <QtCore/QVariant>
+#include <gengeopop/School.h>
 #include <iostream>
 
 BackEnd::BackEnd(QObject* parent) : QObject(parent)
@@ -8,7 +9,15 @@ BackEnd::BackEnd(QObject* parent) : QObject(parent)
         _grid   = std::make_shared<gengeopop::GeoGrid>();
         std::shared_ptr<gengeopop::Location> newLoc =
             std::make_shared<gengeopop::Location>(0, 0, 0, Coordinate(0, 0, 51.2, 4.4), "NAAM");
+        auto newCC = std::make_shared<gengeopop::School>();
+        newLoc->addContactCenter(newCC);
         _grid->addLocation(newLoc);
+
+        std::shared_ptr<gengeopop::Location> newLoc1 =
+            std::make_shared<gengeopop::Location>(1, 1, 1, Coordinate(0, 0, 51.201, 4.4), "Other");
+        auto newCC1 = std::make_shared<gengeopop::School>();
+        newLoc1->addContactCenter(newCC1);
+        _grid->addLocation(newLoc1);
 }
 
 void BackEnd::loadGeoGridFromFile(const QString& file)
@@ -27,6 +36,7 @@ void BackEnd::placeMarkers()
         std::cout << "Placing markers" << std::endl;
         std::cout << _map << std::endl;
         for (std::shared_ptr<gengeopop::Location> loc : _grid->topK(100)) {
+                std::cout << "\tPlacing marker" << std::endl;
                 placeMarker(loc->getCoordinate(), std::to_string(loc->getID()));
         }
 }

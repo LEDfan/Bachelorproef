@@ -4,7 +4,7 @@ set(VISUALIZER_SRC
 #    backend.h
     main.cpp
     backends/LocationViewerBackend.cpp
-        objects/LocationQWrapper.cpp objects/LocationQWrapper.h)
+        objects/LocationQWrapper.cpp objects/LocationQWrapper.h models/ContactCenterListModel.cpp models/ContactCenterListModel.h)
 
 find_package(Qt5 COMPONENTS Widgets Qml Quick REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})

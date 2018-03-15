@@ -30,8 +30,12 @@ ColumnLayout {
 
         id: cclist
         width: parent.width
+        objectName: 'cclist'
         height: 50
-        model: ContactCenterModel {}
+        model: ListModel {
+            id: locListModel
+            objectName: 'locListModel'
+        }//ContactCenterModel {}
         focus: true
         TableViewColumn {
             role: "ID"
@@ -42,6 +46,14 @@ ColumnLayout {
             role: "type"
             title: "Type"
             width: 100
+        }
+
+        function addRow(map) {
+            locListModel.append(map);
+        }
+
+        function clearTable() {
+            locListModel.clear();
         }
 
 
