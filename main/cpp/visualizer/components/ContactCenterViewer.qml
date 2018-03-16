@@ -30,18 +30,33 @@ ColumnLayout {
 
         id: cplist
         width: parent.width
+        objectName: 'cplist'
         height: 50
-        model: ContactPoolModel {}
-        focus: true
+        model: cpModel
+
+        TableViewColumn {
+            role: "ID"
+            title: "ID"
+            width: 50
+        }
         TableViewColumn {
             role: "capacity"
             title: "Capacity"
-            width: 100
+            width: 50
         }
         TableViewColumn {
             role: "usedCapacity"
             title: "Used Capacity"
-            width: 100
+            width: 50
         }
+    }
+
+    //ContactCenterViewerBackend {
+    //    id: contactCenterViewerBackend
+    //}
+
+    function showCenter(center) {
+        locationViewerBackend.showCenter(location)
+        cpModel.setPools(location)
     }
 }

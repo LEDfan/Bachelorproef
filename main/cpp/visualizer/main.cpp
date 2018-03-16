@@ -4,6 +4,7 @@
 #include <QQmlApplicationEngine>
 #include <QtQml/QtQml>
 #include <visualizer/models/ContactCenterListModel.h>
+#include <visualizer/models/ContactPoolListModel.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
 
@@ -19,7 +20,9 @@ int main(int argc, char* argv[])
         QQmlApplicationEngine engine;
 
         ContactCenterListModel ccModel;
+        ContactPoolListModel   cpModel;
         engine.rootContext()->setContextProperty("ccModel", &ccModel);
+        engine.rootContext()->setContextProperty("cpModel", &cpModel);
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
         if (engine.rootObjects().isEmpty())
                 return -1;
