@@ -116,10 +116,11 @@ after_script:
  - git config --global user.email "bot@ledfan.be"
  - git config --global user.name "LEDfan-bot"
  - cp -r test_detail.html ../
- - git checkout gh-pages
- - mkdir -p test_results/${TRAVIS_BRANCH}
  - git remote add origin-pages https://${GH_TOKEN}@github.com/LEDfan/bachelorproef.git > /dev/null 2>&1
- - git mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${BUILD_NAME}.html
+ - git fetch origin-pages gh-pages
+ - git checkout gh-pages
+ - mkdir -p test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}
+ - mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME}.html
  - git add test_results/*
- - git commit -m "#${TRAVIS_JOB_NUMBER} publish test results"
+ - git commit -m "${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME} publish test results"
  - git push origin-pages gh-pages
