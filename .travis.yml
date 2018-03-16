@@ -104,11 +104,13 @@ script:
 after_success:
     - |
         cd ${TRAVIS_BUILD_DIR}
-        if [[ "$STRIDE_GENERATE_COVERAGE" != "True" ]]; then exit 0; fi
+        if [[ "$STRIDE_GENERATE_COVERAGE" == "True" ]]; then
         lcov --directory . --capture --output-file coverage.info # capture coverage info
         lcov --remove coverage.info '/usr/*' 'main/resources/*' 'test/resources/*' "${HOME}/boost_1_66_0_cache/\*\*" --output-file coverage.info # filter out system + boost
         lcov --list coverage.info #debug info
         bash <(curl -s https://codecov.io/bash) -f coverage.info -t f7c8a447-9ce0-48b8-bbe5-b80a4f607cd8 || echo "Codecov did not collect coverage reports"
+        fi
+
 after_script:
  - wget https://github.com/LEDfan/xunit-viewer/files/1819066/xunit-viewer.tar.gz
  - tar -xf xunit-viewer.tar.gz
@@ -124,3 +126,4 @@ after_script:
  - git add test_results/*
  - git commit -m "${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME} publish test results"
  - git push origin-pages gh-pages
+ - echo "\e[0;32mTest report can be viewed at https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME}.html\e[0m"
