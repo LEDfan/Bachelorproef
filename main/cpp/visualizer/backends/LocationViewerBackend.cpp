@@ -18,18 +18,6 @@ void LocationViewerBackend::showLocation(std::shared_ptr<gengeopop::Location> lo
         nameText->setProperty("text", nameString);
         provinceText->setProperty("text", provinceString);
         idText->setProperty("text", idString);
-
-        QVariant returnVal;
-        QMetaObject::invokeMethod(ccList, "clearTable", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal));
-
-        for (auto center : location->getContactCenters()) {
-                QVariantMap map;
-                map.insert("type", QString::fromStdString(center->getType()));
-                map.insert("maxPools", center->getMaxPools());
-                map.insert("poolSize", center->getPoolSize());
-                QMetaObject::invokeMethod(ccList, "addRow", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
-                                          Q_ARG(QVariant, QVariant::fromValue(map)));
-        }
 }
 
 LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent) { _parent = parent; }

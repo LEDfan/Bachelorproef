@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QtCore/QAbstractListModel>
+#include <gengeopop/ContactCenter.h>
+#include <gengeopop/Location.h>
 
 class ContactCenterListModel : public QAbstractListModel
 {
@@ -10,13 +12,20 @@ public:
         QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
         int rowCount(const QModelIndex& parent = QModelIndex()) const;
         int columnCount(const QModelIndex& parent = QModelIndex()) const;
-        QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole);
         QHash<int, QByteArray> roleNames() const;
+
+        Q_INVOKABLE
+        void setCenters(std::shared_ptr<gengeopop::Location> loc);
 
 private:
         enum Roles
         {
                 IDRole = Qt::UserRole + 1,
-                TypeRole
+                TypeRole,
+                PoolSize,
+                MaxPools
+
         };
+
+        std::vector<std::shared_ptr<gengeopop::ContactCenter>> m_centers;
 };

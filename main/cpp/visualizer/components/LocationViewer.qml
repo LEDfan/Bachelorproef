@@ -34,14 +34,20 @@ ColumnLayout {
         objectName: 'cclist'
         height: 50
         model: ccModel
-        TableViewColumn {
-            role: "id"
-            title: "ID"
-            width: 50
-        }
+
         TableViewColumn {
             role: "type"
             title: "Type"
+            width: 100
+        }
+        TableViewColumn {
+            role: "poolSize"
+            title: "Pool Size"
+            width: 100
+        }
+        TableViewColumn {
+            role: "maxPools"
+            title: "Max # Pools"
             width: 100
         }
     }
@@ -53,5 +59,6 @@ ColumnLayout {
     function showLocation(location) {
         console.warn("LOCVWR QML")
         locationViewerBackend.showLocation(location)
+        ccModel.setCenters(location)
     }
 }
