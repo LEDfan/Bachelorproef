@@ -22,7 +22,7 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
         }
         root.add_child("persons", persons);
 
-        persons_found.clear();
+        m_persons_found.clear();
         boost::property_tree::write_json(stream, root);
 }
 
