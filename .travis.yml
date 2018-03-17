@@ -121,9 +121,12 @@ after_script:
  - git remote add origin-pages https://${GH_TOKEN}@github.com/LEDfan/bachelorproef.git > /dev/null 2>&1
  - git fetch origin-pages gh-pages
  - git checkout gh-pages
- - mkdir -p test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}
- - mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME}.html
+ - mkdir -p test_results/${TRAVIS_BRANCH}
+ - mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html
  - git add test_results/*
- - git commit -m "${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME} publish test results"
+ - LINK="https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html"
+ - ./generate.py $TRAVIS_BRANCH $TRAVIS_JOB_NUMBER $BUILD_NAME $LINK
+ - ./generate.py > test-results.md
+ - git commit -m "Ppublish test results @ $LINK"
  - git push origin-pages gh-pages
- - echo "\e[0;32mTest report can be viewed at https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}/${BUILD_NAME}.html\e[0m"
+ - echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
