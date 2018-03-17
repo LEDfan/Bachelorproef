@@ -112,21 +112,24 @@ after_success:
         fi
 
 after_script:
- - wget https://github.com/LEDfan/xunit-viewer/files/1819066/xunit-viewer.tar.gz
- - tar -xf xunit-viewer.tar.gz
- - ./xunit-viewer/bin/xunit-viewer --output=test_detail.html --results=./cmake-build-release/installed/tests/gtester_all.xml
- - git config --global user.email "bot@ledfan.be"
- - git config --global user.name "LEDfan-bot"
- - cp -r test_detail.html ../
- - git remote add origin-pages https://${GH_TOKEN}@github.com/LEDfan/bachelorproef.git > /dev/null 2>&1
- - git fetch origin-pages gh-pages
- - git checkout gh-pages
- - mkdir -p test_results/${TRAVIS_BRANCH}
- - mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html
- - LINK="https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html"
- - ./generate.py add $TRAVIS_BRANCH $TRAVIS_JOB_NUMBER $BUILD_NAME $LINK
- - ./generate.py render > test-results.md
- - git add test_results/* test-results.md test_results.json
- - git commit -m "Publish test results @ $LINK"
- - git push origin-pages gh-pages
- - echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
+ - |
+    if [ -f ./cmake-build-release/installed/tests/gtester_all.xml ]; then
+    wget https://github.com/LEDfan/xunit-viewer/files/1819066/xunit-viewer.tar.gz
+    tar -xf xunit-viewer.tar.gz
+    ./xunit-viewer/bin/xunit-viewer --output=test_detail.html --results=./cmake-build-release/installed/tests/gtester_all.xml
+    git config --global user.email "bot@ledfan.be"
+    git config --global user.name "LEDfan-bot"
+    cp -r test_detail.html ../
+    git remote add origin-pages https://${GH_TOKEN}@github.com/LEDfan/bachelorproef.git > /dev/null 2>&1
+    git fetch origin-pages gh-pages
+    git checkout gh-pages
+    mkdir -p test_results/${TRAVIS_BRANCH}
+    mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html
+    LINK="https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html"
+    ./generate.py add $TRAVIS_BRANCH $TRAVIS_JOB_NUMBER $BUILD_NAME $LINK
+    ./generate.py render > test-results.md
+    git add test_results/* test-results.md test_results.json
+    git commit -m "Publish test results @ $LINK"
+    git push origin-pages gh-pages
+    echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
+    fi
