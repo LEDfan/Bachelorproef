@@ -10,4 +10,5 @@ ContactCenter::iterator ContactCenter::begin() { return m_pools.begin(); }
 
 ContactCenter::iterator ContactCenter::end() { return m_pools.end(); }
 
-} // namespace gengeopop
+std::vector<std::shared_ptr<ContactPool>> ContactCenter::getPools() { return m_pools; }
+};
