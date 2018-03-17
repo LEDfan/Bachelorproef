@@ -59,7 +59,7 @@ ApplicationWindow {
 
                 function addMarker(lon, lat, markerID) {
                     var marker = Qt.createQmlObject("   import QtLocation 5.3;
-                                                        import QtQuick 2.7;
+                                                        import QtQuick 2.0;
                                                         MapQuickItem {
                                                             id: marker
                                                             sourceItem: Rectangle { width: 20; height: 20; color: '#e41e25'; border.width: 2; border.color: 'white'; smooth: true; radius: 10 }
