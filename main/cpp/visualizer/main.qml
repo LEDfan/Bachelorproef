@@ -77,6 +77,7 @@ ApplicationWindow {
                                                             signal clicked(string id)
                                                             MouseArea {
                                                                 anchors.fill: parent
+                                                                cursorShape: Qt.PointingHandCursor
                                                                 onClicked: {parent.clicked(markerID)}
                                                             }
 

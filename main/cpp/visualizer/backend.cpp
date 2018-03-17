@@ -37,19 +37,12 @@ void BackEnd::placeMarkers()
         QMetaObject::invokeMethod(_map, "clearMapItems");
 
         // Place the new markers
-        std::cout << "Placing markers" << std::endl;
-        std::cout << _map << std::endl;
         for (std::shared_ptr<gengeopop::Location> loc : _grid->topK(100)) {
-                std::cout << "\tPlacing marker" << std::endl;
                 placeMarker(loc->getCoordinate(), std::to_string(loc->getID()));
         }
 }
 
-void BackEnd::onMarkerClicked(int idOfClicked)
-{
-        std::cout << "CPP: Marker clicked " << idOfClicked << std::endl;
-        emit locationSelected(_grid->get(idOfClicked));
-}
+void BackEnd::onMarkerClicked(int idOfClicked) { emit locationSelected(_grid->get(idOfClicked)); }
 
 void BackEnd::setObjects(QObject* map)
 {
