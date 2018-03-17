@@ -44,6 +44,9 @@ public:
         /// CSVRow initialized with values. Should no be called by user code. CSV has convenience functions.
         CSVRow(const CSV* parent, const std::vector<std::string>& values);
 
+        CSVRow(const CSVRow&) = default;
+        CSVRow& operator=(const stride::util::CSVRow&) = default;
+
         /// Get value at index. When T is specified, StringUtils are used to try to convert the value to type T.
         template <typename T = std::string>
         T getValue(size_t index) const;

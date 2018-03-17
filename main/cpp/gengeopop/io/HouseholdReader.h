@@ -10,6 +10,7 @@ namespace gengeopop {
 class HouseholdReader
 {
 public:
+        HouseholdReader();
         const std::vector<std::shared_ptr<Household>>& getHouseHolds() const;
 
 protected:

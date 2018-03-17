@@ -3,7 +3,7 @@
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid() : m_locations() {}
+GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex() {}
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 

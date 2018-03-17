@@ -23,14 +23,12 @@ std::shared_ptr<CitiesReader> ReaderFactory::createCitiesReader(const boost::fil
         }
 }
 
-std::shared_ptr<CommutesReader> ReaderFactory::createCommutesReader(
-    const std::string& filename, const std::map<int, std::shared_ptr<Location>>& locations)
+std::shared_ptr<CommutesReader> ReaderFactory::createCommutesReader(const std::string& filename)
 {
-        return createCommutesReader(stride::util::FileSys::GetDataDir() / boost::filesystem::path(filename), locations);
+        return createCommutesReader(stride::util::FileSys::GetDataDir() / boost::filesystem::path(filename));
 }
 
-std::shared_ptr<CommutesReader> ReaderFactory::createCommutesReader(
-    const boost::filesystem::path& path, const std::map<int, std::shared_ptr<Location>>& locations)
+std::shared_ptr<CommutesReader> ReaderFactory::createCommutesReader(const boost::filesystem::path& path)
 {
         if (path.extension().string() == ".csv") {
                 std::ifstream file(path.string());

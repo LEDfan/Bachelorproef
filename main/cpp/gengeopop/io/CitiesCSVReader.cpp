@@ -27,4 +27,4 @@ void CitiesCSVReader::fillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                 geoGrid->addLocation(location);
         }
 }
-}; // namespace gengeopop
+} // namespace gengeopop

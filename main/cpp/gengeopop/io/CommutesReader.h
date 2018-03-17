@@ -13,6 +13,8 @@ public:
 
         virtual void fillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
 
+        virtual ~CommutesReader(){};
+
 protected:
         std::istream& m_inputStream;
 };

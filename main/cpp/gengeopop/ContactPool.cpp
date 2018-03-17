@@ -2,6 +2,8 @@
 
 namespace gengeopop {
 
+ContactPool::ContactPool() : m_people(), m_capacity(0), m_id() {}
+
 void ContactPool::addMember(std::shared_ptr<stride::Person> p) { m_people.push_back(p); }
 
 unsigned int ContactPool::getID() const { return m_id; }
