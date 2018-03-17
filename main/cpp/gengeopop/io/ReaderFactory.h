@@ -9,8 +9,8 @@ namespace gengeopop {
 class ReaderFactory
 {
 public:
-        CitiesReader    createCitiesReader(const boost::filesystem::path& path);
-        CitiesReader    createCitiesReader(const std::string& filename);
+        std::shared_ptr<CitiesReader>    createCitiesReader(const boost::filesystem::path& path);
+        std::shared_ptr<CitiesReader>    createCitiesReader(const std::string& filename);
 
         /**
          * @param filename relative to data dir

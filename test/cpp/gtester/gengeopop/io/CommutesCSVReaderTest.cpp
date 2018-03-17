@@ -46,7 +46,7 @@ std::shared_ptr<GeoGrid> getExpectedGeoGrid() {
         return geoGrid;
 }
 
-TEST(CommutesReaderTest, test1)
+TEST(CommutesCSVReaderTest, test1)
 {
         std::string csvString = "id_21,id_22,id_23,id_24\n"
                 "550,366,668,425\n"  // to 21

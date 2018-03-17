@@ -7,15 +7,15 @@
 
 namespace gengeopop {
 
-CitiesReader ReaderFactory::createCitiesReader(const std::string &filename) {
+std::shared_ptr<CitiesReader> ReaderFactory::createCitiesReader(const std::string &filename) {
         return createCitiesReader(stride::util::FileSys::GetDataDir() /  boost::filesystem::path(filename));
 }
 
-CitiesReader ReaderFactory::createCitiesReader(const boost::filesystem::path &path) {
+std::shared_ptr<CitiesReader> ReaderFactory::createCitiesReader(const boost::filesystem::path &path) {
 
         if (path.extension().string() == ".csv") {
                 std::ifstream file(path.string());
-                return CitiesCSVReader(file);
+                return std::make_shared<CitiesCSVReader>(file);
         } else {
                 throw std::runtime_error("No supported file extension: " + path.extension().string());
         }

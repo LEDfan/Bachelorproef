@@ -13,8 +13,6 @@ public:
 
         virtual void fillGeoGrid(std::shared_ptr<GeoGrid> ) const = 0;
 
-//        const std::map<std::shared_ptr<Location>, std::map<std::shared_ptr<Location>, double>>& getCommutes() const;
-
 protected:
         std::istream&                                                                     m_inputStream;
 };

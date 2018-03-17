@@ -2,6 +2,7 @@
 # Sources.
 #============================================================================
 set(GENGEOPOP_LIB
+    Coordinate.cpp
     Community.cpp
     ContactCenter.cpp
     ContactPool.cpp

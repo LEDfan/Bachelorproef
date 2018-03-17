@@ -55,6 +55,8 @@ public:
 
         const std::vector<std::shared_ptr<ContactCenter>>& getContactCenters() const;
 
+        friend bool operator==(const Location& x, const Location& y);
+
 private:
         unsigned int                                              m_id = 0;
         std::string                                               m_name;
@@ -65,5 +67,7 @@ private:
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
 };
+
+bool operator==(const Location& x, const Location& y);
 
 } // namespace gengeopop
