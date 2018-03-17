@@ -14,11 +14,10 @@ def add(testResults, branch, build_id, name, href):
         }
     )
 
-    testResults[branch].sort(key=lambda el: el['build_id'].split('.')[0], reverse=True)
-    testResults[branch].sort(key=lambda el: el['build_id'].split('.')[1])
-
 def renderBranch(name, builds):
     print("# " + name)
+    testResults[name].sort(key=lambda el: el['build_id'].split('.')[1])
+    testResults[name].sort(key=lambda el: el['build_id'].split('.')[0], reverse=True)
     for build in builds:
         print(" - [" + build['build_id'] + " " + build['name'] + "](" + build['href'] + ")")
 
