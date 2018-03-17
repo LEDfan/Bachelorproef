@@ -22,6 +22,78 @@ ApplicationWindow {
         anchors.margins: 20
         Layout.fillWidth: true
 
+
+        ColumnLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            width: 640
+            Plugin {
+                id: mapPlugin
+                name: "osm"
+                PluginParameter { name: "osm.mapping.host"; value: "https://tile.openstreetmap.org/" }
+                PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
+                PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
+                PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
+                PluginParameter { name: "osm.mapping.copyright"; value: "" }
+                PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }
+            }
+
+            Map {
+                id: map
+                anchors.fill: parent
+                plugin: mapPlugin
+                zoomLevel: 14
+                center: QtPositioning.coordinate(51.2, 4.4)
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                Component.onCompleted: {
+                    backend.setObjects(map)
+                    for( var i_type in supportedMapTypes  ) {
+                        if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
+                        activeMapType = supportedMapTypes[i_type]
+
+                        }
+                    }
+                }
+
+                function addMarker(lon, lat, markerID) {
+                    var marker = Qt.createQmlObject("   import QtLocation 5.3;
+                                                        import QtQuick 2.7;
+                                                        MapQuickItem {
+                                                            id: marker
+                                                            sourceItem: Rectangle { width: 20; height: 20; color: '#e41e25'; border.width: 2; border.color: 'white'; smooth: true; radius: 10 }
+                                                           coordinate {
+                                                                       latitude: 51.2
+                                                                       longitude: 4.4
+                                                                   }
+                                                            opacity: 0.6
+                                                            zoomLevel: 0.0
+                                                            property var markerID: ''
+
+                                                            function setID(newID) {
+                                                                markerID = newID
+                                                            }
+                                                            signal clicked(string id)
+                                                            MouseArea {
+                                                                anchors.fill: parent
+                                                                onClicked: {parent.clicked(markerID)}
+                                                            }
+
+                                                        }", map)
+                    marker.clicked.connect(markerClicked)
+                    marker.setID(markerID)
+                    marker.coordinate.latitude = lat
+                    marker.coordinate.longitude = lon
+                    map.addMapItem(marker)
+                }
+
+                function markerClicked(id) {
+                    backend.onMarkerClicked(id)
+                }
+            }
+        }
+
         // LEFT COLUMN
         LocationViewer {
             id: locViewer
@@ -77,76 +149,6 @@ ApplicationWindow {
 
 
 		}
-    }
-
-    Window {
-        width: 512
-        height: 512
-        visible: true
-
-        Plugin {
-            id: mapPlugin
-            name: "osm"
-			PluginParameter { name: "osm.mapping.host"; value: "https://tile.openstreetmap.org/" }
-			PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
-			PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
-			PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
-			PluginParameter { name: "osm.mapping.copyright"; value: "" }
-			PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }
-        }
-
-        Map {
-            id: map
-            anchors.fill: parent
-            plugin: mapPlugin
-            zoomLevel: 14
-            center: QtPositioning.coordinate(51.2, 4.4)
-
-			Component.onCompleted: {
-				backend.setObjects(map)
-				for( var i_type in supportedMapTypes  ) {
-					if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
-                    activeMapType = supportedMapTypes[i_type]
-                
-					}
-				}
-			}
-
-            function addMarker(lon, lat, markerID) {
-                var marker = Qt.createQmlObject("   import QtLocation 5.3;
-                                                    import QtQuick 2.7;
-                                                    MapQuickItem {
-                                                        id: marker
-                                                        sourceItem: Rectangle { width: 20; height: 20; color: '#e41e25'; border.width: 2; border.color: 'white'; smooth: true; radius: 10 }
-                                                       coordinate {
-                                                                   latitude: 51.2
-                                                                   longitude: 4.4
-                                                               }
-                                                        opacity: 0.6
-                                                        zoomLevel: 0.0
-                                                        property var markerID: ''
-
-                                                        function setID(newID) {
-                                                            markerID = newID
-                                                        }
-                                                        signal clicked(string id)
-                                                        MouseArea {
-                                                            anchors.fill: parent
-                                                            onClicked: {parent.clicked(markerID)}
-                                                        }
-
-                                                    }", map)
-                marker.clicked.connect(markerClicked)
-                marker.setID(markerID)
-                marker.coordinate.latitude = lat
-                marker.coordinate.longitude = lon
-                map.addMapItem(marker)
-            }
-
-            function markerClicked(id) {
-                backend.onMarkerClicked(id)
-            }
-        }
     }
 
     BackEnd {
