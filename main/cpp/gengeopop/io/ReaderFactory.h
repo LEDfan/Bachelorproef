@@ -15,11 +15,11 @@ public:
         /**
          * @param filename relative to data dir
          */
-        CommutesReader createCommutesReader(const std::string& filename, const std::map<int, std::shared_ptr<Location>>& locations);
+        std::shared_ptr<CommutesReader> createCommutesReader(const std::string& filename, const std::map<int, std::shared_ptr<Location>>& locations);
         /**
          * @param filename absolute path
          */
-        CommutesReader  createCommutesReader(const boost::filesystem::path& path, const std::map<int, std::shared_ptr<Location>>& locations);
+        std::shared_ptr<CommutesReader>  createCommutesReader(const boost::filesystem::path& path, const std::map<int, std::shared_ptr<Location>>& locations);
 
         HouseholdReader createHouseholdReader(const std::string& filename);
         HouseholdReader createHouseholdReader(const boost::filesystem::path& path);

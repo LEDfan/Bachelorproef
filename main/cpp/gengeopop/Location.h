@@ -29,7 +29,7 @@ public:
 
         /**
          * Adds a Location and a proportion to the incoming commutng vector
-         * I.e. $proportion of the commuting population in $locatoin are commuting to $this
+         * I.e. $proportion of the commuting population in $location are commuting to $this
          */
         void addIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 

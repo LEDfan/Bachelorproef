@@ -9,7 +9,10 @@ GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
 GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 
-void GeoGrid::addLocation(std::shared_ptr<Location> location) { m_locations.push_back(location); }
+void GeoGrid::addLocation(std::shared_ptr<Location> location) {
+        m_locations.push_back(location);
+        m_locationsToIdIndex.insert({location->getID(), location});
+}
 
 std::shared_ptr<Location> GeoGrid::operator[](size_t index)
 {
@@ -51,5 +54,9 @@ GeoGrid::const_iterator GeoGrid::cbegin() const { return m_locations.cbegin(); }
 GeoGrid::const_iterator GeoGrid::cend() const { return m_locations.cend(); }
 
 size_t GeoGrid::size() const { return m_locations.size(); }
+
+std::shared_ptr<Location> GeoGrid::getById(unsigned int id) {
+        return m_locationsToIdIndex.at(id);
+}
 
 } // namespace gengeopop

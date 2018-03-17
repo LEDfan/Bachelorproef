@@ -4,12 +4,11 @@
 
 namespace gengeopop {
 
-CommutesReader::CommutesReader(std::istream& inputStream, const std::map<int, std::shared_ptr<Location>>& locations)
+CommutesReader::CommutesReader(std::istream& inputStream)
     : m_inputStream(inputStream) {
 }
-const std::map<std::shared_ptr<Location>,
-               std::pair<std::shared_ptr<Location>, double>> &CommutesReader::getCommutes() const {
-        return m_commutes;
+void CommutesReader::fillGeoGrid(std::shared_ptr<GeoGrid>) const {
+
 }
 
 } // namespace gengeopop

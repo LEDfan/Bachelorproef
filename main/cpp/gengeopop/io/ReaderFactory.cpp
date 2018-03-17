@@ -22,14 +22,14 @@ CitiesReader ReaderFactory::createCitiesReader(const boost::filesystem::path &pa
 }
 
 
-CommutesReader ReaderFactory::createCommutesReader(const std::string &filename, const std::map<int, std::shared_ptr<Location>>& locations) {
+std::shared_ptr<CommutesReader> ReaderFactory::createCommutesReader(const std::string &filename, const std::map<int, std::shared_ptr<Location>>& locations) {
         return createCommutesReader(stride::util::FileSys::GetDataDir() /  boost::filesystem::path(filename), locations);
 }
 
-CommutesReader ReaderFactory::createCommutesReader(const boost::filesystem::path &path, const std::map<int, std::shared_ptr<Location>>& locations) {
+std::shared_ptr<CommutesReader> ReaderFactory::createCommutesReader(const boost::filesystem::path &path, const std::map<int, std::shared_ptr<Location>>& locations) {
         if (path.extension().string() == ".csv") {
                 std::ifstream file(path.string());
-                return CommutesCSVReader(file, locations);
+                return std::make_shared<CommutesCSVReader>(file);
         } else {
                 throw std::runtime_error("No supported file extension: " + path.extension().string());
         }
