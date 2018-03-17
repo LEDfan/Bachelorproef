@@ -24,6 +24,8 @@ def renderBranch(name, builds):
 
 
 def render(testResults):
+    print("Test results")
+    print("===")
     if 'master' in testResults:
         renderBranch("master", testResults['master'])
 
