@@ -57,7 +57,7 @@ ApplicationWindow {
                     }
                 }
 
-                function addMarker(lon, lat, markerID) {
+                function addMarker(lon, lat, markerID, size) {
                     var marker = Qt.createQmlObject("   import QtLocation 5.3;
                                                         import QtQuick 2.0;
                                                         MapQuickItem {
@@ -82,6 +82,11 @@ ApplicationWindow {
                                                             }
 
                                                         }", map)
+                    marker.sourceItem.width =  size
+                    marker.sourceItem.height =  size
+                    marker.sourceItem.radius =  size
+                    marker.anchorPoint.x = size/2
+                    marker.anchorPoint.y =  size/2
                     marker.clicked.connect(markerClicked)
                     marker.setID(markerID)
                     marker.coordinate.latitude = lat

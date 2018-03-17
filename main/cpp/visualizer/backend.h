@@ -30,7 +30,7 @@ private:
         QObject*                            _parent = nullptr;
         std::shared_ptr<gengeopop::GeoGrid> _grid;
 
-        void placeMarker(Coordinate coordinate, std::string id);
+        void placeMarker(Coordinate coordinate, std::string id, unsigned int population = 400);
 
         /*
          * Places the markers on the map, according to the current checked boxes.
