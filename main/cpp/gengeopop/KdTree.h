@@ -7,6 +7,9 @@
 #include <utility>
 #include <vector>
 
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics.hpp>
+
 namespace {
 template <typename P>
 class BaseNode;
@@ -40,7 +43,8 @@ struct AABB
  * The template parameter `P` should have the following attributes and operations:
  *  - A `static constexpr std::size_t dim`: the number of dimensions of the point type.
  *  - A `get(std::size_t d)` method that returns the coordinate of the `d`th dimension of the point
- *  - The individual dimensions should each have a total order
+ *  - A default constructor and a copy constructor
+ *  - The individual dimensions should each have a total order and equality
  */
 template <typename P>
 class KdTree
@@ -61,7 +65,10 @@ public:
          */
         static KdTree Build(const std::vector<P>& points)
         {
-                // TODO
+                KdTree result;
+                result.m_size = points.size();
+                result.m_root = Construct<0>(points);
+                return result;
         }
 
         /**
@@ -208,6 +215,40 @@ public:
         std::size_t Size() const { return m_size; }
 
 private:
+        template <std::size_t D>
+        static std::unique_ptr<Node<P, D>> Construct(const std::vector<P>& points)
+        {
+                if (points.empty())
+                        return nullptr;
+
+                namespace BA = boost::accumulators;
+                BA::accumulator_set<decltype(points[0].template get<D>()), BA::features<BA::tag::median>> acc;
+                for (const P& p : points)
+                        acc(p.template get<D>());
+
+                auto median = BA::median(acc);
+                bool taken  = false;
+                P    root_pt;
+
+                std::vector<P> left, right;
+                for (const P& p : points) {
+                        if (!taken && p.template get<D>() == median) {
+                                taken   = true;
+                                root_pt = p;
+                        } else if (p.template get<D>() <= median) {
+                                left.push_back(p);
+                        } else {
+                                right.push_back(p);
+                        }
+                }
+
+                auto root   = std::make_unique<Node<P, D>>(root_pt);
+                root->left  = Construct<(D + 1) % P::dim>(left);
+                root->right = Construct<(D + 1) % P::dim>(right);
+
+                return root;
+        }
+
         std::size_t                 m_size; ///< The number of points in the tree
         std::unique_ptr<Node<P, 0>> m_root; ///< The root node of the tree
 };
@@ -308,18 +349,6 @@ private:
         P                      m_point;
         std::unique_ptr<Child> m_left, m_right;
 };
-
-class Pt
-{
-public:
-        static constexpr std::size_t dim = 3;
-        template <std::size_t I>
-        int get()
-        {
-                return 0;
-        }
-};
-KdTree<Pt> k = KdTree<Pt>::Build({});
 
 } // namespace
 } // namespace gengeopop
