@@ -18,6 +18,8 @@ BackEnd::BackEnd(QObject* parent) : QObject(parent)
         std::shared_ptr<gengeopop::Location> newLoc1 =
             std::make_shared<gengeopop::Location>(1, 1, 1, Coordinate(0, 0, 51.201, 4.4), "Other");
         auto newCC1 = std::make_shared<gengeopop::Workplace>();
+        auto aPool  = std::make_shared<gengeopop::ContactPool>();
+        newCC1->addPool(aPool);
         newLoc1->addContactCenter(newCC1);
         _grid->addLocation(newLoc1);
 }

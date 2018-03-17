@@ -56,7 +56,9 @@ void ContactCenterListModel::setCenters(std::shared_ptr<gengeopop::Location> loc
 
 void ContactCenterListModel::handleClickRow(unsigned int row)
 {
-        std::cout << "CC MODEL handled click" << std::endl;
-        auto cc = m_centers[row];
-        emit ContactCenterSelected(cc);
+        try {
+                auto cc = m_centers.at(row);
+                emit ContactCenterSelected(cc);
+        } catch (std::exception& e) {
+        }
 }

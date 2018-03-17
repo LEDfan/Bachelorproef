@@ -68,7 +68,6 @@ ColumnLayout {
     }
 
     function showLocation(location) {
-        console.warn("LOCVWR QML")
         locationViewerBackend.showLocation(location)
         ccModel.setCenters(location)
     }
