@@ -8,13 +8,15 @@
 #include <vector>
 
 namespace {
-template <typename P> class BaseNode;
-template <typename P, std::size_t D> class Node;
+template <typename P>
+class BaseNode;
+template <typename P, std::size_t D>
+class Node;
 } // namespace
 
 /**********************************
-*  Public interface starts here  *
-**********************************/
+ *  Public interface starts here  *
+ **********************************/
 
 namespace gengeopop {
 
@@ -32,7 +34,8 @@ struct AABB
 
 /**
  * A k-d tree: a k-dimensional generalization of binary search trees
- * This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when balanced).
+ * This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when
+ * balanced).
  *
  * The template parameter `P` should have the following attributes and operations:
  *  - A `static constexpr std::size_t dim`: the number of dimensions of the point type.
@@ -56,8 +59,9 @@ public:
          * @param points The points to insert in the resulting tree
          * @returns A balanced KdTree containing the given points
          */
-        static KdTree Build(const std::vector<P>& points) {
-                //TODO
+        static KdTree Build(const std::vector<P>& points)
+        {
+                // TODO
         }
 
         /**
@@ -65,7 +69,8 @@ public:
          *
          * @param point The point to insert into the tree
          */
-        void Insert(P point) {
+        void Insert(P point)
+        {
                 m_size++;
                 if (!m_root) {
                         m_root = std::make_unique<Node<P, 0>>(point);
@@ -88,7 +93,8 @@ public:
          * @param point The point to test. P should support `bool operator==(const P&) const`
          * @returns Whether the point is found in the tree
          */
-        bool Contains(P point) const {
+        bool Contains(P point) const
+        {
                 bool result = false;
                 Apply([&result, &point](const P& pt) -> bool {
                         if (pt == point) {
@@ -105,12 +111,15 @@ public:
          * @param box The limiting AABB to search for points
          * @returns A collection of points found within `box`
          */
-        std::vector<P> Query(const AABB<P>& box) const {
+        std::vector<P> Query(const AABB<P>& box) const
+        {
                 std::vector<P> result;
-                Apply([&result](const P& pt) -> bool {
-                        result.push_back(pt);
-                        return true;
-                }, box);
+                Apply(
+                    [&result](const P& pt) -> bool {
+                            result.push_back(pt);
+                            return true;
+                    },
+                    box);
                 return result;
         }
 
@@ -119,8 +128,10 @@ public:
          *
          * @param f A function that will be called with each point, if f returns false, the traversal stops
          */
-        void Apply(std::function<bool(const P&)> f) const {
-                if (!m_root) return;
+        void Apply(std::function<bool(const P&)> f) const
+        {
+                if (!m_root)
+                        return;
 
                 std::queue<BaseNode<P>*> todo;
                 todo.push(m_root.get());
@@ -132,10 +143,12 @@ public:
                         f(current->GetPoint());
 
                         BaseNode<P>* left = current->BorrowLeft();
-                        if (left) todo.push(left);
+                        if (left)
+                                todo.push(left);
 
                         BaseNode<P>* right = current->BorrowRight();
-                        if (right) todo.push(right);
+                        if (right)
+                                todo.push(right);
                 }
         }
 
@@ -145,8 +158,21 @@ public:
          * @param f A function that will be called with each point within `box`, if f returns false, the traversal stops
          * @param box The containing Axis-Aligned Bounding Box to search for points
          */
-        void Apply(std::function<bool(const P&)> f, const AABB<P>& box) const {
-                //TODO
+        void Apply(std::function<bool(const P&)> f, const AABB<P>& box) const
+        {
+                std::queue<BaseNode<P>*> q;
+                q.push(m_root.get());
+                while (!q.empty()) {
+                        BaseNode<P>* current = q.front();
+                        q.pop();
+                        if (!current || !current->InBox(box))
+                                continue;
+
+                        f(current->GetPoint());
+
+                        q.push(current->BorrowLeft());
+                        q.push(current->BorrowRight());
+                }
         }
 
         /**
@@ -154,15 +180,17 @@ public:
          *
          * Mostly for testing purposes
          */
-        std::size_t Height() const {
-                int h = 0;
+        std::size_t Height() const
+        {
+                int                                      h = 0;
                 std::queue<std::pair<int, BaseNode<P>>*> q;
                 q.emplace(1, m_root.get());
                 while (!q.empty()) {
                         auto tmp = q.front();
                         q.pop();
                         BaseNode<P>* n = tmp.second;
-                        if (!n) continue;
+                        if (!n)
+                                continue;
                         h = tmp.first;
                         q.emplace(h + 1, n);
                 }
@@ -172,36 +200,28 @@ public:
         /**
          * Is the tree empty
          */
-        bool Empty() const {
-                return Size() == 0;
-        }
+        bool Empty() const { return Size() == 0; }
 
         /**
          * Get the size of the tree
          */
-        std::size_t Size() const {
-                return m_size;
-        }
+        std::size_t Size() const { return m_size; }
 
 private:
-
-        std::size_t m_size; ///< The number of points in the tree
+        std::size_t                 m_size; ///< The number of points in the tree
         std::unique_ptr<Node<P, 0>> m_root; ///< The root node of the tree
 };
 
-} // namespace gengeopop
-
-
-
 /***************************************
-*  Implementation details start here  *
-***************************************/
+ *  Implementation details start here  *
+ ***************************************/
 namespace {
 
 template <typename P>
-class BaseNode {
+class BaseNode
+{
 public:
-        virtual ~BaseNode() {};
+        virtual ~BaseNode(){};
 
         /**
          * Get a non-owning pointer to the left child
@@ -229,6 +249,11 @@ public:
          * Gets the point for this node
          */
         virtual P GetPoint() const = 0;
+
+        /**
+         * Test wether this node falls within the Axis-Aligned Bounding Box for its own dimension
+         */
+        virtual bool InBox(const AABB<P>& box) const = 0;
 };
 
 /**
@@ -238,20 +263,18 @@ public:
  * Template parameter D: The dimension this node splits on
  */
 template <typename P, std::size_t D>
-class Node : public BaseNode<P> {
+class Node : public BaseNode<P>
+{
 public:
         Node(P pt) : m_point(pt) {}
 
-        BaseNode<P>* BorrowLeft() const override {
-                return m_left.get();
-        }
+        BaseNode<P>* BorrowLeft() const override { return m_left.get(); }
 
-        BaseNode<P>* BorrowRight() const override {
-                return m_right.get();
-        }
+        BaseNode<P>* BorrowRight() const override { return m_right.get(); }
 
-        BaseNode<P>* BorrowSplitChild(const P& point) const override {
-                auto refval = m_point.template get<D>();
+        BaseNode<P>* BorrowSplitChild(const P& point) const override
+        {
+                auto refval  = m_point.template get<D>();
                 auto testval = point.template get<D>();
                 if (testval <= refval) {
                         return m_left.get();
@@ -260,8 +283,9 @@ public:
                 }
         }
 
-        void AddChild(P point) override {
-                auto refval = m_point.template get<D>();
+        void AddChild(P point) override
+        {
+                auto refval  = m_point.template get<D>();
                 auto testval = point.template get<D>();
                 if (testval <= refval) {
                         m_left = std::make_unique<Child>(point);
@@ -270,22 +294,32 @@ public:
                 }
         }
 
-        P GetChild() const override {
-                return m_point;
-        }
+        P GetChild() const override { return m_point; }
 
+        bool InBox(const AABB<P>& box) const override
+        {
+                auto val = m_point.template get<D>();
+                return (box.lower.template get<D>() <= val && val <= box.upper.template get<D>());
+        }
 
 private:
         using Child = Node<P, (D + 1) % P::dim>;
-        P m_point;
+
+        P                      m_point;
         std::unique_ptr<Child> m_left, m_right;
 };
 
-class Pt {
+class Pt
+{
 public:
         static constexpr std::size_t dim = 3;
-        template<std::size_t I> int get() {return 0;}
+        template <std::size_t I>
+        int get()
+        {
+                return 0;
+        }
 };
-gengeopop::KdTree<Pt> k = gengeopop::KdTree<Pt>::Build({});
+KdTree<Pt> k = KdTree<Pt>::Build({});
 
 } // namespace
+} // namespace gengeopop
