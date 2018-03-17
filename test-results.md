@@ -1,5 +1,7 @@
 Test results
 ===
+# master
+ - [180.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/180.1-linux-gcc-6.html)
 # publish_test_results
  - [172.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/172.1-linux-gcc-6.html)
  - [163.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/163.1-linux-gcc-6.html)
