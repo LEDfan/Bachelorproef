@@ -14,17 +14,17 @@ ColumnLayout {
     Text {
         id: textName
         objectName: 'textName'
-        text: 'Location: Deurne-Noord'
+        text: 'Location:'
     }
     Text {
         id: textProvince
         objectName: 'textProvince'
-        text: 'Province: Antwerpen'
+        text: 'Province:'
     }
     Text {
         id: textID
         objectName: 'textID'
-        text: 'ID: 42'
+        text: 'ID:'
     }
     Text {
         text: 'ContactCenters:'

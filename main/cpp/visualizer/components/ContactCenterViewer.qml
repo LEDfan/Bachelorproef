@@ -13,17 +13,17 @@ ColumnLayout {
     Text {
         id: textSelCCID
         objectName: 'textCCID'
-        text: 'Contact Center: 24'
+        text: 'Contact Center:'
     }
     Text {
         id: textSelCCMaxPoolSize
         objectName: 'textCCPoolSize'
-        text: 'Max pool size: 42'
+        text: 'Max pool size:'
     }
     Text {
         id: textSelCCMaxPools
         objectName: 'textCCMaxPools'
-        text: 'Max pools: 42'
+        text: 'Max pools:'
     }
     Text {
         text: 'ContactPools:'
