@@ -15,6 +15,8 @@ public:
 
         void addPool(std::shared_ptr<ContactPool> pool);
 
+        const std::vector<std::shared_ptr<ContactPool>>& getPools() const;
+
         iterator begin();
         iterator end();
 

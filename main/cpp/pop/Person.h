@@ -99,7 +99,7 @@ public:
         void Update(Person* p);
 
         /// Set the age of the person
-        void setAge(unsigned int newAge);
+        void SetAge(unsigned int newAge);
 
         unsigned int GetHouseholdId() { return m_household_id; }
 

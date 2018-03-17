@@ -10,14 +10,14 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::istream& inputStream)
 
                 // Create contactpool of the household
                 std::shared_ptr<ContactPool> newCP = std::make_shared<ContactPool>();
-                for (int i = 0; i < 12; i++) {
+                for (std::size_t i = 0; i < 12; i++) {
                         std::string ageString = row.getValue(i);
                         if (ageString == "NA") {
                                 break;
                         }
-                        int                             age = stoi(ageString);
+                        auto age = static_cast<unsigned int>(stoi(ageString));
                         std::shared_ptr<stride::Person> p   = std::make_shared<stride::Person>();
-                        p->setAge(age);
+                        p->SetAge(age);
                         newCP->addMember(p);
                 }
                 household->addPool(newCP);
