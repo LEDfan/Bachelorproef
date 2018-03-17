@@ -15,7 +15,7 @@ public:
         QHash<int, QByteArray> roleNames() const;
 
         Q_INVOKABLE
-        void setCenters(std::shared_ptr<gengeopop::ContactCenter> loc);
+        void setPools(std::shared_ptr<gengeopop::ContactCenter> cc);
 
 private:
         enum Roles
@@ -23,7 +23,6 @@ private:
                 IDRole = Qt::UserRole + 1,
                 Capacity,
                 UsedCapacity
-
         };
 
         std::vector<std::shared_ptr<gengeopop::ContactPool>> m_pools;

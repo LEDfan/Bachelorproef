@@ -3,20 +3,25 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtQml/QtQml>
+#include <visualizer/backends/ContactCenterViewerBackend.h>
 #include <visualizer/models/ContactCenterListModel.h>
 #include <visualizer/models/ContactPoolListModel.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
+Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
 int main(int argc, char* argv[])
 {
         QGuiApplication app(argc, argv);
         qmlRegisterType<BackEnd>("io.bistromatics.backend", 1, 0, "BackEnd");
         qmlRegisterType<LocationViewerBackend>("io.bistromatics.locationviewerbackend", 1, 0, "LocationViewerBackend");
+        qmlRegisterType<ContactCenterViewerBackend>("io.bistromatics.contactcenterviewerbackend", 1, 0,
+                                                    "ContactCenterViewerBackend");
         qmlRegisterType<ContactCenterListModel>("io.bistromatics.contactcenterlistmodel", 1, 0,
                                                 "ContactCenterListModel");
 
         qRegisterMetaType<std::shared_ptr<gengeopop::Location>>();
+        qRegisterMetaType<std::shared_ptr<gengeopop::ContactCenter>>();
         QQmlApplicationEngine engine;
 
         ContactCenterListModel ccModel;

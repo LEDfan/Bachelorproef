@@ -27,7 +27,7 @@ QHash<int, QByteArray> ContactPoolListModel::roleNames() const
 
 int ContactPoolListModel::columnCount(const QModelIndex& parent) const { return 2; }
 
-void ContactPoolListModel::setCenters(std::shared_ptr<gengeopop::ContactCenter> loc)
+void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> loc)
 {
         unsigned int oldAmtRows = m_pools.size();
         m_pools                 = loc->getPools();

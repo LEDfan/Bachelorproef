@@ -17,6 +17,12 @@ public:
         Q_INVOKABLE
         void setCenters(std::shared_ptr<gengeopop::Location> loc);
 
+        Q_INVOKABLE
+        void handleClickRow(unsigned int row);
+
+signals:
+        void ContactCenterSelected(std::shared_ptr<gengeopop::ContactCenter> cc);
+
 private:
         enum Roles
         {
@@ -24,7 +30,6 @@ private:
                 TypeRole,
                 PoolSize,
                 MaxPools
-
         };
 
         std::vector<std::shared_ptr<gengeopop::ContactCenter>> m_centers;

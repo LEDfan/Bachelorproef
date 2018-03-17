@@ -25,10 +25,16 @@ ApplicationWindow {
         // LEFT COLUMN
         LocationViewer {
             id: locViewer
+
+            Component.onCompleted: {
+                locViewer.contactCenterSelected.connect(ccViewer.showCenter)
+            }
         }
 
         // MIDDLE COLUMN Contact Center info
-        ContactCenterViewer {}
+        ContactCenterViewer {
+            id: ccViewer
+        }
 
 		ColumnLayout {
 			Layout.rightMargin: 4
@@ -107,7 +113,6 @@ ApplicationWindow {
 			}
 
             function addMarker(lon, lat, markerID) {
-                console.warn("qml ADDING MARKER" + lon +  lat + markerID)
                 var marker = Qt.createQmlObject("   import QtLocation 5.3;
                                                     import QtQuick 2.7;
                                                     MapQuickItem {

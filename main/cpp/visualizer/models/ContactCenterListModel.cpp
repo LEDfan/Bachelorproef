@@ -53,3 +53,10 @@ void ContactCenterListModel::setCenters(std::shared_ptr<gengeopop::Location> loc
         int commonRows = std::min(oldAmtRows, (unsigned int)m_centers.size());
         dataChanged(createIndex(0, 0), createIndex(commonRows, 2));
 }
+
+void ContactCenterListModel::handleClickRow(unsigned int row)
+{
+        std::cout << "CC MODEL handled click" << std::endl;
+        auto cc = m_centers[row];
+        emit ContactCenterSelected(cc);
+}

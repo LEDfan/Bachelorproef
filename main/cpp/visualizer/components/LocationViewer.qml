@@ -7,6 +7,10 @@ import io.bistromatics.contactcenterlistmodel 1.0
 
 ColumnLayout {
     Layout.fillWidth: true
+    id: locViewerBase
+
+    signal contactCenterSelected(var cc)
+
     Text {
         id: textName
         objectName: 'textName'
@@ -49,6 +53,13 @@ ColumnLayout {
             role: "maxPools"
             title: "Max # Pools"
             width: 100
+        }
+
+        Component.onCompleted: {
+            // Bind click row to handle click of model
+            cclist.clicked.connect(ccModel.handleClickRow)
+            // Bind contactCenter selected of model outside
+            ccModel.ContactCenterSelected.connect(locViewerBase.contactCenterSelected)
         }
     }
 

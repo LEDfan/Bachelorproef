@@ -4,6 +4,7 @@ set(VISUALIZER_SRC
 #    backend.h
     main.cpp
     backends/LocationViewerBackend.cpp
+    backends/ContactCenterViewerBackend.cpp
     models/ContactPoolListModel.cpp
     objects/LocationQWrapper.cpp
     objects/LocationQWrapper.h

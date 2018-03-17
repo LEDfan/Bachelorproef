@@ -6,19 +6,23 @@ import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.0
 import QtPositioning 5.5
 import "../models"
+import io.bistromatics.contactcenterviewerbackend 1.0
 
 ColumnLayout {
     Layout.fillWidth: true
     Text {
         id: textSelCCID
+        objectName: 'textCCID'
         text: 'Contact Center: 24'
     }
     Text {
         id: textSelCCMaxPoolSize
+        objectName: 'textCCPoolSize'
         text: 'Max pool size: 42'
     }
     Text {
         id: textSelCCMaxPools
+        objectName: 'textCCMaxPools'
         text: 'Max pools: 42'
     }
     Text {
@@ -51,12 +55,12 @@ ColumnLayout {
         }
     }
 
-    //ContactCenterViewerBackend {
-    //    id: contactCenterViewerBackend
-    //}
+    ContactCenterViewerBackend {
+        id: ccBackend
+    }
 
     function showCenter(center) {
-        locationViewerBackend.showCenter(location)
-        cpModel.setPools(location)
+        cpModel.setPools(center)
+        ccBackend.showContactCenter(center)
     }
 }
