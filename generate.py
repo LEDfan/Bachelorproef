@@ -14,8 +14,8 @@ def add(testResults, branch, build_id, name, href):
         }
     )
 
-    testResults[name].sort(key=lambda el: el['build_id'].split('.')[0], reverse=True)
-    testResults[name].sort(key=lambda el: el['build_id'].split('.')[1])
+    testResults[branch].sort(key=lambda el: el['build_id'].split('.')[0], reverse=True)
+    testResults[branch].sort(key=lambda el: el['build_id'].split('.')[1])
 
 def renderBranch(name, builds):
     print("# " + name)
