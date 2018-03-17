@@ -9,6 +9,11 @@
       "build_id": "162.1",
       "name": "linux-gcc-6",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/162.1-linux-gcc-6.html"
+    },
+    {
+      "build_id": "163.2",
+      "name": "linux-gcc-7",
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/163.2-linux-gcc-7.html"
     }
   ]
 }
