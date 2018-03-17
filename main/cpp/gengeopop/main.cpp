@@ -5,15 +5,11 @@
 #include <gengeopop/io/CitiesCSVReader.h>
 #include <gengeopop/io/CitiesReader.h>
 #include <gengeopop/io/CommutesReader.h>
+#include <gengeopop/io/ReaderFactory.h>
 #include <iostream>
 #include <memory>
 #include <util/FileSys.h>
-#include <gengeopop/io/ReaderFactory.h>
 
 using namespace gengeopop;
 
-int main()
-{
-
-        return 0;
-}
+int main() { return 0; }

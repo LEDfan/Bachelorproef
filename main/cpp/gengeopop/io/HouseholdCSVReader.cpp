@@ -15,7 +15,7 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::istream& inputStream)
                         if (ageString == "NA") {
                                 break;
                         }
-                        auto age = static_cast<unsigned int>(stoi(ageString));
+                        auto                            age = static_cast<unsigned int>(stoi(ageString));
                         std::shared_ptr<stride::Person> p   = std::make_shared<stride::Person>();
                         p->SetAge(age);
                         newCP->addMember(p);

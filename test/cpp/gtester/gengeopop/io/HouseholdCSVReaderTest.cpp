@@ -21,7 +21,8 @@ using namespace gengeopop;
 
 namespace {
 
-std::shared_ptr<Household> createCP (const std::vector<unsigned int>& ages) {
+std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
+{
 
         auto cp = std::make_shared<ContactPool>();
         for (unsigned int age : ages) {
@@ -30,57 +31,53 @@ std::shared_ptr<Household> createCP (const std::vector<unsigned int>& ages) {
                 cp->addMember(p);
         }
 
-
-        auto hh =  std::make_shared<Household>();
+        auto hh = std::make_shared<Household>();
         hh->addPool(cp);
         return hh;
 }
 
-std::vector<std::shared_ptr<Household>> getExpectedHouseHolds() {
+std::vector<std::shared_ptr<Household>> getExpectedHouseHolds()
+{
 
         std::vector<std::shared_ptr<Household>> households;
 
         households.push_back(createCP({42, 38, 15}));
-        households.push_back(createCP({70,68}));
-        households.push_back(createCP({40,39,9,6}));
-        households.push_back(createCP({43,42}));
-        households.push_back(createCP({55,54}));
-        households.push_back(createCP({40,40,3,3}));
-        households.push_back(createCP({35,32,6,3}));
-        households.push_back(createCP({78,75}));
-
+        households.push_back(createCP({70, 68}));
+        households.push_back(createCP({40, 39, 9, 6}));
+        households.push_back(createCP({43, 42}));
+        households.push_back(createCP({55, 54}));
+        households.push_back(createCP({40, 40, 3, 3}));
+        households.push_back(createCP({35, 32, 6, 3}));
+        households.push_back(createCP({78, 75}));
 
         return households;
 };
 
-
 TEST(HouseholdCSVReader, test1)
 {
         std::string csvString =
-                "hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12\n"
-                        "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "40,39,9,6,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "43,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "55,54,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "40,40,3,3,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "35,32,6,3,NA,NA,NA,NA,NA,NA,NA,NA\n"
-                        "78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA";
+            "hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12\n"
+            "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "40,39,9,6,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "43,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "55,54,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "40,40,3,3,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "35,32,6,3,NA,NA,NA,NA,NA,NA,NA,NA\n"
+            "78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA";
 
-        std::istringstream                                 instream(csvString);
-        HouseholdCSVReader                      reader(instream);
-        const std::vector<std::shared_ptr<Household>>& HHs = reader.getHouseHolds();
+        std::istringstream                             instream(csvString);
+        HouseholdCSVReader                             reader(instream);
+        const std::vector<std::shared_ptr<Household>>& HHs         = reader.getHouseHolds();
         const std::vector<std::shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 
-
-
-        EXPECT_EQ(HHs.size(), (unsigned int) 8);
+        EXPECT_EQ(HHs.size(), (unsigned int)8);
 
         int i = 0;
         for (const auto& hh : expectedHHS) {
 
                 const auto& expectedCP = hh->getPools()[0];
-                const auto& actualCP = HHs[i]->getPools()[0];
+                const auto& actualCP   = HHs[i]->getPools()[0];
 
                 auto actualCPI = actualCP->begin();
                 for (const auto& person : *expectedCP) {
@@ -90,7 +87,6 @@ TEST(HouseholdCSVReader, test1)
 
                 i++;
         }
-
 }
 
 } // namespace

@@ -1,9 +1,9 @@
 #pragma once
 
+#include "CommutesReader.h"
 #include <gengeopop/Location.h>
 #include <map>
 #include <string>
-#include "CommutesReader.h"
 
 namespace gengeopop {
 class CommutesCSVReader : public CommutesReader
