@@ -3,8 +3,8 @@
     {
       "id": "1",
       "name": "Bavikhove",
-      "population": "10000",
       "province": "4",
+      "population": "2500",
       "coordinate": {
         "x": "0",
         "y": "0",
@@ -17,6 +17,7 @@
       "id": "2",
       "name": "Gent",
       "province": "3",
+      "population": "5000",
       "coordinate": {
         "x": "0",
         "y": "0",
@@ -29,6 +30,7 @@
       "id": "3",
       "name": "Mons",
       "province": "2",
+      "population": "2500",
       "coordinate": {
         "x": "0",
         "y": "0",
