@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <cstddef>
 #include <functional>
 #include <memory>
@@ -7,21 +8,20 @@
 #include <utility>
 #include <vector>
 
-#include <boost/accumulators/accumulators.hpp>
-#include <boost/accumulators/statistics.hpp>
+namespace gengeopop {
 
-namespace {
+namespace kd {
 template <typename P>
 class BaseNode;
 template <typename P, std::size_t D>
 class Node;
-} // namespace
+template <typename P, std::size_t D>
+std::size_t median(const std::vector<P>& points);
+} // namespace kd
 
 /**********************************
  *  Public interface starts here  *
  **********************************/
-
-namespace gengeopop {
 
 /**
  * Axis Aligned Bounding Box
@@ -80,12 +80,12 @@ public:
         {
                 m_size++;
                 if (!m_root) {
-                        m_root = std::make_unique<Node<P, 0>>(point);
+                        m_root = std::make_unique<kd::Node<P, 0>>(point);
                         return;
                 }
-                BaseNode<P>* current = m_root.get();
+                kd::BaseNode<P>* current = m_root.get();
                 while (true) {
-                        BaseNode<P>* next = current->BorrowSplitChild(point);
+                        kd::BaseNode<P>* next = current->BorrowSplitChild(point);
                         if (!next) {
                                 current->AddChild(point);
                                 return;
@@ -140,20 +140,20 @@ public:
                 if (!m_root)
                         return;
 
-                std::queue<BaseNode<P>*> todo;
+                std::queue<kd::BaseNode<P>*> todo;
                 todo.push(m_root.get());
 
                 while (!todo.empty()) {
-                        BaseNode<P>* current = todo.top();
+                        kd::BaseNode<P>* current = todo.top();
                         todo.pop();
 
                         f(current->GetPoint());
 
-                        BaseNode<P>* left = current->BorrowLeft();
+                        kd::BaseNode<P>* left = current->BorrowLeft();
                         if (left)
                                 todo.push(left);
 
-                        BaseNode<P>* right = current->BorrowRight();
+                        kd::BaseNode<P>* right = current->BorrowRight();
                         if (right)
                                 todo.push(right);
                 }
@@ -167,10 +167,10 @@ public:
          */
         void Apply(std::function<bool(const P&)> f, const AABB<P>& box) const
         {
-                std::queue<BaseNode<P>*> q;
+                std::queue<kd::BaseNode<P>*> q;
                 q.push(m_root.get());
                 while (!q.empty()) {
-                        BaseNode<P>* current = q.front();
+                        kd::BaseNode<P>* current = q.front();
                         q.pop();
                         if (!current || !current->InBox(box))
                                 continue;
@@ -189,13 +189,13 @@ public:
          */
         std::size_t Height() const
         {
-                int                                      h = 0;
-                std::queue<std::pair<int, BaseNode<P>>*> q;
+                int                                          h = 0;
+                std::queue<std::pair<int, kd::BaseNode<P>>*> q;
                 q.emplace(1, m_root.get());
                 while (!q.empty()) {
                         auto tmp = q.front();
                         q.pop();
-                        BaseNode<P>* n = tmp.second;
+                        kd::BaseNode<P>* n = tmp.second;
                         if (!n)
                                 continue;
                         h = tmp.first;
@@ -216,47 +216,42 @@ public:
 
 private:
         template <std::size_t D>
-        static std::unique_ptr<Node<P, D>> Construct(const std::vector<P>& points)
+        static std::unique_ptr<kd::Node<P, D>> Construct(const std::vector<P>& points)
         {
                 if (points.empty())
                         return nullptr;
 
-                namespace BA = boost::accumulators;
-                BA::accumulator_set<decltype(points[0].template get<D>()), BA::features<BA::tag::median>> acc;
-                for (const P& p : points)
-                        acc(p.template get<D>());
-
-                auto median = BA::median(acc);
-                bool taken  = false;
-                P    root_pt;
+                std::size_t med        = kd::median<P, D>(points);
+                auto        median_val = points[med].template get<D>();
+                P           root_pt;
 
                 std::vector<P> left, right;
-                for (const P& p : points) {
-                        if (!taken && p.template get<D>() == median) {
-                                taken   = true;
+                for (std::size_t i = 0; i < points.size(); i++) {
+                        const auto& p = points[i];
+                        if (i == med) {
                                 root_pt = p;
-                        } else if (p.template get<D>() <= median) {
+                        } else if (p.template get<D>() <= median_val) {
                                 left.push_back(p);
                         } else {
                                 right.push_back(p);
                         }
                 }
 
-                auto root   = std::make_unique<Node<P, D>>(root_pt);
+                auto root   = std::make_unique<kd::Node<P, D>>(root_pt);
                 root->left  = Construct<(D + 1) % P::dim>(left);
                 root->right = Construct<(D + 1) % P::dim>(right);
 
                 return root;
         }
 
-        std::size_t                 m_size; ///< The number of points in the tree
-        std::unique_ptr<Node<P, 0>> m_root; ///< The root node of the tree
+        std::size_t                     m_size; ///< The number of points in the tree
+        std::unique_ptr<kd::Node<P, 0>> m_root; ///< The root node of the tree
 };
 
 /***************************************
- *  Implementation details start here  *
+ *  Implementation kd start here  *
  ***************************************/
-namespace {
+namespace kd {
 
 template <typename P>
 class BaseNode
@@ -350,5 +345,20 @@ private:
         std::unique_ptr<Child> m_left, m_right;
 };
 
-} // namespace
+template <typename P, std::size_t D>
+std::size_t median(const std::vector<P>& points)
+{
+        if (points.empty())
+                return 0;
+
+        using C = std::pair<decltype(points[0].template get<D>()), std::size_t>;
+        std::vector<C> sorting;
+        for (std::size_t i = 0; i < points.size(); i++) {
+                sorting.emplace_back(points[i].template get<D>(), i);
+        }
+        std::sort(sorting.begin(), sorting.end());
+        return sorting[sorting.size() / 2].second;
+}
+
+} // namespace kd
 } // namespace gengeopop
