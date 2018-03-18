@@ -12,6 +12,10 @@ set(VISUALIZER_SRC
     models/ContactCenterListModel.h
         )
 
+set(TEST_SRC
+        tests/tests.cpp
+        tests/tst_basic.qml)
+
 find_package(Qt5 COMPONENTS Widgets Qml Quick REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
 add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
@@ -30,6 +34,21 @@ target_link_libraries(visualizer
     Qt5::Widgets
     Qt5::Qml
     Qt5::Quick
+)
+
+set(QUICK_TEST_SOURCE_DIR tests)
+enable_testing()
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+add_executable(vis_test ${TEST_SRC})
+add_test(vis_test vis_test)
+
+find_package(Qt5Test REQUIRED)
+target_link_libraries(vis_test
+    libgengeopop
+    Qt5::Widgets
+    Qt5::Qml
+    Qt5::Quick
+    Qt5::Test
 )
 
 install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
