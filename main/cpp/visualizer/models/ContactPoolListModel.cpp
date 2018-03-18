@@ -30,8 +30,8 @@ int ContactPoolListModel::columnCount(const QModelIndex& parent) const { return 
 void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> loc)
 {
         unsigned int oldAmtRows = m_pools.size();
-        m_pools                 = loc->getPools();
-        int diff                = loc->getPools().size() - oldAmtRows;
+        m_pools                 = loc->GetPools();
+        int diff                = loc->GetPools().size() - oldAmtRows;
         if (diff < 0) {
                 beginRemoveRows(QModelIndex(), oldAmtRows, -diff);
                 endRemoveRows();
