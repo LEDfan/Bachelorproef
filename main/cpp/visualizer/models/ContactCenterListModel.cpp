@@ -51,7 +51,7 @@ void ContactCenterListModel::setCenters(std::vector<std::shared_ptr<gengeopop::L
 
         int diff = m_centers.size() - oldAmtRows;
         if (diff < 0) {
-                beginRemoveRows(QModelIndex(), oldAmtRows - 1, -diff);
+                beginRemoveRows(QModelIndex(), 0, -diff);
                 endRemoveRows();
         } else if (diff > 0) {
                 beginInsertRows(QModelIndex(), 0, diff - 1);
