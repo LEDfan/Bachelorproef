@@ -88,11 +88,11 @@ std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property
         auto         result = std::make_shared<ContactPool>(id);
         auto         people = contactPool.get_child("people");
         for (auto it = people.begin(); it != people.end(); it++) {
-                unsigned int id = boost::lexical_cast<unsigned int>(it->second.get<std::string>(""));
-                if (m_people.count(id) == 0) {
-                        throw std::invalid_argument("No such person: " + id);
+                unsigned int person_id = boost::lexical_cast<unsigned int>(it->second.get<std::string>(""));
+                if (m_people.count(person_id) == 0) {
+                        throw std::invalid_argument("No such person: " + person_id);
                 }
-                result->addMember(m_people[id]);
+                result->addMember(m_people[person_id]);
         }
 
         return result;
