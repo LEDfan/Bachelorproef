@@ -1,0 +1,8 @@
+qtdeclarative5-dev
+qtdeclarative5-test-plugin
+qml-module-qtquick-controls
+qml-module-qtquick-dialogs
+qml-module-qtlocation
+qml-module-qtpositioning
+qml-module-qt-labs-folderlistmodel
+qml-module-qt-labs-settings

@@ -89,6 +89,8 @@ target_include_directories(stride PUBLIC
 target_link_libraries(stride ${LIBS} libstride)
 install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
 
+add_subdirectory(visualizer)
+
 #============================================================================
 # Clean up.
 #============================================================================

@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>models/ContactCenterModel.qml</file>
+        <file>models/ContactPoolModel.qml</file>
+        <file>components/ContactCenterViewer.qml</file>
+        <file>components/LocationViewer.qml</file>
+        <file>components/CustomMarker.qml</file>
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>
