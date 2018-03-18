@@ -56,4 +56,9 @@ install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
 
 install(TARGETS vis_test DESTINATION   ${BIN_INSTALL_LOCATION})
 
+enable_testing()
+add_test( NAME visualizer_test
+    COMMAND ${BIN_INSTALL_LOCATION}/vis_test
+)
+
 unset(VISUALIZER_SRC)
