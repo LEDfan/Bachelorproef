@@ -67,7 +67,7 @@ TEST(HouseholdCSVReader, test1)
 
         auto instream = std::make_unique<std::istringstream>(csvString);
 
-        HouseholdCSVReader reader(std::move(instream));
+        HouseholdCSVReader                             reader(std::move(instream));
         const std::vector<std::shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
         const std::vector<std::shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 
