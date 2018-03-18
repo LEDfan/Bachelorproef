@@ -1,6 +1,7 @@
 Test results
 ===
 # master
+ - [198.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/198.1-linux-gcc-6.html)
  - [180.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/180.1-linux-gcc-6.html)
  - [180.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/master/180.2-linux-gcc-7.html)
  - [180.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/master/180.3-linux-clang-5.html)
