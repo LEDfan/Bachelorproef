@@ -28,12 +28,18 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 
         size_t rowIndex = 0;
         for (const stride::util::CSVRow& row : reader) {
+
+                int total = 0;
+                for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+                        total += row.getValue<int>(columnIndex);
+                }
+
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         auto abs = row.getValue<double>(columnIndex);
                         if (abs != 0 && columnIndex != rowIndex) {
                                 const auto& locFrom    = geoGrid->GetById(headerMeaning[columnIndex]);
                                 const auto& locTo      = geoGrid->GetById(headerMeaning[rowIndex]);
-                                double      proportion = abs / static_cast<double>(locFrom->getPopulation());
+                                double      proportion = abs / total;
                                 if (proportion < 0 || proportion > 1) {
                                         throw std::invalid_argument(
                                             "Proportion of commutes from " + std::to_string(locFrom->getID()) + " to " +

@@ -36,10 +36,10 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
 
         res2->FillGeoGrid(geoGrid);
 
-        EXPECT_EQ(geoGrid->GetById(21)->incomingCommutingPeople(1.0), 200);
-        EXPECT_EQ(geoGrid->GetById(22)->outGoingCommutingPeople(1.0), 200);
-        EXPECT_EQ(geoGrid->GetById(21)->incomingCommutingPeople(1.0), 200);
-        EXPECT_EQ(geoGrid->GetById(22)->outGoingCommutingPeople(1.0), 200);
+        EXPECT_EQ(geoGrid->GetById(21)->incomingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(22)->outGoingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(21)->incomingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(22)->outGoingCommutingPeople(1.0), 666);
 }
 
 TEST(ReaderFactoryTest, TestCities)
