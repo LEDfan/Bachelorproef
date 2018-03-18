@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtTest 1.2
+import QtTest 1.1
 
 TestCase {
     name: "MathTests"

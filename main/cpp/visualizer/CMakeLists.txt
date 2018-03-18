@@ -1,4 +1,4 @@
-
+cmake_policy(SET CMP0071 NEW)
 set(VISUALIZER_SRC
     backend.cpp
 #    backend.h
@@ -16,7 +16,7 @@ set(TEST_SRC
         tests/tests.cpp
         tests/tst_basic.qml)
 
-find_package(Qt5 COMPONENTS Widgets Qml Quick REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
 add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
 qt5_add_resources(QT_RESOURCES qml.qrc)
@@ -48,9 +48,12 @@ target_link_libraries(vis_test
     Qt5::Widgets
     Qt5::Qml
     Qt5::Quick
+    Qt5::QuickTest
     Qt5::Test
 )
 
 install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
+
+install(TARGETS vis_test DESTINATION   ${BIN_INSTALL_LOCATION})
 
 unset(VISUALIZER_SRC)
