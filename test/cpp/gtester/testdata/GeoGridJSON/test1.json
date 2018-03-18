@@ -2,6 +2,7 @@
     "locations": [
         {
             "id": "1",
+            "population": "10000",
             "name": "Bavikhove",
             "province": "4",
             "coordinate": {

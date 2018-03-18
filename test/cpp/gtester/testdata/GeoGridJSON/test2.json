@@ -3,6 +3,7 @@
         {
             "id": "1",
             "name": "Bavikhove",
+            "population": "10000",
             "province": "4",
             "coordinate": {
                 "x": "0",

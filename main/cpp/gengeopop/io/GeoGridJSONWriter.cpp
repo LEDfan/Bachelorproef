@@ -32,6 +32,7 @@ boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Loc
         location_root.put("id", location->getID());
         location_root.put("name", location->getName());
         location_root.put("province", location->getProvince());
+        location_root.put("population", location->getPopulation());
         location_root.add_child("coordinate", parseCoordinate(location->getCoordinate()));
 
         boost::property_tree::ptree contactCenters;
