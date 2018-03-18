@@ -7,6 +7,7 @@ namespace gengeopop {
 class ContactPool
 {
 public:
+        ContactPool(unsigned int id);
         using iterator = std::vector<std::shared_ptr<stride::Person>>::iterator;
 
         ContactPool();

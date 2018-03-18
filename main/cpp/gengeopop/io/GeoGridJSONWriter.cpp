@@ -18,7 +18,7 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
 
         boost::property_tree::ptree persons;
         for (const auto& person : m_persons_found) {
-                locations.push_back(std::make_pair("", parsePerson(person)));
+                persons.push_back(std::make_pair("", parsePerson(person)));
         }
         root.add_child("persons", persons);
 

@@ -5,25 +5,28 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::istream& inputStream)
 {
         stride::util::CSV reader(inputStream);
 
+        unsigned int id = 1;
+
         for (const stride::util::CSVRow& row : reader) {
                 std::shared_ptr<gengeopop::Household> household = std::make_shared<gengeopop::Household>();
 
                 // Create contactpool of the household
-                std::shared_ptr<ContactPool> newCP = std::make_shared<ContactPool>();
+                std::shared_ptr<ContactPool> newCP = std::make_shared<ContactPool>(id++);
                 for (std::size_t i = 0; i < 12; i++) {
-                        unsigned int age;
-                        try {
-                                age = row.getValue<unsigned int>(i);
-                        } catch (const std::bad_cast& e) {
-                                // NA
-                                break;
-                        }
+                        for (int i = 0; i < 12; i++) {
+                                unsigned int age;
+                                try {
+                                        age = row.getValue<unsigned int>(i);
+                                } catch (const std::bad_cast& e) {
+                                        // NA
+                                        break;
+                                }
 
-                        std::shared_ptr<stride::Person> p = std::make_shared<stride::Person>();
-                        p->SetAge(age);
-                        newCP->addMember(p);
+                                std::shared_ptr<stride::Person> p = std::make_shared<stride::Person>();
+                                p->SetAge(age);
+                                newCP->addMember(p);
+                        }
+                        household->addPool(newCP);
+                        m_households.push_back(household);
                 }
-                household->addPool(newCP);
-                m_households.push_back(household);
         }
-}

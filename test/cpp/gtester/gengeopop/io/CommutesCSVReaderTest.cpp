@@ -87,8 +87,6 @@ TEST(CommutesCSVReaderTest, test1)
                 EXPECT_DOUBLE_EQ(expectedLoc->outGoingCommutingPeople(1), loc->outGoingCommutingPeople(1));
                 EXPECT_DOUBLE_EQ(expectedLoc->incomingCommutingPeople(1), loc->incomingCommutingPeople(1));
         }
-
 }
-
 
 } // namespace

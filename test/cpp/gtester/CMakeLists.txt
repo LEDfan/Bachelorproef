@@ -33,6 +33,7 @@ set( SRC
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
         CSVTest.cpp
+        gengeopop/io/GeoGridJSONWriterTest.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )
