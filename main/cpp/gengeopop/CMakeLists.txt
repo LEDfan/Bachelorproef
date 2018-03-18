@@ -25,8 +25,8 @@ set(GENGEOPOP_LIB
     io/HouseholdCSVReader.cpp
     io/HouseholdReader.cpp
     io/ReaderFactory.cpp
-    io/GeoGridWriter.cpp
     io/GeoGridJSONWriter.cpp
+    io/GeoGridJSONReader.cpp
 
     # TOOD remove header files after initial implementation
     Community.h
@@ -40,8 +40,7 @@ set(GENGEOPOP_LIB
     io/CitiesCSVReader.h
     io/HouseholdCSVReader.h
     io/HouseholdReader.h
-    GeoGridConfig.h
-)
+    GeoGridConfig.h)
 
 #============================================================================
 # Build the GenGeoPop library.

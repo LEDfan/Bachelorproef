@@ -4,6 +4,7 @@
             "id": "1",
             "name": "Bavikhove",
             "province": "4",
+            "population": "2500",
             "coordinate": {
                 "x": "0",
                 "y": "0",
@@ -88,7 +89,7 @@
             "School": "2",
             "Household": "4",
             "Workplace": "6",
-            "PrimaryCommnity": "3",
+            "PrimaryCommunity": "3",
             "SecondaryCommunity": "7"
         }
     ]

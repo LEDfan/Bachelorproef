@@ -32,6 +32,7 @@ boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Loc
         location_root.put("id", location->getID());
         location_root.put("name", location->getName());
         location_root.put("province", location->getProvince());
+        location_root.put("population", location->getPopulation());
         location_root.add_child("coordinate", parseCoordinate(location->getCoordinate()));
 
         boost::property_tree::ptree contactCenters;
@@ -88,7 +89,7 @@ boost::property_tree::ptree GeoGridJSONWriter::parsePerson(std::shared_ptr<strid
         person_root.put("School", person->GetSchoolId());
         person_root.put("Household", person->GetHouseholdId());
         person_root.put("Workplace", person->GetWorkId());
-        person_root.put("PrimaryCommnity", person->GetPrimaryCommunityId());
+        person_root.put("PrimaryCommunity", person->GetPrimaryCommunityId());
         person_root.put("SecondaryCommunity", person->GetSecondaryCommunityId());
         return person_root;
 }
