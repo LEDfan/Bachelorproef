@@ -33,7 +33,7 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 double totalCompulsoryPupils(const std::vector<std::shared_ptr<Household>>& households)
 {
         unsigned int totalPupils = 0;
-        unsigned int total = 0;
+        unsigned int total       = 0;
         for (const std::shared_ptr<Household>& household : households) {
                 for (const std::shared_ptr<ContactPool>& contactPool : household->GetPools()) {
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
                 commutesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig;
-                geoGridConfig.populationSize = geoGrid->getTotalPopulation();
+                geoGridConfig.populationSize            = geoGrid->getTotalPopulation();
                 geoGridConfig.fraction_compulsoryPupils = totalCompulsoryPupils(houseHoldsReader->GetHouseHolds());
 
                 std::cout << "Starting generation. Population size: " << geoGridConfig.populationSize
