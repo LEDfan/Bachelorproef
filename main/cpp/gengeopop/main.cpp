@@ -29,6 +29,21 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid) {
         geoGridGenerator.generateGeoGrid();
 }
 
+unsigned int totalCompulsoryPupils(const std::vector<std::shared_ptr<Household>>& households) {
+        unsigned int total = 0;
+        for (const std::shared_ptr<Household>& household : households) {
+                for (const std::shared_ptr<ContactPool>& contactPool : household->GetPools()) {
+                        for (const std::shared_ptr<stride::Person>& person: *contactPool) {
+                                if (person->GetAge() < 18 && person->GetAge() >= 6) {
+                                        total++;
+                                }
+                        }
+                }
+        }
+
+        return total;
+}
+
 int main(int argc, char* argv[]) {
 
 
@@ -40,6 +55,7 @@ int main(int argc, char* argv[]) {
                 ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv", "CITIES FILE", cmd);
                 ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv", "COMMUTING FILE", cmd);
                 ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.json", "OUTPUT FILE", cmd);
+                ValueArg<std::string> houseHoldFile("h", "household", "Household File", false, "households_flanders.csv", "OUTPUT FILE", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -47,6 +63,8 @@ int main(int argc, char* argv[]) {
 
                 auto citiesReader = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
                 auto commutesReader = readerFactory.CreateCommutesReader(std::string(commutingFile.getValue()));
+                auto houseHoldsReader = readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
+
                 std::ofstream outputFileStream(outputFile.getValue());
 
                 auto geoGrid = std::make_shared<GeoGrid>();
@@ -56,11 +74,13 @@ int main(int argc, char* argv[]) {
 
                 GeoGridConfig geoGridConfig;
                 geoGridConfig.populationSize = geoGrid->getTotalPopulation();
-                geoGridConfig.fraction_compulsoryPupils  = 100;
+                geoGridConfig.fraction_compulsoryPupils  = static_cast<double>(totalCompulsoryPupils(houseHoldsReader->GetHouseHolds())) / static_cast<double>(geoGridConfig.populationSize);
 
-                std::cout << "Starting generation. Population size: " << geoGridConfig.populationSize << std::endl;
+                std::cout << "Starting generation. Population size: " << geoGridConfig.populationSize << ", compulsory pupils: " << geoGridConfig.fraction_compulsoryPupils << std::endl;
 
                 generate(geoGridConfig, geoGrid);
+
+                std::cout << "Generation done, writing to file." << std::endl;
 
                 GeoGridJSONWriter geoGridJsonWriter;
                 geoGridJsonWriter.write(geoGrid, outputFileStream);

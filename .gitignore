@@ -99,3 +99,4 @@ Gemfile*
 .bundle/
 vendor/
 .idea
+gengeopop.json

@@ -1,9 +1,9 @@
 #include "HouseholdCSVReader.h"
 #include <util/CSV.h>
 
-gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::istream& inputStream)
+gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
 {
-        stride::util::CSV reader(inputStream);
+        stride::util::CSV reader(*(inputStream.get()));
 
         unsigned int id = 1;
 
