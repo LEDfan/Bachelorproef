@@ -2,7 +2,9 @@
 #include <vector>
 
 namespace gengeopop {
-const std::vector<std::shared_ptr<Household>>& gengeopop::HouseholdReader::getHouseHolds() const
+HouseholdReader::HouseholdReader() : m_households() {}
+
+const std::vector<std::shared_ptr<Household>>& gengeopop::HouseholdReader::GetHouseHolds() const
 {
         return m_households;
 }

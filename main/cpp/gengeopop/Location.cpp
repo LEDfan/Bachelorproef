@@ -69,7 +69,17 @@ int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) cons
                 // locProportion.second of the people in this are commuting to locProportion.first
                 totalProportion += locProportion.second;
         }
-        return static_cast<int>(std::floor(totalProportion * (fractionOfPopulationCommuting * (double)m_population)));
+        return static_cast<int>(
+            std::floor(totalProportion * (fractionOfPopulationCommuting * static_cast<double>(m_population))));
+}
+
+bool Location::operator==(const Location& other) const
+{
+        return getID() == other.getID() && getCoordinate() == other.getCoordinate() && getName() == other.getName() &&
+               getProvince() == other.getProvince() && getPopulation() == other.getPopulation() &&
+               getContactCenters() == other.getContactCenters() &&
+               getIncomingCommuningCities() == other.getIncomingCommuningCities() &&
+               getOutgoingCommuningCities() == other.getOutgoingCommuningCities();
 }
 
 } // namespace gengeopop

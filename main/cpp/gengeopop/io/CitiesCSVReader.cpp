@@ -1,19 +1,30 @@
 #include "CitiesCSVReader.h"
 #include "../../util/CSV.h"
 #include "../../util/CSVRow.h"
+#include <iostream>
 
-gengeopop::CitiesCSVReader::CitiesCSVReader(std::istream& inputStream)
+namespace gengeopop {
+
+CitiesCSVReader::CitiesCSVReader(std::unique_ptr<std::istream> inputStream) : CitiesReader(std::move(inputStream)) {}
+
+void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude
         // name
-        stride::util::CSV reader(inputStream);
+        stride::util::CSV reader(*(m_inputStream.get()));
 
         for (const stride::util::CSVRow& row : reader) {
-                Location* newLoc = new Location(stoi(row.getValue(0)), stoi(row.getValue(1)), stoi(row.getValue(2)),
-                                                Coordinate(stoi(row.getValue(3)), stoi(row.getValue(4)),
-                                                           stoi(row.getValue(5)), stoi(row.getValue(6))),
-                                                row.getValue(7));
-
-                m_locations.emplace_back(newLoc);
+                auto id       = row.getValue<int>(0);
+                auto location = std::make_shared<Location>(id,                                 // id
+                                                           row.getValue<int>(1),               // province
+                                                           row.getValue<int>(2),               // relative population
+                                                           Coordinate(row.getValue<double>(3), // x_coord
+                                                                      row.getValue<double>(4), // y_coord
+                                                                      row.getValue<double>(5), // latitude
+                                                                      row.getValue<double>(6)  // longtitude
+                                                                      ),
+                                                           row.getValue(7));
+                geoGrid->addLocation(location);
         }
 }
+} // namespace gengeopop

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <map>
+#include <unordered_map>
 #include <vector>
 
 #include "Location.h"
@@ -36,7 +38,10 @@ public:
 
         std::shared_ptr<Location> get(size_t index);
 
+        std::shared_ptr<Location> GetById(unsigned int id);
+
 private:
-        std::vector<std::shared_ptr<Location>> m_locations;
+        std::vector<std::shared_ptr<Location>>                      m_locations;
+        std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
 };
 } // namespace gengeopop

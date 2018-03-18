@@ -81,7 +81,7 @@ for dir in "$@"; do
             # ref https://stackoverflow.com/a/22866610
             "${FMT}" "${f}" -output-replacements-xml | grep -c "<replacement " > /dev/null
             if [ $? -ne 1 ]; then
-                echo "- ${f} is not correclty formatted"
+                echo "- ${f} is not correctly formatted"
                 EXIT=1
             fi
         fi

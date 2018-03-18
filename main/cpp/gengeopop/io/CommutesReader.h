@@ -1,5 +1,6 @@
 #pragma once
 
+#include <gengeopop/GeoGrid.h>
 #include <gengeopop/Location.h>
 #include <map>
 #include <string>
@@ -8,9 +9,13 @@ namespace gengeopop {
 class CommutesReader
 {
 public:
-        std::map<Location, std::map<Location, unsigned int>> getCommutes();
+        CommutesReader(std::unique_ptr<std::istream> inputStream);
 
-private:
-        std::map<Location, std::map<Location, unsigned int>> m_commutes;
+        virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
+
+        virtual ~CommutesReader(){};
+
+protected:
+        std::unique_ptr<std::istream> m_inputStream;
 };
 } // namespace gengeopop
