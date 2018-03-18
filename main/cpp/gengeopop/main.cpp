@@ -16,7 +16,6 @@ using namespace TCLAP;
 
 void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 {
-
         stride::util::RNManager::Info info;
 
         stride::util::RNManager rnManager(info);
@@ -50,7 +49,6 @@ double totalCompulsoryPupils(const std::vector<std::shared_ptr<Household>>& hous
 
 int main(int argc, char* argv[])
 {
-
         int exit_status = EXIT_SUCCESS;
 
         // base structure copied from sim/main.cpp
@@ -95,7 +93,6 @@ int main(int argc, char* argv[])
                 geoGridJsonWriter.write(geoGrid, outputFileStream);
 
                 std::cout << "Done" << std::endl;
-
         } catch (std::exception& e) {
                 exit_status = EXIT_FAILURE;
                 std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
