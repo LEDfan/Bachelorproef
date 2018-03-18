@@ -29,4 +29,11 @@ Upstream:
 * Elise Kuylen (elise.kuylen@student.uantwerpen.be)
 * Lander Willem (lander.willem@uantwerpen.be)
 
+## GenGeo
+The GenGeo can be tested by compiling Stride and then running the `./cmake-build-release/installed/bin/gengeopop`.
+This executable can be given some files as parameter (use `gengeopop -h`), these paths are relative to the data directory.
+
+## GenGeo visualiser
+TODO
+
 The current status of the project build is : ![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
