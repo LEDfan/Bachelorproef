@@ -117,6 +117,7 @@ ApplicationWindow {
 		ColumnLayout {
 			Layout.rightMargin: 4
             Layout.fillWidth: false
+            /*
 			CheckBox {
 				id: checkBox_School
 				text: qsTr("School")
@@ -145,6 +146,7 @@ ApplicationWindow {
 				text: qsTr("Commutes")
 				checked: true
 			}
+			*/
 
 			Button {
 				id: buttonOpen
@@ -188,12 +190,7 @@ ApplicationWindow {
         title: "Please choose a file"
         folder: shortcuts.home
         onAccepted: {
-            console.log("You chose: " + fileSelector.fileUrls)
             backend.loadGeoGridFromFile(fileSelector.fileUrl, map)
-        }
-        onRejected: {
-            console.log("Canceled")
-            Qt.quit()
         }
     }
 }

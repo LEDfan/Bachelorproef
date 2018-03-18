@@ -18,4 +18,4 @@ void ContactCenterViewerBackend::showContactCenter(std::shared_ptr<gengeopop::Co
         maxPoolSizeText->setProperty("text", maxPoolsString);
 }
 
-ContactCenterViewerBackend::ContactCenterViewerBackend(QObject* parent) : QObject(parent) { _parent = parent; }
+ContactCenterViewerBackend::ContactCenterViewerBackend(QObject* parent) : QObject(parent) {}

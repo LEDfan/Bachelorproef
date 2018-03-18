@@ -1,15 +1,11 @@
 cmake_policy(SET CMP0071 NEW)
 set(VISUALIZER_SRC
     backend.cpp
-#    backend.h
     main.cpp
     backends/LocationViewerBackend.cpp
     backends/ContactCenterViewerBackend.cpp
     models/ContactPoolListModel.cpp
-    objects/LocationQWrapper.cpp
-    objects/LocationQWrapper.h
     models/ContactCenterListModel.cpp
-    models/ContactCenterListModel.h
         )
 
 set(TEST_SRC
@@ -24,10 +20,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++11 -fstrict-aliasing -pedantic-errors -pedantic -Wno-deprecated-declarations -Wno-unused-variable")
-
-#source_group("Header Files" FILES ${HEADERS})
-#source_group("Source Files" FILES ${SOURCES})
 add_executable(visualizer ${VISUALIZER_SRC} ${QT_RESOURCES})
 target_link_libraries(visualizer
     libgengeopop
@@ -54,7 +46,6 @@ target_link_libraries(vis_test
 )
 
 install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
-
 install(TARGETS vis_test DESTINATION   ${BIN_INSTALL_LOCATION})
 
 enable_testing()
@@ -63,3 +54,4 @@ add_test( NAME visualizer_test
 )
 
 unset(VISUALIZER_SRC)
+unset(TEST_SRC)
