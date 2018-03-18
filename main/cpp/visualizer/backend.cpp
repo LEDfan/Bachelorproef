@@ -8,7 +8,6 @@
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridJSONReader.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
-#include <iostream>
 
 Backend::Backend(QObject* parent) : QObject(parent)
 {
@@ -31,7 +30,7 @@ void Backend::PlaceMarkers()
         QMetaObject::invokeMethod(m_map, "clearMapItems");
 
         // Place the new markers
-        for (std::shared_ptr<gengeopop::Location> loc : m_grid->topK(100)) {
+        for (const std::shared_ptr<gengeopop::Location> &loc : *m_grid) {
                 PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation());
         }
 }
@@ -57,7 +56,7 @@ void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int po
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
                                   Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
                                   Q_ARG(QVariant, QString(id.c_str())),
-                                  Q_ARG(QVariant, 15.0 + std::max(0.0, 2 * std::log2(population))));
+                                  Q_ARG(QVariant, std::min(50.0, 10 + population * 0.0015)));
 }
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc)
