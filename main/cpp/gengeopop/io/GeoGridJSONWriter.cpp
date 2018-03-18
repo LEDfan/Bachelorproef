@@ -89,7 +89,7 @@ boost::property_tree::ptree GeoGridJSONWriter::parsePerson(std::shared_ptr<strid
         person_root.put("School", person->GetSchoolId());
         person_root.put("Household", person->GetHouseholdId());
         person_root.put("Workplace", person->GetWorkId());
-        person_root.put("PrimaryCommnity", person->GetPrimaryCommunityId());
+        person_root.put("PrimaryCommunity", person->GetPrimaryCommunityId());
         person_root.put("SecondaryCommunity", person->GetSecondaryCommunityId());
         return person_root;
 }
