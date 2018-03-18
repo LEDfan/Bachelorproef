@@ -23,7 +23,6 @@ namespace {
 
 std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
 {
-
         auto cp = std::make_shared<ContactPool>();
         for (unsigned int age : ages) {
                 auto p = std::make_shared<stride::Person>();
@@ -38,7 +37,6 @@ std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
 
 std::vector<std::shared_ptr<Household>> getExpectedHouseHolds()
 {
-
         std::vector<std::shared_ptr<Household>> households;
 
         households.push_back(createCP({42, 38, 15}));
@@ -76,7 +74,6 @@ TEST(HouseholdCSVReader, test1)
 
         int i = 0;
         for (const auto& hh : expectedHHS) {
-
                 const auto& expectedCP = hh->GetPools()[0];
                 const auto& actualCP   = HHs[i]->GetPools()[0];
 
