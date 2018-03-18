@@ -7,9 +7,7 @@
 #include <gengeopop/Location.h>
 #include <iostream>
 
-int ContactCenterListModel::rowCount(const QModelIndex& parent) const {
-        std::cout << "Rowcount" << std::endl;
-        return m_centers.size(); }
+int ContactCenterListModel::rowCount(const QModelIndex& parent) const { return m_centers.size(); }
 
 QVariant ContactCenterListModel::data(const QModelIndex& index, int role) const
 {
@@ -46,17 +44,17 @@ void ContactCenterListModel::setCenters(std::vector<std::shared_ptr<gengeopop::L
         m_centers.clear();
         for (auto loc : locs) {
                 auto centers = loc->getContactCenters();
-                m_centers.insert(m_centers.end(), centers.begin(), centers.end());
+                for (auto center : centers) {
+                        m_centers.push_back(center);
+                }
         }
 
         int diff = m_centers.size() - oldAmtRows;
-        std::cout << "DIF ROWS" << diff << std::endl;
         if (diff < 0) {
-                beginRemoveRows(QModelIndex(), oldAmtRows, -diff);
+                beginRemoveRows(QModelIndex(), oldAmtRows - 1, -diff);
                 endRemoveRows();
         } else if (diff > 0) {
-                beginInsertRows(QModelIndex(), 0, diff);
-                std::cout << "\t inserted: " << diff << std::endl;
+                beginInsertRows(QModelIndex(), 0, diff - 1);
                 endInsertRows();
         }
         int commonRows = std::min(oldAmtRows, (unsigned int)m_centers.size());

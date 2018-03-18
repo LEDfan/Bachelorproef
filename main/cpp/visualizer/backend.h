@@ -73,4 +73,9 @@ private:
          * Sends a signal witht the currently selected locations.
          */
         void emitLocations();
+
+        /**
+         * Adds the location to the selection if it is not yet in the list.
+         */
+        void addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> loc);
 };

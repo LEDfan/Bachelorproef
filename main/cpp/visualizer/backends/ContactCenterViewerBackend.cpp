@@ -3,22 +3,15 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-void ContactCenterViewerBackend::showContactCenters(std::vector<std::shared_ptr<gengeopop::ContactCenter>> centers)
+void ContactCenterViewerBackend::showContactCenter(std::shared_ptr<gengeopop::ContactCenter> center)
 {
         QObject* nameText        = parent()->findChild<QObject*>(QString("textCCID"));
         QObject* poolSizeText    = parent()->findChild<QObject*>(QString("textCCPoolSize"));
         QObject* maxPoolSizeText = parent()->findChild<QObject*>(QString("textCCMaxPools"));
 
-        QString idString("ID: ");
-        QString poolsString("Pool Size: ");
-        QString maxPoolsString("Max # Pools: ");
-
-        if (centers.size() == 1) {
-                auto cc = centers[0];
-                idString += QString::fromStdString("0");
-                poolsString += QString::number(cc->getPoolSize());
-                maxPoolsString += QString::number(cc->getMaxPools());
-        }
+        QString idString       = "ID: " + QString::fromStdString("0");
+        QString poolsString    = "Pool Size: " + QString::number(center->getPoolSize());
+        QString maxPoolsString = "Max # Pools: " + QString::number(center->getMaxPools());
 
         nameText->setProperty("text", idString);
         poolSizeText->setProperty("text", poolsString);
