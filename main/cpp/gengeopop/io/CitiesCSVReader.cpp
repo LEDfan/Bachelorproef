@@ -14,14 +14,14 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         stride::util::CSV reader(m_inputStream);
 
         for (const stride::util::CSVRow& row : reader) {
-                int  id       = stoi(row.getValue(0));
-                auto location = std::make_shared<Location>(id,                               // id
-                                                           stoi(row.getValue(1)),            // province
-                                                           stoi(row.getValue(2)),            // relative population
-                                                           Coordinate(stod(row.getValue(3)), // x_coord
-                                                                      stod(row.getValue(4)), // y_coord
-                                                                      stod(row.getValue(5)), // latitude
-                                                                      stod(row.getValue(6))  // longtitude
+                auto id       = row.getValue<int>(0);
+                auto location = std::make_shared<Location>(id,                                 // id
+                                                           row.getValue<int>(1),               // province
+                                                           row.getValue<int>(2),               // relative population
+                                                           Coordinate(row.getValue<double>(3), // x_coord
+                                                                      row.getValue<double>(4), // y_coord
+                                                                      row.getValue<double>(5), // latitude
+                                                                      row.getValue<double>(6)  // longtitude
                                                                       ),
                                                            row.getValue(7));
                 geoGrid->addLocation(location);
