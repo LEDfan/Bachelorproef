@@ -1,4 +1,3 @@
-cmake_policy(SET CMP0071 NEW)
 set(VISUALIZER_SRC
     backend.cpp
     main.cpp
