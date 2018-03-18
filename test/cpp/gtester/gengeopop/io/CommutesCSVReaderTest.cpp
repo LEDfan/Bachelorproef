@@ -89,13 +89,14 @@ TEST(CommutesCSVReaderTest, test1)
         }
 }
 
-TEST(CommutesCSVReaderTest, InvalidProportion) {
+TEST(CommutesCSVReaderTest, InvalidProportion)
+{
         std::string csvString = R"(id_21,id_22
                 100,2000
                 100,2000
 )";
 
-        std::shared_ptr<GeoGrid> geoGrid         = std::make_shared<GeoGrid>();
+        std::shared_ptr<GeoGrid> geoGrid = std::make_shared<GeoGrid>();
         geoGrid->addLocation(std::make_shared<Location>(21, 0, 10));
         geoGrid->addLocation(std::make_shared<Location>(22, 0, 20));
 
@@ -104,8 +105,6 @@ TEST(CommutesCSVReaderTest, InvalidProportion) {
         CommutesCSVReader reader(instream);
 
         EXPECT_THROW(reader.FillGeoGrid(geoGrid), std::invalid_argument);
-
-
 }
 
 } // namespace
