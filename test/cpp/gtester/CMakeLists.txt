@@ -30,11 +30,12 @@ set( SRC
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
-)
+        gengeopop/io/GeoGridJSONWriterTest.cpp)
 
 add_executable(${EXEC}   ${SRC} )
 target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
+install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
 #============================================================================
 # Define tests.
