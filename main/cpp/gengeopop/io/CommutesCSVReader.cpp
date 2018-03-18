@@ -28,7 +28,6 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 
         size_t rowIndex = 0;
         for (const stride::util::CSVRow& row : reader) {
-
                 int total = 0;
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         total += row.getValue<int>(columnIndex);
