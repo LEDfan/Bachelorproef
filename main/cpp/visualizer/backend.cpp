@@ -30,7 +30,7 @@ void Backend::PlaceMarkers()
         QMetaObject::invokeMethod(m_map, "clearMapItems");
 
         // Place the new markers
-        for (const std::shared_ptr<gengeopop::Location> &loc : *m_grid) {
+        for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
                 PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation());
         }
 }
