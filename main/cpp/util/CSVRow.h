@@ -65,7 +65,7 @@ public:
 };
 
 /**
- * Converts a string to an airthmetic type, in a safe manner.
+ * Converts a string to an arithmetic type, in a safe manner.
  * @throws bad_lexical_cast if \p val can't be converted to a double or int
  * @throws bad_numeric_cast if \p val can't be converted to T
  * @tparam T the type to safe cast to

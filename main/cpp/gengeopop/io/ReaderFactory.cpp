@@ -3,8 +3,8 @@
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
 #include <boost/filesystem.hpp>
-#include <util/FileSys.h>
 #include <iostream>
+#include <util/FileSys.h>
 
 namespace gengeopop {
 
@@ -43,7 +43,8 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const boos
         }
 }
 
-std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const {
+std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const
+{
         if (!boost::filesystem::exists(path)) {
                 throw std::invalid_argument("File not found: " + path.string());
         }

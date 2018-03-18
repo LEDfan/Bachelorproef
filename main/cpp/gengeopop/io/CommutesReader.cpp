@@ -4,7 +4,6 @@
 
 namespace gengeopop {
 
-CommutesReader::CommutesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {
-}
+CommutesReader::CommutesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
 
 } // namespace gengeopop
