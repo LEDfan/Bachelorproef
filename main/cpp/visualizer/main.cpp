@@ -13,7 +13,7 @@ Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 int main(int argc, char* argv[])
 {
         QGuiApplication app(argc, argv);
-        qmlRegisterType<BackEnd>("io.bistromatics.backend", 1, 0, "BackEnd");
+        qmlRegisterType<Backend>("io.bistromatics.backend", 1, 0, "Backend");
         qmlRegisterType<LocationViewerBackend>("io.bistromatics.locationviewerbackend", 1, 0, "LocationViewerBackend");
         qmlRegisterType<ContactCenterViewerBackend>("io.bistromatics.contactcenterviewerbackend", 1, 0,
                                                     "ContactCenterViewerBackend");

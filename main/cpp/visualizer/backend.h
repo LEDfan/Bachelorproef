@@ -4,26 +4,26 @@
 #include <QString>
 #include <gengeopop/GeoGrid.h>
 
-class BackEnd : public QObject
+class Backend : public QObject
 {
         Q_OBJECT
 
 public:
-        explicit BackEnd(QObject* parent = nullptr);
+        explicit Backend(QObject* parent = nullptr);
 
         Q_INVOKABLE
         /**
          * Loads a GeoGrid from JSON file.
          * @param file The path to the JSON file that contains a valid GeoGrid description.
          */
-        void loadGeoGridFromFile(const QString& file);
+        void LoadGeoGridFromFile(const QString& file);
 
         Q_INVOKABLE
         /**
          * Places the locations of the current GeoGrid on the map.
          * @param map: Instance of the Map QObject
          */
-        void setObjects(QObject* map);
+        void SetObjects(QObject* map);
 
         Q_INVOKABLE
         /**
@@ -31,27 +31,27 @@ public:
          * that correspons to the clicked marker.
          * @param idOfClicked The id of the marker that was clicked.
          */
-        void onMarkerClicked(int idOfClicked);
+        void OnMarkerClicked(int idOfClicked);
 
         Q_INVOKABLE
         /**
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.
          */
-        void saveGeoGridToFile(const QString& fileLoc);
+        void SaveGeoGridToFile(const QString& fileLoc);
 
 signals:
-        void locationSelected(std::shared_ptr<gengeopop::Location> location);
+        void LocationSelected(std::shared_ptr<gengeopop::Location> location);
 
 private:
         QObject*                            m_map = nullptr;
         std::shared_ptr<gengeopop::GeoGrid> m_grid;
 
-        void placeMarker(Coordinate coordinate, std::string id, unsigned int population);
+        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population);
 
         /*
          * Places the markers on the map, according to the current checked boxes.
          * @Pre: m_map is initialized correctly and holds the map we want to place markers on
          */
-        void placeMarkers();
+        void PlaceMarkers();
 };

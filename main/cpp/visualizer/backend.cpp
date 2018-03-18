@@ -7,7 +7,7 @@
 #include <gengeopop/io/GeoGridJSONWriter.h>
 #include <iostream>
 
-BackEnd::BackEnd(QObject* parent) : QObject(parent)
+Backend::Backend(QObject* parent) : QObject(parent)
 {
         // This is to be removed once the reader is working
         m_grid = std::make_shared<gengeopop::GeoGrid>();
@@ -26,34 +26,34 @@ BackEnd::BackEnd(QObject* parent) : QObject(parent)
         m_grid->addLocation(newLoc1);
 }
 
-void BackEnd::loadGeoGridFromFile(const QString& file)
+void Backend::LoadGeoGridFromFile(const QString& file)
 {
         // TODO Send the file to the geoGridReader and keep the geoGrid Loaded
         std::cout << file.toStdString() << std::endl;
-        placeMarkers();
+        PlaceMarkers();
 }
 
-void BackEnd::placeMarkers()
+void Backend::PlaceMarkers()
 {
         // Clear the present markers
         QMetaObject::invokeMethod(m_map, "clearMapItems");
 
         // Place the new markers
         for (std::shared_ptr<gengeopop::Location> loc : m_grid->topK(100)) {
-                placeMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation());
+                PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation());
         }
 }
 
-void BackEnd::onMarkerClicked(int idOfClicked) { emit locationSelected(m_grid->get(idOfClicked)); }
+void Backend::OnMarkerClicked(int idOfClicked) { emit LocationSelected(m_grid->get(idOfClicked)); }
 
-void BackEnd::setObjects(QObject* map)
+void Backend::SetObjects(QObject* map)
 {
         m_map = map;
 
-        placeMarkers();
+        PlaceMarkers();
 }
 
-void BackEnd::placeMarker(Coordinate coordinate, std::string id, unsigned int population)
+void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int population)
 {
         QVariant returnVal;
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
@@ -62,7 +62,7 @@ void BackEnd::placeMarker(Coordinate coordinate, std::string id, unsigned int po
                                   Q_ARG(QVariant, 15.0 + std::max(0.0, 2 * std::log2(population))));
 }
 
-void BackEnd::saveGeoGridToFile(const QString& fileLoc)
+void Backend::SaveGeoGridToFile(const QString& fileLoc)
 {
         gengeopop::GeoGridJSONWriter writer;
         std::ofstream                outputFile(fileLoc.toStdString());

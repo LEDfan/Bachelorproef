@@ -48,7 +48,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
 
                 Component.onCompleted: {
-                    backend.setObjects(map)
+                    backend.SetObjects(map)
                     for( var i_type in supportedMapTypes  ) {
                         if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
                         activeMapType = supportedMapTypes[i_type]
@@ -95,7 +95,7 @@ ApplicationWindow {
                 }
 
                 function markerClicked(id) {
-                    backend.onMarkerClicked(id)
+                    backend.OnMarkerClicked(id)
                 }
             }
         }
@@ -164,10 +164,10 @@ ApplicationWindow {
 		}
     }
 
-    BackEnd {
+    Backend {
         id: backend
         Component.onCompleted: {
-            backend.locationSelected.connect(clickSignal)
+            backend.LocationSelected.connect(clickSignal)
         }
 
         function clickSignal (arg) {
@@ -181,7 +181,7 @@ ApplicationWindow {
         title: "Select a save location"
         folder: shortcuts.home
         onAccepted: {
-            backend.saveGeoGridToFile(fileUrl)
+            backend.SaveGeoGridToFile(fileUrl)
         }
     }
 
@@ -190,7 +190,7 @@ ApplicationWindow {
         title: "Please choose a file"
         folder: shortcuts.home
         onAccepted: {
-            backend.loadGeoGridFromFile(fileSelector.fileUrl, map)
+            backend.LoadGeoGridFromFile(fileSelector.fileUrl, map)
         }
     }
 }
