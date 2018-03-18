@@ -5,7 +5,7 @@
 namespace gengeopop {
 
 CommutesCSVReader::CommutesCSVReader(std::istream& inputStream) : CommutesReader(inputStream) {}
-void CommutesCSVReader::fillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
+void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols:
         stride::util::CSV reader(m_inputStream);
@@ -28,8 +28,8 @@ void CommutesCSVReader::fillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         double abs = stod(row.getValue(columnIndex));
                         if (abs != 0 && columnIndex != rowIndex) {
-                                const auto& locFrom   = geoGrid->getById(headerMeaning[columnIndex]);
-                                const auto& locTo     = geoGrid->getById(headerMeaning[rowIndex]);
+                                const auto& locFrom   = geoGrid->GetById(headerMeaning[columnIndex]);
+                                const auto& locTo     = geoGrid->GetById(headerMeaning[rowIndex]);
                                 double      proprtion = abs / (double)locFrom->getPopulation();
                                 // TODO check if 0 < proportion <= 1
                                 locFrom->addOutgoingCommutingLocation(locTo, proprtion);

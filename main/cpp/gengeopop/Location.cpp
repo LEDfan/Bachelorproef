@@ -72,13 +72,13 @@ int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) cons
         return static_cast<int>(std::floor(totalProportion * (fractionOfPopulationCommuting * (double)m_population)));
 }
 
-bool operator==(const Location& lhs, const Location& rhs)
+bool Location::operator==(const Location& other) const
 {
-        return lhs.getID() == rhs.getID() && lhs.getCoordinate() == rhs.getCoordinate() &&
-               lhs.getName() == rhs.getName() && lhs.getProvince() == rhs.getProvince() &&
-               lhs.getPopulation() == rhs.getPopulation() && lhs.getContactCenters() == rhs.getContactCenters() &&
-               lhs.getIncomingCommuningCities() == rhs.getIncomingCommuningCities() &&
-               lhs.getOutgoingCommuningCities() == rhs.getOutgoingCommuningCities();
+        return getID() == other.getID() && getCoordinate() == other.getCoordinate() && getName() == other.getName() &&
+               getProvince() == other.getProvince() && getPopulation() == other.getPopulation() &&
+               getContactCenters() == other.getContactCenters() &&
+               getIncomingCommuningCities() == other.getIncomingCommuningCities() &&
+               getOutgoingCommuningCities() == other.getOutgoingCommuningCities();
 }
 
 } // namespace gengeopop

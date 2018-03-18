@@ -9,19 +9,19 @@ namespace gengeopop {
 class ReaderFactory
 {
 public:
-        std::shared_ptr<CitiesReader> createCitiesReader(const boost::filesystem::path& path);
-        std::shared_ptr<CitiesReader> createCitiesReader(const std::string& filename);
+        std::shared_ptr<CitiesReader> CreateCitiesReader(const boost::filesystem::path& path);
+        std::shared_ptr<CitiesReader> CreateCitiesReader(const std::string& filename);
 
         /**
          * @param filename relative to data dir
          */
-        std::shared_ptr<CommutesReader> createCommutesReader(const std::string& filename);
+        std::shared_ptr<CommutesReader> CreateCommutesReader(const std::string& filename);
         /**
          * @param filename absolute path
          */
-        std::shared_ptr<CommutesReader> createCommutesReader(const boost::filesystem::path& path);
+        std::shared_ptr<CommutesReader> CreateCommutesReader(const boost::filesystem::path& path);
 
-        HouseholdReader createHouseholdReader(const std::string& filename);
-        HouseholdReader createHouseholdReader(const boost::filesystem::path& path);
+        HouseholdReader CreateHouseholdReader(const std::string& filename);
+        HouseholdReader CreateHouseholdReader(const boost::filesystem::path& path);
 };
 } // namespace gengeopop

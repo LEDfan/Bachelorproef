@@ -10,6 +10,6 @@ class CommutesCSVReader : public CommutesReader
 {
 public:
         CommutesCSVReader(std::istream& inputStream);
-        void fillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
+        void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
 };
 } // namespace gengeopop

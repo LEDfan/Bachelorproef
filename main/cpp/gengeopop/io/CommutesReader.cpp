@@ -5,6 +5,5 @@
 namespace gengeopop {
 
 CommutesReader::CommutesReader(std::istream& inputStream) : m_inputStream(inputStream) {}
-void CommutesReader::fillGeoGrid(std::shared_ptr<GeoGrid>) const {}
 
 } // namespace gengeopop

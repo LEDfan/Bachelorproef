@@ -29,7 +29,7 @@ public:
 
         /**
          * Adds a Location and a proportion to the incoming commutng vector
-         * I.e. $proportion of the commuting population in $location are commuting to $this
+         * I.e. \p proportion of the commuting population in \p location are commuting to \p this
          */
         void addIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
@@ -41,7 +41,7 @@ public:
 
         /**
          * Adds a Location and a proportion to the incoming commuting vector
-         * I.e. $proportion of the commuting population in $this are commuting to $location
+         * I.e. \p proportion of the commuting population in \p this are commuting to \p location
          */
         void addOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
@@ -55,7 +55,7 @@ public:
 
         const std::vector<std::shared_ptr<ContactCenter>>& getContactCenters() const;
 
-        friend bool operator==(const Location& x, const Location& y);
+        bool operator==(const Location& other) const;
 
 private:
         unsigned int                                              m_id = 0;
@@ -67,7 +67,5 @@ private:
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
 };
-
-bool operator==(const Location& x, const Location& y);
 
 } // namespace gengeopop

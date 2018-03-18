@@ -1,6 +1,6 @@
 #include "Coordinate.h"
 
-bool operator==(const Coordinate& lhs, const Coordinate& rhs)
+bool Coordinate::operator==(const Coordinate& other) const
 {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.longitude == rhs.longitude && lhs.latitude == rhs.latitude;
+        return x == other.x && y == other.y && longitude == other.longitude && latitude == other.latitude;
 }

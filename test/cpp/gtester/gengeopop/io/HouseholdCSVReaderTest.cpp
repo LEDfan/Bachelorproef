@@ -51,24 +51,25 @@ std::vector<std::shared_ptr<Household>> getExpectedHouseHolds()
         households.push_back(createCP({78, 75}));
 
         return households;
-};
+}
 
 TEST(HouseholdCSVReader, test1)
 {
         std::string csvString =
-            "hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12\n"
-            "42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "40,39,9,6,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "43,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "55,54,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "40,40,3,3,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "35,32,6,3,NA,NA,NA,NA,NA,NA,NA,NA\n"
-            "78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA";
+            R"(hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12
+42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA
+70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+40,39,9,6,NA,NA,NA,NA,NA,NA,NA,NA
+43,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+55,54,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+40,40,3,3,NA,NA,NA,NA,NA,NA,NA,NA
+35,32,6,3,NA,NA,NA,NA,NA,NA,NA,NA
+78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+)";
 
         std::istringstream                             instream(csvString);
         HouseholdCSVReader                             reader(instream);
-        const std::vector<std::shared_ptr<Household>>& HHs         = reader.getHouseHolds();
+        const std::vector<std::shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
         const std::vector<std::shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 
         EXPECT_EQ(HHs.size(), (unsigned int)8);
@@ -76,8 +77,8 @@ TEST(HouseholdCSVReader, test1)
         int i = 0;
         for (const auto& hh : expectedHHS) {
 
-                const auto& expectedCP = hh->getPools()[0];
-                const auto& actualCP   = HHs[i]->getPools()[0];
+                const auto& expectedCP = hh->GetPools()[0];
+                const auto& actualCP   = HHs[i]->GetPools()[0];
 
                 auto actualCPI = actualCP->begin();
                 for (const auto& person : *expectedCP) {

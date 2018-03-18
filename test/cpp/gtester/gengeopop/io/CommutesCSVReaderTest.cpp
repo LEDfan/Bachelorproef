@@ -16,32 +16,32 @@ std::shared_ptr<GeoGrid> getExpectedGeoGrid()
         geoGrid->addLocation(std::make_shared<Location>(24, 0, 1300));
 
         // to 21
-        geoGrid->getById(21)->addIncomingCommutingLocation(geoGrid->getById(22), (double)366 / (double)800);
-        geoGrid->getById(22)->addOutgoingCommutingLocation(geoGrid->getById(21), (double)366 / (double)800);
+        geoGrid->GetById(21)->addIncomingCommutingLocation(geoGrid->GetById(22), 366.0 / 800.0);
+        geoGrid->GetById(22)->addOutgoingCommutingLocation(geoGrid->GetById(21), 366.0 / 800.0);
 
-        geoGrid->getById(21)->addIncomingCommutingLocation(geoGrid->getById(23), (double)668 / (double)900);
-        geoGrid->getById(23)->addOutgoingCommutingLocation(geoGrid->getById(21), (double)668 / (double)900);
+        geoGrid->GetById(21)->addIncomingCommutingLocation(geoGrid->GetById(23), 668.0 / 900.0);
+        geoGrid->GetById(23)->addOutgoingCommutingLocation(geoGrid->GetById(21), 668.0 / 900.0);
 
-        geoGrid->getById(21)->addIncomingCommutingLocation(geoGrid->getById(24), (double)425 / (double)1300);
-        geoGrid->getById(24)->addOutgoingCommutingLocation(geoGrid->getById(21), (double)425 / (double)1300);
+        geoGrid->GetById(21)->addIncomingCommutingLocation(geoGrid->GetById(24), 425.0 / 1300.0);
+        geoGrid->GetById(24)->addOutgoingCommutingLocation(geoGrid->GetById(21), 425.0 / 1300.0);
 
         // to 22
-        geoGrid->getById(22)->addIncomingCommutingLocation(geoGrid->getById(21), (double)141 / (double)1000);
-        geoGrid->getById(21)->addOutgoingCommutingLocation(geoGrid->getById(22), (double)141 / (double)1000);
+        geoGrid->GetById(22)->addIncomingCommutingLocation(geoGrid->GetById(21), 141.0 / 1000.0);
+        geoGrid->GetById(21)->addOutgoingCommutingLocation(geoGrid->GetById(22), 141.0 / 1000.0);
 
-        geoGrid->getById(22)->addIncomingCommutingLocation(geoGrid->getById(24), (double)705 / (double)1300);
-        geoGrid->getById(24)->addOutgoingCommutingLocation(geoGrid->getById(22), (double)705 / (double)1300);
+        geoGrid->GetById(22)->addIncomingCommutingLocation(geoGrid->GetById(24), 705.0 / 1300.0);
+        geoGrid->GetById(24)->addOutgoingCommutingLocation(geoGrid->GetById(22), 705.0 / 1300.0);
 
         // to 23
-        geoGrid->getById(23)->addIncomingCommutingLocation(geoGrid->getById(21), (double)487 / (double)1000);
-        geoGrid->getById(21)->addOutgoingCommutingLocation(geoGrid->getById(23), (double)487 / (double)1000);
+        geoGrid->GetById(23)->addIncomingCommutingLocation(geoGrid->GetById(21), 487.0 / 1000.0);
+        geoGrid->GetById(21)->addOutgoingCommutingLocation(geoGrid->GetById(23), 487.0 / 1000.0);
 
-        geoGrid->getById(23)->addIncomingCommutingLocation(geoGrid->getById(22), (double)700 / (double)800);
-        geoGrid->getById(22)->addOutgoingCommutingLocation(geoGrid->getById(23), (double)700 / (double)800);
+        geoGrid->GetById(23)->addIncomingCommutingLocation(geoGrid->GetById(22), 700.0 / 800.0);
+        geoGrid->GetById(22)->addOutgoingCommutingLocation(geoGrid->GetById(23), 700.0 / 800.0);
 
         // to 24
-        geoGrid->getById(24)->addIncomingCommutingLocation(geoGrid->getById(22), (double)611 / (double)800);
-        geoGrid->getById(22)->addOutgoingCommutingLocation(geoGrid->getById(24), (double)611 / (double)800);
+        geoGrid->GetById(24)->addIncomingCommutingLocation(geoGrid->GetById(22), 611.0 / 800.0);
+        geoGrid->GetById(22)->addOutgoingCommutingLocation(geoGrid->GetById(24), 611.0 / 800.0);
 
         return geoGrid;
 }
@@ -65,11 +65,11 @@ TEST(CommutesCSVReaderTest, test1)
 
         CommutesCSVReader reader(instream);
 
-        reader.fillGeoGrid(geoGrid);
+        reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : *geoGrid) {
                 int         i                = 0;
-                const auto& expectedLoc      = expectedGeoGrid->getById(loc->getID());
+                const auto& expectedLoc      = expectedGeoGrid->GetById(loc->getID());
                 const auto& outGoingExpected = expectedLoc->getOutgoingCommuningCities();
                 for (const auto& commute : loc->getOutgoingCommuningCities()) {
                         EXPECT_EQ(outGoingExpected[i].first->getID(), commute.first->getID());

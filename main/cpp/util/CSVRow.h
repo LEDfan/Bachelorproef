@@ -22,9 +22,9 @@
 #include "util/StringUtils.h"
 
 #include <boost/filesystem/path.hpp>
-#include <ostream>
 #include <boost/lexical_cast.hpp>
 #include <iostream>
+#include <ostream>
 
 namespace stride {
 namespace util {
@@ -72,8 +72,9 @@ public:
  * @param val the value to cast
  * @return
  */
-template<typename T, std::enable_if_t<std::is_arithmetic<T>::value, int> = 0>
-inline T safe_cast(const std::string& val) {
+template <typename T, std::enable_if_t<std::is_arithmetic<T>::value, int> = 0>
+inline T safe_cast(const std::string& val)
+{
         if (std::is_floating_point<T>::value) {
                 return boost::numeric_cast<T>(boost::lexical_cast<double>(val));
         }
@@ -87,8 +88,9 @@ inline T safe_cast(const std::string& val) {
  * @param val the value to cast
  * @return
  */
-template<typename T, std::enable_if_t<!std::is_arithmetic<T>::value, int> = 0>
-inline T safe_cast(const std::string& val) {
+template <typename T, std::enable_if_t<!std::is_arithmetic<T>::value, int> = 0>
+inline T safe_cast(const std::string& val)
+{
         return boost::lexical_cast<T>(val);
 }
 

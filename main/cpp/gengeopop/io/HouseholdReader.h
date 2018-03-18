@@ -11,7 +11,7 @@ class HouseholdReader
 {
 public:
         HouseholdReader();
-        const std::vector<std::shared_ptr<Household>>& getHouseHolds() const;
+        const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const;
 
 protected:
         std::vector<std::shared_ptr<Household>> m_households;

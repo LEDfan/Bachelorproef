@@ -38,7 +38,7 @@ public:
 
         std::shared_ptr<Location> get(size_t index);
 
-        std::shared_ptr<Location> getById(unsigned int id);
+        std::shared_ptr<Location> GetById(unsigned int id);
 
 private:
         std::vector<std::shared_ptr<Location>>                      m_locations;

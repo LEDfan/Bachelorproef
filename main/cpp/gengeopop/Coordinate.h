@@ -11,6 +11,6 @@ struct Coordinate
         double y;
         double longitude;
         double latitude;
-};
 
-bool operator==(const Coordinate& lhs, const Coordinate& rhs);
+        bool operator==(const Coordinate& other) const;
+};

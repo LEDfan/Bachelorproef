@@ -3,7 +3,8 @@
 
 using namespace stride::util;
 
-TEST(CSVTest, SafeCastTest) {
+TEST(CSVTest, SafeCastTest)
+{
         EXPECT_THROW(safe_cast<int>("10test"), boost::bad_lexical_cast);
         EXPECT_THROW(safe_cast<int>("abc"), boost::bad_lexical_cast);
         EXPECT_THROW(safe_cast<unsigned int>("-100"), boost::bad_numeric_cast);
@@ -17,11 +18,11 @@ TEST(CSVTest, SafeCastTest) {
         EXPECT_EQ(safe_cast<std::string>(std::string("abc")), "abc");
 }
 
-
-TEST(CSVTest, TestBadCast) {
+TEST(CSVTest, TestBadCast)
+{
         std::string csvString = "id,naam,col3,col4,col5\n"
-                "10test,abc,-100,1024,100.10.1\n"
-                "10,abc,100,125,100.10";
+                                "10test,abc,-100,1024,100.10.1\n"
+                                "10,abc,100,125,100.10";
 
         std::istringstream instream(csvString);
 
@@ -40,5 +41,4 @@ TEST(CSVTest, TestBadCast) {
         EXPECT_EQ(row2->getValue<unsigned int>("col3"), 100);
         EXPECT_EQ(row2->getValue<uint8_t>("col4"), 125);
         EXPECT_EQ(row2->getValue<double>("col5"), 100.10);
-
 }

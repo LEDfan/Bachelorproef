@@ -7,7 +7,7 @@ namespace gengeopop {
 
 CitiesCSVReader::CitiesCSVReader(std::istream& inputStream) : CitiesReader(inputStream) {}
 
-void CitiesCSVReader::fillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
+void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude
         // name

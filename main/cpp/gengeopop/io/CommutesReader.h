@@ -11,7 +11,7 @@ class CommutesReader
 public:
         CommutesReader(std::istream& inputStream);
 
-        virtual void fillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
+        virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
 
         virtual ~CommutesReader(){};
 
