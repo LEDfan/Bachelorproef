@@ -21,6 +21,9 @@ public:
         Q_INVOKABLE
         void onMarkerClicked(int idOfClicked);
 
+        Q_INVOKABLE
+        void saveGeoGridToFile(const QString& fileLoc);
+
 signals:
         void locationSelected(std::shared_ptr<gengeopop::Location> location);
 

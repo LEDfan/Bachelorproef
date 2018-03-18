@@ -147,12 +147,17 @@ ApplicationWindow {
 			}
 
 			Button {
-				id: button
+				id: buttonOpen
 				text: qsTr("Open File")
                 onClicked: fileSelector.open()
 				checked: true
 			}
-
+			Button {
+				id: buttonSave
+				text: qsTr("Save to File")
+                onClicked: saveFileSelector.open()
+				checked: true
+			}
 
 		}
     }
@@ -165,6 +170,16 @@ ApplicationWindow {
 
         function clickSignal (arg) {
             locViewer.showLocation(arg)
+        }
+    }
+
+    FileDialog {
+        id: saveFileSelector
+        selectExisting: false
+        title: "Select a save location"
+        folder: shortcuts.home
+        onAccepted: {
+            backend.saveGeoGridToFile(fileUrl)
         }
     }
 

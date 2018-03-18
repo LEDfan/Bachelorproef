@@ -4,6 +4,7 @@
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
+#include <gengeopop/io/GeoGridJSONWriter.h>
 #include <iostream>
 
 BackEnd::BackEnd(QObject* parent) : QObject(parent)
@@ -54,10 +55,17 @@ void BackEnd::setObjects(QObject* map)
 
 void BackEnd::placeMarker(Coordinate coordinate, std::string id, unsigned int population)
 {
-        std::cout << "Population: " << std::log(population) << std::endl;
         QVariant returnVal;
         QMetaObject::invokeMethod(_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
                                   Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
                                   Q_ARG(QVariant, QString(id.c_str())),
                                   Q_ARG(QVariant, 15.0 + std::max(0.0, 2 * std::log2(population))));
+}
+
+void BackEnd::saveGeoGridToFile(const QString& fileLoc)
+{
+        gengeopop::GeoGridJSONWriter writer;
+        std::ofstream                outputFile(fileLoc.toStdString());
+        writer.write(_grid, outputFile);
+        outputFile.close();
 }

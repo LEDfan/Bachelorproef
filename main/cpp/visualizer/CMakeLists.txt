@@ -39,7 +39,8 @@ target_link_libraries(visualizer
 set(QUICK_TEST_SOURCE_DIR tests)
 enable_testing()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-add_executable(vis_test ${TEST_SRC})
+qt5_add_resources(QT_RESOURCES qml.qrc)
+add_executable(vis_test ${TEST_SRC} ${QT_RESOURCES})
 add_test(vis_test vis_test)
 
 find_package(Qt5Test REQUIRED)
