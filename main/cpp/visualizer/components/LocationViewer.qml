@@ -67,8 +67,8 @@ ColumnLayout {
         id: locationViewerBackend
     }
 
-    function showLocation(location) {
-        locationViewerBackend.showLocation(location)
+    function showLocations(location) {
+        locationViewerBackend.showLocations(location)
         ccModel.setCenters(location)
     }
 }

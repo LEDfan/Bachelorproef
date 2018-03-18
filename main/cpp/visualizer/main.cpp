@@ -8,6 +8,7 @@
 #include <visualizer/models/ContactPoolListModel.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
+Q_DECLARE_METATYPE(std::vector<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
 int main(int argc, char* argv[])
@@ -21,7 +22,8 @@ int main(int argc, char* argv[])
                                                 "ContactCenterListModel");
 
         qRegisterMetaType<std::shared_ptr<gengeopop::Location>>();
-        qRegisterMetaType<std::shared_ptr<gengeopop::ContactCenter>>();
+        qRegisterMetaType<std::vector<std::shared_ptr<gengeopop::ContactCenter>>>();
+        qRegisterMetaType<std::vector<std::shared_ptr<gengeopop::Location>>>();
         QQmlApplicationEngine engine;
 
         ContactCenterListModel ccModel;

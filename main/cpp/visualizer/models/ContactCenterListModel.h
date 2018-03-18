@@ -15,7 +15,7 @@ public:
         QHash<int, QByteArray> roleNames() const;
 
         Q_INVOKABLE
-        void setCenters(std::shared_ptr<gengeopop::Location> loc);
+        void setCenters(std::vector<std::shared_ptr<gengeopop::Location>> locs);
 
         Q_INVOKABLE
         void handleClickRow(unsigned int row);

@@ -3,15 +3,22 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-void LocationViewerBackend::showLocation(std::shared_ptr<gengeopop::Location> location)
+void LocationViewerBackend::showLocations(std::vector<std::shared_ptr<gengeopop::Location>> locations)
 {
         QObject* nameText     = parent()->findChild<QObject*>(QString("textName"));
         QObject* provinceText = parent()->findChild<QObject*>(QString("textProvince"));
         QObject* idText       = parent()->findChild<QObject*>(QString("textID"));
 
-        QString nameString     = "Location: " + QString::fromStdString(location->getName());
-        QString provinceString = "Province: " + QString::number(location->getProvince());
-        QString idString       = "ID: " + QString::number(location->getID());
+        QString nameString("Name: ");
+        QString provinceString("Province: ");
+        QString idString("ID: ");
+
+        if (locations.size() == 1) {
+                auto location = locations[0];
+                nameString += QString::fromStdString(location->getName());
+                provinceString += QString::number(location->getProvince());
+                idString += QString::number(location->getID());
+        }
 
         nameText->setProperty("text", nameString);
         provinceText->setProperty("text", provinceString);

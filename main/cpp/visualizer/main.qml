@@ -34,8 +34,8 @@ ApplicationWindow {
                 PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
                 PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
                 PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
-                PluginParameter { name: "osm.mapping.copyright"; value: "" }
-                PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }
+                /*PluginParameter { name: "osm.mapping.copyright"; value: "" }*/
+                /*PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }*/
             }
 
             Map {
@@ -72,8 +72,12 @@ ApplicationWindow {
                     map.addMapItem(marker)
                 }
 
-                function markerClicked(id) {
-                    backend.OnMarkerClicked(id)
+                function markerClicked(id, event) {
+                    if(event.modifiers & Qt.ShiftModifier){
+                        backend.OnExtraMarkerClicked(id)
+                    } else {
+                        backend.OnMarkerClicked(id)
+                    }
                 }
             }
         }
@@ -145,11 +149,11 @@ ApplicationWindow {
     Backend {
         id: backend
         Component.onCompleted: {
-            backend.LocationSelected.connect(clickSignal)
+            backend.LocationsSelected.connect(clickSignal)
         }
 
         function clickSignal (arg) {
-            locViewer.showLocation(arg)
+            locViewer.showLocations(arg)
         }
     }
 

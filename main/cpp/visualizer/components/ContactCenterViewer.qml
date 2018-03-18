@@ -11,11 +11,6 @@ import io.bistromatics.contactcenterviewerbackend 1.0
 ColumnLayout {
     Layout.fillWidth: true
     Text {
-        id: textSelCCID
-        objectName: 'textCCID'
-        text: 'Contact Center:'
-    }
-    Text {
         id: textSelCCMaxPoolSize
         objectName: 'textCCPoolSize'
         text: 'Max pool size:'
