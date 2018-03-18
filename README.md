@@ -31,7 +31,7 @@ Upstream:
 
 ## GenGeo
 The GenGeo can be tested by compiling Stride and then running the `./cmake-build-release/installed/bin/gengeopop` program.
-This executable can be given some files as parameter (use `gengeopop -h`), these paths are relative to the data directory.
+This executable can be given some files as parameter (use `gengeopop --help to show the usage`), these paths are relative to the data directory.
 By default the program will use the following files:
  - `flanders_cities.csv`
  - `flanders_commuting.csv`
