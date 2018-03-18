@@ -53,14 +53,14 @@ int main(int argc, char* argv[])
 
         // base structure copied from sim/main.cpp
         try {
-                CmdLine               cmd("gengeopop", ' ', "1.0", false);
+                CmdLine               cmd("gengeopop", ' ', "1.0");
                 ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv",
                                                  "CITIES FILE", cmd);
                 ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv",
                                                     "COMMUTING FILE", cmd);
                 ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.json", "OUTPUT FILE",
                                                  cmd);
-                ValueArg<std::string> houseHoldFile("h", "household", "Household File", false,
+                ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
