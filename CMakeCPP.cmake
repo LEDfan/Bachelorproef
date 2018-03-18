@@ -42,7 +42,6 @@ set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #----------------------------------------------------------------------------
 if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
 	add_definitions( -D__APPLE__ )
-    set(CMAKE_PREFIX_PATH           "${CMAKE_PREFIX_PATH} /usr/local/Cellar/qt/5.10.1
 ")
 	set(CMAKE_CXX_FLAGS           "${CMAKE_CXX_FLAGS} -Wno-unused-private-field -stdlib=libc++")
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
