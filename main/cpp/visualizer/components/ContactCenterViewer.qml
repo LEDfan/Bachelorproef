@@ -56,6 +56,6 @@ ColumnLayout {
 
     function showCenter(center) {
         cpModel.setPools(center)
-        ccBackend.showContactCenter(center)
+        ccBackend.showContactCenters(center)
     }
 }

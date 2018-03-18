@@ -35,17 +35,31 @@ public:
 
         Q_INVOKABLE
         /**
+         * Adds the location of the marker to the selection
+         * @param idOfClicked
+         */
+        void OnExtraMarkerClicked(int idOfClicked);
+
+        Q_INVOKABLE
+        /**
+         * Removes all locations from selection.
+         */
+        void clearSelection();
+
+        Q_INVOKABLE
+        /**
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.
          */
         void SaveGeoGridToFile(const QString& fileLoc);
 
 signals:
-        void LocationSelected(std::shared_ptr<gengeopop::Location> location);
+        void LocationsSelected(std::vector<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                            m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid> m_grid;
+        QObject*                                          m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid>               m_grid;
+        std::vector<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
 
         void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population);
 
@@ -54,4 +68,9 @@ private:
          * @Pre: m_map is initialized correctly and holds the map we want to place markers on
          */
         void PlaceMarkers();
+
+        /**
+         * Sends a signal witht the currently selected locations.
+         */
+        void emitLocations();
 };

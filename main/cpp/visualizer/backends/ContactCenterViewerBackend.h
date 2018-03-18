@@ -16,5 +16,5 @@ public:
          * Changes the texts and table in the viewer to show the given contactCenter.
          * @param contactCenter The location to show in the viewer.
          */
-        void showContactCenter(std::shared_ptr<gengeopop::ContactCenter> contactCenter);
+        void showContactCenters(std::vector<std::shared_ptr<gengeopop::ContactCenter>> contactCenter);
 };

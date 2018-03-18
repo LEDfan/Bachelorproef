@@ -72,8 +72,12 @@ ApplicationWindow {
                     map.addMapItem(marker)
                 }
 
-                function markerClicked(id) {
-                    backend.OnMarkerClicked(id)
+                function markerClicked(id, event) {
+                    if(event.modifiers & Qt.ShiftModifier){
+                        backend.OnExtraMarkerClicked(id)
+                    } else {
+                        backend.OnMarkerClicked(id)
+                    }
                 }
             }
         }
@@ -145,11 +149,11 @@ ApplicationWindow {
     Backend {
         id: backend
         Component.onCompleted: {
-            backend.LocationSelected.connect(clickSignal)
+            backend.LocationsSelected.connect(clickSignal)
         }
 
         function clickSignal (arg) {
-            locViewer.showLocation(arg)
+            locViewer.showLocations(arg)
         }
     }
 

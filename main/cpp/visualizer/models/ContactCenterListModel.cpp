@@ -38,11 +38,16 @@ QHash<int, QByteArray> ContactCenterListModel::roleNames() const
 
 int ContactCenterListModel::columnCount(const QModelIndex& parent) const { return 2; }
 
-void ContactCenterListModel::setCenters(std::shared_ptr<gengeopop::Location> loc)
+void ContactCenterListModel::setCenters(std::vector<std::shared_ptr<gengeopop::Location>> locs)
 {
         unsigned int oldAmtRows = m_centers.size();
-        m_centers               = loc->getContactCenters();
-        int diff                = loc->getContactCenters().size() - oldAmtRows;
+        m_centers.clear();
+        for (auto loc : locs) {
+                auto centers = loc->getContactCenters();
+                m_centers.insert(m_centers.end(), centers.begin(), centers.end());
+        }
+
+        int diff = m_centers.size() - oldAmtRows;
         if (diff < 0) {
                 beginRemoveRows(QModelIndex(), oldAmtRows, -diff);
                 endRemoveRows();

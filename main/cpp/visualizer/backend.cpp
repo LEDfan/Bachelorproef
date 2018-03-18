@@ -44,7 +44,13 @@ void Backend::PlaceMarkers()
         }
 }
 
-void Backend::OnMarkerClicked(int idOfClicked) { emit LocationSelected(m_grid->get(idOfClicked)); }
+void Backend::OnMarkerClicked(int idOfClicked)
+{
+        auto loc = m_grid->GetById(idOfClicked);
+        clearSelection();
+        m_selection.push_back(loc);
+        emitLocations();
+}
 
 void Backend::SetObjects(QObject* map)
 {
@@ -68,4 +74,19 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc)
         std::ofstream                outputFile(fileLoc.toStdString());
         writer.write(m_grid, outputFile);
         outputFile.close();
+}
+
+void Backend::clearSelection()
+{
+        m_selection.clear();
+        emitLocations();
+}
+
+void Backend::emitLocations() { emit LocationsSelected(m_selection); }
+
+void Backend::OnExtraMarkerClicked(int idOfClicked)
+{
+        auto loc = m_grid->GetById(idOfClicked);
+        m_selection.push_back(loc);
+        emitLocations();
 }
