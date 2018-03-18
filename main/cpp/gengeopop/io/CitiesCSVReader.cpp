@@ -5,13 +5,13 @@
 
 namespace gengeopop {
 
-CitiesCSVReader::CitiesCSVReader(std::istream& inputStream) : CitiesReader(inputStream) {}
+CitiesCSVReader::CitiesCSVReader(std::unique_ptr<std::istream> inputStream) : CitiesReader(std::move(inputStream)) {}
 
 void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude
         // name
-        stride::util::CSV reader(m_inputStream);
+        stride::util::CSV reader(*(m_inputStream.get()));
 
         for (const stride::util::CSVRow& row : reader) {
                 auto id       = row.getValue<int>(0);

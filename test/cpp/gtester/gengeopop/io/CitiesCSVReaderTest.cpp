@@ -55,9 +55,9 @@ TEST(CitiesCSVReaderTest, test1)
         std::shared_ptr<GeoGrid> expectedGeoGrid = getExpectedGeoGrid();
         std::shared_ptr<GeoGrid> geoGrid         = std::make_shared<GeoGrid>();
 
-        std::istringstream instream(csvString);
+        auto instream = std::make_unique<std::istringstream>(csvString);
 
-        CitiesCSVReader reader(instream);
+        CitiesCSVReader reader(std::move(instream));
 
         reader.FillGeoGrid(geoGrid);
 

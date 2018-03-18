@@ -4,6 +4,7 @@
 #include "HouseholdCSVReader.h"
 #include <boost/filesystem.hpp>
 #include <util/FileSys.h>
+#include <iostream>
 
 namespace gengeopop {
 
@@ -14,13 +15,7 @@ std::shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const std::strin
 
 std::shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const boost::filesystem::path& path)
 {
-
-        if (path.extension().string() == ".csv") {
-                std::ifstream file(path.string());
-                return std::make_shared<CitiesCSVReader>(file);
-        } else {
-                throw std::runtime_error("Unsupported file extension: " + path.extension().string());
-        }
+        return std::make_shared<CitiesCSVReader>(OpenFile(path));
 }
 
 std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::string& filename)
@@ -30,12 +25,7 @@ std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::s
 
 std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const boost::filesystem::path& path)
 {
-        if (path.extension().string() == ".csv") {
-                std::ifstream file(path.string());
-                return std::make_shared<CommutesCSVReader>(file);
-        } else {
-                throw std::runtime_error("Unsupported file extension: " + path.extension().string());
-        }
+        return std::make_shared<CommutesCSVReader>(OpenFile(path));
 }
 
 std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std::string& filename)
@@ -48,6 +38,18 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const boos
         if (path.extension().string() == ".csv") {
                 std::ifstream file(path.string());
                 return std::make_shared<HouseholdCSVReader>(file);
+        } else {
+                throw std::runtime_error("Unsupported file extension: " + path.extension().string());
+        }
+}
+
+std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const {
+        if (!boost::filesystem::exists(path)) {
+                throw std::invalid_argument("File not found: " + path.string());
+        }
+
+        if (path.extension().string() == ".csv") {
+                return std::make_unique<std::ifstream>(path.string());
         } else {
                 throw std::runtime_error("Unsupported file extension: " + path.extension().string());
         }

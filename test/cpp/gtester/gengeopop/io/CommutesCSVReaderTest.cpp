@@ -61,9 +61,9 @@ TEST(CommutesCSVReaderTest, test1)
         geoGrid->addLocation(std::make_shared<Location>(23, 0, 900));
         geoGrid->addLocation(std::make_shared<Location>(24, 0, 1300));
 
-        std::istringstream instream(csvString);
+        auto instream = std::make_unique<std::istringstream>(csvString);
 
-        CommutesCSVReader reader(instream);
+        CommutesCSVReader reader(std::move(instream));
 
         reader.FillGeoGrid(geoGrid);
 
@@ -100,9 +100,9 @@ TEST(CommutesCSVReaderTest, InvalidProportion)
         geoGrid->addLocation(std::make_shared<Location>(21, 0, 10));
         geoGrid->addLocation(std::make_shared<Location>(22, 0, 20));
 
-        std::istringstream instream(csvString);
+        auto instream = std::make_unique<std::istringstream>(csvString);
 
-        CommutesCSVReader reader(instream);
+        CommutesCSVReader reader(std::move(instream));
 
         EXPECT_THROW(reader.FillGeoGrid(geoGrid), std::invalid_argument);
 }

@@ -23,5 +23,7 @@ public:
 
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const boost::filesystem::path& path);
+private:
+        std::unique_ptr<std::istream> OpenFile(const boost::filesystem::path& path) const;
 };
 } // namespace gengeopop

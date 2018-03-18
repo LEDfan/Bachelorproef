@@ -9,7 +9,7 @@ namespace gengeopop {
 class CommutesCSVReader : public CommutesReader
 {
 public:
-        CommutesCSVReader(std::istream& inputStream);
+        CommutesCSVReader(std::unique_ptr<std::istream> istream);
         void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
 };
 } // namespace gengeopop

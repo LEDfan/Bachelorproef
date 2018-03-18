@@ -9,13 +9,13 @@ namespace gengeopop {
 class CitiesReader
 {
 public:
-        CitiesReader(std::istream& inputStream);
+        CitiesReader(std::unique_ptr<std::istream> inputStream);
 
         virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
 
         virtual ~CitiesReader(){};
 
 protected:
-        std::istream& m_inputStream;
+        std::unique_ptr<std::istream> m_inputStream;
 };
 } // namespace gengeopop
