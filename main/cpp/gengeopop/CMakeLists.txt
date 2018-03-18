@@ -2,6 +2,7 @@
 # Sources.
 #============================================================================
 set(GENGEOPOP_LIB
+    Coordinate.cpp
     Community.cpp
     ContactCenter.cpp
     ContactPool.cpp
@@ -20,6 +21,7 @@ set(GENGEOPOP_LIB
     io/CitiesCSVReader.cpp
     io/CitiesReader.cpp
     io/CommutesReader.cpp
+    io/CommutesCSVReader.cpp
     io/HouseholdCSVReader.cpp
     io/HouseholdReader.cpp
     io/ReaderFactory.cpp

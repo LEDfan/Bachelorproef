@@ -55,7 +55,8 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
             1289, 482,  1849, 1734, 1890, 1012, 1338, 5,    1147, 1679, 651, 468,  464, 1678, 1919, 1343, 852,
             422,  1262, 1702, 1718, 153,  204,  1446, 1811, 1260, 1432, 200, 1535, 890, 494,  1803, 1160, 296,
             1179, 1510, 1024, 615,  777,  920,  1304, 579,  105,  1232, 159, 87,   126, 511,  636,  1648};
-        for (int i = 0; i < sizes.size(); i++) {
+
+        for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->get(i)->getContactCenters().size());
         }
 }
@@ -106,7 +107,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
             1289, 482,  1849, 1734, 1890, 1012, 1338, 5,    1147, 1679, 651, 468,  464, 1678, 1919, 1343, 852,
             422,  1262, 1702, 1718, 153,  204,  1446, 1811, 1260, 1432, 200, 1535, 890, 494,  1803, 1160, 296,
             1179, 1510, 1024, 615,  777,  920,  1304, 579,  105,  1232, 159, 87,   126, 511,  636,  1648};
-        for (int i = 0; i < sizes.size(); i++) {
+        for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->get(i)->getContactCenters().size());
         }
 }
@@ -188,7 +189,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
             1133, 511,  1829, 1987, 1870, 1020, 1350, 7,    1127, 1696, 735, 467,  475, 1647, 1898, 1215, 855,
             933,  1271, 1679, 1734, 175,  216,  1430, 1851, 970,  1423, 144, 1528, 895, 501,  1796, 1184, 306,
             1179, 1500, 1023, 606,  527,  920,  1304, 579,  105,  1232, 159, 87,   126, 511,  636,  1648};
-        for (int i = 0; i < sizes.size(); i++) {
+        for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->get(i)->getContactCenters().size());
         }
 

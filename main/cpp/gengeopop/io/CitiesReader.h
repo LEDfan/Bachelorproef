@@ -1,16 +1,21 @@
 #pragma once
 
+#include <gengeopop/GeoGrid.h>
 #include <gengeopop/Location.h>
+#include <map>
 #include <string>
 
 namespace gengeopop {
 class CitiesReader
 {
 public:
-        CitiesReader();
-        const std::vector<std::shared_ptr<Location>>& getLocations() const;
+        CitiesReader(std::unique_ptr<std::istream> inputStream);
+
+        virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
+
+        virtual ~CitiesReader(){};
 
 protected:
-        std::vector<std::shared_ptr<Location>> m_locations;
+        std::unique_ptr<std::istream> m_inputStream;
 };
 } // namespace gengeopop

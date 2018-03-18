@@ -46,7 +46,7 @@ public:
         Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,
                unsigned int primary_community_id, unsigned int secondary_community_id,
                unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-               unsigned int time_symptomatic, double risk_averseness = 0, Belief* bp = nullptr)
+               unsigned int time_symptomatic, double /*risk_averseness*/ = 0, Belief* bp = nullptr)
             : m_id(id), m_age(age), m_gender('M'), m_household_id(household_id), m_school_id(school_id),
               m_work_id(work_id), m_primary_community_id(primary_community_id),
               m_secondary_community_id(secondary_community_id), m_at_household(true), m_at_school(true),
@@ -99,7 +99,7 @@ public:
         void Update(Person* p);
 
         /// Set the age of the person
-        void setAge(unsigned int newAge);
+        void SetAge(unsigned int newAge);
 
         unsigned int GetHouseholdId() { return m_household_id; }
 

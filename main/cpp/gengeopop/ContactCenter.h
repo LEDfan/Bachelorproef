@@ -14,7 +14,8 @@ public:
         virtual unsigned int getMaxPools() const = 0;
 
         void                                      addPool(std::shared_ptr<ContactPool> pool);
-        std::vector<std::shared_ptr<ContactPool>> GetPools();
+
+        const std::vector<std::shared_ptr<ContactPool>>& GetPools() const;
 
         iterator begin();
         iterator end();

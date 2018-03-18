@@ -25,7 +25,7 @@
 namespace stride {
 namespace util {
 
-CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : parent(parent)
+CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : parent(parent), values()
 {
         if (values.size() != parent->getColumnCount()) {
                 throw std::runtime_error("Tried adding row with " + ToString(values.size()) + " value(s) to CSV with " +
