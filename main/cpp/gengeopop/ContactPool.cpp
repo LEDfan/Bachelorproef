@@ -14,4 +14,6 @@ ContactPool::iterator gengeopop::ContactPool::begin() { return m_people.begin();
 
 ContactPool::iterator gengeopop::ContactPool::end() { return m_people.end(); }
 
+ContactPool::ContactPool(unsigned int id): m_id(id) {}
+
 } // namespace gengeopop
