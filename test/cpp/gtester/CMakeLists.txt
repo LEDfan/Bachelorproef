@@ -34,7 +34,7 @@ set( SRC
         gengeopop/generators/CommunityGeneratorTest.cpp
         CSVTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
-)
+		gengeopop/io/GeoGridJSONReaderTest.cpp)
 
 add_executable(${EXEC}   ${SRC} )
 target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
