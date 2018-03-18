@@ -23,6 +23,8 @@
 
 #include <boost/filesystem/path.hpp>
 #include <ostream>
+#include <boost/lexical_cast.hpp>
+#include <iostream>
 
 namespace stride {
 namespace util {
@@ -62,6 +64,34 @@ public:
         friend std::ostream& operator<<(std::ostream& os, const CSVRow& row);
 };
 
+/**
+ * Converts a string to an airthmetic type, in a safe manner.
+ * @throws bad_lexical_cast if \p val can't be converted to a double or int
+ * @throws bad_numeric_cast if \p val can't be converted to T
+ * @tparam T the type to safe cast to
+ * @param val the value to cast
+ * @return
+ */
+template<typename T, std::enable_if_t<std::is_arithmetic<T>::value, int> = 0>
+inline T safe_cast(const std::string& val) {
+        if (std::is_floating_point<T>::value) {
+                return boost::numeric_cast<T>(boost::lexical_cast<double>(val));
+        }
+        return boost::numeric_cast<T>(boost::lexical_cast<long long>(val));
+}
+
+/**
+ * Converts a string to a type.
+ * @throws bad_lexical_cast if \p val can't be converted to T
+ * @tparam T the type to safe cast to
+ * @param val the value to cast
+ * @return
+ */
+template<typename T, std::enable_if_t<!std::is_arithmetic<T>::value, int> = 0>
+inline T safe_cast(const std::string& val) {
+        return boost::lexical_cast<T>(val);
+}
+
 /// Declaration of specialization
 template <>
 std::string CSVRow::getValue<std::string>(size_t index) const;
@@ -73,13 +103,13 @@ std::string CSVRow::getValue<std::string>(const std::string& label) const;
 template <typename T>
 inline T CSVRow::getValue(size_t index) const
 {
-        return FromString<T>(getValue<std::string>(index));
+        return safe_cast<T>(getValue<std::string>(index));
 }
 
 template <typename T>
 inline T CSVRow::getValue(const std::string& label) const
 {
-        return FromString<T>(getValue<std::string>(label));
+        return safe_cast<T>(getValue<std::string>(label));
 }
 
 } // namespace util
