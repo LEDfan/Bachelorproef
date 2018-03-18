@@ -21,7 +21,7 @@ public:
          */
         std::shared_ptr<CommutesReader> CreateCommutesReader(const boost::filesystem::path& path);
 
-        HouseholdReader CreateHouseholdReader(const std::string& filename);
-        HouseholdReader CreateHouseholdReader(const boost::filesystem::path& path);
+        std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
+        std::shared_ptr<HouseholdReader> CreateHouseholdReader(const boost::filesystem::path& path);
 };
 } // namespace gengeopop

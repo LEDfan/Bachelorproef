@@ -27,6 +27,7 @@ set( SRC
 		gengeopop/io/CitiesCSVReaderTest.cpp
 		gengeopop/io/HouseholdCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
+        gengeopop/io/ReaderFactoryTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
