@@ -13,7 +13,8 @@ public:
         HouseholdReader();
         const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const;
 
-        virtual ~HouseholdReader() {};
+        virtual ~HouseholdReader(){};
+
 protected:
         std::vector<std::shared_ptr<Household>> m_households;
 };

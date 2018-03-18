@@ -13,13 +13,13 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::istream& inputStream)
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
-                               age = row.getValue<unsigned int>(i);
+                                age = row.getValue<unsigned int>(i);
                         } catch (const std::bad_cast& e) {
                                 // NA
                                 break;
                         }
 
-                        std::shared_ptr<stride::Person> p   = std::make_shared<stride::Person>();
+                        std::shared_ptr<stride::Person> p = std::make_shared<stride::Person>();
                         p->SetAge(age);
                         newCP->addMember(p);
                 }
