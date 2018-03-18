@@ -35,12 +35,7 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std:
 
 std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const boost::filesystem::path& path)
 {
-        if (path.extension().string() == ".csv") {
-                std::ifstream file(path.string());
-                return std::make_shared<HouseholdCSVReader>(file);
-        } else {
-                throw std::runtime_error("Unsupported file extension: " + path.extension().string());
-        }
+        return std::make_shared<HouseholdCSVReader>(OpenFile(path));
 }
 
 std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const

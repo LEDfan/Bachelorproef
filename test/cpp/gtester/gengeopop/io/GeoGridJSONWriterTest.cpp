@@ -18,7 +18,7 @@ std::shared_ptr<GeoGrid> getGeoGrid()
         config.populationSize            = 10000;
         config.fraction_compulsoryPupils = 0.20;
 
-        GeoGridGenerator geoGridGenerator(config);
+        GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>());
         return geoGridGenerator.getGeoGrid();
 }
 
