@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.0
 import QtPositioning 5.5
 import io.bistromatics.backend 1.0
+import QtQuick.Dialogs 1.2
 import "components"
 import "models"
 
@@ -153,7 +154,10 @@ ApplicationWindow {
                 onClicked: saveFileSelector.open()
 				checked: true
 			}
-
+			MessageDialog {
+			    id: errorDialogBox
+			    objectName: 'errorDialog'
+			}
 		}
     }
 
@@ -174,7 +178,7 @@ ApplicationWindow {
         title: "Select a save location"
         folder: shortcuts.home
         onAccepted: {
-            backend.SaveGeoGridToFile(fileUrl)
+            backend.SaveGeoGridToFile(fileUrl, errorDialogBox)
         }
     }
 
@@ -183,7 +187,7 @@ ApplicationWindow {
         title: "Please choose a file"
         folder: shortcuts.home
         onAccepted: {
-            backend.LoadGeoGridFromFile(fileSelector.fileUrl, map)
+            backend.LoadGeoGridFromFile(fileSelector.fileUrl, errorDialogBox)
         }
     }
 }

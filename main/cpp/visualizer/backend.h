@@ -18,7 +18,7 @@ public:
          * Loads a GeoGrid from JSON file.
          * @param file The path to the JSON file that contains a valid GeoGrid description.
          */
-        void LoadGeoGridFromFile(const QString& file);
+        void LoadGeoGridFromFile(const QString& file, QObject* errorDialog);
 
         Q_INVOKABLE
         /**
@@ -53,7 +53,7 @@ public:
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.
          */
-        void SaveGeoGridToFile(const QString& fileLoc);
+        void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
 
 signals:
         void LocationsSelected(std::vector<std::shared_ptr<gengeopop::Location>> locations);

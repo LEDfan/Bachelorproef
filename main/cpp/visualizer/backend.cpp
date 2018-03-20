@@ -2,6 +2,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
+#include <QtQml/QQmlProperty>
 #include <cmath>
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/School.h>
@@ -20,12 +21,17 @@ Backend& Backend::operator=(const Backend& b)
         return *this;
 }
 
-void Backend::LoadGeoGridFromFile(const QString& file)
+void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
         QUrl                         info(file);
         std::ifstream                inputFile(info.toLocalFile().toStdString());
         gengeopop::GeoGridJSONReader reader;
-        m_grid = reader.read(inputFile);
+        try {
+                m_grid = reader.read(inputFile);
+        } catch (const std::exception& e) {
+                QMetaObject::invokeMethod(errorDialog, "open");
+                QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
+        }
         PlaceMarkers();
 }
 
@@ -64,12 +70,17 @@ void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int po
                                   Q_ARG(QVariant, std::min(50.0, 10 + population * 0.0015)));
 }
 
-void Backend::SaveGeoGridToFile(const QString& fileLoc)
+void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 {
         QUrl                         info(fileLoc);
         std::ofstream                outputFile(info.toLocalFile().toStdString());
         gengeopop::GeoGridJSONWriter writer;
-        writer.write(m_grid, outputFile);
+        try {
+                writer.write(m_grid, outputFile);
+        } catch (const std::exception& e) {
+                QMetaObject::invokeMethod(errorDialog, "open");
+                QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
+        }
         outputFile.close();
 }
 
