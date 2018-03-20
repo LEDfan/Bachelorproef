@@ -55,3 +55,4 @@ Test results
  - [241.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.3-linux-clang-5.html)
  - [241.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.4-osx-8.3-apple-clang.html)
  - [241.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.5-osx-9.2-apple-clang.html)
+ - [241.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.6-osx-8.3-llvm-clang.html)
