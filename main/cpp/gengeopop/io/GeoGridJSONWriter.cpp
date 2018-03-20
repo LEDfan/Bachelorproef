@@ -1,6 +1,6 @@
-
 #include "GeoGridJSONWriter.h"
 #include <iostream>
+#include <omp.h>
 
 namespace gengeopop {
 
@@ -9,11 +9,21 @@ GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream& stream)
 {
         boost::property_tree::ptree root;
-
         boost::property_tree::ptree locations;
-        for (const auto& location : *geoGrid) {
-                locations.push_back(std::make_pair("", parseLocation(location)));
+
+#pragma omp parallel
+#pragma omp single
+        {
+                for (const auto& location : *geoGrid) {
+                        std::pair<std::string, boost::property_tree::ptree> child;
+#pragma omp task firstprivate(location)
+                        child = std::make_pair("", parseLocation(location));
+#pragma omp critical
+                        locations.push_back(std::move(child));
+                }
+#pragma omp taskwait
         }
+
         root.add_child("locations", locations);
 
         boost::property_tree::ptree persons;
