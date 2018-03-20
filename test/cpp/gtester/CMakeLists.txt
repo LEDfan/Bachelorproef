@@ -20,16 +20,17 @@
 #============================================================================
 set( EXEC       gtester     )
 set( SRC
-		main.cpp
-		BatchRuns.cpp
-		InfluenceR0Runs.cpp
-		testTemplate.cpp
-		CitiesCSVReaderTest.cpp
-		HouseholdCSVReaderTest.cpp
+        main.cpp
+        BatchRuns.cpp
+        InfluenceR0Runs.cpp
+        testTemplate.cpp
+        CitiesCSVReaderTest.cpp
+        HouseholdCSVReaderTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
+        gengeopop/kdtree.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )

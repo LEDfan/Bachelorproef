@@ -42,7 +42,7 @@ struct AABB
  *
  * The template parameter `P` should have the following attributes and operations:
  *  - A `static constexpr std::size_t dim`: the number of dimensions of the point type.
- *  - A `get(std::size_t d)` method that returns the coordinate of the `d`th dimension of the point
+ *  - A `template <std::size_d D> get() const` method that returns the coordinate of the `D`th dimension of the point
  *  - A default constructor and a copy constructor
  *  - The individual dimensions should each have a total order and equality
  */
@@ -190,7 +190,7 @@ public:
         std::size_t Height() const
         {
                 int                                          h = 0;
-                std::queue<std::pair<int, kd::BaseNode<P>>*> q;
+                std::queue<std::pair<int, kd::BaseNode<P>*>> q;
                 q.emplace(1, m_root.get());
                 while (!q.empty()) {
                         auto tmp = q.front();
@@ -238,8 +238,8 @@ private:
                 }
 
                 auto root   = std::make_unique<kd::Node<P, D>>(root_pt);
-                root->left  = Construct<(D + 1) % P::dim>(left);
-                root->right = Construct<(D + 1) % P::dim>(right);
+                root->m_left  = Construct<(D + 1) % P::dim>(left);
+                root->m_right = Construct<(D + 1) % P::dim>(right);
 
                 return root;
         }
@@ -330,7 +330,7 @@ public:
                 }
         }
 
-        P GetChild() const override { return m_point; }
+        P GetPoint() const override { return m_point; }
 
         bool InBox(const AABB<P>& box) const override
         {
@@ -343,6 +343,8 @@ private:
 
         P                      m_point;
         std::unique_ptr<Child> m_left, m_right;
+
+        friend class KdTree<P>;
 };
 
 template <typename P, std::size_t D>
