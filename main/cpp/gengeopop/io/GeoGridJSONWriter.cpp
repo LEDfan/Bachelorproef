@@ -17,9 +17,12 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
                 for (const auto& location : *geoGrid) {
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(location)
-                        child = std::make_pair("", parseLocation(location));
+                        {
+                                child = std::make_pair("", parseLocation(location));
 #pragma omp critical
-                        locations.push_back(std::move(child));
+
+                                locations.push_back(std::move(child));
+                        }
                 }
 #pragma omp taskwait
         }
@@ -33,9 +36,11 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
                 for (const auto& person : m_persons_found) {
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(person)
-                        child = std::make_pair("", parsePerson(person));
+                        {
+                                child = std::make_pair("", parsePerson(person));
 #pragma omp critical
-                        persons.push_back(std::move(child));
+                                persons.push_back(std::move(child));
+                        }
                 }
 #pragma omp taskwait
         }
@@ -43,7 +48,7 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
 
         m_persons_found.clear();
         boost::property_tree::write_json(stream, root);
-}
+} // namespace gengeopop
 
 boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Location> location)
 {
@@ -61,9 +66,11 @@ boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Loc
                 for (const auto& contactCenter : *location) {
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(contactCenter)
-                        child = std::make_pair("", parseContactCenter(contactCenter));
+                        {
+                                child = std::make_pair("", parseContactCenter(contactCenter));
 #pragma omp critical
-                        contactCenters.push_back(std::move(child));
+                                contactCenters.push_back(std::move(child));
+                        }
                 }
 #pragma omp taskwait
         }
@@ -92,9 +99,11 @@ boost::property_tree::ptree GeoGridJSONWriter::parseContactCenter(std::shared_pt
                 for (const auto& pool : *contactCenter) {
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(pool)
-                        child = std::make_pair("", parseContactPool(pool));
+                        {
+                                child = std::make_pair("", parseContactPool(pool));
 #pragma omp critical
-                        pools.push_back(std::move(child));
+                                pools.push_back(std::move(child));
+                        }
                 }
 #pragma omp taskwait
         }
