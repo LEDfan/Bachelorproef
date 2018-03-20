@@ -40,13 +40,10 @@ Test results
  - [241.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.4-osx-8.3-apple-clang.html)
  - [241.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.5-osx-9.2-apple-clang.html)
  - [241.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.6-osx-8.3-llvm-clang.html)
-# alpha
- - [240.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.1-linux-gcc-6.html)
- - [240.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.2-linux-gcc-7.html)
- - [240.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.3-linux-clang-5.html)
- - [240.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.4-osx-8.3-apple-clang.html)
- - [240.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.5-osx-9.2-apple-clang.html)
- - [240.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.6-osx-8.3-llvm-clang.html)
+# visualizer-improvements
+ - [244.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/244.2-linux-gcc-7.html)
+ - [244.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/244.3-linux-clang-5.html)
+ - [244.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/244.4-osx-8.3-apple-clang.html)
 # publish_test_results
  - [172.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/172.1-linux-gcc-6.html)
  - [163.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/163.1-linux-gcc-6.html)
@@ -56,6 +53,10 @@ Test results
  - [163.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/163.5-osx-9.2-apple-clang.html)
  - [163.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/163.6-osx-8.3-llvm-clang.html)
  - [162.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/publish_test_results/162.1-linux-gcc-6.html)
-# visualizer-improvements
- - [244.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/244.2-linux-gcc-7.html)
- - [244.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/244.3-linux-clang-5.html)
+# alpha
+ - [240.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.1-linux-gcc-6.html)
+ - [240.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.2-linux-gcc-7.html)
+ - [240.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.3-linux-clang-5.html)
+ - [240.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.4-osx-8.3-apple-clang.html)
+ - [240.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.5-osx-9.2-apple-clang.html)
+ - [240.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.6-osx-8.3-llvm-clang.html)
