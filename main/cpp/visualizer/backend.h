@@ -49,6 +49,9 @@ public:
         void clearSelection();
 
         Q_INVOKABLE
+        void selectArea(double slat, double slong, double elat, double elong);
+
+        Q_INVOKABLE
         /**
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.

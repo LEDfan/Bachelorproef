@@ -1,5 +1,6 @@
 #include "backend.h"
 #include <QtCore/QFileInfo>
+#include <QtCore/QPointF>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
 #include <QtQml/QQmlProperty>
@@ -9,6 +10,7 @@
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridJSONReader.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
+#include <iostream>
 
 Backend::Backend(QObject* parent) : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_selection() {}
 
@@ -107,4 +109,10 @@ void Backend::addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> l
                 }
         }
         m_selection.push_back(loc);
+}
+
+void Backend::selectArea(double slat, double slong, double elat, double elong)
+{
+        std::cout << "START: " << slat << "," << slong << std::endl;
+        std::cout << "END: " << elat << "," << elong << std::endl;
 }

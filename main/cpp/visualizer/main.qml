@@ -60,8 +60,28 @@ ApplicationWindow {
 
                 MouseArea {
                     anchors.fill: parent
+                    property var start
                     onClicked: {
                         parent.mapClicked()
+                    }
+                    onPressed: {
+                        console.warn("down")
+                        if(mouse.modifiers & Qt.ControlModifier){
+                            // Disable panning
+                            map.gesture.enabled = false
+                            // Set accepted so we do no propagate click
+                            mouse.accepted = true
+                            // Save the start coordiate
+                            start = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                        }
+                    }
+                    onReleased: {
+                        console.warn("up")
+                        // Enable panning again
+                        map.gesture.enabled = true
+                        // Get the end coordinate of the selection
+                        var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                        backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
                     }
                 }
 
