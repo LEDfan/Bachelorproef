@@ -1,6 +1,8 @@
 #include <gengeopop/KdTree.h>
 #include <cmath>
+#include <fstream>
 #include <string>
+#include <util/FileSys.h>
 #include <gtest/gtest.h>
 
 using namespace gengeopop;
@@ -43,6 +45,7 @@ public:
 };
 
 class PtIntStr {
+public:
         constexpr static std::size_t dim = 2;
         int x;
         std::string y;
@@ -67,8 +70,14 @@ std::string PtIntStr::get<1>() const {
 TEST(KdTreeTest, BuildHasLimitedHeight)
 {
         std::vector<Pt2D> points;
+        std::ifstream in(stride::util::FileSys::GetTestsDir().string() + "/testdata/KdTree/BuildHasLimitedHeightPoints");
+        int x, y;
+        while (in >> x >> y) {
+                points.push_back({x, y});
+        }
+
         auto tree = KdTree<Pt2D>::Build(points);
-        EXPECT_LE(tree.Height(), std::log2((double)points.size() + 1) + 1);
+        EXPECT_LE(tree.Height(), std::log2(points.size() + 1) + 1);
 }
 
 TEST(KdTreeTest, RangeQuery)

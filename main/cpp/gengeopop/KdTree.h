@@ -199,7 +199,8 @@ public:
                         if (!n)
                                 continue;
                         h = tmp.first;
-                        q.emplace(h + 1, n);
+                        q.emplace(h + 1, n->BorrowLeft());
+                        q.emplace(h + 1, n->BorrowRight());
                 }
                 return h;
         }
