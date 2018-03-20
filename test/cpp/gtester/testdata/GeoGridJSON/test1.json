@@ -1,0 +1,39 @@
+{
+    "locations": [
+        {
+            "id": "1",
+            "name": "Bavikhove",
+            "province": "4",
+            "population": "2500",
+            "coordinate": {
+                "x": "0",
+                "y": "0",
+                "longitude": "0",
+                "latitude": "0"
+            },
+            "contactCenters": [
+                {
+                    "type": "School",
+                    "pools": ""
+                },
+                {
+                    "type": "Community",
+                    "pools": ""
+                },
+                {
+                    "type": "HighSchool",
+                    "pools": ""
+                },
+                {
+                    "type": "Household",
+                    "pools": ""
+                },
+                {
+                    "type": "Workplace",
+                    "pools": ""
+                }
+            ]
+        }
+    ],
+    "persons": ""
+}

@@ -28,7 +28,7 @@
 namespace stride {
 namespace util {
 
-CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels) : columnCount(0)
+CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels) : labels(), columnCount(0)
 {
         try {
                 boost::filesystem::path     full_path = util::checkFile(path);
@@ -51,10 +51,7 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
         }
 }
 
-CSV::CSV(std::istream& inputStream, std::initializer_list<std::string> optLabels) : columnCount(0)
-{
-        readFromStream(inputStream);
-}
+CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { readFromStream(inputStream); }
 
 CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
 
@@ -132,6 +129,8 @@ void CSV::readFromStream(std::istream& inputStream)
                 }
         }
 }
+
+const std::vector<std::string>& CSV::getLabels() const { return labels; }
 
 } // namespace util
 } // namespace stride

@@ -7,7 +7,7 @@ namespace gengeopop {
 class GeoGridGenerator
 {
 public:
-        GeoGridGenerator(GeoGridConfig geoGridConfig);
+        GeoGridGenerator(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
         void addPartialGenerator(std::shared_ptr<PartialGenerator> gen);
 
         /**

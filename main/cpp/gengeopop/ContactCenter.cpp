@@ -10,4 +10,6 @@ ContactCenter::iterator ContactCenter::begin() { return m_pools.begin(); }
 
 ContactCenter::iterator ContactCenter::end() { return m_pools.end(); }
 
+const std::vector<std::shared_ptr<ContactPool>>& ContactCenter::GetPools() const { return m_pools; }
+
 } // namespace gengeopop

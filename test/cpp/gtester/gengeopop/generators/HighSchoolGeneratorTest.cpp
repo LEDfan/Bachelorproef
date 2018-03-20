@@ -72,7 +72,7 @@ TEST(HighSchoolGeneratorTest, FiveLocationsTest)
         schoolGenerator.apply(geoGrid, config);
 
         std::vector<int> expectedSchoolCount{4, 4, 2, 2, 1, 0, 0, 0, 0, 2, 4, 0, 6, 0, 2};
-        for (int i = 0; i < sizes.size(); i++) {
+        for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expectedSchoolCount[i], geoGrid->get(i)->getContactCenters().size());
         }
 }

@@ -2,6 +2,7 @@
 # Sources.
 #============================================================================
 set(GENGEOPOP_LIB
+    Coordinate.cpp
     Community.cpp
     ContactCenter.cpp
     ContactPool.cpp
@@ -20,11 +21,12 @@ set(GENGEOPOP_LIB
     io/CitiesCSVReader.cpp
     io/CitiesReader.cpp
     io/CommutesReader.cpp
+    io/CommutesCSVReader.cpp
     io/HouseholdCSVReader.cpp
     io/HouseholdReader.cpp
     io/ReaderFactory.cpp
-    io/GeoGridWriter.cpp
     io/GeoGridJSONWriter.cpp
+    io/GeoGridJSONReader.cpp
 
     # TOOD remove header files after initial implementation
     Community.h
@@ -38,8 +40,7 @@ set(GENGEOPOP_LIB
     io/CitiesCSVReader.h
     io/HouseholdCSVReader.h
     io/HouseholdReader.h
-    GeoGridConfig.h
-)
+    GeoGridConfig.h)
 
 #============================================================================
 # Build the GenGeoPop library.
@@ -53,7 +54,7 @@ set_target_properties(libgengeopop PROPERTIES PREFIX "")
 # Build and install the stride executable.
 #============================================================================
 add_executable(gengeopop main.cpp)
-target_include_directories(gengeopop PUBLIC ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
+include_directories(gengeopop SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 target_link_libraries(gengeopop ${LIBS} libstride libgengeopop)
 install(TARGETS gengeopop DESTINATION  ${BIN_INSTALL_LOCATION})
 

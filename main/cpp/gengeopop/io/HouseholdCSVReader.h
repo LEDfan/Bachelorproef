@@ -6,6 +6,6 @@ namespace gengeopop {
 class HouseholdCSVReader : public HouseholdReader
 {
 public:
-        HouseholdCSVReader(std::istream& inputStream);
+        HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
 };
 } // namespace gengeopop

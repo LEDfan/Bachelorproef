@@ -12,6 +12,7 @@ notifications:
 env:
   global:
     - MAKEFLAGS="-j 2"
+    - secure: GleA4sdouIha5p6DQJ0YNPXWORcDWLAyDqFhYFV1OXSfzR1KublRtuH4MCPsYkgxujas2uqRU4bM0RGuws5JMAFTsVKpQv8hZZAhzZu6tdHY3d5adC19hu5AKKkd96wOCZbU8D/FxUpVkqALQ1wAQpxa2KFlqsPT9Wk9Uqt+xEZ4Wp1aBa8eo8E9Llra1KPAQq8S3ljTs4VH2j9ID1xW/VQfXILcFtw2pvpmtdxrGYPOaJwxxvq66Tfc/yFX3BEhtzdykJBrI7COzrE59VZVGOi/Pteb5a6V/TOw7bFUkov6siB16/IIOSpVN9fGcnNPzD5Ll7dlz2yIlIK/HgRRb6GpsppGnZzVUyNBieDI4oV0qUL3zBWo3a0Y5k9mcR8KwOuaHsuaW0816mFuFiPf8Jkrnf+ruYsJKWZ+F4XqXyuDbiwBLNcmCVNk0T9IE0DrZdrG59SKvthmdGhQE2w1MPsRe7dQcaT7/1/YRL2C0kJN3NMcSFjXN53nDWx5q/TMA6YlQtTxRVO1Pl4ldKHbFO8ZJl0YHzkY0DAfYUmnLxEUwLe2LrMFemh9U2bWBg3zUif1We1pmhjHldrEi1drEkfTjBNHESN9CR7GG5mT8L1px+RrIumxr1XjaK/59twiFYqsFqk4widskpSkYKRZGpR9N8gl56ieyV61Ual2mPg=
 
 cache:
   directories:
@@ -25,46 +26,52 @@ addons:
     packages: &default_packages
       - swig3.0
       - libhdf5-dev
+      - qtdeclarative5-dev
+      - qtdeclarative5-qtlocation-plugin
+      - qtdeclarative5-controls-plugin
+      - qtdeclarative5-dialogs-plugin
+      - qtdeclarative5-qtpositioning-plugin
 
 matrix:
   include:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU STRIDE_GENERATE_COVERAGE=True
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU STRIDE_GENERATE_COVERAGE=True BUILD_NAME="linux-gcc-6"
       addons: { apt: { packages: [*default_packages, g++-6, lcov], sources: [*default_sources]} }
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU
+      env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU BUILD_NAME="linux-gcc-7"
       addons: { apt: { packages: [*default_packages, g++-7], sources: [*default_sources]} }
 
     - os: linux
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++-5.0' CXX_COMPILER_ID=CLANG
+      env: CXX_COMPILER_NAME='clang++-5.0' CXX_COMPILER_ID=CLANG BUILD_NAME="linux-clang-5"
       addons: { apt: { packages: [*default_packages, clang-5.0, g++-6, gcc-6], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
 
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE BUILD_NAME="osx-8.3-apple-clang"
 
     - os: osx
       osx_image: xcode9.2
       compiler: clang
-      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE BUILD_NAME="osx-9.2-apple-clang"
 
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++' CXX_COMPILER_ID=LLVM
+      env: CXX_COMPILER_NAME='clang++' CXX_COMPILER_ID=LLVM BUILD_NAME="osx-8.3-llvm-clang"
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@3.9 && brew link --force --overwrite llvm@3.9; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig qt; brew link --force qt; sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins; sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs;  fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt; export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.10.1/; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb; sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb; fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
@@ -103,8 +110,32 @@ script:
 after_success:
     - |
         cd ${TRAVIS_BUILD_DIR}
-        if [[ "$STRIDE_GENERATE_COVERAGE" != "True" ]]; then exit 0; fi
+        if [[ "$STRIDE_GENERATE_COVERAGE" == "True" ]]; then
         lcov --directory . --capture --output-file coverage.info # capture coverage info
         lcov --remove coverage.info '/usr/*' 'main/resources/*' 'test/resources/*' "${HOME}/boost_1_66_0_cache/\*\*" --output-file coverage.info # filter out system + boost
         lcov --list coverage.info #debug info
         bash <(curl -s https://codecov.io/bash) -f coverage.info -t f7c8a447-9ce0-48b8-bbe5-b80a4f607cd8 || echo "Codecov did not collect coverage reports"
+        fi
+
+after_script:
+ - |
+    if [ -f ./cmake-build-release/installed/tests/gtester_all.xml ]; then
+    wget https://github.com/LEDfan/xunit-viewer/files/1819066/xunit-viewer.tar.gz
+    tar -xf xunit-viewer.tar.gz
+    ./xunit-viewer/bin/xunit-viewer --output=test_detail.html --results=./cmake-build-release/installed/tests/gtester_all.xml
+    git config --global user.email "bot@ledfan.be"
+    git config --global user.name "LEDfan-bot"
+    cp -r test_detail.html ../
+    git remote add origin-pages https://${GH_TOKEN}@github.com/LEDfan/bachelorproef.git > /dev/null 2>&1
+    git fetch origin-pages gh-pages
+    git checkout gh-pages
+    mkdir -p test_results/${TRAVIS_BRANCH}
+    mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html
+    LINK="https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html"
+    ./generate.py add $TRAVIS_BRANCH $TRAVIS_JOB_NUMBER $BUILD_NAME $LINK
+    ./generate.py render > test-results.md
+    git add test_results/* test-results.md test_results.json
+    git commit -m "Publish test results @ $LINK"
+    git push origin-pages gh-pages
+    echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
+    fi
