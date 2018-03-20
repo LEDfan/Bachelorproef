@@ -75,7 +75,6 @@ int main(int argc, char* argv[])
 
 #pragma omp parallel sections
                 {
-
 #pragma omp section
                         {
                                 citiesReader = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
