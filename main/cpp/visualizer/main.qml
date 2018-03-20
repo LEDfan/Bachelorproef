@@ -61,6 +61,7 @@ ApplicationWindow {
                 MouseArea {
                     anchors.fill: parent
                     property var start
+                    property bool rectSelectStarted: false
                     onClicked: {
                         parent.mapClicked()
                     }
@@ -71,17 +72,21 @@ ApplicationWindow {
                             map.gesture.enabled = false
                             // Set accepted so we do no propagate click
                             mouse.accepted = true
+                            rectSelectStarted = true
                             // Save the start coordiate
                             start = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
                         }
                     }
                     onReleased: {
-                        console.warn("up")
-                        // Enable panning again
-                        map.gesture.enabled = true
-                        // Get the end coordinate of the selection
-                        var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
-                        backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                        if(rectSelectStarted) {
+                            rectSelectStarted = false
+                            console.warn("up")
+                            // Enable panning again
+                            map.gesture.enabled = true
+                            // Get the end coordinate of the selection
+                            var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                            backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                        }
                     }
                 }
 
