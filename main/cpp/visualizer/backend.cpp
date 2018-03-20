@@ -9,10 +9,15 @@
 #include <gengeopop/io/GeoGridJSONReader.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
 
-Backend::Backend(QObject* parent) : QObject(parent)
+Backend::Backend(QObject* parent) : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_selection() {}
+
+Backend::Backend(const Backend&) : QObject(), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_selection() {}
+
+Backend& Backend::operator=(const Backend& b)
 {
-        // This is to be removed once the reader is working
-        m_grid = std::make_shared<gengeopop::GeoGrid>();
+        m_grid      = b.m_grid;
+        m_selection = b.m_selection;
+        return *this;
 }
 
 void Backend::LoadGeoGridFromFile(const QString& file)
