@@ -57,6 +57,13 @@ ApplicationWindow {
                     }
                 }
 
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        parent.mapClicked()
+                    }
+                }
+
                 function addMarker(lon, lat, markerID, size) {
                     var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
                     var marker = markerComp.createObject()
@@ -78,6 +85,10 @@ ApplicationWindow {
                     } else {
                         backend.OnMarkerClicked(id)
                     }
+                }
+
+                function mapClicked() {
+                        backend.clearSelection()
                 }
             }
         }
