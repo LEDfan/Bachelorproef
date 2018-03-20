@@ -7,6 +7,7 @@ namespace gengeopop {
 class GeoGridJSONReader : public GeoGridReader
 {
 public:
+        GeoGridJSONReader();
         std::shared_ptr<GeoGrid> read(std::istream& stream);
 
 private:
