@@ -1,8 +1,8 @@
 #################################################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -33,11 +33,16 @@ set(SWIG_IFACE
 	swig/stride.i
 )
 
+
+
 include(${SWIG_USE_FILE})
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)
 swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)
 swig_link_libraries(stride PUBLIC libstride ${PYTHON_LIBRARIES})
+
+set_source_files_properties( ${swig_generated_file_fullname}
+    PROPERTIES COMPILE_FLAGS "-Wno-effc++")
 
 #================================================================================================
 # Install Python package.
@@ -63,7 +68,7 @@ INSTALL(DIRECTORY pystride
         DESTINATION ${BIN_INSTALL_LOCATION})
 INSTALL(DIRECTORY ${CMAKE_BINARY_DIR}/main/python/pystride/stride
         DESTINATION ${BIN_INSTALL_LOCATION}/pystride/)
-        
+
 #================================================================================================
 # Clean up
 #================================================================================================

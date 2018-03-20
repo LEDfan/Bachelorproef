@@ -37,7 +37,7 @@ class Simulator;
 /**
  * Managing a run of the simulator.
  */
-class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
+class SimRunner : public util::Subject<stride::sim_event::Payload>, protected std::enable_shared_from_this<SimRunner>
 {
 public:
         /// Constructor

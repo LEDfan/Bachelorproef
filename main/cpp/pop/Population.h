@@ -36,6 +36,8 @@ namespace stride {
 class Population : public std::vector<Person>
 {
 public:
+        Population() : beliefs_container() {};
+
         ///
         unsigned int GetAdoptedCount() const;
 

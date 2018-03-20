@@ -40,7 +40,7 @@ public:
                       bool use_install_dirs = true)
             : m_config_file(std::move(config_file)), m_track_index_case(track_index_case), m_max_num_threads(1U),
               m_p_overrides(std::move(p_overrides)), m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs),
-              m_run_clock("run_clock", true){};
+              m_run_clock("run_clock", true), m_logger(), m_config_pt() {};
 
         /// Actual run of the simulator.
         void Go();

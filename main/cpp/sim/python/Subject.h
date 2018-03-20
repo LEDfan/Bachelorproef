@@ -30,6 +30,9 @@ template <typename E, typename U>
 class Subject
 {
 public:
+
+        Subject() : m_observers() {}
+
         virtual ~Subject() { UnregisterAll(); }
 
         void Register(const std::shared_ptr<U>&);

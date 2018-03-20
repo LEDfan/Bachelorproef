@@ -34,7 +34,7 @@ template <bool TIC>
 class R0_POLICY
 {
 public:
-        static void Exec(Person* p) {}
+        static void Exec(Person* /*p*/) {}
 };
 
 /// Specialized R0_POLICY: track only the index case.
@@ -51,13 +51,13 @@ template <LogMode::Id LL>
 class LOG_POLICY
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ContactPoolType::Id type,
-                            const shared_ptr<const Calendar>& environ)
+        static void Contact(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/, ContactPoolType::Id /*type*/,
+                            const shared_ptr<const Calendar>& /*environ*/)
         {
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                                 ContactPoolType::Id type, const shared_ptr<const Calendar>& calendar)
+        static void Transmission(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/,
+                                 ContactPoolType::Id /*type*/, const shared_ptr<const Calendar>& /*calendar*/)
         {
         }
 };
@@ -67,8 +67,8 @@ template <>
 class LOG_POLICY<LogMode::Id::Transmissions>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ContactPoolType::Id type,
-                            const shared_ptr<const Calendar>& environ)
+        static void Contact(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/, ContactPoolType::Id /*type*/,
+                            const shared_ptr<const Calendar>& /*environ*/)
         {
         }
 
@@ -114,15 +114,15 @@ class LOG_POLICY<LogMode::Id::SusceptibleContacts>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                            ContactPoolType::Id pool_type, const shared_ptr<const Calendar>& calendar)
+                            ContactPoolType::Id /*pool_type*/, const shared_ptr<const Calendar>& /*calendar*/)
         {
                 if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
                 }
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                                 ContactPoolType::Id pool_type, const shared_ptr<const Calendar>& calendar)
+        static void Transmission(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/,
+                                 ContactPoolType::Id /*pool_type*/, const shared_ptr<const Calendar>& /*calendar*/)
         {
         }
 };

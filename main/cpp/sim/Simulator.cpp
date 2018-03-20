@@ -37,7 +37,7 @@ using namespace util;
 
 /// Default constructor for empty Simulator.
 Simulator::Simulator()
-    : m_track_index_case(false), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_sim_day(0U), m_population(nullptr)
+    : m_pt_config(), m_contact_profiles(), m_disease_profile(), m_track_index_case(false), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_calendar(), m_rn_manager(), m_operational(), m_sim_day(0U), m_population(nullptr), m_households(), m_school_pools(), m_work_pools(), m_primary_community(), m_secondary_community(), m_local_information_policy()
 
 {
 }
