@@ -49,6 +49,7 @@ Test results
  - [255.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/geogrid_reader_improvements/255.2-linux-gcc-7.html)
  - [255.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/geogrid_reader_improvements/255.3-linux-clang-5.html)
  - [255.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/geogrid_reader_improvements/255.4-osx-8.3-apple-clang.html)
+ - [255.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/geogrid_reader_improvements/255.5-osx-9.2-apple-clang.html)
 # master-niels-visualiser
  - [209.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master-niels-visualiser/209.5-osx-9.2-apple-clang.html)
 # kdtree
