@@ -37,8 +37,11 @@ class Simulator;
 /**
  * Managing a run of the simulator.
  */
-class SimRunner : public util::Subject<stride::sim_event::Payload>, protected std::enable_shared_from_this<SimRunner>
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
 {
+#pragma GCC diagnostic pop
 public:
         /// Constructor
         SimRunner();
