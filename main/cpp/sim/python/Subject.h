@@ -30,7 +30,6 @@ template <typename E, typename U>
 class Subject
 {
 public:
-
         Subject() : m_observers() {}
 
         virtual ~Subject() { UnregisterAll(); }

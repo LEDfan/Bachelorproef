@@ -51,8 +51,8 @@ template <LogMode::Id LL>
 class LOG_POLICY
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/, ContactPoolType::Id /*type*/,
-                            const shared_ptr<const Calendar>& /*environ*/)
+        static void Contact(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/,
+                            ContactPoolType::Id /*type*/, const shared_ptr<const Calendar>& /*environ*/)
         {
         }
 
@@ -67,8 +67,8 @@ template <>
 class LOG_POLICY<LogMode::Id::Transmissions>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/, ContactPoolType::Id /*type*/,
-                            const shared_ptr<const Calendar>& /*environ*/)
+        static void Contact(const shared_ptr<spdlog::logger>& /*logger*/, Person* /*p1*/, Person* /*p2*/,
+                            ContactPoolType::Id /*type*/, const shared_ptr<const Calendar>& /*environ*/)
         {
         }
 

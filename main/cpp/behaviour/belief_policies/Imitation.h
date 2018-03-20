@@ -26,7 +26,10 @@ namespace stride {
 class Imitation : public Belief
 {
 public:
-        Imitation(const boost::property_tree::ptree& pt) : Belief(pt), m_accept_threshold(pt.get<double>("accept_threshold")), m_no_accept_threshold(pt.get<double>("no_accept_threshold")), m_accept(false), m_belief_strength(), m_stickiness()
+        Imitation(const boost::property_tree::ptree& pt)
+            : Belief(pt), m_accept_threshold(pt.get<double>("accept_threshold")),
+              m_no_accept_threshold(pt.get<double>("no_accept_threshold")), m_accept(false), m_belief_strength(),
+              m_stickiness()
         {
                 // TODO belief strength
                 // TODO stickiness
