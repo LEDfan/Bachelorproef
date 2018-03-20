@@ -38,9 +38,7 @@ using namespace boost::property_tree;
 using namespace spdlog;
 using namespace std;
 
-SimRunner::SimRunner()
-    : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(),
-      m_sim(nullptr)
+SimRunner::SimRunner() : m_clock("total_clock"), m_logger(nullptr), m_output_prefix(""), m_pt_config(), m_sim(nullptr)
 {
 }
 

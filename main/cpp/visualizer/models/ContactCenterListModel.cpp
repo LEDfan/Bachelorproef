@@ -7,7 +7,7 @@
 #include <gengeopop/Location.h>
 #include <iostream>
 
-int ContactCenterListModel::rowCount(const QModelIndex& parent) const { return m_centers.size(); }
+int ContactCenterListModel::rowCount(const QModelIndex& /*parent*/) const { return m_centers.size(); }
 
 QVariant ContactCenterListModel::data(const QModelIndex& index, int role) const
 {
@@ -24,7 +24,7 @@ QVariant ContactCenterListModel::data(const QModelIndex& index, int role) const
         return QVariant();
 }
 
-ContactCenterListModel::ContactCenterListModel(QObject* parent) : QAbstractListModel(parent) {}
+ContactCenterListModel::ContactCenterListModel(QObject* parent) : QAbstractListModel(parent), m_centers() {}
 
 QHash<int, QByteArray> ContactCenterListModel::roleNames() const
 {
@@ -36,7 +36,7 @@ QHash<int, QByteArray> ContactCenterListModel::roleNames() const
         return roles;
 }
 
-int ContactCenterListModel::columnCount(const QModelIndex& parent) const { return 2; }
+int ContactCenterListModel::columnCount(const QModelIndex& /*parent*/) const { return 2; }
 
 void ContactCenterListModel::setCenters(std::vector<std::shared_ptr<gengeopop::Location>> locs)
 {

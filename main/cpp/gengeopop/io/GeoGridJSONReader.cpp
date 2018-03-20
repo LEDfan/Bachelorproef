@@ -93,7 +93,7 @@ std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property
         for (auto it = people.begin(); it != people.end(); it++) {
                 unsigned int person_id = boost::lexical_cast<unsigned int>(it->second.get<std::string>(""));
                 if (m_people.count(person_id) == 0) {
-                        throw std::invalid_argument("No such person: " + person_id);
+                        throw std::invalid_argument("No such person: " + std::to_string(person_id));
                 }
                 result->addMember(m_people[person_id]);
         }
