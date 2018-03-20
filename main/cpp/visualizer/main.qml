@@ -53,8 +53,24 @@ ApplicationWindow {
                     for( var i_type in supportedMapTypes  ) {
                         if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
                         activeMapType = supportedMapTypes[i_type]
+                        map.addMapItem(selectionRectangle)
 
                         }
+                    }
+                }
+
+                MapRectangle {
+                    id: 'selectionRectangle'
+                    color: 'blue'
+                    opacity: 0.25
+                    border.width: 2
+                    topLeft {
+                        latitude: -27
+                        longitude: 153
+                    }
+                    bottomRight {
+                        latitude: -28
+                        longitude: 153.5
                     }
                 }
 
@@ -86,6 +102,18 @@ ApplicationWindow {
                             // Get the end coordinate of the selection
                             var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
                             backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                            // Fix order
+                            if(end.longitude < start.longitude) {
+                                var temp = start;
+                                start = end;
+                                end = temp;
+                            }
+                            // Show it on the map
+                            selectionRectangle.topLeft.latitude = start.latitude
+                            selectionRectangle.topLeft.longitude = start.longitude
+                            selectionRectangle.bottomRight.latitude = end.latitude
+                            selectionRectangle.bottomRight.longitude = end.longitude
+
                         }
                     }
                 }
