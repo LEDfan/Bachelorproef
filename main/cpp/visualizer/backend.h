@@ -10,6 +10,8 @@ class Backend : public QObject
 
 public:
         explicit Backend(QObject* parent = nullptr);
+        Backend(const Backend& b);
+        Backend& operator=(const Backend& b);
 
         Q_INVOKABLE
         /**
