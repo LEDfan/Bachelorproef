@@ -68,12 +68,12 @@ public:
         void Run();
 
 private:
-        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
-        std::shared_ptr<spdlog::logger> m_logger;        ///< General logger.
-        bool                            m_operational;   ///< Input config is OK to be run
-        std::string                     m_output_prefix; ///< Prefix for outpu data files.
-        boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.
-        std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
+        util::Stopwatch<>               m_clock;  ///< Stopwatch for timing the computation.
+        std::shared_ptr<spdlog::logger> m_logger; ///< General logger.
+        //        bool                            m_operational;   ///< Input config is OK to be run
+        std::string                 m_output_prefix; ///< Prefix for outpu data files.
+        boost::property_tree::ptree m_pt_config;     ///< Ptree with configuration.
+        std::shared_ptr<Simulator>  m_sim;           ///< Simulator object.
 };
 
 } // namespace stride
