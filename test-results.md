@@ -43,6 +43,7 @@ Test results
  - [252.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/kdtree/252.3-linux-clang-5.html)
  - [252.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/kdtree/252.4-osx-8.3-apple-clang.html)
  - [252.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/kdtree/252.5-osx-9.2-apple-clang.html)
+ - [252.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/kdtree/252.6-osx-8.3-llvm-clang.html)
 # compiler_warnings_geogridreader
  - [241.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.1-linux-gcc-6.html)
  - [241.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/compiler_warnings_geogridreader/241.2-linux-gcc-7.html)
