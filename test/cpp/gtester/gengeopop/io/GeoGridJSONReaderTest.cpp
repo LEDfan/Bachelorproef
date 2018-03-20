@@ -68,14 +68,27 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         EXPECT_EQ(contactCenters[4]->getType(), "Workplace");
 }
 
-TEST(GeoGridJSONReaderTest, peopleTest)
+void runPeopleTest(std::string filename)
 {
-        auto geoGrid        = getGeoGridForFile("test2.json");
-        auto location       = geoGrid->get(0);
+        auto                       geoGrid  = getGeoGridForFile(filename);
+        auto                       location = geoGrid->get(0);
+        std::map<int, std::string> types    = {{2, "School"},     {3, "Community"}, {7, "Community"},
+                                            {4, "HighSchool"}, {5, "Household"}, {6, "Workplace"}};
+
+        EXPECT_EQ(location->getID(), 1);
+        EXPECT_EQ(location->getName(), "Bavikhove");
+        EXPECT_EQ(location->getProvince(), 4);
+        EXPECT_EQ(location->getPopulation(), 2500);
+        EXPECT_EQ(location->getCoordinate().x, 0);
+        EXPECT_EQ(location->getCoordinate().y, 0);
+        EXPECT_EQ(location->getCoordinate().longitude, 0);
+        EXPECT_EQ(location->getCoordinate().latitude, 0);
+
         auto contactCenters = location->getContactCenters();
-        for (auto center : contactCenters) {
+        for (const auto& center : contactCenters) {
                 auto pool   = center->GetPools()[0];
-                auto person = *pool->begin();
+                auto person = *(pool->begin());
+                EXPECT_EQ(types[pool->getID()], center->getType());
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');
@@ -86,5 +99,22 @@ TEST(GeoGridJSONReaderTest, peopleTest)
                 EXPECT_EQ(person->GetSecondaryCommunityId(), 7);
         }
 }
+
+TEST(GeoGridJSONReaderTest, peopleTest) { runPeopleTest("test2.json"); }
+
+TEST(GeoGridJSONReaderTest, intTest) { runPeopleTest("test3.json"); }
+
+TEST(GeoGridJSONReaderTest, emptyStreamTest)
+{
+        GeoGridJSONReader geoGridJSONReader;
+        std::stringstream ss;
+        EXPECT_THROW(geoGridJSONReader.read(ss), std::runtime_error);
+}
+
+TEST(GeoGridJSONReaderTest, invalidTypeTest) { EXPECT_THROW(getGeoGridForFile("test4.json"), std::invalid_argument); }
+
+TEST(GeoGridJSONReaderTest, invalidPersonTest) { EXPECT_THROW(getGeoGridForFile("test5.json"), std::invalid_argument); }
+
+TEST(GeoGridJSONReaderTest, invalidJSONTest) { EXPECT_THROW(getGeoGridForFile("test6.json"), std::runtime_error); }
 
 } // namespace
