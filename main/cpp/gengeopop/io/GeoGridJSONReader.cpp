@@ -10,6 +10,9 @@
 #include "GeoGridJSONReader.h"
 
 namespace gengeopop {
+
+GeoGridJSONReader::GeoGridJSONReader() : m_people() {}
+
 std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 {
         boost::property_tree::ptree root;
@@ -114,4 +117,5 @@ std::shared_ptr<stride::Person> GeoGridJSONReader::ParsePerson(boost::property_t
         return std::make_shared<stride::Person>(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
                                                 secondaryCommunityId, 0, 0, 0, 0, 0);
 }
+
 } // namespace gengeopop
