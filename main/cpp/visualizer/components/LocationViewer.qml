@@ -15,16 +15,25 @@ ColumnLayout {
         id: textName
         objectName: 'textName'
         text: 'Location:'
+        width: 100
+        clip: true
+                wrapMode: Text.WordWrap
     }
     Text {
         id: textProvince
         objectName: 'textProvince'
         text: 'Province:'
+        width: 100
+        clip: true
+                wrapMode: Text.WordWrap
     }
     Text {
         id: textID
         objectName: 'textID'
         text: 'ID:'
+        width: 100
+        clip: true
+        wrapMode: Text.WordWrap
     }
     Text {
         text: 'ContactCenters:'
@@ -60,6 +69,7 @@ ColumnLayout {
             cclist.clicked.connect(ccModel.handleClickRow)
             // Bind contactCenter selected of model outside
             ccModel.ContactCenterSelected.connect(locViewerBase.contactCenterSelected)
+
         }
     }
 

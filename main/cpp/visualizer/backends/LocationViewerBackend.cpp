@@ -13,8 +13,15 @@ void LocationViewerBackend::showLocations(std::vector<std::shared_ptr<gengeopop:
         QString provinceString("Province: ");
         QString idString("ID: ");
 
-        if (locations.size() == 1) {
-                auto location = locations[0];
+        bool first = true;
+        for (auto location : locations) {
+                if (first) {
+                        first = false;
+                } else {
+                        nameString += QString(",");
+                        provinceString += QString(",");
+                        idString += QString(",");
+                }
                 nameString += QString::fromStdString(location->getName());
                 provinceString += QString::number(location->getProvince());
                 idString += QString::number(location->getID());

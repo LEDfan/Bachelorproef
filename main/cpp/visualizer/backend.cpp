@@ -40,7 +40,7 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 void Backend::PlaceMarkers()
 {
         // Clear the present markers
-        QMetaObject::invokeMethod(m_map, "clearMapItems");
+        QMetaObject::invokeMethod(m_map, "clearMap");
 
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
@@ -88,6 +88,8 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 
 void Backend::clearSelection()
 {
+onPressed : {
+}
         m_selection.clear();
         emitLocations();
 }

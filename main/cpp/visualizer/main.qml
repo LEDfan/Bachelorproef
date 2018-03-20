@@ -78,10 +78,8 @@ ApplicationWindow {
                     anchors.fill: parent
                     property var start
                     property bool rectSelectStarted: false
-                    onClicked: {
-                        parent.mapClicked()
-                    }
                     onPressed: {
+                        parent.mapClicked(mouse)
                         console.warn("down")
                         if(mouse.modifiers & Qt.ControlModifier){
                             // Disable panning
@@ -99,6 +97,7 @@ ApplicationWindow {
                             console.warn("up")
                             // Enable panning again
                             map.gesture.enabled = true
+                            mouse.accepted = true
                             // Get the end coordinate of the selection
                             var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
                             backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
@@ -109,6 +108,7 @@ ApplicationWindow {
                                 end = temp;
                             }
                             // Show it on the map
+                            selectionRectangle.opacity = 0.3
                             selectionRectangle.topLeft.latitude = start.latitude
                             selectionRectangle.topLeft.longitude = start.longitude
                             selectionRectangle.bottomRight.latitude = end.latitude
@@ -141,9 +141,21 @@ ApplicationWindow {
                     }
                 }
 
-                function mapClicked() {
+                function mapClicked(event) {
+                    if( ! (event.modifiers & Qt.ShiftModifier)){
                         backend.clearSelection()
+                        selectionRectangle.opacity = 0
+                        console.warn("Map clicked")
+                    }
                 }
+
+                function clearMap() {
+                    // Remove the map
+                    map.clearMapItems()
+                    // Re add the selection rectangle
+                    map.addMapItem(selectionRectangle)
+                }
+
             }
         }
 
