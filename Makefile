@@ -129,12 +129,20 @@ distclean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)
 
 test installcheck: install
-	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest 
-		
+	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest
+
 format:
 	resources/bash/clang-format-all .
 
 format-check:
 	resources/bash/clang-format-all --check .
+
+coverage:
+	export STRIDE_GENERATE_COVERAGE=True
+	make test
+	lcov --directory . --capture --output-file coverage.info # capture coverage info
+	lcov --remove coverage.info '/usr/*' 'main/resources/*' 'test/resources/*' "${HOME}/boost_1_66_0_cache/\*\*" --output-file coverage.info # filter out system + boost
+	lcov --list coverage.info
+	genhtml -o html_coverage -t "Stride" -s --num-spaces 4 coverage.info
 
 #############################################################################
