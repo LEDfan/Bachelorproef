@@ -45,6 +45,8 @@ struct AABB
  *  - A `template <std::size_d D> get() const` method that returns the coordinate of the `D`th dimension of the point
  *  - A default constructor and a copy constructor
  *  - The individual dimensions should each have a total order and equality
+ *  - A method `bool InBox(const AABB<P>& box) const` that indicates if a point falls withing the bounding box (only for
+ * range queries)
  */
 template <typename P>
 class KdTree
@@ -100,7 +102,7 @@ public:
          * @param point The point to test. P should support `bool operator==(const P&) const`
          * @returns Whether the point is found in the tree
          */
-        bool Contains(P point) const
+        bool Contains(const P& point) const
         {
                 bool result = false;
                 Apply([&result, &point](const P& pt) -> bool {
@@ -110,6 +112,7 @@ public:
                         }
                         return true;
                 });
+                return result;
         }
 
         /**
@@ -137,24 +140,24 @@ public:
          */
         void Apply(std::function<bool(const P&)> f) const
         {
-                if (!m_root)
+                if (m_root == nullptr)
                         return;
 
                 std::queue<kd::BaseNode<P>*> todo;
                 todo.push(m_root.get());
 
                 while (!todo.empty()) {
-                        kd::BaseNode<P>* current = todo.top();
+                        kd::BaseNode<P>* current = todo.front();
                         todo.pop();
 
                         f(current->GetPoint());
 
                         kd::BaseNode<P>* left = current->BorrowLeft();
-                        if (left)
+                        if (left != nullptr)
                                 todo.push(left);
 
                         kd::BaseNode<P>* right = current->BorrowRight();
-                        if (right)
+                        if (right != nullptr)
                                 todo.push(right);
                 }
         }
@@ -172,13 +175,17 @@ public:
                 while (!q.empty()) {
                         kd::BaseNode<P>* current = q.front();
                         q.pop();
-                        if (!current || !current->InBox(box))
+                        if (current == nullptr)
                                 continue;
 
-                        f(current->GetPoint());
-
-                        q.push(current->BorrowLeft());
-                        q.push(current->BorrowRight());
+                        if (current->GetPoint().InBox(box)) {
+                                f(current->GetPoint());
+                        }
+                        kd::BaseNode<P>* a = current->BorrowSplitChild(box.lower);
+                        kd::BaseNode<P>* b = current->BorrowSplitChild(box.upper);
+                        q.push(a);
+                        if (a != b)
+                                q.push(b);
                 }
         }
 
@@ -238,7 +245,7 @@ private:
                         }
                 }
 
-                auto root   = std::make_unique<kd::Node<P, D>>(root_pt);
+                auto root     = std::make_unique<kd::Node<P, D>>(root_pt);
                 root->m_left  = Construct<(D + 1) % P::dim>(left);
                 root->m_right = Construct<(D + 1) % P::dim>(right);
 
@@ -286,11 +293,6 @@ public:
          * Gets the point for this node
          */
         virtual P GetPoint() const = 0;
-
-        /**
-         * Test wether this node falls within the Axis-Aligned Bounding Box for its own dimension
-         */
-        virtual bool InBox(const AABB<P>& box) const = 0;
 };
 
 /**
@@ -332,12 +334,6 @@ public:
         }
 
         P GetPoint() const override { return m_point; }
-
-        bool InBox(const AABB<P>& box) const override
-        {
-                auto val = m_point.template get<D>();
-                return (box.lower.template get<D>() <= val && val <= box.upper.template get<D>());
-        }
 
 private:
         using Child = Node<P, (D + 1) % P::dim>;
