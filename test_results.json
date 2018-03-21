@@ -426,6 +426,11 @@
       "name": "linux-clang-5",
       "build_id": "258.3",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.3-linux-clang-5.html"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "258.4"
     }
   ],
   "kdtree": [
