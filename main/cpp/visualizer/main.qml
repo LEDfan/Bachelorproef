@@ -91,6 +91,26 @@ ApplicationWindow {
                             start = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
                         }
                     }
+                    onPositionChanged: {
+                        if(rectSelectStarted) {
+                            // Get the end coordinate of the selection
+                            var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                            backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                            // Fix order
+                            var tstart = start;
+                            var tend = end;
+                            if(end.longitude < start.longitude) {
+                                tstart = end;
+                                tend = start;
+                            }
+                            // Show it on the map
+                            selectionRectangle.opacity = 0.3
+                            selectionRectangle.topLeft.latitude = tstart.latitude
+                            selectionRectangle.topLeft.longitude = tstart.longitude
+                            selectionRectangle.bottomRight.latitude = tend.latitude
+                            selectionRectangle.bottomRight.longitude = tend.longitude
+                        }
+                    }
                     onReleased: {
                         if(rectSelectStarted) {
                             rectSelectStarted = false
