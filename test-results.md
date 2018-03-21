@@ -115,6 +115,7 @@ Test results
  - [276.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/kdtree/276.3-linux-clang-5.html)
  - [276.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/kdtree/276.4-osx-8.3-apple-clang.html)
  - [276.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/kdtree/276.5-osx-9.2-apple-clang.html)
+ - [276.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/kdtree/276.6-osx-8.3-llvm-clang.html)
  - [267.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/kdtree/267.1-linux-gcc-6.html)
  - [267.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/kdtree/267.2-linux-gcc-7.html)
  - [267.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/kdtree/267.3-linux-clang-5.html)
