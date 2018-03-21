@@ -82,7 +82,7 @@ public:
                 double       sigma  = 0;
 
                 if (tag == "influenza_a") {
-                        target = 2093;
+                        target = 1085U;
                         sigma  = 116.60326645015648;
                 }
                 if (tag == "influenza_b") {
@@ -99,7 +99,7 @@ public:
                 if (tag == "measles_16") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 16U);
-                        target = 590086;
+                        target = 599900U;
                         sigma  = 660.8227044636814;
                 }
                 if (tag == "measles_60") {

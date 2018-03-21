@@ -11,7 +11,7 @@ notifications:
 
 env:
   global:
-    - MAKEFLAGS="-j 2"
+    #- MAKEFLAGS="-j 2"
     - secure: GleA4sdouIha5p6DQJ0YNPXWORcDWLAyDqFhYFV1OXSfzR1KublRtuH4MCPsYkgxujas2uqRU4bM0RGuws5JMAFTsVKpQv8hZZAhzZu6tdHY3d5adC19hu5AKKkd96wOCZbU8D/FxUpVkqALQ1wAQpxa2KFlqsPT9Wk9Uqt+xEZ4Wp1aBa8eo8E9Llra1KPAQq8S3ljTs4VH2j9ID1xW/VQfXILcFtw2pvpmtdxrGYPOaJwxxvq66Tfc/yFX3BEhtzdykJBrI7COzrE59VZVGOi/Pteb5a6V/TOw7bFUkov6siB16/IIOSpVN9fGcnNPzD5Ll7dlz2yIlIK/HgRRb6GpsppGnZzVUyNBieDI4oV0qUL3zBWo3a0Y5k9mcR8KwOuaHsuaW0816mFuFiPf8Jkrnf+ruYsJKWZ+F4XqXyuDbiwBLNcmCVNk0T9IE0DrZdrG59SKvthmdGhQE2w1MPsRe7dQcaT7/1/YRL2C0kJN3NMcSFjXN53nDWx5q/TMA6YlQtTxRVO1Pl4ldKHbFO8ZJl0YHzkY0DAfYUmnLxEUwLe2LrMFemh9U2bWBg3zUif1We1pmhjHldrEi1drEkfTjBNHESN9CR7GG5mT8L1px+RrIumxr1XjaK/59twiFYqsFqk4widskpSkYKRZGpR9N8gl56ieyV61Ual2mPg=
 
 cache:
@@ -68,7 +68,7 @@ matrix:
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@3.9 && brew link --force --overwrite llvm@3.9; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@5 && brew link --force --overwrite llvm@5; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig qt; brew link --force qt; sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins; sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs;  fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt; export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.10.1/; fi
