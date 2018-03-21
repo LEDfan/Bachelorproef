@@ -100,3 +100,5 @@ Gemfile*
 vendor/
 .idea
 gengeopop.json
+html_coverage
+coverage.info
