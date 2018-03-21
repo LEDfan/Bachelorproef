@@ -22,6 +22,30 @@ std::shared_ptr<GeoGrid> getGeoGrid()
         return geoGridGenerator.getGeoGrid();
 }
 
+void sortContactCenters(boost::property_tree::ptree& tree)
+{
+        auto& contactCenters       = tree.get_child("contactCenters");
+        auto  compareContactCenter = [](std::pair<std::string, boost::property_tree::ptree> a,
+                                       std::pair<std::string, boost::property_tree::ptree> b) {
+                return a.second.get<std::string>("type") < b.second.get<std::string>("type");
+        };
+        contactCenters.sort<decltype(compareContactCenter)>(compareContactCenter);
+}
+
+void sortTree(boost::property_tree::ptree& tree)
+{
+        auto compareLocation = [](std::pair<std::string, boost::property_tree::ptree> a,
+                                  std::pair<std::string, boost::property_tree::ptree> b) {
+                return a.second.get<std::string>("id") < b.second.get<std::string>("id");
+        };
+        auto& locations = tree.get_child("locations");
+        locations.sort<decltype(compareLocation)>(compareLocation);
+
+        for (auto it = locations.begin(); it != locations.end(); it++) {
+                sortContactCenters(it->second.get_child(""));
+        }
+}
+
 bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
 {
         GeoGridJSONWriter writer;
@@ -30,9 +54,13 @@ bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
 
         boost::property_tree::ptree result;
         boost::property_tree::read_json(ss, result);
+        sortTree(result);
+
         boost::property_tree::ptree expected;
         boost::property_tree::read_json(
             stride::util::FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/" + testname, expected);
+        sortTree(expected);
+
         return result == expected;
 }
 
