@@ -25,8 +25,8 @@ std::shared_ptr<GeoGrid> getGeoGrid()
 void sortContactCenters(boost::property_tree::ptree& tree)
 {
         auto& contactCenters       = tree.get_child("contactCenters");
-        auto  compareContactCenter = [](std::pair<std::string, boost::property_tree::ptree> a,
-                                       std::pair<std::string, boost::property_tree::ptree> b) {
+        auto  compareContactCenter = [](const std::pair<std::string, boost::property_tree::ptree>& a,
+                                       const std::pair<std::string, boost::property_tree::ptree>& b) {
                 return a.second.get<std::string>("type") < b.second.get<std::string>("type");
         };
         contactCenters.sort<decltype(compareContactCenter)>(compareContactCenter);
@@ -34,8 +34,8 @@ void sortContactCenters(boost::property_tree::ptree& tree)
 
 void sortTree(boost::property_tree::ptree& tree)
 {
-        auto compareLocation = [](std::pair<std::string, boost::property_tree::ptree> a,
-                                  std::pair<std::string, boost::property_tree::ptree> b) {
+        auto compareLocation = [](const std::pair<std::string, boost::property_tree::ptree>& a,
+                                  const std::pair<std::string, boost::property_tree::ptree>& b) {
                 return a.second.get<std::string>("id") < b.second.get<std::string>("id");
         };
         auto& locations = tree.get_child("locations");
