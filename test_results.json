@@ -321,6 +321,11 @@
       "name": "linux-clang-5",
       "build_id": "267.3",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/kdtree/267.3-linux-clang-5.html"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/kdtree/267.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "267.5"
     }
   ],
   "master-niels-visualiser": [
