@@ -65,6 +65,7 @@ Test results
  - [265.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/gengeo_openmp/265.3-linux-clang-5.html)
  - [265.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/gengeo_openmp/265.4-osx-8.3-apple-clang.html)
  - [265.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/gengeo_openmp/265.5-osx-9.2-apple-clang.html)
+ - [265.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/gengeo_openmp/265.6-osx-8.3-llvm-clang.html)
 # alpha
  - [240.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.1-linux-gcc-6.html)
  - [240.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/alpha/240.2-linux-gcc-7.html)
