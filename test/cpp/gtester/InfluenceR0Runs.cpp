@@ -90,11 +90,11 @@ public:
                 }
                 if (tag == "r0_4") {
                         pt.put("run.r0", 4.0);
-                        target = 19387U;
+                        target = 21000U;
                 }
                 if (tag == "r0_8") {
                         pt.put("run.r0", 8.0);
-                        target = 80878U;
+                        target = 90354U;
                 }
                 if (tag == "r0_12") {
                         pt.put("run.r0", 12.0);

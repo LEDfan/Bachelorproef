@@ -39,8 +39,9 @@ template <ImmunizationProfile profile>
 class Immunizer
 {
 public:
-        static void Administer(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
-                               double immunity_link_probability, util::RNManager& rn_manager)
+        static void Administer(const std::vector<ContactPool>& /*pools*/,
+                               std::vector<double>& /*immunity_distribution*/, double /*immunity_link_probability*/,
+                               util::RNManager& /*rn_manager*/)
         {
         }
 };
