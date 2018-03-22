@@ -3,7 +3,7 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-void LocationViewerBackend::showLocations(std::vector<std::shared_ptr<gengeopop::Location>> locations)
+void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
         QObject* nameText     = parent()->findChild<QObject*>(QString("textName"));
         QObject* provinceText = parent()->findChild<QObject*>(QString("textProvince"));

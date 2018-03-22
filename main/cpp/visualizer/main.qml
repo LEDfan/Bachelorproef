@@ -138,7 +138,7 @@ ApplicationWindow {
                     }
                 }
 
-                function addMarker(lon, lat, markerID, size) {
+                function addMarker(lon, lat, markerID, size, selected) {
                     var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
                     var marker = markerComp.createObject()
                     marker.sourceItem.width =  size
@@ -150,6 +150,9 @@ ApplicationWindow {
                     marker.setID(markerID)
                     marker.coordinate.latitude = lat
                     marker.coordinate.longitude = lon
+                    if(selected){
+                        marker.sourceItem.color = 'blue'
+                    }
                     map.addMapItem(marker)
                 }
 

@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QString>
 #include <gengeopop/GeoGrid.h>
+#include <set>
 
 class Backend : public QObject
 {
@@ -59,14 +60,14 @@ public:
         void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
 
 signals:
-        void LocationsSelected(std::vector<std::shared_ptr<gengeopop::Location>> locations);
+        void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                          m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>               m_grid;
-        std::vector<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
+        QObject*                                       m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid>            m_grid;
+        std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
 
-        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population);
+        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected);
 
         /*
          * Places the markers on the map, according to the current checked boxes.

@@ -44,7 +44,8 @@ void Backend::PlaceMarkers()
 
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
-                PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation());
+                bool selected = m_selection.find(loc) != m_selection.end();
+                PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation(), selected);
         }
 }
 
@@ -54,6 +55,7 @@ void Backend::OnMarkerClicked(int idOfClicked)
         clearSelection();
         addToSelectionIfNoDuplicate(loc);
         emitLocations();
+        PlaceMarkers();
 }
 
 void Backend::SetObjects(QObject* map)
@@ -63,13 +65,13 @@ void Backend::SetObjects(QObject* map)
         PlaceMarkers();
 }
 
-void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int population)
+void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected)
 {
         QVariant returnVal;
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
                                   Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
                                   Q_ARG(QVariant, QString(id.c_str())),
-                                  Q_ARG(QVariant, std::min(50.0, 10 + population * 0.0015)));
+                                  Q_ARG(QVariant, std::min(50.0, 10 + population * 0.0015)), Q_ARG(QVariant, selected));
 }
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
@@ -101,17 +103,10 @@ void Backend::OnExtraMarkerClicked(int idOfClicked)
         auto loc = m_grid->GetById(idOfClicked);
         addToSelectionIfNoDuplicate(loc);
         emitLocations();
+        PlaceMarkers();
 }
 
-void Backend::addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> loc)
-{
-        for (auto locInLoop : m_selection) {
-                if (locInLoop->getID() == loc->getID()) {
-                        return;
-                }
-        }
-        m_selection.push_back(loc);
-}
+void Backend::addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> loc) { m_selection.insert(loc); }
 
 void Backend::selectArea(double slat, double slong, double elat, double elong)
 {
