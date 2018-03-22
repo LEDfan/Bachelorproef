@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input_fraction_1826_years_WhichAreStudents = 0.50;
-                geoGridConfig.input_fraction_commutingPeople = 0.50;
+                geoGridConfig.input_fraction_commutingPeople             = 0.50;
                 geoGridConfig.Calculate(houseHoldsReader, citiesReader);
 
                 geoGridConfig.ToSteam(std::cout);

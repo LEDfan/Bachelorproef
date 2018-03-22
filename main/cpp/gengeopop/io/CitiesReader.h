@@ -19,6 +19,6 @@ public:
 
 protected:
         std::unique_ptr<std::istream> m_inputStream;
-        unsigned int m_totalPopulation;
+        unsigned int                  m_totalPopulation;
 };
 } // namespace gengeopop

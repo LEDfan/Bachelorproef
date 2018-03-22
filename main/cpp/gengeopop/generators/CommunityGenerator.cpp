@@ -17,7 +17,7 @@ void CommunityGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          * people for that location
          */
 
-        int populationSize      = geoGridConfig.calc_populationSize;
+        int  populationSize      = geoGridConfig.calc_populationSize;
         auto amountOfCommunities = static_cast<int>(std::ceil(populationSize / 2000.0)); // TODO magic constant
 
         std::vector<double> weights;

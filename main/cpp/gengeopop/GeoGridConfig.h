@@ -1,27 +1,30 @@
 #pragma once
-#include <gengeopop/io/CitiesReader.h>
-#include <cmath>
 #include "io/HouseholdReader.h"
+#include <cmath>
+#include <gengeopop/io/CitiesReader.h>
 
 namespace gengeopop {
 
-class GeoGridConfig {
+class GeoGridConfig
+{
 public:
-
-        void Calculate(std::shared_ptr<HouseholdReader> householdReader, std::shared_ptr<CitiesReader> citiesReader) {
-                calc_populationSize = citiesReader->getTotalPopulation();
-                calc_compulsoryPupils = static_cast<unsigned int>(std::floor(householdReader->getFractionCompulsoryPupils() * calc_populationSize));
-                calc_1865_years = static_cast<unsigned int>(std::floor(householdReader->getFraction1865Years() * calc_populationSize));
-                calc_1826_years       = static_cast<unsigned int>(std::floor(householdReader->getFraction1826Years() * calc_populationSize));
-                calc_1826_years_and_student = static_cast<unsigned int>(std::floor(input_fraction_1826_years_WhichAreStudents * calc_1826_years));
+        void Calculate(std::shared_ptr<HouseholdReader> householdReader, std::shared_ptr<CitiesReader> citiesReader)
+        {
+                calc_populationSize   = citiesReader->getTotalPopulation();
+                calc_compulsoryPupils = static_cast<unsigned int>(
+                    std::floor(householdReader->getFractionCompulsoryPupils() * calc_populationSize));
+                calc_1865_years = static_cast<unsigned int>(
+                    std::floor(householdReader->getFraction1865Years() * calc_populationSize));
+                calc_1826_years = static_cast<unsigned int>(
+                    std::floor(householdReader->getFraction1826Years() * calc_populationSize));
+                calc_1826_years_and_student =
+                    static_cast<unsigned int>(std::floor(input_fraction_1826_years_WhichAreStudents * calc_1826_years));
                 calc_1865_and_years_active = calc_1865_years - calc_1826_years_and_student;
-                calc_fraction_1865_and_years_active = static_cast<double>(calc_1865_and_years_active) / static_cast<double>(calc_populationSize);
+                calc_fraction_1865_and_years_active =
+                    static_cast<double>(calc_1865_and_years_active) / static_cast<double>(calc_populationSize);
         }
 
-
-        void ToSteam(std::ostream& out) const {
-                out << "test" << std::endl;
-        }
+        void ToSteam(std::ostream& out) const { out << "test" << std::endl; }
 
         /**
          * INPUT
@@ -36,7 +39,6 @@ public:
          * Fraction of calc_1865_and_active which commute.
          */
         double input_fraction_commutingPeople;
-
 
         // CALCULATED
 
@@ -75,7 +77,6 @@ public:
          * Fraction of population which are [18, 65] years old and active.
          */
         double calc_fraction_1865_and_years_active;
-
 };
 
-}
+} // namespace gengeopop

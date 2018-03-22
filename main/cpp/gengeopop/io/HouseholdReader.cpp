@@ -9,23 +9,25 @@ const std::vector<std::shared_ptr<Household>>& gengeopop::HouseholdReader::GetHo
         return m_households;
 }
 
-unsigned int HouseholdReader::getTotalPersonsInHouseholds() const {
-        return m_total;
-}
+unsigned int HouseholdReader::getTotalPersonsInHouseholds() const { return m_total; }
 
-double HouseholdReader::getFractionWorkables() const {
+double HouseholdReader::getFractionWorkables() const
+{
         return static_cast<double>(m_totalWorkables) / static_cast<double>(m_total);
 }
 
-double HouseholdReader::getFraction1826Years() const {
+double HouseholdReader::getFraction1826Years() const
+{
         return static_cast<double>(m_total1826Years) / static_cast<double>(m_total);
 }
 
-double HouseholdReader::getFractionCompulsoryPupils() const {
+double HouseholdReader::getFractionCompulsoryPupils() const
+{
         return static_cast<double>(m_totalCompulsory) / static_cast<double>(m_total);
 }
 
-double HouseholdReader::getFraction1865Years() const {
+double HouseholdReader::getFraction1865Years() const
+{
         return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
 }
 

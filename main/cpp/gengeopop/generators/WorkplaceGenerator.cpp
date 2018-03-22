@@ -21,16 +21,17 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          * 5. assign each workplace to a location
          */
 
-        auto amountOfEmployees = geoGridConfig.calc_1865_and_years_active;
+        auto amountOfEmployees  = geoGridConfig.calc_1865_and_years_active;
         auto amountOfWorkplaces = static_cast<int>(std::ceil(amountOfEmployees / 20.0)); // TODO magic constant
 
         std::vector<double>
             weights; // = for each location #residents + #incoming commuting people - #outgoing commuting people
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                double amountOfWorkingPeople = loc->getPopulation() * geoGridConfig.calc_fraction_1865_and_years_active +
-                                               loc->incomingCommutingPeople(geoGridConfig.input_fraction_commutingPeople) -
-                                               loc->outGoingCommutingPeople(geoGridConfig.input_fraction_commutingPeople);
+                double amountOfWorkingPeople =
+                    loc->getPopulation() * geoGridConfig.calc_fraction_1865_and_years_active +
+                    loc->incomingCommutingPeople(geoGridConfig.input_fraction_commutingPeople) -
+                    loc->outGoingCommutingPeople(geoGridConfig.input_fraction_commutingPeople);
                 weights.push_back(amountOfWorkingPeople / amountOfEmployees);
         }
 
