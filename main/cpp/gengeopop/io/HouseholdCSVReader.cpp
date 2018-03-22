@@ -21,6 +21,20 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
                                 break;
                         }
 
+                        if (age < 18 && age >= 6) {
+                                m_totalCompulsory++;
+                        }
+
+                        if (age >= 18 && age < 26) {
+                                m_total1826Years++;
+                        }
+
+                        if (age >= 18 && age < 65) {
+                                m_totalWorkables++;
+                        }
+
+                        m_total++;
+
                         std::shared_ptr<stride::Person> p = std::make_shared<stride::Person>();
                         p->SetAge(age);
                         newCP->addMember(p);

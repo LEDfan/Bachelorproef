@@ -29,24 +29,6 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
         geoGridGenerator.generateGeoGrid();
 }
 
-double totalCompulsoryPupils(const std::vector<std::shared_ptr<Household>>& households)
-{
-        unsigned int totalPupils = 0;
-        unsigned int total       = 0;
-        for (const std::shared_ptr<Household>& household : households) {
-                for (const std::shared_ptr<ContactPool>& contactPool : household->GetPools()) {
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
-                                total++;
-                                if (person->GetAge() < 18 && person->GetAge() >= 6) {
-                                        totalPupils++;
-                                }
-                        }
-                }
-        }
-
-        return static_cast<double>(totalPupils) / static_cast<double>(total);
-}
-
 int main(int argc, char* argv[])
 {
         int exit_status = EXIT_SUCCESS;
@@ -78,12 +60,12 @@ int main(int argc, char* argv[])
                 citiesReader->FillGeoGrid(geoGrid);
                 commutesReader->FillGeoGrid(geoGrid);
 
-                GeoGridConfig geoGridConfig;
-                geoGridConfig.populationSize            = geoGrid->getTotalPopulation();
-                geoGridConfig.fraction_compulsoryPupils = totalCompulsoryPupils(houseHoldsReader->GetHouseHolds());
+                GeoGridConfig geoGridConfig{};
+                geoGridConfig.input_fraction_1826_years_WhichAreStudents = 0.50;
+                geoGridConfig.input_fraction_commutingPeople = 0.50;
+                geoGridConfig.Calculate(houseHoldsReader, citiesReader);
 
-                std::cout << "Starting generation. Population size: " << geoGridConfig.populationSize
-                          << ", compulsory pupils: " << geoGridConfig.fraction_compulsoryPupils << std::endl;
+                geoGridConfig.ToSteam(std::cout);
 
                 generate(geoGridConfig, geoGrid);
 

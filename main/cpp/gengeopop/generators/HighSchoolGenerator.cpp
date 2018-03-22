@@ -13,9 +13,8 @@ HighSchoolGenerator::HighSchoolGenerator(stride::util::RNManager& rn_manager) : 
 
 void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        int amountOfPupils =
-            std::floor(geoGridConfig.populationSize * geoGridConfig.fraction_1826Years_WhichAreStudents);
-        int amountOfSchools = std::ceil(amountOfPupils / 3000.0); // TODO magic constant
+        int amountOfPupils = geoGridConfig.calc_1826_years_and_student;
+        int amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
 
         std::vector<std::shared_ptr<Location>> cities = geoGrid->topK(10);
 

@@ -40,8 +40,6 @@ public:
 
         std::shared_ptr<Location> GetById(unsigned int id);
 
-        unsigned int getTotalPopulation() const;
-
 private:
         std::vector<std::shared_ptr<Location>>                      m_locations;
         std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;

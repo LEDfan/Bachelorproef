@@ -15,9 +15,9 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         SchoolGenerator schoolGenerator(rnManager);
-        GeoGridConfig   config;
-        config.populationSize            = 10000;
-        config.fraction_compulsoryPupils = 0.20;
+        GeoGridConfig   config{};
+        config.calc_populationSize = 10000;
+        config.calc_compulsoryPupils = 2000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
@@ -37,9 +37,9 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         SchoolGenerator schoolGenerator(rnManager);
-        GeoGridConfig   config;
-        config.populationSize            = 10000;
-        config.fraction_compulsoryPupils = 0.20;
+        GeoGridConfig   config{};
+        config.calc_populationSize = 10000;
+        config.calc_compulsoryPupils = 2000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         schoolGenerator.apply(geoGrid, config);
@@ -55,9 +55,9 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         stride::util::RNManager rnManager(rnInfo);
 
         SchoolGenerator schoolGenerator(rnManager);
-        GeoGridConfig   config;
-        config.populationSize            = 37542 * 100; // +- 7500 compulsory pupils -> 15 schools
-        config.fraction_compulsoryPupils = 0.20;
+        GeoGridConfig   config{};
+        config.calc_populationSize            = 37542 * 100;
+        config.calc_compulsoryPupils = 750840;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0, 0, 0), "Antwerpen");

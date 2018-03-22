@@ -58,13 +58,4 @@ size_t GeoGrid::size() const { return m_locations.size(); }
 
 std::shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
 
-unsigned int GeoGrid::getTotalPopulation() const
-{
-        unsigned total = 0;
-        for (auto loc = cbegin(); loc < cend(); loc++) {
-                total += (*loc)->getPopulation();
-        }
-        return total;
-}
-
 } // namespace gengeopop
