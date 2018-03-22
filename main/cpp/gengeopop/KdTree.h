@@ -45,10 +45,12 @@ struct AABB
  * The template parameter `P` should have the following attributes and operations:
  *  - A `static constexpr std::size_t dim`: the number of dimensions of the point type.
  *  - A `template <std::size_d D> get() const` method that returns the coordinate of the `D`th dimension of the point
+ *  - A nested `template <std::size_t D> struct dimension_type` that has a member type `type` giving the return type for
+ *    `get<D>`
  *  - A default constructor and a copy constructor
  *  - The individual dimensions should each have a total order and equality
  *  - A method `bool InBox(const AABB<P>& box) const` that indicates if a point falls withing the bounding box (only for
- * range queries)
+ *    range queries)
  */
 template <typename P>
 class KdTree

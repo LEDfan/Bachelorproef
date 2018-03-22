@@ -118,6 +118,12 @@ private:
 
                 std::shared_ptr<Location> getLocation() const { return m_location; }
 
+                template <std::size_t D>
+                struct dimension_type
+                {
+                        using type = double;
+                };
+
         private:
                 std::shared_ptr<Location> m_location;
                 double                    m_longitude;

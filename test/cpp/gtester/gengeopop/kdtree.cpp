@@ -1,4 +1,3 @@
-
 #include <cmath>
 #include <fstream>
 #include <set>
@@ -38,6 +37,12 @@ public:
         {
                 return box.lower.x <= x && x <= box.upper.x && box.lower.y <= y && y <= box.upper.y;
         }
+
+        template <std::size_t D>
+        struct dimension_type
+        {
+                using type = int;
+        };
 };
 
 class Pt4D
@@ -68,10 +73,13 @@ public:
                 case 3: return w;
                 }
         }
-};
 
-template <typename T, std::size_t D>
-struct dimension_type;
+        template <std::size_t D>
+        struct dimension_type
+        {
+                using type = int;
+        };
+};
 
 class PtIntStr
 {
@@ -85,14 +93,17 @@ public:
         bool operator<(const PtIntStr& o) const { return make_pair(x, y) < make_pair(o.x, o.y); }
 
         template <std::size_t D>
-        typename dimension_type<PtIntStr, D>::type get() const
+        struct dimension_type;
+
+        template <std::size_t D>
+        typename dimension_type<D>::type get() const
         {
                 static_assert(D != D, "This cannot be instanciated");
         }
 };
 
 template <>
-struct dimension_type<PtIntStr, 0>
+struct PtIntStr::dimension_type<0>
 {
         using type = int;
 };
@@ -104,7 +115,7 @@ int PtIntStr::get<0>() const
 }
 
 template <>
-struct dimension_type<PtIntStr, 1>
+struct PtIntStr::dimension_type<1>
 {
         using type = std::string;
 };
