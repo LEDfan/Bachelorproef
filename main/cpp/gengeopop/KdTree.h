@@ -8,6 +8,8 @@
 #include <utility>
 #include <vector>
 
+#include <iostream>
+
 namespace gengeopop {
 
 namespace kd {
