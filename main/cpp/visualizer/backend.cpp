@@ -30,6 +30,8 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         gengeopop::GeoGridJSONReader reader;
         try {
                 m_grid = reader.read(inputFile);
+                // TODO Finalize ??? Shouldn't this be done in reader?
+                m_grid->finalize();
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
@@ -90,10 +92,9 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 
 void Backend::clearSelection()
 {
-onPressed : {
-}
         m_selection.clear();
         emitLocations();
+        PlaceMarkers();
 }
 
 void Backend::emitLocations() { emit LocationsSelected(m_selection); }
@@ -112,4 +113,19 @@ void Backend::selectArea(double slat, double slong, double elat, double elong)
 {
         std::cout << "START: " << slat << "," << slong << std::endl;
         std::cout << "END: " << elat << "," << elong << std::endl;
+        std::vector<std::shared_ptr<gengeopop::Location>> selectedLocations;
+        try {
+                selectedLocations = m_grid->inBox(slat, slong, elat, elong);
+        } catch (std::exception& e) {
+                // Can happen when geogrid is not yet loaded
+                std::cout << e.what() << std::endl;
+                return;
+        }
+
+        m_selection.clear();
+        for (auto location : selectedLocations) {
+                m_selection.insert(location);
+        }
+        emitLocations();
+        PlaceMarkers();
 }
