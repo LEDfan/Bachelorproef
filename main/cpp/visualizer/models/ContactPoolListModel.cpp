@@ -1,7 +1,7 @@
 #include "ContactPoolListModel.h"
 #include <iostream>
 
-int ContactPoolListModel::rowCount(const QModelIndex& parent) const { return m_pools.size(); }
+int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return m_pools.size(); }
 
 QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 {
@@ -14,7 +14,7 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
         return QVariant();
 }
 
-ContactPoolListModel::ContactPoolListModel(QObject* parent) : QAbstractListModel(parent) {}
+ContactPoolListModel::ContactPoolListModel(QObject* parent) : QAbstractListModel(parent), m_pools() {}
 
 QHash<int, QByteArray> ContactPoolListModel::roleNames() const
 {
@@ -25,7 +25,7 @@ QHash<int, QByteArray> ContactPoolListModel::roleNames() const
         return roles;
 }
 
-int ContactPoolListModel::columnCount(const QModelIndex& parent) const { return 2; }
+int ContactPoolListModel::columnCount(const QModelIndex& /*parent*/) const { return 2; }
 
 void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> loc)
 {

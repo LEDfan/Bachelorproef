@@ -35,6 +35,8 @@ template <typename E>
 class Subject
 {
 public:
+        Subject() : m_observers(){};
+
         using EventType    = E;
         using CallbackType = std::function<void(const EventType&)>;
 

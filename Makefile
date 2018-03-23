@@ -22,8 +22,9 @@
 #============================================================================
 #   Configuring Make invocations.
 #============================================================================
+NCORES=`getconf _NPROCESSORS_ONLN`
 ifeq ($(PARALLEL_MAKE),)
-	PARALLEL_MAKE = -j4
+	PARALLEL_MAKE = -j$(NCORES)
 endif
 #============================================================================
 # 	CMake command
@@ -111,30 +112,41 @@ help:
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_HDF5          : " $(STRIDE_FORCE_NO_HDF5)
 
 	@ $(CMAKE) -E echo " "
-				
-configure:
+
+cores:
+	@ echo "\nMake invocation using -j"$(NCORES) "\n"
+
+configure: cores
 	$(CMAKE) -E make_directory $(BUILD_DIR)
 	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ..
 
 all: configure
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) all
+	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all
 
-install:
+install: cores
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
-clean:
+clean: cores
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean
 
 distclean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)
 
 test installcheck: install
-	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest 
-		
+	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest
+
 format:
 	resources/bash/clang-format-all .
 
 format-check:
 	resources/bash/clang-format-all --check .
+
+coverage:
+	export STRIDE_GENERATE_COVERAGE=True
+	make test
+	lcov --directory . --capture --output-file coverage.info # capture coverage info
+	lcov --remove coverage.info '/usr/*' 'main/resources/*' 'test/resources/*' "${HOME}/boost_1_66_0_cache/\*\*" --output-file coverage.info # filter out system + boost
+	lcov --list coverage.info
+	genhtml -o html_coverage -t "Stride" -s --num-spaces 4 coverage.info
 
 #############################################################################

@@ -29,7 +29,6 @@ int main(int argc, char** argv)
 {
         std::cout << "START TEST ENVIRONMENT" << std::endl;
 
-        int exit_status = EXIT_SUCCESS;
         ::testing::InitGoogleTest(&argc, argv);
         return RUN_ALL_TESTS();
 }
