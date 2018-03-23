@@ -80,7 +80,6 @@ ApplicationWindow {
                     property bool rectSelectStarted: false
                     onPressed: {
                         parent.mapClicked(mouse)
-                        console.warn("down")
                         if(mouse.modifiers & Qt.ControlModifier){
                             // Disable panning
                             map.gesture.enabled = false
@@ -114,26 +113,11 @@ ApplicationWindow {
                     onReleased: {
                         if(rectSelectStarted) {
                             rectSelectStarted = false
-                            console.warn("up")
                             // Enable panning again
                             map.gesture.enabled = true
                             mouse.accepted = true
-                            // Get the end coordinate of the selection
-                            var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
-                            backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
-                            // Fix order
-                            if(end.longitude < start.longitude) {
-                                var temp = start;
-                                start = end;
-                                end = temp;
-                            }
-                            // Show it on the map
-                            selectionRectangle.opacity = 0.3
-                            selectionRectangle.topLeft.latitude = start.latitude
-                            selectionRectangle.topLeft.longitude = start.longitude
-                            selectionRectangle.bottomRight.latitude = end.latitude
-                            selectionRectangle.bottomRight.longitude = end.longitude
-
+                            // Hide selection rectangle
+                            selectionRectangle.opacity = 0
                         }
                     }
                 }
@@ -168,7 +152,6 @@ ApplicationWindow {
                     if( ! (event.modifiers & Qt.ShiftModifier)){
                         backend.clearSelection()
                         selectionRectangle.opacity = 0
-                        console.warn("Map clicked")
                     }
                 }
 

@@ -111,8 +111,6 @@ void Backend::addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> l
 
 void Backend::selectArea(double slat, double slong, double elat, double elong)
 {
-        std::cout << "START: " << slat << "," << slong << std::endl;
-        std::cout << "END: " << elat << "," << elong << std::endl;
         std::vector<std::shared_ptr<gengeopop::Location>> selectedLocations;
         try {
                 selectedLocations = m_grid->inBox(slat, slong, elat, elong);

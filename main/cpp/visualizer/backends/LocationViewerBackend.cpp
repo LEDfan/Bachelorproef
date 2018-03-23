@@ -13,8 +13,20 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
         QString provinceString("Province: ");
         QString idString("ID: ");
 
+        unsigned int maxChars = 30;
+
         bool first = true;
         for (auto location : locations) {
+                // Handle situation when too much is selected to be shown fully
+                if (nameString.length() > maxChars || provinceString.length() > maxChars ||
+                    idString.length() > maxChars) {
+                        nameString += "...";
+                        provinceString += "...";
+                        idString += "...";
+
+                        break;
+                }
+
                 if (first) {
                         first = false;
                 } else {
@@ -22,6 +34,7 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
                         provinceString += QString(",");
                         idString += QString(",");
                 }
+
                 nameString += QString::fromStdString(location->getName());
                 provinceString += QString::number(location->getProvince());
                 idString += QString::number(location->getID());
