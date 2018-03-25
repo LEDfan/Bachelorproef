@@ -122,7 +122,7 @@ ApplicationWindow {
                     }
                 }
 
-                function addMarker(lon, lat, markerID, size, selected) {
+                function addMarker(lat, lon, markerID, size, selected) {
                     var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
                     var marker = markerComp.createObject()
                     marker.sourceItem.width =  size
