@@ -113,7 +113,7 @@ void Backend::selectArea(double slat, double slong, double elat, double elong)
 {
         std::vector<std::shared_ptr<gengeopop::Location>> selectedLocations;
         try {
-                selectedLocations = m_grid->inBox(slat, slong, elat, elong);
+                selectedLocations = m_grid->inBox(slong, slat, elong, elat);
         } catch (std::exception& e) {
                 // Can happen when geogrid is not yet loaded
                 std::cout << e.what() << std::endl;
