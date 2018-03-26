@@ -23,10 +23,10 @@
 #include <algorithm>
 #include <cctype>
 #include <iomanip>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <iostream>
 
 namespace stride {
 namespace util {
@@ -130,12 +130,13 @@ inline std::string Trim(std::string const& source, std::string const& t = " ")
         return TrimLeft(TrimRight(str, t), t);
 }
 
-template<typename T>
-inline std::string intToDottedString(const T& value) {
+template <typename T>
+inline std::string intToDottedString(const T& value)
+{
         std::string valueStr = std::to_string(value);
 
-        std::string res = "";
-        int rest = valueStr.length() % 3;
+        std::string res  = "";
+        int         rest = valueStr.length() % 3;
 
         res += valueStr.substr(0, rest);
 

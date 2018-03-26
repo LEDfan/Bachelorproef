@@ -10,8 +10,8 @@
 #include <gengeopop/io/ReaderFactory.h>
 #include <util/StringUtils.h>
 
-#include <utility>
 #include <boost/lexical_cast.hpp>
+#include <utility>
 
 using namespace gengeopop;
 using namespace TCLAP;
@@ -46,10 +46,11 @@ int main(int argc, char* argv[])
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
-                ValueArg<double> fraction1826Students("s", "frac1826students", "Fraction of 1826 years which are students", false,
-                                                    0.50, "FRACTION STUDENTS (1826)", cmd);
+                ValueArg<double>      fraction1826Students("s", "frac1826students",
+                                                      "Fraction of 1826 years which are students", false, 0.50,
+                                                      "FRACTION STUDENTS (1826)", cmd);
                 ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
-                                                      0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
+                                                         0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 

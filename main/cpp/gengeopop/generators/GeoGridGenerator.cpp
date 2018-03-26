@@ -1,6 +1,6 @@
 #include "GeoGridGenerator.h"
-#include <memory>
 #include <iostream>
+#include <memory>
 
 namespace gengeopop {
 
