@@ -141,7 +141,7 @@ ApplicationWindow {
                 }
 
                 function markerClicked(id, event) {
-                    if(event.modifiers & Qt.ShiftModifier){
+                    if(event.modifiers & Qt.ControlModifier){
                         backend.OnExtraMarkerClicked(id)
                     } else {
                         backend.OnMarkerClicked(id)
@@ -149,7 +149,7 @@ ApplicationWindow {
                 }
 
                 function mapClicked(event) {
-                    if( ! (event.modifiers & Qt.ShiftModifier)){
+                    if( ! (event.modifiers & Qt.ControlModifier)){
                         backend.clearSelection()
                         selectionRectangle.opacity = 0
                     }
