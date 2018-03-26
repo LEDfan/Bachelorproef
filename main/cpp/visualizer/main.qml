@@ -165,17 +165,18 @@ ApplicationWindow {
             }
         }
 
-        // LEFT COLUMN
         LocationViewer {
             id: locViewer
 
             Component.onCompleted: {
                 locViewer.contactCenterSelected.connect(ccViewer.showCenter)
             }
+
+			Layout.maximumWidth: 300
         }
 
-        // MIDDLE COLUMN Contact Center info
         ContactCenterViewer {
+			Layout.maximumWidth: 200
             id: ccViewer
         }
 
