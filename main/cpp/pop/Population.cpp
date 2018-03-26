@@ -62,16 +62,24 @@ void Population::NewPerson(unsigned int id, double age, unsigned int household_i
                            unsigned int time_infectious, unsigned int time_symptomatic, const ptree& pt_belief,
                            double risk_averseness)
 {
-        std::unique_ptr<Belief> b = std::make_unique<BeliefPolicy>(pt_belief);
+        if (beliefs_container == nullptr) {
+                beliefs_container         = static_cast<void*>(new util::SegmentedVector<BeliefPolicy>());
+                destroy_beliefs_container = [this]() {
+                        delete static_cast<util::SegmentedVector<BeliefPolicy>*>(beliefs_container);
+                };
+        }
 
-        assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
+        // TODO: assertion that the type is still correct?
+        auto container = static_cast<util::SegmentedVector<BeliefPolicy>*>(beliefs_container);
 
-        BeliefPolicy* bp = dynamic_cast<BeliefPolicy*>(beliefs_container.push_back(std::move(b))->get());
+        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
+
+        BeliefPolicy* bp = container->emplace_back(pt_belief);
         this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
                                   secondary_community_id, start_infectiousness, start_symptomatic, time_infectious,
                                   time_symptomatic, risk_averseness, bp));
 
-        assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
+        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 }
 
 void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
@@ -93,5 +101,7 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
                 throw runtime_error(string(__func__) + "No valid belief policy!");
         }
 }
+
+Population::~Population() { destroy_beliefs_container(); }
 
 } // namespace stride

@@ -25,6 +25,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
+#include <functional>
 #include <memory>
 #include <vector>
 
@@ -36,7 +37,8 @@ namespace stride {
 class Population : public std::vector<Person>
 {
 public:
-        Population() : beliefs_container(){};
+        Population() : beliefs_container(nullptr), destroy_beliefs_container([]() {}){};
+        ~Population();
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -60,7 +62,9 @@ private:
                        unsigned int time_symptomatic, const boost::property_tree::ptree& pt_belief,
                        double risk_averseness = 0);
 
-        util::SegmentedVector<std::unique_ptr<Belief>> beliefs_container;
+        void* beliefs_container; ///< Is either nullptr or util::SegmentedVector<T> where T is the BeliefPolicy
+                                 ///< NewPerson is called with every time for this instance of Population
+        std::function<void()> destroy_beliefs_container;
 };
 
 } // namespace stride
