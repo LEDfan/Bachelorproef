@@ -8,8 +8,10 @@
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
 #include <gengeopop/io/ReaderFactory.h>
+#include <util/StringUtils.h>
 
 #include <utility>
+#include <boost/lexical_cast.hpp>
 
 using namespace gengeopop;
 using namespace TCLAP;
@@ -44,6 +46,10 @@ int main(int argc, char* argv[])
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
+                ValueArg<double> fraction1826Students("s", "frac1826students", "Fraction of 1826 years which are students", false,
+                                                    0.50, "FRACTION STUDENTS (1826)", cmd);
+                ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
+                                                      0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -61,11 +67,12 @@ int main(int argc, char* argv[])
                 commutesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};
-                geoGridConfig.input_fraction_1826_years_WhichAreStudents = 0.50;
-                geoGridConfig.input_fraction_commutingPeople             = 0.50;
+                geoGridConfig.input_fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
+                geoGridConfig.input_fraction_commutingPeople             = fractionCommutingPeople.getValue();
+
                 geoGridConfig.Calculate(houseHoldsReader, citiesReader);
 
-                geoGridConfig.ToSteam(std::cout);
+                geoGridConfig.ToStream(std::cout);
 
                 generate(geoGridConfig, geoGrid);
 

@@ -30,7 +30,7 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
                         }
 
                         if (age >= 18 && age < 65) {
-                                m_totalWorkables++;
+                                m_total1865Years++;
                         }
 
                         m_total++;

@@ -2,8 +2,13 @@
 #include "io/HouseholdReader.h"
 #include <cmath>
 #include <gengeopop/io/CitiesReader.h>
+#include <iostream>
+#include <iomanip>
+#include <util/StringUtils.h>
 
 namespace gengeopop {
+
+using stride::util::intToDottedString;
 
 class GeoGridConfig
 {
@@ -24,7 +29,20 @@ public:
                     static_cast<double>(calc_1865_and_years_active) / static_cast<double>(calc_populationSize);
         }
 
-        void ToSteam(std::ostream& out) const { out << "test" << std::endl; }
+        void ToStream(std::ostream &out) const {
+                out << std::left << "Input:" << std::endl;
+                out << std::left << std::setw(40) << "Fraction commuting" << input_fraction_commutingPeople << std::endl;
+                out << std::left << std::setw(40) << "Fraction 18-26 years which are students" << input_fraction_1826_years_WhichAreStudents << std::endl;
+                out << std::endl;
+                out << std::left << "Calculated:" << std::endl;
+                out << std::left << std::setw(40) << "Population size" << intToDottedString(calc_populationSize) << std::endl;
+                out << std::left << std::setw(40) << "Compulsory pupils" << intToDottedString(calc_compulsoryPupils) << std::endl;
+                out << std::left << std::setw(40) << "18-26 years" << intToDottedString(calc_1826_years) << std::endl;
+                out << std::left << std::setw(40) << "18-26 years which are student" << intToDottedString(calc_1826_years_and_student) << std::endl;
+                out << std::left << std::setw(40) << "18-65 years" << intToDottedString(calc_1865_years) << std::endl;
+                out << std::left << std::setw(40) << "18-65 years which are active" << intToDottedString(calc_1865_and_years_active) << std::endl;
+                out << std::endl;
+        }
 
         /**
          * INPUT

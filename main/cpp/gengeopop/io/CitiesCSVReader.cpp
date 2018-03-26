@@ -1,7 +1,6 @@
 #include "CitiesCSVReader.h"
 #include "../../util/CSV.h"
 #include "../../util/CSVRow.h"
-#include <iostream>
 
 namespace gengeopop {
 
