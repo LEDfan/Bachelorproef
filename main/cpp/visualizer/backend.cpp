@@ -55,7 +55,7 @@ void Backend::OnMarkerClicked(int idOfClicked)
 {
         auto loc = m_grid->GetById(idOfClicked);
         clearSelection();
-        addToSelectionIfNoDuplicate(loc);
+        toggleSelectionOfLocation(loc);
         emitLocations();
         PlaceMarkers();
 }
@@ -102,12 +102,19 @@ void Backend::emitLocations() { emit LocationsSelected(m_selection); }
 void Backend::OnExtraMarkerClicked(int idOfClicked)
 {
         auto loc = m_grid->GetById(idOfClicked);
-        addToSelectionIfNoDuplicate(loc);
+        toggleSelectionOfLocation(loc);
         emitLocations();
         PlaceMarkers();
 }
 
-void Backend::addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> loc) { m_selection.insert(loc); }
+void Backend::toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc)
+{
+        if (m_selection.find(loc) == m_selection.end()) {
+                m_selection.insert(loc);
+        } else {
+                m_selection.erase(loc);
+        }
+}
 
 void Backend::selectArea(double slat, double slong, double elat, double elong)
 {

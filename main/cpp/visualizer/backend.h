@@ -81,7 +81,8 @@ private:
         void emitLocations();
 
         /**
-         * Adds the location to the selection if it is not yet in the list.
+         * Adds the location to the selection if it is not yet in the list. If it is already in the selection, it will
+         * be removed.
          */
-        void addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> loc);
+        void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
 };
