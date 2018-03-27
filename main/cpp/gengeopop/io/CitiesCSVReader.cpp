@@ -20,8 +20,8 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                                            row.getValue<int>(2),               // relative population
                                                            Coordinate(row.getValue<double>(3), // x_coord
                                                                       row.getValue<double>(4), // y_coord
-                                                                      row.getValue<double>(5), // latitude
-                                                                      row.getValue<double>(6)  // longtitude
+                                                                      row.getValue<double>(6), // longtitude
+                                                                      row.getValue<double>(5)  // latitude
                                                                       ),
                                                            row.getValue(7));
                 geoGrid->addLocation(location);

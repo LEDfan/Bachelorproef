@@ -20,20 +20,23 @@
 #============================================================================
 set( EXEC       gtester     )
 set( SRC
-		main.cpp
-		BatchRuns.cpp
-		InfluenceR0Runs.cpp
-		gengeopop/io/CitiesCSVReaderTest.cpp
-		gengeopop/io/HouseholdCSVReaderTest.cpp
+        main.cpp
+        BatchRuns.cpp
+        InfluenceR0Runs.cpp
+        testTemplate.cpp
+        gengeopop/io/CitiesCSVReaderTest.cpp
+        gengeopop/io/HouseholdCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
         gengeopop/io/ReaderFactoryTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
-        CSVTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
-		gengeopop/io/GeoGridJSONReaderTest.cpp)
+        gengeopop/io/GeoGridJSONReaderTest.cpp
+        gengeopop/kdtree.cpp
+        CSVTest.cpp
+)
 
 add_executable(${EXEC}   ${SRC} )
 target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
@@ -45,8 +48,8 @@ install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 #============================================================================
 add_test( NAME  ${EXEC}_all
         WORKING_DIRECTORY  ${TESTS_DIR}
-		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
-		         --gtest_output=xml:gtester_all.xml
+        COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
+                 --gtest_output=xml:gtester_all.xml
 )
 
 #============================================================================

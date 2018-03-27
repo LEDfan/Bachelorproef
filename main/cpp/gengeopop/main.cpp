@@ -78,6 +78,8 @@ int main(int argc, char* argv[])
                 citiesReader->FillGeoGrid(geoGrid);
                 commutesReader->FillGeoGrid(geoGrid);
 
+                geoGrid->finalize();
+
                 GeoGridConfig geoGridConfig;
                 geoGridConfig.populationSize            = geoGrid->getTotalPopulation();
                 geoGridConfig.fraction_compulsoryPupils = totalCompulsoryPupils(houseHoldsReader->GetHouseHolds());
