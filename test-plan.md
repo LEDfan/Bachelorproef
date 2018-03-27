@@ -54,8 +54,8 @@ The algorithm used in the `GeoGridGenerator` is very simple: loop over the diffe
 | `WorkplaceGeneratorTest::OneLocationTest` | `gengeopop::WorkplaceGenerator` | Create a WorkplaceGenerator and a GeoGrid, run the generator and compare it with an expected result. This test will generate a limited amount of communities. |
 | `WorkplaceGenerator::ZeroLocationTest` | `gengeopop::WorkplaceGenerator` | Create a WorkplaceGenerator and expect 0 locations to be added. |
 | `WorkplaceGeneratorTest::OneLocationTest` | `gengeopop::WorkplaceGenerator` | Create a WorkplaceGenerator and generate 5 locations and expect the generated communities to be correctly distributed. |
-| `VisualizerContactCenterListModelTest::setDataTest`| ContactCenterListModel | Load Contact Centers in this model and check if the data we get using the methods is correct. |
-| `VisualizerContactPoolListModelTest::setDataTest`| ContactPoolListModel | Load Contact Pools in this model and check if the data we get using the methods is correct. |
+| `VisualizerContactCenterListModelTest::setDataTest`| `ContactCenterListModel` | Load Contact Centers in this model and check if the data we get using the methods is correct. |
+| `VisualizerContactPoolListModelTest::setDataTest`| `ContactPoolListModel` | Load Contact Pools in this model and check if the data we get using the methods is correct. |
 | `KdTreeTest::BuildHasLimitedHeight` | `KdTree::Build` | Build the KdTree with a number of points and verify the height and size. |
 | `KdTreeTest::RangeQuery` | `KdTree::Query` | Build the KdTree with a number of points, perform a query and verify the resulting points. |
 | `KdTreeTest::Insert` | `KdTree::Insert` | Insert a point and verify if it is succesfully inserted. |
