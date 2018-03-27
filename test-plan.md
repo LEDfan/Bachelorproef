@@ -54,6 +54,8 @@ The algorithm used in the `GeoGridGenerator` is very simple: loop over the diffe
 | `WorkplaceGeneratorTest::OneLocationTest` | `gengeopop::WorkplaceGenerator` | Create a WorkplaceGenerator and a GeoGrid, run the generator and compare it with an expected result. This test will generate a limited amount of communities. |
 | `WorkplaceGenerator::ZeroLocationTest` | `gengeopop::WorkplaceGenerator` | Create a WorkplaceGenerator and expect 0 locations to be added. |
 | `WorkplaceGeneratorTest::OneLocationTest` | `gengeopop::WorkplaceGenerator` | Create a WorkplaceGenerator and generate 5 locations and expect the generated communities to be correctly distributed. |
+| `VisualizerContactCenterListModelTest::setDataTest`| ContactCenterListModel | Load Contact Centers in this model and check if the data we get using the methods is correct. |
+| `VisualizerContactPoolListModelTest::setDataTest`| ContactPoolListModel | Load Contact Pools in this model and check if the data we get using the methods is correct. |
 
 
 ### GeoGrid JSON Writer
@@ -111,3 +113,4 @@ Functionality: the complete functionality of the GeoGen.
 Test Method:
  - Give the program specific cities, commutes and household input files, and then check that GeoGrid is generated from this. This also has the extra difficulty of being probabilistic, so bounds need to be used.
  - We will also test the extreme cases. These are cases where the input is limited so we know what the output will be. For example one city with enough population so there will be at least 1 school generated in the city.
+
