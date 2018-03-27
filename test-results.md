@@ -114,6 +114,7 @@ Test results
  - [292.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/292.2-linux-gcc-7.html)
  - [292.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/292.3-linux-clang-5.html)
  - [292.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/292.4-osx-8.3-apple-clang.html)
+ - [292.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/292.5-osx-9.2-apple-clang.html)
  - [289.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/289.1-linux-gcc-6.html)
  - [289.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/289.2-linux-gcc-7.html)
  - [289.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-improvements/289.3-linux-clang-5.html)
