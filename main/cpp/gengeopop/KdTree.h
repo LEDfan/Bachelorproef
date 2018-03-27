@@ -309,7 +309,7 @@ template <typename P, std::size_t D>
 class Node : public BaseNode<P>
 {
 public:
-        Node(P pt) : m_point(pt) {}
+        Node(P pt) : m_point(pt), m_left(nullptr), m_right(nullptr) {}
 
         BaseNode<P>* BorrowLeft() const override { return m_left.get(); }
 
