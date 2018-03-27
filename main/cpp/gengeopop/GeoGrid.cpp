@@ -31,7 +31,6 @@ std::shared_ptr<Location> GeoGrid::get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::topK(size_t k) const
 {
-
         auto cmp = [](const std::shared_ptr<Location>& rhs, const std::shared_ptr<Location>& lhs) {
                 return rhs->getPopulation() > lhs->getPopulation();
         };
@@ -82,7 +81,6 @@ void GeoGrid::finalize()
 
 std::vector<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
 {
-
         if (!m_finalized) {
                 throw std::runtime_error("Calling inBox while GeoGrid is not finalized is not supported!");
         }
