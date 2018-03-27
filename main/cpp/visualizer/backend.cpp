@@ -48,6 +48,11 @@ void Backend::PlaceMarkers()
                 bool selected = m_selection.find(loc) != m_selection.end();
                 PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation(), selected);
         }
+
+        QVariant retVal;
+        QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
+                                  Q_ARG(QVariant, 51.0), Q_ARG(QVariant, 4.0), Q_ARG(QVariant, 52.2),
+                                  Q_ARG(QVariant, 5.3));
 }
 
 void Backend::OnMarkerClicked(int idOfClicked)

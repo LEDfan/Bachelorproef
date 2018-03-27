@@ -17,9 +17,9 @@ ApplicationWindow {
     height: 480
     title: qsTr("Visualizer")
 
-	HelpDialog{
-		id: helpDialog
-	}
+    HelpDialog{
+        id: helpDialog
+    }
 
     menuBar: MenuBar {
         Menu {
@@ -164,6 +164,29 @@ ApplicationWindow {
                         marker.sourceItem.color = 'blue'
                     }
                     map.addMapItem(marker)
+                }
+
+                function addCommute(latFrom, longFrom, latTo, longTo){
+                    var commuteLine = Qt.createQmlObject('import QtQuick 2.0; import QtLocation 5.3; MapPolyline {line.color: \'red\'; line.width: 3
+                            path: [
+            { latitude: -27, longitude: 153.0  },
+            { latitude: -27, longitude: 154.1  }
+        
+                            ]
+}',
+                                   map,
+                                   "testk");
+                    var startCoord = commuteLine.path[0]
+                    var path = commuteLine.path
+                    path[0].latitude = latFrom
+                    path[0].longitude = longFrom
+                    path[1].latitude = latTo
+                    path[1].longitude = longTo
+                    commuteLine.path = path
+                    commuteLine.line.color = 'green'
+                    console.warn("Adding line: ", latFrom, longFrom, latTo, longTo)
+                    map.addMapItem(commuteLine)
+                    
                 }
 
                 function markerClicked(id, event) {
