@@ -17,6 +17,9 @@ ApplicationWindow {
     height: 480
     title: qsTr("Visualizer")
 
+	HelpDialog{
+		id: helpDialog
+	}
 
     menuBar: MenuBar {
         Menu {
@@ -33,7 +36,10 @@ ApplicationWindow {
 
         Menu {
             title: "About"
-            MenuItem { text: "Help"  }
+            MenuItem {
+                         text: "Help"
+                         onTriggered: helpDialog.open()
+                     }
         }
     }
 
