@@ -16,7 +16,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
         CommunityGenerator communityGenerator(rnManager);
         GeoGridConfig      config;
-        config.calc_populationSize = 10000;
+        config.input_populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
@@ -37,7 +37,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         CommunityGenerator communityGenerator(rnManager);
         GeoGridConfig      config;
-        config.calc_populationSize = 100 * 100 * 1000;
+        config.input_populationSize = 100 * 100 * 1000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         for (int i = 0; i < 10; i++) {
@@ -62,7 +62,7 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
         CommunityGenerator communityGenerator(rnManager);
         GeoGridConfig      config;
-        config.calc_populationSize = 10000;
+        config.input_populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         communityGenerator.apply(geoGrid, config);
@@ -79,7 +79,7 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
 
         CommunityGenerator communityGenerator(rnManager);
         GeoGridConfig      config{};
-        config.calc_populationSize   = 37542 * 100;
+        config.input_populationSize  = 37542 * 100;
         config.calc_compulsoryPupils = 750840;
 
         auto geoGrid = std::make_shared<GeoGrid>();

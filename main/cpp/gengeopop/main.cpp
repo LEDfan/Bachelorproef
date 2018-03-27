@@ -49,8 +49,12 @@ int main(int argc, char* argv[])
                 ValueArg<double>      fraction1826Students("s", "frac1826students",
                                                       "Fraction of 1826 years which are students", false, 0.50,
                                                       "FRACTION STUDENTS (1826)", cmd);
+
                 ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
                                                          0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
+
+                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
+                                                      "POPULATION SIZE", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -68,10 +72,11 @@ int main(int argc, char* argv[])
                 commutesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};
+                geoGridConfig.input_populationSize                       = populationSize.getValue();
                 geoGridConfig.input_fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
                 geoGridConfig.input_fraction_commutingPeople             = fractionCommutingPeople.getValue();
 
-                geoGridConfig.Calculate(houseHoldsReader, citiesReader);
+                geoGridConfig.Calculate(geoGrid, houseHoldsReader);
                 geoGrid->finalize();
 
                 geoGridConfig.ToStream(std::cout);

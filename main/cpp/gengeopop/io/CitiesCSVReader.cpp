@@ -10,13 +10,12 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid)
 {
         // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude
         // name
-        stride::util::CSV reader(*(m_inputStream.get()));
-
+        stride::util::CSV                                      reader(*(m_inputStream.get()));
+        std::vector<std::pair<std::shared_ptr<Location>, int>> addedLocations;
         for (const stride::util::CSVRow& row : reader) {
                 auto id       = row.getValue<int>(0);
                 auto location = std::make_shared<Location>(id,                                 // id
                                                            row.getValue<int>(1),               // province
-                                                           row.getValue<int>(2),               // relative population
                                                            Coordinate(row.getValue<double>(3), // x_coord
                                                                       row.getValue<double>(4), // y_coord
                                                                       row.getValue<double>(6), // longtitude
@@ -24,7 +23,13 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid)
                                                                       ),
                                                            row.getValue(7));
                 geoGrid->addLocation(location);
-                m_totalPopulation += location->getPopulation();
+                addedLocations.emplace_back(location, row.getValue<int>(2));
+                m_totalPopulation += row.getValue<int>(2);
+        }
+
+        for (const auto& loc : addedLocations) {
+                loc.first->setRelativePopulation(static_cast<double>(loc.second) /
+                                                 static_cast<double>(m_totalPopulation));
         }
 }
 } // namespace gengeopop

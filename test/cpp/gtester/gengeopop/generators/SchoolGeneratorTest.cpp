@@ -16,7 +16,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
 
         SchoolGenerator schoolGenerator(rnManager);
         GeoGridConfig   config{};
-        config.calc_populationSize   = 10000;
+        config.input_populationSize  = 10000;
         config.calc_compulsoryPupils = 2000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -38,7 +38,7 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
 
         SchoolGenerator schoolGenerator(rnManager);
         GeoGridConfig   config{};
-        config.calc_populationSize   = 10000;
+        config.input_populationSize  = 10000;
         config.calc_compulsoryPupils = 2000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -56,7 +56,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
 
         SchoolGenerator schoolGenerator(rnManager);
         GeoGridConfig   config{};
-        config.calc_populationSize   = 37542 * 100;
+        config.input_populationSize  = 37542 * 100;
         config.calc_compulsoryPupils = 750840;
 
         auto geoGrid = std::make_shared<GeoGrid>();

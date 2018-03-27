@@ -22,8 +22,8 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
 
         std::vector<double> weights;
 
-        for (std::shared_ptr<Location> loc : *geoGrid) {
-                weights.push_back((double)loc->getPopulation() / (double)geoGridConfig.calc_populationSize);
+        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                weights.push_back(loc->getRelativePopulationSize());
         }
 
         if (weights.empty()) {
