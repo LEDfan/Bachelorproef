@@ -5,7 +5,7 @@
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_tree() {}
+GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_points(), m_tree() {}
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 

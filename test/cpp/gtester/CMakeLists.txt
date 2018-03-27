@@ -23,7 +23,6 @@ set( SRC
         main.cpp
         BatchRuns.cpp
         InfluenceR0Runs.cpp
-        testTemplate.cpp
         gengeopop/io/CitiesCSVReaderTest.cpp
         gengeopop/io/HouseholdCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
