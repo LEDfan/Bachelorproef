@@ -11,15 +11,35 @@ import "components"
 import "models"
 
 ApplicationWindow {
-	id: window
-	visible: true
-	width: 640
-	height: 480
-	title: qsTr("Visualizer")
+    id: window
+    visible: true
+    width: 640
+    height: 480
+    title: qsTr("Visualizer")
 
-	RowLayout {
-		spacing: 6
-		anchors.fill: parent
+
+    menuBar: MenuBar {
+        Menu {
+            title: "File"
+            MenuItem {
+                        text: "Open"
+                        onTriggered: fileSelector.open()
+                    }
+            MenuItem {
+                        text: "Save"
+                        onTriggered: saveFileSelector.open()
+                      }
+        }
+
+        Menu {
+            title: "About"
+            MenuItem { text: "Help"  }
+        }
+    }
+
+    RowLayout {
+        spacing: 6
+        anchors.fill: parent
         anchors.margins: 20
         Layout.fillWidth: true
 
@@ -172,65 +192,22 @@ ApplicationWindow {
                 locViewer.contactCenterSelected.connect(ccViewer.showCenter)
             }
 
-			Layout.maximumWidth: 300
+            Layout.maximumWidth: 300
         }
 
         ContactCenterViewer {
-			Layout.maximumWidth: 200
+            Layout.maximumWidth: 200
             id: ccViewer
         }
 
-		ColumnLayout {
-			Layout.rightMargin: 4
+        ColumnLayout {
+            Layout.rightMargin: 4
             Layout.fillWidth: false
-            /*
-			CheckBox {
-				id: checkBox_School
-				text: qsTr("School")
-				checked: true
-			}
-
-			CheckBox {
-				id: checkBox_HighSchool
-				text: qsTr("HighSchool")
-				checked: true
-			}
-
-			CheckBox {
-				id: checkBox_Workplace
-				text: qsTr("Workplace")
-				checked: true
-			}
-
-			CheckBox {
-				id: checkBox_HouseHold
-				text: qsTr("HouseHold")
-				checked: true
-			}
-			CheckBox {
-				id: checkBox_Commutes
-				text: qsTr("Commutes")
-				checked: true
-			}
-			*/
-
-			Button {
-				id: buttonOpen
-				text: qsTr("Open File")
-                onClicked: fileSelector.open()
-				checked: true
-			}
-			Button {
-				id: buttonSave
-				text: qsTr("Save to File")
-                onClicked: saveFileSelector.open()
-				checked: true
-			}
-			MessageDialog {
-			    id: errorDialogBox
-			    objectName: 'errorDialog'
-			}
-		}
+            MessageDialog {
+                id: errorDialogBox
+                objectName: 'errorDialog'
+            }
+        }
     }
 
     Backend {
