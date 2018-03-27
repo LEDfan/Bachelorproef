@@ -62,15 +62,10 @@ void Population::NewPerson(unsigned int id, double age, unsigned int household_i
                            unsigned int time_infectious, unsigned int time_symptomatic, const ptree& pt_belief,
                            double risk_averseness)
 {
-        if (beliefs_container == nullptr) {
-                beliefs_container         = static_cast<void*>(new util::SegmentedVector<BeliefPolicy>());
-                destroy_beliefs_container = [this]() {
-                        delete static_cast<util::SegmentedVector<BeliefPolicy>*>(beliefs_container);
-                };
+        if (!beliefs_container) {
+                beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
         }
-
-        // TODO: assertion that the type is still correct?
-        auto container = static_cast<util::SegmentedVector<BeliefPolicy>*>(beliefs_container);
+        auto container = beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
 
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 
@@ -101,7 +96,5 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
                 throw runtime_error(string(__func__) + "No valid belief policy!");
         }
 }
-
-Population::~Population() { destroy_beliefs_container(); }
 
 } // namespace stride
