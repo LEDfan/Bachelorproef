@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QString>
 #include <gengeopop/GeoGrid.h>
+#include <set>
 
 class Backend : public QObject
 {
@@ -18,7 +19,7 @@ public:
          * Loads a GeoGrid from JSON file.
          * @param file The path to the JSON file that contains a valid GeoGrid description.
          */
-        void LoadGeoGridFromFile(const QString& file);
+        void LoadGeoGridFromFile(const QString& file, QObject* errorDialog);
 
         Q_INVOKABLE
         /**
@@ -49,21 +50,24 @@ public:
         void clearSelection();
 
         Q_INVOKABLE
+        void selectArea(double slat, double slong, double elat, double elong);
+
+        Q_INVOKABLE
         /**
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.
          */
-        void SaveGeoGridToFile(const QString& fileLoc);
+        void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
 
 signals:
-        void LocationsSelected(std::vector<std::shared_ptr<gengeopop::Location>> locations);
+        void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                          m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>               m_grid;
-        std::vector<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
+        QObject*                                       m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid>            m_grid;
+        std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
 
-        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population);
+        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected);
 
         /*
          * Places the markers on the map, according to the current checked boxes.
@@ -77,7 +81,8 @@ private:
         void emitLocations();
 
         /**
-         * Adds the location to the selection if it is not yet in the list.
+         * Adds the location to the selection if it is not yet in the list. If it is already in the selection, it will
+         * be removed.
          */
-        void addToSelectionIfNoDuplicate(std::shared_ptr<gengeopop::Location> loc);
+        void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
 };

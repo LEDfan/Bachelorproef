@@ -72,6 +72,7 @@ int main(int argc, char* argv[])
                 geoGridConfig.input_fraction_commutingPeople             = fractionCommutingPeople.getValue();
 
                 geoGridConfig.Calculate(houseHoldsReader, citiesReader);
+                geoGrid->finalize();
 
                 geoGridConfig.ToStream(std::cout);
 

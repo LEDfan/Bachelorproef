@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.0
 import QtPositioning 5.5
 import io.bistromatics.backend 1.0
+import QtQuick.Dialogs 1.2
 import "components"
 import "models"
 
@@ -52,12 +53,76 @@ ApplicationWindow {
                     for( var i_type in supportedMapTypes  ) {
                         if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
                         activeMapType = supportedMapTypes[i_type]
+                        map.addMapItem(selectionRectangle)
 
                         }
                     }
                 }
 
-                function addMarker(lon, lat, markerID, size) {
+                MapRectangle {
+                    id: 'selectionRectangle'
+                    color: 'blue'
+                    opacity: 0.25
+                    border.width: 2
+                    topLeft {
+                        latitude: -27
+                        longitude: 153
+                    }
+                    bottomRight {
+                        latitude: -28
+                        longitude: 153.5
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    property var start
+                    property bool rectSelectStarted: false
+                    onPressed: {
+                        parent.mapClicked(mouse)
+                        if(mouse.modifiers & Qt.ControlModifier){
+                            // Disable panning
+                            map.gesture.enabled = false
+                            // Set accepted so we do no propagate click
+                            mouse.accepted = true
+                            rectSelectStarted = true
+                            // Save the start coordiate
+                            start = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                        }
+                    }
+                    onPositionChanged: {
+                        if(rectSelectStarted) {
+                            // Get the end coordinate of the selection
+                            var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                            backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                            // Fix order
+                            var tstart = start;
+                            var tend = end;
+                            if(end.longitude < start.longitude) {
+                                tstart = end;
+                                tend = start;
+                            }
+                            // Show it on the map
+                            selectionRectangle.opacity = 0.3
+                            selectionRectangle.topLeft.latitude = tstart.latitude
+                            selectionRectangle.topLeft.longitude = tstart.longitude
+                            selectionRectangle.bottomRight.latitude = tend.latitude
+                            selectionRectangle.bottomRight.longitude = tend.longitude
+                        }
+                    }
+                    onReleased: {
+                        if(rectSelectStarted) {
+                            rectSelectStarted = false
+                            // Enable panning again
+                            map.gesture.enabled = true
+                            mouse.accepted = true
+                            // Hide selection rectangle
+                            selectionRectangle.opacity = 0
+                        }
+                    }
+                }
+
+                function addMarker(lat, lon, markerID, size, selected) {
                     var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
                     var marker = markerComp.createObject()
                     marker.sourceItem.width =  size
@@ -69,30 +134,49 @@ ApplicationWindow {
                     marker.setID(markerID)
                     marker.coordinate.latitude = lat
                     marker.coordinate.longitude = lon
+                    if(selected){
+                        marker.sourceItem.color = 'blue'
+                    }
                     map.addMapItem(marker)
                 }
 
                 function markerClicked(id, event) {
-                    if(event.modifiers & Qt.ShiftModifier){
+                    if(event.modifiers & Qt.ControlModifier){
                         backend.OnExtraMarkerClicked(id)
                     } else {
                         backend.OnMarkerClicked(id)
                     }
                 }
+
+                function mapClicked(event) {
+                    if( ! (event.modifiers & Qt.ControlModifier)){
+                        backend.clearSelection()
+                        selectionRectangle.opacity = 0
+                    }
+                }
+
+                function clearMap() {
+                    // Remove the map
+                    map.clearMapItems()
+                    // Re add the selection rectangle
+                    map.addMapItem(selectionRectangle)
+                }
+
             }
         }
 
-        // LEFT COLUMN
         LocationViewer {
             id: locViewer
 
             Component.onCompleted: {
                 locViewer.contactCenterSelected.connect(ccViewer.showCenter)
             }
+
+			Layout.maximumWidth: 300
         }
 
-        // MIDDLE COLUMN Contact Center info
         ContactCenterViewer {
+			Layout.maximumWidth: 200
             id: ccViewer
         }
 
@@ -142,7 +226,10 @@ ApplicationWindow {
                 onClicked: saveFileSelector.open()
 				checked: true
 			}
-
+			MessageDialog {
+			    id: errorDialogBox
+			    objectName: 'errorDialog'
+			}
 		}
     }
 
@@ -163,7 +250,7 @@ ApplicationWindow {
         title: "Select a save location"
         folder: shortcuts.home
         onAccepted: {
-            backend.SaveGeoGridToFile(fileUrl)
+            backend.SaveGeoGridToFile(fileUrl, errorDialogBox)
         }
     }
 
@@ -172,7 +259,7 @@ ApplicationWindow {
         title: "Please choose a file"
         folder: shortcuts.home
         onAccepted: {
-            backend.LoadGeoGridFromFile(fileSelector.fileUrl, map)
+            backend.LoadGeoGridFromFile(fileSelector.fileUrl, errorDialogBox)
         }
     }
 }
