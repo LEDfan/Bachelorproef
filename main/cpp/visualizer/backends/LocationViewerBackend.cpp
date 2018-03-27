@@ -3,7 +3,7 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-void LocationViewerBackend::showLocations(std::vector<std::shared_ptr<gengeopop::Location>> locations)
+void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
         QObject* nameText     = parent()->findChild<QObject*>(QString("textName"));
         QObject* provinceText = parent()->findChild<QObject*>(QString("textProvince"));
@@ -13,8 +13,29 @@ void LocationViewerBackend::showLocations(std::vector<std::shared_ptr<gengeopop:
         QString provinceString("Province: ");
         QString idString("ID: ");
 
-        if (locations.size() == 1) {
-                auto location = locations[0];
+        int maxChars = 30;
+
+        bool first = true;
+        for (auto location : locations) {
+                // Handle situation when too much is selected to be shown fully
+                if (nameString.length() + QString::fromStdString(location->getName()).length() > maxChars ||
+                    provinceString.length() + QString::number(location->getProvince()).length() > maxChars ||
+                    idString.length() + QString::number(location->getID()).length() > maxChars) {
+                        nameString += "...";
+                        provinceString += "...";
+                        idString += "...";
+
+                        break;
+                }
+
+                if (first) {
+                        first = false;
+                } else {
+                        nameString += QString(",");
+                        provinceString += QString(",");
+                        idString += QString(",");
+                }
+
                 nameString += QString::fromStdString(location->getName());
                 provinceString += QString::number(location->getProvince());
                 idString += QString::number(location->getID());

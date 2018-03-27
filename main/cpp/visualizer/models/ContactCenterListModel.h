@@ -3,6 +3,7 @@
 #include <QtCore/QAbstractListModel>
 #include <gengeopop/ContactCenter.h>
 #include <gengeopop/Location.h>
+#include <set>
 
 class ContactCenterListModel : public QAbstractListModel
 {
@@ -15,7 +16,7 @@ public:
         QHash<int, QByteArray> roleNames() const;
 
         Q_INVOKABLE
-        void setCenters(std::vector<std::shared_ptr<gengeopop::Location>> locs);
+        void setCenters(std::set<std::shared_ptr<gengeopop::Location>> locs);
 
         Q_INVOKABLE
         void handleClickRow(unsigned int row);

@@ -10,6 +10,7 @@ set(VISUALIZER_SRC
 set(TEST_SRC
         tests/tests.cpp
         tests/tst_basic.qml)
+set (CMAKE_CXX_STANDARD 14)
 
 find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
