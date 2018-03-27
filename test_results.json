@@ -578,6 +578,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/fix_65/306.3-linux-clang-5.html",
       "name": "linux-clang-5",
       "build_id": "306.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/fix_65/306.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "306.4"
     }
   ],
   "upstream": [
