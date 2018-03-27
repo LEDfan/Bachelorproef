@@ -30,7 +30,6 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         gengeopop::GeoGridJSONReader reader;
         try {
                 m_grid = reader.read(inputFile);
-                // TODO Finalize ??? Shouldn't this be done in reader?
                 m_grid->finalize();
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
