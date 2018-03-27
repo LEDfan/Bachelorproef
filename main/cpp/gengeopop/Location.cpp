@@ -85,6 +85,7 @@ bool Location::operator==(const Location& other) const
                getProvince() == other.getProvince() && getPopulation() == other.getPopulation() &&
                getContactCenters() == other.getContactCenters() &&
                getIncomingCommuningCities() == other.getIncomingCommuningCities() &&
+               getRelativePopulationSize() == other.getRelativePopulationSize() &&
                getOutgoingCommuningCities() == other.getOutgoingCommuningCities();
 }
 

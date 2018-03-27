@@ -72,6 +72,11 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         geoGrid->addLocation(loc4);
         geoGrid->addLocation(loc5);
 
+        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                loc->setRelativePopulation(static_cast<double>(loc->getPopulation()) /
+                                           static_cast<double>(config.input_populationSize));
+        }
+
         schoolGenerator.apply(geoGrid, config);
 
         const auto& centersOfLoc1 = loc1->getContactCenters();
