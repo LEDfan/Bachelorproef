@@ -79,16 +79,6 @@ private:
                 {
                 }
 
-                template <typename T>
-                Any(const T* ptr)
-                    : m_ptr(ptr), m_destroy([this]() { delete static_cast<T*>(m_ptr); })
-#if not defined(NDEBUG)
-                      ,
-                      m_id(typeid(T).name())
-#endif
-                {
-                }
-
                 ~Any() { m_destroy(); }
 
                 // We don't need these right now, so this is less work
