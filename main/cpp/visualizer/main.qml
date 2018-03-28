@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Controls 1.3
 import QtLocation 5.3
 import QtQuick.Window 2.0
@@ -251,6 +251,11 @@ ApplicationWindow {
         function clickSignal (arg) {
             locViewer.showLocations(arg)
         }
+    }
+
+    Shortcut {
+            sequence: "Ctrl+A"
+            onActivated: backend.selectAll()
     }
 
     FileDialog {

@@ -153,3 +153,13 @@ void Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
                                   Q_ARG(QVariant, to.longitude), Q_ARG(QVariant, to.latitude),
                                   Q_ARG(QVariant, std::max(1.0, std::log(amount))));
 }
+
+void Backend::selectAll()
+{
+        for (auto it = m_grid->begin(); it != m_grid->end(); it++) {
+                m_selection.insert(*it);
+        }
+
+        emitLocations();
+        PlaceMarkers();
+}
