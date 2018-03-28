@@ -5,7 +5,7 @@
 
 namespace gengeopop {
 
-SubMunicipalitiesCSVReader::SubMunicipalitiesCSVReader(std::unique_ptr<std::istream> inputStream) : CitiesReader(std::move(inputStream)) {}
+SubMunicipalitiesCSVReader::SubMunicipalitiesCSVReader(std::unique_ptr<std::istream> inputStream) : SubMunicipalitiesReader(std::move(inputStream)) {}
 
 void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
@@ -14,26 +14,46 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
         stride::util::CSV reader(*(m_inputStream.get()));
 
         // first build a list of relative population sizes of each Location
-        std::map<std::shared_ptr<Location>, double> populationSizes;
+        std::map<unsigned int, double> populationSizesMapping;
+        std::map<unsigned int, int> provinceMapping;
 
         for (const auto& loc : *geoGrid) {
-                populationSizes[loc] = loc->getRe
+                populationSizesMapping[loc->getID()] = loc->getRelativePopulationSize();
+                provinceMapping[loc->getID()] = loc->getProvince();
         }
 
+        for (const stride::util::CSVRow& row : reader) {
+                auto parentId       = row.getValue<unsigned int>(0);
+                auto id = row.getValue<unsigned int>(1);
 
+                if (id == parentId && row.getValue<std::string>("parent_is_sub") == "True") {
+                        // the parent is a city -> and the current row is that city
+                        // we will adapt the currently "parent" city to become a sub municipality
+                        auto parent = geoGrid->GetById(id);
+                        parent->setRelativePopulation(row.getValue<double>("population_rel_to_parent") * parent->getRelativePopulationSize());
+                        continue;
+                }
 
-//        for (const stride::util::CSVRow& row : reader) {
-//                auto id       = row.getValue<int>(0);
-//                auto location = std::make_shared<Location>(id,                                 // id
-//                                                           row.getValue<int>(1),               // province
-//                                                           row.getValue<int>(2),               // relative population
-//                                                           Coordinate(row.getValue<double>(3), // x_coord
-//                                                                      row.getValue<double>(4), // y_coord
-//                                                                      row.getValue<double>(6), // longtitude
-//                                                                      row.getValue<double>(5)  // latitude
-//                                                                      ),
-//                                                           row.getValue(7));
-//                geoGrid->addLocation(location);
-//        }
+                if (row.getValue<std::string>("parent_is_sub") == "False") {
+                        // the parent is not a city -> remove it
+                        try {
+                                auto parent = geoGrid->GetById(parentId);
+                                geoGrid->remove(parent);
+                        } catch (const std::out_of_range& ex) {
+                                // already deleted -> ignore
+                        }
+                }
+
+                auto location = std::make_shared<Location>(id,                                 // id
+                                                           provinceMapping[parentId],               // province
+                                                           row.getValue<double>("population_rel_to_parent") * populationSizesMapping[parentId],               // relative population
+                                                           Coordinate(0, // x_coord
+                                                                      0, // y_coord
+                                                                      row.getValue<double>("longitude"), // longtitude
+                                                                      row.getValue<double>("latitude")  // latitude
+                                                                      ),
+                                                           row.getValue(6));
+                geoGrid->addLocation(location);
+        }
 }
 } // namespace gengeopop

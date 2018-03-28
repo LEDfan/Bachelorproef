@@ -1,9 +1,9 @@
 #pragma once
 
-#include "CitiesReader.h"
+#include "SubMunicipalitiesReader.h"
 
 namespace gengeopop {
-class SubMunicipalitiesCSVReader : public CitiesReader
+class SubMunicipalitiesCSVReader : public SubMunicipalitiesReader
 {
 public:
         SubMunicipalitiesCSVReader(std::unique_ptr<std::istream> inputStream);

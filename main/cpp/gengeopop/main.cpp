@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
         int exit_status = EXIT_SUCCESS;
 
         // base structure copied from sim/main.cpp
-        try {
+//        try {
                 CmdLine               cmd("gengeopop", ' ', "1.0");
                 ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv",
                                                  "CITIES FILE", cmd);
@@ -46,6 +46,9 @@ int main(int argc, char* argv[])
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
+                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
+                                                    "submunicipalities.csv", "OUTPUT FILE", cmd);
+
                 ValueArg<double>      fraction1826Students("s", "frac1826students",
                                                       "Fraction of 1826 years which are students", false, 0.50,
                                                       "FRACTION STUDENTS (1826)", cmd);
@@ -87,8 +90,10 @@ int main(int argc, char* argv[])
                 }
 
                 std::ofstream outputFileStream(outputFile.getValue());
+                auto subMunicipalitiesReader = readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
 
-                commutesReader->FillGeoGrid(geoGrid);
+                citiesReader->FillGeoGrid(geoGrid);
+                subMunicipalitiesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input_populationSize                       = populationSize.getValue();
@@ -108,12 +113,12 @@ int main(int argc, char* argv[])
                 geoGridJsonWriter.write(geoGrid, outputFileStream);
 
                 std::cout << "Done" << std::endl;
-        } catch (std::exception& e) {
-                exit_status = EXIT_FAILURE;
-                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
-        } catch (...) {
-                exit_status = EXIT_FAILURE;
-                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
-        }
+//        } catch (std::exception& e) {
+//                exit_status = EXIT_FAILURE;
+//                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
+//        } catch (...) {
+//                exit_status = EXIT_FAILURE;
+//                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
+//        }
         return exit_status;
 }

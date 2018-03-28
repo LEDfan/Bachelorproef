@@ -13,7 +13,7 @@ public:
 
         virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
 
-        virtual ~SubMunicipalitiesReade(){};
+        virtual ~SubMunicipalitiesReader(){};
 
 protected:
         std::unique_ptr<std::istream> m_inputStream;

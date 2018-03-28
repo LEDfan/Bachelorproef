@@ -119,6 +119,7 @@ for name, parent in data.items():
     shareSubMuns = populationParent - parenCitySize * P
 
     totalRel = 0
+    i = 1
     for child in parent['children']:
         # for every sub-municipality
         # calculate the relative size of this sub-municipality to the total population of all sub-municipalities
@@ -126,14 +127,17 @@ for name, parent in data.items():
         # make it again relative to the total population of the parent city
         child['scaled_population'] = (child['population'] / populationChildren) * shareSubMuns
         child['rel_to_parent'] = child['scaled_population'] / populationParent
+        child['nis'] = str(parent['nis']) + str(i)
         totalRel += child['rel_to_parent']
+        i += 1
 
     if parent['has_main']:
         parent['children'].append({
             'rel_to_parent': 1 - totalRel,
             'lat':  parent['lat'],
             'lon':  parent['lon'],
-            'name': name
+            'name': name,
+            'nis': parent['nis']
         })
 
 
@@ -149,10 +153,8 @@ with open('submunicipalities.csv', 'w', newline='') as csvfile:
             # the parent is a city sub-municipality itself
             # writer.writerow([parent['nis'], str(parent['nis']) + "000" + str(i), parent['has_main'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
 
-        i = 1
         for child in parent['children']:
-            writer.writerow([parent['nis'], str(parent['nis']) + "000" + str(i), parent['has_main'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
-            i += 1
+            writer.writerow([parent['nis'], child['nis'], parent['has_main'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
 
 
 

@@ -18,7 +18,7 @@ void GeoGrid::addLocation(std::shared_ptr<Location> location)
         }
 
         m_locations.push_back(location);
-        m_points.emplace_back(KdTree2DPoint(location));
+//        m_points.emplace_back(KdTree2DPoint(location));
         m_locationsToIdIndex[location->getID()] = location;
 }
 
@@ -64,10 +64,21 @@ size_t GeoGrid::size() const { return m_locations.size(); }
 
 std::shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
 
+void GeoGrid::remove(const std::shared_ptr<Location> &location) {
+        m_locations.erase(std::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
+        m_locationsToIdIndex.erase(location->getID());
+
+}
+
 void GeoGrid::finalize()
 {
+        std::vector<KdTree2DPoint> points;
+        for (auto it = begin(); it != end(); ++it) {
+                points.emplace_back(KdTree2DPoint(*it));
+        }
+
         m_finalized = true;
-        m_tree      = KdTree<KdTree2DPoint>::Build(m_points);
+        m_tree      = KdTree<KdTree2DPoint>::Build(points);
 }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const

@@ -25,7 +25,7 @@ public:
          */
         void finalize();
 
-        std::vector<std::shared_ptr<Location>> findNearLocations(std::shared_ptr<Location> start, double range) const;
+//        std::vector<std::shared_ptr<Location>> findNearLocations(std::shared_ptr<Location> start, double range) const;
 
         /**
          * @param k
@@ -60,6 +60,8 @@ public:
         const_iterator cend() const;
 
         size_t size() const;
+
+        void remove(const std::shared_ptr<Location>& location);
 
         std::shared_ptr<Location> operator[](size_t index);
 
@@ -128,7 +130,7 @@ private:
                 double                    m_latitude;
         };
 
-        std::vector<KdTree2DPoint> m_points;
+//        std::vector<KdTree2DPoint> m_points;
         KdTree<KdTree2DPoint>      m_tree;
 };
 } // namespace gengeopop
