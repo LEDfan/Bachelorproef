@@ -134,6 +134,7 @@ Test results
  - [315.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/315.2-linux-gcc-7.html)
  - [315.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/315.3-linux-clang-5.html)
  - [315.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/315.4-osx-8.3-apple-clang.html)
+ - [315.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/315.5-osx-9.2-apple-clang.html)
  - [299.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/299.1-linux-gcc-6.html)
  - [299.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/299.2-linux-gcc-7.html)
  - [299.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-menu-commutes-view/299.3-linux-clang-5.html)
