@@ -46,7 +46,6 @@ void Backend::PlaceMarkers()
         // Place the commutes of the selection
 
         for (auto loc : m_selection) {
-                std::cout << "Checking sel commutes" << loc->getIncomingCommuningCities().size() << std::endl;
                 for (auto commute : loc->getIncomingCommuningCities()) {
                         auto otherCity = commute.first;
                         addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
@@ -147,7 +146,6 @@ void Backend::selectArea(double slat, double slong, double elat, double elong)
 void Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
 {
         QVariant retVal;
-        std::cout << "ADding commute line" << std::endl;
         QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
                                   Q_ARG(QVariant, from.longitude), Q_ARG(QVariant, from.latitude),
                                   Q_ARG(QVariant, to.longitude), Q_ARG(QVariant, to.latitude),
