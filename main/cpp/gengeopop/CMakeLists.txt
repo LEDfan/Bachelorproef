@@ -27,6 +27,8 @@ set(GENGEOPOP_LIB
     io/ReaderFactory.cpp
     io/GeoGridJSONWriter.cpp
     io/GeoGridJSONReader.cpp
+    io/SubMunicipalitiesReader.cpp
+    io/SubMunicipalitiesCSVReader.cpp
 
     # TOOD remove header files after initial implementation
     Community.h

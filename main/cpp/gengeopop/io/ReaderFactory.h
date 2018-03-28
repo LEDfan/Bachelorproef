@@ -2,6 +2,7 @@
 #include "CitiesReader.h"
 #include "CommutesReader.h"
 #include "HouseholdReader.h"
+#include "SubMunicipalitiesReader.h"
 #include <boost/filesystem/path.hpp>
 #include <string>
 
@@ -23,6 +24,9 @@ public:
 
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const boost::filesystem::path& path);
+
+        std::shared_ptr<SubMunicipalitiesReader> CreateSubMunicipalitiesReader(const std::string& filename);
+        std::shared_ptr<SubMunicipalitiesReader> CreateSubMunicipalitiesReader(const boost::filesystem::path& path);
 
 private:
         std::unique_ptr<std::istream> OpenFile(const boost::filesystem::path& path) const;

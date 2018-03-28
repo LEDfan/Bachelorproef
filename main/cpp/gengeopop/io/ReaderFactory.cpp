@@ -2,6 +2,7 @@
 #include "CitiesCSVReader.h"
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
+#include "SubMunicipalitiesCSVReader.h"
 #include <boost/filesystem.hpp>
 #include <iostream>
 #include <util/FileSys.h>
@@ -38,6 +39,14 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const boos
         return std::make_shared<HouseholdCSVReader>(OpenFile(path));
 }
 
+std::shared_ptr<SubMunicipalitiesReader> ReaderFactory::CreateSubMunicipalitiesReader(const std::string &filename) {
+        return CreateSubMunicipalitiesReader(stride::util::FileSys::GetDataDir() / boost::filesystem::path(filename));
+}
+
+std::shared_ptr<SubMunicipalitiesReader> ReaderFactory::CreateSubMunicipalitiesReader(const boost::filesystem::path &path) {
+        return std::make_shared<SubMunicipalitiesCSVReader>(OpenFile(path));
+}
+
 std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const
 {
         if (!boost::filesystem::exists(path)) {
@@ -50,5 +59,6 @@ std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::p
                 throw std::runtime_error("Unsupported file extension: " + path.extension().string());
         }
 }
+
 
 } // namespace gengeopop
