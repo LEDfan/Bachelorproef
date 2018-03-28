@@ -21,4 +21,11 @@ public:
 
 signals:
         void contactCenterSelected();
+
+private:
+        /**
+         * @param id
+         * @return the name of the Province that coressponds with the given NIS id
+         */
+        QString NISToProvince(unsigned int id);
 };
