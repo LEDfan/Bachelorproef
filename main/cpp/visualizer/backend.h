@@ -85,4 +85,13 @@ private:
          * be removed.
          */
         void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        /**
+         * Add a line on the map for the given commute info.
+         * @param fromLatitude
+         * @param fromLongitude
+         * @param toLatitude
+         * @param toLongitude
+         */
+        void addCommuteLine(Coordinate from, Coordinate to, double amount);
 };

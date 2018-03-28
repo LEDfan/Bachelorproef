@@ -43,16 +43,21 @@ void Backend::PlaceMarkers()
         // Clear the present markers
         QMetaObject::invokeMethod(m_map, "clearMap");
 
+        // Place the commutes of the selection
+
+        for (auto loc : m_selection) {
+                std::cout << "Checking sel commutes" << loc->getIncomingCommuningCities().size() << std::endl;
+                for (auto commute : loc->getIncomingCommuningCities()) {
+                        auto otherCity = commute.first;
+                        addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+                }
+        }
+
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
                 bool selected = m_selection.find(loc) != m_selection.end();
                 PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation(), selected);
         }
-
-        QVariant retVal;
-        QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(QVariant, 51.0), Q_ARG(QVariant, 4.0), Q_ARG(QVariant, 52.2),
-                                  Q_ARG(QVariant, 5.3));
 }
 
 void Backend::OnMarkerClicked(int idOfClicked)
@@ -137,4 +142,14 @@ void Backend::selectArea(double slat, double slong, double elat, double elong)
         }
         emitLocations();
         PlaceMarkers();
+}
+
+void Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
+{
+        QVariant retVal;
+        std::cout << "ADding commute line" << std::endl;
+        QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
+                                  Q_ARG(QVariant, from.longitude), Q_ARG(QVariant, from.latitude),
+                                  Q_ARG(QVariant, to.longitude), Q_ARG(QVariant, to.latitude),
+                                  Q_ARG(QVariant, std::max(1.0, std::log(amount))));
 }
