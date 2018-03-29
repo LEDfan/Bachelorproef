@@ -88,7 +88,6 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                         std::shared_ptr<Location> loc;
 #pragma omp task firstprivate(it, loc)
                         {
-
                                 e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
                                 if (!e->HasError())
 #pragma omp critical
