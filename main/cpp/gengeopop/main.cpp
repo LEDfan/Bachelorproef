@@ -93,6 +93,7 @@ int main(int argc, char* argv[])
                 auto subMunicipalitiesReader = readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
 
                 citiesReader->FillGeoGrid(geoGrid);
+                commutesReader->FillGeoGrid(geoGrid); // TODO
                 subMunicipalitiesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};

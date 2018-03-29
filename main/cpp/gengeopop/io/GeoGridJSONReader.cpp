@@ -5,7 +5,6 @@
 #include <gengeopop/Household.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
-#include <iostream>
 #include <memory>
 #include <mutex>
 

@@ -1,6 +1,4 @@
 import scrapy
-from inline_requests import inline_requests
-
 
 class CitySpider(scrapy.Spider):
     name = "city"
@@ -23,7 +21,6 @@ class CitySpider(scrapy.Spider):
             }
 
             nisUrl = city.css('td:nth-child(1) > a::attr(href)').extract_first()
-            print(nisUrl)
             if nisUrl is not None:
                 yield scrapy.Request(response.urljoin(nisUrl), callback=self.parse_nis, meta=item)
 

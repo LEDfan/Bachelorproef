@@ -42,7 +42,7 @@ for submunicipality in input_data:
     if child['area']:
         child['area'] = child['area'].replace('km²', '').strip()
     if child['coordinates']:
-        lon, lat = child['coordinates'].replace('°', '').replace("′", '').replace("NB", '').replace("OL", '').strip().split(',')
+        lat, lon = child['coordinates'].replace('°', '').replace("′", '').replace("NB", '').replace("OL", '').strip().split(',')
         child['lat'] = parseCoordinate(lat)
         child['lon'] = parseCoordinate(lon)
         del child['coordinates']
@@ -72,7 +72,7 @@ for el in input_data:
     if 'nis' in el:
         name = re.sub('\(.*\)', '', el['name']).strip()
         data[name]['nis'] = el['nis'].strip()
-        lon, lat = el['coordinates'].replace('°', '').replace("′", '').replace("NB", '').replace("OL", '').replace("'", '').strip().split(',')
+        lat, lon= el['coordinates'].replace('°', '').replace("′", '').replace("NB", '').replace("OL", '').replace("'", '').strip().split(',')
         data[name]['lon'] = parseCoordinate(lon)
         data[name]['lat'] = parseCoordinate(lat)
 
@@ -141,34 +141,12 @@ for name, parent in data.items():
         })
 
 
-# pprint(data)
-
 # write data to file
-
 with open('submunicipalities.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['parent_nis', 'nis', 'parent_is_sub', 'population_rel_to_parent', 'latitude', 'longitude', 'name'])
     for parent in data.values():
-        # if parent['has_main']:
-            # the parent is a city sub-municipality itself
-            # writer.writerow([parent['nis'], str(parent['nis']) + "000" + str(i), parent['has_main'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
-
         for child in parent['children']:
             writer.writerow([parent['nis'], child['nis'], parent['has_main'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
-
-
-
-# testcity = 'Schilde'
-#
-# print("Total population", data[testcity]['population'])
-# for city in data[testcity]['children']:
-#     if city['name'] == testcity:
-#         continue
-#     print(city['name'], '\t', city['population'], '\t', city['scaled_population'])
-#
-#
-# print("Calculated sub population:",sum(city['scaled_population'] for city in data[testcity]['children'] if city['name'] != testcity))
-# print("Calculated main city population:", data[testcity]['population'] - sum(city['scaled_population'] for city in data[testcity]['children'] if city['name'] != testcity))
-# print("Sub-municipalities count:", len([city['scaled_population'] for city in data[testcity]['children'] if city['name'] != testcity]))
 
 

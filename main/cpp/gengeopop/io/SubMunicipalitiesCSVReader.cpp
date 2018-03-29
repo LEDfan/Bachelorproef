@@ -46,13 +46,14 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
 
                 auto location = std::make_shared<Location>(id,                                 // id
                                                            provinceMapping[parentId],               // province
-                                                           row.getValue<double>("population_rel_to_parent") * populationSizesMapping[parentId],               // relative population
                                                            Coordinate(0, // x_coord
                                                                       0, // y_coord
                                                                       row.getValue<double>("longitude"), // longtitude
                                                                       row.getValue<double>("latitude")  // latitude
                                                                       ),
                                                            row.getValue(6));
+                location->setRelativePopulation(row.getValue<double>("population_rel_to_parent") * populationSizesMapping[parentId]);
+
                 geoGrid->addLocation(location);
         }
 }
