@@ -48,7 +48,7 @@ for submunicipality in input_data:
         del child['coordinates']
 
     if child['name']:
-        child['name'] = re.sub('\(.*\)', '', child['name']).strip()
+        child['name'] = re.sub('\(.*\)', '', child['name']).strip().replace('\r', '')
 
     if child['population']:
         child['population'] = re.sub('\(.*\)*', '', child['population'])
@@ -144,9 +144,9 @@ for name, parent in data.items():
 # write data to file
 with open('submunicipalities.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(['parent_nis', 'nis', 'parent_is_sub', 'population_rel_to_parent', 'latitude', 'longitude', 'name'])
+    writer.writerow(['parent_id', 'id', 'population_rel_to_parent', 'latitude', 'longitude', 'name'])
     for parent in data.values():
         for child in parent['children']:
-            writer.writerow([parent['nis'], child['nis'], parent['has_main'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
+            writer.writerow([parent['nis'], child['nis'], child['rel_to_parent'], child['lat'], child['lon'], child['name'].upper()])
 
 

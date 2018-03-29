@@ -129,6 +129,12 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
 #pragma omp taskwait
         }
         e->Rethrow();
+
+        auto subMunicipalities = location.get_child("submunicipalities");
+
+        for (auto it = subMunicipalities.begin(); it != subMunicipalities.end(); it++) {
+                result->addSubMunicipality(ParseLocation(it->second.get_child("")));
+        }
         return result;
 }
 

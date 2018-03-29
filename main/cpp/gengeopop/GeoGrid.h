@@ -25,8 +25,6 @@ public:
          */
         void finalize();
 
-//        std::vector<std::shared_ptr<Location>> findNearLocations(std::shared_ptr<Location> start, double range) const;
-
         /**
          * @param k
          * @return the K biggest Location of this GeoGrid
@@ -130,7 +128,6 @@ private:
                 double                    m_latitude;
         };
 
-//        std::vector<KdTree2DPoint> m_points;
         KdTree<KdTree2DPoint>      m_tree;
 };
 } // namespace gengeopop

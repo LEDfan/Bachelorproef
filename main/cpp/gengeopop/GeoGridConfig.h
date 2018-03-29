@@ -27,7 +27,7 @@ public:
                 calc_fraction_1865_and_years_active =
                     static_cast<double>(calc_1865_and_years_active) / static_cast<double>(input_populationSize);
 
-                for (std::shared_ptr<Location> loc : *geoGrid) {
+                for (const std::shared_ptr<Location> &loc : *geoGrid) {
                         loc->calculatePopulation(input_populationSize);
                 }
         }

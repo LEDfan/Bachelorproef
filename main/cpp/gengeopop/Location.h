@@ -60,6 +60,13 @@ public:
         int outGoingCommutingPeople(double fractionOfPopulationCommuting) const;
         int incomingCommutingPeople(double fractionOfPopulationCommuting) const;
 
+        void addSubMunicipality(const std::shared_ptr<Location>& location);
+
+        const std::vector<std::shared_ptr<Location>>& getSubMunicipalities() const;
+
+        void setParent(const std::shared_ptr<Location>& location);
+        std::shared_ptr<Location> getParent() const;
+
         const Coordinate& getCoordinate() const;
 
         iterator begin();
@@ -79,6 +86,8 @@ private:
         std::vector<std::shared_ptr<ContactCenter>>               m_contactCenters;
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
+        std::vector<std::shared_ptr<Location>>                    m_subMunicipalities;
+        std::shared_ptr<Location> m_parent;
 };
 
 } // namespace gengeopop

@@ -5,7 +5,7 @@
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_points(), m_tree() {}
+GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_tree() {}
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
@@ -18,7 +18,6 @@ void GeoGrid::addLocation(std::shared_ptr<Location> location)
         }
 
         m_locations.push_back(location);
-//        m_points.emplace_back(KdTree2DPoint(location));
         m_locationsToIdIndex[location->getID()] = location;
 }
 
@@ -67,7 +66,6 @@ std::shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locations
 void GeoGrid::remove(const std::shared_ptr<Location> &location) {
         m_locations.erase(std::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
         m_locationsToIdIndex.erase(location->getID());
-
 }
 
 void GeoGrid::finalize()

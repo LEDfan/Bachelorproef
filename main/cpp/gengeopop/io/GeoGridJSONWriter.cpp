@@ -75,6 +75,14 @@ boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Loc
 #pragma omp taskwait
         }
         location_root.add_child("contactCenters", contactCenters);
+
+        boost::property_tree::ptree subMunicipalities;
+        for (const auto& subMunicipality : location->getSubMunicipalities()) {
+                subMunicipalities.push_back(std::make_pair("", parseLocation(subMunicipality)));
+        }
+        location_root.add_child("submunicipalities", subMunicipalities);
+
+
         return location_root;
 }
 

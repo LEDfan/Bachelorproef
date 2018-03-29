@@ -1,11 +1,12 @@
 #include "Location.h"
 #include <cmath>
 #include <utility>
+#include <iostream>
 
 namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
     : m_id(id), m_name(std::move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),
-      m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations()
+      m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations(), m_subMunicipalities(), m_parent(nullptr)
 {
 }
 
@@ -90,9 +91,38 @@ bool Location::operator==(const Location& other) const
 
 void Location::calculatePopulation(unsigned int totalPopulation)
 {
+        std::cout << m_name << "\t" << m_relativePopulation << "\t" << totalPopulation << std::endl;
         m_population = static_cast<unsigned int>(std::floor(m_relativePopulation * totalPopulation));
+//        for (std::shared_ptr<Location> loc : getSubMunicipalities()) {
+//                loc->calculatePopulation(totalPopulation);
+//        }
 }
-void   Location::setRelativePopulation(double relativePopulation) { m_relativePopulation = relativePopulation; }
+void   Location::setRelativePopulation(double relativePopulation) {
+        std::cout <<  "set\t" << m_name << "\t" << relativePopulation <<std::endl;
+        m_relativePopulation = relativePopulation;
+}
 double Location::getRelativePopulationSize() const { return m_relativePopulation; }
+
+void Location::addSubMunicipality(const std::shared_ptr<Location> &location) {
+        if (m_parent) {
+                throw std::runtime_error("Can't have parent and submunicipalities at the same time!");
+        }
+        m_subMunicipalities.push_back(location);
+}
+
+const std::vector<std::shared_ptr<Location>> &Location::getSubMunicipalities() const {
+        return m_subMunicipalities;
+}
+
+std::shared_ptr<Location> Location::getParent() const {
+        return m_parent;
+}
+
+void Location::setParent(const std::shared_ptr<Location> &location) {
+        if (m_subMunicipalities.size() > 0) {
+                throw std::runtime_error("Can't have parent and submunicipalities at the same time!");
+        }
+        m_parent = location;
+}
 
 } // namespace gengeopop
