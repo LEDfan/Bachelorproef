@@ -3,11 +3,17 @@
 #include <utility>
 
 namespace gengeopop {
+Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
+    : m_id(id), m_name(std::move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),
+      m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations()
+{
+}
+
 Location::Location(unsigned int id, unsigned int province, unsigned int population, Coordinate coordinate,
                    std::string name)
-    : m_id(id), m_name(std::move(name)), m_province(province), m_population(population), m_coordinate(coordinate),
-      m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations()
+    : Location(id, province, coordinate, std::move(name))
 {
+        m_population = population;
 }
 
 std::string Location::getName() const { return m_name; }
@@ -81,5 +87,12 @@ bool Location::operator==(const Location& other) const
                getIncomingCommuningCities() == other.getIncomingCommuningCities() &&
                getOutgoingCommuningCities() == other.getOutgoingCommuningCities();
 }
+
+void Location::calculatePopulation(unsigned int totalPopulation)
+{
+        m_population = static_cast<unsigned int>(std::floor(m_relativePopulation * totalPopulation));
+}
+void   Location::setRelativePopulation(double relativePopulation) { m_relativePopulation = relativePopulation; }
+double Location::getRelativePopulationSize() const { return m_relativePopulation; }
 
 } // namespace gengeopop

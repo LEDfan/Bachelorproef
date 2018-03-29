@@ -8,7 +8,9 @@
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
 #include <gengeopop/io/ReaderFactory.h>
+#include <util/StringUtils.h>
 
+#include <boost/lexical_cast.hpp>
 #include <utility>
 
 using namespace gengeopop;
@@ -29,24 +31,6 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
         geoGridGenerator.generateGeoGrid();
 }
 
-double totalCompulsoryPupils(const std::vector<std::shared_ptr<Household>>& households)
-{
-        unsigned int totalPupils = 0;
-        unsigned int total       = 0;
-        for (const std::shared_ptr<Household>& household : households) {
-                for (const std::shared_ptr<ContactPool>& contactPool : household->GetPools()) {
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
-                                total++;
-                                if (person->GetAge() < 18 && person->GetAge() >= 6) {
-                                        totalPupils++;
-                                }
-                        }
-                }
-        }
-
-        return static_cast<double>(totalPupils) / static_cast<double>(total);
-}
-
 int main(int argc, char* argv[])
 {
         int exit_status = EXIT_SUCCESS;
@@ -62,6 +46,15 @@ int main(int argc, char* argv[])
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
+                ValueArg<double>      fraction1826Students("s", "frac1826students",
+                                                      "Fraction of 1826 years which are students", false, 0.50,
+                                                      "FRACTION STUDENTS (1826)", cmd);
+
+                ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
+                                                         0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
+
+                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
+                                                      "POPULATION SIZE", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -70,7 +63,6 @@ int main(int argc, char* argv[])
                 std::shared_ptr<CitiesReader>    citiesReader;
                 std::shared_ptr<CommutesReader>  commutesReader;
                 std::shared_ptr<HouseholdReader> houseHoldsReader;
-                double                           compulsoryPupils;
                 auto                             geoGrid = std::make_shared<GeoGrid>();
 
 #pragma omp parallel sections
@@ -91,7 +83,6 @@ int main(int argc, char* argv[])
                         {
                                 houseHoldsReader =
                                     readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
-                                compulsoryPupils = totalCompulsoryPupils(houseHoldsReader->GetHouseHolds());
                         }
                 }
 
@@ -99,13 +90,15 @@ int main(int argc, char* argv[])
 
                 commutesReader->FillGeoGrid(geoGrid);
 
+                GeoGridConfig geoGridConfig{};
+                geoGridConfig.input_populationSize                       = populationSize.getValue();
+                geoGridConfig.input_fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
+                geoGridConfig.input_fraction_commutingPeople             = fractionCommutingPeople.getValue();
+
+                geoGridConfig.Calculate(geoGrid, houseHoldsReader);
                 geoGrid->finalize();
 
-                GeoGridConfig geoGridConfig;
-                geoGridConfig.populationSize            = geoGrid->getTotalPopulation();
-                geoGridConfig.fraction_compulsoryPupils = compulsoryPupils;
-                std::cout << "Starting generation. Population size: " << geoGridConfig.populationSize
-                          << ", compulsory pupils: " << geoGridConfig.fraction_compulsoryPupils << std::endl;
+                geoGridConfig.ToStream(std::cout);
 
                 generate(geoGridConfig, geoGrid);
 

@@ -39,10 +39,6 @@ endif
 #============================================================================
 #   MACRO definitions to pass on to cmake
 #============================================================================
-ifeq ($(BUILD_DIR),)
-	BUILD_DIR = ./cmake-build-release
-endif
-
 ifneq ($(CMAKE_GENERATOR),)
 	CMAKE_ARGS += -DCMAKE_GENERATOR=$(CMAKE_GENERATOR)
 endif
@@ -57,6 +53,13 @@ ifneq ($(CMAKE_CXX_FLAGS),)
 endif
 ifneq ($(CMAKE_BUILD_TYPE),)
 	CMAKE_ARGS += -DCMAKE_BUILD_TYPE:STRING=$(CMAKE_BUILD_TYPE)
+endif
+ifeq ($(BUILD_DIR),)
+ifeq ($(CMAKE_BUILD_TYPE),Debug)
+	BUILD_DIR = ./cmake-build-debug
+else
+	BUILD_DIR = ./cmake-build-release
+endif
 endif
 ifneq ($(CMAKE_INSTALL_PREFIX),)
 	CMAKE_ARGS += -DCMAKE_INSTALL_PREFIX:PATH=$(CMAKE_INSTALL_PREFIX)
@@ -114,7 +117,9 @@ help:
 	@ $(CMAKE) -E echo " "
 
 cores:
-	@ echo "\nMake invocation using -j"$(NCORES) "\n"
+	@ echo
+	@ echo "Make invocation using -j"$(NCORES)
+	@ echo
 
 configure: cores
 	$(CMAKE) -E make_directory $(BUILD_DIR)
@@ -123,7 +128,7 @@ configure: cores
 all: configure
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all
 
-install: cores
+install: all
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
 clean: cores
