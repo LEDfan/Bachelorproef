@@ -703,6 +703,11 @@
       "name": "osx-8.3-llvm-clang",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/population_alt/308.6-osx-8.3-llvm-clang.html",
       "build_id": "308.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/population_alt/308.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "308.5"
     }
   ],
   "calc": [
