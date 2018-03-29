@@ -7,8 +7,48 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <memory>
+#include <mutex>
 
 #include "GeoGridJSONReader.h"
+
+namespace {
+
+// Based on https://stackoverflow.com/a/13978507/1393103
+class ThreadException
+{
+public:
+        ThreadException() : ptr(nullptr), Lock() {}
+        ~ThreadException() {}
+
+        void Rethrow()
+        {
+                if (this->ptr != nullptr) {
+                        std::rethrow_exception(this->ptr);
+                }
+        }
+        void CaptureException()
+        {
+                std::unique_lock<std::mutex> guard(this->Lock);
+                this->ptr = std::current_exception();
+        }
+
+        template <typename Function, typename... Parameters>
+        void Run(Function f, Parameters... params)
+        {
+                try {
+                        f(params...);
+                } catch (...) {
+                        CaptureException();
+                }
+        }
+
+        bool HasError() const { return ptr != nullptr; }
+
+private:
+        std::exception_ptr ptr;
+        std::mutex         Lock;
+};
+} // namespace
 
 namespace gengeopop {
 
@@ -24,14 +64,13 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
         auto geoGrid = std::make_shared<GeoGrid>();
-
-        auto people = root.get_child("persons");
+        auto people  = root.get_child("persons");
 #pragma omp parallel
 #pragma omp single
         {
                 for (auto it = people.begin(); it != people.end(); it++) {
                         std::shared_ptr<stride::Person> person;
-#pragma omp task firstprivate(it)
+#pragma omp task firstprivate(it, person)
                         {
                                 person = ParsePerson(it->second.get_child(""));
 #pragma omp critical
@@ -41,20 +80,24 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 #pragma omp taskwait
         }
         auto locations = root.get_child("locations");
+        auto e         = std::make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
                 for (auto it = locations.begin(); it != locations.end(); it++) {
                         std::shared_ptr<Location> loc;
-#pragma omp task firstprivate(it)
+#pragma omp task firstprivate(it, loc)
                         {
-                                loc = ParseLocation(it->second.get_child(""));
+
+                                e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
+                                if (!e->HasError())
 #pragma omp critical
-                                geoGrid->addLocation(std::move(loc));
+                                        geoGrid->addLocation(std::move(loc));
                         }
                 }
 #pragma omp taskwait
         }
+        e->Rethrow();
         m_people.clear();
         return geoGrid;
 } // namespace gengeopop
@@ -71,20 +114,23 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
 
         auto contactCenters = location.get_child("contactCenters");
 
+        auto e = std::make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
                 for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
                         std::shared_ptr<ContactCenter> center;
-#pragma omp task firstprivate(it)
+#pragma omp task firstprivate(it, center)
                         {
-                                center = ParseContactCenter(it->second.get_child(""));
+                                e->Run([&it, this, &center] { center = ParseContactCenter(it->second.get_child("")); });
+                                if (!e->HasError())
 #pragma omp critical
-                                result->addContactCenter(center);
+                                        result->addContactCenter(center);
                         }
                 }
 #pragma omp taskwait
         }
+        e->Rethrow();
         return result;
 }
 
@@ -117,21 +163,23 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 
         auto contactPools = contactCenter.get_child("pools");
 
+        auto e = std::make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
                 for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
                         std::shared_ptr<ContactPool> pool;
-#pragma omp task firstprivate(it)
+#pragma omp task firstprivate(it, pool)
                         {
-                                pool = ParseContactPool(it->second.get_child(""));
+                                e->Run([&it, &pool, this] { pool = ParseContactPool(it->second.get_child("")); });
+                                if (!e->HasError())
 #pragma omp critical
-                                result->addPool(pool);
+                                        result->addPool(pool);
                         }
                 }
 #pragma omp taskwait
         }
-
+        e->Rethrow();
         return result;
 }
 
