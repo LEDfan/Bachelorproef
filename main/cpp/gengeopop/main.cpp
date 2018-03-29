@@ -60,15 +60,34 @@ int main(int argc, char* argv[])
 
                 ReaderFactory readerFactory;
 
-                auto citiesReader     = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
-                auto commutesReader   = readerFactory.CreateCommutesReader(std::string(commutingFile.getValue()));
-                auto houseHoldsReader = readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
+                std::shared_ptr<CitiesReader>    citiesReader;
+                std::shared_ptr<CommutesReader>  commutesReader;
+                std::shared_ptr<HouseholdReader> houseHoldsReader;
+                auto                             geoGrid = std::make_shared<GeoGrid>();
+
+#pragma omp parallel sections
+                {
+#pragma omp section
+                        {
+                                citiesReader = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
+                                citiesReader->FillGeoGrid(geoGrid);
+                        }
+
+#pragma omp section
+                        {
+                                commutesReader =
+                                    readerFactory.CreateCommutesReader(std::string(commutingFile.getValue()));
+                        }
+
+#pragma omp section
+                        {
+                                houseHoldsReader =
+                                    readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
+                        }
+                }
 
                 std::ofstream outputFileStream(outputFile.getValue());
 
-                auto geoGrid = std::make_shared<GeoGrid>();
-
-                citiesReader->FillGeoGrid(geoGrid);
                 commutesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};

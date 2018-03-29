@@ -4,15 +4,14 @@
 
 namespace gengeopop {
 
-CommutesCSVReader::CommutesCSVReader(std::unique_ptr<std::istream> inputStream) : CommutesReader(std::move(inputStream))
+CommutesCSVReader::CommutesCSVReader(std::unique_ptr<std::istream> inputStream)
+    : CommutesReader(std::move(inputStream)), m_reader(*(m_inputStream.get()))
 {
 }
 
 void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols:
-        stride::util::CSV reader(*(m_inputStream.get()));
-
         // flanders_commuting format
         // kolom: stad van vertrek (headers = id)
         // rij: stad van aankomst (volgorde = volgorde van kolommen = id).
@@ -20,14 +19,14 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         // represents the location id for column x
         std::vector<unsigned int> headerMeaning;
 
-        for (const std::string& label : reader.getLabels()) {
+        for (const std::string& label : m_reader.getLabels()) {
                 headerMeaning.push_back(static_cast<unsigned int>(stoi(label.substr(3))));
         }
 
-        const size_t columnCount = reader.getColumnCount();
+        const size_t columnCount = m_reader.getColumnCount();
 
         size_t rowIndex = 0;
-        for (const stride::util::CSVRow& row : reader) {
+        for (const stride::util::CSVRow& row : m_reader) {
                 int total = 0;
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         total += row.getValue<int>(columnIndex);
