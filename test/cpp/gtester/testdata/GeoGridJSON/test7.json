@@ -1,0 +1,53 @@
+{
+    "locations": [
+        {
+            "id": "3",
+            "name": "Mons",
+            "province": "4",
+            "population": "2500",
+            "coordinate": {
+                "x": "0",
+                "y": "0",
+                "longitude": "0",
+                "latitude": "0"
+            },
+            "contactCenters": ""
+        },
+        {
+            "id": "1",
+            "name": "Bavikhove",
+            "province": "4",
+            "population": "2500",
+            "coordinate": {
+                "x": "0",
+                "y": "0",
+                "longitude": "0",
+                "latitude": "0"
+            },
+            "commutes": {
+                "2": "20",
+                "3": "1"
+            },
+            "contactCenters": ""
+        },
+        {
+            "id": "2",
+            "name": "Gent",
+            "province": "4",
+            "population": "2500",
+            "coordinate": {
+                "x": "0",
+                "y": "0",
+                "longitude": "0",
+                "latitude": "0"
+            },
+            "commutes": {
+                "1": "42",
+                "3": "2"
+            },
+            "contactCenters": ""
+        }
+    ],
+    "persons": ""
+}
+

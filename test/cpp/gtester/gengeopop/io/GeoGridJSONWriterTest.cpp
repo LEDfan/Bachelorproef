@@ -132,4 +132,22 @@ TEST(GeoGridJSONWriterTest, peopleTest)
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test2.json"));
 }
+TEST(GeoGridJSONWriterTest, commutesTest)
+{
+        auto geoGrid   = getGeoGrid();
+        auto bavikhove = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
+        auto gent      = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");
+        auto mons      = std::make_shared<Location>(3, 4, 2500, Coordinate(0, 0, 0, 0), "Mons");
+
+        bavikhove->addOutgoingCommutingLocation(gent, 20);
+        bavikhove->addOutgoingCommutingLocation(mons, 1);
+        gent->addOutgoingCommutingLocation(bavikhove, 42);
+        gent->addOutgoingCommutingLocation(mons, 2);
+
+        geoGrid->addLocation(bavikhove);
+        geoGrid->addLocation(gent);
+        geoGrid->addLocation(mons);
+
+        EXPECT_TRUE(compareGeoGrid(geoGrid, "test7.json"));
+}
 } // namespace

@@ -59,6 +59,15 @@ boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Loc
         location_root.put("population", location->getPopulation());
         location_root.add_child("coordinate", parseCoordinate(location->getCoordinate()));
 
+        auto commutes = location->getOutgoingCommuningCities();
+        if (commutes.size()) {
+                boost::property_tree::ptree commutes_root;
+                for (auto commute_pair : commutes) {
+                        commutes_root.put(std::to_string(commute_pair.first->getID()), commute_pair.second);
+                }
+                location_root.add_child("commutes", commutes_root);
+        }
+
         boost::property_tree::ptree contactCenters;
 #pragma omp parallel
 #pragma omp single
