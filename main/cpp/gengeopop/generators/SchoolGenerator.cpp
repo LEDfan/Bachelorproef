@@ -17,13 +17,13 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
          * for that location the relative amount of pupils is equal to the relative amount of population
          */
 
-        int amountOfPupils  = std::floor(geoGridConfig.populationSize * geoGridConfig.fraction_compulsoryPupils);
-        int amountOfSchools = std::ceil(amountOfPupils / 500.0); // TODO magic constant
+        int amountOfPupils  = geoGridConfig.calc_compulsoryPupils;
+        int amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 500.0)); // TODO magic constant
 
         std::vector<double> weights;
 
-        for (std::shared_ptr<Location> loc : *geoGrid) {
-                weights.push_back((double)loc->getPopulation() / (double)geoGridConfig.populationSize);
+        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                weights.push_back(loc->getRelativePopulationSize());
         }
 
         if (weights.empty()) {

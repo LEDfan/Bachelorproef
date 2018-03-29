@@ -11,7 +11,9 @@ class Location
 public:
         using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
 
-        Location(unsigned int id, unsigned int province, unsigned int population = 0,
+        Location(unsigned int id, unsigned int province, Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0),
+                 std::string name = "");
+        Location(unsigned int id, unsigned int province, unsigned int population,
                  Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0), std::string name = "");
 
         void         addContactCenter(std::shared_ptr<ContactCenter> center);
@@ -20,6 +22,16 @@ public:
         unsigned int getID() const;
 
         unsigned int getPopulation() const;
+
+        /**
+         * Given the total population calculates this location's population using the relative population of this
+         * location.
+         */
+        void calculatePopulation(unsigned int totalPopulation);
+
+        void setRelativePopulation(double relativePopulation);
+
+        double getRelativePopulationSize() const;
 
         /**
          *
@@ -62,6 +74,7 @@ private:
         std::string                                               m_name;
         unsigned int                                              m_province;
         unsigned int                                              m_population;
+        double                                                    m_relativePopulation;
         Coordinate                                                m_coordinate;
         std::vector<std::shared_ptr<ContactCenter>>               m_contactCenters;
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
