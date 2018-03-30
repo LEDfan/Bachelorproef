@@ -70,17 +70,17 @@ void GeoGrid::finalize()
         m_tree      = KdTree<KdTree2DPoint>::Build(m_points);
 }
 
-std::vector<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
+std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
 {
         if (!m_finalized) {
                 throw std::runtime_error("Calling inBox while GeoGrid is not finalized is not supported!");
         }
 
-        std::vector<std::shared_ptr<Location>> result;
+        std::set<std::shared_ptr<Location>> result;
 
         m_tree.Apply(
             [&result](const KdTree2DPoint& pt) -> bool {
-                    result.push_back(pt.getLocation());
+                    result.insert(pt.getLocation());
                     return true;
             },
             {{std::min(long1, long2), std::min(lat1, lat2)}, {std::max(long1, long2), std::max(lat1, lat2)}});

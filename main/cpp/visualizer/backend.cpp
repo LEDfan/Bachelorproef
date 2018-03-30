@@ -3,6 +3,7 @@
 #include <QtCore/QPointF>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
+#include <QtCore/qdebug.h>
 #include <QtQml/QQmlProperty>
 #include <cmath>
 #include <gengeopop/HighSchool.h>
@@ -11,10 +12,17 @@
 #include <gengeopop/io/GeoGridJSONReader.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
 #include <iostream>
+#include <util/Stopwatch.h>
 
-Backend::Backend(QObject* parent) : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_selection() {}
+Backend::Backend(QObject* parent)
+    : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_selection(), m_unselection()
+{
+}
 
-Backend::Backend(const Backend&) : QObject(), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_selection() {}
+Backend::Backend(const Backend&)
+    : QObject(), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_selection(), m_unselection()
+{
+}
 
 Backend& Backend::operator=(const Backend& b)
 {
@@ -53,10 +61,12 @@ void Backend::PlaceMarkers()
 void Backend::OnMarkerClicked(int idOfClicked)
 {
         auto loc = m_grid->GetById(idOfClicked);
-        clearSelection();
+
+        ClearSelection();
         toggleSelectionOfLocation(loc);
+
         emitLocations();
-        PlaceMarkers();
+        UpdateColorOfMarkers();
 }
 
 void Backend::SetObjects(QObject* map)
@@ -73,6 +83,7 @@ void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int po
                                   Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
                                   Q_ARG(QVariant, QString(id.c_str())),
                                   Q_ARG(QVariant, std::min(50.0, 10 + population * 0.0015)), Q_ARG(QVariant, selected));
+        m_markers[id] = qvariant_cast<QObject*>(returnVal);
 }
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
@@ -89,11 +100,28 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
         outputFile.close();
 }
 
-void Backend::clearSelection()
+void Backend::ClearSelection()
 {
+        m_unselection.clear();
+        m_unselection.insert(m_selection.begin(), m_selection.end());
         m_selection.clear();
+}
+
+void Backend::ClearSelectionAndRender()
+{
+        for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
+                auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                marker->setProperty("color", "red");
+        }
+        for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
+                auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                marker->setProperty("color", "red");
+        }
+        m_selection.clear();
+        m_unselection.clear();
+
         emitLocations();
-        PlaceMarkers();
+        UpdateColorOfMarkers();
 }
 
 void Backend::emitLocations() { emit LocationsSelected(m_selection); }
@@ -102,34 +130,50 @@ void Backend::OnExtraMarkerClicked(int idOfClicked)
 {
         auto loc = m_grid->GetById(idOfClicked);
         toggleSelectionOfLocation(loc);
+
         emitLocations();
-        PlaceMarkers();
+        UpdateColorOfMarkers();
 }
 
 void Backend::toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc)
 {
         if (m_selection.find(loc) == m_selection.end()) {
                 m_selection.insert(loc);
+                m_unselection.erase(loc);
         } else {
                 m_selection.erase(loc);
+                m_unselection.insert(loc);
         }
 }
 
 void Backend::selectArea(double slat, double slong, double elat, double elong)
 {
-        std::vector<std::shared_ptr<gengeopop::Location>> selectedLocations;
         try {
-                selectedLocations = m_grid->inBox(slong, slat, elong, elat);
+                m_unselection.clear();
+                std::set<std::shared_ptr<gengeopop::Location>> previousSelection = m_selection;
+                m_selection = m_grid->inBox(slong, slat, elong, elat);
+                std::set_difference(previousSelection.begin(), previousSelection.end(), m_selection.begin(),
+                                    m_selection.end(), std::inserter(m_unselection, m_unselection.end()));
+
         } catch (std::exception& e) {
                 // Can happen when geogrid is not yet loaded
                 std::cout << e.what() << std::endl;
                 return;
         }
 
-        m_selection.clear();
-        for (auto location : selectedLocations) {
-                m_selection.insert(location);
-        }
         emitLocations();
-        PlaceMarkers();
+        UpdateColorOfMarkers();
+}
+
+void Backend::UpdateColorOfMarkers()
+{
+        for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
+                auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                marker->setProperty("color", "red");
+        }
+        m_unselection.clear();
+        for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
+                auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                marker->setProperty("color", "blue");
+        }
 }
