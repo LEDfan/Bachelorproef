@@ -140,7 +140,7 @@ TEST(GeoGridJSONWriterTest, commutesTest)
         auto mons      = std::make_shared<Location>(3, 4, 2500, Coordinate(0, 0, 0, 0), "Mons");
 
         bavikhove->addOutgoingCommutingLocation(gent, 20);
-        bavikhove->addOutgoingCommutingLocation(mons, 1);
+        bavikhove->addOutgoingCommutingLocation(mons, 1.5);
         gent->addOutgoingCommutingLocation(bavikhove, 42);
         gent->addOutgoingCommutingLocation(mons, 2);
 

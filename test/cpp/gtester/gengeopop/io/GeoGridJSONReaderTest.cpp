@@ -62,6 +62,70 @@ TEST(GeoGridJSONReaderTest, locationsTest)
         EXPECT_EQ(location3->getCoordinate().latitude, 0);
 }
 
+TEST(GeoGridJSONReaderTest, commutesTest)
+{
+        auto geoGrid = getGeoGridForFile("test7.json");
+
+        std::map<unsigned int, std::shared_ptr<Location>> locations;
+
+        locations[geoGrid->get(0)->getID()] = geoGrid->get(0);
+        locations[geoGrid->get(1)->getID()] = geoGrid->get(1);
+        locations[geoGrid->get(2)->getID()] = geoGrid->get(2);
+
+        auto location1 = locations[1];
+        auto location2 = locations[2];
+        auto location3 = locations[3];
+
+        auto sortLoc = [](std::vector<std::pair<std::shared_ptr<Location>, double>> loc) {
+                std::sort(std::begin(loc), std::end(loc),
+                          [](const std::pair<std::shared_ptr<Location>, double>& a,
+                             const std::pair<std::shared_ptr<Location>, double>& b) {
+                                  return a.first->getID() > b.first->getID();
+                          });
+                return loc;
+        };
+
+        {
+                auto commuting_in  = sortLoc(location1->getIncomingCommuningCities());
+                auto commuting_out = sortLoc(location1->getOutgoingCommuningCities());
+                EXPECT_EQ(commuting_in.size(), 1);
+                EXPECT_EQ(commuting_out.size(), 2);
+
+                EXPECT_EQ(commuting_in[0].first->getID(), 2);
+                EXPECT_EQ(commuting_in[0].second, 42);
+
+                EXPECT_EQ(commuting_out[0].first->getID(), 3);
+                EXPECT_EQ(commuting_out[0].second, 1.5);
+                EXPECT_EQ(commuting_out[1].first->getID(), 2);
+                EXPECT_EQ(commuting_out[1].second, 20);
+        }
+        {
+                auto commuting_in  = sortLoc(location2->getIncomingCommuningCities());
+                auto commuting_out = sortLoc(location2->getOutgoingCommuningCities());
+                EXPECT_EQ(commuting_out.size(), 2);
+                EXPECT_EQ(commuting_in.size(), 1);
+
+                EXPECT_EQ(commuting_in[0].first->getID(), 1);
+                EXPECT_EQ(commuting_in[0].second, 20);
+
+                EXPECT_EQ(commuting_out[0].first->getID(), 3);
+                EXPECT_EQ(commuting_out[0].second, 2);
+                EXPECT_EQ(commuting_out[1].first->getID(), 1);
+                EXPECT_EQ(commuting_out[1].second, 42);
+        }
+        {
+                auto commuting_in  = sortLoc(location3->getIncomingCommuningCities());
+                auto commuting_out = sortLoc(location3->getOutgoingCommuningCities());
+                EXPECT_EQ(commuting_out.size(), 0);
+                EXPECT_EQ(commuting_in.size(), 2);
+
+                EXPECT_EQ(commuting_in[0].first->getID(), 2);
+                EXPECT_EQ(commuting_in[0].second, 2);
+                EXPECT_EQ(commuting_in[1].first->getID(), 1);
+                EXPECT_EQ(commuting_in[1].second, 1.5);
+        }
+}
+
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
         auto                        geoGrid        = getGeoGridForFile("test1.json");
