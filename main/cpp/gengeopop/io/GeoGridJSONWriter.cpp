@@ -60,7 +60,7 @@ boost::property_tree::ptree GeoGridJSONWriter::writeLocation(std::shared_ptr<Loc
         location_root.add_child("coordinate", writeCoordinate(location->getCoordinate()));
 
         auto commutes = location->getOutgoingCommuningCities();
-        if (commutes.size()) {
+        if (!commutes.empty()) {
                 boost::property_tree::ptree commutes_root;
                 for (auto commute_pair : commutes) {
                         commutes_root.put(std::to_string(commute_pair.first->getID()), commute_pair.second);
