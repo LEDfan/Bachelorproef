@@ -80,7 +80,7 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 std::sort(std::begin(loc), std::end(loc),
                           [](const std::pair<std::shared_ptr<Location>, double>& a,
                              const std::pair<std::shared_ptr<Location>, double>& b) {
-                                  return a.first->getID() > b.first->getID();
+                                  return a.first->getID() < b.first->getID();
                           });
                 return loc;
         };
@@ -94,10 +94,10 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_EQ(commuting_in[0].first->getID(), 2);
                 EXPECT_EQ(commuting_in[0].second, 42);
 
-                EXPECT_EQ(commuting_out[0].first->getID(), 3);
-                EXPECT_EQ(commuting_out[0].second, 1.5);
-                EXPECT_EQ(commuting_out[1].first->getID(), 2);
-                EXPECT_EQ(commuting_out[1].second, 20);
+                EXPECT_EQ(commuting_out[0].first->getID(), 2);
+                EXPECT_EQ(commuting_out[0].second, 20);
+                EXPECT_EQ(commuting_out[1].first->getID(), 3);
+                EXPECT_EQ(commuting_out[1].second, 1.5);
         }
         {
                 auto commuting_in  = sortLoc(location2->getIncomingCommuningCities());
@@ -108,10 +108,10 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_EQ(commuting_in[0].first->getID(), 1);
                 EXPECT_EQ(commuting_in[0].second, 20);
 
-                EXPECT_EQ(commuting_out[0].first->getID(), 3);
-                EXPECT_EQ(commuting_out[0].second, 2);
-                EXPECT_EQ(commuting_out[1].first->getID(), 1);
-                EXPECT_EQ(commuting_out[1].second, 42);
+                EXPECT_EQ(commuting_out[0].first->getID(), 1);
+                EXPECT_EQ(commuting_out[0].second, 42);
+                EXPECT_EQ(commuting_out[1].first->getID(), 3);
+                EXPECT_EQ(commuting_out[1].second, 2);
         }
         {
                 auto commuting_in  = sortLoc(location3->getIncomingCommuningCities());
@@ -119,10 +119,10 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_EQ(commuting_out.size(), 0);
                 EXPECT_EQ(commuting_in.size(), 2);
 
-                EXPECT_EQ(commuting_in[0].first->getID(), 2);
-                EXPECT_EQ(commuting_in[0].second, 2);
-                EXPECT_EQ(commuting_in[1].first->getID(), 1);
-                EXPECT_EQ(commuting_in[1].second, 1.5);
+                EXPECT_EQ(commuting_in[0].first->getID(), 1);
+                EXPECT_EQ(commuting_in[0].second, 1.5);
+                EXPECT_EQ(commuting_in[1].first->getID(), 2);
+                EXPECT_EQ(commuting_in[1].second, 2);
         }
 }
 

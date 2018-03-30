@@ -18,6 +18,6 @@ private:
         std::shared_ptr<stride::Person> ParsePerson(boost::property_tree::ptree& person);
 
         std::map<unsigned int, std::shared_ptr<stride::Person>>     m_people;
-        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes; // from, to, amount
+        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes; ///< from, to, amount
 };
 } // namespace gengeopop

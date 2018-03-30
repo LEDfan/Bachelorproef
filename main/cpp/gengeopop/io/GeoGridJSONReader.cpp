@@ -97,7 +97,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 #pragma omp taskwait
         }
 
-        for (auto commute_tuple : m_commutes) {
+        for (const auto& commute_tuple : m_commutes) {
                 auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
                 auto b      = geoGrid->GetById(std::get<1>(commute_tuple));
                 auto amount = std::get<2>(commute_tuple);
@@ -142,7 +142,7 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
         e->Rethrow();
 
         if (location.count("commutes")) {
-                auto commutes = location.get_child("commutes");
+                boost::property_tree::ptree commutes = location.get_child("commutes");
                 for (auto it = commutes.begin(); it != commutes.end(); it++) {
                         auto to     = boost::lexical_cast<unsigned int>(it->first);
                         auto amount = boost::lexical_cast<double>(it->second.data());
