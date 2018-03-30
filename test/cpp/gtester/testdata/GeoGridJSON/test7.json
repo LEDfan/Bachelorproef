@@ -14,23 +14,6 @@
             "contactCenters": ""
         },
         {
-            "id": "1",
-            "name": "Bavikhove",
-            "province": "4",
-            "population": "2500",
-            "coordinate": {
-                "x": "0",
-                "y": "0",
-                "longitude": "0",
-                "latitude": "0"
-            },
-            "commutes": {
-                "2": "20",
-                "3": "1.5"
-            },
-            "contactCenters": ""
-        },
-        {
             "id": "2",
             "name": "Gent",
             "province": "4",
@@ -42,12 +25,28 @@
                 "latitude": "0"
             },
             "commutes": {
-                "1": "42",
-                "3": "2"
+                "1": "0.75",
+                "3": "0.5"
+            },
+            "contactCenters": ""
+        },
+        {
+            "id": "1",
+            "name": "Bavikhove",
+            "province": "4",
+            "population": "2500",
+            "coordinate": {
+                "x": "0",
+                "y": "0",
+                "longitude": "0",
+                "latitude": "0"
+            },
+            "commutes": {
+                "2": "0.5",
+                "3": "0.25"
             },
             "contactCenters": ""
         }
     ],
     "persons": ""
 }
-

@@ -92,12 +92,12 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_EQ(commuting_out.size(), 2);
 
                 EXPECT_EQ(commuting_in[0].first->getID(), 2);
-                EXPECT_EQ(commuting_in[0].second, 42);
+                EXPECT_DOUBLE_EQ(commuting_in[0].second, 0.75);
 
                 EXPECT_EQ(commuting_out[0].first->getID(), 2);
-                EXPECT_EQ(commuting_out[0].second, 20);
+                EXPECT_DOUBLE_EQ(commuting_out[0].second, 0.50);
                 EXPECT_EQ(commuting_out[1].first->getID(), 3);
-                EXPECT_EQ(commuting_out[1].second, 1.5);
+                EXPECT_DOUBLE_EQ(commuting_out[1].second, 0.25);
         }
         {
                 auto commuting_in  = sortLoc(location2->getIncomingCommuningCities());
@@ -106,12 +106,12 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_EQ(commuting_in.size(), 1);
 
                 EXPECT_EQ(commuting_in[0].first->getID(), 1);
-                EXPECT_EQ(commuting_in[0].second, 20);
+                EXPECT_DOUBLE_EQ(commuting_in[0].second, 0.50);
 
                 EXPECT_EQ(commuting_out[0].first->getID(), 1);
-                EXPECT_EQ(commuting_out[0].second, 42);
+                EXPECT_DOUBLE_EQ(commuting_out[0].second, 0.75);
                 EXPECT_EQ(commuting_out[1].first->getID(), 3);
-                EXPECT_EQ(commuting_out[1].second, 2);
+                EXPECT_DOUBLE_EQ(commuting_out[1].second, 0.5);
         }
         {
                 auto commuting_in  = sortLoc(location3->getIncomingCommuningCities());
@@ -120,9 +120,9 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_EQ(commuting_in.size(), 2);
 
                 EXPECT_EQ(commuting_in[0].first->getID(), 1);
-                EXPECT_EQ(commuting_in[0].second, 1.5);
+                EXPECT_DOUBLE_EQ(commuting_in[0].second, 0.25);
                 EXPECT_EQ(commuting_in[1].first->getID(), 2);
-                EXPECT_EQ(commuting_in[1].second, 2);
+                EXPECT_DOUBLE_EQ(commuting_in[1].second, 0.5);
         }
 }
 
