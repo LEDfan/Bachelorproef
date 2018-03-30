@@ -25,7 +25,10 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
+#include <exception>
+#include <functional>
 #include <memory>
+#include <typeinfo>
 #include <vector>
 
 namespace stride {
@@ -60,7 +63,65 @@ private:
                        unsigned int time_symptomatic, const boost::property_tree::ptree& pt_belief,
                        double risk_averseness = 0);
 
-        util::SegmentedVector<std::unique_ptr<Belief>> beliefs_container;
+        /**
+         * A RAII void* for type erasure that can contain anything, owns the pointer, and cleans up
+         * Does type verification when NDEBUG is not set
+         */
+        class Any
+        {
+        public:
+                Any()
+                    : m_ptr(nullptr), m_destroy([]() {})
+#if not defined(NDEBUG)
+                      ,
+                      m_id("")
+#endif
+                {
+                }
+
+                ~Any() { m_destroy(); }
+
+                // We don't need these right now, so this is less work
+                Any(const Any&) = delete;
+                Any& operator=(const Any&) = delete;
+                Any(Any&&)                 = delete;
+                Any& operator=(Any&&) = delete;
+
+                template <typename T, class... Args>
+                void emplace(Args&&... args)
+                {
+                        m_destroy();
+                        m_ptr     = new T(std::forward<Args>(args)...);
+                        m_destroy = [this]() { delete static_cast<T*>(m_ptr); };
+#if not defined(NDEBUG)
+                        m_id = typeid(T).name();
+#endif
+                }
+
+                template <typename T>
+                T* cast() const
+                {
+#if not defined(NDEBUG)
+                        if (!*this) {
+                                throw std::bad_cast();
+                        }
+                        if (typeid(T).name() != m_id) {
+                                throw std::bad_cast();
+                        }
+#endif
+                        return static_cast<T*>(m_ptr);
+                }
+
+                operator bool() const { return m_ptr != nullptr; }
+
+        private:
+                void*                 m_ptr;
+                std::function<void()> m_destroy;
+#if not defined(NDEBUG)
+                std::string m_id;
+#endif
+        } beliefs_container; ///< Is either nullptr or util::SegmentedVector<T> where T is the BeliefPolicy NewPerson is
+                             ///< called with every time for this instance of Population
 };
 
 } // namespace stride
