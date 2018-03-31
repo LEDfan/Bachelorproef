@@ -138,6 +138,7 @@ ApplicationWindow {
                         marker.sourceItem.color = 'blue'
                     }
                     map.addMapItem(marker)
+                    return marker;
                 }
 
                 function markerClicked(id, event) {
@@ -150,7 +151,7 @@ ApplicationWindow {
 
                 function mapClicked(event) {
                     if( ! (event.modifiers & Qt.ControlModifier)){
-                        backend.clearSelection()
+                        backend.ClearSelectionAndRender()
                         selectionRectangle.opacity = 0
                     }
                 }
