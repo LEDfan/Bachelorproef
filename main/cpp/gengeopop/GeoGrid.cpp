@@ -63,7 +63,8 @@ size_t GeoGrid::size() const { return m_locations.size(); }
 
 std::shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
 
-void GeoGrid::remove(const std::shared_ptr<Location> &location) {
+void GeoGrid::remove(const std::shared_ptr<Location>& location)
+{
         m_locations.erase(std::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
         m_locationsToIdIndex.erase(location->getID());
 }

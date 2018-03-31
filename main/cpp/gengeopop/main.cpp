@@ -36,90 +36,87 @@ int main(int argc, char* argv[])
         int exit_status = EXIT_SUCCESS;
 
         // base structure copied from sim/main.cpp
-//        try {
-                CmdLine               cmd("gengeopop", ' ', "1.0");
-                ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv",
-                                                 "CITIES FILE", cmd);
-                ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv",
-                                                    "COMMUTING FILE", cmd);
-                ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.json", "OUTPUT FILE",
-                                                 cmd);
-                ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
-                                                    "households_flanders.csv", "OUTPUT FILE", cmd);
-                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
+        //        try {
+        CmdLine               cmd("gengeopop", ' ', "1.0");
+        ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv", "CITIES FILE",
+                                         cmd);
+        ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv",
+                                            "COMMUTING FILE", cmd);
+        ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.json", "OUTPUT FILE", cmd);
+        ValueArg<std::string> houseHoldFile("u", "household", "Household File", false, "households_flanders.csv",
+                                            "OUTPUT FILE", cmd);
+        ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
                                                     "submunicipalities.csv", "OUTPUT FILE", cmd);
 
-                ValueArg<double>      fraction1826Students("s", "frac1826students",
-                                                      "Fraction of 1826 years which are students", false, 0.50,
-                                                      "FRACTION STUDENTS (1826)", cmd);
+        ValueArg<double> fraction1826Students("s", "frac1826students", "Fraction of 1826 years which are students",
+                                              false, 0.50, "FRACTION STUDENTS (1826)", cmd);
 
-                ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
-                                                         0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
+        ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false, 0.50,
+                                                 "FRACTION OF PEOPLE COMMUTING", cmd);
 
-                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
-                                                      "POPULATION SIZE", cmd);
+        ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
+                                              "POPULATION SIZE", cmd);
 
-                cmd.parse(argc, static_cast<const char* const*>(argv));
+        cmd.parse(argc, static_cast<const char* const*>(argv));
 
-                ReaderFactory readerFactory;
+        ReaderFactory readerFactory;
 
-                std::shared_ptr<CitiesReader>    citiesReader;
-                std::shared_ptr<CommutesReader>  commutesReader;
-                std::shared_ptr<HouseholdReader> houseHoldsReader;
-                auto                             geoGrid = std::make_shared<GeoGrid>();
+        std::shared_ptr<CitiesReader>    citiesReader;
+        std::shared_ptr<CommutesReader>  commutesReader;
+        std::shared_ptr<HouseholdReader> houseHoldsReader;
+        auto                             geoGrid = std::make_shared<GeoGrid>();
 
 #pragma omp parallel sections
+        {
+#pragma omp section
                 {
-#pragma omp section
-                        {
-                                citiesReader = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
-                                citiesReader->FillGeoGrid(geoGrid);
-                        }
-
-#pragma omp section
-                        {
-                                commutesReader =
-                                    readerFactory.CreateCommutesReader(std::string(commutingFile.getValue()));
-                        }
-
-#pragma omp section
-                        {
-                                houseHoldsReader =
-                                    readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
-                        }
+                        citiesReader = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
+                        citiesReader->FillGeoGrid(geoGrid);
                 }
 
-                std::ofstream outputFileStream(outputFile.getValue());
-                auto subMunicipalitiesReader = readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
+#pragma omp section
+                {
+                        commutesReader = readerFactory.CreateCommutesReader(std::string(commutingFile.getValue()));
+                }
 
-                citiesReader->FillGeoGrid(geoGrid);
-                commutesReader->FillGeoGrid(geoGrid); // TODO
-                subMunicipalitiesReader->FillGeoGrid(geoGrid);
+#pragma omp section
+                {
+                        houseHoldsReader = readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
+                }
+        }
 
-                GeoGridConfig geoGridConfig{};
-                geoGridConfig.input_populationSize                       = populationSize.getValue();
-                geoGridConfig.input_fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
-                geoGridConfig.input_fraction_commutingPeople             = fractionCommutingPeople.getValue();
+        std::ofstream outputFileStream(outputFile.getValue());
+        auto          subMunicipalitiesReader =
+            readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
 
-                geoGridConfig.Calculate(geoGrid, houseHoldsReader);
-                geoGrid->finalize();
+        citiesReader->FillGeoGrid(geoGrid);
+        commutesReader->FillGeoGrid(geoGrid); // TODO
+        subMunicipalitiesReader->FillGeoGrid(geoGrid);
 
-                geoGridConfig.ToStream(std::cout);
+        GeoGridConfig geoGridConfig{};
+        geoGridConfig.input_populationSize                       = populationSize.getValue();
+        geoGridConfig.input_fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
+        geoGridConfig.input_fraction_commutingPeople             = fractionCommutingPeople.getValue();
 
-                generate(geoGridConfig, geoGrid);
+        geoGridConfig.Calculate(geoGrid, houseHoldsReader);
+        geoGrid->finalize();
 
-                std::cout << "Generation done, writing to file." << std::endl;
+        geoGridConfig.ToStream(std::cout);
 
-                GeoGridJSONWriter geoGridJsonWriter;
-                geoGridJsonWriter.write(geoGrid, outputFileStream);
+        generate(geoGridConfig, geoGrid);
 
-                std::cout << "Done" << std::endl;
-//        } catch (std::exception& e) {
-//                exit_status = EXIT_FAILURE;
-//                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
-//        } catch (...) {
-//                exit_status = EXIT_FAILURE;
-//                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
-//        }
+        std::cout << "Generation done, writing to file." << std::endl;
+
+        GeoGridJSONWriter geoGridJsonWriter;
+        geoGridJsonWriter.write(geoGrid, outputFileStream);
+
+        std::cout << "Done" << std::endl;
+        //        } catch (std::exception& e) {
+        //                exit_status = EXIT_FAILURE;
+        //                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
+        //        } catch (...) {
+        //                exit_status = EXIT_FAILURE;
+        //                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
+        //        }
         return exit_status;
 }

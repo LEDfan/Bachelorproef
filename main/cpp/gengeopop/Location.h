@@ -64,7 +64,7 @@ public:
 
         const std::vector<std::shared_ptr<Location>>& getSubMunicipalities() const;
 
-        void setParent(const std::shared_ptr<Location>& location);
+        void                      setParent(const std::shared_ptr<Location>& location);
         std::shared_ptr<Location> getParent() const;
 
         const Coordinate& getCoordinate() const;
@@ -87,7 +87,7 @@ private:
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
         std::vector<std::shared_ptr<Location>>                    m_subMunicipalities;
-        std::shared_ptr<Location> m_parent;
+        std::shared_ptr<Location>                                 m_parent;
 };
 
 } // namespace gengeopop

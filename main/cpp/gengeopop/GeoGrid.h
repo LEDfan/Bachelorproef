@@ -128,6 +128,6 @@ private:
                 double                    m_latitude;
         };
 
-        KdTree<KdTree2DPoint>      m_tree;
+        KdTree<KdTree2DPoint> m_tree;
 };
 } // namespace gengeopop

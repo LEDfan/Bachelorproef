@@ -82,7 +82,6 @@ boost::property_tree::ptree GeoGridJSONWriter::parseLocation(std::shared_ptr<Loc
         }
         location_root.add_child("submunicipalities", subMunicipalities);
 
-
         return location_root;
 }
 
