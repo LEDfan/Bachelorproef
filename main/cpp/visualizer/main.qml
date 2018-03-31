@@ -49,7 +49,6 @@ ApplicationWindow {
         anchors.margins: 20
         Layout.fillWidth: true
 
-
         GeoGridMap {
             id: geogridmap
         }

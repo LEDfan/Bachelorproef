@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <map>
+#include <set>
 #include <unordered_map>
 #include <vector>
 
@@ -44,10 +45,10 @@ public:
          *  |       |     |       |
          *  +-------p2    p2------+
          */
-        std::vector<std::shared_ptr<Location>> inBox(double long1, double lat1, double long2, double lat2) const;
+        std::set<std::shared_ptr<Location>> inBox(double long1, double lat1, double long2, double lat2) const;
 
-        std::vector<std::shared_ptr<Location>> inBox(const std::shared_ptr<Location>& loc1,
-                                                     std::shared_ptr<Location>&       loc2) const
+        std::set<std::shared_ptr<Location>> inBox(const std::shared_ptr<Location>& loc1,
+                                                  std::shared_ptr<Location>&       loc2) const
         {
                 return inBox(loc1->getCoordinate().longitude, loc1->getCoordinate().latitude,
                              loc2->getCoordinate().longitude, loc2->getCoordinate().latitude);

@@ -4,6 +4,7 @@
 #include <QString>
 #include <gengeopop/GeoGrid.h>
 #include <set>
+#include <unordered_map>
 
 class Backend : public QObject
 {
@@ -44,10 +45,16 @@ public:
         void OnExtraMarkerClicked(int idOfClicked);
 
         Q_INVOKABLE
+
         /**
-         * Removes all locations from selection.
+         * Removes all locations from selection and unselection + re-render the map.
          */
-        void clearSelection();
+        void ClearSelectionAndRender();
+
+        /**
+         * Removes all locations from selection and unselection but don't re-render the map.
+         */
+        void ClearSelection();
 
         Q_INVOKABLE
         void selectArea(double slat, double slong, double elat, double elong);
@@ -68,7 +75,10 @@ signals:
 private:
         QObject*                                       m_map = nullptr;
         std::shared_ptr<gengeopop::GeoGrid>            m_grid;
+        std::unordered_map<std::string, QObject*>      m_markers;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
+        std::set<std::shared_ptr<gengeopop::Location>>
+            m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
 
         void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected);
 
@@ -79,7 +89,13 @@ private:
         void PlaceMarkers();
 
         /**
-         * Sends a signal witht the currently selected locations.
+         * Update colors of Markers based on the value of m_selection and m_unselection.
+         * Won't loop over every marker or location.
+         */
+        void UpdateColorOfMarkers();
+
+        /**
+         * Sends a signal with the currently selected locations.
          */
         void emitLocations();
 
