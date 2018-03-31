@@ -52,13 +52,13 @@ void Backend::PlaceMarkers()
         QMetaObject::invokeMethod(m_map, "clearMap");
 
         // Place the commutes of the selection
-
-        for (auto loc : m_selection) {
-                for (auto commute : loc->getIncomingCommuningCities()) {
-                        auto otherCity = commute.first;
-                        addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
-                }
-        }
+        //
+        //        for (auto loc : m_selection) {
+        //                for (auto commute : loc->getIncomingCommuningCities()) {
+        //                        auto otherCity = commute.first;
+        //                        addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+        //                }
+        //        }
 
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
@@ -121,6 +121,9 @@ void Backend::ClearSelectionAndRender()
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "red");
+                for (auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
+                        commuteLine->setProperty("line.color", "#00000000");
+                }
         }
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
@@ -179,20 +182,42 @@ void Backend::UpdateColorOfMarkers()
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "red");
+                std::cout << "Unselect" << std::endl;
+                // Hide the commutes
+                //                for(auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
+                //                        commuteLine->setProperty("line.color", "#00000000");
+                //                }
         }
         m_unselection.clear();
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "blue");
+                // Show commutes if they were already on the map
+                //                auto& commutesOnMapOfLocation = m_commutes[std::to_string(loc->getID())];
+                //                for(auto commuteLine : commutesOnMapOfLocation) {
+                //                        commuteLine->setProperty("color", "#00009900");
+                //                }
+                //                // If they were not yet on the map, add the lines
+                //
+                //                if(commutesOnMapOfLocation.empty()){
+                //                    for (auto commute : loc->getIncomingCommuningCities()) {
+                //                        auto otherCity = commute.first;
+                //                        auto commuteLine = addCommuteLine(otherCity->getCoordinate(),
+                //                        loc->getCoordinate(), commute.second);
+                //                        commutesOnMapOfLocation.push_back(commuteLine);
+                //
+                //                    }
+                //                }
         }
 }
 
-void Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
+QObject* Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
 {
         QVariant retVal;
         QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
                                   Q_ARG(QVariant, from.latitude), Q_ARG(QVariant, from.longitude),
                                   Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
+        return qvariant_cast<QObject*>(retVal);
 }
 
 void Backend::selectAll()

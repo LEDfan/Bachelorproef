@@ -147,6 +147,7 @@ ColumnLayout {
             path[1].longitude = longTo
             commuteLine.path = path
             map.addMapItem(commuteLine)
+            return commuteLine
 
         }
 

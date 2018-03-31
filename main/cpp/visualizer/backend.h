@@ -73,10 +73,11 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                       m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>            m_grid;
-        std::unordered_map<std::string, QObject*>      m_markers;
-        std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
+        QObject*                                               m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid>                    m_grid;
+        std::unordered_map<std::string, QObject*>              m_markers;
+        std::unordered_map<std::string, std::vector<QObject*>> m_commutes;
+        std::set<std::shared_ptr<gengeopop::Location>>         m_selection; ///< The currently selected locations
         std::set<std::shared_ptr<gengeopop::Location>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
 
@@ -112,5 +113,5 @@ private:
          * @param toLatitude
          * @param toLongitude
          */
-        void addCommuteLine(Coordinate from, Coordinate to, double amount);
+        QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
 };
