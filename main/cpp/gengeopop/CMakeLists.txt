@@ -6,6 +6,7 @@ set(GENGEOPOP_LIB
     Community.cpp
     ContactCenter.cpp
     ContactPool.cpp
+    GeoGridConfig.cpp
     GeoGrid.cpp
     HighSchool.cpp
     Household.cpp
@@ -27,20 +28,7 @@ set(GENGEOPOP_LIB
     io/ReaderFactory.cpp
     io/GeoGridJSONWriter.cpp
     io/GeoGridJSONReader.cpp
-
-    # TOOD remove header files after initial implementation
-    Community.h
-    HighSchool.h
-    School.h
-    Workplace.h
-    generators/GeoGridGenerator.h
-    generators/PartialGenerator.h
-    generators/SchoolGenerator.h
-    generators/PartialGenerator.h
-    io/CitiesCSVReader.h
-    io/HouseholdCSVReader.h
-    io/HouseholdReader.h
-    GeoGridConfig.h)
+    )
 
 #============================================================================
 # Build the GenGeoPop library.
