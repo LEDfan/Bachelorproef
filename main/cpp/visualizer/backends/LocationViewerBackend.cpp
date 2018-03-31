@@ -5,13 +5,15 @@
 
 void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
-        QObject* nameText     = parent()->findChild<QObject*>(QString("textName"));
-        QObject* provinceText = parent()->findChild<QObject*>(QString("textProvince"));
-        QObject* idText       = parent()->findChild<QObject*>(QString("textID"));
+        QObject* nameText       = parent()->findChild<QObject*>(QString("textName"));
+        QObject* provinceText   = parent()->findChild<QObject*>(QString("textProvince"));
+        QObject* idText         = parent()->findChild<QObject*>(QString("textID"));
+        QObject* populationText = parent()->findChild<QObject*>(QString("textPopulation"));
 
         QString nameString("Name: ");
         QString provinceString("Province: ");
         QString idString("ID: ");
+        QString populationString("Population: ");
 
         int maxChars = 30;
 
@@ -25,6 +27,7 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
                         nameString += "...";
                         provinceString += "...";
                         idString += "...";
+                        populationString += "...";
 
                         break;
                 }
@@ -35,16 +38,19 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
                         nameString += QString(",");
                         provinceString += QString(",");
                         idString += QString(",");
+                        populationString += QString(",");
                 }
 
                 nameString += QString::fromStdString(location->getName());
                 provinceString += provinceName;
                 idString += QString::number(location->getID());
+                populationString += QString::number(location->getPopulation());
         }
 
         nameText->setProperty("text", nameString);
         provinceText->setProperty("text", provinceString);
         idText->setProperty("text", idString);
+        populationText->setProperty("text", populationString);
 }
 
 LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent) {}
