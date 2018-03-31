@@ -40,7 +40,7 @@ void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
         for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = cities[locationId];
-                loc->addContactCenter(std::make_shared<HighSchool>());
+                loc->addContactCenter(std::make_shared<HighSchool>(geoGridConfig.contactCenters++));
         }
 }
 

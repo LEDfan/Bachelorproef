@@ -36,6 +36,12 @@ public:
          */
         unsigned int input_populationSize;
 
+        /**
+         * A list of possible households.
+         */
+
+        std::vector<std::shared_ptr<Household>> household_types;
+
         // CALCULATED
 
         /**
@@ -67,6 +73,39 @@ public:
          * Fraction of population which are [18, 65] years old and active.
          */
         double calc_fraction_1865_and_years_active;
+
+        /**
+         * The number of households needed with this population size and these types of households.
+         */
+
+        unsigned int calc_households;
+
+        // CURRENT STATE
+
+        /**
+         * A list of persons who go to Schools.
+         */
+        std::vector<stride::Person> pupils;
+
+        /**
+         * A list of persons who go to HighSchools.
+         */
+        std::vector<stride::Person> students;
+
+        /**
+         * A list of persons who are able to work at a Workplace.
+         */
+        std::vector<stride::Person> workers;
+
+        /**
+         * The current amount of ContactPools, used to obtain an Id for a new contactPool.
+         */
+        unsigned int contactPools = 0;
+
+        /**
+         * The current amount of ContactCenters, used to obtain an Id for a new contactCenter.
+         */
+        unsigned int contactCenters = 0;
 };
 
 } // namespace gengeopop

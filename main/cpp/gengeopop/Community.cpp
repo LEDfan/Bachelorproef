@@ -2,6 +2,8 @@
 
 namespace gengeopop {
 
+Community::Community(unsigned int id) : ContactCenter(id) {}
+
 std::string  Community::getType() const { return "Community"; }
 unsigned int Community::getPoolSize() const
 {

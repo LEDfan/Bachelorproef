@@ -37,7 +37,7 @@ void CommunityGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         for (int communityId = 0; communityId < amountOfCommunities; communityId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                loc->addContactCenter(std::make_shared<Community>());
+                loc->addContactCenter(std::make_shared<Community>(geoGridConfig.contactCenters++));
         }
 }
 

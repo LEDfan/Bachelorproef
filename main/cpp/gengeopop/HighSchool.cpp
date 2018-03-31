@@ -2,6 +2,8 @@
 
 namespace gengeopop {
 
+HighSchool::HighSchool(unsigned int id) : ContactCenter(id) {}
+
 std::string HighSchool::getType() const { return "HighSchool"; }
 
 unsigned int HighSchool::getMaxPools() const

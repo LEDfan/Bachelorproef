@@ -2,6 +2,8 @@
 
 namespace gengeopop {
 
+School::School(unsigned int id) : ContactCenter(id) {}
+
 unsigned int School::getMaxPools() const { return 25; }
 
 unsigned int School::getPoolSize() const { return 20; }

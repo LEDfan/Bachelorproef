@@ -167,16 +167,17 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 {
         std::string                    type = contactCenter.get<std::string>("type");
         std::shared_ptr<ContactCenter> result;
+        auto                           id = boost::lexical_cast<unsigned int>(contactCenter.get<std::string>("id"));
         if (type == "School") {
-                result = std::make_shared<School>();
+                result = std::make_shared<School>(id);
         } else if (type == "Community") {
-                result = std::make_shared<Community>();
+                result = std::make_shared<Community>(id);
         } else if (type == "HighSchool") {
-                result = std::make_shared<HighSchool>();
+                result = std::make_shared<HighSchool>(id);
         } else if (type == "Household") {
-                result = std::make_shared<Household>();
+                result = std::make_shared<Household>(id);
         } else if (type == "Workplace") {
-                result = std::make_shared<Workplace>();
+                result = std::make_shared<Workplace>(id);
         } else {
                 throw std::invalid_argument("No such ContactCenter type: " + type);
         }
@@ -191,7 +192,9 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                         std::shared_ptr<ContactPool> pool;
 #pragma omp task firstprivate(it, pool)
                         {
-                                e->Run([&it, &pool, this] { pool = ParseContactPool(it->second.get_child("")); });
+                                e->Run([&it, &pool, this, &result] {
+                                        pool = ParseContactPool(it->second.get_child(""), result->getPoolSize());
+                                });
                                 if (!e->HasError())
 #pragma omp critical
                                         result->addPool(pool);
@@ -203,10 +206,11 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
         return result;
 }
 
-std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool)
+std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool,
+                                                                 unsigned int                 poolSize)
 {
         unsigned int id     = boost::lexical_cast<unsigned int>(contactPool.get<std::string>("id"));
-        auto         result = std::make_shared<ContactPool>(id);
+        auto         result = std::make_shared<ContactPool>(id, poolSize);
         auto         people = contactPool.get_child("people");
 
         for (auto it = people.begin(); it != people.end(); it++) {

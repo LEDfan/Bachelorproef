@@ -77,11 +77,11 @@ TEST(GeoGridJSONWriterTest, contactCentersTest)
 {
         auto geoGrid  = getGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
-        location->addContactCenter(std::make_shared<School>());
-        location->addContactCenter(std::make_shared<Community>());
-        location->addContactCenter(std::make_shared<HighSchool>());
-        location->addContactCenter(std::make_shared<Household>());
-        location->addContactCenter(std::make_shared<Workplace>());
+        location->addContactCenter(std::make_shared<School>(0));
+        location->addContactCenter(std::make_shared<Community>(1));
+        location->addContactCenter(std::make_shared<HighSchool>(2));
+        location->addContactCenter(std::make_shared<Household>(3));
+        location->addContactCenter(std::make_shared<Workplace>(4));
         geoGrid->addLocation(location);
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test1.json"));
@@ -91,34 +91,34 @@ TEST(GeoGridJSONWriterTest, peopleTest)
         auto geoGrid  = getGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
 
-        auto school = std::make_shared<School>();
+        auto school = std::make_shared<School>(0);
         location->addContactCenter(school);
-        auto schoolPool = std::make_shared<ContactPool>(2);
+        auto schoolPool = std::make_shared<ContactPool>(2, school->getPoolSize());
         school->addPool(schoolPool);
 
-        auto community = std::make_shared<Community>();
+        auto community = std::make_shared<Community>(1);
         location->addContactCenter(community);
-        auto communityPool = std::make_shared<ContactPool>(3);
+        auto communityPool = std::make_shared<ContactPool>(3, community->getPoolSize());
         community->addPool(communityPool);
 
-        auto secondaryCommunity = std::make_shared<Community>();
+        auto secondaryCommunity = std::make_shared<Community>(2);
         location->addContactCenter(secondaryCommunity);
-        auto secondaryCommunityPool = std::make_shared<ContactPool>(7);
+        auto secondaryCommunityPool = std::make_shared<ContactPool>(7, secondaryCommunity->getPoolSize());
         secondaryCommunity->addPool(secondaryCommunityPool);
 
-        auto highschool = std::make_shared<HighSchool>();
+        auto highschool = std::make_shared<HighSchool>(3);
         location->addContactCenter(highschool);
-        auto highschoolPool = std::make_shared<ContactPool>(4);
+        auto highschoolPool = std::make_shared<ContactPool>(4, highschool->getPoolSize());
         highschool->addPool(highschoolPool);
 
-        auto household = std::make_shared<Household>();
+        auto household = std::make_shared<Household>(4);
         location->addContactCenter(household);
-        auto householdPool = std::make_shared<ContactPool>(5);
+        auto householdPool = std::make_shared<ContactPool>(5, household->getPoolSize());
         household->addPool(householdPool);
 
-        auto workplace = std::make_shared<Workplace>();
+        auto workplace = std::make_shared<Workplace>(5);
         location->addContactCenter(workplace);
-        auto workplacePool = std::make_shared<ContactPool>(6);
+        auto workplacePool = std::make_shared<ContactPool>(6, workplace->getPoolSize());
         workplace->addPool(workplacePool);
 
         geoGrid->addLocation(location);

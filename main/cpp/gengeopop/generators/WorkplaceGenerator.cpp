@@ -45,7 +45,7 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         for (int workPlaceId = 0; workPlaceId < amountOfWorkplaces; workPlaceId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                loc->addContactCenter(std::make_shared<Workplace>());
+                loc->addContactCenter(std::make_shared<Workplace>(geoGridConfig.contactCenters++));
         }
 }
 

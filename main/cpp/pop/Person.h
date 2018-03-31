@@ -103,13 +103,26 @@ public:
 
         unsigned int GetHouseholdId() { return m_household_id; }
 
+        void SetHouseholdId(unsigned int household_id) { m_household_id = household_id; }
+
         unsigned int GetSchoolId() { return m_school_id; }
+
+        void SetSchoolId(unsigned int school_id) { m_school_id = school_id; }
 
         unsigned int GetWorkId() { return m_work_id; }
 
+        void SetWorkId(unsigned int work_id) { m_work_id = work_id; }
+
         unsigned int GetPrimaryCommunityId() { return m_primary_community_id; }
 
+        void SetPrimaryCommunityId(unsigned int primary_community_id) { m_primary_community_id = primary_community_id; }
+
         unsigned int GetSecondaryCommunityId() { return m_secondary_community_id; }
+
+        void SetSecondaryCommunityId(unsigned int secondary_community_id)
+        {
+                m_secondary_community_id = secondary_community_id;
+        }
 
 private:
         unsigned int m_id;     ///< The id.

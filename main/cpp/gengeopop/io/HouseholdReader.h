@@ -18,7 +18,7 @@ public:
         double       getFraction1865Years() const;
         double       getFractionWorkables() const;
         unsigned int getTotalPersonsInHouseholds() const;
-
+        double       averageHouseholdSize() const;
         virtual ~HouseholdReader(){};
 
 protected:
