@@ -126,19 +126,8 @@ ColumnLayout {
         }
 
         function addCommute(latFrom, longFrom, latTo, longTo){
-            var commuteLine = Qt.createQmlObject('import QtQuick 2.0;
-                    import QtLocation 5.3;
-                    MapPolyline {
-                        line.color: "#60002200"
-                        line.width: 1.0
-                        path: [
-                            { latitude: 0, longitude: 0  },
-                            { latitude: 0, longitude: 0  }
-                        ]
-                    }
-               ',
-               map,
-               "id");
+            var commuteLineComp = Qt.createComponent("qrc:/components/CommuteLine.qml")
+            var commuteLine = commuteLineComp.createObject()
             var startCoord = commuteLine.path[0]
             var path = commuteLine.path
             path[0].latitude = latFrom
@@ -147,7 +136,7 @@ ColumnLayout {
             path[1].longitude = longTo
             commuteLine.path = path
             map.addMapItem(commuteLine)
-            return commuteLine
+            return commuteLine;
 
         }
 

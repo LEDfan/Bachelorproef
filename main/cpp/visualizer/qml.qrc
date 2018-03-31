@@ -8,6 +8,7 @@
         <file>components/LocationViewer.qml</file>
         <file>components/GeoGridMap.qml</file>
         <file>components/CustomMarker.qml</file>
+        <file>components/CommuteLine.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

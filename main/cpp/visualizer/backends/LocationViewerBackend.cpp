@@ -27,8 +27,6 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
                         nameString += "...";
                         provinceString += "...";
                         idString += "...";
-                        populationString += "...";
-
                         break;
                 }
 
@@ -38,14 +36,19 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
                         nameString += QString(",");
                         provinceString += QString(",");
                         idString += QString(",");
-                        populationString += QString(",");
                 }
 
                 nameString += QString::fromStdString(location->getName());
                 provinceString += provinceName;
                 idString += QString::number(location->getID());
-                populationString += QString::number(location->getPopulation());
         }
+
+        // Calculate aggregated population
+        unsigned int totalPopulation = 0;
+        for (auto location : locations) {
+                totalPopulation += location->getPopulation();
+        }
+        populationString += QString::number(totalPopulation);
 
         nameText->setProperty("text", nameString);
         provinceText->setProperty("text", provinceString);
