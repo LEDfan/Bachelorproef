@@ -129,15 +129,15 @@ ColumnLayout {
                     import QtLocation 5.3;
                     MapPolyline {
                         line.color: "#60002200"
-                        line.width: 3
+                        line.width: 1.0
                         path: [
-                            { latitude: -27, longitude: 153.0  },
-                            { latitude: -27, longitude: 154.1  }
+                            { latitude: 0, longitude: 0  },
+                            { latitude: 0, longitude: 0  }
                         ]
                     }
                ',
                map,
-               "testk");
+               "id");
             var startCoord = commuteLine.path[0]
             var path = commuteLine.path
             path[0].latitude = latFrom
@@ -145,7 +145,6 @@ ColumnLayout {
             path[1].latitude = latTo
             path[1].longitude = longTo
             commuteLine.path = path
-            console.warn("Adding line: ", latFrom, longFrom, latTo, longTo)
             map.addMapItem(commuteLine)
 
         }

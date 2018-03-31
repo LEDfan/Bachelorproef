@@ -147,9 +147,8 @@ void Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
 {
         QVariant retVal;
         QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(QVariant, from.longitude), Q_ARG(QVariant, from.latitude),
-                                  Q_ARG(QVariant, to.longitude), Q_ARG(QVariant, to.latitude),
-                                  Q_ARG(QVariant, std::max(1.0, std::log(amount))));
+                                  Q_ARG(QVariant, from.latitude), Q_ARG(QVariant, from.longitude),
+                                  Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
 }
 
 void Backend::selectAll()
