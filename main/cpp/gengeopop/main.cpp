@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
                 geoGridConfig.Calculate(geoGrid, houseHoldsReader);
                 geoGrid->finalize();
 
-                geoGridConfig.ToStream(std::cout);
+                std::cout << geoGridConfig;
 
                 generate(geoGridConfig, geoGrid);
 
