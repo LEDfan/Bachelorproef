@@ -52,7 +52,7 @@ private:
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader() : m_people() {}
+GeoGridJSONReader::GeoGridJSONReader() : m_people(), m_commutes() {}
 
 std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 {
@@ -96,8 +96,18 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                 }
 #pragma omp taskwait
         }
+
+        for (const auto& commute_tuple : m_commutes) {
+                auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
+                auto b      = geoGrid->GetById(std::get<1>(commute_tuple));
+                auto amount = std::get<2>(commute_tuple);
+                a->addOutgoingCommutingLocation(b, amount);
+                b->addIncomingCommutingLocation(a, amount);
+        }
+
         e->Rethrow();
         m_people.clear();
+        m_commutes.clear();
         return geoGrid;
 } // namespace gengeopop
 
@@ -130,6 +140,17 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
 #pragma omp taskwait
         }
         e->Rethrow();
+
+        if (location.count("commutes")) {
+                boost::property_tree::ptree commutes = location.get_child("commutes");
+                for (auto it = commutes.begin(); it != commutes.end(); it++) {
+                        auto to     = boost::lexical_cast<unsigned int>(it->first);
+                        auto amount = boost::lexical_cast<double>(it->second.data());
+#pragma omp critical
+                        m_commutes.push_back(std::make_tuple(id, to, amount));
+                }
+        }
+
         return result;
 }
 
