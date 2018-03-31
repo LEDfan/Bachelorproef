@@ -12,6 +12,8 @@
 
 #include <boost/lexical_cast.hpp>
 #include <utility>
+#include <gengeopop/populators/GeoGridPopulator.h>
+#include <gengeopop/populators/HouseholdPopulator.h>
 
 using namespace gengeopop;
 using namespace TCLAP;
@@ -22,11 +24,14 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 
         stride::util::RNManager rnManager(info);
 
-        GeoGridGenerator geoGridGenerator(geoGridConfig, std::move(geoGrid));
+        GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
         geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
+
+        GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
+        geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
 
         geoGridGenerator.generateGeoGrid();
 }
