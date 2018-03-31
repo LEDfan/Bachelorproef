@@ -24,9 +24,15 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 {
         auto geoGrid = getGeoGridForFile("test0.json");
 
-        auto location1 = geoGrid->get(0);
-        auto location2 = geoGrid->get(1);
-        auto location3 = geoGrid->get(2);
+        std::map<unsigned int, std::shared_ptr<Location>> locations;
+
+        locations[geoGrid->get(0)->getID()] = geoGrid->get(0);
+        locations[geoGrid->get(1)->getID()] = geoGrid->get(1);
+        locations[geoGrid->get(2)->getID()] = geoGrid->get(2);
+
+        auto location1 = locations[1];
+        auto location2 = locations[2];
+        auto location3 = locations[3];
 
         EXPECT_EQ(location1->getID(), 1);
         EXPECT_EQ(location1->getName(), "Bavikhove");
@@ -58,14 +64,19 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
-        auto geoGrid        = getGeoGridForFile("test1.json");
-        auto location       = geoGrid->get(0);
-        auto contactCenters = location->getContactCenters();
-        EXPECT_EQ(contactCenters[0]->getType(), "School");
-        EXPECT_EQ(contactCenters[1]->getType(), "Community");
-        EXPECT_EQ(contactCenters[2]->getType(), "HighSchool");
-        EXPECT_EQ(contactCenters[3]->getType(), "Household");
-        EXPECT_EQ(contactCenters[4]->getType(), "Workplace");
+        auto                        geoGrid        = getGeoGridForFile("test1.json");
+        auto                        location       = geoGrid->get(0);
+        auto                        contactCenters = location->getContactCenters();
+        std::map<std::string, bool> found          = {
+            {"School", false}, {"Community", false}, {"HighSchool", false}, {"Household", false}, {"Workplace", false}};
+
+        for (unsigned int i = 0; i < 5; i++) {
+                EXPECT_FALSE(found[contactCenters[i]->getType()]);
+                found[contactCenters[i]->getType()] = true;
+        }
+        for (auto& type : found) {
+                EXPECT_TRUE(type.second);
+        }
 }
 
 void runPeopleTest(std::string filename)

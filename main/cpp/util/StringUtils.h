@@ -23,6 +23,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iomanip>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -127,6 +128,27 @@ inline std::string Trim(std::string const& source, std::string const& t = " ")
 {
         std::string str = source;
         return TrimLeft(TrimRight(str, t), t);
+}
+
+template <typename T>
+inline std::string intToDottedString(const T& value)
+{
+        std::string valueStr = std::to_string(value);
+
+        std::string res  = "";
+        int         rest = valueStr.length() % 3;
+
+        res += valueStr.substr(0, rest);
+
+        for (size_t i = rest; i < valueStr.length(); i += 3) {
+                res += "." + valueStr.substr(i, 3);
+        }
+
+        if (res[0] == '.') {
+                return res.substr(1);
+        }
+
+        return res;
 }
 
 } // namespace util

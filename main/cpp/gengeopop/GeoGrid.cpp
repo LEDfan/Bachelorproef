@@ -5,7 +5,7 @@
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_tree() {}
+GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_points(), m_tree() {}
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
@@ -31,7 +31,6 @@ std::shared_ptr<Location> GeoGrid::get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::topK(size_t k) const
 {
-
         auto cmp = [](const std::shared_ptr<Location>& rhs, const std::shared_ptr<Location>& lhs) {
                 return rhs->getPopulation() > lhs->getPopulation();
         };
@@ -65,15 +64,6 @@ size_t GeoGrid::size() const { return m_locations.size(); }
 
 std::shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
 
-unsigned int GeoGrid::getTotalPopulation() const
-{
-        unsigned total = 0;
-        for (auto loc = cbegin(); loc < cend(); loc++) {
-                total += (*loc)->getPopulation();
-        }
-        return total;
-}
-
 void GeoGrid::finalize()
 {
         m_finalized = true;
@@ -82,7 +72,6 @@ void GeoGrid::finalize()
 
 std::vector<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
 {
-
         if (!m_finalized) {
                 throw std::runtime_error("Calling inBox while GeoGrid is not finalized is not supported!");
         }
