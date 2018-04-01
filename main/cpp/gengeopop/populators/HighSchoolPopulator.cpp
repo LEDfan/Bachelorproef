@@ -22,16 +22,23 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                         trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearByHighSchools.size())));
 
                 // 2. find all highschools were students from this location commute to
-                std::vector<std::shared_ptr<ContactPool>> commutingHighSchools;
+                std::vector<std::shared_ptr<Location>> commutingHighSchools;
+                std::vector<double> commutingWeights;
                 for (const std::pair<std::shared_ptr<Location>, double> & commute : loc->getOutgoingCommuningCities()) {
-                        auto contactCenters = commute.first->getContactCentersOfType<HighSchool>();
-                        for (const auto& contactCenter : contactCenters) {
-                                commutingHighSchools.insert(commutingHighSchools.end(), contactCenter->begin(), contactCenter->end());
+                        auto highSchools = commute.first->getContactCentersOfType<HighSchool>();
+                        if (!highSchools.empty()) {
+                                commutingHighSchools.push_back(commute.first);
+                                commutingWeights.push_back(commute.second);
                         }
                 }
 
-                auto disCommuting = m_rnManager.GetGenerator(
-                        trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(commutingHighSchools.size())));
+
+                std::function<trng::discrete_dist::result_type()> disCommuting;
+
+                if (!commutingWeights.empty()) {
+                        disCommuting = m_rnManager.GetGenerator(trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                }
+
 
                 // 2. for every student assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
@@ -41,11 +48,25 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                                         // this person is a student
                                         if (!commutingHighSchools.empty() && MakeChoice(geoGridConfig.input.fraction_commutingPeople)) {
                                                 // this person is commuting
-                                                auto id = disCommuting();
-                                                commutingHighSchools[id]->addMember(person);
+
+                                                // id of the location this person is commuting to
+                                                auto locationId = disCommuting();
+                                                // create a list of ContactPools (i.e. classes) for each of highschool of this location
+                                                auto highSchools = commutingHighSchools[locationId]->getContactCentersOfType<HighSchool>();
+
+                                                std::vector<std::shared_ptr<ContactPool>> contactPools;
+                                                for (const auto& highSchool : highSchools) {
+                                                        contactPools.insert(contactPools.end(), highSchool->begin(), highSchool->end());
+                                                }
+
+                                                auto disPools = m_rnManager.GetGenerator(
+                                                        trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(contactPools.size())));
+
+                                                auto id = disPools();
+                                                contactPools[id]->addMember(person);
                                                 person->SetHighSchoolId(static_cast<unsigned int>(id));
                                         } else {
-                                                auto id = disCommuting();
+                                                auto id = distNonCommuting();
                                                 nearByHighSchools[id]->addMember(person);
                                                 person->SetHighSchoolId(static_cast<unsigned int>(id));
                                         }

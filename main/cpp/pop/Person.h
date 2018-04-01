@@ -114,7 +114,7 @@ public:
 
         unsigned int GetHighSchoolId() { return m_highschool_id; };
 
-        void SetHighSchoolId(unsigned int highschool_id) { m_highschool_id = highschool_id};
+        void SetHighSchoolId(unsigned int highschool_id) { m_highschool_id = highschool_id; };
 
         unsigned int GetWorkId() { return m_work_id; }
 
