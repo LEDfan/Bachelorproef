@@ -194,7 +194,6 @@ void Backend::selectArea(double slat, double slong, double elat, double elong)
                 m_selection = m_grid->inBox(slong, slat, elong, elat);
                 std::set_difference(previousSelection.begin(), previousSelection.end(), m_selection.begin(),
                                     m_selection.end(), std::inserter(m_unselection, m_unselection.end()));
-
         } catch (std::exception& e) {
                 // Can happen when geogrid is not yet loaded
                 std::cout << e.what() << std::endl;
