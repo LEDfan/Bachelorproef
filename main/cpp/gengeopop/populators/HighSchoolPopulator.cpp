@@ -41,9 +41,13 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                                         // this person is a student
                                         if (!commutingHighSchools.empty() && MakeChoice(geoGridConfig.input.fraction_commutingPeople)) {
                                                 // this person is commuting
-                                                commutingHighSchools[disCommuting()]->addMember(person);
+                                                auto id = disCommuting();
+                                                commutingHighSchools[id]->addMember(person);
+                                                person->SetHighSchoolId(static_cast<unsigned int>(id));
                                         } else {
-                                                nearByHighSchools[distNonCommuting()]->addMember(person);
+                                                auto id = disCommuting();
+                                                nearByHighSchools[id]->addMember(person);
+                                                person->SetHighSchoolId(static_cast<unsigned int>(id));
                                         }
                                 }
                         }

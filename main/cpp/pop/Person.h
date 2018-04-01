@@ -112,6 +112,10 @@ public:
 
         void SetSchoolId(unsigned int school_id) { m_school_id = school_id; }
 
+        unsigned int GetHighSchoolId() { return m_highschool_id; };
+
+        void SetHighSchoolId(unsigned int highschool_id) { m_highschool_id = highschool_id};
+
         unsigned int GetWorkId() { return m_work_id; }
 
         void SetWorkId(unsigned int work_id) { m_work_id = work_id; }
@@ -134,6 +138,7 @@ private:
 
         unsigned int m_household_id;           ///< The household id.
         unsigned int m_school_id;              ///< The school contactpool id
+        unsigned int m_highschool_id;          ///< The highschool contactpool id
         unsigned int m_work_id;                ///< The work contactpool id
         unsigned int m_primary_community_id;   ///< The primary community id
         unsigned int m_secondary_community_id; ///< The secondary community id
