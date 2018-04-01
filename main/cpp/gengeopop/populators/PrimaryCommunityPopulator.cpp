@@ -18,6 +18,9 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
 {
 
         // for every location
+        std::cout << std::endl << "Starting to populate Primary Communities" << std::endl;
+        unsigned int                           full_capacity_count = 0;
+        std::set<std::shared_ptr<ContactPool>> found;
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 std::vector<std::shared_ptr<ContactPool>> community_pools;
                 std::function<unsigned int()>             dist;
@@ -37,12 +40,14 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         auto                               pool        = dist();
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                                found.insert(community_pools[pool]);
                                 if (community_pools[pool].get() == nullptr) {
                                         std::cout << pool << std::endl;
                                 }
                                 community_pools[pool]->addMember(person);
                         }
                         if (community_pools[pool]->getCapacity() <= community_pools[pool]->getUsedCapacity()) {
+                                full_capacity_count++;
                                 community_pools.erase(community_pools.begin() + pool);
                                 updatePools();
                                 if (community_pools.empty()) {
@@ -52,6 +57,9 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                         }
                 }
         }
+        std::cout << "Finished populating Primary Communities" << std::endl;
+        std::cout << "Used " << found.size() << " different Primary communities" << std::endl;
+        std::cout << "Filled " << full_capacity_count << " Primary communities completely" << std::endl;
 }
 
 } // namespace gengeopop

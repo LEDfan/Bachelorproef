@@ -15,6 +15,11 @@ HighSchoolPopulator::HighSchoolPopulator(stride::util::RNManager& rn_manager) : 
 
 void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
+        std::cout << std::endl << "Starting to populate HighSchools" << std::endl;
+        std::set<std::shared_ptr<ContactPool>> found;
+        unsigned int                           students  = 0;
+        unsigned int                           commuting = 0;
+
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 // 1. find all highschools in an area of 10-k*10 km
@@ -44,13 +49,16 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                 // 2. for every student assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
+                        found.insert(contactPool);
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
                                 if (person->GetAge() >= 18 && person->GetAge() < 26 &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) {
+                                        students++;
                                         // this person is a student
                                         if (!commutingHighSchools.empty() &&
                                             MakeChoice(geoGridConfig.input.fraction_commutingPeople)) {
                                                 // this person is commuting
+                                                commuting++;
 
                                                 // id of the location this person is commuting to
                                                 auto locationId = disCommuting();
@@ -81,6 +89,10 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                         }
                 }
         }
+        std::cout << "Finished populating HighSchools" << std::endl;
+        std::cout << "Used " << found.size() << " different classes" << std::endl;
+        std::cout << "Placed " << students << " students in HighSchools, " << commuting
+                  << " of whom are commuting to a different location" << std::endl;
 }
 
 } // namespace gengeopop

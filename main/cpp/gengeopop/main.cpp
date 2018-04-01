@@ -27,7 +27,7 @@
 using namespace gengeopop;
 using namespace TCLAP;
 
-void genGeo(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
+void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
         GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
         geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
@@ -37,7 +37,7 @@ void genGeo(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, strid
         geoGridGenerator.generateGeoGrid();
 }
 
-void genPop(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
+void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
         // TODO move to genGeo
         GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
@@ -54,7 +54,7 @@ void genPop(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, strid
         geoGridPopulator.populateGeoGrid();
 }
 
-void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
+void generate(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 {
         stride::util::RNManager::Info info;
         stride::util::RNManager       rnManager(info);
@@ -137,8 +137,9 @@ int main(int argc, char* argv[])
                 // FIXME use this instead once I/O is fixed
                 // generate(geoGridConfig, geoGrid);
                 genGeo(geoGridConfig, geoGrid, rnManager);
-
-                std::cout << "Generation done, writing to file." << std::endl;
+                std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
+                std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
+                std::cout << "Generation done, writing to file" << std::endl;
                 GeoGridJSONWriter geoGridJsonWriter;
                 geoGridJsonWriter.write(geoGrid, outputFileStream);
                 std::cout << "Done writing to file, starting Gen-Pop" << std::endl;

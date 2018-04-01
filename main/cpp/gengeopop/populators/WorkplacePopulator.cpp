@@ -16,6 +16,7 @@ WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager) : Pa
 void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
 
+        std::cout << std::endl << "Starting to populate Workplaces" << std::endl;
         double fraction =
             (geoGridConfig.calculated._1826_years_and_student * geoGridConfig.input.fraction_commutingPeople) /
             (geoGridConfig.calculated._1865_and_years_active *
