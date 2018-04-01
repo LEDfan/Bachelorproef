@@ -231,6 +231,7 @@ QObject* Backend::addCommuteLine(Coordinate from, Coordinate to, double /* amoun
                                           Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
                 return qvariant_cast<QObject*>(retVal);
         }
+        return nullptr;
 }
 
 void Backend::selectAll()
