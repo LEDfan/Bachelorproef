@@ -87,15 +87,15 @@ public:
         bool operator==(const Location& other) const;
 
 private:
-        unsigned int                                                                     m_id = 0;
-        std::string                                                                      m_name;
-        unsigned int                                                                     m_province;
-        unsigned int                                                                     m_population;
-        double                                                                           m_relativePopulation;
-        Coordinate                                                                       m_coordinate;
-        std::vector<std::shared_ptr<ContactCenter>>                                      m_contactCenters;
-        std::vector<std::pair<std::shared_ptr<Location>, double>>                        m_incomingCommutingLocations;
-        std::vector<std::pair<std::shared_ptr<Location>, double>>                        m_outgoingCommutingLocations;
+        unsigned int                                                                  m_id = 0;
+        std::string                                                                   m_name;
+        unsigned int                                                                  m_province;
+        unsigned int                                                                  m_population;
+        double                                                                        m_relativePopulation;
+        Coordinate                                                                    m_coordinate;
+        std::vector<std::shared_ptr<ContactCenter>>                                   m_contactCenters;
+        std::vector<std::pair<std::shared_ptr<Location>, double>>                     m_incomingCommutingLocations;
+        std::vector<std::pair<std::shared_ptr<Location>, double>>                     m_outgoingCommutingLocations;
         std::unordered_map<std::type_index, std::set<std::shared_ptr<ContactCenter>>> m_contactCenterByType;
 };
 

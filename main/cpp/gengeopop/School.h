@@ -7,8 +7,9 @@ class School : public ContactCenter
 {
 public:
         School(unsigned int id);
-        std::string  getType() const;
-        unsigned int getMaxPools() const;
-        unsigned int getPoolSize() const;
+        std::string  getType() const override;
+        unsigned int getMaxPools() const override;
+        unsigned int getPoolSize() const override;
+        void         fill(GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

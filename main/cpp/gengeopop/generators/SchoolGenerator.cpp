@@ -36,7 +36,9 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
         for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                loc->addContactCenter(std::make_shared<School>(geoGridConfig.generated.contactCenters++));
+                auto                      school = std::make_shared<School>(geoGridConfig.generated.contactCenters++);
+                school->fill(geoGridConfig);
+                loc->addContactCenter(school);
                 //        std::cout << "Assign school " << schoolId << " to " << loc->getName() << std::endl;
         }
 }

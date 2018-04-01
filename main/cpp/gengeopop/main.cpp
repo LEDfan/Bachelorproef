@@ -17,6 +17,7 @@
 #include <boost/lexical_cast.hpp>
 #include <gengeopop/populators/GeoGridPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
+#include <gengeopop/populators/SchoolPopulator.h>
 #include <utility>
 
 using namespace gengeopop;
@@ -37,6 +38,7 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 
         GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
+        geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
 
         geoGridGenerator.generateGeoGrid();
 }
@@ -116,18 +118,6 @@ int main(int argc, char* argv[])
                 // std::cout << "Generation done, writing to file." << std::endl;
                 // GeoGridJSONWriter geoGridJsonWriter;
                 // geoGridJsonWriter.write(geoGrid, outputFileStream);
-
-                auto schools = geoGrid->GetById(11040)->getContactCentersOfType<School>();
-                for (const auto& sc : schools) {
-                        std::cout << sc->getType() << std::endl;
-                }
-
-                auto workplaces = geoGrid->GetById(11040)->getContactCentersOfType<Community>();
-                for (const auto& sc : workplaces) {
-                        std::cout << sc->getType() << std::endl;
-                }
-
-                std::cout << "Generation done, writing to file." << std::endl;
 
                 std::cout << "Done" << std::endl;
         } catch (std::exception& e) {

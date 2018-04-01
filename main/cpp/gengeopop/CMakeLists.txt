@@ -23,6 +23,7 @@ set(GENGEOPOP_LIB
         populators/GeoGridPopulator.cpp
         populators/HouseholdPopulator.cpp
         populators/PartialPopulator.cpp
+        populators/SchoolPopulator.cpp
         io/CitiesCSVReader.cpp
         io/CitiesReader.cpp
         io/CommutesReader.cpp

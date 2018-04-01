@@ -2,6 +2,9 @@
 #include "ContactPool.h"
 
 namespace gengeopop {
+
+class GeoGridConfig;
+
 class ContactCenter
 {
 public:
@@ -12,6 +15,10 @@ public:
         virtual std::string  getType() const     = 0;
         virtual unsigned int getPoolSize() const = 0;
         virtual unsigned int getMaxPools() const = 0;
+        virtual void         fill(GeoGridConfig& geoGridConfig)
+        {
+                // TODO make abstract
+        }
 
         unsigned int getId() const;
 
