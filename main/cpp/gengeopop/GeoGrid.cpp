@@ -89,7 +89,6 @@ std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, do
 
 std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_ptr<Location> start, double radius) const
 {
-
         AABB<KdTree2DPoint> box{};
 
         double maxlat = start->getCoordinate().latitude + radianToDegree(radius / 6371.0);

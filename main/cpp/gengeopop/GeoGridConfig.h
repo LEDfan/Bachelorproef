@@ -36,7 +36,6 @@ public:
                  * Absolute size of the population.
                  */
                 unsigned int populationSize;
-
         } input;
 
         /**
