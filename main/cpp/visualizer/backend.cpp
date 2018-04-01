@@ -1,26 +1,33 @@
 #include "backend.h"
+
 #include <QtCore/QFileInfo>
 #include <QtCore/QPointF>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
 #include <QtCore/qdebug.h>
 #include <QtQml/QQmlProperty>
+
+#include <boost/filesystem.hpp>
+
 #include <cmath>
+#include <iostream>
+
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridJSONReader.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
-#include <iostream>
 #include <util/Stopwatch.h>
 
 Backend::Backend(QObject* parent)
-    : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_selection(), m_unselection()
+    : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_commutes(), m_selection(),
+      m_unselection()
 {
 }
 
 Backend::Backend(const Backend&)
-    : QObject(), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_selection(), m_unselection()
+    : QObject(), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_commutes(), m_selection(),
+      m_unselection()
 {
 }
 
@@ -192,7 +199,7 @@ void Backend::UpdateColorOfMarkers()
         }
 }
 
-QObject* Backend::addCommuteLine(Coordinate from, Coordinate to, double amount)
+QObject* Backend::addCommuteLine(Coordinate from, Coordinate to, double /* amount */)
 {
         QVariant retVal;
         QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
