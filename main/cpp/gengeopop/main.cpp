@@ -26,18 +26,22 @@
 using namespace gengeopop;
 using namespace TCLAP;
 
-void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
+void genGeo(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
-        stride::util::RNManager::Info info;
-
-        stride::util::RNManager rnManager(info);
-
         GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
         geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
+        geoGridGenerator.generateGeoGrid();
+}
+
+void genPop(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
+{
+        // TODO move to genGeo
+        GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
         geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
+        geoGridGenerator.generateGeoGrid();
 
         GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
@@ -46,8 +50,15 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
         geoGridPopulator.addPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(rnManager));
 
-        geoGridGenerator.generateGeoGrid();
         geoGridPopulator.populateGeoGrid();
+}
+
+void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
+{
+        stride::util::RNManager::Info info;
+        stride::util::RNManager       rnManager(info);
+        genGeo(geoGridConfig, geoGrid, rnManager);
+        genPop(geoGridConfig, geoGrid, rnManager);
 }
 
 int main(int argc, char* argv[])
@@ -119,12 +130,18 @@ int main(int argc, char* argv[])
 
                 std::cout << geoGridConfig;
 
-                generate(geoGridConfig, geoGrid);
+                stride::util::RNManager::Info info;
+                stride::util::RNManager       rnManager(info);
+                std::cout << "Starting Gen-Geo" << std::endl;
+                // FIXME use this instead once I/O is fixed
+                // generate(geoGridConfig, geoGrid);
+                genGeo(geoGridConfig, geoGrid, rnManager);
 
-                // Disable for now, is too slow and uses too much memory
-                // std::cout << "Generation done, writing to file." << std::endl;
-                // GeoGridJSONWriter geoGridJsonWriter;
-                // geoGridJsonWriter.write(geoGrid, outputFileStream);
+                std::cout << "Generation done, writing to file." << std::endl;
+                GeoGridJSONWriter geoGridJsonWriter;
+                geoGridJsonWriter.write(geoGrid, outputFileStream);
+                std::cout << "Done writing to file, starting Gen-Pop" << std::endl;
+                genPop(geoGridConfig, geoGrid, rnManager);
 
                 std::cout << "Done" << std::endl;
         } catch (std::exception& e) {
