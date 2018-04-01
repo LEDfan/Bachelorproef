@@ -11,9 +11,9 @@
 #include <util/StringUtils.h>
 
 #include <boost/lexical_cast.hpp>
-#include <utility>
 #include <gengeopop/populators/GeoGridPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
+#include <utility>
 
 using namespace gengeopop;
 using namespace TCLAP;

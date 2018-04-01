@@ -87,4 +87,36 @@ std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, do
         return result;
 }
 
+std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_ptr<Location> start, double radius) const
+{
+
+        AABB<KdTree2DPoint> box{};
+
+        double maxlat = start->getCoordinate().latitude + radianToDegree(radius / 6371.0);
+        double minlat = start->getCoordinate().latitude - radianToDegree(radius / 6371.0);
+
+        double maxlon = start->getCoordinate().longitude +
+                        radianToDegree(radius / 6371.0 / std::cos(degreeToRadian(start->getCoordinate().latitude)));
+        double minlon = start->getCoordinate().longitude -
+                        radianToDegree(radius / 6371.0 / std::cos(degreeToRadian(start->getCoordinate().latitude)));
+
+        box.upper = KdTree2DPoint(maxlon, maxlat);
+        box.lower = KdTree2DPoint(minlon, minlat);
+
+        KdTree2DPoint startPt(start);
+
+        std::set<std::shared_ptr<Location>> result;
+
+        m_tree.Apply(
+            [&startPt, &radius, &result](const KdTree2DPoint& pt) -> bool {
+                    if (pt.InRadius(startPt, radius)) {
+                            result.insert(pt.getLocation());
+                    }
+                    return true;
+            },
+            box);
+
+        return result;
+}
+
 } // namespace gengeopop
