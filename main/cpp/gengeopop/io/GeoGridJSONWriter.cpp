@@ -100,6 +100,7 @@ boost::property_tree::ptree GeoGridJSONWriter::writeCoordinate(const Coordinate&
 boost::property_tree::ptree GeoGridJSONWriter::writeContactCenter(std::shared_ptr<ContactCenter> contactCenter)
 {
         boost::property_tree::ptree contactCenter_root;
+        contactCenter_root.put("id", contactCenter->getId());
         contactCenter_root.put("type", contactCenter->getType());
         boost::property_tree::ptree pools;
 #pragma omp parallel
