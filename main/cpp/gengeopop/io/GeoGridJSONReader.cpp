@@ -3,7 +3,9 @@
 #include <gengeopop/Community.h>
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
+#include <gengeopop/PrimaryCommunity.h>
 #include <gengeopop/School.h>
+#include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <memory>
@@ -96,6 +98,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                 }
 #pragma omp taskwait
         }
+        e->Rethrow();
 
         for (const auto& commute_tuple : m_commutes) {
                 auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
@@ -105,7 +108,6 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                 b->addIncomingCommutingLocation(a, amount);
         }
 
-        e->Rethrow();
         m_people.clear();
         m_commutes.clear();
         return geoGrid;
@@ -176,6 +178,10 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                 result = std::make_shared<HighSchool>(id);
         } else if (type == "Household") {
                 result = std::make_shared<Household>(id);
+        } else if (type == "Primary Community") {
+                result = std::make_shared<PrimaryCommunity>(id);
+        } else if (type == "Secondary Community") {
+                result = std::make_shared<SecondaryCommunity>(id);
         } else if (type == "Workplace") {
                 result = std::make_shared<Workplace>(id);
         } else {
