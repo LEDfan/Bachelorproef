@@ -16,7 +16,7 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config;
-        config.input.populationSize        = 10000;
+        config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 20000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -34,10 +34,10 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize                = 5 * 1000 * 1000;
-        config.calculated._1865_and_years_active          = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.populationSize                      = 5 * 1000 * 1000;
+        config.calculated._1865_and_years_active         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.calculated.fraction_1865_and_years_active = 0.20;
-        config.input.fraction_commutingPeople      = 0;
+        config.input.fraction_commutingPeople            = 0;
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
@@ -72,10 +72,10 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize                = 5 * 1000 * 1000;
-        config.calculated._1865_and_years_active          = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.populationSize                      = 5 * 1000 * 1000;
+        config.calculated._1865_and_years_active         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.calculated.fraction_1865_and_years_active = 0.20;
-        config.input.fraction_commutingPeople      = 0.10;
+        config.input.fraction_commutingPeople            = 0.10;
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
@@ -124,10 +124,10 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize                = 5 * 1000 * 1000;
-        config.calculated._1865_and_years_active          = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.populationSize                      = 5 * 1000 * 1000;
+        config.calculated._1865_and_years_active         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.calculated.fraction_1865_and_years_active = 0.20;
-        config.input.fraction_commutingPeople      = 0.10;
+        config.input.fraction_commutingPeople            = 0.10;
 
         auto geoGrid = std::make_shared<GeoGrid>();
 

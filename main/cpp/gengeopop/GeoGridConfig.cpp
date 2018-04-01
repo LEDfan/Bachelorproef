@@ -22,7 +22,7 @@ void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<
 
         generated.household_types = householdReader->GetHouseHolds();
 
-        for (const std::shared_ptr<Location> &loc : *geoGrid) {
+        for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 loc->calculatePopulation(input.populationSize);
         }
 }
@@ -37,12 +37,14 @@ std::ostream& operator<<(std::ostream& out, const GeoGridConfig& config)
             << std::endl;
         out << std::endl;
         out << std::left << "Calculated:" << std::endl;
-        out << std::left << std::setw(40) << "Compulsory pupils" << intToDottedString(config.calculated.compulsoryPupils)
+        out << std::left << std::setw(40) << "Compulsory pupils"
+            << intToDottedString(config.calculated.compulsoryPupils) << std::endl;
+        out << std::left << std::setw(40) << "18-26 years" << intToDottedString(config.calculated._1826_years)
             << std::endl;
-        out << std::left << std::setw(40) << "18-26 years" << intToDottedString(config.calculated._1826_years) << std::endl;
         out << std::left << std::setw(40) << "18-26 years which are student"
             << intToDottedString(config.calculated._1826_years_and_student) << std::endl;
-        out << std::left << std::setw(40) << "18-65 years" << intToDottedString(config.calculated._1865_years) << std::endl;
+        out << std::left << std::setw(40) << "18-65 years" << intToDottedString(config.calculated._1865_years)
+            << std::endl;
         out << std::left << std::setw(40) << "18-65 years which are active"
             << intToDottedString(config.calculated._1865_and_years_active) << std::endl;
         out << std::endl;

@@ -15,7 +15,7 @@ namespace {
 std::shared_ptr<GeoGrid> getGeoGrid()
 {
         GeoGridConfig config;
-        config.input.populationSize  = 10000;
+        config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
         GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>());

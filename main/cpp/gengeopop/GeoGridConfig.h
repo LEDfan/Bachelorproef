@@ -20,7 +20,8 @@ public:
         /**
          * INPUT
          */
-        struct {
+        struct
+        {
                 /**
                  * Fraction of calc_fraction_1826 which are students.
                  */
@@ -41,7 +42,8 @@ public:
         /**
          * CALCULATED
          */
-        struct {
+        struct
+        {
                 /**
                  * Absolute amount of population which are compulsory to go to school (i.e. 6-18 years old).
                  */
@@ -82,7 +84,8 @@ public:
          * CURRENT STATE
          */
 
-        struct {
+        struct
+        {
                 /**
                  * A list of persons who go to Schools.
                  */

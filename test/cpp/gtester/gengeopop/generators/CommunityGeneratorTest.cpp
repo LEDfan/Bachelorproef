@@ -79,7 +79,7 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
 
         CommunityGenerator communityGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize  = 37542 * 100;
+        config.input.populationSize        = 37542 * 100;
         config.calculated.compulsoryPupils = 750840;
 
         auto geoGrid = std::make_shared<GeoGrid>();
