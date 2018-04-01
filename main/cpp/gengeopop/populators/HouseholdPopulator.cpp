@@ -13,34 +13,22 @@ HouseholdPopulator::HouseholdPopulator(stride::util::RNManager& rn_manager) : Pa
 
 void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        std::vector<double> weights;
-
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                weights.push_back(loc->getRelativePopulationSize());
-        }
-
-        if (weights.empty()) {
-                // trng can't handle empty vectors
-                return;
-        }
-
         unsigned int current_person_id = 0;
-
-        auto loc_dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
-        auto household_dist =
+        auto         household_dist =
             m_rnManager.GetGenerator(trng::uniform_int_dist(0, geoGridConfig.generated.household_types.size()));
-        for (unsigned int householdId = 0; householdId < geoGridConfig.calculated.households; householdId++) {
-                int                        locationId      = loc_dist();
-                std::shared_ptr<Location>  loc             = (*geoGrid)[locationId];
-                int                        householdTypeId = household_dist();
-                std::shared_ptr<Household> householdType   = geoGridConfig.generated.household_types[householdTypeId];
-                auto household = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
-                household->addPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++,
-                                                                 householdType->getPoolSize()));
-                for (const auto& personType : *householdType->GetPools()[0]) {
-                        auto person = std::make_shared<stride::Person>(*personType);
-                        // person->SetHouseholdId();
-                        // if (person->GetAge < 18) {}
+        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                std::set<std::shared_ptr<ContactCenter>> households = loc->getContactCentersOfType<Household>();
+                for (const auto& household : households) {
+                        std::shared_ptr<ContactPool> contactPool     = household->GetPools()[0];
+                        unsigned int                 householdTypeId = household_dist();
+                        std::shared_ptr<ContactPool> householdType =
+                            geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
+                        for (const std::shared_ptr<stride::Person>& personType : *householdType) {
+                                auto person = std::make_shared<stride::Person>(*personType);
+                                person->SetId(current_person_id++);
+                                person->SetHouseholdId(household->getId());
+                                contactPool->addMember(person);
+                        }
                 }
         }
 }
