@@ -79,6 +79,7 @@ void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
 void Backend::PlaceMarkers()
 {
         // Clear the present markers
+        m_commutes.clear();
         QMetaObject::invokeMethod(m_map, "clearMap");
 
         // Place the commutes of the selection
