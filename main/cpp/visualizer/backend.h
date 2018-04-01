@@ -64,6 +64,12 @@ public:
 
         Q_INVOKABLE
         /**
+         * @param value If commutes need to be shown
+         */
+        void setShowCommutes(bool value);
+
+        Q_INVOKABLE
+        /**
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.
          */
@@ -78,7 +84,7 @@ private:
         std::unordered_map<std::string, QObject*> m_markers;
         std::unordered_map<std::string, std::vector<QObject*>>
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
-        bool                                           m_showCommutes = true;
+        bool                                           m_showCommutes = false;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
         std::set<std::shared_ptr<gengeopop::Location>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
@@ -116,4 +122,10 @@ private:
          * @param toLongitude
          */
         QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
+
+        void hideCommuteLine(QObject* obj);
+
+        void hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
 };

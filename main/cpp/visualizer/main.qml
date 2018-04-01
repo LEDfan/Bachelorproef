@@ -35,9 +35,19 @@ ApplicationWindow {
         }
 
         Menu {
-            title: "About"
+            title: "View"
             MenuItem {
-                         text: "Help"
+                         text: "Show Commutes"
+                         onTriggered: backend.setShowCommutes(checked)
+                         checkable: true
+                         checked: false
+                     }
+        }
+
+        Menu {
+            title: "Help"
+            MenuItem {
+                         text: "Shortcuts"
                          onTriggered: helpDialog.open()
                      }
         }
