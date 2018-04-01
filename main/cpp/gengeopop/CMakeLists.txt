@@ -29,6 +29,7 @@ set(GENGEOPOP_LIB
         populators/PartialPopulator.cpp
         populators/SchoolPopulator.cpp
         populators/HighSchoolPopulator.cpp
+        populators/WorkplacePopulator.cpp
         io/CitiesCSVReader.cpp
         io/CitiesReader.cpp
         io/CommutesReader.cpp

@@ -21,6 +21,7 @@
 #include <gengeopop/populators/PrimaryCommunityPopulator.h>
 #include <gengeopop/populators/SchoolPopulator.h>
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
+#include <gengeopop/populators/WorkplacePopulator.h>
 #include <utility>
 
 using namespace gengeopop;
@@ -49,7 +50,7 @@ void genPop(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, strid
         geoGridPopulator.addPartialPopulator(std::make_shared<HighSchoolPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(rnManager));
-
+        geoGridPopulator.addPartialPopulator(std::make_shared<WorkplacePopulator>(rnManager));
         geoGridPopulator.populateGeoGrid();
 }
 

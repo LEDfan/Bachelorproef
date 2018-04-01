@@ -37,7 +37,7 @@ protected:
                                 }
                         }
                         currentRadius *= 2;
-                        if (currentRadius == std::numeric_limits<double>::infinity()) {
+                        if (currentRadius >= std::pow(10, 10)) {
                                 throw std::runtime_error("No pools found");
                         }
                 }
