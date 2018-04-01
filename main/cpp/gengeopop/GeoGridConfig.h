@@ -86,21 +86,6 @@ public:
         struct
         {
                 /**
-                 * A list of persons who go to Schools.
-                 */
-                std::vector<std::shared_ptr<stride::Person>> pupils;
-
-                /**
-                 * A list of persons who go to HighSchools.
-                 */
-                std::vector<std::shared_ptr<stride::Person>> students;
-
-                /**
-                 * A list of persons who are able to work at a Workplace.
-                 */
-                std::vector<std::shared_ptr<stride::Person>> workers;
-
-                /**
                  * The current amount of ContactPools, used to obtain an Id for a new contactPool.
                  */
                 unsigned int contactPools = 0;
