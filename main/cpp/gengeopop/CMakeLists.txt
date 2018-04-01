@@ -17,6 +17,7 @@ set(GENGEOPOP_LIB
         generators/SchoolGenerator.cpp
         generators/PartialGenerator.cpp
         generators/HighSchoolGenerator.cpp
+        generators/HouseholdGenerator.cpp
         generators/WorkplaceGenerator.cpp
         generators/CommunityGenerator.cpp
         populators/GeoGridPopulator.cpp

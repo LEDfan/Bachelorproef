@@ -4,6 +4,7 @@
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
 #include <gengeopop/generators/HighSchoolGenerator.h>
+#include <gengeopop/generators/HouseholdGenerator.h>
 #include <gengeopop/generators/SchoolGenerator.h>
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
@@ -29,6 +30,7 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
         geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
+        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
 
         GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
@@ -107,10 +109,10 @@ int main(int argc, char* argv[])
 
                 generate(geoGridConfig, geoGrid);
 
-                std::cout << "Generation done, writing to file." << std::endl;
-
-                GeoGridJSONWriter geoGridJsonWriter;
-                geoGridJsonWriter.write(geoGrid, outputFileStream);
+                // Disable for now, is too slow and uses too much memory
+                // std::cout << "Generation done, writing to file." << std::endl;
+                // GeoGridJSONWriter geoGridJsonWriter;
+                // geoGridJsonWriter.write(geoGrid, outputFileStream);
 
                 std::cout << "Done" << std::endl;
         } catch (std::exception& e) {
