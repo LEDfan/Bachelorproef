@@ -53,7 +53,7 @@ void CliController::CheckEnv()
         m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
 
         if (m_use_install_dirs) {
-                auto log = [l = this->m_logger](const string& s) -> void { l->critical(s); };
+                auto log = [l = this->m_logger](const string& s)->void { l->critical(s); };
                 if (!FileSys::CheckInstallEnv(log)) {
                         throw std::runtime_error("CliController::CheckEnv> Install dirs not OK.");
                 } else {

@@ -24,11 +24,6 @@ unsigned int Location::getID() const { return m_id; }
 
 unsigned int Location::getPopulation() const { return m_population; }
 
-void Location::addContactCenter(std::shared_ptr<ContactCenter> contactCenter)
-{
-        m_contactCenters.push_back(contactCenter);
-}
-
 const std::vector<std::shared_ptr<ContactCenter>>& Location::getContactCenters() const { return m_contactCenters; }
 
 const Coordinate& Location::getCoordinate() const { return m_coordinate; }

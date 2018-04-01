@@ -1,5 +1,8 @@
+#include "Community.h"
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
+#include "School.h"
+#include "Workplace.h"
 #include <tclap/CmdLine.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -113,6 +116,18 @@ int main(int argc, char* argv[])
                 // std::cout << "Generation done, writing to file." << std::endl;
                 // GeoGridJSONWriter geoGridJsonWriter;
                 // geoGridJsonWriter.write(geoGrid, outputFileStream);
+
+                auto schools = geoGrid->GetById(11040)->getContactCentersOfType<School>();
+                for (const auto& sc : schools) {
+                        std::cout << sc->getType() << std::endl;
+                }
+
+                auto workplaces = geoGrid->GetById(11040)->getContactCentersOfType<Community>();
+                for (const auto& sc : workplaces) {
+                        std::cout << sc->getType() << std::endl;
+                }
+
+                std::cout << "Generation done, writing to file." << std::endl;
 
                 std::cout << "Done" << std::endl;
         } catch (std::exception& e) {
