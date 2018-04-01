@@ -224,11 +224,13 @@ void Backend::UpdateColorOfMarkers()
 
 QObject* Backend::addCommuteLine(Coordinate from, Coordinate to, double /* amount */)
 {
-        QVariant retVal;
-        QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(QVariant, from.latitude), Q_ARG(QVariant, from.longitude),
-                                  Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
-        return qvariant_cast<QObject*>(retVal);
+        if (m_showCommutes) {
+                QVariant retVal;
+                QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
+                                          Q_ARG(QVariant, from.latitude), Q_ARG(QVariant, from.longitude),
+                                          Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
+                return qvariant_cast<QObject*>(retVal);
+        }
 }
 
 void Backend::selectAll()
