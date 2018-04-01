@@ -18,19 +18,8 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 // 1. find all schools in an area of 10-k*10 km
-                double                                    currentRadius = 10;
-                std::vector<std::shared_ptr<ContactPool>> classes;
-
-                while (classes.empty()) {
-                        for (const std::shared_ptr<Location>& nearLoc :
-                             geoGrid->findLocationsInRadius(loc, currentRadius)) {
-                                auto schools = nearLoc->getContactCentersOfType<School>();
-                                for (const auto& school : schools) {
-                                        classes.insert(classes.end(), school->begin(), school->end());
-                                }
-                        }
-                        currentRadius += 10;
-                }
+                std::vector<std::shared_ptr<ContactPool>> classes =
+                    GetContactPoolInIncreasingRadius<School>(geoGrid, loc);
 
                 auto dist = m_rnManager.GetGenerator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));

@@ -17,5 +17,25 @@ public:
 
 protected:
         stride::util::RNManager& m_rnManager;
+
+        template <typename T>
+        std::vector<std::shared_ptr<ContactPool>> GetContactPoolInIncreasingRadius(
+            const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double step = 10)
+        {
+                double                                    currentRadius = step;
+                std::vector<std::shared_ptr<ContactPool>> pools;
+
+                while (pools.empty()) {
+                        for (const std::shared_ptr<Location>& nearLoc :
+                             geoGrid->findLocationsInRadius(start, currentRadius)) {
+                                auto centers = nearLoc->getContactCentersOfType<T>();
+                                for (const auto& center : centers) {
+                                        pools.insert(pools.end(), center->begin(), center->end());
+                                }
+                        }
+                        currentRadius += step;
+                }
+                return pools;
+        }
 };
 } // namespace gengeopop
