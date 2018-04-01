@@ -20,92 +20,99 @@ public:
         /**
          * INPUT
          */
+        struct {
+                /**
+                 * Fraction of calc_fraction_1826 which are students.
+                 */
+                double fraction_1826_years_WhichAreStudents;
+
+                /**
+                 * Fraction of calc_1865_and_active which commute.
+                 */
+                double fraction_commutingPeople;
+
+                /**
+                 * Absolute size of the population.
+                 */
+                unsigned int populationSize;
+
+        } input;
 
         /**
-         * Fraction of calc_fraction_1826 which are students.
+         * CALCULATED
          */
-        double input_fraction_1826_years_WhichAreStudents;
+        struct {
+                /**
+                 * Absolute amount of population which are compulsory to go to school (i.e. 6-18 years old).
+                 */
+                unsigned int compulsoryPupils;
 
-        /**
-         * Fraction of calc_1865_and_active which commute.
-         */
-        double input_fraction_commutingPeople;
+                /**
+                 * Absolute amount of population which are [18, 65) years old.
+                 */
+                unsigned int _1865_years;
 
-        /**
-         * Absolute size of the population.
-         */
-        unsigned int input_populationSize;
+                /**
+                 * Absolute amount of population which are [18, 26) years old.
+                 */
+                unsigned int _1826_years;
 
-        /**
-         * A list of possible households.
-         */
+                /**
+                 * Absolute amount of population which are [18, 26) years old and are a student.
+                 */
+                unsigned int _1826_years_and_student;
 
-        std::vector<std::shared_ptr<Household>> household_types;
+                /**
+                 * Absolute amount of population which are [18, 65] years old and active.
+                 */
+                unsigned int _1865_and_years_active;
 
-        // CALCULATED
+                /**
+                 * Fraction of population which are [18, 65] years old and active.
+                 */
+                double fraction_1865_and_years_active;
 
-        /**
-         * Absolute amount of population which are compulsory to go to school (i.e. 6-18 years old).
-         */
-        unsigned int calc_compulsoryPupils;
+                /**
+                 * The number of households needed with this population size and these types of households.
+                 */
+                unsigned int households;
+        } calculated;
 
-        /**
-         * Absolute amount of population which are [18, 65) years old.
-         */
-        unsigned int calc_1865_years;
-
-        /**
-         * Absolute amount of population which are [18, 26) years old.
-         */
-        unsigned int calc_1826_years;
-
-        /**
-         * Absolute amount of population which are [18, 26) years old and are a student.
-         */
-        unsigned int calc_1826_years_and_student;
-
-        /**
-         * Absolute amount of population which are [18, 65] years old and active.
-         */
-        unsigned int calc_1865_and_years_active;
-
-        /**
-         * Fraction of population which are [18, 65] years old and active.
-         */
-        double calc_fraction_1865_and_years_active;
-
-        /**
-         * The number of households needed with this population size and these types of households.
+        /*
+         * CURRENT STATE
          */
 
-        unsigned int calc_households;
+        struct {
+                /**
+                 * A list of persons who go to Schools.
+                 */
+                std::vector<stride::Person> pupils;
 
-        // CURRENT STATE
+                /**
+                 * A list of persons who go to HighSchools.
+                 */
+                std::vector<stride::Person> students;
 
-        /**
-         * A list of persons who go to Schools.
-         */
-        std::vector<stride::Person> pupils;
+                /**
+                 * A list of persons who are able to work at a Workplace.
+                 */
+                std::vector<stride::Person> workers;
 
-        /**
-         * A list of persons who go to HighSchools.
-         */
-        std::vector<stride::Person> students;
+                /**
+                 * The current amount of ContactPools, used to obtain an Id for a new contactPool.
+                 */
+                unsigned int contactPools = 0;
 
-        /**
-         * A list of persons who are able to work at a Workplace.
-         */
-        std::vector<stride::Person> workers;
+                /**
+                 * The current amount of ContactCenters, used to obtain an Id for a new contactCenter.
+                 */
+                unsigned int contactCenters = 0;
 
-        /**
-         * The current amount of ContactPools, used to obtain an Id for a new contactPool.
-         */
-        unsigned int contactPools = 0;
-
-        /**
-         * The current amount of ContactCenters, used to obtain an Id for a new contactCenter.
-         */
-        unsigned int contactCenters = 0;
+                /**
+                 * A list of possible households.
+                 */
+                std::vector<std::shared_ptr<Household>> household_types;
+        } generated;
 };
 
 } // namespace gengeopop

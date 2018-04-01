@@ -21,7 +21,7 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          * 5. assign each workplace to a location
          */
 
-        auto amountOfEmployees  = geoGridConfig.calc_1865_and_years_active;
+        auto amountOfEmployees  = geoGridConfig.calculated._1865_and_years_active;
         auto amountOfWorkplaces = static_cast<int>(std::ceil(amountOfEmployees / 20.0)); // TODO magic constant
 
         std::vector<double>
@@ -29,9 +29,9 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 double amountOfWorkingPeople =
-                    loc->getPopulation() * geoGridConfig.calc_fraction_1865_and_years_active +
-                    loc->incomingCommutingPeople(geoGridConfig.input_fraction_commutingPeople) -
-                    loc->outGoingCommutingPeople(geoGridConfig.input_fraction_commutingPeople);
+                    loc->getPopulation() * geoGridConfig.calculated.fraction_1865_and_years_active +
+                    loc->incomingCommutingPeople(geoGridConfig.input.fraction_commutingPeople) -
+                    loc->outGoingCommutingPeople(geoGridConfig.input.fraction_commutingPeople);
                 weights.push_back(amountOfWorkingPeople / amountOfEmployees);
         }
 
@@ -45,7 +45,7 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         for (int workPlaceId = 0; workPlaceId < amountOfWorkplaces; workPlaceId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                loc->addContactCenter(std::make_shared<Workplace>(geoGridConfig.contactCenters++));
+                loc->addContactCenter(std::make_shared<Workplace>(geoGridConfig.generated.contactCenters++));
         }
 }
 
