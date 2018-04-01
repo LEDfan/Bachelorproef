@@ -21,16 +21,14 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
                 double                                    currentRadius = 10;
                 std::vector<std::shared_ptr<ContactPool>> classes;
 
-                for (const std::shared_ptr<Location>& nearLoc : geoGrid->findLocationsInRadius(loc, currentRadius)) {
-                        auto schools = nearLoc->getContactCentersOfType<School>();
-                        for (const auto& school : schools) {
-                                classes.insert(classes.end(), school->begin(), school->end());
+                while (classes.empty()) {
+                        for (const std::shared_ptr<Location>& nearLoc :
+                             geoGrid->findLocationsInRadius(loc, currentRadius)) {
+                                auto schools = nearLoc->getContactCentersOfType<School>();
+                                for (const auto& school : schools) {
+                                        classes.insert(classes.end(), school->begin(), school->end());
+                                }
                         }
-
-                        if (!classes.empty()) {
-                                break;
-                        }
-
                         currentRadius += 10;
                 }
 
@@ -43,8 +41,6 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
                                 if (person->GetAge() < 18 && person->GetAge() >= 6) {
                                         classes[dist()]->addMember(person);
-                                        std::cout << "Assign person " << person->GetId() << " to class "
-                                                  << classes[dist()]->getID() << std::endl;
                                 }
                         }
                 }

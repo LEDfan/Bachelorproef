@@ -41,6 +41,7 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
         geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
 
         geoGridGenerator.generateGeoGrid();
+        geoGridPopulator.populateGeoGrid();
 }
 
 int main(int argc, char* argv[])
