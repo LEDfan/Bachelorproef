@@ -25,22 +25,25 @@ ApplicationWindow {
         Menu {
             title: "File"
             MenuItem {
-                        text: "Open"
+                        text: "&Open"
                         onTriggered: fileSelector.open()
+                        shortcut: "Ctrl+o"
                     }
             MenuItem {
-                        text: "Save"
+                        text: "&Save"
                         onTriggered: saveFileSelector.open()
+                        shortcut: "Ctrl+s"
                       }
         }
 
         Menu {
             title: "View"
             MenuItem {
-                         text: "Show Commutes"
+                         text: "Show &Commutes"
                          onTriggered: backend.setShowCommutes(checked)
                          checkable: true
                          checked: false
+                         shortcut: "Alt+c"
                      }
         }
 
@@ -108,7 +111,6 @@ ApplicationWindow {
         id: saveFileSelector
         selectExisting: false
         title: "Select a save location"
-        folder: shortcuts.home
         onAccepted: {
             backend.SaveGeoGridToFile(fileUrl, errorDialogBox)
         }
@@ -117,7 +119,6 @@ ApplicationWindow {
     FileDialog {
         id: fileSelector
         title: "Please choose a file"
-        folder: shortcuts.home
         onAccepted: {
             backend.LoadGeoGridFromFile(fileSelector.fileUrl, errorDialogBox)
         }
