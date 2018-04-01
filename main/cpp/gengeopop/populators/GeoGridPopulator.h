@@ -6,7 +6,7 @@ namespace gengeopop {
 class GeoGridPopulator
 {
 public:
-        GeoGridPopulator(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
+        GeoGridPopulator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
         void addPartialPopulator(std::shared_ptr<PartialPopulator> gen);
 
         /**

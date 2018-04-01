@@ -12,6 +12,7 @@ public:
         std::string  getType() const;
         unsigned int getMaxPools() const;
         unsigned int getPoolSize() const;
+        void         fill(GeoGridConfig& geoGridConfig) override;
         virtual ~Household(){};
 };
 

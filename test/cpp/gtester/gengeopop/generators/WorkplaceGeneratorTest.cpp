@@ -15,7 +15,7 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         WorkplaceGenerator workplaceGenerator(rnManager);
-        GeoGridConfig      config;
+        GeoGridConfig      config{};
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 20000;
 

@@ -16,10 +16,7 @@ public:
         virtual unsigned int getPoolSize() const = 0;
         virtual unsigned int getMaxPools() const = 0;
         virtual bool         isAvailable() const;
-        virtual void         fill(GeoGridConfig& geoGridConfig)
-        {
-                // TODO make abstract
-        }
+        virtual void         fill(GeoGridConfig& geoGridConfig) = 0;
 
         unsigned int getId() const;
 

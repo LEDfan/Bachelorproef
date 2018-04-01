@@ -1,4 +1,5 @@
 #include "Household.h"
+#include "GeoGridConfig.h"
 
 namespace gengeopop {
 
@@ -11,4 +12,9 @@ unsigned int Household::getMaxPools() const { return 1; }
 unsigned int Household::getPoolSize() const { return 15; }
 
 std::string Household::getType() const { return "Household"; }
+
+void Household::fill(GeoGridConfig &geoGridConfig) {
+        addPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, getPoolSize()));
+
+}
 } // namespace gengeopop

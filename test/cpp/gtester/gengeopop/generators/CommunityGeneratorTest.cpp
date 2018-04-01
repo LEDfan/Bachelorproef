@@ -15,7 +15,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager);
-        GeoGridConfig      config;
+        GeoGridConfig      config{};
         config.input.populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -36,7 +36,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager);
-        GeoGridConfig      config;
+        GeoGridConfig      config{};
         config.input.populationSize = 100 * 100 * 1000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -61,7 +61,7 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager);
-        GeoGridConfig      config;
+        GeoGridConfig      config{};
         config.input.populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
