@@ -8,10 +8,13 @@ namespace gengeopop {
 class Community : public ContactCenter
 {
 public:
-        void         addHouseHold(std::shared_ptr<Household> household);
-        std::string  getType() const;
-        unsigned int getPoolSize() const;
-        unsigned int getMaxPools() const;
+        Community(unsigned int id);
+        void                addHouseHold(std::shared_ptr<Household> household);
+        virtual std::string getType() const;
+        bool                isAvailable() const;
+        unsigned int        getPoolSize() const;
+        unsigned int        getMaxPools() const;
+        void                fill(GeoGridConfig& geoGridConfig);
         virtual ~Community(){};
 };
 

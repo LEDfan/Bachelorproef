@@ -2,7 +2,12 @@
 
 #include "ContactCenter.h"
 #include "Coordinate.h"
+#include <iostream>
+#include <set>
 #include <string>
+#include <typeindex>
+#include <typeinfo>
+#include <unordered_map>
 #include <vector>
 
 namespace gengeopop {
@@ -16,7 +21,19 @@ public:
         Location(unsigned int id, unsigned int province, unsigned int population,
                  Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0), std::string name = "");
 
-        void         addContactCenter(std::shared_ptr<ContactCenter> center);
+        template <typename T>
+        void addContactCenter(std::shared_ptr<T> contactCenter)
+        {
+                m_contactCenters.push_back(contactCenter);
+                m_contactCenterByType[typeid(T)].insert(contactCenter);
+        }
+
+        template <typename T>
+        std::set<std::shared_ptr<ContactCenter>> getContactCentersOfType()
+        {
+                return m_contactCenterByType[typeid(T)];
+        }
+
         std::string  getName() const;
         unsigned int getProvince() const;
         unsigned int getID() const;
@@ -70,15 +87,16 @@ public:
         bool operator==(const Location& other) const;
 
 private:
-        unsigned int                                              m_id = 0;
-        std::string                                               m_name;
-        unsigned int                                              m_province;
-        unsigned int                                              m_population;
-        double                                                    m_relativePopulation;
-        Coordinate                                                m_coordinate;
-        std::vector<std::shared_ptr<ContactCenter>>               m_contactCenters;
-        std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
-        std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
+        unsigned int                                                                  m_id = 0;
+        std::string                                                                   m_name;
+        unsigned int                                                                  m_province;
+        unsigned int                                                                  m_population;
+        double                                                                        m_relativePopulation;
+        Coordinate                                                                    m_coordinate;
+        std::vector<std::shared_ptr<ContactCenter>>                                   m_contactCenters;
+        std::vector<std::pair<std::shared_ptr<Location>, double>>                     m_incomingCommutingLocations;
+        std::vector<std::pair<std::shared_ptr<Location>, double>>                     m_outgoingCommutingLocations;
+        std::unordered_map<std::type_index, std::set<std::shared_ptr<ContactCenter>>> m_contactCenterByType;
 };
 
 } // namespace gengeopop

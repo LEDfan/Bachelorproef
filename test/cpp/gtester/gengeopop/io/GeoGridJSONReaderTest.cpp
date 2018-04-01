@@ -149,6 +149,8 @@ void runPeopleTest(std::string filename)
         auto                       location = geoGrid->get(0);
         std::map<int, std::string> types    = {{2, "School"},     {3, "Community"}, {7, "Community"},
                                             {4, "HighSchool"}, {5, "Household"}, {6, "Workplace"}};
+        std::map<int, std::string> ids      = {{0, "School"},     {1, "Community"}, {2, "Community"},
+                                          {3, "HighSchool"}, {4, "Household"}, {5, "Workplace"}};
 
         EXPECT_EQ(location->getID(), 1);
         EXPECT_EQ(location->getName(), "Bavikhove");
@@ -164,6 +166,7 @@ void runPeopleTest(std::string filename)
                 auto pool   = center->GetPools()[0];
                 auto person = *(pool->begin());
                 EXPECT_EQ(types[pool->getID()], center->getType());
+                EXPECT_EQ(ids[center->getId()], center->getType());
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');

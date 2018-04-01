@@ -5,7 +5,8 @@
 namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
     : m_id(id), m_name(std::move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),
-      m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations()
+      m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations(),
+      m_contactCenterByType()
 {
 }
 
@@ -23,11 +24,6 @@ unsigned int Location::getProvince() const { return m_province; }
 unsigned int Location::getID() const { return m_id; }
 
 unsigned int Location::getPopulation() const { return m_population; }
-
-void Location::addContactCenter(std::shared_ptr<ContactCenter> contactCenter)
-{
-        m_contactCenters.push_back(contactCenter);
-}
 
 const std::vector<std::shared_ptr<ContactCenter>>& Location::getContactCenters() const { return m_contactCenters; }
 

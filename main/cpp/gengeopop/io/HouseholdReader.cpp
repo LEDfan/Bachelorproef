@@ -11,6 +11,11 @@ const std::vector<std::shared_ptr<Household>>& gengeopop::HouseholdReader::GetHo
 
 unsigned int HouseholdReader::getTotalPersonsInHouseholds() const { return m_total; }
 
+double HouseholdReader::averageHouseholdSize() const
+{
+        return static_cast<double>(m_total) / static_cast<double>(m_households.size());
+}
+
 double HouseholdReader::getFraction1826Years() const
 {
         return static_cast<double>(m_total1826Years) / static_cast<double>(m_total);

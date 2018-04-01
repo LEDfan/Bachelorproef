@@ -31,6 +31,7 @@ set( SRC
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
+        gengeopop/generators/HouseholdGeneratorTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
         gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/kdtree.cpp

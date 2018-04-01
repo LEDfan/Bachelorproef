@@ -15,8 +15,8 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager);
-        GeoGridConfig      config;
-        config.input_populationSize = 10000;
+        GeoGridConfig      config{};
+        config.input.populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
@@ -25,7 +25,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         communityGenerator.apply(geoGrid, config);
 
         const auto& centersOfLoc1 = loc1->getContactCenters();
-        EXPECT_EQ(centersOfLoc1.size(), 5);
+        EXPECT_EQ(centersOfLoc1.size(), 10);
 }
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
@@ -36,8 +36,8 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager);
-        GeoGridConfig      config;
-        config.input_populationSize = 100 * 100 * 1000;
+        GeoGridConfig      config{};
+        config.input.populationSize = 100 * 100 * 1000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         for (int i = 0; i < 10; i++) {
@@ -47,7 +47,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         communityGenerator.apply(geoGrid, config);
 
-        std::vector<int> expectedCount{520, 499, 509, 534, 472, 506, 472, 485, 491, 512};
+        std::vector<int> expectedCount{991, 994, 1033, 1022, 1029, 998, 947, 995, 1015, 976};
         for (int i = 0; i < 10; i++) {
                 EXPECT_EQ(expectedCount[i], geoGrid->get(i)->getContactCenters().size());
         }
@@ -61,8 +61,8 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         stride::util::RNManager rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager);
-        GeoGridConfig      config;
-        config.input_populationSize = 10000;
+        GeoGridConfig      config{};
+        config.input.populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         communityGenerator.apply(geoGrid, config);
@@ -79,8 +79,8 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
 
         CommunityGenerator communityGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input_populationSize  = 37542 * 100;
-        config.calc_compulsoryPupils = 750840;
+        config.input.populationSize        = 37542 * 100;
+        config.calculated.compulsoryPupils = 750840;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0, 0, 0), "Antwerpen");
@@ -98,19 +98,19 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         communityGenerator.apply(geoGrid, config);
 
         const auto& centersOfLoc1 = loc1->getContactCenters();
-        EXPECT_EQ(centersOfLoc1.size(), 509);
+        EXPECT_EQ(centersOfLoc1.size(), 1050);
 
         const auto& centersOfLoc2 = loc2->getContactCenters();
-        EXPECT_EQ(centersOfLoc2.size(), 565);
+        EXPECT_EQ(centersOfLoc2.size(), 1089);
 
         const auto& centersOfLoc3 = loc3->getContactCenters();
-        EXPECT_EQ(centersOfLoc3.size(), 420);
+        EXPECT_EQ(centersOfLoc3.size(), 809);
 
         const auto& centersOfLoc4 = loc4->getContactCenters();
-        EXPECT_EQ(centersOfLoc4.size(), 170);
+        EXPECT_EQ(centersOfLoc4.size(), 351);
 
         const auto& centersOfLoc5 = loc5->getContactCenters();
-        EXPECT_EQ(centersOfLoc5.size(), 214);
+        EXPECT_EQ(centersOfLoc5.size(), 457);
 }
 
 } // namespace

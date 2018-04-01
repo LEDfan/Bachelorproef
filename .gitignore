@@ -114,3 +114,4 @@ vendor/
 gengeopop.json
 html_coverage
 coverage.info
+test_logfile
