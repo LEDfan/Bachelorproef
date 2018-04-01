@@ -14,4 +14,6 @@ const std::vector<std::shared_ptr<ContactPool>>& ContactCenter::GetPools() const
 
 unsigned int ContactCenter::getId() const { return m_id; }
 
+bool ContactCenter::isAvailable() const { return true; }
+
 } // namespace gengeopop

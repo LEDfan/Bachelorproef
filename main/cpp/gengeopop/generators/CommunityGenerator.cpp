@@ -1,5 +1,6 @@
 #include "CommunityGenerator.h"
-#include "../Community.h"
+#include "../PrimaryCommunity.h"
+#include "../SecondaryCommunity.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <cmath>
@@ -34,10 +35,18 @@ void CommunityGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int communityId = 0; communityId < amountOfCommunities; communityId++) {
+        for (int communityId = 0; communityId < amountOfCommunities * 2; communityId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                loc->addContactCenter(std::make_shared<Community>(geoGridConfig.generated.contactCenters++));
+                if (communityId < amountOfCommunities) {
+                        auto community = std::make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
+                        community->fill(geoGridConfig);
+                        loc->addContactCenter(community);
+                } else {
+                        auto community = std::make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
+                        community->fill(geoGridConfig);
+                        loc->addContactCenter(community);
+                }
         }
 }
 

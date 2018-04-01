@@ -4,6 +4,8 @@
 set(GENGEOPOP_LIB
         Coordinate.cpp
         Community.cpp
+        PrimaryCommunity.cpp
+        SecondaryCommunity.cpp
         ContactCenter.cpp
         ContactPool.cpp
         GeoGrid.cpp
@@ -20,6 +22,8 @@ set(GENGEOPOP_LIB
         generators/HouseholdGenerator.cpp
         generators/WorkplaceGenerator.cpp
         generators/CommunityGenerator.cpp
+        populators/PrimaryCommunityPopulator.cpp
+        populators/SecondaryCommunityPopulator.cpp
         populators/GeoGridPopulator.cpp
         populators/HouseholdPopulator.cpp
         populators/PartialPopulator.cpp

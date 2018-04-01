@@ -15,6 +15,7 @@ public:
         virtual std::string  getType() const     = 0;
         virtual unsigned int getPoolSize() const = 0;
         virtual unsigned int getMaxPools() const = 0;
+        virtual bool         isAvailable() const;
         virtual void         fill(GeoGridConfig& geoGridConfig)
         {
                 // TODO make abstract
@@ -31,7 +32,7 @@ public:
 
         virtual ~ContactCenter(){};
 
-private:
+protected:
         std::vector<std::shared_ptr<ContactPool>> m_pools;
         unsigned int                              m_id;
 };

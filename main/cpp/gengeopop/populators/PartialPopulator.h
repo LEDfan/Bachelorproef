@@ -1,9 +1,9 @@
 #pragma once
 
 #include "../../util/RNManager.h"
+#include <trng/discrete_dist.hpp>
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <trng/discrete_dist.hpp>
 
 namespace gengeopop {
 /**
@@ -31,26 +31,27 @@ protected:
                              geoGrid->findLocationsInRadius(start, currentRadius)) {
                                 auto centers = nearLoc->getContactCentersOfType<T>();
                                 for (const auto& center : centers) {
-                                        pools.insert(pools.end(), center->begin(), center->end());
+                                        if (center->isAvailable()) {
+                                                pools.insert(pools.end(), center->begin(), center->end());
+                                        }
                                 }
                         }
                         currentRadius *= 2;
                         if (currentRadius == std::numeric_limits<double>::infinity()) {
-                                throw std::runtime_error("No cools found");
+                                throw std::runtime_error("No pools found");
                         }
                 }
                 return pools;
         }
 
-
-        bool MakeChoice(double fraction) {
+        bool MakeChoice(double fraction)
+        {
                 std::vector<double> weights;
                 weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
-                weights.push_back(fraction); // -> 1, return is true -> part of the fraction
+                weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
 
                 auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
                 return static_cast<bool>(dist());
         }
-
 };
 } // namespace gengeopop
