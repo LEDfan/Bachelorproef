@@ -24,6 +24,12 @@ public:
 
         Q_INVOKABLE
         /**
+         * Load a GeoGrid from JSON file, specified in the command line arguments
+         */
+        void LoadGeoGridFromCommandLine(const QStringList& args);
+
+        Q_INVOKABLE
+        /**
          * Places the locations of the current GeoGrid on the map.
          * @param map: Instance of the Map QObject
          */

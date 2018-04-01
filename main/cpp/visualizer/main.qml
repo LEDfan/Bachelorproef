@@ -95,11 +95,15 @@ ApplicationWindow {
         id: backend
         Component.onCompleted: {
             backend.LocationsSelected.connect(clickSignal)
+            if (Qt.application.arguments.length > 1) {
+                backend.LoadGeoGridFromCommandLine(Qt.application.arguments);
+            }
         }
 
         function clickSignal (arg) {
             locViewer.showLocations(arg)
         }
+
     }
 
     Shortcut {

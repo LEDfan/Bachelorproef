@@ -53,6 +53,29 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         PlaceMarkers();
 }
 
+void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
+{
+        for (int i = 1; i < args.size(); i++) {
+                boost::filesystem::path path(args[i].toStdString());
+                if (boost::filesystem::exists(path)) {
+                        path = boost::filesystem::canonical(path);
+                        qDebug() << "Reading from " << path.c_str();
+
+                        std::ifstream                inputFile(path.c_str());
+                        gengeopop::GeoGridJSONReader reader;
+
+                        try {
+                                m_grid = reader.read(inputFile);
+                                m_grid->finalize();
+                        } catch (const std::exception& e) {
+                                qWarning() << QString("Error: ") + e.what();
+                        }
+                        PlaceMarkers();
+                        break;
+                }
+        }
+}
+
 void Backend::PlaceMarkers()
 {
         // Clear the present markers
