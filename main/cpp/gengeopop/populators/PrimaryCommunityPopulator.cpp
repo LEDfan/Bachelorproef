@@ -43,6 +43,7 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                                 found.insert(community_pools[pool]);
                                 if (community_pools[pool].get() == nullptr) {
                                         std::cout << pool << std::endl;
+                                        break;
                                 }
                                 community_pools[pool]->addMember(person);
                         }
@@ -52,7 +53,7 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                                 updatePools();
                                 if (community_pools.empty()) {
                                         std::cout << "Could not find a pool for person" << std::endl;
-                                        break;
+                                        return;
                                 }
                         }
                 }

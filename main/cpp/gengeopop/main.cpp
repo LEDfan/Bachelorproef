@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
                 ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
                                                          0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
 
-                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
+                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 1000000,
                                                       "POPULATION SIZE", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));

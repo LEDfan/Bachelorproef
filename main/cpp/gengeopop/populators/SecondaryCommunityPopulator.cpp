@@ -49,6 +49,10 @@ void SecondaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                                         full_capacity_count++;
                                         community_pools.erase(community_pools.begin() + pool);
                                         updatePools();
+                                        if (community_pools.empty()) {
+                                                std::cout << "Could not find a pool for person" << std::endl;
+                                                return;
+                                        }
                                 }
                         }
                 }
