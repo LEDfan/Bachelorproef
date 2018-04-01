@@ -24,6 +24,12 @@ public:
 
         Q_INVOKABLE
         /**
+         * Load a GeoGrid from JSON file, specified in the command line arguments
+         */
+        void LoadGeoGridFromCommandLine(const QStringList& args);
+
+        Q_INVOKABLE
+        /**
          * Places the locations of the current GeoGrid on the map.
          * @param map: Instance of the Map QObject
          */
@@ -60,6 +66,15 @@ public:
         void selectArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
+        void selectAll();
+
+        Q_INVOKABLE
+        /**
+         * @param value If commutes need to be shown
+         */
+        void setShowCommutes(bool value);
+
+        Q_INVOKABLE
         /**
          *  Saves the current GeoGrid to a JSON file.
          * @param fileLoc File to save the JSON to.
@@ -70,9 +85,12 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                       m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>            m_grid;
-        std::unordered_map<std::string, QObject*>      m_markers;
+        QObject*                                  m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid>       m_grid;
+        std::unordered_map<std::string, QObject*> m_markers;
+        std::unordered_map<std::string, std::vector<QObject*>>
+                                                       m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
+        bool                                           m_showCommutes = false;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
         std::set<std::shared_ptr<gengeopop::Location>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
@@ -101,4 +119,19 @@ private:
          * be removed.
          */
         void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        /**
+         * Add a line on the map for the given commute info.
+         * @param fromLatitude
+         * @param fromLongitude
+         * @param toLatitude
+         * @param toLongitude
+         */
+        QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
+
+        void hideCommuteLine(QObject* obj);
+
+        void hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
 };

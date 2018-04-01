@@ -20,6 +20,14 @@ ColumnLayout {
                 wrapMode: Text.WordWrap
     }
     Text {
+        id: textPopulation
+        objectName: 'textPopulation'
+        text: 'Population:'
+        width: 100
+        clip: true
+        wrapMode: Text.WordWrap
+    }
+    Text {
         id: textProvince
         objectName: 'textProvince'
         text: 'Province:'
