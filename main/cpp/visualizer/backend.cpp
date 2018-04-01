@@ -52,13 +52,12 @@ void Backend::PlaceMarkers()
         QMetaObject::invokeMethod(m_map, "clearMap");
 
         // Place the commutes of the selection
-        //
-        //        for (auto loc : m_selection) {
-        //                for (auto commute : loc->getIncomingCommuningCities()) {
-        //                        auto otherCity = commute.first;
-        //                        addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
-        //                }
-        //        }
+        for (auto loc : m_selection) {
+                for (auto commute : loc->getIncomingCommuningCities()) {
+                        auto otherCity = commute.first;
+                        addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+                }
+        }
 
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
@@ -121,8 +120,12 @@ void Backend::ClearSelectionAndRender()
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "red");
+
+                // Hide the commutes
                 for (auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
-                        commuteLine->setProperty("line.color", "#00000000");
+                        QVariant retVal;
+                        QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection,
+                                                  Q_RETURN_ARG(QVariant, retVal));
                 }
         }
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
@@ -183,30 +186,33 @@ void Backend::UpdateColorOfMarkers()
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "red");
                 // Hide the commutes
-                //                                for(auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
-                //                                        commuteLine->setProperty("line.color", "#00000000");
-                //                                }
+                for (auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
+                        QVariant retVal;
+                        QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection,
+                                                  Q_RETURN_ARG(QVariant, retVal));
+                }
         }
         m_unselection.clear();
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "blue");
-                // Show commutes if they were already on the map
-                //                    auto& commutesOnMapOfLocation = m_commutes[std::to_string(loc->getID())];
-                //                    for(auto commuteLine : commutesOnMapOfLocation) {
-                //                            commuteLine->setProperty("line.color", "#00009900");
-                //                    }
-                //                    // If they were not yet on the map, add the lines
-                //
-                //                    if(commutesOnMapOfLocation.empty()){
-                //                        for (auto commute : loc->getIncomingCommuningCities()) {
-                //                            auto otherCity = commute.first;
-                //                            auto commuteLine = addCommuteLine(otherCity->getCoordinate(),
-                //                            loc->getCoordinate(), commute.second);
-                //                            commutesOnMapOfLocation.push_back(commuteLine);
-                //
-                //                        }
-                //                    }
+                //                 Show commutes if they were already on the map
+                auto& commutesOnMapOfLocation = m_commutes[std::to_string(loc->getID())];
+                for (auto commuteLine : commutesOnMapOfLocation) {
+                        QVariant retVal;
+                        QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection,
+                                                  Q_RETURN_ARG(QVariant, retVal));
+                }
+                // If they were not yet on the map, add the lines
+
+                if (commutesOnMapOfLocation.empty()) {
+                        for (auto commute : loc->getIncomingCommuningCities()) {
+                                auto otherCity = commute.first;
+                                auto commuteLine =
+                                    addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+                                commutesOnMapOfLocation.push_back(commuteLine);
+                        }
+                }
         }
 }
 

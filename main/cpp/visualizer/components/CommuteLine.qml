@@ -7,4 +7,12 @@ MapPolyline {
         { latitude: 0, longitude: 0  },
         { latitude: 0, longitude: 0  }
     ]
+
+    function hide(){
+        line.color = "#00000000"
+    }
+
+    function show(){
+        line.color = "#60002200"
+    }
 }
