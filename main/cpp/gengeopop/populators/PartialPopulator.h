@@ -3,6 +3,7 @@
 #include "../../util/RNManager.h"
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
+#include <trng/discrete_dist.hpp>
 
 namespace gengeopop {
 /**
@@ -20,9 +21,9 @@ protected:
 
         template <typename T>
         std::vector<std::shared_ptr<ContactPool>> GetContactPoolInIncreasingRadius(
-            const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double step = 10)
+            const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius = 10)
         {
-                double                                    currentRadius = step;
+                double                                    currentRadius = startRadius;
                 std::vector<std::shared_ptr<ContactPool>> pools;
 
                 while (pools.empty()) {
@@ -33,9 +34,23 @@ protected:
                                         pools.insert(pools.end(), center->begin(), center->end());
                                 }
                         }
-                        currentRadius += step;
+                        currentRadius *= 2;
+                        if (currentRadius == std::numeric_limits<double>::infinity()) {
+                                throw std::runtime_error("No cools found");
+                        }
                 }
                 return pools;
         }
+
+
+        bool MakeChoice(double fraction) {
+                std::vector<double> weights;
+                weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
+                weights.push_back(fraction); // -> 1, return is true -> part of the fraction
+
+                auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
+                return static_cast<bool>(dist());
+        }
+
 };
 } // namespace gengeopop

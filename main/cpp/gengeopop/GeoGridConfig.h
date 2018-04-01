@@ -28,7 +28,7 @@ public:
                 double fraction_1826_years_WhichAreStudents;
 
                 /**
-                 * Fraction of calc_1865_and_active which commute.
+                 * Fraction of calc_1865_and_active or of fraction_1826_years_WhichAreStudents which commute.
                  */
                 double fraction_commutingPeople;
 

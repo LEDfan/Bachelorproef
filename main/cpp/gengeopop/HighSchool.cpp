@@ -1,4 +1,5 @@
 #include "HighSchool.h"
+#include "GeoGridConfig.h"
 
 namespace gengeopop {
 
@@ -8,11 +9,16 @@ std::string HighSchool::getType() const { return "HighSchool"; }
 
 unsigned int HighSchool::getMaxPools() const
 {
-        return 0; // TODO
+        return 20;
 }
 
 unsigned int HighSchool::getPoolSize() const
 {
         return 0; // TODO
+}
+void HighSchool::fill(GeoGridConfig& geoGridConfig) {
+        for (int i = 0; i < getMaxPools(); ++i) {
+                addPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, getPoolSize()));
+        }
 }
 } // namespace gengeopop

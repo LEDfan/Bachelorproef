@@ -10,5 +10,6 @@ public:
         std::string  getType() const;
         unsigned int getPoolSize() const;
         unsigned int getMaxPools() const;
+        void         fill(GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

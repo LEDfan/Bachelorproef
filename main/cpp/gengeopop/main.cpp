@@ -16,6 +16,7 @@
 
 #include <boost/lexical_cast.hpp>
 #include <gengeopop/populators/GeoGridPopulator.h>
+#include <gengeopop/populators/HighSchoolPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
 #include <gengeopop/populators/SchoolPopulator.h>
 #include <utility>
@@ -39,6 +40,7 @@ void generate(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
         GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
+        geoGridPopulator.addPartialPopulator(std::make_shared<HighSchoolPopulator>(rnManager));
 
         geoGridGenerator.generateGeoGrid();
         geoGridPopulator.populateGeoGrid();
