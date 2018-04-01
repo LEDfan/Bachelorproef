@@ -25,13 +25,13 @@ public:
         void addContactCenter(std::shared_ptr<T> contactCenter)
         {
                 m_contactCenters.push_back(contactCenter);
-                m_contactCenterByType[typeid(T)].push_back(contactCenter);
+                m_contactCenterByType[typeid(T)].insert(contactCenter);
         }
 
         template <typename T>
-        std::vector<std::shared_ptr<ContactCenter>> getContactCentersOfType()
+        std::set<std::shared_ptr<ContactCenter>> getContactCentersOfType()
         {
-                return m_contactCenterByType[std::type_index(typeid(T))];
+                return m_contactCenterByType[typeid(T)];
         }
 
         std::string  getName() const;
@@ -96,7 +96,7 @@ private:
         std::vector<std::shared_ptr<ContactCenter>>                                      m_contactCenters;
         std::vector<std::pair<std::shared_ptr<Location>, double>>                        m_incomingCommutingLocations;
         std::vector<std::pair<std::shared_ptr<Location>, double>>                        m_outgoingCommutingLocations;
-        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>> m_contactCenterByType;
+        std::unordered_map<std::type_index, std::set<std::shared_ptr<ContactCenter>>> m_contactCenterByType;
 };
 
 } // namespace gengeopop
