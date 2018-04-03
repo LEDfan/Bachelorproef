@@ -81,6 +81,7 @@ public:
 
 private:
         void readFromStream(std::istream& inputStream);
+
 protected:
         std::vector<std::string> labels;
         size_t                   columnCount = 0;

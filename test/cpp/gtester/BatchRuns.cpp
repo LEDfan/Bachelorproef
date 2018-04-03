@@ -65,7 +65,7 @@ TEST_P(BatchRuns, Run)
         const auto   d         = ScenarioData::Get(test_tag);
         auto         config_pt = get<0>(d);
         const auto   target    = get<1>(d);
-        const auto   sigma = get<2>(d);
+        const auto   sigma     = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Actual simualtor run.

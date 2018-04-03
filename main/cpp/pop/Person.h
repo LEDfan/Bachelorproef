@@ -36,7 +36,9 @@ class Person
 public:
         /// Default construction.
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0U}, m_in_pools(false), m_belief(nullptr), m_household_id(0), m_school_id(0), m_highschool_id(0), m_work_id(0), m_primary_community_id(0), m_secondary_community_id(0)
+            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0U},
+              m_in_pools(false), m_belief(nullptr), m_household_id(0), m_school_id(0), m_highschool_id(0), m_work_id(0),
+              m_primary_community_id(0), m_secondary_community_id(0)
         {
         }
 
@@ -44,9 +46,12 @@ public:
         Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,
                unsigned int primary_community_id, unsigned int secondary_community_id, Health health = Health(),
                double /*risk_averseness*/ = 0, Belief* bp = nullptr)
-            : m_id(id), m_age(age),
-              m_gender('M'), m_health(health), m_is_participant(false), m_pool_ids{household_id, school_id, work_id, primary_community_id, secondary_community_id},
-              m_in_pools(true), m_belief(bp), m_household_id(household_id), m_school_id(school_id), m_highschool_id(0), m_work_id(work_id), m_primary_community_id(primary_community_id), m_secondary_community_id(secondary_community_id)
+            : m_id(id), m_age(age), m_gender('M'), m_health(health),
+              m_is_participant(false), m_pool_ids{household_id, school_id, work_id, primary_community_id,
+                                                  secondary_community_id},
+              m_in_pools(true), m_belief(bp), m_household_id(household_id), m_school_id(school_id), m_highschool_id(0),
+              m_work_id(work_id), m_primary_community_id(primary_community_id),
+              m_secondary_community_id(secondary_community_id)
         {
                 // TODO highSchooldid?
         }
@@ -131,11 +136,11 @@ private:
         double       m_age;    ///< The age.
         char         m_gender; ///< The gender.
 
-//        bool m_at_household;           ///< Is person present at household today?
-//        bool m_at_school;              ///< Is person present at school today?
-//        bool m_at_work;                ///< Is person present at work today?
-//        bool m_at_primary_community;   ///< Is person present at primary_community today?
-//        bool m_at_secondary_community; ///< Is person present at secundary_community today?
+        //        bool m_at_household;           ///< Is person present at household today?
+        //        bool m_at_school;              ///< Is person present at school today?
+        //        bool m_at_work;                ///< Is person present at work today?
+        //        bool m_at_primary_community;   ///< Is person present at primary_community today?
+        //        bool m_at_secondary_community; ///< Is person present at secundary_community today?
 
         Health m_health; ///< Health info for this person.
 
@@ -147,7 +152,7 @@ private:
         using InPools = ContactPoolType::IdSubscriptArray<bool>;
         InPools m_in_pools; ///< Is person present in pool of each of the types (school, work,..)?
 
-        Belief* m_belief;         ///< Health beliefs related data.
+        Belief* m_belief; ///< Health beliefs related data.
 
         unsigned int m_household_id;           ///< The household id.
         unsigned int m_school_id;              ///< The school contactpool id

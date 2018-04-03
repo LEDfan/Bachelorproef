@@ -29,7 +29,6 @@ using boost::property_tree::ptree;
 
 namespace Tests {
 
-
 tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
 {
         ptree pt = tag.substr(0, 2) != "r0" ? RunConfigPtree::CreateTestsBasic1() : RunConfigPtree::CreateTestsBasic2();

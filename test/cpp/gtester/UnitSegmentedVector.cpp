@@ -79,10 +79,7 @@ public:
                 t.Allocated();
         }
 
-        TestType(const TestType& other) : i(other.i), str(other.str), array(new int[10]), t(other.t)
-        {
-                t.Copied();
-        }
+        TestType(const TestType& other) : i(other.i), str(other.str), array(new int[10]), t(other.t) { t.Copied(); }
 
         TestType(TestType&& other) : i(other.i), str(std::move(other.str)), array(other.array), t(other.t)
         {
@@ -90,7 +87,8 @@ public:
                 other.array = nullptr;
         }
 
-        TestType& operator=(const TestType&) {
+        TestType& operator=(const TestType&)
+        {
                 t.Copied();
                 array = new int[10];
                 return *this;

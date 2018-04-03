@@ -31,7 +31,9 @@ using namespace std;
 
 namespace stride {
 
-HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager) : m_distrib_start_infectiousness(), m_distrib_start_symptomatic(), m_distrib_time_infectious(), m_distrib_time_symptomatic(), m_uniform01_generator()
+HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager)
+    : m_distrib_start_infectiousness(), m_distrib_start_symptomatic(), m_distrib_time_infectious(),
+      m_distrib_time_symptomatic(), m_uniform01_generator()
 {
         GetDistribution(m_distrib_start_infectiousness, disease_pt, "disease.start_infectiousness");
         GetDistribution(m_distrib_start_symptomatic, disease_pt, "disease.start_symptomatic");
