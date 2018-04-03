@@ -20,8 +20,9 @@
  */
 
 #include "behaviour/belief_policies/Belief.h"
-#include "core/ContactPoolType.h"
-#include "core/Health.h"
+#include "disease/Health.h"
+#include "pool/ContactPoolType.h"
+#include "pool/IdSubscriptArray.h"
 
 #include <boost/property_tree/ptree.hpp>
 
@@ -33,27 +34,21 @@ namespace stride {
 class Person
 {
 public:
-        ///
+        /// Default construction.
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_household_id(0), m_school_id(0), m_highschool_id(0), m_work_id(0),
-              m_primary_community_id(0), m_secondary_community_id(0), m_at_household(false), m_at_school(false),
-              m_at_work(false), m_at_primary_community(false), m_at_secondary_community(false), m_health(0, 0, 0, 0),
-              m_is_participant(false), m_belief(nullptr)
+            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0U}, m_in_pools(false), m_belief(nullptr), m_household_id(0), m_school_id(0), m_highschool_id(0), m_work_id(0), m_primary_community_id(0), m_secondary_community_id(0)
         {
         }
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,
-               unsigned int primary_community_id, unsigned int secondary_community_id,
-               unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-               unsigned int time_symptomatic, double /*risk_averseness*/ = 0, Belief* bp = nullptr)
-            : m_id(id), m_age(age), m_gender('M'), m_household_id(household_id), m_school_id(school_id),
-              m_highschool_id(0), m_work_id(work_id), m_primary_community_id(primary_community_id),
-              m_secondary_community_id(secondary_community_id), m_at_household(true), m_at_school(true),
-              m_at_work(true), m_at_primary_community(true), m_at_secondary_community(true),
-              m_health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic),
-              m_is_participant(false), m_belief(bp)
+               unsigned int primary_community_id, unsigned int secondary_community_id, Health health = Health(),
+               double /*risk_averseness*/ = 0, Belief* bp = nullptr)
+            : m_id(id), m_age(age),
+              m_gender('M'), m_health(health), m_is_participant(false), m_pool_ids{household_id, school_id, work_id, primary_community_id, secondary_community_id},
+              m_in_pools(true), m_belief(bp), m_household_id(household_id), m_school_id(school_id), m_highschool_id(0), m_work_id(work_id), m_primary_community_id(primary_community_id), m_secondary_community_id(secondary_community_id)
         {
+                // TODO highSchooldid?
         }
 
         /// Is this person not equal to the given person?
@@ -66,10 +61,10 @@ public:
         Belief* GetBelief() { return m_belief; }
 
         /// Return belief info.
-        Belief const* GetBelief() const { return m_belief; }
+        const Belief* GetBelief() const { return m_belief; }
 
         /// Get ID of contactpool_type
-        unsigned int GetContactPoolId(const ContactPoolType::Id& pool_type) const;
+        unsigned int GetPoolId(const ContactPoolType::Id& pool_type) const { return m_pool_ids[pool_type]; }
 
         /// Return person's gender.
         char GetGender() const { return m_gender; }
@@ -87,7 +82,7 @@ public:
         void SetId(unsigned int id) { m_id = id; }
 
         /// Check if a person is present today in a given contactpool
-        bool IsInContactPool(const ContactPoolType::Id& c) const;
+        bool IsInPool(const ContactPoolType::Id& pool_type) const { return m_in_pools[pool_type]; }
 
         /// Does this person participates in the social contact study?
         bool IsParticipatingInSurvey() const { return m_is_participant; }
@@ -136,13 +131,6 @@ private:
         double       m_age;    ///< The age.
         char         m_gender; ///< The gender.
 
-        unsigned int m_household_id;           ///< The household id.
-        unsigned int m_school_id;              ///< The school contactpool id
-        unsigned int m_highschool_id;          ///< The highschool contactpool id
-        unsigned int m_work_id;                ///< The work contactpool id
-        unsigned int m_primary_community_id;   ///< The primary community id
-        unsigned int m_secondary_community_id; ///< The secondary community id
-
         bool m_at_household;           ///< Is person present at household today?
         bool m_at_school;              ///< Is person present at school today?
         bool m_at_work;                ///< Is person present at work today?
@@ -153,8 +141,20 @@ private:
 
         bool m_is_participant; ///< Is participating in the social contact study
                                //        bool m_at_home_due_to_illness; ///< Is person present home due to illness?
+        using PoolIds = ContactPoolType::IdSubscriptArray<unsigned int>;
+        PoolIds m_pool_ids; ///< Ids of each of the types of pool (school, work,..) the person belongs to.
 
-        Belief* m_belief; ///<
+        using InPools = ContactPoolType::IdSubscriptArray<bool>;
+        InPools m_in_pools; ///< Is person present in pool of each of the types (school, work,..)?
+
+        Belief* m_belief;         ///< Health beliefs related data.
+
+        unsigned int m_household_id;           ///< The household id.
+        unsigned int m_school_id;              ///< The school contactpool id
+        unsigned int m_highschool_id;          ///< The highschool contactpool id
+        unsigned int m_work_id;                ///< The work contactpool id
+        unsigned int m_primary_community_id;   ///< The primary community id
+        unsigned int m_secondary_community_id; ///< The secondary community id
 };
 
 } // namespace stride

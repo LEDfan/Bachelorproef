@@ -24,84 +24,86 @@
 #include "sim/SimulatorBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
+#include "util/TimeStamp.h"
 
-#include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <spdlog/sinks/null_sink.h>
+#include <sstream>
+
+using namespace stride::sim_event;
+using namespace stride::util;
+using namespace boost::filesystem;
+using namespace boost::property_tree;
+using namespace std;
 
 namespace stride {
 
-using namespace sim_event;
-using namespace util;
-using namespace boost::filesystem;
-using namespace boost::property_tree;
-using namespace spdlog;
-using namespace std;
-
-SimRunner::SimRunner() : m_clock("total_clock"), m_logger(nullptr), m_output_prefix(""), m_pt_config(), m_sim(nullptr)
+SimRunner::SimRunner()
+    : m_clock("total_clock"), m_stride_logger(nullptr), m_log_level("info"), m_output_prefix(""), m_config_pt(),
+      m_sim(nullptr)
 {
 }
 
 bool SimRunner::Setup(const ptree& run_config_pt)
 {
+        Notify({shared_from_this(), Id::SetupBegin});
+
         // -----------------------------------------------------------------------------------------
         // Intro.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        bool status = true;
-        m_pt_config = run_config_pt;
-        m_logger    = spdlog::get("stride_logger");
-        if (!m_logger) {
-                m_logger = m_pt_config.get<bool>("run.silent_mode")
-                               ? LogUtils::GetNullLogger("stride_logger")
-                               : LogUtils::GetCliLogger("stride_logger", "stride_log.txt");
+        bool status     = true;
+        m_config_pt     = run_config_pt;
+        m_log_level     = m_config_pt.get<string>("run.stride_log_level", "info");
+        m_output_prefix = m_config_pt.get<string>("run.output_prefix");
+
+        // -----------------------------------------------------------------------------------------
+        // Unless execution context has done so, create logger, do NOT register it.
+        // -----------------------------------------------------------------------------------------
+        m_stride_logger = spdlog::get("stride_logger");
+        if (!m_stride_logger) {
+                const auto l    = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
+                m_stride_logger = LogUtils::CreateFileLogger("stride_logger", l.string());
+                m_stride_logger->set_level(spdlog::level::from_str(m_log_level));
+                m_stride_logger->flush_on(spdlog::level::err);
         }
-        m_output_prefix = m_pt_config.get<string>("run.output_prefix");
+        m_stride_logger->info("SimRunner setup starting at: {}", TimeStamp().ToString());
 
         // -----------------------------------------------------------------------------------------
-        // Create logger for use by the simulator during time step computations.
-        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
-        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
+        // Output the full run config.
         // -----------------------------------------------------------------------------------------
-        spdlog::set_async_mode(1048576);
-        const auto log_path       = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
-        auto       contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
-                                                         numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
-        contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
-
-        // ------------------------------------------------------------------------------
-        // Create the simulator builder.
-        //------------------------------------------------------------------------------
-        m_logger->info("Creating the simulator builder");
-        SimulatorBuilder builder(m_pt_config);
-        m_logger->info("Done creating the simulator builder");
+        ostringstream ss;
+        write_xml(ss, m_config_pt, xml_writer_make_settings<ptree::key_type>(' ', 8));
+        m_stride_logger->debug("Run config used:\n {}", ss.str());
 
         // ------------------------------------------------------------------------------
         // Build simulator.
         //------------------------------------------------------------------------------
-        m_logger->info("Building the simulator.");
+        m_stride_logger->trace("Building the simulator.");
+        SimulatorBuilder builder(m_config_pt, m_stride_logger);
         m_sim = builder.Build();
-        m_logger->info("Done building the simulator.");
+        if (m_sim) {
+                m_stride_logger->trace("Done building the simulator.");
+        } else {
+                m_stride_logger->critical("Simulator build failed!");
+                throw runtime_error("SimRunner::Setup> Simulator build failed!");
+        }
 
         // -----------------------------------------------------------------------------------------
         // Check the simulator.
         // -----------------------------------------------------------------------------------------
-        if (!m_sim) {
-                m_logger->critical("Simulation build failed!");
-                status = false;
+        if (m_sim->IsOperational()) {
+                m_stride_logger->trace("Simulator is operational.");
         } else {
-                if (m_sim->IsOperational()) {
-                        m_logger->info("Done checking the simulator. OK.");
-                } else {
-                        m_logger->critical("Invalid configuration => terminate without output");
-                        status = false;
-                }
+                m_stride_logger->critical("Invalid configuration => terminate without output");
+                throw runtime_error("SimRunner::Setup> Simulator not operational!");
         }
 
         // -----------------------------------------------------------------------------------------
         // Done.
         // -----------------------------------------------------------------------------------------
         m_clock.Stop();
+        Notify({shared_from_this(), Id::SetupEnd});
+        m_stride_logger->trace("Finished SimRunner::Setup.");
         return status;
 }
 
@@ -111,14 +113,19 @@ void SimRunner::Run()
         // Run the simulator.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        const auto num_days = m_pt_config.get<unsigned int>("run.num_days");
+        const auto num_days = m_config_pt.get<unsigned int>("run.num_days");
+        m_stride_logger->info("SimRunner ready to simulate {} days:", num_days);
+
         Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
                 m_sim->TimeStep();
+                m_stride_logger->trace("Time step starting at day {} done.", i);
                 Notify({shared_from_this(), Id::Stepped});
         }
         Notify({shared_from_this(), Id::Finished});
+
         m_clock.Stop();
+        m_stride_logger->info("SimRunner done after: {}", m_clock.ToString());
 }
 
 } // namespace stride

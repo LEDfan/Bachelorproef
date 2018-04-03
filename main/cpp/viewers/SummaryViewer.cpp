@@ -20,9 +20,9 @@
 
 #include "SummaryViewer.h"
 
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
-#include "util/Stopwatch.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -31,21 +31,20 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void SummaryViewer::update(const sim_event::Payload& p)
+void SummaryViewer::Update(const sim_event::Payload& p)
 {
-        const auto pt_config = p.m_runner->GetConfig();
-        const auto sim       = p.m_runner->GetSim();
-        const auto pop       = p.m_runner->GetSim()->GetPopulation();
-        const auto dur       = duration_cast<milliseconds>(p.m_runner->GetClock().Get());
-        const auto milli     = static_cast<unsigned int>(dur.count());
-
         switch (p.m_event_id) {
-        case Id::AtStart: break;
-        case Id::Stepped: break;
-        case Id::Finished:
-                m_summary_file.Print(pt_config, pop->size(), pop->GetInfectedCount(),
-                                     sim->GetDiseaseProfile().GetTransmissionRate(), milli, milli);
+        case Id::Finished: {
+                const auto pt_config = p.m_runner->GetConfig();
+                const auto sim       = p.m_runner->GetSim();
+                const auto pop       = p.m_runner->GetSim()->GetPopulation();
+                const auto dur       = duration_cast<milliseconds>(p.m_runner->GetClock().Get());
+                const auto milli     = static_cast<unsigned int>(dur.count());
+                m_summary_file.Print(pt_config, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
+                                     sim->GetDiseaseProfile().GetRate(), milli, milli);
                 break;
+        }
+        default: break;
         }
 }
 

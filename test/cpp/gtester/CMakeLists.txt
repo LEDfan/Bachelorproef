@@ -18,11 +18,10 @@
 #============================================================================
 # Build & install the (OpenMP enabled if OpenMP available) executable.
 #============================================================================
-set( EXEC       gtester     )
-set( SRC
+set(EXEC gtester)
+set(SRC
         main.cpp
         BatchRuns.cpp
-        InfluenceR0Runs.cpp
         gengeopop/io/CitiesCSVReaderTest.cpp
         gengeopop/io/HouseholdCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
@@ -36,26 +35,30 @@ set( SRC
         gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/kdtree.cpp
         CSVTest.cpp
-)
+        ScenarioData.cpp
+        UnitSegmentedVector.cpp
+        )
+if (OPENMP_FOUND)
+        set(SRC ${SRC} ParallelRuns.cpp)
+endif ()
 
-add_executable(${EXEC}   ${SRC} )
-target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
-install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
+add_executable(${EXEC} ${SRC})
+target_link_libraries(${EXEC} ${LIBS} gtest pthread libstride libgengeopop)
+install(TARGETS ${EXEC} DESTINATION ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
 #============================================================================
 # Define tests.
 #============================================================================
-add_test( NAME  ${EXEC}_all
-        WORKING_DIRECTORY  ${TESTS_DIR}
-        COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
-                 --gtest_output=xml:gtester_all.xml
-)
-
+add_test(NAME ${EXEC}_all
+        WORKING_DIRECTORY ${TESTS_DIR}
+        COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
+        --gtest_output=xml:gtester_all.xml
+        )
 #============================================================================
 # Clean up.
 #============================================================================
-unset( EXEC      )
-unset( SRC       )
+unset(EXEC)
+unset(SRC)
 
 #############################################################################

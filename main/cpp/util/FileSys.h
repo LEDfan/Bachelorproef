@@ -72,9 +72,7 @@ private:
         /// Using this to avoid global variables & their initialization.
         struct Dirs
         {
-                Dirs()
-                    : m_current_dir(), m_exec_path(), m_bin_dir(), m_config_dir(), m_data_dir(), m_root_dir(),
-                      m_tests_dir(){};
+                Dirs() = default;
 
                 boost::filesystem::path m_current_dir;
                 boost::filesystem::path m_exec_path;

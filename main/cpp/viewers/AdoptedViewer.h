@@ -33,10 +33,10 @@ class AdoptedViewer
 {
 public:
         /// Instantiate cases viewer.
-        AdoptedViewer(const std::string& output_prefix) : m_adopted(), m_adopted_file(output_prefix) {}
+        explicit AdoptedViewer(const std::string& output_prefix) : m_adopted(), m_adopted_file(output_prefix) {}
 
         /// Let viewer perform update.
-        void update(const sim_event::Payload& p);
+        void Update(const sim_event::Payload& p);
 
 private:
         std::vector<unsigned int> m_adopted;
