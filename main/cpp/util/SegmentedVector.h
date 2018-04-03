@@ -66,7 +66,7 @@ public:
         SegmentedVector() : m_blocks(), m_size(0) {}
 
         /// Copy constructor
-        SegmentedVector(const self_type& other) : m_size(0)
+        SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
         {
                 m_blocks.reserve(other.m_blocks.size());
                 for (const auto& elem : other) {

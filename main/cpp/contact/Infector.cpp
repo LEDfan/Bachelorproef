@@ -75,12 +75,12 @@ class LOG_POLICY
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
-                            unsigned short int sim_day)
+                            unsigned short int /*sim_day*/)
         {
         }
 
         static void Transmission(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
-                                 unsigned short int sim_day)
+                                 unsigned short int /*sim_day*/)
         {
         }
 };

@@ -35,7 +35,7 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, util::RNManager& rn_manager)
+std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, util::RNManager& /*rn_manager*/)
 {
         // ------------------------------------------------
         // Setup.

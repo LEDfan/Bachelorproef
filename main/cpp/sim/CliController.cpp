@@ -44,7 +44,7 @@ CliController::CliController(string config_file, vector<tuple<string, string>> p
                              string stride_log_level, bool use_install_dirs)
     : m_config_file(move(config_file)), m_p_overrides(move(p_overrides)), m_track_index_case(track_index_case),
       m_stride_log_level(move(stride_log_level)), m_use_install_dirs(use_install_dirs), m_max_num_threads(1U),
-      m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(), m_stride_logger(nullptr){};
+      m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(), m_stride_logger(nullptr){}
 
 void CliController::CheckEnv()
 {

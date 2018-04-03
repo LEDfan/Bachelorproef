@@ -131,11 +131,11 @@ private:
         double       m_age;    ///< The age.
         char         m_gender; ///< The gender.
 
-        bool m_at_household;           ///< Is person present at household today?
-        bool m_at_school;              ///< Is person present at school today?
-        bool m_at_work;                ///< Is person present at work today?
-        bool m_at_primary_community;   ///< Is person present at primary_community today?
-        bool m_at_secondary_community; ///< Is person present at secundary_community today?
+//        bool m_at_household;           ///< Is person present at household today?
+//        bool m_at_school;              ///< Is person present at school today?
+//        bool m_at_work;                ///< Is person present at work today?
+//        bool m_at_primary_community;   ///< Is person present at primary_community today?
+//        bool m_at_secondary_community; ///< Is person present at secundary_community today?
 
         Health m_health; ///< Health info for this person.
 
