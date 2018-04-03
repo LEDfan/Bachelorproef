@@ -63,6 +63,28 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
                 target = 600000U;
                 sigma  = 0;
         }
+
+        // Run_r0 data
+        if (tag == "r0_0") {
+                pt.put("run.r0", 0.0);
+                target = 1200U;
+        }
+        if (tag == "r0_4") {
+                pt.put("run.r0", 4.0);
+                target = 39080U;
+        }
+        if (tag == "r0_8") {
+                pt.put("run.r0", 8.0);
+                target = 110884U;
+        }
+        if (tag == "r0_12") {
+                pt.put("run.r0", 12.0);
+                target = 118342U;
+        }
+        if (tag == "r0_16") {
+                pt.put("run.r0", 16.0);
+                target = 119459;
+        }
         return make_tuple(pt, target, sigma);
 }
 
