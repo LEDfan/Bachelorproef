@@ -20,6 +20,7 @@ MapQuickItem {
         cursorShape: Qt.PointingHandCursor
         onClicked: {
             parent.clicked(markerID, mouse)
+            mouse.accepted = true
         }
     }
 

@@ -60,6 +60,7 @@ public:
         /**
          * Removes all locations from selection and unselection but don't re-render the map.
          */
+        Q_INVOKABLE
         void ClearSelection();
 
         Q_INVOKABLE
@@ -87,8 +88,8 @@ signals:
 private:
         QObject*                                  m_map = nullptr;
         std::shared_ptr<gengeopop::GeoGrid>       m_grid;
-        std::unordered_map<std::string, QObject*> m_markers;
-        std::unordered_map<std::string, std::vector<QObject*>>
+        std::map<std::string, QObject*> m_markers;
+        std::map<std::tuple<unsigned int,unsigned int>, QObject* >
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
         bool                                           m_showCommutes = false;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
@@ -134,4 +135,7 @@ private:
         void hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
 
         void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        void setCommuteShownBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+                                    const std::shared_ptr<gengeopop::Location>& loc2, bool shown);
 };

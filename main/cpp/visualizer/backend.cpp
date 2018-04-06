@@ -144,6 +144,9 @@ void Backend::ClearSelection()
         m_unselection.clear();
         m_unselection.insert(m_selection.begin(), m_selection.end());
         m_selection.clear();
+        UpdateColorOfMarkers();
+        m_unselection.clear();
+        std::cout << "Clear selection end" << std::endl;
 }
 
 void Backend::ClearSelectionAndRender()
@@ -210,15 +213,27 @@ void Backend::UpdateColorOfMarkers()
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "red");
-                // Hide the commutes
-                hideIncommingCommutesOfLocation(loc);
+                // Hide all connections between unselection and unselection, and selection and unselection
+                // TODO optimize, only hide for the actual commuting cities
+                std::cout << "unselected " << loc->getName() << std::endl;
+                for(auto otherLoc : *m_grid){
+                        setCommuteShownBetween(loc, otherLoc, false);
+                }
+
         }
         m_unselection.clear();
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
                 auto* marker = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
                 marker->setProperty("color", "blue");
+                std::cout << "selected " << loc->getName() << std::endl;
                 // Show the commutes
-                showIncommingCommutesOfLocation(loc);
+                for(auto commute : loc->getOutgoingCommuningCities()){
+                        // If the other city is also selected
+                        if(m_selection.find(commute.first) != m_selection.end()){
+                                std::cout << "Adding commute between " << commute.first->getName() << "," << loc->getName() << std::endl;
+                                setCommuteShownBetween(loc, commute.first, true);
+                        }
+                }
         }
 }
 
@@ -252,32 +267,32 @@ void Backend::hideCommuteLine(QObject* line)
 
 void Backend::hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc)
 {
-        for (auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
-                QVariant retVal;
-                QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
-        }
+//        for (auto commuteLine : m_commutes[std::to_string(loc->getID())]) {
+//                QVariant retVal;
+//                QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
+//        }
 }
 
 void Backend::showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc)
 {
-        if (m_showCommutes) {
-                auto& commutesOnMapOfLocation = m_commutes[std::to_string(loc->getID())];
-                for (auto commuteLine : commutesOnMapOfLocation) {
-                        QVariant retVal;
-                        QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection,
-                                                  Q_RETURN_ARG(QVariant, retVal));
-                }
-                // If they were not yet on the map, add the lines
-
-                if (commutesOnMapOfLocation.empty()) {
-                        for (auto commute : loc->getIncomingCommuningCities()) {
-                                auto otherCity = commute.first;
-                                auto commuteLine =
-                                    addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
-                                commutesOnMapOfLocation.push_back(commuteLine);
-                        }
-                }
-        }
+//        if (m_showCommutes) {
+//                auto& commutesOnMapOfLocation = m_commutes[std::to_string(loc->getID())];
+//                for (auto commuteLine : commutesOnMapOfLocation) {
+//                        QVariant retVal;
+//                        QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection,
+//                                                  Q_RETURN_ARG(QVariant, retVal));
+//                }
+//                // If they were not yet on the map, add the lines
+//
+//                if (commutesOnMapOfLocation.empty()) {
+//                        for (auto commute : loc->getIncomingCommuningCities()) {
+//                                auto otherCity = commute.first;
+//                                auto commuteLine =
+//                                    addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+//                                commutesOnMapOfLocation.push_back(commuteLine);
+//                        }
+//                }
+//        }
 }
 
 void Backend::setShowCommutes(bool value)
@@ -286,4 +301,34 @@ void Backend::setShowCommutes(bool value)
         // Re render
         ClearSelectionAndRender();
         PlaceMarkers();
+}
+
+void
+Backend::setCommuteShownBetween(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>& loc2,
+                                bool shown) {
+        if(shown){
+                // Check if it already exists
+                std::tuple<unsigned int, unsigned int> key(loc1->getID(), loc2->getID());
+                if(m_commutes.find(key) != m_commutes.end()){
+                        std::cout << "showing existant line" << std::endl;
+                        QObject* commuteLine = m_commutes.find(key)->second;
+                        QVariant retVal;
+                        QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
+                } else {
+                        // Does not yet exist
+                        std::cout << "Adding new commute line" << std::endl;
+                        QObject* commuteLine = addCommuteLine(loc1->getCoordinate(), loc2->getCoordinate(), 100);
+                        m_commutes[key] = commuteLine;
+                }
+
+        } else {
+                // hide
+                std::tuple<unsigned int, unsigned int> key(loc1->getID(), loc2->getID());
+                if(m_commutes.find(key) != m_commutes.end()){
+                        std::cout << "hiding existant line" << std::endl;
+                        QObject* commuteLine = m_commutes.find(key)->second;
+                        QVariant retVal;
+                        QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
+                }
+        }
 }
