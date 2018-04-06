@@ -7,6 +7,7 @@ import QtQuick.Dialogs 1.0
 import QtPositioning 5.5
 import io.bistromatics.backend 1.0
 import QtQuick.Dialogs 1.2
+import Qt.labs.settings 1.0
 
 ColumnLayout {
     Layout.fillWidth: true
@@ -23,17 +24,26 @@ ColumnLayout {
         /*PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }*/
     }
 
+    Settings {
+        id: mapSettings
+        property var centerLat: 51.2
+        property var centerLong: 4.1
+        property var zoomLevel: 14
+
+    }
+
     Map {
         id: map
         anchors.fill: parent
         plugin: mapPlugin
-        zoomLevel: 14
-        center: QtPositioning.coordinate(51.2, 4.4)
+        zoomLevel: mapSettings.zoomLevel
+        center: QtPositioning.coordinate(0,0)
         Layout.fillHeight: true
         Layout.fillWidth: true
 
         Component.onCompleted: {
             backend.SetObjects(map)
+            map.center = QtPositioning.coordinate(mapSettings.centerLat, mapSettings.centerLong)
             for( var i_type in supportedMapTypes  ) {
                 if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
                 activeMapType = supportedMapTypes[i_type]
@@ -41,6 +51,12 @@ ColumnLayout {
 
                 }
             }
+        }
+
+        Component.onDestruction: {
+            mapSettings.centerLat = map.center.latitude;
+            mapSettings.centerLong = map.center.longitude;
+            mapSettings.zoomLevel = map.zoomLevel
         }
 
         MapRectangle {
