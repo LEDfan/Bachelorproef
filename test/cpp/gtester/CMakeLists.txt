@@ -38,6 +38,7 @@ set(SRC
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/io/CitiesCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
+        gengeopop/populators/HouseholdPopulatorTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
         gengeopop/io/GeoGridProtoWriterTest.cpp
         gengeopop/io/GeoGridProtoReaderTest.cpp
