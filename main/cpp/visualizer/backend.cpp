@@ -330,5 +330,12 @@ Backend::setCommuteShownBetween(const std::shared_ptr<gengeopop::Location>& loc1
                         QVariant retVal;
                         QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
                 }
+
+                std::tuple<unsigned int, unsigned int> keyReversed(loc2->getID(), loc1->getID());
+                if(m_commutes.find(keyReversed) != m_commutes.end()){
+                        QObject* commuteLine = m_commutes.find(keyReversed)->second;
+                        QVariant retVal;
+                        QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
+                }
         }
 }
