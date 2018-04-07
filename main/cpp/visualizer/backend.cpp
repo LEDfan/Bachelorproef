@@ -15,8 +15,8 @@
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
-#include <gengeopop/io/GeoGridJSONReader.h>
-#include <gengeopop/io/GeoGridJSONWriter.h>
+#include <gengeopop/io/GeoGridReaderFactory.h>
+#include <gengeopop/io/GeoGridWriterFactory.h>
 #include <util/Stopwatch.h>
 
 Backend::Backend(QObject* parent)
@@ -40,11 +40,13 @@ Backend& Backend::operator=(const Backend& b)
 
 void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
-        QUrl                         info(file);
-        std::ifstream                inputFile(info.toLocalFile().toStdString());
-        gengeopop::GeoGridJSONReader reader;
+        QUrl                                      info(file);
+        std::string                               filename = info.toLocalFile().toStdString();
+        std::ifstream                             inputFile(filename);
+        gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
+        std::shared_ptr<gengeopop::GeoGridReader> reader = geoGridReaderFactory.createReader(filename);
         try {
-                m_grid = reader.read(inputFile);
+                m_grid = reader->read(inputFile);
                 m_grid->finalize();
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
@@ -61,11 +63,13 @@ void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
                         path = boost::filesystem::canonical(path);
                         qDebug() << "Reading from " << path.c_str();
 
-                        std::ifstream                inputFile(path.c_str());
-                        gengeopop::GeoGridJSONReader reader;
+                        std::ifstream                             inputFile(path.c_str());
+                        gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
+                        std::shared_ptr<gengeopop::GeoGridReader> reader =
+                            geoGridReaderFactory.createReader(path.c_str());
 
                         try {
-                                m_grid = reader.read(inputFile);
+                                m_grid = reader->read(inputFile);
                                 m_grid->finalize();
                         } catch (const std::exception& e) {
                                 qWarning() << QString("Error: ") + e.what();
@@ -127,11 +131,13 @@ void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int po
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 {
-        QUrl                         info(fileLoc);
-        std::ofstream                outputFile(info.toLocalFile().toStdString());
-        gengeopop::GeoGridJSONWriter writer;
+        QUrl                                      info(fileLoc);
+        std::string                               filename = info.toLocalFile().toStdString();
+        std::ofstream                             outputFile(filename);
+        gengeopop::GeoGridWriterFactory           geoGridWriterFactory;
+        std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.createWriter(filename);
         try {
-                writer.write(m_grid, outputFile);
+                writer->write(m_grid, outputFile);
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());

@@ -25,6 +25,7 @@ void GeoGridProtoWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
                 throw std::runtime_error("There was an error writing the GeoGrid to the file.");
         }
         google::protobuf::ShutdownProtobufLibrary();
+        stream.flush();
 }
 
 void GeoGridProtoWriter::writeLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
@@ -32,6 +33,7 @@ void GeoGridProtoWriter::writeLocation(std::shared_ptr<Location> location, proto
         protoLocation->set_id(location->getID());
         protoLocation->set_name(location->getName());
         protoLocation->set_province(location->getProvince());
+        protoLocation->set_population(location->getPopulation());
         auto coordinate = new proto::GeoGrid_Location_Coordinate();
         writeCoordinate(location->getCoordinate(), coordinate);
         protoLocation->set_allocated_coordinate(coordinate);

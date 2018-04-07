@@ -6,13 +6,14 @@ message GeoGrid {
         required int64 id = 1;
         required string name = 2;
         required int64 province = 3;
+        required int64 population = 4;
         message Coordinate {
-            required int64 x = 1;
-            required int64 y = 2;
-            required int64 longitude = 3;
-            required int64 latitude = 4;
+            required double x = 1;
+            required double y = 2;
+            required double longitude = 3;
+            required double latitude = 4;
         }
-        required Coordinate coordinate = 4;
+        required Coordinate coordinate = 5;
         message ContactCenter {
             required int64 id = 1;
             required string type = 2;
@@ -22,12 +23,12 @@ message GeoGrid {
             }
             repeated ContactPool pools = 3;
         }
-        repeated ContactCenter contactCenters = 5;
+        repeated ContactCenter contactCenters = 6;
         message Commute {
             required int64 to = 1;
             required int64 proportion = 2;
         }
-        repeated Commute commutes = 6;
+        repeated Commute commutes = 7;
     }
     message Person {
         required int64 id = 1;

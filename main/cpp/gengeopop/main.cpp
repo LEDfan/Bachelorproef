@@ -11,6 +11,7 @@
 #include <gengeopop/generators/SchoolGenerator.h>
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gengeopop/io/GeoGridProtoWriter.h>
+#include <gengeopop/io/GeoGridWriterFactory.h>
 #include <gengeopop/io/ReaderFactory.h>
 #include <util/StringUtils.h>
 
@@ -36,16 +37,12 @@ void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stri
         geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
+        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
         geoGridGenerator.generateGeoGrid();
 }
 
 void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
-        // TODO move to genGeo
-        GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
-        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
-        geoGridGenerator.generateGeoGrid();
-
         GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
@@ -60,8 +57,14 @@ void generate(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 {
         stride::util::RNManager::Info info;
         stride::util::RNManager       rnManager(info);
+        std::cout << "Starting Gen-Geo" << std::endl;
         genGeo(geoGridConfig, geoGrid, rnManager);
+        std::cout << "Finished Gen-Geo" << std::endl;
+        std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
+        std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
+        std::cout << "Starting Gen-Pop" << std::endl;
         genPop(geoGridConfig, geoGrid, rnManager);
+        std::cout << "Finished Gen-Pop" << std::endl;
 }
 
 int main(int argc, char* argv[])
@@ -75,7 +78,7 @@ int main(int argc, char* argv[])
                                                  "CITIES FILE", cmd);
                 ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv",
                                                     "COMMUTING FILE", cmd);
-                ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.json", "OUTPUT FILE",
+                ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.proto", "OUTPUT FILE",
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
@@ -135,20 +138,15 @@ int main(int argc, char* argv[])
 
                 stride::util::RNManager::Info info;
                 stride::util::RNManager       rnManager(info);
-                std::cout << "Starting Gen-Geo" << std::endl;
-                // FIXME use this instead once I/O is fixed
-                // generate(geoGridConfig, geoGrid);
-                genGeo(geoGridConfig, geoGrid, rnManager);
-                std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
-                std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
-                std::cout << "Generation done, writing to file" << std::endl;
-                GeoGridProtoWriter geoGridProtoWriter;
-                geoGridProtoWriter.write(geoGrid, outputFileStream);
-                outputFileStream.close();
-                std::cout << "Done writing to file, starting Gen-Pop" << std::endl;
-                genPop(geoGridConfig, geoGrid, rnManager);
+                generate(geoGridConfig, geoGrid);
+                std::cout << "Writing to file..." << std::endl;
 
-                std::cout << "Done" << std::endl;
+                GeoGridWriterFactory           geoGridWriterFactory;
+                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.createWriter(outputFile.getValue());
+                geoGridWriter->write(geoGrid, outputFileStream);
+                outputFileStream.close();
+
+                std::cout << "Done writing to file" << std::endl;
         } catch (std::exception& e) {
                 exit_status = EXIT_FAILURE;
                 std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;

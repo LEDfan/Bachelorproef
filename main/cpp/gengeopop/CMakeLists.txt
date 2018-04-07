@@ -40,6 +40,9 @@ set(GENGEOPOP_LIB
         io/GeoGridJSONWriter.cpp
         io/GeoGridJSONReader.cpp
         io/GeoGridProtoWriter.cpp
+        io/GeoGridProtoReader.cpp
+        io/GeoGridWriterFactory.cpp
+        io/GeoGridReaderFactory.cpp
         )
 
 #============================================================================

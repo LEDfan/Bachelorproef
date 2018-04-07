@@ -1,3 +1,5 @@
+#include "GeoGridJSONReader.h"
+#include "ThreadException.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <gengeopop/Community.h>
@@ -9,48 +11,6 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <memory>
-#include <mutex>
-
-#include "GeoGridJSONReader.h"
-
-namespace {
-
-// Based on https://stackoverflow.com/a/13978507/1393103
-class ThreadException
-{
-public:
-        ThreadException() : ptr(nullptr), Lock() {}
-        ~ThreadException() {}
-
-        void Rethrow()
-        {
-                if (this->ptr != nullptr) {
-                        std::rethrow_exception(this->ptr);
-                }
-        }
-        void CaptureException()
-        {
-                std::unique_lock<std::mutex> guard(this->Lock);
-                this->ptr = std::current_exception();
-        }
-
-        template <typename Function, typename... Parameters>
-        void Run(Function f, Parameters... params)
-        {
-                try {
-                        f(params...);
-                } catch (...) {
-                        CaptureException();
-                }
-        }
-
-        bool HasError() const { return ptr != nullptr; }
-
-private:
-        std::exception_ptr ptr;
-        std::mutex         Lock;
-};
-} // namespace
 
 namespace gengeopop {
 

@@ -182,33 +182,33 @@ class GeoGrid_Location_Coordinate : public ::google::protobuf::Message /* @@prot
 
   // accessors -------------------------------------------------------
 
-  // required int64 x = 1;
+  // required double x = 1;
   bool has_x() const;
   void clear_x();
   static const int kXFieldNumber = 1;
-  ::google::protobuf::int64 x() const;
-  void set_x(::google::protobuf::int64 value);
+  double x() const;
+  void set_x(double value);
 
-  // required int64 y = 2;
+  // required double y = 2;
   bool has_y() const;
   void clear_y();
   static const int kYFieldNumber = 2;
-  ::google::protobuf::int64 y() const;
-  void set_y(::google::protobuf::int64 value);
+  double y() const;
+  void set_y(double value);
 
-  // required int64 longitude = 3;
+  // required double longitude = 3;
   bool has_longitude() const;
   void clear_longitude();
   static const int kLongitudeFieldNumber = 3;
-  ::google::protobuf::int64 longitude() const;
-  void set_longitude(::google::protobuf::int64 value);
+  double longitude() const;
+  void set_longitude(double value);
 
-  // required int64 latitude = 4;
+  // required double latitude = 4;
   bool has_latitude() const;
   void clear_latitude();
   static const int kLatitudeFieldNumber = 4;
-  ::google::protobuf::int64 latitude() const;
-  void set_latitude(::google::protobuf::int64 value);
+  double latitude() const;
+  void set_latitude(double value);
 
   // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.Coordinate)
  private:
@@ -227,10 +227,10 @@ class GeoGrid_Location_Coordinate : public ::google::protobuf::Message /* @@prot
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::int64 x_;
-  ::google::protobuf::int64 y_;
-  ::google::protobuf::int64 longitude_;
-  ::google::protobuf::int64 latitude_;
+  double x_;
+  double y_;
+  double longitude_;
+  double latitude_;
   friend struct ::protobuf_geogrid_2eproto::TableStruct;
   friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_CoordinateImpl();
 };
@@ -721,10 +721,10 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 5;
+  // repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
   int contactcenters_size() const;
   void clear_contactcenters();
-  static const int kContactCentersFieldNumber = 5;
+  static const int kContactCentersFieldNumber = 6;
   const ::proto::GeoGrid_Location_ContactCenter& contactcenters(int index) const;
   ::proto::GeoGrid_Location_ContactCenter* mutable_contactcenters(int index);
   ::proto::GeoGrid_Location_ContactCenter* add_contactcenters();
@@ -733,10 +733,10 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >&
       contactcenters() const;
 
-  // repeated .proto.GeoGrid.Location.Commute commutes = 6;
+  // repeated .proto.GeoGrid.Location.Commute commutes = 7;
   int commutes_size() const;
   void clear_commutes();
-  static const int kCommutesFieldNumber = 6;
+  static const int kCommutesFieldNumber = 7;
   const ::proto::GeoGrid_Location_Commute& commutes(int index) const;
   ::proto::GeoGrid_Location_Commute* mutable_commutes(int index);
   ::proto::GeoGrid_Location_Commute* add_commutes();
@@ -760,10 +760,10 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // required .proto.GeoGrid.Location.Coordinate coordinate = 4;
+  // required .proto.GeoGrid.Location.Coordinate coordinate = 5;
   bool has_coordinate() const;
   void clear_coordinate();
-  static const int kCoordinateFieldNumber = 4;
+  static const int kCoordinateFieldNumber = 5;
   const ::proto::GeoGrid_Location_Coordinate& coordinate() const;
   ::proto::GeoGrid_Location_Coordinate* release_coordinate();
   ::proto::GeoGrid_Location_Coordinate* mutable_coordinate();
@@ -783,6 +783,13 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   ::google::protobuf::int64 province() const;
   void set_province(::google::protobuf::int64 value);
 
+  // required int64 population = 4;
+  bool has_population() const;
+  void clear_population();
+  static const int kPopulationFieldNumber = 4;
+  ::google::protobuf::int64 population() const;
+  void set_population(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location)
  private:
   void set_has_id();
@@ -791,6 +798,8 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   void clear_has_name();
   void set_has_province();
   void clear_has_province();
+  void set_has_population();
+  void clear_has_population();
   void set_has_coordinate();
   void clear_has_coordinate();
 
@@ -806,6 +815,7 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   ::proto::GeoGrid_Location_Coordinate* coordinate_;
   ::google::protobuf::int64 id_;
   ::google::protobuf::int64 province_;
+  ::google::protobuf::int64 population_;
   friend struct ::protobuf_geogrid_2eproto::TableStruct;
   friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_LocationImpl();
 };
@@ -1140,7 +1150,7 @@ class GeoGrid : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 #endif  // __GNUC__
 // GeoGrid_Location_Coordinate
 
-// required int64 x = 1;
+// required double x = 1;
 inline bool GeoGrid_Location_Coordinate::has_x() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1151,20 +1161,20 @@ inline void GeoGrid_Location_Coordinate::clear_has_x() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void GeoGrid_Location_Coordinate::clear_x() {
-  x_ = GOOGLE_LONGLONG(0);
+  x_ = 0;
   clear_has_x();
 }
-inline ::google::protobuf::int64 GeoGrid_Location_Coordinate::x() const {
+inline double GeoGrid_Location_Coordinate::x() const {
   // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.x)
   return x_;
 }
-inline void GeoGrid_Location_Coordinate::set_x(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_Coordinate::set_x(double value) {
   set_has_x();
   x_ = value;
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.x)
 }
 
-// required int64 y = 2;
+// required double y = 2;
 inline bool GeoGrid_Location_Coordinate::has_y() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1175,20 +1185,20 @@ inline void GeoGrid_Location_Coordinate::clear_has_y() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void GeoGrid_Location_Coordinate::clear_y() {
-  y_ = GOOGLE_LONGLONG(0);
+  y_ = 0;
   clear_has_y();
 }
-inline ::google::protobuf::int64 GeoGrid_Location_Coordinate::y() const {
+inline double GeoGrid_Location_Coordinate::y() const {
   // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.y)
   return y_;
 }
-inline void GeoGrid_Location_Coordinate::set_y(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_Coordinate::set_y(double value) {
   set_has_y();
   y_ = value;
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.y)
 }
 
-// required int64 longitude = 3;
+// required double longitude = 3;
 inline bool GeoGrid_Location_Coordinate::has_longitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1199,20 +1209,20 @@ inline void GeoGrid_Location_Coordinate::clear_has_longitude() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void GeoGrid_Location_Coordinate::clear_longitude() {
-  longitude_ = GOOGLE_LONGLONG(0);
+  longitude_ = 0;
   clear_has_longitude();
 }
-inline ::google::protobuf::int64 GeoGrid_Location_Coordinate::longitude() const {
+inline double GeoGrid_Location_Coordinate::longitude() const {
   // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.longitude)
   return longitude_;
 }
-inline void GeoGrid_Location_Coordinate::set_longitude(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_Coordinate::set_longitude(double value) {
   set_has_longitude();
   longitude_ = value;
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.longitude)
 }
 
-// required int64 latitude = 4;
+// required double latitude = 4;
 inline bool GeoGrid_Location_Coordinate::has_latitude() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1223,14 +1233,14 @@ inline void GeoGrid_Location_Coordinate::clear_has_latitude() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void GeoGrid_Location_Coordinate::clear_latitude() {
-  latitude_ = GOOGLE_LONGLONG(0);
+  latitude_ = 0;
   clear_has_latitude();
 }
-inline ::google::protobuf::int64 GeoGrid_Location_Coordinate::latitude() const {
+inline double GeoGrid_Location_Coordinate::latitude() const {
   // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.latitude)
   return latitude_;
 }
-inline void GeoGrid_Location_Coordinate::set_latitude(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_Coordinate::set_latitude(double value) {
   set_has_latitude();
   latitude_ = value;
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.latitude)
@@ -1582,7 +1592,31 @@ inline void GeoGrid_Location::set_province(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.province)
 }
 
-// required .proto.GeoGrid.Location.Coordinate coordinate = 4;
+// required int64 population = 4;
+inline bool GeoGrid_Location::has_population() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GeoGrid_Location::set_has_population() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GeoGrid_Location::clear_has_population() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GeoGrid_Location::clear_population() {
+  population_ = GOOGLE_LONGLONG(0);
+  clear_has_population();
+}
+inline ::google::protobuf::int64 GeoGrid_Location::population() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.population)
+  return population_;
+}
+inline void GeoGrid_Location::set_population(::google::protobuf::int64 value) {
+  set_has_population();
+  population_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.population)
+}
+
+// required .proto.GeoGrid.Location.Coordinate coordinate = 5;
 inline bool GeoGrid_Location::has_coordinate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1636,7 +1670,7 @@ inline void GeoGrid_Location::set_allocated_coordinate(::proto::GeoGrid_Location
   // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.coordinate)
 }
 
-// repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 5;
+// repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
 inline int GeoGrid_Location::contactcenters_size() const {
   return contactcenters_.size();
 }
@@ -1666,7 +1700,7 @@ GeoGrid_Location::contactcenters() const {
   return contactcenters_;
 }
 
-// repeated .proto.GeoGrid.Location.Commute commutes = 6;
+// repeated .proto.GeoGrid.Location.Commute commutes = 7;
 inline int GeoGrid_Location::commutes_size() const {
   return commutes_.size();
 }
