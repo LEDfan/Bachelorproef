@@ -136,6 +136,8 @@ private:
 
         void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
 
-        void setCommuteShownBetween(const std::shared_ptr<gengeopop::Location>& loc1,
-                                    const std::shared_ptr<gengeopop::Location>& loc2, bool shown);
+        void hideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc1,
+                                const std::shared_ptr<gengeopop::Location> &loc2);
+
+        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&, double amount1to2, double amount2to1);
 };

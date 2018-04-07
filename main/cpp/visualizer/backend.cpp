@@ -217,7 +217,7 @@ void Backend::UpdateColorOfMarkers()
                 // TODO optimize, only hide for the actual commuting cities
                 std::cout << "unselected " << loc->getName() << std::endl;
                 for(auto otherLoc : *m_grid){
-                        setCommuteShownBetween(loc, otherLoc, false);
+                        hideCommuteBetween(loc, otherLoc);
                 }
 
         }
@@ -231,7 +231,7 @@ void Backend::UpdateColorOfMarkers()
                         // If the other city is also selected
                         if(m_selection.find(commute.first) != m_selection.end()){
                                 std::cout << "Adding commute between " << commute.first->getName() << "," << loc->getName() << std::endl;
-                                setCommuteShownBetween(loc, commute.first, true);
+                                showCommute(loc, commute.first, 1,1);
                         }
                 }
         }
@@ -304,25 +304,8 @@ void Backend::setShowCommutes(bool value)
 }
 
 void
-Backend::setCommuteShownBetween(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>& loc2,
-                                bool shown) {
-        if(shown){
-                // Check if it already exists
-                std::tuple<unsigned int, unsigned int> key(loc1->getID(), loc2->getID());
-                if(m_commutes.find(key) != m_commutes.end()){
-                        std::cout << "showing existant line" << std::endl;
-                        QObject* commuteLine = m_commutes.find(key)->second;
-                        QVariant retVal;
-                        QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
-                } else {
-                        // Does not yet exist
-                        std::cout << "Adding new commute line" << std::endl;
-                        QObject* commuteLine = addCommuteLine(loc1->getCoordinate(), loc2->getCoordinate(), 100);
-                        m_commutes[key] = commuteLine;
-                }
-
-        } else {
-                // hide
+Backend::hideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc1,
+                            const std::shared_ptr<gengeopop::Location> &loc2) {
                 std::tuple<unsigned int, unsigned int> key(loc1->getID(), loc2->getID());
                 if(m_commutes.find(key) != m_commutes.end()){
                         std::cout << "hiding existant line" << std::endl;
@@ -337,5 +320,26 @@ Backend::setCommuteShownBetween(const std::shared_ptr<gengeopop::Location>& loc1
                         QVariant retVal;
                         QMetaObject::invokeMethod(commuteLine, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
                 }
-        }
+}
+
+void
+Backend::showCommute(const std::shared_ptr<gengeopop::Location> &loc1, const std::shared_ptr<gengeopop::Location> &loc2,
+                      double amount1to2, double amount2to1) {
+                QVariant retVal;
+                QObject* commuteLine = nullptr;
+                std::tuple<unsigned int, unsigned int> key(loc1->getID(), loc2->getID());
+                if(m_commutes.find(key) != m_commutes.end()){
+                        std::cout << "showing existant line" << std::endl;
+                        commuteLine = m_commutes.find(key)->second;
+                        QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
+                } else {
+                        // Does not yet exist
+                        std::cout << "Adding new commute line" << std::endl;
+                        commuteLine = addCommuteLine(loc1->getCoordinate(), loc2->getCoordinate(), 100);
+                        m_commutes[key] = commuteLine;
+                }
+
+                QMetaObject::invokeMethod(commuteLine, "setText", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
+                                          Q_ARG(QVariant, QString::fromStdString(loc1->getName())));
+
 }
