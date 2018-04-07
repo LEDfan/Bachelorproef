@@ -29,7 +29,7 @@ protected:
                 while (pools.empty()) {
                         for (const std::shared_ptr<Location>& nearLoc :
                              geoGrid->findLocationsInRadius(start, currentRadius)) {
-                                auto centers = nearLoc->getContactCentersOfType<T>();
+                                const auto& centers = nearLoc->getContactCentersOfType<T>();
                                 for (const auto& center : centers) {
                                         if (center->isAvailable()) {
                                                 pools.insert(pools.end(), center->begin(), center->end());
