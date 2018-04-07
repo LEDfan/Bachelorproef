@@ -10,11 +10,12 @@
 #include <gengeopop/generators/HouseholdGenerator.h>
 #include <gengeopop/generators/SchoolGenerator.h>
 #include <gengeopop/generators/WorkplaceGenerator.h>
-#include <gengeopop/io/GeoGridJSONWriter.h>
+#include <gengeopop/io/GeoGridProtoWriter.h>
 #include <gengeopop/io/ReaderFactory.h>
 #include <util/StringUtils.h>
 
 #include <boost/lexical_cast.hpp>
+#include <fstream>
 #include <gengeopop/populators/GeoGridPopulator.h>
 #include <gengeopop/populators/HighSchoolPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
@@ -22,6 +23,7 @@
 #include <gengeopop/populators/SchoolPopulator.h>
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
+#include <iostream>
 #include <utility>
 
 using namespace gengeopop;
@@ -140,8 +142,9 @@ int main(int argc, char* argv[])
                 std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
                 std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
                 std::cout << "Generation done, writing to file" << std::endl;
-                GeoGridJSONWriter geoGridJsonWriter;
-                geoGridJsonWriter.write(geoGrid, outputFileStream);
+                GeoGridProtoWriter geoGridProtoWriter;
+                geoGridProtoWriter.write(geoGrid, outputFileStream);
+                outputFileStream.close();
                 std::cout << "Done writing to file, starting Gen-Pop" << std::endl;
                 genPop(geoGridConfig, geoGrid, rnManager);
 

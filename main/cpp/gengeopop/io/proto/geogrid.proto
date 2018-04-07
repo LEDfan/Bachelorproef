@@ -1,0 +1,45 @@
+syntax = "proto2";
+package proto;
+
+message GeoGrid {
+    message Location {
+        required int64 id = 1;
+        required string name = 2;
+        required int64 province = 3;
+        message Coordinate {
+            required int64 x = 1;
+            required int64 y = 2;
+            required int64 longitude = 3;
+            required int64 latitude = 4;
+        }
+        required Coordinate coordinate = 4;
+        message ContactCenter {
+            required int64 id = 1;
+            required string type = 2;
+            message ContactPool {
+                required int64 id = 1;
+                repeated int64 people = 2;
+            }
+            repeated ContactPool pools = 3;
+        }
+        repeated ContactCenter contactCenters = 5;
+        message Commute {
+            required int64 to = 1;
+            required int64 proportion = 2;
+        }
+        repeated Commute commutes = 6;
+    }
+    message Person {
+        required int64 id = 1;
+        required int64 age = 2;
+        required string gender = 3;
+        required int64 School = 4;
+        required int64 Household = 5;
+        required int64 Workplace = 6;
+        required int64 PrimaryCommunity = 7;
+        required int64 SecondaryCommunity = 8;
+    }
+    repeated Location locations = 1;
+    repeated Person persons = 2;
+
+}
