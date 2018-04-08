@@ -26,7 +26,7 @@ message GeoGrid {
         repeated ContactCenter contactCenters = 6;
         message Commute {
             required int64 to = 1;
-            required int64 proportion = 2;
+            required double proportion = 2;
         }
         repeated Commute commutes = 7;
     }

@@ -15,7 +15,6 @@ void GeoGridProtoWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
         for (const auto& location : *geoGrid) {
                 writeLocation(location, protoGrid.add_locations());
         }
-
         for (const auto& person : m_persons_found) {
                 writePerson(person, protoGrid.add_persons());
         }
@@ -74,6 +73,7 @@ void GeoGridProtoWriter::writeContactPool(std::shared_ptr<ContactPool>          
 {
         protoContactPool->set_id(contactPool->getID());
         for (const auto& person : *contactPool) {
+                protoContactPool->add_people(person->GetId());
                 m_persons_found.insert(person);
         }
 }
