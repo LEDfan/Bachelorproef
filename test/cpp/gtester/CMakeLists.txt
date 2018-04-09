@@ -39,6 +39,8 @@ set( SRC
         CSVTest.cpp
 )
 
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+
 add_executable(${EXEC}   ${SRC} )
 target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
