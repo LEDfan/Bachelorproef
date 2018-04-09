@@ -15,9 +15,11 @@ void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<
         calculated._1826_years_and_student =
             static_cast<unsigned int>(std::floor(input.fraction_1826_years_WhichAreStudents * calculated._1826_years));
 
-        calculated._1865_and_years_active = static_cast<unsigned int>(std::floor(input.fraction_1865_years_active) * (calculated._1865_years - calculated._1826_years_and_student));
+        calculated._1865_and_years_active =
+            static_cast<unsigned int>(std::floor(input.fraction_1865_years_active) *
+                                      (calculated._1865_years - calculated._1826_years_and_student));
 
-       calculated.households = static_cast<unsigned int>(
+        calculated.households = static_cast<unsigned int>(
             std::floor(static_cast<double>(input.populationSize) / householdReader->averageHouseholdSize()));
 
         generated.household_types = householdReader->GetHouseHolds();
@@ -31,7 +33,8 @@ std::ostream& operator<<(std::ostream& out, const GeoGridConfig& config)
 {
         out << std::left << "Input:" << std::endl;
         out << std::left << std::setw(40) << "Fraction commuting" << config.input.fraction_commutingPeople << std::endl;
-        out << std::left << std::setw(40) << "Fraction 18-65 (without students) which are active" << config.input.fraction_1865_years_active << std::endl;
+        out << std::left << std::setw(40) << "Fraction 18-65 (without students) which are active"
+            << config.input.fraction_1865_years_active << std::endl;
         out << std::left << std::setw(40) << "Fraction 18-26 years which are students"
             << config.input.fraction_1826_years_WhichAreStudents << std::endl;
         out << std::left << std::setw(40) << "Population size" << intToDottedString(config.input.populationSize)

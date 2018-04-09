@@ -65,7 +65,7 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                                                 // create a list of ContactPools (i.e. classes) for each of highschool
                                                 // of this location
                                                 const auto& highSchools = commutingHighSchools[locationId]
-                                                                       ->getContactCentersOfType<HighSchool>();
+                                                                              ->getContactCentersOfType<HighSchool>();
 
                                                 std::vector<std::shared_ptr<ContactPool>> contactPools;
                                                 for (const auto& highSchool : highSchools) {

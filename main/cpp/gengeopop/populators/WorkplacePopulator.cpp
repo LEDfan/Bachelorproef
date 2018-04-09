@@ -23,22 +23,20 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
              geoGridConfig.input.fraction_commutingPeople); // the fraction_commutingPeople is included here, because it
                                                             // may be splitted into students and workers later on
 
-
-        std::unordered_map<std::shared_ptr<Location>, std::pair<std::vector<std::shared_ptr<ContactPool>>, std::function<trng::uniform_int_dist::result_type()>>> workplacesInCity;
+        std::unordered_map<std::shared_ptr<Location>, std::pair<std::vector<std::shared_ptr<ContactPool>>,
+                                                                std::function<trng::uniform_int_dist::result_type()>>>
+            workplacesInCity;
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                const auto& Workplaces = loc->getContactCentersOfType<Workplace>();
+                const auto&                               Workplaces = loc->getContactCentersOfType<Workplace>();
                 std::vector<std::shared_ptr<ContactPool>> contactPools;
 
-                for (const auto &Workplace : Workplaces) {
-                        contactPools.insert(contactPools.end(),
-                                            Workplace->begin(),
-                                            Workplace->end());
+                for (const auto& Workplace : Workplaces) {
+                        contactPools.insert(contactPools.end(), Workplace->begin(), Workplace->end());
                 }
 
-                auto disPools = m_rnManager.GetGenerator(trng::uniform_int_dist(
-                        0, static_cast<trng::uniform_int_dist::result_type>(
-                                contactPools.size())));
+                auto disPools = m_rnManager.GetGenerator(
+                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(contactPools.size())));
 
                 workplacesInCity[loc] = {contactPools, disPools};
         }
@@ -78,15 +76,18 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
                                 if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
-                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 && !MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) || MakeChoice(geoGridConfig.input.fraction_1865_years_active)) {
+                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 &&
+                                             !MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) ||
+                                            MakeChoice(geoGridConfig.input.fraction_1865_years_active)) {
                                                 // this person is (student and active) or active
                                                 if (!commutingLocations.empty() &&
                                                     MakeChoice(geoGridConfig.input.fraction_commutingPeople)) {
                                                         // this person is commuting
 
                                                         // id of the location this person is commuting to
-                                                        auto locationId = disCommuting();
-                                                        const auto& info = workplacesInCity[commutingLocations[locationId]];
+                                                        auto        locationId = disCommuting();
+                                                        const auto& info =
+                                                            workplacesInCity[commutingLocations[locationId]];
                                                         auto id = info.second();
 
                                                         info.first[id]->addMember(person);
