@@ -15,7 +15,7 @@ public:
         unsigned int  getID() const;
         unsigned long getCapacity() const;
         unsigned long getUsedCapacity() const;
-        void          addMember(const std::shared_ptr<stride::Person>& p);
+        void          addMember(std::shared_ptr<stride::Person> p);
 
         iterator begin();
         iterator end();
