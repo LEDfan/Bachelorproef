@@ -70,7 +70,7 @@ set(LIB_SRC
     viewers/CliViewer.cpp
     viewers/PersonsViewer.cpp
 	viewers/SummaryViewer.cpp
-)
+        sim/CliWithVisualizerController.cpp sim/CliWithVisualizerController.h viewers/VisualizerViewer.cpp viewers/VisualizerViewer.h)
 
 #============================================================================
 # Build the Stride library.

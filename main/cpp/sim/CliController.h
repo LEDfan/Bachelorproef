@@ -42,11 +42,21 @@ public:
               m_p_overrides(std::move(p_overrides)), m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs),
               m_run_clock("run_clock", true), m_logger(), m_config_pt(){};
 
+        /// Virtual desctructor for overloading
+        virtual ~CliController() = default;
+
         /// Actual run of the simulator.
         void Go();
 
         /// Setup the controller.
         void Setup();
+
+protected:
+        /// Register the viewers of the SimRunner.
+        virtual void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
+
+        /// Returns the logger
+        std::shared_ptr<spdlog::logger> getLogger() const;
 
 private:
         /// Check install environment.
@@ -54,9 +64,6 @@ private:
 
         /// Check the OpenMP environment.
         void CheckOpenMP();
-
-        /// Register the viewers of the SimRunner.
-        void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
 
         /// Setup and patch run configuration file.
         void SetupConfig();

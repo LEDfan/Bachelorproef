@@ -20,6 +20,7 @@
 
 #include "sim/CliController.h"
 #include "util/StringUtils.h"
+#include "CliWithVisualizerController.h"
 
 #include <tclap/CmdLine.h>
 #include <string>
@@ -50,6 +51,8 @@ int main(int argc, char** argv)
                                           false);
                 SwitchArg silent_mode_Arg("s", "silent", "silent mode", cmd, false);
 
+                SwitchArg show_visualiser("v", "visualizer", "Open a visualizer window when the simulation runs.", cmd, false);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
@@ -67,10 +70,16 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // We have been using use_installdirs for a while, so ..
                 const bool    use_install_dirs = !working_dir_Arg.getValue();
-                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
-                                    silent_mode_Arg.getValue(), use_install_dirs);
-                cntrl.Setup();
-                cntrl.Go();
+                std::shared_ptr<CliController> controller = nullptr;
+                if(show_visualiser.getValue()) {
+                        controller = std::make_shared<CliWithVisualizerController>(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
+                                                                                       silent_mode_Arg.getValue(), use_install_dirs);
+                } else {
+                        controller = std::make_shared<CliController>(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
+                                                                                       silent_mode_Arg.getValue(), use_install_dirs);
+                }
+                controller->Setup();
+                controller->Go();
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;
