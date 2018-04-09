@@ -20,7 +20,7 @@ public:
 
         unsigned int getId() const;
 
-        void addPool(std::shared_ptr<ContactPool> pool);
+        void addPool(const std::shared_ptr<ContactPool>& pool);
 
         const std::vector<std::shared_ptr<ContactPool>>& GetPools() const;
 

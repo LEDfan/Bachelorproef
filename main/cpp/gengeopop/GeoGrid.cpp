@@ -11,13 +11,13 @@ GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
 GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 
-void GeoGrid::addLocation(std::shared_ptr<Location> location)
+void GeoGrid::addLocation(const std::shared_ptr<Location>& location)
 {
         if (m_finalized) {
                 throw std::runtime_error("Calling addLocation while GeoGrid is finalized is not supported!");
         }
 
-        m_locations.emplace_back(location);
+        m_locations.push_back(location);
         m_points.emplace_back(KdTree2DPoint(location));
         m_locationsToIdIndex[location->getID()] = location;
 }

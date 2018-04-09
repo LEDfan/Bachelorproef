@@ -25,7 +25,7 @@ public:
 
         GeoGrid();
 
-        void addLocation(std::shared_ptr<Location> location);
+        void addLocation(const std::shared_ptr<Location>& location);
 
         /**
          * Disables the addLocation method and builds the kdtree.
