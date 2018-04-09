@@ -27,7 +27,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
         {
                 const auto& size = protoGrid.persons_size();
                 for (int idx = 0; idx < size; idx++) {
-                        const proto::GeoGrid_Person&    protoPerson = protoGrid.persons(idx);
+                        const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
 #pragma omp task firstprivate(protoPerson)
                         {
                                 const auto& person = ParsePerson(protoPerson);
@@ -46,7 +46,10 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
                         const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
 #pragma omp task firstprivate(protoLocation)
                         {
-                                std::shared_ptr<Location> loc = *(e->Run([this, &protoLocation] () -> std::shared_ptr<Location> { return ParseLocation(protoLocation); }));
+                                std::shared_ptr<Location> loc =
+                                    *(e->Run([this, &protoLocation]() -> std::shared_ptr<Location> {
+                                            return ParseLocation(protoLocation);
+                                    }));
                                 if (!e->HasError())
 #pragma omp critical
                                         geoGrid->addLocation(loc);
@@ -59,7 +62,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
         for (const auto& commute_tuple : m_commutes) {
                 const auto& a      = geoGrid->GetById(std::get<0>(commute_tuple));
                 const auto& b      = geoGrid->GetById(std::get<1>(commute_tuple));
-                auto amount = std::get<2>(commute_tuple);
+                auto        amount = std::get<2>(commute_tuple);
                 a->addOutgoingCommutingLocation(b, amount);
                 b->addIncomingCommutingLocation(a, amount);
         }
@@ -88,7 +91,8 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
                         const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
 #pragma omp task firstprivate(protoCenter)
                         {
-                                std::shared_ptr<ContactCenter> center = *(e->Run([&protoCenter, this] { return ParseContactCenter(protoCenter); }));
+                                std::shared_ptr<ContactCenter> center =
+                                    *(e->Run([&protoCenter, this] { return ParseContactCenter(protoCenter); }));
                                 if (!e->HasError())
 #pragma omp critical
                                         result->addContactCenter(center);
@@ -100,7 +104,7 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
 
         const auto& s = protoLocation.commutes_size();
 #pragma omp critical
-        m_commutes.reserve(m_commutes.size()  + s);
+        m_commutes.reserve(m_commutes.size() + s);
         for (int idx = 0; idx < s; idx++) {
                 const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
 #pragma omp critical
@@ -122,7 +126,7 @@ Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coo
 std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
-        const std::string&                    type = protoContactCenter.type();
+        const std::string&             type = protoContactCenter.type();
         std::shared_ptr<ContactCenter> result;
         auto                           id = protoContactCenter.id();
 
@@ -144,9 +148,8 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                 throw std::invalid_argument("No such ContactCenter type: " + type);
         }
 
-
         const auto& poolsize = result->getPoolSize();
-        auto e = std::make_shared<ThreadException>();
+        auto        e        = std::make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
@@ -156,9 +159,10 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                             protoContactCenter.pools(idx);
 #pragma omp task firstprivate(protoContactPool)
                         {
-                            std::shared_ptr<ContactPool> pool = *(e->Run([&protoContactPool, this, &poolsize]() -> auto {
-                                        return ParseContactPool(protoContactPool, poolsize);
-                                }));
+                                std::shared_ptr<ContactPool> pool =
+                                    *(e->Run([&protoContactPool, this, &poolsize ]() -> auto {
+                                            return ParseContactPool(protoContactPool, poolsize);
+                                    }));
                                 if (!e->HasError())
 #pragma omp critical
                                         result->addPool(pool);
@@ -173,13 +177,13 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize)
 {
-        const unsigned int& id     = static_cast<const unsigned int &>(protoContactPool.id());
-        auto         result = std::make_shared<ContactPool>(id, poolSize);
+        const unsigned int& id     = static_cast<const unsigned int&>(protoContactPool.id());
+        auto                result = std::make_shared<ContactPool>(id, poolSize);
 
         const auto& size = protoContactPool.people_size();
         for (int idx = 0; idx < size; idx++) {
                 const auto& person_id = protoContactPool.people(idx);
-                result->addMember(m_people.at((const unsigned int &) person_id));
+                result->addMember(m_people.at((const unsigned int&)person_id));
         }
 
         return result;
@@ -189,7 +193,7 @@ std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::Geo
 {
         const auto&        id                   = protoPerson.id();
         const auto&        age                  = protoPerson.age();
-        const std::string &gender               = protoPerson.gender();
+        const std::string& gender               = protoPerson.gender();
         const auto&        schoolId             = protoPerson.school();
         const auto&        householdId          = protoPerson.household();
         const auto&        workplaceId          = protoPerson.workplace();

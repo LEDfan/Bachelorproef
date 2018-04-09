@@ -17,6 +17,7 @@
 
 #include <boost/lexical_cast.hpp>
 #include <fstream>
+#include <gengeopop/io/GeoGridReaderFactory.h>
 #include <gengeopop/populators/GeoGridPopulator.h>
 #include <gengeopop/populators/HighSchoolPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
@@ -26,7 +27,6 @@
 #include <gengeopop/populators/WorkplacePopulator.h>
 #include <iostream>
 #include <utility>
-#include <gengeopop/io/GeoGridReaderFactory.h>
 
 using namespace gengeopop;
 using namespace TCLAP;
