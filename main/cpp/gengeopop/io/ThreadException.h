@@ -23,10 +23,10 @@ public:
         }
 
         template <typename Function, typename... Parameters>
-        void Run(Function f, Parameters... params)
+        auto Run(Function f, Parameters... params) -> decltype(f(params...))
         {
                 try {
-                        f(params...);
+                        return f(params...);
                 } catch (...) {
                         CaptureException();
                 }

@@ -22,7 +22,7 @@ public:
                  Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0), std::string name = "");
 
         template <typename T>
-        void addContactCenter(std::shared_ptr<T> contactCenter)
+        void addContactCenter(const std::shared_ptr<T>& contactCenter)
         {
                 m_contactCenters.push_back(contactCenter);
                 m_contactCenterByType[typeid(T)].insert(contactCenter);

@@ -26,6 +26,7 @@
 #include <gengeopop/populators/WorkplacePopulator.h>
 #include <iostream>
 #include <utility>
+#include <gengeopop/io/GeoGridReaderFactory.h>
 
 using namespace gengeopop;
 using namespace TCLAP;
