@@ -86,10 +86,10 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                  m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>       m_grid;
-        std::map<std::string, QObject*> m_markers;
-        std::map<std::tuple<unsigned int,unsigned int>, QObject* >
+        QObject*                            m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid> m_grid;
+        std::map<std::string, QObject*>     m_markers;
+        std::map<std::tuple<unsigned int, unsigned int>, QObject*>
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
         bool                                           m_showCommutes = false;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
@@ -132,12 +132,9 @@ private:
 
         void hideCommuteLine(QObject* obj);
 
-        void hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+        void hideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+                                const std::shared_ptr<gengeopop::Location>& loc2);
 
-        void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
-
-        void hideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc1,
-                                const std::shared_ptr<gengeopop::Location> &loc2);
-
-        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&, double amount1to2, double amount2to1);
+        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&,
+                         double amount1to2, double amount2to1);
 };

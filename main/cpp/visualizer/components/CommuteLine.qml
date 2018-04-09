@@ -18,8 +18,4 @@ MapPolyline {
         line.color = "#60002200"
     }
 
-    function setText(text) {
-
-    }
-
 }
