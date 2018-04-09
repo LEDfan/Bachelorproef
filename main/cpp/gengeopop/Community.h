@@ -12,7 +12,7 @@ public:
         void                addHouseHold(std::shared_ptr<Household> household);
         virtual std::string getType() const;
         bool                isAvailable() const;
-        unsigned int        getPoolSize() const;
+        unsigned int        getPoolSize() const override;
         unsigned int        getMaxPools() const;
         void                fill(GeoGridConfig& geoGridConfig);
         virtual ~Community(){};
