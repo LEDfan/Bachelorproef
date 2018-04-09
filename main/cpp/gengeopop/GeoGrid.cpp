@@ -11,7 +11,7 @@ GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
 GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 
-void GeoGrid::addLocation(const std::shared_ptr<Location>& location)
+void GeoGrid::addLocation(std::shared_ptr<Location> location)
 {
         if (m_finalized) {
                 throw std::runtime_error("Calling addLocation while GeoGrid is finalized is not supported!");
