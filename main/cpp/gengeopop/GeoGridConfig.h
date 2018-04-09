@@ -33,6 +33,11 @@ public:
                 double fraction_commutingPeople;
 
                 /**
+                 * Fraction of (calculated._1865_years - calculated._1826_years_and_student)
+                 */
+                double fraction_1865_years_active;
+
+                /**
                  * Absolute size of the population.
                  */
                 unsigned int populationSize;

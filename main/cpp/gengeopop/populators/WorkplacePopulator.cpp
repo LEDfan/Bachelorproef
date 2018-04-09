@@ -77,9 +77,9 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
-                                if (person->GetAge() >= 18 && person->GetAge() < 65) {
-//                                        if (MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) { // TODO not correct
-                                                // this person is an active employee
+                                if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
+                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 && !MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) || MakeChoice(geoGridConfig.input.fraction_1865_years_active)) {
+                                                // this person is (student and active) or active
                                                 if (!commutingLocations.empty() &&
                                                     MakeChoice(geoGridConfig.input.fraction_commutingPeople)) {
                                                         // this person is commuting
@@ -98,11 +98,11 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                                                         person->SetWorkId(static_cast<unsigned int>(id));
                                                         assignedNotCommuting++;
                                                 }
-//                                        } else {
-//                                                // this person isn't an active employee
-//                                                person->SetWorkId(0);
-//                                                assignedTo0++;
-//                                        }
+                                        } else {
+                                                // this person isn't an active employee
+                                                person->SetWorkId(0);
+                                                assignedTo0++;
+                                        }
                                 }
                         }
                 }
