@@ -1,5 +1,6 @@
 #pragma once
 #include <mutex>
+#include <boost/optional.hpp>
 
 namespace gengeopop {
 
@@ -22,15 +23,28 @@ public:
                 this->ptr = std::current_exception();
         }
 
-        template <typename Function, typename... Parameters>
-        auto Run(Function f, Parameters... params) -> decltype(f(params...))
+        template <typename Function, typename... Parameters, typename ReturnType=decltype(std::declval<Function>()(std::declval<Parameters>()...))>
+        std::enable_if_t<!std::is_same<ReturnType, void>::value, boost::optional<ReturnType>>
+        Run(Function f, Parameters... params)
         {
                 try {
                         return f(params...);
                 } catch (...) {
                         CaptureException();
                 }
+                return {};
         }
+
+        template <typename Function, typename... Parameters, typename ReturnType=decltype(std::declval<Function>()(std::declval<Parameters>()...))>
+        std::enable_if_t<std::is_same<ReturnType, void>::value, void>
+        Run(Function f, Parameters... params) {
+                try {
+                        f(params...);
+                } catch (...) {
+                        CaptureException();
+                }
+        }
+
 
         bool HasError() const { return ptr != nullptr; }
 
