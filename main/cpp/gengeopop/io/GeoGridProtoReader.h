@@ -22,7 +22,7 @@ private:
             const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize);
         std::shared_ptr<stride::Person> ParsePerson(const proto::GeoGrid_Person& protoPerson);
 
-        std::unordered_map<unsigned int, std::shared_ptr<stride::Person>> m_people;
-        std::vector<std::tuple<unsigned int, unsigned int, double>>       m_commutes; ///< from, to, amount
+        std::unordered_map<unsigned int, std::shared_ptr<stride::Person>>     m_people;
+        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes; ///< from, to, amount
 };
 } // namespace gengeopop
