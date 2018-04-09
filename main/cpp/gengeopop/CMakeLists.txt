@@ -50,7 +50,7 @@ set(GENGEOPOP_LIB
 #============================================================================
 INCLUDE(FindProtobuf)
 FIND_PACKAGE(Protobuf)
-if(${PROTOBUF_FOUND})
+if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
     file(GLOB proto_source "${CMAKE_CURRENT_SOURCE_DIR}/io/proto/*.proto")
     PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER ${proto_source})
     add_library(libproto ${PROTO_HEADER} ${PROTO_SRC})
