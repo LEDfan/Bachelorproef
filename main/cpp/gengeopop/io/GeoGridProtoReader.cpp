@@ -25,14 +25,14 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
 #pragma omp parallel
 #pragma omp single
         {
-                const auto& size = protoGrid.persons_size();
-                for (int idx = 0; idx < size; idx++) {
+                for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
+//                        std::shared_ptr<stride::Person> person;
                         const proto::GeoGrid_Person&    protoPerson = protoGrid.persons(idx);
 #pragma omp task firstprivate(protoPerson)
                         {
                                 const auto& person = ParsePerson(protoPerson);
 #pragma omp critical
-                                m_people[person->GetId()] = person;
+                                m_people[person->GetId()] = std::move(person);
                         }
                 }
 #pragma omp taskwait
@@ -41,12 +41,12 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
 #pragma omp parallel
 #pragma omp single
         {
-                const auto& size = protoGrid.locations_size();
-                for (int idx = 0; idx < size; idx++) {
+                for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
+//                        std::shared_ptr<Location>      loc;
                         const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
 #pragma omp task firstprivate(protoLocation)
                         {
-                                std::shared_ptr<Location> loc = *(e->Run([this, &protoLocation] () -> std::shared_ptr<Location> { return ParseLocation(protoLocation); }));
+                                const std::shared_ptr<Location>& loc = e->Run([this, &protoLocation] { return ParseLocation(protoLocation); });
                                 if (!e->HasError())
 #pragma omp critical
                                         geoGrid->addLocation(loc);
@@ -83,12 +83,12 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
 #pragma omp parallel
 #pragma omp single
         {
-                const auto& size = protoLocation.contactcenters_size();
-                for (int idx = 0; idx < size; idx++) {
+                for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
+//                        std::shared_ptr<ContactCenter>               center;
                         const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
 #pragma omp task firstprivate(protoCenter)
                         {
-                                std::shared_ptr<ContactCenter> center = *(e->Run([&protoCenter, this] { return ParseContactCenter(protoCenter); }));
+                                const std::shared_ptr<ContactCenter>& center = e->Run([&protoCenter, this] { return ParseContactCenter(protoCenter); });
                                 if (!e->HasError())
 #pragma omp critical
                                         result->addContactCenter(center);
@@ -150,15 +150,15 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 #pragma omp parallel
 #pragma omp single
         {
-                const auto& size = protoContactCenter.pools_size();
-                for (int idx = 0; idx < size; idx++) {
+                for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
+//                        std::shared_ptr<ContactPool>                             pool;
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
                             protoContactCenter.pools(idx);
 #pragma omp task firstprivate(protoContactPool)
                         {
-                            std::shared_ptr<ContactPool> pool = *(e->Run([&protoContactPool, this, &poolsize]() -> auto {
+                                const std::shared_ptr<ContactPool>& pool = e->Run([&protoContactPool, this, &poolsize] {
                                         return ParseContactPool(protoContactPool, poolsize);
-                                }));
+                                });
                                 if (!e->HasError())
 #pragma omp critical
                                         result->addPool(pool);
@@ -173,13 +173,15 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize)
 {
-        const unsigned int& id     = static_cast<const unsigned int &>(protoContactPool.id());
+        const unsigned int& id     = protoContactPool.id();
         auto         result = std::make_shared<ContactPool>(id, poolSize);
 
-        const auto& size = protoContactPool.people_size();
-        for (int idx = 0; idx < size; idx++) {
-                const auto& person_id = protoContactPool.people(idx);
-                result->addMember(m_people.at((const unsigned int &) person_id));
+        for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
+                auto person_id = protoContactPool.people(idx);
+                if (m_people.count(person_id) == 0) {
+                        throw std::invalid_argument("No such person: " + std::to_string(person_id));
+                }
+                result->addMember(m_people[person_id]);
         }
 
         return result;
