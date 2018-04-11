@@ -104,6 +104,22 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
                 m_commutes.push_back(std::make_tuple(id, commute.to(), commute.proportion()));
         }
 
+#pragma omp parallel
+#pragma omp single
+        {
+                for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
+                        const proto::GeoGrid_Location& protoSubMunicipality = protoLocation.submunicipalities(idx);
+                        std::shared_ptr<Location>      subMunicipality;
+#pragma omp task firstprivate(protoSubMunicipality, subMunicipality)
+                        e->Run([&protoSubMunicipality, this, &subMunicipality] {
+                                subMunicipality = ParseLocation(protoSubMunicipality);
+                        });
+                        if (!e->HasError())
+#pragma omp critical
+                                result->addSubMunicipality(subMunicipality);
+                }
+#pragma omp taskwait
+        }
         return result;
 }
 

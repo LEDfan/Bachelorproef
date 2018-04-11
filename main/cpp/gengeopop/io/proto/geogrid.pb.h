@@ -19,55 +19,53 @@
 #error regenerate this file with a newer version of protoc.
 #endif
 
+#include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/extension_set.h> // IWYU pragma: export
 #include <google/protobuf/generated_message_table_driven.h>
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/message.h>
 #include <google/protobuf/metadata.h>
-#include <google/protobuf/repeated_field.h> // IWYU pragma: export
+#include <google/protobuf/message.h>
+#include <google/protobuf/repeated_field.h>  // IWYU pragma: export
+#include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
 namespace protobuf_geogrid_2eproto {
 // Internal implementation detail -- do not use these members.
-struct TableStruct
-{
-        static const ::google::protobuf::internal::ParseTableField          entries[];
-        static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-        static const ::google::protobuf::internal::ParseTable               schema[7];
-        static const ::google::protobuf::internal::FieldMetadata            field_metadata[];
-        static const ::google::protobuf::internal::SerializationTable       serialization_table[];
-        static const ::google::protobuf::uint32                             offsets[];
+struct TableStruct {
+  static const ::google::protobuf::internal::ParseTableField entries[];
+  static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
+  static const ::google::protobuf::internal::ParseTable schema[7];
+  static const ::google::protobuf::internal::FieldMetadata field_metadata[];
+  static const ::google::protobuf::internal::SerializationTable serialization_table[];
+  static const ::google::protobuf::uint32 offsets[];
 };
-void        AddDescriptors();
-void        InitDefaultsGeoGrid_Location_CoordinateImpl();
-void        InitDefaultsGeoGrid_Location_Coordinate();
-void        InitDefaultsGeoGrid_Location_ContactCenter_ContactPoolImpl();
-void        InitDefaultsGeoGrid_Location_ContactCenter_ContactPool();
-void        InitDefaultsGeoGrid_Location_ContactCenterImpl();
-void        InitDefaultsGeoGrid_Location_ContactCenter();
-void        InitDefaultsGeoGrid_Location_CommuteImpl();
-void        InitDefaultsGeoGrid_Location_Commute();
-void        InitDefaultsGeoGrid_LocationImpl();
-void        InitDefaultsGeoGrid_Location();
-void        InitDefaultsGeoGrid_PersonImpl();
-void        InitDefaultsGeoGrid_Person();
-void        InitDefaultsGeoGridImpl();
-void        InitDefaultsGeoGrid();
-inline void InitDefaults()
-{
-        InitDefaultsGeoGrid_Location_Coordinate();
-        InitDefaultsGeoGrid_Location_ContactCenter_ContactPool();
-        InitDefaultsGeoGrid_Location_ContactCenter();
-        InitDefaultsGeoGrid_Location_Commute();
-        InitDefaultsGeoGrid_Location();
-        InitDefaultsGeoGrid_Person();
-        InitDefaultsGeoGrid();
+void AddDescriptors();
+void InitDefaultsGeoGrid_Location_CoordinateImpl();
+void InitDefaultsGeoGrid_Location_Coordinate();
+void InitDefaultsGeoGrid_Location_ContactCenter_ContactPoolImpl();
+void InitDefaultsGeoGrid_Location_ContactCenter_ContactPool();
+void InitDefaultsGeoGrid_Location_ContactCenterImpl();
+void InitDefaultsGeoGrid_Location_ContactCenter();
+void InitDefaultsGeoGrid_Location_CommuteImpl();
+void InitDefaultsGeoGrid_Location_Commute();
+void InitDefaultsGeoGrid_LocationImpl();
+void InitDefaultsGeoGrid_Location();
+void InitDefaultsGeoGrid_PersonImpl();
+void InitDefaultsGeoGrid_Person();
+void InitDefaultsGeoGridImpl();
+void InitDefaultsGeoGrid();
+inline void InitDefaults() {
+  InitDefaultsGeoGrid_Location_Coordinate();
+  InitDefaultsGeoGrid_Location_ContactCenter_ContactPool();
+  InitDefaultsGeoGrid_Location_ContactCenter();
+  InitDefaultsGeoGrid_Location_Commute();
+  InitDefaultsGeoGrid_Location();
+  InitDefaultsGeoGrid_Person();
+  InitDefaultsGeoGrid();
 }
-} // namespace protobuf_geogrid_2eproto
+}  // namespace protobuf_geogrid_2eproto
 namespace proto {
 class GeoGrid;
 class GeoGridDefaultTypeInternal;
@@ -83,1149 +81,1182 @@ class GeoGrid_Location_ContactCenterDefaultTypeInternal;
 extern GeoGrid_Location_ContactCenterDefaultTypeInternal _GeoGrid_Location_ContactCenter_default_instance_;
 class GeoGrid_Location_ContactCenter_ContactPool;
 class GeoGrid_Location_ContactCenter_ContactPoolDefaultTypeInternal;
-extern GeoGrid_Location_ContactCenter_ContactPoolDefaultTypeInternal
-    _GeoGrid_Location_ContactCenter_ContactPool_default_instance_;
+extern GeoGrid_Location_ContactCenter_ContactPoolDefaultTypeInternal _GeoGrid_Location_ContactCenter_ContactPool_default_instance_;
 class GeoGrid_Location_Coordinate;
 class GeoGrid_Location_CoordinateDefaultTypeInternal;
 extern GeoGrid_Location_CoordinateDefaultTypeInternal _GeoGrid_Location_Coordinate_default_instance_;
 class GeoGrid_Person;
 class GeoGrid_PersonDefaultTypeInternal;
 extern GeoGrid_PersonDefaultTypeInternal _GeoGrid_Person_default_instance_;
-} // namespace proto
+}  // namespace proto
 namespace proto {
 
 // ===================================================================
 
-class GeoGrid_Location_Coordinate
-    : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.Coordinate)
-                                          */
-{
-public:
-        GeoGrid_Location_Coordinate();
-        virtual ~GeoGrid_Location_Coordinate();
+class GeoGrid_Location_Coordinate : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.Coordinate) */ {
+ public:
+  GeoGrid_Location_Coordinate();
+  virtual ~GeoGrid_Location_Coordinate();
 
-        GeoGrid_Location_Coordinate(const GeoGrid_Location_Coordinate& from);
+  GeoGrid_Location_Coordinate(const GeoGrid_Location_Coordinate& from);
 
-        inline GeoGrid_Location_Coordinate& operator=(const GeoGrid_Location_Coordinate& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid_Location_Coordinate(GeoGrid_Location_Coordinate&& from) noexcept : GeoGrid_Location_Coordinate()
-        {
-                *this = ::std::move(from);
-        }
+  inline GeoGrid_Location_Coordinate& operator=(const GeoGrid_Location_Coordinate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid_Location_Coordinate(GeoGrid_Location_Coordinate&& from) noexcept
+    : GeoGrid_Location_Coordinate() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid_Location_Coordinate& operator=(GeoGrid_Location_Coordinate&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid_Location_Coordinate& operator=(GeoGrid_Location_Coordinate&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor* descriptor();
-        static const GeoGrid_Location_Coordinate&    default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid_Location_Coordinate& default_instance();
 
-        static void                                      InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid_Location_Coordinate* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid_Location_Coordinate*>(
-                    &_GeoGrid_Location_Coordinate_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 0;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid_Location_Coordinate* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location_Coordinate*>(
+               &_GeoGrid_Location_Coordinate_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    0;
 
-        void        Swap(GeoGrid_Location_Coordinate* other);
-        friend void swap(GeoGrid_Location_Coordinate& a, GeoGrid_Location_Coordinate& b) { a.Swap(&b); }
+  void Swap(GeoGrid_Location_Coordinate* other);
+  friend void swap(GeoGrid_Location_Coordinate& a, GeoGrid_Location_Coordinate& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid_Location_Coordinate* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid_Location_Coordinate* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid_Location_Coordinate* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void                         CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                         MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                         CopyFrom(const GeoGrid_Location_Coordinate& from);
-        void                         MergeFrom(const GeoGrid_Location_Coordinate& from);
-        void                         Clear() PROTOBUF_FINAL;
-        bool                         IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid_Location_Coordinate* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid_Location_Coordinate& from);
+  void MergeFrom(const GeoGrid_Location_Coordinate& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid_Location_Coordinate* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid_Location_Coordinate* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  // accessors -------------------------------------------------------
 
-        // nested types ----------------------------------------------------
+  // required double x = 1;
+  bool has_x() const;
+  void clear_x();
+  static const int kXFieldNumber = 1;
+  double x() const;
+  void set_x(double value);
 
-        // accessors -------------------------------------------------------
+  // required double y = 2;
+  bool has_y() const;
+  void clear_y();
+  static const int kYFieldNumber = 2;
+  double y() const;
+  void set_y(double value);
 
-        // required double x = 1;
-        bool             has_x() const;
-        void             clear_x();
-        static const int kXFieldNumber = 1;
-        double           x() const;
-        void             set_x(double value);
+  // required double longitude = 3;
+  bool has_longitude() const;
+  void clear_longitude();
+  static const int kLongitudeFieldNumber = 3;
+  double longitude() const;
+  void set_longitude(double value);
 
-        // required double y = 2;
-        bool             has_y() const;
-        void             clear_y();
-        static const int kYFieldNumber = 2;
-        double           y() const;
-        void             set_y(double value);
+  // required double latitude = 4;
+  bool has_latitude() const;
+  void clear_latitude();
+  static const int kLatitudeFieldNumber = 4;
+  double latitude() const;
+  void set_latitude(double value);
 
-        // required double longitude = 3;
-        bool             has_longitude() const;
-        void             clear_longitude();
-        static const int kLongitudeFieldNumber = 3;
-        double           longitude() const;
-        void             set_longitude(double value);
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.Coordinate)
+ private:
+  void set_has_x();
+  void clear_has_x();
+  void set_has_y();
+  void clear_has_y();
+  void set_has_longitude();
+  void clear_has_longitude();
+  void set_has_latitude();
+  void clear_has_latitude();
 
-        // required double latitude = 4;
-        bool             has_latitude() const;
-        void             clear_latitude();
-        static const int kLatitudeFieldNumber = 4;
-        double           latitude() const;
-        void             set_latitude(double value);
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.Coordinate)
-private:
-        void set_has_x();
-        void clear_has_x();
-        void set_has_y();
-        void clear_has_y();
-        void set_has_longitude();
-        void clear_has_longitude();
-        void set_has_latitude();
-        void clear_has_latitude();
-
-        // helper for ByteSizeLong()
-        size_t RequiredFieldsByteSizeFallback() const;
-
-        ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                _has_bits_;
-        mutable int                                             _cached_size_;
-        double                                                  x_;
-        double                                                  y_;
-        double                                                  longitude_;
-        double                                                  latitude_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_CoordinateImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  double x_;
+  double y_;
+  double longitude_;
+  double latitude_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_CoordinateImpl();
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_ContactCenter_ContactPool
-    : public ::google::protobuf::
-          Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter.ContactPool)
-                   */
-{
-public:
-        GeoGrid_Location_ContactCenter_ContactPool();
-        virtual ~GeoGrid_Location_ContactCenter_ContactPool();
+class GeoGrid_Location_ContactCenter_ContactPool : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter.ContactPool) */ {
+ public:
+  GeoGrid_Location_ContactCenter_ContactPool();
+  virtual ~GeoGrid_Location_ContactCenter_ContactPool();
 
-        GeoGrid_Location_ContactCenter_ContactPool(const GeoGrid_Location_ContactCenter_ContactPool& from);
+  GeoGrid_Location_ContactCenter_ContactPool(const GeoGrid_Location_ContactCenter_ContactPool& from);
 
-        inline GeoGrid_Location_ContactCenter_ContactPool& operator=(
-            const GeoGrid_Location_ContactCenter_ContactPool& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid_Location_ContactCenter_ContactPool(GeoGrid_Location_ContactCenter_ContactPool&& from) noexcept
-            : GeoGrid_Location_ContactCenter_ContactPool()
-        {
-                *this = ::std::move(from);
-        }
+  inline GeoGrid_Location_ContactCenter_ContactPool& operator=(const GeoGrid_Location_ContactCenter_ContactPool& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid_Location_ContactCenter_ContactPool(GeoGrid_Location_ContactCenter_ContactPool&& from) noexcept
+    : GeoGrid_Location_ContactCenter_ContactPool() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid_Location_ContactCenter_ContactPool& operator=(
-            GeoGrid_Location_ContactCenter_ContactPool&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid_Location_ContactCenter_ContactPool& operator=(GeoGrid_Location_ContactCenter_ContactPool&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor*             descriptor();
-        static const GeoGrid_Location_ContactCenter_ContactPool& default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid_Location_ContactCenter_ContactPool& default_instance();
 
-        static void InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid_Location_ContactCenter_ContactPool* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid_Location_ContactCenter_ContactPool*>(
-                    &_GeoGrid_Location_ContactCenter_ContactPool_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 1;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid_Location_ContactCenter_ContactPool* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location_ContactCenter_ContactPool*>(
+               &_GeoGrid_Location_ContactCenter_ContactPool_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
 
-        void        Swap(GeoGrid_Location_ContactCenter_ContactPool* other);
-        friend void swap(GeoGrid_Location_ContactCenter_ContactPool& a, GeoGrid_Location_ContactCenter_ContactPool& b)
-        {
-                a.Swap(&b);
-        }
+  void Swap(GeoGrid_Location_ContactCenter_ContactPool* other);
+  friend void swap(GeoGrid_Location_ContactCenter_ContactPool& a, GeoGrid_Location_ContactCenter_ContactPool& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid_Location_ContactCenter_ContactPool* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid_Location_ContactCenter_ContactPool* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid_Location_ContactCenter_ContactPool* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void                                        CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                                        MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                                        CopyFrom(const GeoGrid_Location_ContactCenter_ContactPool& from);
-        void                                        MergeFrom(const GeoGrid_Location_ContactCenter_ContactPool& from);
-        void                                        Clear() PROTOBUF_FINAL;
-        bool                                        IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid_Location_ContactCenter_ContactPool* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid_Location_ContactCenter_ContactPool& from);
+  void MergeFrom(const GeoGrid_Location_ContactCenter_ContactPool& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid_Location_ContactCenter_ContactPool* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid_Location_ContactCenter_ContactPool* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  // accessors -------------------------------------------------------
 
-        // nested types ----------------------------------------------------
+  // repeated int64 people = 2;
+  int people_size() const;
+  void clear_people();
+  static const int kPeopleFieldNumber = 2;
+  ::google::protobuf::int64 people(int index) const;
+  void set_people(int index, ::google::protobuf::int64 value);
+  void add_people(::google::protobuf::int64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      people() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_people();
 
-        // accessors -------------------------------------------------------
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int64 id() const;
+  void set_id(::google::protobuf::int64 value);
 
-        // repeated int64 people = 2;
-        int                       people_size() const;
-        void                      clear_people();
-        static const int          kPeopleFieldNumber = 2;
-        ::google::protobuf::int64 people(int index) const;
-        void                      set_people(int index, ::google::protobuf::int64 value);
-        void                      add_people(::google::protobuf::int64 value);
-        const ::google::protobuf::RepeatedField<::google::protobuf::int64>& people() const;
-        ::google::protobuf::RepeatedField<::google::protobuf::int64>*       mutable_people();
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactCenter.ContactPool)
+ private:
+  void set_has_id();
+  void clear_has_id();
 
-        // required int64 id = 1;
-        bool                      has_id() const;
-        void                      clear_id();
-        static const int          kIdFieldNumber = 1;
-        ::google::protobuf::int64 id() const;
-        void                      set_id(::google::protobuf::int64 value);
-
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactCenter.ContactPool)
-private:
-        void set_has_id();
-        void clear_has_id();
-
-        ::google::protobuf::internal::InternalMetadataWithArena      _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                     _has_bits_;
-        mutable int                                                  _cached_size_;
-        ::google::protobuf::RepeatedField<::google::protobuf::int64> people_;
-        ::google::protobuf::int64                                    id_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_ContactCenter_ContactPoolImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > people_;
+  ::google::protobuf::int64 id_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_ContactCenter_ContactPoolImpl();
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_ContactCenter
-    : public ::google::protobuf::
-          Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter)
-                   */
-{
-public:
-        GeoGrid_Location_ContactCenter();
-        virtual ~GeoGrid_Location_ContactCenter();
+class GeoGrid_Location_ContactCenter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter) */ {
+ public:
+  GeoGrid_Location_ContactCenter();
+  virtual ~GeoGrid_Location_ContactCenter();
 
-        GeoGrid_Location_ContactCenter(const GeoGrid_Location_ContactCenter& from);
+  GeoGrid_Location_ContactCenter(const GeoGrid_Location_ContactCenter& from);
 
-        inline GeoGrid_Location_ContactCenter& operator=(const GeoGrid_Location_ContactCenter& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid_Location_ContactCenter(GeoGrid_Location_ContactCenter&& from) noexcept
-            : GeoGrid_Location_ContactCenter()
-        {
-                *this = ::std::move(from);
-        }
+  inline GeoGrid_Location_ContactCenter& operator=(const GeoGrid_Location_ContactCenter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid_Location_ContactCenter(GeoGrid_Location_ContactCenter&& from) noexcept
+    : GeoGrid_Location_ContactCenter() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid_Location_ContactCenter& operator=(GeoGrid_Location_ContactCenter&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid_Location_ContactCenter& operator=(GeoGrid_Location_ContactCenter&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor* descriptor();
-        static const GeoGrid_Location_ContactCenter& default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid_Location_ContactCenter& default_instance();
 
-        static void                                         InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid_Location_ContactCenter* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid_Location_ContactCenter*>(
-                    &_GeoGrid_Location_ContactCenter_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 2;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid_Location_ContactCenter* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location_ContactCenter*>(
+               &_GeoGrid_Location_ContactCenter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
 
-        void        Swap(GeoGrid_Location_ContactCenter* other);
-        friend void swap(GeoGrid_Location_ContactCenter& a, GeoGrid_Location_ContactCenter& b) { a.Swap(&b); }
+  void Swap(GeoGrid_Location_ContactCenter* other);
+  friend void swap(GeoGrid_Location_ContactCenter& a, GeoGrid_Location_ContactCenter& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid_Location_ContactCenter* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid_Location_ContactCenter* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid_Location_ContactCenter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void                            CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                            MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                            CopyFrom(const GeoGrid_Location_ContactCenter& from);
-        void                            MergeFrom(const GeoGrid_Location_ContactCenter& from);
-        void                            Clear() PROTOBUF_FINAL;
-        bool                            IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid_Location_ContactCenter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid_Location_ContactCenter& from);
+  void MergeFrom(const GeoGrid_Location_ContactCenter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid_Location_ContactCenter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid_Location_ContactCenter* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  typedef GeoGrid_Location_ContactCenter_ContactPool ContactPool;
 
-        // nested types ----------------------------------------------------
+  // accessors -------------------------------------------------------
 
-        typedef GeoGrid_Location_ContactCenter_ContactPool ContactPool;
+  // repeated .proto.GeoGrid.Location.ContactCenter.ContactPool pools = 3;
+  int pools_size() const;
+  void clear_pools();
+  static const int kPoolsFieldNumber = 3;
+  const ::proto::GeoGrid_Location_ContactCenter_ContactPool& pools(int index) const;
+  ::proto::GeoGrid_Location_ContactCenter_ContactPool* mutable_pools(int index);
+  ::proto::GeoGrid_Location_ContactCenter_ContactPool* add_pools();
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >*
+      mutable_pools();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >&
+      pools() const;
 
-        // accessors -------------------------------------------------------
+  // required string type = 2;
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 2;
+  const ::std::string& type() const;
+  void set_type(const ::std::string& value);
+  #if LANG_CXX11
+  void set_type(::std::string&& value);
+  #endif
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  ::std::string* mutable_type();
+  ::std::string* release_type();
+  void set_allocated_type(::std::string* type);
 
-        // repeated .proto.GeoGrid.Location.ContactCenter.ContactPool pools = 3;
-        int                                                        pools_size() const;
-        void                                                       clear_pools();
-        static const int                                           kPoolsFieldNumber = 3;
-        const ::proto::GeoGrid_Location_ContactCenter_ContactPool& pools(int index) const;
-        ::proto::GeoGrid_Location_ContactCenter_ContactPool*       mutable_pools(int index);
-        ::proto::GeoGrid_Location_ContactCenter_ContactPool*       add_pools();
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter_ContactPool>* mutable_pools();
-        const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter_ContactPool>& pools() const;
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int64 id() const;
+  void set_id(::google::protobuf::int64 value);
 
-        // required string type = 2;
-        bool                 has_type() const;
-        void                 clear_type();
-        static const int     kTypeFieldNumber = 2;
-        const ::std::string& type() const;
-        void                 set_type(const ::std::string& value);
-#if LANG_CXX11
-        void set_type(::std::string&& value);
-#endif
-        void           set_type(const char* value);
-        void           set_type(const char* value, size_t size);
-        ::std::string* mutable_type();
-        ::std::string* release_type();
-        void           set_allocated_type(::std::string* type);
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactCenter)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_type();
+  void clear_has_type();
 
-        // required int64 id = 1;
-        bool                      has_id() const;
-        void                      clear_id();
-        static const int          kIdFieldNumber = 1;
-        ::google::protobuf::int64 id() const;
-        void                      set_id(::google::protobuf::int64 value);
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactCenter)
-private:
-        void set_has_id();
-        void clear_has_id();
-        void set_has_type();
-        void clear_has_type();
-
-        // helper for ByteSizeLong()
-        size_t RequiredFieldsByteSizeFallback() const;
-
-        ::google::protobuf::internal::InternalMetadataWithArena                                   _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                                                  _has_bits_;
-        mutable int                                                                               _cached_size_;
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter_ContactPool> pools_;
-        ::google::protobuf::internal::ArenaStringPtr                                              type_;
-        ::google::protobuf::int64                                                                 id_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_ContactCenterImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool > pools_;
+  ::google::protobuf::internal::ArenaStringPtr type_;
+  ::google::protobuf::int64 id_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_ContactCenterImpl();
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_Commute
-    : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.Commute) */
-{
-public:
-        GeoGrid_Location_Commute();
-        virtual ~GeoGrid_Location_Commute();
+class GeoGrid_Location_Commute : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.Commute) */ {
+ public:
+  GeoGrid_Location_Commute();
+  virtual ~GeoGrid_Location_Commute();
 
-        GeoGrid_Location_Commute(const GeoGrid_Location_Commute& from);
+  GeoGrid_Location_Commute(const GeoGrid_Location_Commute& from);
 
-        inline GeoGrid_Location_Commute& operator=(const GeoGrid_Location_Commute& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid_Location_Commute(GeoGrid_Location_Commute&& from) noexcept : GeoGrid_Location_Commute()
-        {
-                *this = ::std::move(from);
-        }
+  inline GeoGrid_Location_Commute& operator=(const GeoGrid_Location_Commute& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid_Location_Commute(GeoGrid_Location_Commute&& from) noexcept
+    : GeoGrid_Location_Commute() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid_Location_Commute& operator=(GeoGrid_Location_Commute&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid_Location_Commute& operator=(GeoGrid_Location_Commute&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor* descriptor();
-        static const GeoGrid_Location_Commute&       default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid_Location_Commute& default_instance();
 
-        static void                                   InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid_Location_Commute* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid_Location_Commute*>(&_GeoGrid_Location_Commute_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 3;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid_Location_Commute* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location_Commute*>(
+               &_GeoGrid_Location_Commute_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
 
-        void        Swap(GeoGrid_Location_Commute* other);
-        friend void swap(GeoGrid_Location_Commute& a, GeoGrid_Location_Commute& b) { a.Swap(&b); }
+  void Swap(GeoGrid_Location_Commute* other);
+  friend void swap(GeoGrid_Location_Commute& a, GeoGrid_Location_Commute& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid_Location_Commute* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid_Location_Commute* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid_Location_Commute* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void                      CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                      MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void                      CopyFrom(const GeoGrid_Location_Commute& from);
-        void                      MergeFrom(const GeoGrid_Location_Commute& from);
-        void                      Clear() PROTOBUF_FINAL;
-        bool                      IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid_Location_Commute* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid_Location_Commute& from);
+  void MergeFrom(const GeoGrid_Location_Commute& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid_Location_Commute* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid_Location_Commute* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  // accessors -------------------------------------------------------
 
-        // nested types ----------------------------------------------------
+  // required int64 to = 1;
+  bool has_to() const;
+  void clear_to();
+  static const int kToFieldNumber = 1;
+  ::google::protobuf::int64 to() const;
+  void set_to(::google::protobuf::int64 value);
 
-        // accessors -------------------------------------------------------
+  // required double proportion = 2;
+  bool has_proportion() const;
+  void clear_proportion();
+  static const int kProportionFieldNumber = 2;
+  double proportion() const;
+  void set_proportion(double value);
 
-        // required int64 to = 1;
-        bool                      has_to() const;
-        void                      clear_to();
-        static const int          kToFieldNumber = 1;
-        ::google::protobuf::int64 to() const;
-        void                      set_to(::google::protobuf::int64 value);
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.Commute)
+ private:
+  void set_has_to();
+  void clear_has_to();
+  void set_has_proportion();
+  void clear_has_proportion();
 
-        // required double proportion = 2;
-        bool             has_proportion() const;
-        void             clear_proportion();
-        static const int kProportionFieldNumber = 2;
-        double           proportion() const;
-        void             set_proportion(double value);
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.Commute)
-private:
-        void set_has_to();
-        void clear_has_to();
-        void set_has_proportion();
-        void clear_has_proportion();
-
-        // helper for ByteSizeLong()
-        size_t RequiredFieldsByteSizeFallback() const;
-
-        ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                _has_bits_;
-        mutable int                                             _cached_size_;
-        ::google::protobuf::int64                               to_;
-        double                                                  proportion_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_CommuteImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::int64 to_;
+  double proportion_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_Location_CommuteImpl();
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location
-    : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location) */
-{
-public:
-        GeoGrid_Location();
-        virtual ~GeoGrid_Location();
+class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location) */ {
+ public:
+  GeoGrid_Location();
+  virtual ~GeoGrid_Location();
 
-        GeoGrid_Location(const GeoGrid_Location& from);
+  GeoGrid_Location(const GeoGrid_Location& from);
 
-        inline GeoGrid_Location& operator=(const GeoGrid_Location& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid_Location(GeoGrid_Location&& from) noexcept : GeoGrid_Location() { *this = ::std::move(from); }
+  inline GeoGrid_Location& operator=(const GeoGrid_Location& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid_Location(GeoGrid_Location&& from) noexcept
+    : GeoGrid_Location() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid_Location& operator=(GeoGrid_Location&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid_Location& operator=(GeoGrid_Location&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor* descriptor();
-        static const GeoGrid_Location&               default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid_Location& default_instance();
 
-        static void                           InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid_Location* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid_Location*>(&_GeoGrid_Location_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 4;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid_Location* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location*>(
+               &_GeoGrid_Location_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
 
-        void        Swap(GeoGrid_Location* other);
-        friend void swap(GeoGrid_Location& a, GeoGrid_Location& b) { a.Swap(&b); }
+  void Swap(GeoGrid_Location* other);
+  friend void swap(GeoGrid_Location& a, GeoGrid_Location& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid_Location* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid_Location* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid_Location* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void              CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void              MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void              CopyFrom(const GeoGrid_Location& from);
-        void              MergeFrom(const GeoGrid_Location& from);
-        void              Clear() PROTOBUF_FINAL;
-        bool              IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid_Location* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid_Location& from);
+  void MergeFrom(const GeoGrid_Location& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid_Location* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid_Location* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  typedef GeoGrid_Location_Coordinate Coordinate;
+  typedef GeoGrid_Location_ContactCenter ContactCenter;
+  typedef GeoGrid_Location_Commute Commute;
 
-        // nested types ----------------------------------------------------
+  // accessors -------------------------------------------------------
 
-        typedef GeoGrid_Location_Coordinate    Coordinate;
-        typedef GeoGrid_Location_ContactCenter ContactCenter;
-        typedef GeoGrid_Location_Commute       Commute;
+  // repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
+  int contactcenters_size() const;
+  void clear_contactcenters();
+  static const int kContactCentersFieldNumber = 6;
+  const ::proto::GeoGrid_Location_ContactCenter& contactcenters(int index) const;
+  ::proto::GeoGrid_Location_ContactCenter* mutable_contactcenters(int index);
+  ::proto::GeoGrid_Location_ContactCenter* add_contactcenters();
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >*
+      mutable_contactcenters();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >&
+      contactcenters() const;
 
-        // accessors -------------------------------------------------------
+  // repeated .proto.GeoGrid.Location.Commute commutes = 7;
+  int commutes_size() const;
+  void clear_commutes();
+  static const int kCommutesFieldNumber = 7;
+  const ::proto::GeoGrid_Location_Commute& commutes(int index) const;
+  ::proto::GeoGrid_Location_Commute* mutable_commutes(int index);
+  ::proto::GeoGrid_Location_Commute* add_commutes();
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute >*
+      mutable_commutes();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute >&
+      commutes() const;
 
-        // repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
-        int                                            contactcenters_size() const;
-        void                                           clear_contactcenters();
-        static const int                               kContactCentersFieldNumber = 6;
-        const ::proto::GeoGrid_Location_ContactCenter& contactcenters(int index) const;
-        ::proto::GeoGrid_Location_ContactCenter*       mutable_contactcenters(int index);
-        ::proto::GeoGrid_Location_ContactCenter*       add_contactcenters();
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter>*       mutable_contactcenters();
-        const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter>& contactcenters() const;
+  // repeated .proto.GeoGrid.Location submunicipalities = 8;
+  int submunicipalities_size() const;
+  void clear_submunicipalities();
+  static const int kSubmunicipalitiesFieldNumber = 8;
+  const ::proto::GeoGrid_Location& submunicipalities(int index) const;
+  ::proto::GeoGrid_Location* mutable_submunicipalities(int index);
+  ::proto::GeoGrid_Location* add_submunicipalities();
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >*
+      mutable_submunicipalities();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >&
+      submunicipalities() const;
 
-        // repeated .proto.GeoGrid.Location.Commute commutes = 7;
-        int                                                                            commutes_size() const;
-        void                                                                           clear_commutes();
-        static const int                                                               kCommutesFieldNumber = 7;
-        const ::proto::GeoGrid_Location_Commute&                                       commutes(int index) const;
-        ::proto::GeoGrid_Location_Commute*                                             mutable_commutes(int index);
-        ::proto::GeoGrid_Location_Commute*                                             add_commutes();
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_Commute>*       mutable_commutes();
-        const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_Commute>& commutes() const;
+  // required string name = 2;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
 
-        // required string name = 2;
-        bool                 has_name() const;
-        void                 clear_name();
-        static const int     kNameFieldNumber = 2;
-        const ::std::string& name() const;
-        void                 set_name(const ::std::string& value);
-#if LANG_CXX11
-        void set_name(::std::string&& value);
-#endif
-        void           set_name(const char* value);
-        void           set_name(const char* value, size_t size);
-        ::std::string* mutable_name();
-        ::std::string* release_name();
-        void           set_allocated_name(::std::string* name);
+  // required .proto.GeoGrid.Location.Coordinate coordinate = 5;
+  bool has_coordinate() const;
+  void clear_coordinate();
+  static const int kCoordinateFieldNumber = 5;
+  const ::proto::GeoGrid_Location_Coordinate& coordinate() const;
+  ::proto::GeoGrid_Location_Coordinate* release_coordinate();
+  ::proto::GeoGrid_Location_Coordinate* mutable_coordinate();
+  void set_allocated_coordinate(::proto::GeoGrid_Location_Coordinate* coordinate);
 
-        // required .proto.GeoGrid.Location.Coordinate coordinate = 5;
-        bool                                        has_coordinate() const;
-        void                                        clear_coordinate();
-        static const int                            kCoordinateFieldNumber = 5;
-        const ::proto::GeoGrid_Location_Coordinate& coordinate() const;
-        ::proto::GeoGrid_Location_Coordinate*       release_coordinate();
-        ::proto::GeoGrid_Location_Coordinate*       mutable_coordinate();
-        void set_allocated_coordinate(::proto::GeoGrid_Location_Coordinate* coordinate);
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int64 id() const;
+  void set_id(::google::protobuf::int64 value);
 
-        // required int64 id = 1;
-        bool                      has_id() const;
-        void                      clear_id();
-        static const int          kIdFieldNumber = 1;
-        ::google::protobuf::int64 id() const;
-        void                      set_id(::google::protobuf::int64 value);
+  // required int64 province = 3;
+  bool has_province() const;
+  void clear_province();
+  static const int kProvinceFieldNumber = 3;
+  ::google::protobuf::int64 province() const;
+  void set_province(::google::protobuf::int64 value);
 
-        // required int64 province = 3;
-        bool                      has_province() const;
-        void                      clear_province();
-        static const int          kProvinceFieldNumber = 3;
-        ::google::protobuf::int64 province() const;
-        void                      set_province(::google::protobuf::int64 value);
+  // required int64 population = 4;
+  bool has_population() const;
+  void clear_population();
+  static const int kPopulationFieldNumber = 4;
+  ::google::protobuf::int64 population() const;
+  void set_population(::google::protobuf::int64 value);
 
-        // required int64 population = 4;
-        bool                      has_population() const;
-        void                      clear_population();
-        static const int          kPopulationFieldNumber = 4;
-        ::google::protobuf::int64 population() const;
-        void                      set_population(::google::protobuf::int64 value);
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_name();
+  void clear_has_name();
+  void set_has_province();
+  void clear_has_province();
+  void set_has_population();
+  void clear_has_population();
+  void set_has_coordinate();
+  void clear_has_coordinate();
 
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location)
-private:
-        void set_has_id();
-        void clear_has_id();
-        void set_has_name();
-        void clear_has_name();
-        void set_has_province();
-        void clear_has_province();
-        void set_has_population();
-        void clear_has_population();
-        void set_has_coordinate();
-        void clear_has_coordinate();
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
-        // helper for ByteSizeLong()
-        size_t RequiredFieldsByteSizeFallback() const;
-
-        ::google::protobuf::internal::InternalMetadataWithArena                       _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                                      _has_bits_;
-        mutable int                                                                   _cached_size_;
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter> contactcenters_;
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_Commute>       commutes_;
-        ::google::protobuf::internal::ArenaStringPtr                                  name_;
-        ::proto::GeoGrid_Location_Coordinate*                                         coordinate_;
-        ::google::protobuf::int64                                                     id_;
-        ::google::protobuf::int64                                                     province_;
-        ::google::protobuf::int64                                                     population_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_LocationImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter > contactcenters_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute > commutes_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location > submunicipalities_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::proto::GeoGrid_Location_Coordinate* coordinate_;
+  ::google::protobuf::int64 id_;
+  ::google::protobuf::int64 province_;
+  ::google::protobuf::int64 population_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_LocationImpl();
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Person
-    : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Person) */
-{
-public:
-        GeoGrid_Person();
-        virtual ~GeoGrid_Person();
+class GeoGrid_Person : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Person) */ {
+ public:
+  GeoGrid_Person();
+  virtual ~GeoGrid_Person();
 
-        GeoGrid_Person(const GeoGrid_Person& from);
+  GeoGrid_Person(const GeoGrid_Person& from);
 
-        inline GeoGrid_Person& operator=(const GeoGrid_Person& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid_Person(GeoGrid_Person&& from) noexcept : GeoGrid_Person() { *this = ::std::move(from); }
+  inline GeoGrid_Person& operator=(const GeoGrid_Person& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid_Person(GeoGrid_Person&& from) noexcept
+    : GeoGrid_Person() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid_Person& operator=(GeoGrid_Person&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid_Person& operator=(GeoGrid_Person&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor* descriptor();
-        static const GeoGrid_Person&                 default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid_Person& default_instance();
 
-        static void                         InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid_Person* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid_Person*>(&_GeoGrid_Person_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 5;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid_Person* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Person*>(
+               &_GeoGrid_Person_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
 
-        void        Swap(GeoGrid_Person* other);
-        friend void swap(GeoGrid_Person& a, GeoGrid_Person& b) { a.Swap(&b); }
+  void Swap(GeoGrid_Person* other);
+  friend void swap(GeoGrid_Person& a, GeoGrid_Person& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid_Person* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid_Person* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid_Person* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void            CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void            MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void            CopyFrom(const GeoGrid_Person& from);
-        void            MergeFrom(const GeoGrid_Person& from);
-        void            Clear() PROTOBUF_FINAL;
-        bool            IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid_Person* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid_Person& from);
+  void MergeFrom(const GeoGrid_Person& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid_Person* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid_Person* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  // accessors -------------------------------------------------------
 
-        // nested types ----------------------------------------------------
+  // required string gender = 3;
+  bool has_gender() const;
+  void clear_gender();
+  static const int kGenderFieldNumber = 3;
+  const ::std::string& gender() const;
+  void set_gender(const ::std::string& value);
+  #if LANG_CXX11
+  void set_gender(::std::string&& value);
+  #endif
+  void set_gender(const char* value);
+  void set_gender(const char* value, size_t size);
+  ::std::string* mutable_gender();
+  ::std::string* release_gender();
+  void set_allocated_gender(::std::string* gender);
 
-        // accessors -------------------------------------------------------
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int64 id() const;
+  void set_id(::google::protobuf::int64 value);
 
-        // required string gender = 3;
-        bool                 has_gender() const;
-        void                 clear_gender();
-        static const int     kGenderFieldNumber = 3;
-        const ::std::string& gender() const;
-        void                 set_gender(const ::std::string& value);
-#if LANG_CXX11
-        void set_gender(::std::string&& value);
-#endif
-        void           set_gender(const char* value);
-        void           set_gender(const char* value, size_t size);
-        ::std::string* mutable_gender();
-        ::std::string* release_gender();
-        void           set_allocated_gender(::std::string* gender);
+  // required int64 age = 2;
+  bool has_age() const;
+  void clear_age();
+  static const int kAgeFieldNumber = 2;
+  ::google::protobuf::int64 age() const;
+  void set_age(::google::protobuf::int64 value);
 
-        // required int64 id = 1;
-        bool                      has_id() const;
-        void                      clear_id();
-        static const int          kIdFieldNumber = 1;
-        ::google::protobuf::int64 id() const;
-        void                      set_id(::google::protobuf::int64 value);
+  // required int64 School = 4;
+  bool has_school() const;
+  void clear_school();
+  static const int kSchoolFieldNumber = 4;
+  ::google::protobuf::int64 school() const;
+  void set_school(::google::protobuf::int64 value);
 
-        // required int64 age = 2;
-        bool                      has_age() const;
-        void                      clear_age();
-        static const int          kAgeFieldNumber = 2;
-        ::google::protobuf::int64 age() const;
-        void                      set_age(::google::protobuf::int64 value);
+  // required int64 Household = 5;
+  bool has_household() const;
+  void clear_household();
+  static const int kHouseholdFieldNumber = 5;
+  ::google::protobuf::int64 household() const;
+  void set_household(::google::protobuf::int64 value);
 
-        // required int64 School = 4;
-        bool                      has_school() const;
-        void                      clear_school();
-        static const int          kSchoolFieldNumber = 4;
-        ::google::protobuf::int64 school() const;
-        void                      set_school(::google::protobuf::int64 value);
+  // required int64 Workplace = 6;
+  bool has_workplace() const;
+  void clear_workplace();
+  static const int kWorkplaceFieldNumber = 6;
+  ::google::protobuf::int64 workplace() const;
+  void set_workplace(::google::protobuf::int64 value);
 
-        // required int64 Household = 5;
-        bool                      has_household() const;
-        void                      clear_household();
-        static const int          kHouseholdFieldNumber = 5;
-        ::google::protobuf::int64 household() const;
-        void                      set_household(::google::protobuf::int64 value);
+  // required int64 PrimaryCommunity = 7;
+  bool has_primarycommunity() const;
+  void clear_primarycommunity();
+  static const int kPrimaryCommunityFieldNumber = 7;
+  ::google::protobuf::int64 primarycommunity() const;
+  void set_primarycommunity(::google::protobuf::int64 value);
 
-        // required int64 Workplace = 6;
-        bool                      has_workplace() const;
-        void                      clear_workplace();
-        static const int          kWorkplaceFieldNumber = 6;
-        ::google::protobuf::int64 workplace() const;
-        void                      set_workplace(::google::protobuf::int64 value);
+  // required int64 SecondaryCommunity = 8;
+  bool has_secondarycommunity() const;
+  void clear_secondarycommunity();
+  static const int kSecondaryCommunityFieldNumber = 8;
+  ::google::protobuf::int64 secondarycommunity() const;
+  void set_secondarycommunity(::google::protobuf::int64 value);
 
-        // required int64 PrimaryCommunity = 7;
-        bool                      has_primarycommunity() const;
-        void                      clear_primarycommunity();
-        static const int          kPrimaryCommunityFieldNumber = 7;
-        ::google::protobuf::int64 primarycommunity() const;
-        void                      set_primarycommunity(::google::protobuf::int64 value);
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Person)
+ private:
+  void set_has_id();
+  void clear_has_id();
+  void set_has_age();
+  void clear_has_age();
+  void set_has_gender();
+  void clear_has_gender();
+  void set_has_school();
+  void clear_has_school();
+  void set_has_household();
+  void clear_has_household();
+  void set_has_workplace();
+  void clear_has_workplace();
+  void set_has_primarycommunity();
+  void clear_has_primarycommunity();
+  void set_has_secondarycommunity();
+  void clear_has_secondarycommunity();
 
-        // required int64 SecondaryCommunity = 8;
-        bool                      has_secondarycommunity() const;
-        void                      clear_secondarycommunity();
-        static const int          kSecondaryCommunityFieldNumber = 8;
-        ::google::protobuf::int64 secondarycommunity() const;
-        void                      set_secondarycommunity(::google::protobuf::int64 value);
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid.Person)
-private:
-        void set_has_id();
-        void clear_has_id();
-        void set_has_age();
-        void clear_has_age();
-        void set_has_gender();
-        void clear_has_gender();
-        void set_has_school();
-        void clear_has_school();
-        void set_has_household();
-        void clear_has_household();
-        void set_has_workplace();
-        void clear_has_workplace();
-        void set_has_primarycommunity();
-        void clear_has_primarycommunity();
-        void set_has_secondarycommunity();
-        void clear_has_secondarycommunity();
-
-        // helper for ByteSizeLong()
-        size_t RequiredFieldsByteSizeFallback() const;
-
-        ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                _has_bits_;
-        mutable int                                             _cached_size_;
-        ::google::protobuf::internal::ArenaStringPtr            gender_;
-        ::google::protobuf::int64                               id_;
-        ::google::protobuf::int64                               age_;
-        ::google::protobuf::int64                               school_;
-        ::google::protobuf::int64                               household_;
-        ::google::protobuf::int64                               workplace_;
-        ::google::protobuf::int64                               primarycommunity_;
-        ::google::protobuf::int64                               secondarycommunity_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_PersonImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr gender_;
+  ::google::protobuf::int64 id_;
+  ::google::protobuf::int64 age_;
+  ::google::protobuf::int64 school_;
+  ::google::protobuf::int64 household_;
+  ::google::protobuf::int64 workplace_;
+  ::google::protobuf::int64 primarycommunity_;
+  ::google::protobuf::int64 secondarycommunity_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_PersonImpl();
 };
 // -------------------------------------------------------------------
 
-class GeoGrid : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid) */
-{
-public:
-        GeoGrid();
-        virtual ~GeoGrid();
+class GeoGrid : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid) */ {
+ public:
+  GeoGrid();
+  virtual ~GeoGrid();
 
-        GeoGrid(const GeoGrid& from);
+  GeoGrid(const GeoGrid& from);
 
-        inline GeoGrid& operator=(const GeoGrid& from)
-        {
-                CopyFrom(from);
-                return *this;
-        }
-#if LANG_CXX11
-        GeoGrid(GeoGrid&& from) noexcept : GeoGrid() { *this = ::std::move(from); }
+  inline GeoGrid& operator=(const GeoGrid& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GeoGrid(GeoGrid&& from) noexcept
+    : GeoGrid() {
+    *this = ::std::move(from);
+  }
 
-        inline GeoGrid& operator=(GeoGrid&& from) noexcept
-        {
-                if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-                        if (this != &from)
-                                InternalSwap(&from);
-                } else {
-                        CopyFrom(from);
-                }
-                return *this;
-        }
-#endif
-        inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-        {
-                return _internal_metadata_.unknown_fields();
-        }
-        inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-        {
-                return _internal_metadata_.mutable_unknown_fields();
-        }
+  inline GeoGrid& operator=(GeoGrid&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
 
-        static const ::google::protobuf::Descriptor* descriptor();
-        static const GeoGrid&                        default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GeoGrid& default_instance();
 
-        static void                  InitAsDefaultInstance(); // FOR INTERNAL USE ONLY
-        static inline const GeoGrid* internal_default_instance()
-        {
-                return reinterpret_cast<const GeoGrid*>(&_GeoGrid_default_instance_);
-        }
-        static PROTOBUF_CONSTEXPR int const kIndexInFileMessages = 6;
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GeoGrid* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid*>(
+               &_GeoGrid_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    6;
 
-        void        Swap(GeoGrid* other);
-        friend void swap(GeoGrid& a, GeoGrid& b) { a.Swap(&b); }
+  void Swap(GeoGrid* other);
+  friend void swap(GeoGrid& a, GeoGrid& b) {
+    a.Swap(&b);
+  }
 
-        // implements Message ----------------------------------------------
+  // implements Message ----------------------------------------------
 
-        inline GeoGrid* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GeoGrid* New() const PROTOBUF_FINAL { return New(NULL); }
 
-        GeoGrid* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-        void     CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void     MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-        void     CopyFrom(const GeoGrid& from);
-        void     MergeFrom(const GeoGrid& from);
-        void     Clear() PROTOBUF_FINAL;
-        bool     IsInitialized() const PROTOBUF_FINAL;
+  GeoGrid* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const GeoGrid& from);
+  void MergeFrom(const GeoGrid& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
 
-        size_t ByteSizeLong() const PROTOBUF_FINAL;
-        bool   MergePartialFromCodedStream(::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-        void   SerializeWithCachedSizes(::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-        ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-            bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-        int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(GeoGrid* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
 
-private:
-        void SharedCtor();
-        void SharedDtor();
-        void SetCachedSize(int size) const PROTOBUF_FINAL;
-        void InternalSwap(GeoGrid* other);
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
-private:
-        inline ::google::protobuf::Arena* GetArenaNoVirtual() const { return NULL; }
-        inline void*                      MaybeArenaPtr() const { return NULL; }
+  // nested types ----------------------------------------------------
 
-public:
-        ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+  typedef GeoGrid_Location Location;
+  typedef GeoGrid_Person Person;
 
-        // nested types ----------------------------------------------------
+  // accessors -------------------------------------------------------
 
-        typedef GeoGrid_Location Location;
-        typedef GeoGrid_Person   Person;
+  // repeated .proto.GeoGrid.Location locations = 1;
+  int locations_size() const;
+  void clear_locations();
+  static const int kLocationsFieldNumber = 1;
+  const ::proto::GeoGrid_Location& locations(int index) const;
+  ::proto::GeoGrid_Location* mutable_locations(int index);
+  ::proto::GeoGrid_Location* add_locations();
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >*
+      mutable_locations();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >&
+      locations() const;
 
-        // accessors -------------------------------------------------------
+  // repeated .proto.GeoGrid.Person persons = 2;
+  int persons_size() const;
+  void clear_persons();
+  static const int kPersonsFieldNumber = 2;
+  const ::proto::GeoGrid_Person& persons(int index) const;
+  ::proto::GeoGrid_Person* mutable_persons(int index);
+  ::proto::GeoGrid_Person* add_persons();
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Person >*
+      mutable_persons();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Person >&
+      persons() const;
 
-        // repeated .proto.GeoGrid.Location locations = 1;
-        int                                                                    locations_size() const;
-        void                                                                   clear_locations();
-        static const int                                                       kLocationsFieldNumber = 1;
-        const ::proto::GeoGrid_Location&                                       locations(int index) const;
-        ::proto::GeoGrid_Location*                                             mutable_locations(int index);
-        ::proto::GeoGrid_Location*                                             add_locations();
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location>*       mutable_locations();
-        const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location>& locations() const;
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid)
+ private:
 
-        // repeated .proto.GeoGrid.Person persons = 2;
-        int                                                                  persons_size() const;
-        void                                                                 clear_persons();
-        static const int                                                     kPersonsFieldNumber = 2;
-        const ::proto::GeoGrid_Person&                                       persons(int index) const;
-        ::proto::GeoGrid_Person*                                             mutable_persons(int index);
-        ::proto::GeoGrid_Person*                                             add_persons();
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Person>*       mutable_persons();
-        const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Person>& persons() const;
-
-        // @@protoc_insertion_point(class_scope:proto.GeoGrid)
-private:
-        ::google::protobuf::internal::InternalMetadataWithArena         _internal_metadata_;
-        ::google::protobuf::internal::HasBits<1>                        _has_bits_;
-        mutable int                                                     _cached_size_;
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location> locations_;
-        ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Person>   persons_;
-        friend struct ::protobuf_geogrid_2eproto::TableStruct;
-        friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGridImpl();
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location > locations_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Person > persons_;
+  friend struct ::protobuf_geogrid_2eproto::TableStruct;
+  friend void ::protobuf_geogrid_2eproto::InitDefaultsGeoGridImpl();
 };
 // ===================================================================
+
 
 // ===================================================================
 
 #ifdef __GNUC__
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wstrict-aliasing"
-#endif // __GNUC__
+  #pragma GCC diagnostic push
+  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#endif  // __GNUC__
 // GeoGrid_Location_Coordinate
 
 // required double x = 1;
-inline bool GeoGrid_Location_Coordinate::has_x() const { return (_has_bits_[0] & 0x00000001u) != 0; }
-inline void GeoGrid_Location_Coordinate::set_has_x() { _has_bits_[0] |= 0x00000001u; }
-inline void GeoGrid_Location_Coordinate::clear_has_x() { _has_bits_[0] &= ~0x00000001u; }
-inline void GeoGrid_Location_Coordinate::clear_x()
-{
-        x_ = 0;
-        clear_has_x();
+inline bool GeoGrid_Location_Coordinate::has_x() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline double GeoGrid_Location_Coordinate::x() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.x)
-        return x_;
+inline void GeoGrid_Location_Coordinate::set_has_x() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Location_Coordinate::set_x(double value)
-{
-        set_has_x();
-        x_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.x)
+inline void GeoGrid_Location_Coordinate::clear_has_x() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GeoGrid_Location_Coordinate::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline double GeoGrid_Location_Coordinate::x() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.x)
+  return x_;
+}
+inline void GeoGrid_Location_Coordinate::set_x(double value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.x)
 }
 
 // required double y = 2;
-inline bool GeoGrid_Location_Coordinate::has_y() const { return (_has_bits_[0] & 0x00000002u) != 0; }
-inline void GeoGrid_Location_Coordinate::set_has_y() { _has_bits_[0] |= 0x00000002u; }
-inline void GeoGrid_Location_Coordinate::clear_has_y() { _has_bits_[0] &= ~0x00000002u; }
-inline void GeoGrid_Location_Coordinate::clear_y()
-{
-        y_ = 0;
-        clear_has_y();
+inline bool GeoGrid_Location_Coordinate::has_y() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline double GeoGrid_Location_Coordinate::y() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.y)
-        return y_;
+inline void GeoGrid_Location_Coordinate::set_has_y() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void GeoGrid_Location_Coordinate::set_y(double value)
-{
-        set_has_y();
-        y_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.y)
+inline void GeoGrid_Location_Coordinate::clear_has_y() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GeoGrid_Location_Coordinate::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline double GeoGrid_Location_Coordinate::y() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.y)
+  return y_;
+}
+inline void GeoGrid_Location_Coordinate::set_y(double value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.y)
 }
 
 // required double longitude = 3;
-inline bool GeoGrid_Location_Coordinate::has_longitude() const { return (_has_bits_[0] & 0x00000004u) != 0; }
-inline void GeoGrid_Location_Coordinate::set_has_longitude() { _has_bits_[0] |= 0x00000004u; }
-inline void GeoGrid_Location_Coordinate::clear_has_longitude() { _has_bits_[0] &= ~0x00000004u; }
-inline void GeoGrid_Location_Coordinate::clear_longitude()
-{
-        longitude_ = 0;
-        clear_has_longitude();
+inline bool GeoGrid_Location_Coordinate::has_longitude() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline double GeoGrid_Location_Coordinate::longitude() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.longitude)
-        return longitude_;
+inline void GeoGrid_Location_Coordinate::set_has_longitude() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void GeoGrid_Location_Coordinate::set_longitude(double value)
-{
-        set_has_longitude();
-        longitude_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.longitude)
+inline void GeoGrid_Location_Coordinate::clear_has_longitude() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GeoGrid_Location_Coordinate::clear_longitude() {
+  longitude_ = 0;
+  clear_has_longitude();
+}
+inline double GeoGrid_Location_Coordinate::longitude() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.longitude)
+  return longitude_;
+}
+inline void GeoGrid_Location_Coordinate::set_longitude(double value) {
+  set_has_longitude();
+  longitude_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.longitude)
 }
 
 // required double latitude = 4;
-inline bool GeoGrid_Location_Coordinate::has_latitude() const { return (_has_bits_[0] & 0x00000008u) != 0; }
-inline void GeoGrid_Location_Coordinate::set_has_latitude() { _has_bits_[0] |= 0x00000008u; }
-inline void GeoGrid_Location_Coordinate::clear_has_latitude() { _has_bits_[0] &= ~0x00000008u; }
-inline void GeoGrid_Location_Coordinate::clear_latitude()
-{
-        latitude_ = 0;
-        clear_has_latitude();
+inline bool GeoGrid_Location_Coordinate::has_latitude() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline double GeoGrid_Location_Coordinate::latitude() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.latitude)
-        return latitude_;
+inline void GeoGrid_Location_Coordinate::set_has_latitude() {
+  _has_bits_[0] |= 0x00000008u;
 }
-inline void GeoGrid_Location_Coordinate::set_latitude(double value)
-{
-        set_has_latitude();
-        latitude_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.latitude)
+inline void GeoGrid_Location_Coordinate::clear_has_latitude() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GeoGrid_Location_Coordinate::clear_latitude() {
+  latitude_ = 0;
+  clear_has_latitude();
+}
+inline double GeoGrid_Location_Coordinate::latitude() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.latitude)
+  return latitude_;
+}
+inline void GeoGrid_Location_Coordinate::set_latitude(double value) {
+  set_has_latitude();
+  latitude_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.latitude)
 }
 
 // -------------------------------------------------------------------
@@ -1233,55 +1264,57 @@ inline void GeoGrid_Location_Coordinate::set_latitude(double value)
 // GeoGrid_Location_ContactCenter_ContactPool
 
 // required int64 id = 1;
-inline bool GeoGrid_Location_ContactCenter_ContactPool::has_id() const { return (_has_bits_[0] & 0x00000001u) != 0; }
-inline void GeoGrid_Location_ContactCenter_ContactPool::set_has_id() { _has_bits_[0] |= 0x00000001u; }
-inline void GeoGrid_Location_ContactCenter_ContactPool::clear_has_id() { _has_bits_[0] &= ~0x00000001u; }
-inline void GeoGrid_Location_ContactCenter_ContactPool::clear_id()
-{
-        id_ = GOOGLE_LONGLONG(0);
-        clear_has_id();
+inline bool GeoGrid_Location_ContactCenter_ContactPool::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter_ContactPool::id() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.ContactPool.id)
-        return id_;
+inline void GeoGrid_Location_ContactCenter_ContactPool::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::set_id(::google::protobuf::int64 value)
-{
-        set_has_id();
-        id_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.ContactPool.id)
+inline void GeoGrid_Location_ContactCenter_ContactPool::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GeoGrid_Location_ContactCenter_ContactPool::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter_ContactPool::id() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.ContactPool.id)
+  return id_;
+}
+inline void GeoGrid_Location_ContactCenter_ContactPool::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.ContactPool.id)
 }
 
 // repeated int64 people = 2;
-inline int  GeoGrid_Location_ContactCenter_ContactPool::people_size() const { return people_.size(); }
-inline void GeoGrid_Location_ContactCenter_ContactPool::clear_people() { people_.Clear(); }
-inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter_ContactPool::people(int index) const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
-        return people_.Get(index);
+inline int GeoGrid_Location_ContactCenter_ContactPool::people_size() const {
+  return people_.size();
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::set_people(int index, ::google::protobuf::int64 value)
-{
-        people_.Set(index, value);
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+inline void GeoGrid_Location_ContactCenter_ContactPool::clear_people() {
+  people_.Clear();
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::add_people(::google::protobuf::int64 value)
-{
-        people_.Add(value);
-        // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter_ContactPool::people(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+  return people_.Get(index);
 }
-inline const ::google::protobuf::RepeatedField<::google::protobuf::int64>&
-GeoGrid_Location_ContactCenter_ContactPool::people() const
-{
-        // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
-        return people_;
+inline void GeoGrid_Location_ContactCenter_ContactPool::set_people(int index, ::google::protobuf::int64 value) {
+  people_.Set(index, value);
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
 }
-inline ::google::protobuf::RepeatedField<::google::protobuf::int64>*
-GeoGrid_Location_ContactCenter_ContactPool::mutable_people()
-{
-        // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
-        return &people_;
+inline void GeoGrid_Location_ContactCenter_ContactPool::add_people(::google::protobuf::int64 value) {
+  people_.Add(value);
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+GeoGrid_Location_ContactCenter_ContactPool::people() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+  return people_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+GeoGrid_Location_ContactCenter_ContactPool::mutable_people() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+  return &people_;
 }
 
 // -------------------------------------------------------------------
@@ -1289,120 +1322,120 @@ GeoGrid_Location_ContactCenter_ContactPool::mutable_people()
 // GeoGrid_Location_ContactCenter
 
 // required int64 id = 1;
-inline bool GeoGrid_Location_ContactCenter::has_id() const { return (_has_bits_[0] & 0x00000002u) != 0; }
-inline void GeoGrid_Location_ContactCenter::set_has_id() { _has_bits_[0] |= 0x00000002u; }
-inline void GeoGrid_Location_ContactCenter::clear_has_id() { _has_bits_[0] &= ~0x00000002u; }
-inline void GeoGrid_Location_ContactCenter::clear_id()
-{
-        id_ = GOOGLE_LONGLONG(0);
-        clear_has_id();
+inline bool GeoGrid_Location_ContactCenter::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter::id() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.id)
-        return id_;
+inline void GeoGrid_Location_ContactCenter::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void GeoGrid_Location_ContactCenter::set_id(::google::protobuf::int64 value)
-{
-        set_has_id();
-        id_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.id)
+inline void GeoGrid_Location_ContactCenter::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GeoGrid_Location_ContactCenter::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter::id() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.id)
+  return id_;
+}
+inline void GeoGrid_Location_ContactCenter::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.id)
 }
 
 // required string type = 2;
-inline bool GeoGrid_Location_ContactCenter::has_type() const { return (_has_bits_[0] & 0x00000001u) != 0; }
-inline void GeoGrid_Location_ContactCenter::set_has_type() { _has_bits_[0] |= 0x00000001u; }
-inline void GeoGrid_Location_ContactCenter::clear_has_type() { _has_bits_[0] &= ~0x00000001u; }
-inline void GeoGrid_Location_ContactCenter::clear_type()
-{
-        type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-        clear_has_type();
+inline bool GeoGrid_Location_ContactCenter::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline const ::std::string& GeoGrid_Location_ContactCenter::type() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.type)
-        return type_.GetNoArena();
+inline void GeoGrid_Location_ContactCenter::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Location_ContactCenter::set_type(const ::std::string& value)
-{
-        set_has_type();
-        type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.type)
+inline void GeoGrid_Location_ContactCenter::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GeoGrid_Location_ContactCenter::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_type();
+}
+inline const ::std::string& GeoGrid_Location_ContactCenter::type() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.type)
+  return type_.GetNoArena();
+}
+inline void GeoGrid_Location_ContactCenter::set_type(const ::std::string& value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.type)
 }
 #if LANG_CXX11
-inline void GeoGrid_Location_ContactCenter::set_type(::std::string&& value)
-{
-        set_has_type();
-        type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-        // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Location.ContactCenter.type)
+inline void GeoGrid_Location_ContactCenter::set_type(::std::string&& value) {
+  set_has_type();
+  type_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Location.ContactCenter.type)
 }
 #endif
-inline void GeoGrid_Location_ContactCenter::set_type(const char* value)
-{
-        GOOGLE_DCHECK(value != NULL);
-        set_has_type();
-        type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-        // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Location.ContactCenter.type)
+inline void GeoGrid_Location_ContactCenter::set_type(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Location.ContactCenter.type)
 }
-inline void GeoGrid_Location_ContactCenter::set_type(const char* value, size_t size)
-{
-        set_has_type();
-        type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-                         ::std::string(reinterpret_cast<const char*>(value), size));
-        // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Location.ContactCenter.type)
+inline void GeoGrid_Location_ContactCenter::set_type(const char* value, size_t size) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Location.ContactCenter.type)
 }
-inline ::std::string* GeoGrid_Location_ContactCenter::mutable_type()
-{
-        set_has_type();
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.ContactCenter.type)
-        return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* GeoGrid_Location_ContactCenter::mutable_type() {
+  set_has_type();
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.ContactCenter.type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GeoGrid_Location_ContactCenter::release_type()
-{
-        // @@protoc_insertion_point(field_release:proto.GeoGrid.Location.ContactCenter.type)
-        clear_has_type();
-        return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* GeoGrid_Location_ContactCenter::release_type() {
+  // @@protoc_insertion_point(field_release:proto.GeoGrid.Location.ContactCenter.type)
+  clear_has_type();
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GeoGrid_Location_ContactCenter::set_allocated_type(::std::string* type)
-{
-        if (type != NULL) {
-                set_has_type();
-        } else {
-                clear_has_type();
-        }
-        type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
-        // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.ContactCenter.type)
+inline void GeoGrid_Location_ContactCenter::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    set_has_type();
+  } else {
+    clear_has_type();
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.ContactCenter.type)
 }
 
 // repeated .proto.GeoGrid.Location.ContactCenter.ContactPool pools = 3;
-inline int  GeoGrid_Location_ContactCenter::pools_size() const { return pools_.size(); }
-inline void GeoGrid_Location_ContactCenter::clear_pools() { pools_.Clear(); }
-inline const ::proto::GeoGrid_Location_ContactCenter_ContactPool& GeoGrid_Location_ContactCenter::pools(int index) const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.pools)
-        return pools_.Get(index);
+inline int GeoGrid_Location_ContactCenter::pools_size() const {
+  return pools_.size();
 }
-inline ::proto::GeoGrid_Location_ContactCenter_ContactPool* GeoGrid_Location_ContactCenter::mutable_pools(int index)
-{
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.ContactCenter.pools)
-        return pools_.Mutable(index);
+inline void GeoGrid_Location_ContactCenter::clear_pools() {
+  pools_.Clear();
 }
-inline ::proto::GeoGrid_Location_ContactCenter_ContactPool* GeoGrid_Location_ContactCenter::add_pools()
-{
-        // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactCenter.pools)
-        return pools_.Add();
+inline const ::proto::GeoGrid_Location_ContactCenter_ContactPool& GeoGrid_Location_ContactCenter::pools(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.pools)
+  return pools_.Get(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter_ContactPool>*
-GeoGrid_Location_ContactCenter::mutable_pools()
-{
-        // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactCenter.pools)
-        return &pools_;
+inline ::proto::GeoGrid_Location_ContactCenter_ContactPool* GeoGrid_Location_ContactCenter::mutable_pools(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.ContactCenter.pools)
+  return pools_.Mutable(index);
 }
-inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter_ContactPool>&
-GeoGrid_Location_ContactCenter::pools() const
-{
-        // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactCenter.pools)
-        return pools_;
+inline ::proto::GeoGrid_Location_ContactCenter_ContactPool* GeoGrid_Location_ContactCenter::add_pools() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactCenter.pools)
+  return pools_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >*
+GeoGrid_Location_ContactCenter::mutable_pools() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactCenter.pools)
+  return &pools_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >&
+GeoGrid_Location_ContactCenter::pools() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactCenter.pools)
+  return pools_;
 }
 
 // -------------------------------------------------------------------
@@ -1410,45 +1443,51 @@ GeoGrid_Location_ContactCenter::pools() const
 // GeoGrid_Location_Commute
 
 // required int64 to = 1;
-inline bool GeoGrid_Location_Commute::has_to() const { return (_has_bits_[0] & 0x00000001u) != 0; }
-inline void GeoGrid_Location_Commute::set_has_to() { _has_bits_[0] |= 0x00000001u; }
-inline void GeoGrid_Location_Commute::clear_has_to() { _has_bits_[0] &= ~0x00000001u; }
-inline void GeoGrid_Location_Commute::clear_to()
-{
-        to_ = GOOGLE_LONGLONG(0);
-        clear_has_to();
+inline bool GeoGrid_Location_Commute::has_to() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Location_Commute::to() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Commute.to)
-        return to_;
+inline void GeoGrid_Location_Commute::set_has_to() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Location_Commute::set_to(::google::protobuf::int64 value)
-{
-        set_has_to();
-        to_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Commute.to)
+inline void GeoGrid_Location_Commute::clear_has_to() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GeoGrid_Location_Commute::clear_to() {
+  to_ = GOOGLE_LONGLONG(0);
+  clear_has_to();
+}
+inline ::google::protobuf::int64 GeoGrid_Location_Commute::to() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Commute.to)
+  return to_;
+}
+inline void GeoGrid_Location_Commute::set_to(::google::protobuf::int64 value) {
+  set_has_to();
+  to_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Commute.to)
 }
 
 // required double proportion = 2;
-inline bool GeoGrid_Location_Commute::has_proportion() const { return (_has_bits_[0] & 0x00000002u) != 0; }
-inline void GeoGrid_Location_Commute::set_has_proportion() { _has_bits_[0] |= 0x00000002u; }
-inline void GeoGrid_Location_Commute::clear_has_proportion() { _has_bits_[0] &= ~0x00000002u; }
-inline void GeoGrid_Location_Commute::clear_proportion()
-{
-        proportion_ = 0;
-        clear_has_proportion();
+inline bool GeoGrid_Location_Commute::has_proportion() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline double GeoGrid_Location_Commute::proportion() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Commute.proportion)
-        return proportion_;
+inline void GeoGrid_Location_Commute::set_has_proportion() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void GeoGrid_Location_Commute::set_proportion(double value)
-{
-        set_has_proportion();
-        proportion_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Commute.proportion)
+inline void GeoGrid_Location_Commute::clear_has_proportion() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GeoGrid_Location_Commute::clear_proportion() {
+  proportion_ = 0;
+  clear_has_proportion();
+}
+inline double GeoGrid_Location_Commute::proportion() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Commute.proportion)
+  return proportion_;
+}
+inline void GeoGrid_Location_Commute::set_proportion(double value) {
+  set_has_proportion();
+  proportion_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Commute.proportion)
 }
 
 // -------------------------------------------------------------------
@@ -1456,246 +1495,282 @@ inline void GeoGrid_Location_Commute::set_proportion(double value)
 // GeoGrid_Location
 
 // required int64 id = 1;
-inline bool GeoGrid_Location::has_id() const { return (_has_bits_[0] & 0x00000004u) != 0; }
-inline void GeoGrid_Location::set_has_id() { _has_bits_[0] |= 0x00000004u; }
-inline void GeoGrid_Location::clear_has_id() { _has_bits_[0] &= ~0x00000004u; }
-inline void GeoGrid_Location::clear_id()
-{
-        id_ = GOOGLE_LONGLONG(0);
-        clear_has_id();
+inline bool GeoGrid_Location::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Location::id() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.id)
-        return id_;
+inline void GeoGrid_Location::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void GeoGrid_Location::set_id(::google::protobuf::int64 value)
-{
-        set_has_id();
-        id_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.id)
+inline void GeoGrid_Location::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GeoGrid_Location::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 GeoGrid_Location::id() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.id)
+  return id_;
+}
+inline void GeoGrid_Location::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.id)
 }
 
 // required string name = 2;
-inline bool GeoGrid_Location::has_name() const { return (_has_bits_[0] & 0x00000001u) != 0; }
-inline void GeoGrid_Location::set_has_name() { _has_bits_[0] |= 0x00000001u; }
-inline void GeoGrid_Location::clear_has_name() { _has_bits_[0] &= ~0x00000001u; }
-inline void GeoGrid_Location::clear_name()
-{
-        name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-        clear_has_name();
+inline bool GeoGrid_Location::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline const ::std::string& GeoGrid_Location::name() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.name)
-        return name_.GetNoArena();
+inline void GeoGrid_Location::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Location::set_name(const ::std::string& value)
-{
-        set_has_name();
-        name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.name)
+inline void GeoGrid_Location::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GeoGrid_Location::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
+}
+inline const ::std::string& GeoGrid_Location::name() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.name)
+  return name_.GetNoArena();
+}
+inline void GeoGrid_Location::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.name)
 }
 #if LANG_CXX11
-inline void GeoGrid_Location::set_name(::std::string&& value)
-{
-        set_has_name();
-        name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-        // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Location.name)
+inline void GeoGrid_Location::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Location.name)
 }
 #endif
-inline void GeoGrid_Location::set_name(const char* value)
-{
-        GOOGLE_DCHECK(value != NULL);
-        set_has_name();
-        name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-        // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Location.name)
+inline void GeoGrid_Location::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Location.name)
 }
-inline void GeoGrid_Location::set_name(const char* value, size_t size)
-{
-        set_has_name();
-        name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-                         ::std::string(reinterpret_cast<const char*>(value), size));
-        // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Location.name)
+inline void GeoGrid_Location::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Location.name)
 }
-inline ::std::string* GeoGrid_Location::mutable_name()
-{
-        set_has_name();
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.name)
-        return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* GeoGrid_Location::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GeoGrid_Location::release_name()
-{
-        // @@protoc_insertion_point(field_release:proto.GeoGrid.Location.name)
-        clear_has_name();
-        return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* GeoGrid_Location::release_name() {
+  // @@protoc_insertion_point(field_release:proto.GeoGrid.Location.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GeoGrid_Location::set_allocated_name(::std::string* name)
-{
-        if (name != NULL) {
-                set_has_name();
-        } else {
-                clear_has_name();
-        }
-        name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-        // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.name)
+inline void GeoGrid_Location::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
+  } else {
+    clear_has_name();
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.name)
 }
 
 // required int64 province = 3;
-inline bool GeoGrid_Location::has_province() const { return (_has_bits_[0] & 0x00000008u) != 0; }
-inline void GeoGrid_Location::set_has_province() { _has_bits_[0] |= 0x00000008u; }
-inline void GeoGrid_Location::clear_has_province() { _has_bits_[0] &= ~0x00000008u; }
-inline void GeoGrid_Location::clear_province()
-{
-        province_ = GOOGLE_LONGLONG(0);
-        clear_has_province();
+inline bool GeoGrid_Location::has_province() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Location::province() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.province)
-        return province_;
+inline void GeoGrid_Location::set_has_province() {
+  _has_bits_[0] |= 0x00000008u;
 }
-inline void GeoGrid_Location::set_province(::google::protobuf::int64 value)
-{
-        set_has_province();
-        province_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.province)
+inline void GeoGrid_Location::clear_has_province() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GeoGrid_Location::clear_province() {
+  province_ = GOOGLE_LONGLONG(0);
+  clear_has_province();
+}
+inline ::google::protobuf::int64 GeoGrid_Location::province() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.province)
+  return province_;
+}
+inline void GeoGrid_Location::set_province(::google::protobuf::int64 value) {
+  set_has_province();
+  province_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.province)
 }
 
 // required int64 population = 4;
-inline bool GeoGrid_Location::has_population() const { return (_has_bits_[0] & 0x00000010u) != 0; }
-inline void GeoGrid_Location::set_has_population() { _has_bits_[0] |= 0x00000010u; }
-inline void GeoGrid_Location::clear_has_population() { _has_bits_[0] &= ~0x00000010u; }
-inline void GeoGrid_Location::clear_population()
-{
-        population_ = GOOGLE_LONGLONG(0);
-        clear_has_population();
+inline bool GeoGrid_Location::has_population() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Location::population() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.population)
-        return population_;
+inline void GeoGrid_Location::set_has_population() {
+  _has_bits_[0] |= 0x00000010u;
 }
-inline void GeoGrid_Location::set_population(::google::protobuf::int64 value)
-{
-        set_has_population();
-        population_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.population)
+inline void GeoGrid_Location::clear_has_population() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GeoGrid_Location::clear_population() {
+  population_ = GOOGLE_LONGLONG(0);
+  clear_has_population();
+}
+inline ::google::protobuf::int64 GeoGrid_Location::population() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.population)
+  return population_;
+}
+inline void GeoGrid_Location::set_population(::google::protobuf::int64 value) {
+  set_has_population();
+  population_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.population)
 }
 
 // required .proto.GeoGrid.Location.Coordinate coordinate = 5;
-inline bool GeoGrid_Location::has_coordinate() const { return (_has_bits_[0] & 0x00000002u) != 0; }
-inline void GeoGrid_Location::set_has_coordinate() { _has_bits_[0] |= 0x00000002u; }
-inline void GeoGrid_Location::clear_has_coordinate() { _has_bits_[0] &= ~0x00000002u; }
-inline void GeoGrid_Location::clear_coordinate()
-{
-        if (coordinate_ != NULL)
-                coordinate_->Clear();
-        clear_has_coordinate();
+inline bool GeoGrid_Location::has_coordinate() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline const ::proto::GeoGrid_Location_Coordinate& GeoGrid_Location::coordinate() const
-{
-        const ::proto::GeoGrid_Location_Coordinate* p = coordinate_;
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.coordinate)
-        return p != NULL ? *p
-                         : *reinterpret_cast<const ::proto::GeoGrid_Location_Coordinate*>(
-                               &::proto::_GeoGrid_Location_Coordinate_default_instance_);
+inline void GeoGrid_Location::set_has_coordinate() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline ::proto::GeoGrid_Location_Coordinate* GeoGrid_Location::release_coordinate()
-{
-        // @@protoc_insertion_point(field_release:proto.GeoGrid.Location.coordinate)
-        clear_has_coordinate();
-        ::proto::GeoGrid_Location_Coordinate* temp = coordinate_;
-        coordinate_                                = NULL;
-        return temp;
+inline void GeoGrid_Location::clear_has_coordinate() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-inline ::proto::GeoGrid_Location_Coordinate* GeoGrid_Location::mutable_coordinate()
-{
-        set_has_coordinate();
-        if (coordinate_ == NULL) {
-                coordinate_ = new ::proto::GeoGrid_Location_Coordinate;
-        }
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.coordinate)
-        return coordinate_;
+inline void GeoGrid_Location::clear_coordinate() {
+  if (coordinate_ != NULL) coordinate_->Clear();
+  clear_has_coordinate();
 }
-inline void GeoGrid_Location::set_allocated_coordinate(::proto::GeoGrid_Location_Coordinate* coordinate)
-{
-        ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-        if (message_arena == NULL) {
-                delete coordinate_;
-        }
-        if (coordinate) {
-                ::google::protobuf::Arena* submessage_arena = NULL;
-                if (message_arena != submessage_arena) {
-                        coordinate =
-                            ::google::protobuf::internal::GetOwnedMessage(message_arena, coordinate, submessage_arena);
-                }
-                set_has_coordinate();
-        } else {
-                clear_has_coordinate();
-        }
-        coordinate_ = coordinate;
-        // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.coordinate)
+inline const ::proto::GeoGrid_Location_Coordinate& GeoGrid_Location::coordinate() const {
+  const ::proto::GeoGrid_Location_Coordinate* p = coordinate_;
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.coordinate)
+  return p != NULL ? *p : *reinterpret_cast<const ::proto::GeoGrid_Location_Coordinate*>(
+      &::proto::_GeoGrid_Location_Coordinate_default_instance_);
+}
+inline ::proto::GeoGrid_Location_Coordinate* GeoGrid_Location::release_coordinate() {
+  // @@protoc_insertion_point(field_release:proto.GeoGrid.Location.coordinate)
+  clear_has_coordinate();
+  ::proto::GeoGrid_Location_Coordinate* temp = coordinate_;
+  coordinate_ = NULL;
+  return temp;
+}
+inline ::proto::GeoGrid_Location_Coordinate* GeoGrid_Location::mutable_coordinate() {
+  set_has_coordinate();
+  if (coordinate_ == NULL) {
+    coordinate_ = new ::proto::GeoGrid_Location_Coordinate;
+  }
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.coordinate)
+  return coordinate_;
+}
+inline void GeoGrid_Location::set_allocated_coordinate(::proto::GeoGrid_Location_Coordinate* coordinate) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete coordinate_;
+  }
+  if (coordinate) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      coordinate = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, coordinate, submessage_arena);
+    }
+    set_has_coordinate();
+  } else {
+    clear_has_coordinate();
+  }
+  coordinate_ = coordinate;
+  // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.coordinate)
 }
 
 // repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
-inline int  GeoGrid_Location::contactcenters_size() const { return contactcenters_.size(); }
-inline void GeoGrid_Location::clear_contactcenters() { contactcenters_.Clear(); }
-inline const ::proto::GeoGrid_Location_ContactCenter& GeoGrid_Location::contactcenters(int index) const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.contactCenters)
-        return contactcenters_.Get(index);
+inline int GeoGrid_Location::contactcenters_size() const {
+  return contactcenters_.size();
 }
-inline ::proto::GeoGrid_Location_ContactCenter* GeoGrid_Location::mutable_contactcenters(int index)
-{
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.contactCenters)
-        return contactcenters_.Mutable(index);
+inline void GeoGrid_Location::clear_contactcenters() {
+  contactcenters_.Clear();
 }
-inline ::proto::GeoGrid_Location_ContactCenter* GeoGrid_Location::add_contactcenters()
-{
-        // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.contactCenters)
-        return contactcenters_.Add();
+inline const ::proto::GeoGrid_Location_ContactCenter& GeoGrid_Location::contactcenters(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.contactCenters)
+  return contactcenters_.Get(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter>*
-GeoGrid_Location::mutable_contactcenters()
-{
-        // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.contactCenters)
-        return &contactcenters_;
+inline ::proto::GeoGrid_Location_ContactCenter* GeoGrid_Location::mutable_contactcenters(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.contactCenters)
+  return contactcenters_.Mutable(index);
 }
-inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_ContactCenter>&
-GeoGrid_Location::contactcenters() const
-{
-        // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.contactCenters)
-        return contactcenters_;
+inline ::proto::GeoGrid_Location_ContactCenter* GeoGrid_Location::add_contactcenters() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.contactCenters)
+  return contactcenters_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >*
+GeoGrid_Location::mutable_contactcenters() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.contactCenters)
+  return &contactcenters_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >&
+GeoGrid_Location::contactcenters() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.contactCenters)
+  return contactcenters_;
 }
 
 // repeated .proto.GeoGrid.Location.Commute commutes = 7;
-inline int                                      GeoGrid_Location::commutes_size() const { return commutes_.size(); }
-inline void                                     GeoGrid_Location::clear_commutes() { commutes_.Clear(); }
-inline const ::proto::GeoGrid_Location_Commute& GeoGrid_Location::commutes(int index) const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.commutes)
-        return commutes_.Get(index);
+inline int GeoGrid_Location::commutes_size() const {
+  return commutes_.size();
 }
-inline ::proto::GeoGrid_Location_Commute* GeoGrid_Location::mutable_commutes(int index)
-{
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.commutes)
-        return commutes_.Mutable(index);
+inline void GeoGrid_Location::clear_commutes() {
+  commutes_.Clear();
 }
-inline ::proto::GeoGrid_Location_Commute* GeoGrid_Location::add_commutes()
-{
-        // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.commutes)
-        return commutes_.Add();
+inline const ::proto::GeoGrid_Location_Commute& GeoGrid_Location::commutes(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.commutes)
+  return commutes_.Get(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_Commute>* GeoGrid_Location::mutable_commutes()
-{
-        // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.commutes)
-        return &commutes_;
+inline ::proto::GeoGrid_Location_Commute* GeoGrid_Location::mutable_commutes(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.commutes)
+  return commutes_.Mutable(index);
 }
-inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_Commute>& GeoGrid_Location::commutes() const
-{
-        // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.commutes)
-        return commutes_;
+inline ::proto::GeoGrid_Location_Commute* GeoGrid_Location::add_commutes() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.commutes)
+  return commutes_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute >*
+GeoGrid_Location::mutable_commutes() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.commutes)
+  return &commutes_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute >&
+GeoGrid_Location::commutes() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.commutes)
+  return commutes_;
+}
+
+// repeated .proto.GeoGrid.Location submunicipalities = 8;
+inline int GeoGrid_Location::submunicipalities_size() const {
+  return submunicipalities_.size();
+}
+inline void GeoGrid_Location::clear_submunicipalities() {
+  submunicipalities_.Clear();
+}
+inline const ::proto::GeoGrid_Location& GeoGrid_Location::submunicipalities(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.submunicipalities)
+  return submunicipalities_.Get(index);
+}
+inline ::proto::GeoGrid_Location* GeoGrid_Location::mutable_submunicipalities(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.submunicipalities)
+  return submunicipalities_.Mutable(index);
+}
+inline ::proto::GeoGrid_Location* GeoGrid_Location::add_submunicipalities() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.submunicipalities)
+  return submunicipalities_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >*
+GeoGrid_Location::mutable_submunicipalities() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.submunicipalities)
+  return &submunicipalities_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >&
+GeoGrid_Location::submunicipalities() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.submunicipalities)
+  return submunicipalities_;
 }
 
 // -------------------------------------------------------------------
@@ -1703,215 +1778,234 @@ inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location_Comm
 // GeoGrid_Person
 
 // required int64 id = 1;
-inline bool GeoGrid_Person::has_id() const { return (_has_bits_[0] & 0x00000002u) != 0; }
-inline void GeoGrid_Person::set_has_id() { _has_bits_[0] |= 0x00000002u; }
-inline void GeoGrid_Person::clear_has_id() { _has_bits_[0] &= ~0x00000002u; }
-inline void GeoGrid_Person::clear_id()
-{
-        id_ = GOOGLE_LONGLONG(0);
-        clear_has_id();
+inline bool GeoGrid_Person::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::id() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.id)
-        return id_;
+inline void GeoGrid_Person::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void GeoGrid_Person::set_id(::google::protobuf::int64 value)
-{
-        set_has_id();
-        id_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.id)
+inline void GeoGrid_Person::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GeoGrid_Person::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::id() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.id)
+  return id_;
+}
+inline void GeoGrid_Person::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.id)
 }
 
 // required int64 age = 2;
-inline bool GeoGrid_Person::has_age() const { return (_has_bits_[0] & 0x00000004u) != 0; }
-inline void GeoGrid_Person::set_has_age() { _has_bits_[0] |= 0x00000004u; }
-inline void GeoGrid_Person::clear_has_age() { _has_bits_[0] &= ~0x00000004u; }
-inline void GeoGrid_Person::clear_age()
-{
-        age_ = GOOGLE_LONGLONG(0);
-        clear_has_age();
+inline bool GeoGrid_Person::has_age() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::age() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.age)
-        return age_;
+inline void GeoGrid_Person::set_has_age() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void GeoGrid_Person::set_age(::google::protobuf::int64 value)
-{
-        set_has_age();
-        age_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.age)
+inline void GeoGrid_Person::clear_has_age() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GeoGrid_Person::clear_age() {
+  age_ = GOOGLE_LONGLONG(0);
+  clear_has_age();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::age() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.age)
+  return age_;
+}
+inline void GeoGrid_Person::set_age(::google::protobuf::int64 value) {
+  set_has_age();
+  age_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.age)
 }
 
 // required string gender = 3;
-inline bool GeoGrid_Person::has_gender() const { return (_has_bits_[0] & 0x00000001u) != 0; }
-inline void GeoGrid_Person::set_has_gender() { _has_bits_[0] |= 0x00000001u; }
-inline void GeoGrid_Person::clear_has_gender() { _has_bits_[0] &= ~0x00000001u; }
-inline void GeoGrid_Person::clear_gender()
-{
-        gender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-        clear_has_gender();
+inline bool GeoGrid_Person::has_gender() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline const ::std::string& GeoGrid_Person::gender() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.gender)
-        return gender_.GetNoArena();
+inline void GeoGrid_Person::set_has_gender() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Person::set_gender(const ::std::string& value)
-{
-        set_has_gender();
-        gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.gender)
+inline void GeoGrid_Person::clear_has_gender() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GeoGrid_Person::clear_gender() {
+  gender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_gender();
+}
+inline const ::std::string& GeoGrid_Person::gender() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.gender)
+  return gender_.GetNoArena();
+}
+inline void GeoGrid_Person::set_gender(const ::std::string& value) {
+  set_has_gender();
+  gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.gender)
 }
 #if LANG_CXX11
-inline void GeoGrid_Person::set_gender(::std::string&& value)
-{
-        set_has_gender();
-        gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-        // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Person.gender)
+inline void GeoGrid_Person::set_gender(::std::string&& value) {
+  set_has_gender();
+  gender_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Person.gender)
 }
 #endif
-inline void GeoGrid_Person::set_gender(const char* value)
-{
-        GOOGLE_DCHECK(value != NULL);
-        set_has_gender();
-        gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-        // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Person.gender)
+inline void GeoGrid_Person::set_gender(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_gender();
+  gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Person.gender)
 }
-inline void GeoGrid_Person::set_gender(const char* value, size_t size)
-{
-        set_has_gender();
-        gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-                           ::std::string(reinterpret_cast<const char*>(value), size));
-        // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Person.gender)
+inline void GeoGrid_Person::set_gender(const char* value, size_t size) {
+  set_has_gender();
+  gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Person.gender)
 }
-inline ::std::string* GeoGrid_Person::mutable_gender()
-{
-        set_has_gender();
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Person.gender)
-        return gender_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* GeoGrid_Person::mutable_gender() {
+  set_has_gender();
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Person.gender)
+  return gender_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GeoGrid_Person::release_gender()
-{
-        // @@protoc_insertion_point(field_release:proto.GeoGrid.Person.gender)
-        clear_has_gender();
-        return gender_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* GeoGrid_Person::release_gender() {
+  // @@protoc_insertion_point(field_release:proto.GeoGrid.Person.gender)
+  clear_has_gender();
+  return gender_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GeoGrid_Person::set_allocated_gender(::std::string* gender)
-{
-        if (gender != NULL) {
-                set_has_gender();
-        } else {
-                clear_has_gender();
-        }
-        gender_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gender);
-        // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Person.gender)
+inline void GeoGrid_Person::set_allocated_gender(::std::string* gender) {
+  if (gender != NULL) {
+    set_has_gender();
+  } else {
+    clear_has_gender();
+  }
+  gender_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gender);
+  // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Person.gender)
 }
 
 // required int64 School = 4;
-inline bool GeoGrid_Person::has_school() const { return (_has_bits_[0] & 0x00000008u) != 0; }
-inline void GeoGrid_Person::set_has_school() { _has_bits_[0] |= 0x00000008u; }
-inline void GeoGrid_Person::clear_has_school() { _has_bits_[0] &= ~0x00000008u; }
-inline void GeoGrid_Person::clear_school()
-{
-        school_ = GOOGLE_LONGLONG(0);
-        clear_has_school();
+inline bool GeoGrid_Person::has_school() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::school() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.School)
-        return school_;
+inline void GeoGrid_Person::set_has_school() {
+  _has_bits_[0] |= 0x00000008u;
 }
-inline void GeoGrid_Person::set_school(::google::protobuf::int64 value)
-{
-        set_has_school();
-        school_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.School)
+inline void GeoGrid_Person::clear_has_school() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GeoGrid_Person::clear_school() {
+  school_ = GOOGLE_LONGLONG(0);
+  clear_has_school();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::school() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.School)
+  return school_;
+}
+inline void GeoGrid_Person::set_school(::google::protobuf::int64 value) {
+  set_has_school();
+  school_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.School)
 }
 
 // required int64 Household = 5;
-inline bool GeoGrid_Person::has_household() const { return (_has_bits_[0] & 0x00000010u) != 0; }
-inline void GeoGrid_Person::set_has_household() { _has_bits_[0] |= 0x00000010u; }
-inline void GeoGrid_Person::clear_has_household() { _has_bits_[0] &= ~0x00000010u; }
-inline void GeoGrid_Person::clear_household()
-{
-        household_ = GOOGLE_LONGLONG(0);
-        clear_has_household();
+inline bool GeoGrid_Person::has_household() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::household() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.Household)
-        return household_;
+inline void GeoGrid_Person::set_has_household() {
+  _has_bits_[0] |= 0x00000010u;
 }
-inline void GeoGrid_Person::set_household(::google::protobuf::int64 value)
-{
-        set_has_household();
-        household_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.Household)
+inline void GeoGrid_Person::clear_has_household() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GeoGrid_Person::clear_household() {
+  household_ = GOOGLE_LONGLONG(0);
+  clear_has_household();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::household() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.Household)
+  return household_;
+}
+inline void GeoGrid_Person::set_household(::google::protobuf::int64 value) {
+  set_has_household();
+  household_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.Household)
 }
 
 // required int64 Workplace = 6;
-inline bool GeoGrid_Person::has_workplace() const { return (_has_bits_[0] & 0x00000020u) != 0; }
-inline void GeoGrid_Person::set_has_workplace() { _has_bits_[0] |= 0x00000020u; }
-inline void GeoGrid_Person::clear_has_workplace() { _has_bits_[0] &= ~0x00000020u; }
-inline void GeoGrid_Person::clear_workplace()
-{
-        workplace_ = GOOGLE_LONGLONG(0);
-        clear_has_workplace();
+inline bool GeoGrid_Person::has_workplace() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::workplace() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.Workplace)
-        return workplace_;
+inline void GeoGrid_Person::set_has_workplace() {
+  _has_bits_[0] |= 0x00000020u;
 }
-inline void GeoGrid_Person::set_workplace(::google::protobuf::int64 value)
-{
-        set_has_workplace();
-        workplace_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.Workplace)
+inline void GeoGrid_Person::clear_has_workplace() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GeoGrid_Person::clear_workplace() {
+  workplace_ = GOOGLE_LONGLONG(0);
+  clear_has_workplace();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::workplace() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.Workplace)
+  return workplace_;
+}
+inline void GeoGrid_Person::set_workplace(::google::protobuf::int64 value) {
+  set_has_workplace();
+  workplace_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.Workplace)
 }
 
 // required int64 PrimaryCommunity = 7;
-inline bool GeoGrid_Person::has_primarycommunity() const { return (_has_bits_[0] & 0x00000040u) != 0; }
-inline void GeoGrid_Person::set_has_primarycommunity() { _has_bits_[0] |= 0x00000040u; }
-inline void GeoGrid_Person::clear_has_primarycommunity() { _has_bits_[0] &= ~0x00000040u; }
-inline void GeoGrid_Person::clear_primarycommunity()
-{
-        primarycommunity_ = GOOGLE_LONGLONG(0);
-        clear_has_primarycommunity();
+inline bool GeoGrid_Person::has_primarycommunity() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::primarycommunity() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.PrimaryCommunity)
-        return primarycommunity_;
+inline void GeoGrid_Person::set_has_primarycommunity() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void GeoGrid_Person::set_primarycommunity(::google::protobuf::int64 value)
-{
-        set_has_primarycommunity();
-        primarycommunity_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.PrimaryCommunity)
+inline void GeoGrid_Person::clear_has_primarycommunity() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void GeoGrid_Person::clear_primarycommunity() {
+  primarycommunity_ = GOOGLE_LONGLONG(0);
+  clear_has_primarycommunity();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::primarycommunity() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.PrimaryCommunity)
+  return primarycommunity_;
+}
+inline void GeoGrid_Person::set_primarycommunity(::google::protobuf::int64 value) {
+  set_has_primarycommunity();
+  primarycommunity_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.PrimaryCommunity)
 }
 
 // required int64 SecondaryCommunity = 8;
-inline bool GeoGrid_Person::has_secondarycommunity() const { return (_has_bits_[0] & 0x00000080u) != 0; }
-inline void GeoGrid_Person::set_has_secondarycommunity() { _has_bits_[0] |= 0x00000080u; }
-inline void GeoGrid_Person::clear_has_secondarycommunity() { _has_bits_[0] &= ~0x00000080u; }
-inline void GeoGrid_Person::clear_secondarycommunity()
-{
-        secondarycommunity_ = GOOGLE_LONGLONG(0);
-        clear_has_secondarycommunity();
+inline bool GeoGrid_Person::has_secondarycommunity() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline ::google::protobuf::int64 GeoGrid_Person::secondarycommunity() const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.SecondaryCommunity)
-        return secondarycommunity_;
+inline void GeoGrid_Person::set_has_secondarycommunity() {
+  _has_bits_[0] |= 0x00000080u;
 }
-inline void GeoGrid_Person::set_secondarycommunity(::google::protobuf::int64 value)
-{
-        set_has_secondarycommunity();
-        secondarycommunity_ = value;
-        // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.SecondaryCommunity)
+inline void GeoGrid_Person::clear_has_secondarycommunity() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void GeoGrid_Person::clear_secondarycommunity() {
+  secondarycommunity_ = GOOGLE_LONGLONG(0);
+  clear_has_secondarycommunity();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::secondarycommunity() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.SecondaryCommunity)
+  return secondarycommunity_;
+}
+inline void GeoGrid_Person::set_secondarycommunity(::google::protobuf::int64 value) {
+  set_has_secondarycommunity();
+  secondarycommunity_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.SecondaryCommunity)
 }
 
 // -------------------------------------------------------------------
@@ -1919,66 +2013,68 @@ inline void GeoGrid_Person::set_secondarycommunity(::google::protobuf::int64 val
 // GeoGrid
 
 // repeated .proto.GeoGrid.Location locations = 1;
-inline int                              GeoGrid::locations_size() const { return locations_.size(); }
-inline void                             GeoGrid::clear_locations() { locations_.Clear(); }
-inline const ::proto::GeoGrid_Location& GeoGrid::locations(int index) const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.locations)
-        return locations_.Get(index);
+inline int GeoGrid::locations_size() const {
+  return locations_.size();
 }
-inline ::proto::GeoGrid_Location* GeoGrid::mutable_locations(int index)
-{
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.locations)
-        return locations_.Mutable(index);
+inline void GeoGrid::clear_locations() {
+  locations_.Clear();
 }
-inline ::proto::GeoGrid_Location* GeoGrid::add_locations()
-{
-        // @@protoc_insertion_point(field_add:proto.GeoGrid.locations)
-        return locations_.Add();
+inline const ::proto::GeoGrid_Location& GeoGrid::locations(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.locations)
+  return locations_.Get(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location>* GeoGrid::mutable_locations()
-{
-        // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.locations)
-        return &locations_;
+inline ::proto::GeoGrid_Location* GeoGrid::mutable_locations(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.locations)
+  return locations_.Mutable(index);
 }
-inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Location>& GeoGrid::locations() const
-{
-        // @@protoc_insertion_point(field_list:proto.GeoGrid.locations)
-        return locations_;
+inline ::proto::GeoGrid_Location* GeoGrid::add_locations() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.locations)
+  return locations_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >*
+GeoGrid::mutable_locations() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.locations)
+  return &locations_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >&
+GeoGrid::locations() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.locations)
+  return locations_;
 }
 
 // repeated .proto.GeoGrid.Person persons = 2;
-inline int                            GeoGrid::persons_size() const { return persons_.size(); }
-inline void                           GeoGrid::clear_persons() { persons_.Clear(); }
-inline const ::proto::GeoGrid_Person& GeoGrid::persons(int index) const
-{
-        // @@protoc_insertion_point(field_get:proto.GeoGrid.persons)
-        return persons_.Get(index);
+inline int GeoGrid::persons_size() const {
+  return persons_.size();
 }
-inline ::proto::GeoGrid_Person* GeoGrid::mutable_persons(int index)
-{
-        // @@protoc_insertion_point(field_mutable:proto.GeoGrid.persons)
-        return persons_.Mutable(index);
+inline void GeoGrid::clear_persons() {
+  persons_.Clear();
 }
-inline ::proto::GeoGrid_Person* GeoGrid::add_persons()
-{
-        // @@protoc_insertion_point(field_add:proto.GeoGrid.persons)
-        return persons_.Add();
+inline const ::proto::GeoGrid_Person& GeoGrid::persons(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.persons)
+  return persons_.Get(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Person>* GeoGrid::mutable_persons()
-{
-        // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.persons)
-        return &persons_;
+inline ::proto::GeoGrid_Person* GeoGrid::mutable_persons(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.persons)
+  return persons_.Mutable(index);
 }
-inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Person>& GeoGrid::persons() const
-{
-        // @@protoc_insertion_point(field_list:proto.GeoGrid.persons)
-        return persons_;
+inline ::proto::GeoGrid_Person* GeoGrid::add_persons() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.persons)
+  return persons_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Person >*
+GeoGrid::mutable_persons() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.persons)
+  return &persons_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Person >&
+GeoGrid::persons() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.persons)
+  return persons_;
 }
 
 #ifdef __GNUC__
-#pragma GCC diagnostic pop
-#endif // __GNUC__
+  #pragma GCC diagnostic pop
+#endif  // __GNUC__
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1990,11 +2086,12 @@ inline const ::google::protobuf::RepeatedPtrField<::proto::GeoGrid_Person>& GeoG
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
-} // namespace proto
+}  // namespace proto
 
 // @@protoc_insertion_point(global_scope)
 
-#endif // PROTOBUF_geogrid_2eproto__INCLUDED
+#endif  // PROTOBUF_geogrid_2eproto__INCLUDED
