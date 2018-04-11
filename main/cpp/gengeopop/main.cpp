@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
                 ValueArg<double> fractionActivePeople("a", "fracActive", "Fraction of people active", false, 1.00,
                                                       "FRACTION OF PEOPLE ACTIVE", cmd);
 
-                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 1000000,
+                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
                                                       "POPULATION SIZE", cmd);
 
                 ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
