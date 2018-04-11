@@ -90,6 +90,7 @@ message( STATUS "------> PYTHONLIBS_FOUND             : ${PYTHONLIBS_FOUND} "   
 message( STATUS "------> Python_INCLUDE_DIRS          : ${PYTHON_INCLUDE_DIRS} "       )
 message( STATUS "------> Python_LIBRARIES             : ${PYTHON_LIBRARIES} "          )
 message( STATUS "------> Python version               : ${PYTHONLIBS_VERSION_STRING} " )
+message( STATUS "------> Generate Coverage            : ${GENERATE_COVERAGE} " )
 #
 message( STATUS "" )
 if ( STRIDE_INCLUDE_DOC )
@@ -103,6 +104,9 @@ if ( STRIDE_INCLUDE_DOC )
 		message( STATUS "------> DOXYGEN_DOT_EXECUTABLE      : ${DOXYGEN_DOT_EXECUTABLE} " )
 	endif()
 endif()
+#
+message( STATUS "------> Generate Coverage            : ${GENERATE_COVERAGE} " )
+#
 message( STATUS "" )
 message( STATUS "Report complete." )
 

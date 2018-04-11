@@ -20,24 +20,24 @@
 #============================================================================
 set(EXEC gtester)
 set(SRC
-        main.cpp
         BatchRuns.cpp
-        gengeopop/io/CitiesCSVReaderTest.cpp
-        gengeopop/io/HouseholdCSVReaderTest.cpp
-        gengeopop/io/CommutesCSVReaderTest.cpp
-        gengeopop/io/ReaderFactoryTest.cpp
-        gengeopop/generators/SchoolGeneratorTest.cpp
-        gengeopop/generators/HighSchoolGeneratorTest.cpp
-        gengeopop/generators/WorkplaceGeneratorTest.cpp
-        gengeopop/generators/CommunityGeneratorTest.cpp
-        gengeopop/generators/HouseholdGeneratorTest.cpp
-        gengeopop/io/GeoGridJSONWriterTest.cpp
-        gengeopop/io/GeoGridJSONReaderTest.cpp
-        gengeopop/kdtree.cpp
         CSVTest.cpp
         ScenarioData.cpp
         UnitSegmentedVector.cpp
-        )
+        gengeopop/generators/CommunityGeneratorTest.cpp
+        gengeopop/generators/HighSchoolGeneratorTest.cpp
+        gengeopop/generators/HouseholdGeneratorTest.cpp
+        gengeopop/generators/SchoolGeneratorTest.cpp
+        gengeopop/generators/WorkplaceGeneratorTest.cpp
+        gengeopop/io/CitiesCSVReaderTest.cpp
+        gengeopop/io/CommutesCSVReaderTest.cpp
+        gengeopop/io/GeoGridJSONWriterTest.cpp
+        gengeopop/io/HouseholdCSVReaderTest.cpp
+        gengeopop/io/ReaderFactoryTest.cpp
+        gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
+        gengeopop/kdtree.cpp
+        main.cpp)
+
 if (OPENMP_FOUND)
         set(SRC ${SRC} ParallelRuns.cpp)
 endif ()

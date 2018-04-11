@@ -71,6 +71,8 @@ public:
 
         size_t size() const;
 
+        void remove(const std::shared_ptr<Location>& location);
+
         std::shared_ptr<Location> operator[](size_t index);
 
         std::shared_ptr<Location> get(size_t index);
@@ -151,8 +153,7 @@ private:
                 }
         };
 
-        std::vector<KdTree2DPoint> m_points;
-        KdTree<KdTree2DPoint>      m_tree;
+        KdTree<KdTree2DPoint> m_tree;
 };
 
 } // namespace gengeopop
