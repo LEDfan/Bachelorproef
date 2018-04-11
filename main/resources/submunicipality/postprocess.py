@@ -119,7 +119,7 @@ for name, parent in data.items():
     shareSubMuns = populationParent - parenCitySize * P
 
     totalRel = 0
-    i = 1
+    i = 2
     for child in parent['children']:
         # for every sub-municipality
         # calculate the relative size of this sub-municipality to the total population of all sub-municipalities
@@ -137,7 +137,7 @@ for name, parent in data.items():
             'lat':  parent['lat'],
             'lon':  parent['lon'],
             'name': name,
-            'nis': parent['nis']
+            'nis': parent['nis'] + "1"
         })
 
 
