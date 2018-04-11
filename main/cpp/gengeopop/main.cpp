@@ -1,8 +1,6 @@
 #include "Community.h"
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
-#include "School.h"
-#include "Workplace.h"
 #include <tclap/CmdLine.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -12,7 +10,6 @@
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gengeopop/io/GeoGridJSONWriter.h>
 #include <gengeopop/io/ReaderFactory.h>
-#include <util/StringUtils.h>
 
 #include <boost/lexical_cast.hpp>
 #include <gengeopop/populators/GeoGridPopulator.h>
@@ -22,7 +19,6 @@
 #include <gengeopop/populators/SchoolPopulator.h>
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
-#include <utility>
 
 using namespace gengeopop;
 using namespace TCLAP;
@@ -90,6 +86,9 @@ int main(int argc, char* argv[])
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 1000000,
                                                       "POPULATION SIZE", cmd);
 
+                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
+                                                            "submunicipalities.csv", "OUTPUT FILE", cmd);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 ReaderFactory readerFactory;
@@ -121,8 +120,12 @@ int main(int argc, char* argv[])
                 }
 
                 std::ofstream outputFileStream(outputFile.getValue());
+                auto          subMunicipalitiesReader =
+                    readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
 
+                citiesReader->FillGeoGrid(geoGrid);
                 commutesReader->FillGeoGrid(geoGrid);
+                subMunicipalitiesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input.populationSize                       = populationSize.getValue();

@@ -7,6 +7,10 @@ struct Coordinate
         {
         }
 
+        Coordinate() : Coordinate(0, 0, 0, 0) {}
+
+        Coordinate(double longitude, double latitude) : Coordinate(0, 0, longitude, latitude) {}
+
         double x;
         double y;
         double longitude;
