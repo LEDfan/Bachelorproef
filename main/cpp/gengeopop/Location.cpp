@@ -1,7 +1,5 @@
 #include "Location.h"
 #include <cmath>
-#include <iostream>
-#include <utility>
 
 namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
@@ -78,11 +76,22 @@ int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) cons
 
 bool Location::operator==(const Location& other) const
 {
+
+        auto sub1 = getSubMunicipalities();
+        auto sub2 = other.getSubMunicipalities();
+
         return getID() == other.getID() && getCoordinate() == other.getCoordinate() && getName() == other.getName() &&
                getProvince() == other.getProvince() && getPopulation() == other.getPopulation() &&
                getContactCenters() == other.getContactCenters() &&
                getIncomingCommuningCities() == other.getIncomingCommuningCities() &&
-               getOutgoingCommuningCities() == other.getOutgoingCommuningCities();
+               getOutgoingCommuningCities() == other.getOutgoingCommuningCities() &&
+               ((!getParent() && !other.getParent()) ||
+                (getParent() && other.getParent() && *getParent() == *other.getParent())) &&
+               sub1.size() == sub2.size() &&
+               std::equal(sub1.begin(), sub1.end(), sub1.begin(), sub1.end(),
+                          [](std::shared_ptr<Location> lhs, std::shared_ptr<Location> rhs) {
+                                  return lhs->getID() == rhs->getID();
+                          });
 }
 
 void Location::calculatePopulation(unsigned int totalPopulation)

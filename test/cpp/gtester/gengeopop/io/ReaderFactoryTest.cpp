@@ -70,4 +70,18 @@ TEST(ReaderFactoryTest, TestHouseHolds)
             readerFactory.CreateHouseholdReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/empty.txt"),
             std::runtime_error);
 }
+
+TEST(ReaderFactoryTest, TestSubMuns)
+{
+        ReaderFactory readerFactory;
+
+        const std::shared_ptr<SubMunicipalitiesReader>& res1 =
+            readerFactory.CreateSubMunicipalitiesReader(std::string("flanders_cities.csv"));
+
+        EXPECT_NE(std::dynamic_pointer_cast<SubMunicipalitiesReader>(res1), nullptr);
+
+        EXPECT_THROW(readerFactory.CreateSubMunicipalitiesReader(stride::util::FileSys::GetTestsDir() /
+                                                                 "/testdata/io/empty.txt"),
+                     std::runtime_error);
+}
 } // namespace
