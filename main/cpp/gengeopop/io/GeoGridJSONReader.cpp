@@ -247,7 +247,7 @@ std::shared_ptr<stride::Person> GeoGridJSONReader::ParsePerson(boost::property_t
         auto secondaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("SecondaryCommunity"));
 
         return std::make_shared<stride::Person>(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
-                                                secondaryCommunityId, 0, 0, 0, 0, 0);
+                                                secondaryCommunityId);
 }
 
 } // namespace gengeopop
