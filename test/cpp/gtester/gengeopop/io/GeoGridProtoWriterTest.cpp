@@ -78,6 +78,13 @@ void compareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Lo
                 EXPECT_EQ(protoCommute.to(), commute_pair.first->getID());
                 EXPECT_EQ(protoCommute.proportion(), commute_pair.second);
         }
+        ASSERT_EQ(protoLocation.submunicipalities_size(), location->getSubMunicipalities().size());
+        int idx = 0;
+        for (auto& submunicipality : location->getSubMunicipalities()) {
+                auto protoSubmunicipality = protoLocation.submunicipalities(idx);
+                compareLocation(submunicipality, protoSubmunicipality);
+                idx++;
+        }
 }
 void comparePerson(const proto::GeoGrid_Person& protoPerson)
 {
@@ -130,6 +137,17 @@ TEST(GeoGridProtoWriterTest, contactCentersTest)
         location->addContactCenter(std::make_shared<HighSchool>(2));
         location->addContactCenter(std::make_shared<Household>(3));
         location->addContactCenter(std::make_shared<Workplace>(4));
+        geoGrid->addLocation(location);
+
+        compareGeoGrid(geoGrid);
+}
+TEST(GeoGridProtoWriterTest, submunicipalityTest)
+{
+        auto geoGrid         = getGeoGrid();
+        auto location        = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
+        auto submunicipality = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");
+        submunicipality->addContactCenter(std::make_shared<School>(0));
+        location->addSubMunicipality(submunicipality);
         geoGrid->addLocation(location);
 
         compareGeoGrid(geoGrid);
