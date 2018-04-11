@@ -1115,6 +1115,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.4-osx-8.3-apple-clang.html",
       "name": "osx-8.3-apple-clang",
       "build_id": "421.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "421.5"
     }
   ],
   "publish_test_results": [

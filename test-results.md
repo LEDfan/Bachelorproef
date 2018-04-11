@@ -5,6 +5,7 @@ Test results
  - [421.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/master/421.2-linux-gcc-7.html)
  - [421.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/master/421.3-linux-clang-5.html)
  - [421.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/421.4-osx-8.3-apple-clang.html)
+ - [421.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/421.5-osx-9.2-apple-clang.html)
  - [407.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/407.1-linux-gcc-6.html)
  - [407.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/master/407.2-linux-gcc-7.html)
  - [407.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/master/407.3-linux-clang-5.html)
