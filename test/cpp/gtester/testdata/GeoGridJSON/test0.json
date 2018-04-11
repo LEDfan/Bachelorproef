@@ -11,7 +11,8 @@
         "longitude": "0",
         "latitude": "0"
       },
-      "contactCenters": ""
+      "contactCenters": "",
+      "submunicipalities": ""
     },
     {
       "id": "2",
@@ -24,7 +25,8 @@
         "longitude": "0",
         "latitude": "0"
       },
-      "contactCenters": ""
+      "contactCenters": "",
+      "submunicipalities": ""
     },
     {
       "id": "3",
@@ -37,7 +39,8 @@
         "longitude": "0",
         "latitude": "0"
       },
-      "contactCenters": ""
+      "contactCenters": "",
+      "submunicipalities": ""
     }
   ],
   "persons": ""

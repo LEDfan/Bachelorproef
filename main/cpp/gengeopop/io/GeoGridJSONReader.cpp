@@ -9,7 +9,6 @@
 #include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
-#include <iostream>
 #include <memory>
 
 namespace gengeopop {
@@ -102,6 +101,12 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
 #pragma omp taskwait
         }
         e->Rethrow();
+
+        auto subMunicipalities = location.get_child("submunicipalities");
+
+        for (auto it = subMunicipalities.begin(); it != subMunicipalities.end(); it++) {
+                result->addSubMunicipality(ParseLocation(it->second.get_child("")));
+        }
 
         if (location.count("commutes")) {
                 boost::property_tree::ptree commutes = location.get_child("commutes");

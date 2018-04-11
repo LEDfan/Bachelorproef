@@ -43,7 +43,8 @@ set(GENGEOPOP_LIB
         io/GeoGridProtoReader.cpp
         io/GeoGridWriterFactory.cpp
         io/GeoGridReaderFactory.cpp
-        )
+        io/SubMunicipalitiesReader.cpp
+        io/SubMunicipalitiesCSVReader.cpp)
 
 #============================================================================
 # Protocol Buffers.

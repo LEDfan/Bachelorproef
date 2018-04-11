@@ -1,8 +1,6 @@
 #include "Community.h"
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
-#include "School.h"
-#include "Workplace.h"
 #include <tclap/CmdLine.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -13,7 +11,6 @@
 #include <gengeopop/io/GeoGridProtoWriter.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
 #include <gengeopop/io/ReaderFactory.h>
-#include <util/StringUtils.h>
 
 #include <boost/lexical_cast.hpp>
 #include <fstream>
@@ -92,6 +89,9 @@ int main(int argc, char* argv[])
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 1000000,
                                                       "POPULATION SIZE", cmd);
 
+                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
+                                                            "submunicipalities.csv", "OUTPUT FILE", cmd);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 ReaderFactory readerFactory;
@@ -123,13 +123,16 @@ int main(int argc, char* argv[])
                 }
 
                 std::ofstream outputFileStream(outputFile.getValue());
+                auto          subMunicipalitiesReader =
+                    readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
 
-                commutesReader->FillGeoGrid(geoGrid);
+                citiesReader->FillGeoGrid(geoGrid);
+                commutesReader->FillGeoGrid(geoGrid); // TODO
+                subMunicipalitiesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input.populationSize                       = populationSize.getValue();
                 geoGridConfig.input.fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
-                geoGridConfig.input.fraction_commutingPeople             = fractionCommutingPeople.getValue();
 
                 geoGridConfig.Calculate(geoGrid, houseHoldsReader);
                 geoGrid->finalize();

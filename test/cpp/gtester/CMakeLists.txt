@@ -20,23 +20,24 @@
 #============================================================================
 set( EXEC       gtester     )
 set( SRC
-        main.cpp
         BatchRuns.cpp
+        CSVTest.cpp
         InfluenceR0Runs.cpp
-        gengeopop/io/CitiesCSVReaderTest.cpp
-        gengeopop/io/HouseholdCSVReaderTest.cpp
-        gengeopop/io/CommutesCSVReaderTest.cpp
-        gengeopop/io/ReaderFactoryTest.cpp
-        gengeopop/generators/SchoolGeneratorTest.cpp
-        gengeopop/generators/HighSchoolGeneratorTest.cpp
-        gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
+        gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp
-        gengeopop/io/GeoGridJSONWriterTest.cpp
+        gengeopop/generators/SchoolGeneratorTest.cpp
+        gengeopop/generators/WorkplaceGeneratorTest.cpp
+        gengeopop/io/CitiesCSVReaderTest.cpp
+        gengeopop/io/CommutesCSVReaderTest.cpp
         gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/io/GeoGridProtoWriterTest.cpp
+        gengeopop/io/GeoGridJSONWriterTest.cpp
+        gengeopop/io/HouseholdCSVReaderTest.cpp
+        gengeopop/io/ReaderFactoryTest.cpp
+        gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
         gengeopop/kdtree.cpp
-        CSVTest.cpp
+        main.cpp
 )
 
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
