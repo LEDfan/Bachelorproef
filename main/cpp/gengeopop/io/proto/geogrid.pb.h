@@ -96,8 +96,9 @@ namespace proto {
 
 // ===================================================================
 
-class GeoGrid_Location_Coordinate : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.Coordinate)
-                                                                        */
+class GeoGrid_Location_Coordinate
+    : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.Coordinate)
+                                          */
 {
 public:
         GeoGrid_Location_Coordinate();
@@ -240,8 +241,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_ContactCenter_ContactPool : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter.ContactPool)
-                                                                                       */
+class GeoGrid_Location_ContactCenter_ContactPool
+    : public ::google::protobuf::
+          Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter.ContactPool)
+                   */
 {
 public:
         GeoGrid_Location_ContactCenter_ContactPool();
@@ -368,8 +371,10 @@ private:
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_ContactCenter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter)
-                                                                           */
+class GeoGrid_Location_ContactCenter
+    : public ::google::protobuf::
+          Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter)
+                   */
 {
 public:
         GeoGrid_Location_ContactCenter();

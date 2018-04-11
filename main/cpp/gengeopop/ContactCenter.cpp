@@ -4,7 +4,7 @@ namespace gengeopop {
 
 ContactCenter::ContactCenter(unsigned int id) : m_pools(), m_id(id) {}
 
-void ContactCenter::addPool(std::shared_ptr<gengeopop::ContactPool> pool) { m_pools.push_back(pool); }
+void ContactCenter::addPool(std::shared_ptr<gengeopop::ContactPool> pool) { m_pools.emplace_back(std::move(pool)); }
 
 ContactCenter::iterator ContactCenter::begin() { return m_pools.begin(); }
 

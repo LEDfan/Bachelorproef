@@ -17,7 +17,7 @@ void GeoGrid::addLocation(std::shared_ptr<Location> location)
                 throw std::runtime_error("Calling addLocation while GeoGrid is finalized is not supported!");
         }
 
-        m_locations.push_back(location);
+        m_locations.emplace_back(location);
         m_points.emplace_back(KdTree2DPoint(location));
         m_locationsToIdIndex[location->getID()] = location;
 }

@@ -71,11 +71,11 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
 
 std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
 {
-        auto        id         = protoLocation.id();
-        std::string name       = protoLocation.name();
-        auto        province   = protoLocation.province();
-        auto        population = protoLocation.population();
-        Coordinate  coordinate = ParseCoordinate(protoLocation.coordinate());
+        auto               id         = protoLocation.id();
+        const std::string& name       = protoLocation.name();
+        auto               province   = protoLocation.province();
+        auto               population = protoLocation.population();
+        const Coordinate&  coordinate = ParseCoordinate(protoLocation.coordinate());
 
         auto result = std::make_shared<Location>(id, province, population, coordinate, name);
 
@@ -168,15 +168,12 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize)
 {
-        unsigned int id     = protoContactPool.id();
+        unsigned int id     = static_cast<unsigned int>(protoContactPool.id());
         auto         result = std::make_shared<ContactPool>(id, poolSize);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);
-                if (m_people.count(person_id) == 0) {
-                        throw std::invalid_argument("No such person: " + std::to_string(person_id));
-                }
-                result->addMember(m_people[person_id]);
+                result->addMember(m_people.at(person_id));
         }
 
         return result;
