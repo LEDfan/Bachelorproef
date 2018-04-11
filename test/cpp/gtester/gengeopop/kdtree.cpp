@@ -163,20 +163,20 @@ TEST(KdTreeTest, RangeQuery)
 
 TEST(KdTreeTest, Insert)
 {
-        std::vector<Pt2D> points;
-        std::ifstream     in(stride::util::FileSys::GetTestsDir().string() +
-                         "/testdata/KdTree/BuildHasLimitedHeightPoints");
-        int               x, y;
-        while (in >> x >> y) {
-                points.push_back({x, y});
-        }
-
-        auto tree = KdTree<Pt2D>::Build(points);
-        tree.Insert({42, -1});
-        EXPECT_TRUE(tree.Contains({42, -1}));
-        EXPECT_FALSE(tree.Contains({-1, 42}));
-        EXPECT_FALSE(tree.Contains({42, 42}));
-        EXPECT_EQ(points.size() + 1, tree.Size());
+        KdTree<Pt2D> tree;
+        tree.Insert({0, 0});
+        tree.Insert({1, 0});
+        tree.Insert({-1, 0});
+        tree.Insert({1, 1});
+        tree.Insert({-1, -1});
+        EXPECT_TRUE(tree.Contains({0, 0}));
+        EXPECT_TRUE(tree.Contains({1, 0}));
+        EXPECT_TRUE(tree.Contains({-1, 0}));
+        EXPECT_TRUE(tree.Contains({1, 1}));
+        EXPECT_TRUE(tree.Contains({-1, -1}));
+        EXPECT_FALSE(tree.Contains({-785960024, 314069115}));
+        EXPECT_EQ(5, tree.Size());
+        EXPECT_EQ(3, tree.Height());
 }
 
 TEST(KdTreeTest, HigherDimensional)

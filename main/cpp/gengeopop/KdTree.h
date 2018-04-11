@@ -337,7 +337,7 @@ public:
                 if (testval <= refval) {
                         m_left = std::make_unique<Child>(point);
                 } else {
-                        m_left = std::make_unique<Child>(point);
+                        m_right = std::make_unique<Child>(point);
                 }
         }
 
