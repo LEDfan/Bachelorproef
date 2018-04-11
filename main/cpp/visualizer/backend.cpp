@@ -111,7 +111,6 @@ void Backend::OnMarkerClicked(int idOfClicked)
 void Backend::SetObjects(QObject* map)
 {
         m_map = map;
-
         PlaceMarkers();
 }
 
