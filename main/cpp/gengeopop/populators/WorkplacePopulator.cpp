@@ -21,8 +21,18 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 {
         std::cout << std::endl << "Starting to populate Workplaces" << std::endl;
 
-        m_geoGrid       = geoGrid;
-        m_geoGridConfig = geoGridConfig;
+        m_geoGrid                   = geoGrid;
+        m_geoGridConfig             = geoGridConfig;
+        m_fractionCommutingStudents = 0;
+        m_workplacesInCity.clear();
+        m_currentLoc           = nullptr;
+        m_assignedTo0          = 0;
+        m_assignedCommuting    = 0;
+        m_assignedNotCommuting = 0;
+        m_distNonCommuting     = discreteDist();
+        m_nearByWorkplaces.clear();
+        m_disCommuting = discreteDist();
+        m_commutingLocations.clear();
 
         calculateFractionCommutingStudents();
         calculateWorkplacesInCity();
