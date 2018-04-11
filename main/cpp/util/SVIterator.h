@@ -106,7 +106,7 @@ public:
         }
 
         /// Post-increment (returns position prior to increment)
-        self_type operator++(int)
+        const self_type operator++(int)
         {
                 self_type tmp(*this);
                           operator++();
@@ -126,7 +126,7 @@ public:
         }
 
         /// Pre-increment (returns position after decrement)
-        self_type operator--(int)
+        const self_type operator--(int)
         {
                 self_type tmp(*this);
                           operator--();
@@ -174,7 +174,7 @@ public:
         self_type operator+(std::ptrdiff_t n) { return self_type(m_p + n, m_c); }
 
         /// Return iterator pointing to n-th previous element.
-        self_type operator-(std::ptrdiff_t);
+        //  self_type operator-(std::ptrdiff_t);
 
         /// Return distance between iterators.
         long int operator-(const self_type& other) const { return m_p - other.m_p; }

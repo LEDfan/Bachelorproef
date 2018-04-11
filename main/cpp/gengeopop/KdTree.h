@@ -154,7 +154,9 @@ public:
                         kd::BaseNode<P>* current = todo.front();
                         todo.pop();
 
-                        f(current->GetPoint());
+                        if (!f(current->GetPoint())) {
+                                break;
+                        }
 
                         kd::BaseNode<P>* left = current->BorrowLeft();
                         if (left != nullptr)
@@ -183,7 +185,9 @@ public:
                                 continue;
 
                         if (current->GetPoint().InBox(box)) {
-                                f(current->GetPoint());
+                                if (!f(current->GetPoint())) {
+                                        break;
+                                }
                         }
                         kd::BaseNode<P>* a = current->BorrowSplitChild(box.lower);
                         kd::BaseNode<P>* b = current->BorrowSplitChild(box.upper);
@@ -333,7 +337,7 @@ public:
                 if (testval <= refval) {
                         m_left = std::make_unique<Child>(point);
                 } else {
-                        m_left = std::make_unique<Child>(point);
+                        m_right = std::make_unique<Child>(point);
                 }
         }
 

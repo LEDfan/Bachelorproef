@@ -15,7 +15,7 @@ public:
         unsigned int getPoolSize() const override;
         unsigned int getMaxPools() const override;
         void         fill(GeoGridConfig& geoGridConfig) override;
-        virtual ~Community(){};
+        ~Community(){};
 };
 
 } // namespace gengeopop

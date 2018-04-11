@@ -25,15 +25,21 @@ endif()
 #============================================================================
 # Make test directory in install tree:
 #============================================================================
-set( TESTS_DIR ${CMAKE_INSTALL_PREFIX}/${TESTS_INSTALL_LOCATION})
+set(TESTS_DIR ${CMAKE_INSTALL_PREFIX}/${TESTS_INSTALL_LOCATION})
 install(DIRECTORY DESTINATION  ${TESTS_DIR})
 
 #============================================================================
 # Top level custom target for instactive use through make:
 #============================================================================
 add_custom_target(run_ctest
+	COMMAND rm -rf ${TESTS_DIR}/smoke_test
 	COMMAND ctest ${CTEST_VERBOSE_OPTION} -O ${TESTS_DIR}/ctests.txt
-)
+	WORKING_DIR ${TESTS_DIR}
+	)
+add_custom_target(run_ctest_py
+	COMMAND ctest ${CTEST_VERBOSE_OPTION} -R py* -O ${TESTS_DIR}/ctests.txt
+	WORKING_DIR ${TESTS_DIR}
+	)
 
 #============================================================================
 # Config related to using Google test (src in resources/lib/gtest) for cpp
