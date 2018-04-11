@@ -349,31 +349,30 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rgeogrid.proto\022\005proto\"\265\006\n\007GeoGrid\022*\n\tlo"
+      "\n\rgeogrid.proto\022\005proto\"\234\006\n\007GeoGrid\022*\n\tlo"
       "cations\030\001 \003(\0132\027.proto.GeoGrid.Location\022&"
-      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\265"
+      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\234"
       "\004\n\010Location\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n"
       "\010province\030\003 \002(\003\022\022\n\npopulation\030\004 \002(\003\0226\n\nc"
       "oordinate\030\005 \002(\0132\".proto.GeoGrid.Location"
       ".Coordinate\022=\n\016contactCenters\030\006 \003(\0132%.pr"
       "oto.GeoGrid.Location.ContactCenter\0221\n\010co"
       "mmutes\030\007 \003(\0132\037.proto.GeoGrid.Location.Co"
-      "mmute\0222\n\021submunicipalities\030\010 \003(\0132\027.proto"
-      ".GeoGrid.Location\032G\n\nCoordinate\022\t\n\001x\030\001 \002"
-      "(\001\022\t\n\001y\030\002 \002(\001\022\021\n\tlongitude\030\003 \002(\001\022\020\n\010lati"
-      "tude\030\004 \002(\001\032\226\001\n\rContactCenter\022\n\n\002id\030\001 \002(\003"
-      "\022\014\n\004type\030\002 \002(\t\022@\n\005pools\030\003 \003(\01321.proto.Ge"
-      "oGrid.Location.ContactCenter.ContactPool"
-      "\032)\n\013ContactPool\022\n\n\002id\030\001 \002(\003\022\016\n\006people\030\002 "
-      "\003(\003\032)\n\007Commute\022\n\n\002to\030\001 \002(\003\022\022\n\nproportion"
-      "\030\002 \002(\001\032\235\001\n\006Person\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030\002 \002"
-      "(\003\022\016\n\006gender\030\003 \002(\t\022\016\n\006School\030\004 \002(\003\022\021\n\tHo"
-      "usehold\030\005 \002(\003\022\021\n\tWorkplace\030\006 \002(\003\022\030\n\020Prim"
-      "aryCommunity\030\007 \002(\003\022\032\n\022SecondaryCommunity"
-      "\030\010 \002(\003"
+      "mmute\022\031\n\021submunicipalities\030\010 \003(\003\032G\n\nCoor"
+      "dinate\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001\022\021\n\tlongitud"
+      "e\030\003 \002(\001\022\020\n\010latitude\030\004 \002(\001\032\226\001\n\rContactCen"
+      "ter\022\n\n\002id\030\001 \002(\003\022\014\n\004type\030\002 \002(\t\022@\n\005pools\030\003"
+      " \003(\01321.proto.GeoGrid.Location.ContactCen"
+      "ter.ContactPool\032)\n\013ContactPool\022\n\n\002id\030\001 \002"
+      "(\003\022\016\n\006people\030\002 \003(\003\032)\n\007Commute\022\n\n\002to\030\001 \002("
+      "\003\022\022\n\nproportion\030\002 \002(\001\032\235\001\n\006Person\022\n\n\002id\030\001"
+      " \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003 \002(\t\022\016\n\006Sch"
+      "ool\030\004 \002(\003\022\021\n\tHousehold\030\005 \002(\003\022\021\n\tWorkplac"
+      "e\030\006 \002(\003\022\030\n\020PrimaryCommunity\030\007 \002(\003\022\032\n\022Sec"
+      "ondaryCommunity\030\010 \002(\003"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 846);
+      descriptor, 821);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "geogrid.proto", &protobuf_RegisterTypes);
 }
@@ -1958,11 +1957,19 @@ bool GeoGrid_Location::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .proto.GeoGrid.Location submunicipalities = 8;
+      // repeated int64 submunicipalities = 8;
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 1, 64u, input, this->mutable_submunicipalities())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_submunicipalities()));
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_submunicipalities())));
         } else {
           goto handle_unusual;
         }
@@ -2041,11 +2048,10 @@ void GeoGrid_Location::SerializeWithCachedSizes(
       7, this->commutes(static_cast<int>(i)), output);
   }
 
-  // repeated .proto.GeoGrid.Location submunicipalities = 8;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->submunicipalities_size()); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, this->submunicipalities(static_cast<int>(i)), output);
+  // repeated int64 submunicipalities = 8;
+  for (int i = 0, n = this->submunicipalities_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      8, this->submunicipalities(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2112,13 +2118,9 @@ void GeoGrid_Location::SerializeWithCachedSizes(
         7, this->commutes(static_cast<int>(i)), deterministic, target);
   }
 
-  // repeated .proto.GeoGrid.Location submunicipalities = 8;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->submunicipalities_size()); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        8, this->submunicipalities(static_cast<int>(i)), deterministic, target);
-  }
+  // repeated int64 submunicipalities = 8;
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteInt64ToArray(8, this->submunicipalities_, target);
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
@@ -2229,15 +2231,13 @@ size_t GeoGrid_Location::ByteSizeLong() const {
     }
   }
 
-  // repeated .proto.GeoGrid.Location submunicipalities = 8;
+  // repeated int64 submunicipalities = 8;
   {
-    unsigned int count = static_cast<unsigned int>(this->submunicipalities_size());
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->submunicipalities(static_cast<int>(i)));
-    }
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int64Size(this->submunicipalities_);
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->submunicipalities_size());
+    total_size += data_size;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2312,7 +2312,6 @@ bool GeoGrid_Location::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->contactcenters())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->commutes())) return false;
-  if (!::google::protobuf::internal::AllAreInitialized(this->submunicipalities())) return false;
   if (has_coordinate()) {
     if (!this->coordinate_->IsInitialized()) return false;
   }

@@ -745,17 +745,17 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute >&
       commutes() const;
 
-  // repeated .proto.GeoGrid.Location submunicipalities = 8;
+  // repeated int64 submunicipalities = 8;
   int submunicipalities_size() const;
   void clear_submunicipalities();
   static const int kSubmunicipalitiesFieldNumber = 8;
-  const ::proto::GeoGrid_Location& submunicipalities(int index) const;
-  ::proto::GeoGrid_Location* mutable_submunicipalities(int index);
-  ::proto::GeoGrid_Location* add_submunicipalities();
-  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >*
-      mutable_submunicipalities();
-  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >&
+  ::google::protobuf::int64 submunicipalities(int index) const;
+  void set_submunicipalities(int index, ::google::protobuf::int64 value);
+  void add_submunicipalities(::google::protobuf::int64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
       submunicipalities() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_submunicipalities();
 
   // required string name = 2;
   bool has_name() const;
@@ -823,7 +823,7 @@ class GeoGrid_Location : public ::google::protobuf::Message /* @@protoc_insertio
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter > contactcenters_;
   ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute > commutes_;
-  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location > submunicipalities_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > submunicipalities_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::proto::GeoGrid_Location_Coordinate* coordinate_;
   ::google::protobuf::int64 id_;
@@ -1743,34 +1743,34 @@ GeoGrid_Location::commutes() const {
   return commutes_;
 }
 
-// repeated .proto.GeoGrid.Location submunicipalities = 8;
+// repeated int64 submunicipalities = 8;
 inline int GeoGrid_Location::submunicipalities_size() const {
   return submunicipalities_.size();
 }
 inline void GeoGrid_Location::clear_submunicipalities() {
   submunicipalities_.Clear();
 }
-inline const ::proto::GeoGrid_Location& GeoGrid_Location::submunicipalities(int index) const {
+inline ::google::protobuf::int64 GeoGrid_Location::submunicipalities(int index) const {
   // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.submunicipalities)
   return submunicipalities_.Get(index);
 }
-inline ::proto::GeoGrid_Location* GeoGrid_Location::mutable_submunicipalities(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.submunicipalities)
-  return submunicipalities_.Mutable(index);
+inline void GeoGrid_Location::set_submunicipalities(int index, ::google::protobuf::int64 value) {
+  submunicipalities_.Set(index, value);
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.submunicipalities)
 }
-inline ::proto::GeoGrid_Location* GeoGrid_Location::add_submunicipalities() {
+inline void GeoGrid_Location::add_submunicipalities(::google::protobuf::int64 value) {
+  submunicipalities_.Add(value);
   // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.submunicipalities)
-  return submunicipalities_.Add();
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >*
-GeoGrid_Location::mutable_submunicipalities() {
-  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.submunicipalities)
-  return &submunicipalities_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location >&
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
 GeoGrid_Location::submunicipalities() const {
   // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.submunicipalities)
   return submunicipalities_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+GeoGrid_Location::mutable_submunicipalities() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.submunicipalities)
+  return &submunicipalities_;
 }
 
 // -------------------------------------------------------------------

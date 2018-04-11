@@ -79,8 +79,8 @@ void compareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Lo
         ASSERT_EQ(protoLocation.submunicipalities_size(), location->getSubMunicipalities().size());
         int idx = 0;
         for (auto& submunicipality : location->getSubMunicipalities()) {
-                auto protoSubmunicipality = protoLocation.submunicipalities(idx);
-                compareLocation(submunicipality, protoSubmunicipality);
+                auto protoSubmunicipalityId = protoLocation.submunicipalities(idx);
+                EXPECT_EQ(submunicipality->getID(), protoSubmunicipalityId);
                 idx++;
         }
 }

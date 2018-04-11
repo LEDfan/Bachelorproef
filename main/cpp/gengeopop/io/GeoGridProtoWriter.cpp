@@ -48,7 +48,7 @@ void GeoGridProtoWriter::writeLocation(std::shared_ptr<Location> location, proto
                 writeContactCenter(contactCenter, protoLocation->add_contactcenters());
         }
         for (const auto& subMunicipality : location->getSubMunicipalities()) {
-                writeLocation(subMunicipality, protoLocation->add_submunicipalities());
+                protoLocation->add_submunicipalities(subMunicipality->getID());
         }
 }
 

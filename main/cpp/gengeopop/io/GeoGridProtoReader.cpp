@@ -13,7 +13,7 @@
 
 namespace gengeopop {
 
-GeoGridProtoReader::GeoGridProtoReader() : m_people(), m_commutes() {}
+GeoGridProtoReader::GeoGridProtoReader() : m_people(), m_commutes(), m_subMunicipalities() {}
 
 std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
 {
@@ -63,9 +63,12 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
                 a->addOutgoingCommutingLocation(b, amount);
                 b->addIncomingCommutingLocation(a, amount);
         }
-
+        for (const auto& subMunTuple : m_subMunicipalities) {
+                geoGrid->GetById(subMunTuple.first)->addSubMunicipality(geoGrid->GetById(subMunTuple.second));
+        }
         m_people.clear();
         m_commutes.clear();
+        m_subMunicipalities.clear();
         return geoGrid;
 } // namespace gengeopop
 
@@ -104,24 +107,11 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
                 m_commutes.push_back(std::make_tuple(id, commute.to(), commute.proportion()));
         }
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
-                        const proto::GeoGrid_Location& protoSubMunicipality = protoLocation.submunicipalities(idx);
-                        std::shared_ptr<Location>      subMunicipality;
-#pragma omp task firstprivate(protoSubMunicipality, subMunicipality)
-                        e->Run([&protoSubMunicipality, this, &subMunicipality] {
-                                subMunicipality = ParseLocation(protoSubMunicipality);
-                        });
-                        if (!e->HasError())
-#pragma omp critical
-                                result->addSubMunicipality(subMunicipality);
-                }
-#pragma omp taskwait
+        for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
+                m_subMunicipalities.push_back(std::make_pair(result->getID(), protoLocation.submunicipalities(idx)));
         }
         return result;
-}
+} // namespace gengeopop
 
 Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
 {

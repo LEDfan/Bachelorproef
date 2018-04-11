@@ -59,18 +59,16 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
 
         compareGeoGrid(geoGrid);
 }
-
-// TEST(GeoGridProtoReaderTest, submunicipalityTest)
-// {
-//         auto location        = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
-//         auto submunicipality = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");
-//         submunicipality->addContactCenter(std::make_shared<School>(0));
-//         location->addSubMunicipality(submunicipality);
-//         geoGrid->addLocation(location);
-//
-//         compareGeoGrid(geoGrid);
-// }
-
+TEST(GeoGridProtoReaderTest, submunicipalityTest)
+{
+        proto::GeoGrid geoGrid;
+        auto           location        = geoGrid.add_locations();
+        auto           submunicipality = geoGrid.add_locations();
+        fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
+        fillLocation(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent", submunicipality);
+        location->add_submunicipalities(submunicipality->id());
+        compareGeoGrid(geoGrid);
+}
 TEST(GeoGridProtoReaderTest, peopleTest)
 {
         proto::GeoGrid geoGrid;
