@@ -71,10 +71,10 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
 
 std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
 {
-        auto        id         = protoLocation.id();
+        auto               id         = protoLocation.id();
         const std::string& name       = protoLocation.name();
-        auto        province   = protoLocation.province();
-        auto        population = protoLocation.population();
+        auto               province   = protoLocation.province();
+        auto               population = protoLocation.population();
         const Coordinate&  coordinate = ParseCoordinate(protoLocation.coordinate());
 
         auto result = std::make_shared<Location>(id, province, population, coordinate, name);

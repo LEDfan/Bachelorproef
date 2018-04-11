@@ -4,7 +4,6 @@
 
 namespace gengeopop {
 
-
 // Based on https://stackoverflow.com/a/13978507/1393103
 class ThreadException
 {
@@ -25,7 +24,8 @@ public:
         }
 
         template <typename T>
-        struct RunType {
+        struct RunType
+        {
                 using type = boost::optional<T>;
         };
 
@@ -51,7 +51,8 @@ private:
 };
 
 template <>
-struct ThreadException::RunType<void> {
+struct ThreadException::RunType<void>
+{
         using type = void;
 };
 
