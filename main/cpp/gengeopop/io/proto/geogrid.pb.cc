@@ -211,6 +211,7 @@ void InitDefaultsGeoGrid() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[7];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Coordinate, _has_bits_),
@@ -243,8 +244,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_ContactCenter, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_ContactCenter, type_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_ContactCenter, pools_),
-  1,
   0,
+  1,
   ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Commute, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Commute, _internal_metadata_),
@@ -332,7 +333,7 @@ void protobuf_AssignDescriptors() {
   ::google::protobuf::MessageFactory* factory = NULL;
   AssignDescriptors(
       "geogrid.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
+      file_level_metadata, file_level_enum_descriptors, NULL);
 }
 
 void protobuf_AssignDescriptorsOnce() {
@@ -349,10 +350,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rgeogrid.proto\022\005proto\"\234\006\n\007GeoGrid\022*\n\tlo"
+      "\n\rgeogrid.proto\022\005proto\"\307\007\n\007GeoGrid\022*\n\tlo"
       "cations\030\001 \003(\0132\027.proto.GeoGrid.Location\022&"
-      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\234"
-      "\004\n\010Location\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n"
+      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\307"
+      "\005\n\010Location\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n"
       "\010province\030\003 \002(\003\022\022\n\npopulation\030\004 \002(\003\0226\n\nc"
       "oordinate\030\005 \002(\0132\".proto.GeoGrid.Location"
       ".Coordinate\022=\n\016contactCenters\030\006 \003(\0132%.pr"
@@ -360,19 +361,23 @@ void AddDescriptorsImpl() {
       "mmutes\030\007 \003(\0132\037.proto.GeoGrid.Location.Co"
       "mmute\022\031\n\021submunicipalities\030\010 \003(\003\032G\n\nCoor"
       "dinate\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001\022\021\n\tlongitud"
-      "e\030\003 \002(\001\022\020\n\010latitude\030\004 \002(\001\032\226\001\n\rContactCen"
-      "ter\022\n\n\002id\030\001 \002(\003\022\014\n\004type\030\002 \002(\t\022@\n\005pools\030\003"
-      " \003(\01321.proto.GeoGrid.Location.ContactCen"
-      "ter.ContactPool\032)\n\013ContactPool\022\n\n\002id\030\001 \002"
-      "(\003\022\016\n\006people\030\002 \003(\003\032)\n\007Commute\022\n\n\002to\030\001 \002("
-      "\003\022\022\n\nproportion\030\002 \002(\001\032\235\001\n\006Person\022\n\n\002id\030\001"
-      " \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003 \002(\t\022\016\n\006Sch"
-      "ool\030\004 \002(\003\022\021\n\tHousehold\030\005 \002(\003\022\021\n\tWorkplac"
-      "e\030\006 \002(\003\022\030\n\020PrimaryCommunity\030\007 \002(\003\022\032\n\022Sec"
-      "ondaryCommunity\030\010 \002(\003"
+      "e\030\003 \002(\001\022\020\n\010latitude\030\004 \002(\001\032\301\002\n\rContactCen"
+      "ter\022\n\n\002id\030\001 \002(\003\0228\n\004type\030\002 \002(\0162*.proto.Ge"
+      "oGrid.Location.ContactCenter.Type\022@\n\005poo"
+      "ls\030\003 \003(\01321.proto.GeoGrid.Location.Contac"
+      "tCenter.ContactPool\032)\n\013ContactPool\022\n\n\002id"
+      "\030\001 \002(\003\022\016\n\006people\030\002 \003(\003\"}\n\004Type\022\n\n\006School"
+      "\020\000\022\r\n\tCommunity\020\001\022\024\n\020PrimaryCommunity\020\002\022"
+      "\026\n\022SecondaryCommunity\020\003\022\016\n\nHighSchool\020\004\022"
+      "\r\n\tHousehold\020\005\022\r\n\tWorkplace\020\006\032)\n\007Commute"
+      "\022\n\n\002to\030\001 \002(\003\022\022\n\nproportion\030\002 \002(\001\032\235\001\n\006Per"
+      "son\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003"
+      " \002(\t\022\016\n\006School\030\004 \002(\003\022\021\n\tHousehold\030\005 \002(\003\022"
+      "\021\n\tWorkplace\030\006 \002(\003\022\030\n\020PrimaryCommunity\030\007"
+      " \002(\003\022\032\n\022SecondaryCommunity\030\010 \002(\003"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 821);
+      descriptor, 992);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "geogrid.proto", &protobuf_RegisterTypes);
 }
@@ -389,6 +394,37 @@ struct StaticDescriptorInitializer {
 } static_descriptor_initializer;
 }  // namespace protobuf_geogrid_2eproto
 namespace proto {
+const ::google::protobuf::EnumDescriptor* GeoGrid_Location_ContactCenter_Type_descriptor() {
+  protobuf_geogrid_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_geogrid_2eproto::file_level_enum_descriptors[0];
+}
+bool GeoGrid_Location_ContactCenter_Type_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::School;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Community;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::PrimaryCommunity;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::SecondaryCommunity;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::HighSchool;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Household;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Workplace;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Type_MIN;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Type_MAX;
+const int GeoGrid_Location_ContactCenter::Type_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
 
@@ -1080,18 +1116,17 @@ GeoGrid_Location_ContactCenter::GeoGrid_Location_ContactCenter(const GeoGrid_Loc
       _cached_size_(0),
       pools_(from.pools_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_type()) {
-    type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
-  }
-  id_ = from.id_;
+  ::memcpy(&id_, &from.id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(type_));
   // @@protoc_insertion_point(copy_constructor:proto.GeoGrid.Location.ContactCenter)
 }
 
 void GeoGrid_Location_ContactCenter::SharedCtor() {
   _cached_size_ = 0;
-  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  id_ = GOOGLE_LONGLONG(0);
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&type_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(type_));
 }
 
 GeoGrid_Location_ContactCenter::~GeoGrid_Location_ContactCenter() {
@@ -1100,7 +1135,6 @@ GeoGrid_Location_ContactCenter::~GeoGrid_Location_ContactCenter() {
 }
 
 void GeoGrid_Location_ContactCenter::SharedDtor() {
-  type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void GeoGrid_Location_ContactCenter::SetCachedSize(int size) const {
@@ -1134,11 +1168,11 @@ void GeoGrid_Location_ContactCenter::Clear() {
 
   pools_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(!type_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*type_.UnsafeRawStringPointer())->clear();
+  if (cached_has_bits & 3u) {
+    ::memset(&id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&type_) -
+        reinterpret_cast<char*>(&id_)) + sizeof(type_));
   }
-  id_ = GOOGLE_LONGLONG(0);
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -1167,16 +1201,20 @@ bool GeoGrid_Location_ContactCenter::MergePartialFromCodedStream(
         break;
       }
 
-      // required string type = 2;
+      // required .proto.GeoGrid.Location.ContactCenter.Type type = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_type()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->type().data(), static_cast<int>(this->type().length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "proto.GeoGrid.Location.ContactCenter.type");
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::proto::GeoGrid_Location_ContactCenter_Type_IsValid(value)) {
+            set_type(static_cast< ::proto::GeoGrid_Location_ContactCenter_Type >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                2, static_cast< ::google::protobuf::uint64>(value));
+          }
         } else {
           goto handle_unusual;
         }
@@ -1222,17 +1260,13 @@ void GeoGrid_Location_ContactCenter::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required int64 id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
   }
 
-  // required string type = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->type().data(), static_cast<int>(this->type().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "proto.GeoGrid.Location.ContactCenter.type");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+  // required .proto.GeoGrid.Location.ContactCenter.Type type = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->type(), output);
   }
 
@@ -1259,19 +1293,14 @@ void GeoGrid_Location_ContactCenter::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required int64 id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
   }
 
-  // required string type = 2;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->type().data(), static_cast<int>(this->type().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "proto.GeoGrid.Location.ContactCenter.type");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->type(), target);
+  // required .proto.GeoGrid.Location.ContactCenter.Type type = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->type(), target);
   }
 
   // repeated .proto.GeoGrid.Location.ContactCenter.ContactPool pools = 3;
@@ -1294,18 +1323,17 @@ size_t GeoGrid_Location_ContactCenter::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:proto.GeoGrid.Location.ContactCenter)
   size_t total_size = 0;
 
-  if (has_type()) {
-    // required string type = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->type());
-  }
-
   if (has_id()) {
     // required int64 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->id());
+  }
+
+  if (has_type()) {
+    // required .proto.GeoGrid.Location.ContactCenter.Type type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
   }
 
   return total_size;
@@ -1320,15 +1348,14 @@ size_t GeoGrid_Location_ContactCenter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required string type = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->type());
-
     // required int64 id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->id());
+
+    // required .proto.GeoGrid.Location.ContactCenter.Type type = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -1377,11 +1404,10 @@ void GeoGrid_Location_ContactCenter::MergeFrom(const GeoGrid_Location_ContactCen
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 3u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_type();
-      type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
+      id_ = from.id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      id_ = from.id_;
+      type_ = from.type_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1414,8 +1440,8 @@ void GeoGrid_Location_ContactCenter::Swap(GeoGrid_Location_ContactCenter* other)
 void GeoGrid_Location_ContactCenter::InternalSwap(GeoGrid_Location_ContactCenter* other) {
   using std::swap;
   pools_.InternalSwap(&other->pools_);
-  type_.Swap(&other->type_);
   swap(id_, other->id_);
+  swap(type_, other->type_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);

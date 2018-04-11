@@ -16,7 +16,16 @@ message GeoGrid {
         required Coordinate coordinate = 5;
         message ContactCenter {
             required int64 id = 1;
-            required string type = 2;
+            enum Type {
+                School = 0;
+                Community = 1;
+                PrimaryCommunity = 2;
+                SecondaryCommunity = 3;
+                HighSchool = 4;
+                Household = 5;
+                Workplace = 6;
+            }
+            required Type type = 2;
             message ContactPool {
                 required int64 id = 1;
                 repeated int64 people = 2;

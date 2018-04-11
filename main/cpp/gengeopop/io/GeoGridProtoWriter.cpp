@@ -64,8 +64,17 @@ void GeoGridProtoWriter::writeCoordinate(const Coordinate&                   coo
 void GeoGridProtoWriter::writeContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
+        std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
+            {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
+            {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
+            {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
+            {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+
         protoContactCenter->set_id(contactCenter->getId());
-        protoContactCenter->set_type(contactCenter->getType());
+        protoContactCenter->set_type(types[contactCenter->getType()]);
         for (const auto& pool : *contactCenter) {
                 writeContactPool(pool, protoContactCenter->add_pools());
         }

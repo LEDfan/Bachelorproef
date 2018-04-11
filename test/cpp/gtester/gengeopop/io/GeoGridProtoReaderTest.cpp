@@ -34,7 +34,16 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
 void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        protoContactCenter->set_type(contactCenter->getType());
+        std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
+            {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
+            {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
+            {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
+            {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+
+        protoContactCenter->set_type(types[contactCenter->getType()]);
         protoContactCenter->set_id(contactCenter->getId());
 }
 

@@ -23,8 +23,17 @@ void compareContactPool(std::shared_ptr<ContactPool>                            
 void compareContactCenter(std::shared_ptr<ContactCenter>               contactCenter,
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
+        std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
+            {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
+            {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
+            {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
+            {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+
         EXPECT_EQ(contactCenter->getId(), protoContactCenter.id());
-        EXPECT_EQ(contactCenter->getType(), protoContactCenter.type());
+        EXPECT_EQ(types[contactCenter->getType()], protoContactCenter.type());
         ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->GetPools().size());
         std::map<int, std::shared_ptr<ContactPool>>                      idToPool;
         std::map<int, proto::GeoGrid_Location_ContactCenter_ContactPool> idToProtoPool;

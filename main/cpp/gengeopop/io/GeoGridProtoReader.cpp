@@ -125,26 +125,22 @@ Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coo
 std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
-        std::string                    type = protoContactCenter.type();
-        std::shared_ptr<ContactCenter> result;
-        auto                           id = protoContactCenter.id();
-
-        if (type == "School") {
-                result = std::make_shared<School>(id);
-        } else if (type == "Community") {
-                result = std::make_shared<Community>(id);
-        } else if (type == "HighSchool") {
-                result = std::make_shared<HighSchool>(id);
-        } else if (type == "Household") {
-                result = std::make_shared<Household>(id);
-        } else if (type == "Primary Community") {
+        proto::GeoGrid_Location_ContactCenter_Type type = protoContactCenter.type();
+        std::shared_ptr<ContactCenter>             result;
+        auto                                       id = protoContactCenter.id();
+        switch (type) {
+        case proto::GeoGrid_Location_ContactCenter_Type_School: result = std::make_shared<School>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Community: result = std::make_shared<Community>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 result = std::make_shared<PrimaryCommunity>(id);
-        } else if (type == "Secondary Community") {
+                break;
+        case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
                 result = std::make_shared<SecondaryCommunity>(id);
-        } else if (type == "Workplace") {
-                result = std::make_shared<Workplace>(id);
-        } else {
-                throw std::invalid_argument("No such ContactCenter type: " + type);
+                break;
+        case proto::GeoGrid_Location_ContactCenter_Type_HighSchool: result = std::make_shared<HighSchool>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Household: result = std::make_shared<Household>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Workplace: result = std::make_shared<Workplace>(id); break;
+        default: throw std::invalid_argument("No such ContactCenter type");
         }
 
         auto e = std::make_shared<ThreadException>();
@@ -169,7 +165,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         }
         e->Rethrow();
         return result;
-}
+} // namespace gengeopop
 
 std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize)
