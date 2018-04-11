@@ -83,6 +83,9 @@ int main(int argc, char* argv[])
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 1000000,
                                                       "POPULATION SIZE", cmd);
 
+                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
+                                                            "submunicipalities.csv", "OUTPUT FILE", cmd);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 ReaderFactory readerFactory;
