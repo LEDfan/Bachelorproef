@@ -159,7 +159,6 @@ std::shared_ptr<GeoGrid> getGeoGrid()
 
 std::shared_ptr<GeoGrid> getPopulatedGeoGrid()
 {
-
         auto geoGrid  = getGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
 
@@ -206,7 +205,6 @@ std::shared_ptr<GeoGrid> getPopulatedGeoGrid()
 
 std::shared_ptr<GeoGrid> getCommutesGeoGrid()
 {
-
         auto geoGrid   = getGeoGrid();
         auto bavikhove = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
         auto gent      = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");

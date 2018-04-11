@@ -58,10 +58,10 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 #pragma omp taskwait
         }
         e->Rethrow();
-        addCommutes(geoGrid);
         addSubMunicipalities(geoGrid);
-        m_people.clear();
+        addCommutes(geoGrid);
         m_commutes.clear();
+        m_people.clear();
         m_subMunicipalities.clear();
         return geoGrid;
 } // namespace gengeopop
