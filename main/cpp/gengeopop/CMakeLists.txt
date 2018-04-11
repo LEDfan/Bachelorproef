@@ -38,7 +38,9 @@ set(GENGEOPOP_LIB
         io/HouseholdReader.cpp
         io/ReaderFactory.cpp
         io/GeoGridJSONWriter.cpp
-        io/GeoGridJSONReader.cpp)
+        io/GeoGridJSONReader.cpp
+        io/SubMunicipalitiesReader.cpp
+        io/SubMunicipalitiesCSVReader.cpp)
 
 #============================================================================
 # Build the GenGeoPop library.
