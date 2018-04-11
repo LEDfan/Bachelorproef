@@ -77,8 +77,13 @@ int main(int argc, char* argv[])
                                                       "Fraction of 1826 years which are students", false, 0.50,
                                                       "FRACTION STUDENTS (1826)", cmd);
 
-                ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
-                                                         0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
+                ValueArg<double> fractionActiveCommutingPeople("t", "fracActiveCommuting",
+                                                               "Fraction of active people commuting", false, 0.50,
+                                                               "FRACTION OF ACTIVE PEOPLE COMMUTING", cmd);
+
+                ValueArg<double> fractionStudentCommutingPeople("w", "fracStudentCommuting",
+                                                                "Fraction of students commuting", false, 0.50,
+                                                                "FRACTION OF STUDENTS COMMUTING", cmd);
 
                 ValueArg<double> fractionActivePeople("a", "fracActive", "Fraction of people active", false, 1.00,
                                                       "FRACTION OF PEOPLE ACTIVE", cmd);
@@ -130,7 +135,8 @@ int main(int argc, char* argv[])
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input.populationSize                       = populationSize.getValue();
                 geoGridConfig.input.fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
-                geoGridConfig.input.fraction_commutingPeople             = fractionCommutingPeople.getValue();
+                geoGridConfig.input.fraction_active_commutingPeople      = fractionActiveCommutingPeople.getValue();
+                geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommutingPeople.getValue();
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
                 geoGridConfig.Calculate(geoGrid, houseHoldsReader);

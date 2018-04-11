@@ -15,13 +15,13 @@ WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager) : Pa
 
 void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-
         std::cout << std::endl << "Starting to populate Workplaces" << std::endl;
         double fraction =
-            (geoGridConfig.calculated._1826_years_and_student * geoGridConfig.input.fraction_commutingPeople) /
+            (geoGridConfig.calculated._1826_years_and_student * geoGridConfig.input.fraction_student_commutingPeople) /
             (geoGridConfig.calculated._1865_and_years_active *
-             geoGridConfig.input.fraction_commutingPeople); // the fraction_commutingPeople is included here, because it
-                                                            // may be splitted into students and workers later on
+             geoGridConfig.input
+                 .fraction_active_commutingPeople); // the fraction_active_commutingPeople is included here, because it
+                                                    // may be splitted into students and workers later on
 
         std::unordered_map<std::shared_ptr<Location>, std::pair<std::vector<std::shared_ptr<ContactPool>>,
                                                                 std::function<trng::uniform_int_dist::result_type()>>>
@@ -76,12 +76,17 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
                                 if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
-                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 &&
-                                             !MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) ||
-                                            MakeChoice(geoGridConfig.input.fraction_1865_years_active)) {
+
+                                        bool isStudent =
+                                            MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents);
+                                        bool isActiveWorker =
+                                            MakeChoice(geoGridConfig.input.fraction_1865_years_active);
+
+                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 && !isStudent) ||
+                                            isActiveWorker) {
                                                 // this person is (student and active) or active
                                                 if (!commutingLocations.empty() &&
-                                                    MakeChoice(geoGridConfig.input.fraction_commutingPeople)) {
+                                                    MakeChoice(geoGridConfig.input.fraction_active_commutingPeople)) {
                                                         // this person is commuting
 
                                                         // id of the location this person is commuting to

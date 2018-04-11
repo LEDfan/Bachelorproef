@@ -28,9 +28,14 @@ public:
                 double fraction_1826_years_WhichAreStudents;
 
                 /**
-                 * Fraction of calc_1865_and_active or of fraction_1826_years_WhichAreStudents which commute.
+                 * Fraction of calc_1865_and_active which commute.
                  */
-                double fraction_commutingPeople;
+                double fraction_active_commutingPeople;
+
+                /**
+                 * Fraction of fraction_1826_years_WhichAreStudents which commute.
+                 */
+                double fraction_student_commutingPeople;
 
                 /**
                  * Fraction of (calculated._1865_years - calculated._1826_years_and_student)
