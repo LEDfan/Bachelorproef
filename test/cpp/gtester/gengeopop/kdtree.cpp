@@ -163,20 +163,20 @@ TEST(KdTreeTest, RangeQuery)
 
 TEST(KdTreeTest, Insert)
 {
-        std::vector<Pt2D> points;
-        std::ifstream     in(stride::util::FileSys::GetTestsDir().string() +
-                         "/testdata/KdTree/BuildHasLimitedHeightPoints");
-        int               x, y;
-        while (in >> x >> y) {
-                points.push_back({x, y});
-        }
-
-        auto tree = KdTree<Pt2D>::Build(points);
-        tree.Insert({42, -1});
-        EXPECT_TRUE(tree.Contains({42, -1}));
-        EXPECT_FALSE(tree.Contains({-1, 42}));
-        EXPECT_FALSE(tree.Contains({42, 42}));
-        EXPECT_EQ(points.size() + 1, tree.Size());
+        KdTree<Pt2D> tree;
+        tree.Insert({0, 0});
+        tree.Insert({1, 0});
+        tree.Insert({-1, 0});
+        tree.Insert({1, 1});
+        tree.Insert({-1, -1});
+        EXPECT_TRUE(tree.Contains({0, 0}));
+        EXPECT_TRUE(tree.Contains({1, 0}));
+        EXPECT_TRUE(tree.Contains({-1, 0}));
+        EXPECT_TRUE(tree.Contains({1, 1}));
+        EXPECT_TRUE(tree.Contains({-1, -1}));
+        EXPECT_FALSE(tree.Contains({-785960024, 314069115}));
+        EXPECT_EQ(5, tree.Size());
+        EXPECT_EQ(3, tree.Height());
 }
 
 TEST(KdTreeTest, HigherDimensional)
@@ -213,6 +213,28 @@ TEST(KdTreeTest, NonArithmeticDimension)
                 return true;
         });
         EXPECT_EQ(expected, found);
+}
+
+TEST(KdTreeTest, EarlyExit)
+{
+        std::vector<Pt2D> points;
+        for (int i = -50; i <= 50; i++) {
+                for (int j = -50; j <= 50; j++) {
+                        points.push_back({i, j});
+                }
+        }
+
+        auto tree  = KdTree<Pt2D>::Build(points);
+        int  count = 0;
+        auto f     = [&count](const Pt2D&) -> bool {
+                count++;
+                return false;
+        };
+        tree.Apply(f);
+        EXPECT_EQ(1, count);
+        count = 0;
+        tree.Apply(f, AABB<Pt2D>{{-10, -10}, {10, 10}});
+        EXPECT_EQ(1, count);
 }
 
 } // namespace
