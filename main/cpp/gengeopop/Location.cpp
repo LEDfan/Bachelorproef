@@ -76,7 +76,6 @@ int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) cons
 
 bool Location::operator==(const Location& other) const
 {
-
         auto sub1 = getSubMunicipalities();
         auto sub2 = other.getSubMunicipalities();
 
