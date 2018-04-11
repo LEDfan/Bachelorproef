@@ -96,7 +96,11 @@ private:
         std::set<std::shared_ptr<gengeopop::Location>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
 
-        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected);
+        /*
+         * @Param specialmarker Whether or not to display a special marker
+         */
+        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected,
+                         bool specialmarker);
 
         /*
          * Places the markers on the map, according to the current checked boxes.

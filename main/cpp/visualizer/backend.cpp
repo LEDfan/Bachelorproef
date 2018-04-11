@@ -92,8 +92,10 @@ void Backend::PlaceMarkers()
 
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
-                bool selected = m_selection.find(loc) != m_selection.end();
-                PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), loc->getPopulation(), selected);
+                bool   selected   = m_selection.find(loc) != m_selection.end();
+                bool   special    = !loc->getSubMunicipalities().empty();
+                double population = special ? loc->getPopulationOfSubmunicipalities() : loc->getPopulation();
+                PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), population, selected, special);
         }
 }
 
@@ -114,13 +116,15 @@ void Backend::SetObjects(QObject* map)
         PlaceMarkers();
 }
 
-void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected)
+void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected,
+                          bool specialmarker)
 {
         QVariant returnVal;
+        double   size = std::min(50.0, 10 + population * 0.0015);
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
                                   Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
-                                  Q_ARG(QVariant, QString(id.c_str())),
-                                  Q_ARG(QVariant, std::min(50.0, 10 + population * 0.0015)), Q_ARG(QVariant, selected));
+                                  Q_ARG(QVariant, QString(id.c_str())), Q_ARG(QVariant, size),
+                                  Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
         m_markers[id] = qvariant_cast<QObject*>(returnVal);
 }
 
@@ -177,11 +181,21 @@ void Backend::OnExtraMarkerClicked(int idOfClicked)
 
 void Backend::toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc)
 {
+        auto subMun = loc->getSubMunicipalities();
         if (m_selection.find(loc) == m_selection.end()) {
                 m_selection.insert(loc);
+                // Add subminicipalities
+                for (auto mun : subMun) {
+                        m_selection.insert(mun);
+                }
                 m_unselection.erase(loc);
         } else {
                 m_selection.erase(loc);
+                // Add subminicipalities
+                for (auto mun : subMun) {
+                        m_selection.erase(mun);
+                        m_unselection.insert(mun);
+                }
                 m_unselection.insert(loc);
         }
 }
@@ -296,6 +310,7 @@ void Backend::showCommute(const std::shared_ptr<gengeopop::Location>& loc1,
                 m_commutes[key] = commuteLine;
         }
 
-        QMetaObject::invokeMethod(commuteLine, "setText", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(QVariant, QString::fromStdString(loc1->getName())));
+        //        QMetaObject::invokeMethod(commuteLine, "setText", Qt::DirectConnection, Q_RETURN_ARG(QVariant,
+        //        retVal),
+        //                                  Q_ARG(QVariant, QString::fromStdString(loc1->getName())));
 }
