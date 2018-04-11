@@ -151,15 +151,17 @@ TEST(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         disableCout();
         householdPopulator.apply(geoGrid, config);
         enableCout();
-
+        std::map<int, std::vector<std::shared_ptr<ContactPool>>> pools_map;
+        pools_map[household->GetPools()[0]->getUsedCapacity()]  = household->GetPools();
+        pools_map[household2->GetPools()[0]->getUsedCapacity()] = household2->GetPools();
         {
-                const auto& pools = household->GetPools();
+                const auto& pools = pools_map[1];
                 ASSERT_EQ(pools.size(), 1);
                 EXPECT_EQ(pools[0]->getUsedCapacity(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetAge(), 18);
         }
         {
-                const auto& pools = household2->GetPools();
+                const auto& pools = pools_map[2];
                 ASSERT_EQ(pools.size(), 1);
                 EXPECT_EQ(pools[0]->getUsedCapacity(), 2);
                 EXPECT_EQ((*pools[0]->begin())->GetAge(), 12);
