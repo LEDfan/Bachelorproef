@@ -215,4 +215,26 @@ TEST(KdTreeTest, NonArithmeticDimension)
         EXPECT_EQ(expected, found);
 }
 
+TEST(KdTreeTest, EarlyExit)
+{
+        std::vector<Pt2D> points;
+        for (int i = -50; i <= 50; i++) {
+                for (int j = -50; j <= 50; j++) {
+                        points.push_back({i, j});
+                }
+        }
+
+        auto tree  = KdTree<Pt2D>::Build(points);
+        int  count = 0;
+        auto f     = [&count](const Pt2D&) -> bool {
+                count++;
+                return false;
+        };
+        tree.Apply(f);
+        EXPECT_EQ(1, count);
+        count = 0;
+        tree.Apply(f, AABB<Pt2D>{{-10, -10}, {10, 10}});
+        EXPECT_EQ(1, count);
+}
+
 } // namespace
