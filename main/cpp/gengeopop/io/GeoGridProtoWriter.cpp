@@ -84,7 +84,7 @@ void GeoGridProtoWriter::writePerson(std::shared_ptr<stride::Person> person, pro
 {
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(person->GetAge());
-        protoPerson->set_gender(std::to_string(person->GetGender()));
+        protoPerson->set_gender(std::string(1, person->GetGender()));
         protoPerson->set_school(person->GetSchoolId());
         protoPerson->set_household(person->GetHouseholdId());
         protoPerson->set_workplace(person->GetWorkId());

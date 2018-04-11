@@ -31,11 +31,13 @@ set( SRC
         gengeopop/io/CitiesCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
         gengeopop/io/GeoGridJSONReaderTest.cpp
-        gengeopop/io/GeoGridProtoWriterTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
+        gengeopop/io/GeoGridProtoWriterTest.cpp
+        gengeopop/io/GeoGridProtoReaderTest.cpp
         gengeopop/io/HouseholdCSVReaderTest.cpp
         gengeopop/io/ReaderFactoryTest.cpp
         gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
+        gengeopop/io/compareProtoGeoGrid.cpp
         gengeopop/kdtree.cpp
         main.cpp
 )
