@@ -36,7 +36,7 @@ public:
         }
 
 private:
-        static double m_discussion_chance;
+        static double m_discussion_probability;
 };
 
 } // namespace stride

@@ -20,10 +20,30 @@
 
 #include "CSV.h"
 
-#include "util/FileUtils.h"
-#include "util/Misc.h"
-
 #include <boost/filesystem/fstream.hpp>
+
+using namespace boost;
+using namespace std;
+
+namespace {
+
+/// Checks if there is a file with "filename" relative to the exectution path.
+/// @param filename filename to check.
+/// @param root root of the path.
+/// @return the full path to the file if it exists
+/// @throws runtime error if file doesn't exist
+const filesystem::path check(const filesystem::path& filename,
+                             const filesystem::path& root = boost::filesystem::current_path())
+{
+        const filesystem::path file_path = canonical(complete(filename, root));
+        if (!is_regular_file(file_path)) {
+                throw std::runtime_error(std::string(__func__) + ">File " + file_path.string() +
+                                         " not present. Aborting.");
+        }
+        return file_path;
+}
+
+} // namespace
 
 namespace stride {
 namespace util {
@@ -31,11 +51,11 @@ namespace util {
 CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels) : labels(), columnCount(0)
 {
         try {
-                boost::filesystem::path     full_path = util::checkFile(path);
+                boost::filesystem::path     full_path = check(path);
                 boost::filesystem::ifstream file;
                 file.open(full_path.string());
                 if (!file.is_open()) {
-                        throw std::runtime_error("Error opening csv file: " + full_path.string());
+                        throw runtime_error("Error opening csv file: " + full_path.string());
                 }
 
                 readFromStream(file);
@@ -55,55 +75,55 @@ CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { readFromStream(
 
 CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
 
-void CSV::addRow(std::vector<std::string> values)
+void CSV::addRow(vector<string> values)
 {
         CSVRow csvRow(this, values);
         this->push_back(csvRow);
 }
 
-void stride::util::CSV::addRows(std::vector<std::vector<std::string>>& rows)
+void CSV::addRows(vector<vector<string>>& rows)
 {
-        for (const std::vector<std::string>& row : rows) {
+        for (const vector<string>& row : rows) {
                 addRow(row);
         }
 }
 
-size_t CSV::getIndexForLabel(const std::string& label) const
+size_t CSV::getIndexForLabel(const string& label) const
 {
         for (unsigned int index = 0; index < labels.size(); ++index) {
                 if (labels.at(index) == label)
                         return index;
         }
-        throw std::runtime_error("Label: " + label + " not found in CSV");
+        throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void stride::util::CSV::write(const boost::filesystem::path& path) const
+void CSV::write(const boost::filesystem::path& path) const
 {
         boost::filesystem::ofstream file;
         file.open(path.string());
         if (!file.is_open()) {
-                throw std::runtime_error("Error opening csv file: " + path.string());
+                throw runtime_error("Error opening csv file: " + path.string());
         }
 
         for (unsigned int i = 0; i < labels.size(); ++i) {
-                const std::string& label = labels.at(i);
+                const string& label = labels.at(i);
                 file << "\"" << label << "\"";
                 if (i != labels.size() - 1) {
                         file << ",";
                 } else {
-                        file << std::endl;
+                        file << endl;
                 }
         }
 
         for (const CSVRow& row : *this) {
-                file << row << std::endl;
+                file << row << endl;
         }
         file.close();
 }
 
 bool CSV::operator==(const CSV& other) const
 {
-        return labels == other.labels && (const std::vector<CSVRow>&)*this == (const std::vector<CSVRow>&)other;
+        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
 }
 
 void CSV::readFromStream(std::istream& inputStream)

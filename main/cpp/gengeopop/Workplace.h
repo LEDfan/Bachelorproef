@@ -7,9 +7,9 @@ class Workplace : public ContactCenter
 {
 public:
         Workplace(unsigned int id);
-        unsigned int getPoolSize() const;
-        unsigned int getMaxPools() const;
-        std::string  getType() const;
+        unsigned int getPoolSize() const override;
+        unsigned int getMaxPools() const override;
+        std::string  getType() const override;
         void         fill(GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

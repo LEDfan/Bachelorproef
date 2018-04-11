@@ -16,34 +16,51 @@
 
 /**
  * @file
- * Header for the commnad line controller.
+ * Header for the command line controller.
  */
 
 #include "util/Stopwatch.h"
 
+#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <memory>
 #include <spdlog/spdlog.h>
 #include <string>
 #include <tuple>
 #include <utility>
+#include <vector>
 
 namespace stride {
 
 class SimRunner;
 
+/**
+ * The CliController controls execution of a simulation run (@see SimRunner) from the
+ * command line interface (cli).
+ * The CliController setup
+ * \li accepts the commandline arguments
+ * \li checks the OpenMP environment
+ * \li checks the file system environment
+ * \li reads the config file specified on the cli
+ * \li effects cli overides of config parameters
+ * \li patches the config file for any remaining defaults
+ * \li interprets and executes the ouput prefix
+ * \li makes a stride logger
+ * The CliController execution
+ * \li creates a simulation runner (@see SimRunner)
+ * \li registers the appropriate viewers
+ * \li runs the simulation
+ */
 class CliController
 {
 public:
         /// Straight initialization.
-        CliController(bool track_index_case, std::string config_file,
-                      std::vector<std::tuple<std::string, std::string>> p_overrides, bool silent_mode = false,
-                      bool use_install_dirs = true)
-            : m_config_file(std::move(config_file)), m_track_index_case(track_index_case), m_max_num_threads(1U),
-              m_p_overrides(std::move(p_overrides)), m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs),
-              m_run_clock("run_clock", true), m_logger(), m_config_pt(){};
+        CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
+                      bool track_index_case = false, std::string stride_log_level = "info",
+                      bool use_install_dirs = true);
 
         /// Actual run of the simulator.
-        void Go();
+        void Execute();
 
         /// Setup the controller.
         void Setup();
@@ -55,29 +72,37 @@ private:
         /// Check the OpenMP environment.
         void CheckOpenMP();
 
+        // Output_prefix: if it's a string not containing any / it gets interpreted as a
+        // filename prefix; otherwise we 'll create the corresponding directory.
+        void CheckOutputPrefix();
+
+        /// Make the appropriate logger for cli environment and register as stride_logger.
+        void MakeLogger();
+
+        /// Patch run configuration with cli overrides and defaults.
+        void PatchConfig();
+
+        /// Read configuration file.
+        void ReadConfigFile();
+
         /// Register the viewers of the SimRunner.
-        void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
-
-        /// Setup and patch run configuration file.
-        void SetupConfig();
-
-        /// Acquire logger for normal mode.
-        std::shared_ptr<spdlog::logger> SetupLogger();
-
-        /// Acquire null logger for silent mode.
-        std::shared_ptr<spdlog::logger> SetupNullLogger();
+        void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 private:
-        std::string                                       m_config_file;
-        bool                                              m_track_index_case;
-        unsigned int                                      m_max_num_threads;
-        std::vector<std::tuple<std::string, std::string>> m_p_overrides;
-        bool                                              m_silent_mode;
-        bool                                              m_use_install_dirs;
+        std::string                                       m_config_file;      /// Config parameters file name.
+        std::vector<std::tuple<std::string, std::string>> m_p_overrides;      /// Cli overides of config parameters.
+        bool                                              m_track_index_case; /// Full calculation or track index case.
 
-        util::Stopwatch<>               m_run_clock; ///< Stopwatch for timing the computation.
-        std::shared_ptr<spdlog::logger> m_logger;    ///< General logger.
-        boost::property_tree::ptree     m_config_pt; ///< Main configuration for run and sim.
+        std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
+        bool        m_use_install_dirs; /// Working dir or install dir mode.
+
+        unsigned int      m_max_num_threads; /// Max number  of OpenMP threads.
+        std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
+        util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
+
+        boost::filesystem::path         m_config_path;   ///< path to config file.
+        boost::property_tree::ptree     m_config_pt;     ///< Main configuration for run and sim.
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger.
 };
 
 } // namespace stride

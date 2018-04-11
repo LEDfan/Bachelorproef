@@ -18,11 +18,12 @@
 #============================================================================
 # Build & install the (OpenMP enabled if OpenMP available) executable.
 #============================================================================
-set( EXEC       gtester     )
-set( SRC
+set(EXEC gtester)
+set(SRC
         BatchRuns.cpp
         CSVTest.cpp
-        InfluenceR0Runs.cpp
+        ScenarioData.cpp
+        UnitSegmentedVector.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp
@@ -30,7 +31,6 @@ set( SRC
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/io/CitiesCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
-        gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
         gengeopop/io/GeoGridProtoWriterTest.cpp
         gengeopop/io/GeoGridProtoReaderTest.cpp
@@ -39,29 +39,31 @@ set( SRC
         gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
         gengeopop/io/compareProtoGeoGrid.cpp
         gengeopop/kdtree.cpp
-        main.cpp
-)
+        main.cpp)
 
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 
-add_executable(${EXEC}   ${SRC} )
-target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
-install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
+if (OPENMP_FOUND)
+        set(SRC ${SRC} ParallelRuns.cpp)
+endif ()
+
+include_directories(${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+add_executable(${EXEC} ${SRC})
+target_link_libraries(${EXEC} ${LIBS} gtest pthread libstride libgengeopop)
+install(TARGETS ${EXEC} DESTINATION ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
 #============================================================================
 # Define tests.
 #============================================================================
-add_test( NAME  ${EXEC}_all
-        WORKING_DIRECTORY  ${TESTS_DIR}
-        COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
-                 --gtest_output=xml:gtester_all.xml
-)
-
+add_test(NAME ${EXEC}_all
+        WORKING_DIRECTORY ${TESTS_DIR}
+        COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
+        --gtest_output=xml:gtester_all.xml
+        )
 #============================================================================
 # Clean up.
 #============================================================================
-unset( EXEC      )
-unset( SRC       )
+unset(EXEC)
+unset(SRC)
 
 #############################################################################

@@ -122,7 +122,7 @@ TEST(GeoGridJSONWriterTest, peopleTest)
         workplace->addPool(workplacePool);
 
         geoGrid->addLocation(location);
-        auto person = std::make_shared<stride::Person>(1, 18, 4, 2, 6, 3, 7, 0, 0, 0, 0, 0);
+        auto person = std::make_shared<stride::Person>(1, 18, 4, 2, 6, 3, 7);
         communityPool->addMember(person);
         schoolPool->addMember(person);
         secondaryCommunityPool->addMember(person);

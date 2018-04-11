@@ -1,8 +1,8 @@
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -64,7 +64,6 @@ endif
 ifneq ($(CMAKE_INSTALL_PREFIX),)
 	CMAKE_ARGS += -DCMAKE_INSTALL_PREFIX:PATH=$(CMAKE_INSTALL_PREFIX)
 endif
-
 ifneq ($(STRIDE_INCLUDE_DOC),)
 	CMAKE_ARGS += -DSTRIDE_INCLUDE_DOC:BOOL=$(STRIDE_INCLUDE_DOC)
 endif
@@ -91,7 +90,7 @@ endif
 #   Targets
 #============================================================================
 .PHONY: help configure bootstrap all build_all build_main build_test
-.PHONY: install install_all install_main install_test package   
+.PHONY: install install_all install_main install_test package
 .PHONY: test installcheck distclean remove_build
 
 help:
@@ -140,8 +139,12 @@ distclean:
 test installcheck: install
 	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest
 
+test_py: install
+	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest_py
+
 format:
 	resources/bash/clang-format-all .
+	resources/bash/remove_trailing_space
 
 format-check:
 	resources/bash/clang-format-all --check .

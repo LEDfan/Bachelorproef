@@ -22,9 +22,7 @@
 
 #include "util/StringUtils.h"
 
-#include <boost/filesystem.hpp>
 #include <iostream>
-#include <string>
 
 #if defined(WIN32)
 #include <stdlib.h>
@@ -33,7 +31,6 @@
 #include <limits.h>
 #include <unistd.h>
 #elif defined(__APPLE__)
-#include <climits>
 #include <mach-o/dyld.h>
 #endif
 
@@ -47,11 +44,11 @@ boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, con
 {
         boost::filesystem::path p = output_prefix;
         if (FileSys::IsDirectoryString(output_prefix)) {
-                // file <filename> in dircetor <output_prefix>
+                // file <filename> in dircetory <output_prefix>
                 p /= filename;
         } else {
                 // full name is <output_prefix><filename>
-                p += filename;
+                p += "_" + filename;
         }
         return p;
 }

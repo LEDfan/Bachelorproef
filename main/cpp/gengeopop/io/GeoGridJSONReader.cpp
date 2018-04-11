@@ -13,7 +13,7 @@
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader() : m_people(), m_commutes() {}
+GeoGridJSONReader::GeoGridJSONReader() : m_people(), m_commutes(), m_subMunicipalities() {}
 
 std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 {
@@ -67,6 +67,10 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                 b->addIncomingCommutingLocation(a, amount);
         }
 
+        for (const auto& subMunTuple : m_subMunicipalities) {
+                geoGrid->GetById(subMunTuple.first)->addSubMunicipality(geoGrid->GetById(subMunTuple.second));
+        }
+
         m_people.clear();
         m_commutes.clear();
         return geoGrid;
@@ -102,10 +106,9 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
         }
         e->Rethrow();
 
-        auto subMunicipalities = location.get_child("submunicipalities");
-
-        for (auto it = subMunicipalities.begin(); it != subMunicipalities.end(); it++) {
-                result->addSubMunicipality(ParseLocation(it->second.get_child("")));
+        for (const auto& subMun : location.get_child("submunicipalities")) {
+                m_subMunicipalities.emplace_back(id,
+                                                 boost::lexical_cast<unsigned int>(subMun.second.get_child("").data()));
         }
 
         if (location.count("commutes")) {
@@ -114,7 +117,7 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
                         auto to     = boost::lexical_cast<unsigned int>(it->first);
                         auto amount = boost::lexical_cast<double>(it->second.data());
 #pragma omp critical
-                        m_commutes.push_back(std::make_tuple(id, to, amount));
+                        m_commutes.emplace_back(id, to, amount);
                 }
         }
 
@@ -207,7 +210,7 @@ std::shared_ptr<stride::Person> GeoGridJSONReader::ParsePerson(boost::property_t
         auto secondaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("SecondaryCommunity"));
 
         return std::make_shared<stride::Person>(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
-                                                secondaryCommunityId, 0, 0, 0, 0, 0);
+                                                secondaryCommunityId);
 }
 
 } // namespace gengeopop
