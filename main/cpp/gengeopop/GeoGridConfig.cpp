@@ -15,9 +15,8 @@ void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<
         calculated._1826_years_and_student =
             static_cast<unsigned int>(std::floor(input.fraction_1826_years_WhichAreStudents * calculated._1826_years));
 
-        calculated._1865_and_years_active =
-            static_cast<unsigned int>(std::floor(input.fraction_1865_years_active) *
-                                      (calculated._1865_years - calculated._1826_years_and_student));
+        calculated._1865_and_years_active = static_cast<unsigned int>(std::floor(
+            input.fraction_1865_years_active * (calculated._1865_years - calculated._1826_years_and_student)));
 
         calculated.households = static_cast<unsigned int>(
             std::floor(static_cast<double>(input.populationSize) / householdReader->averageHouseholdSize()));
