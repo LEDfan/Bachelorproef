@@ -13,7 +13,7 @@ HighSchoolGenerator::HighSchoolGenerator(stride::util::RNManager& rn_manager) : 
 
 void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        int amountOfPupils  = geoGridConfig.calc_1826_years_and_student;
+        int amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;
         int amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
 
         std::vector<std::shared_ptr<Location>> cities = geoGrid->topK(10);
@@ -40,7 +40,9 @@ void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
         for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = cities[locationId];
-                loc->addContactCenter(std::make_shared<HighSchool>());
+                auto highschool = std::make_shared<HighSchool>(geoGridConfig.generated.contactCenters++);
+                highschool->fill(geoGridConfig);
+                loc->addContactCenter(highschool);
         }
 }
 

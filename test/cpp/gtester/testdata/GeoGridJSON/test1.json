@@ -13,22 +13,27 @@
             },
             "contactCenters": [
                 {
+                    "id": "0",
                     "type": "School",
                     "pools": ""
                 },
                 {
+                    "id": "1",
                     "type": "Community",
                     "pools": ""
                 },
                 {
+                    "id": "2",
                     "type": "HighSchool",
                     "pools": ""
                 },
                 {
+                    "id": "3",
                     "type": "Household",
                     "pools": ""
                 },
                 {
+                    "id": "4",
                     "type": "Workplace",
                     "pools": ""
                 }

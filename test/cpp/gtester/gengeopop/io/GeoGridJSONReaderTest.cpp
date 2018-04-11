@@ -62,6 +62,70 @@ TEST(GeoGridJSONReaderTest, locationsTest)
         EXPECT_EQ(location3->getCoordinate().latitude, 0);
 }
 
+TEST(GeoGridJSONReaderTest, commutesTest)
+{
+        auto geoGrid = getGeoGridForFile("test7.json");
+
+        std::map<unsigned int, std::shared_ptr<Location>> locations;
+
+        locations[geoGrid->get(0)->getID()] = geoGrid->get(0);
+        locations[geoGrid->get(1)->getID()] = geoGrid->get(1);
+        locations[geoGrid->get(2)->getID()] = geoGrid->get(2);
+
+        auto location1 = locations[1];
+        auto location2 = locations[2];
+        auto location3 = locations[3];
+
+        auto sortLoc = [](std::vector<std::pair<std::shared_ptr<Location>, double>> loc) {
+                std::sort(std::begin(loc), std::end(loc),
+                          [](const std::pair<std::shared_ptr<Location>, double>& a,
+                             const std::pair<std::shared_ptr<Location>, double>& b) {
+                                  return a.first->getID() < b.first->getID();
+                          });
+                return loc;
+        };
+
+        {
+                auto commuting_in  = sortLoc(location1->getIncomingCommuningCities());
+                auto commuting_out = sortLoc(location1->getOutgoingCommuningCities());
+                EXPECT_EQ(commuting_in.size(), 1);
+                EXPECT_EQ(commuting_out.size(), 2);
+
+                EXPECT_EQ(commuting_in[0].first->getID(), 2);
+                EXPECT_DOUBLE_EQ(commuting_in[0].second, 0.75);
+
+                EXPECT_EQ(commuting_out[0].first->getID(), 2);
+                EXPECT_DOUBLE_EQ(commuting_out[0].second, 0.50);
+                EXPECT_EQ(commuting_out[1].first->getID(), 3);
+                EXPECT_DOUBLE_EQ(commuting_out[1].second, 0.25);
+        }
+        {
+                auto commuting_in  = sortLoc(location2->getIncomingCommuningCities());
+                auto commuting_out = sortLoc(location2->getOutgoingCommuningCities());
+                EXPECT_EQ(commuting_out.size(), 2);
+                EXPECT_EQ(commuting_in.size(), 1);
+
+                EXPECT_EQ(commuting_in[0].first->getID(), 1);
+                EXPECT_DOUBLE_EQ(commuting_in[0].second, 0.50);
+
+                EXPECT_EQ(commuting_out[0].first->getID(), 1);
+                EXPECT_DOUBLE_EQ(commuting_out[0].second, 0.75);
+                EXPECT_EQ(commuting_out[1].first->getID(), 3);
+                EXPECT_DOUBLE_EQ(commuting_out[1].second, 0.5);
+        }
+        {
+                auto commuting_in  = sortLoc(location3->getIncomingCommuningCities());
+                auto commuting_out = sortLoc(location3->getOutgoingCommuningCities());
+                EXPECT_EQ(commuting_out.size(), 0);
+                EXPECT_EQ(commuting_in.size(), 2);
+
+                EXPECT_EQ(commuting_in[0].first->getID(), 1);
+                EXPECT_DOUBLE_EQ(commuting_in[0].second, 0.25);
+                EXPECT_EQ(commuting_in[1].first->getID(), 2);
+                EXPECT_DOUBLE_EQ(commuting_in[1].second, 0.5);
+        }
+}
+
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
         auto                        geoGrid        = getGeoGridForFile("test1.json");
@@ -85,6 +149,8 @@ void runPeopleTest(std::string filename)
         auto                       location = geoGrid->get(0);
         std::map<int, std::string> types    = {{2, "School"},     {3, "Community"}, {7, "Community"},
                                             {4, "HighSchool"}, {5, "Household"}, {6, "Workplace"}};
+        std::map<int, std::string> ids      = {{0, "School"},     {1, "Community"}, {2, "Community"},
+                                          {3, "HighSchool"}, {4, "Household"}, {5, "Workplace"}};
 
         EXPECT_EQ(location->getID(), 1);
         EXPECT_EQ(location->getName(), "Bavikhove");
@@ -100,6 +166,7 @@ void runPeopleTest(std::string filename)
                 auto pool   = center->GetPools()[0];
                 auto person = *(pool->begin());
                 EXPECT_EQ(types[pool->getID()], center->getType());
+                EXPECT_EQ(ids[center->getId()], center->getType());
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');

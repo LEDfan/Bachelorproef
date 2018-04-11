@@ -2,13 +2,20 @@
 
 #include <iostream>
 #include <map>
+#include <set>
 #include <unordered_map>
 #include <vector>
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 #include "KdTree.h"
 #include "Location.h"
 
 namespace gengeopop {
+
+inline double degreeToRadian(double degree) { return (degree * M_PI) / 180.0; }
+
+inline double radianToDegree(double radian) { return (180 * radian) / M_PI; }
 
 class GeoGrid
 {
@@ -24,6 +31,11 @@ public:
          * Disables the addLocation method and builds the kdtree.
          */
         void finalize();
+
+        /**
+         * Search for locations in \p radius arodun \ start
+         */
+        std::set<std::shared_ptr<Location>> findLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
 
         /**
          * @param k
@@ -42,10 +54,10 @@ public:
          *  |       |     |       |
          *  +-------p2    p2------+
          */
-        std::vector<std::shared_ptr<Location>> inBox(double long1, double lat1, double long2, double lat2) const;
+        std::set<std::shared_ptr<Location>> inBox(double long1, double lat1, double long2, double lat2) const;
 
-        std::vector<std::shared_ptr<Location>> inBox(const std::shared_ptr<Location>& loc1,
-                                                     std::shared_ptr<Location>&       loc2) const
+        std::set<std::shared_ptr<Location>> inBox(const std::shared_ptr<Location>& loc1,
+                                                  std::shared_ptr<Location>&       loc2) const
         {
                 return inBox(loc1->getCoordinate().longitude, loc1->getCoordinate().latitude,
                              loc2->getCoordinate().longitude, loc2->getCoordinate().latitude);
@@ -114,6 +126,8 @@ private:
                                box.lower.m_latitude <= m_latitude && m_latitude <= box.upper.m_latitude;
                 }
 
+                bool InRadius(const KdTree2DPoint& start, double radius) const { return distance(start) <= radius; }
+
                 std::shared_ptr<Location> getLocation() const { return m_location; }
 
                 template <std::size_t D>
@@ -126,8 +140,20 @@ private:
                 std::shared_ptr<Location> m_location;
                 double                    m_longitude;
                 double                    m_latitude;
+
+                double distance(const KdTree2DPoint& other) const
+                {
+                        double lat1 = degreeToRadian(m_latitude);
+                        double lon1 = degreeToRadian(m_longitude);
+                        double lat2 = degreeToRadian(other.m_latitude);
+                        double lon2 = degreeToRadian(other.m_longitude);
+
+                        return 6371.0 * std::acos(std::sin(lat1) * std::sin(lat2) +
+                                                  std::cos(lat1) * std::cos(lat2) * std::cos(lon1 - lon2));
+                }
         };
 
         KdTree<KdTree2DPoint> m_tree;
 };
+
 } // namespace gengeopop

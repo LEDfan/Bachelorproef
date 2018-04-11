@@ -7,7 +7,7 @@ namespace gengeopop {
 class GeoGridGenerator
 {
 public:
-        GeoGridGenerator(GeoGridConfig geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
+        GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
         void addPartialGenerator(std::shared_ptr<PartialGenerator> gen);
 
         /**
@@ -21,6 +21,6 @@ public:
 private:
         std::vector<std::shared_ptr<PartialGenerator>> m_partialGenerators;
         std::shared_ptr<GeoGrid>                       m_geoGrid; // FIXME unique pointer?
-        GeoGridConfig                                  m_geoGridConfig;
+        GeoGridConfig&                                 m_geoGridConfig;
 };
 } // namespace gengeopop

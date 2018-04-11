@@ -4,6 +4,7 @@
 #include <QString>
 #include <gengeopop/GeoGrid.h>
 #include <set>
+#include <unordered_map>
 
 class Backend : public QObject
 {
@@ -20,6 +21,12 @@ public:
          * @param file The path to the JSON file that contains a valid GeoGrid description.
          */
         void LoadGeoGridFromFile(const QString& file, QObject* errorDialog);
+
+        Q_INVOKABLE
+        /**
+         * Load a GeoGrid from JSON file, specified in the command line arguments
+         */
+        void LoadGeoGridFromCommandLine(const QStringList& args);
 
         Q_INVOKABLE
         /**
@@ -44,13 +51,28 @@ public:
         void OnExtraMarkerClicked(int idOfClicked);
 
         Q_INVOKABLE
+
         /**
-         * Removes all locations from selection.
+         * Removes all locations from selection and unselection + re-render the map.
          */
-        void clearSelection();
+        void ClearSelectionAndRender();
+
+        /**
+         * Removes all locations from selection and unselection but don't re-render the map.
+         */
+        void ClearSelection();
 
         Q_INVOKABLE
         void selectArea(double slat, double slong, double elat, double elong);
+
+        Q_INVOKABLE
+        void selectAll();
+
+        Q_INVOKABLE
+        /**
+         * @param value If commutes need to be shown
+         */
+        void setShowCommutes(bool value);
 
         Q_INVOKABLE
         /**
@@ -63,9 +85,15 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                       m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>            m_grid;
+        QObject*                                  m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid>       m_grid;
+        std::unordered_map<std::string, QObject*> m_markers;
+        std::unordered_map<std::string, std::vector<QObject*>>
+                                                       m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
+        bool                                           m_showCommutes = false;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
+        std::set<std::shared_ptr<gengeopop::Location>>
+            m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
 
         void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected);
 
@@ -76,7 +104,13 @@ private:
         void PlaceMarkers();
 
         /**
-         * Sends a signal witht the currently selected locations.
+         * Update colors of Markers based on the value of m_selection and m_unselection.
+         * Won't loop over every marker or location.
+         */
+        void UpdateColorOfMarkers();
+
+        /**
+         * Sends a signal with the currently selected locations.
          */
         void emitLocations();
 
@@ -85,4 +119,19 @@ private:
          * be removed.
          */
         void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        /**
+         * Add a line on the map for the given commute info.
+         * @param fromLatitude
+         * @param fromLongitude
+         * @param toLatitude
+         * @param toLongitude
+         */
+        QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
+
+        void hideCommuteLine(QObject* obj);
+
+        void hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+
+        void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
 };

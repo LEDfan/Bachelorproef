@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Controls 1.3
 import QtLocation 5.3
 import QtQuick.Window 2.0
@@ -11,158 +11,59 @@ import "components"
 import "models"
 
 ApplicationWindow {
-	id: window
-	visible: true
-	width: 640
-	height: 480
-	title: qsTr("Visualizer")
+    id: window
+    visible: true
+    width: 640
+    height: 480
+    title: qsTr("Visualizer")
 
-	RowLayout {
-		spacing: 6
-		anchors.fill: parent
+    HelpDialog{
+        id: helpDialog
+    }
+
+    menuBar: MenuBar {
+        Menu {
+            title: "File"
+            MenuItem {
+                        text: "&Open"
+                        onTriggered: fileSelector.open()
+                        shortcut: "Ctrl+o"
+                    }
+            MenuItem {
+                        text: "&Save"
+                        onTriggered: saveFileSelector.open()
+                        shortcut: "Ctrl+s"
+                      }
+        }
+
+        Menu {
+            title: "View"
+            MenuItem {
+                         text: "Show &Commutes"
+                         onTriggered: backend.setShowCommutes(checked)
+                         checkable: true
+                         checked: false
+                         shortcut: "Alt+c"
+                     }
+        }
+
+        Menu {
+            title: "Help"
+            MenuItem {
+                         text: "Shortcuts"
+                         onTriggered: helpDialog.open()
+                     }
+        }
+    }
+
+    RowLayout {
+        spacing: 6
+        anchors.fill: parent
         anchors.margins: 20
         Layout.fillWidth: true
 
-
-        ColumnLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            width: 640
-            Plugin {
-                id: mapPlugin
-                name: "osm"
-                PluginParameter { name: "osm.mapping.host"; value: "https://tile.openstreetmap.org/" }
-                PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
-                PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
-                PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
-                /*PluginParameter { name: "osm.mapping.copyright"; value: "" }*/
-                /*PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }*/
-            }
-
-            Map {
-                id: map
-                anchors.fill: parent
-                plugin: mapPlugin
-                zoomLevel: 14
-                center: QtPositioning.coordinate(51.2, 4.4)
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-
-                Component.onCompleted: {
-                    backend.SetObjects(map)
-                    for( var i_type in supportedMapTypes  ) {
-                        if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
-                        activeMapType = supportedMapTypes[i_type]
-                        map.addMapItem(selectionRectangle)
-
-                        }
-                    }
-                }
-
-                MapRectangle {
-                    id: 'selectionRectangle'
-                    color: 'blue'
-                    opacity: 0.25
-                    border.width: 2
-                    topLeft {
-                        latitude: -27
-                        longitude: 153
-                    }
-                    bottomRight {
-                        latitude: -28
-                        longitude: 153.5
-                    }
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    property var start
-                    property bool rectSelectStarted: false
-                    onPressed: {
-                        parent.mapClicked(mouse)
-                        if(mouse.modifiers & Qt.ControlModifier){
-                            // Disable panning
-                            map.gesture.enabled = false
-                            // Set accepted so we do no propagate click
-                            mouse.accepted = true
-                            rectSelectStarted = true
-                            // Save the start coordiate
-                            start = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
-                        }
-                    }
-                    onPositionChanged: {
-                        if(rectSelectStarted) {
-                            // Get the end coordinate of the selection
-                            var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
-                            backend.selectArea(start.latitude, start.longitude, end.latitude, end.longitude)
-                            // Fix order
-                            var tstart = start;
-                            var tend = end;
-                            if(end.longitude < start.longitude) {
-                                tstart = end;
-                                tend = start;
-                            }
-                            // Show it on the map
-                            selectionRectangle.opacity = 0.3
-                            selectionRectangle.topLeft.latitude = tstart.latitude
-                            selectionRectangle.topLeft.longitude = tstart.longitude
-                            selectionRectangle.bottomRight.latitude = tend.latitude
-                            selectionRectangle.bottomRight.longitude = tend.longitude
-                        }
-                    }
-                    onReleased: {
-                        if(rectSelectStarted) {
-                            rectSelectStarted = false
-                            // Enable panning again
-                            map.gesture.enabled = true
-                            mouse.accepted = true
-                            // Hide selection rectangle
-                            selectionRectangle.opacity = 0
-                        }
-                    }
-                }
-
-                function addMarker(lat, lon, markerID, size, selected) {
-                    var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
-                    var marker = markerComp.createObject()
-                    marker.sourceItem.width =  size
-                    marker.sourceItem.height =  size
-                    marker.sourceItem.radius =  size
-                    marker.anchorPoint.x = size/2
-                    marker.anchorPoint.y =  size/2
-                    marker.clicked.connect(markerClicked)
-                    marker.setID(markerID)
-                    marker.coordinate.latitude = lat
-                    marker.coordinate.longitude = lon
-                    if(selected){
-                        marker.sourceItem.color = 'blue'
-                    }
-                    map.addMapItem(marker)
-                }
-
-                function markerClicked(id, event) {
-                    if(event.modifiers & Qt.ControlModifier){
-                        backend.OnExtraMarkerClicked(id)
-                    } else {
-                        backend.OnMarkerClicked(id)
-                    }
-                }
-
-                function mapClicked(event) {
-                    if( ! (event.modifiers & Qt.ControlModifier)){
-                        backend.clearSelection()
-                        selectionRectangle.opacity = 0
-                    }
-                }
-
-                function clearMap() {
-                    // Remove the map
-                    map.clearMapItems()
-                    // Re add the selection rectangle
-                    map.addMapItem(selectionRectangle)
-                }
-
-            }
+        GeoGridMap {
+            id: geogridmap
         }
 
         LocationViewer {
@@ -172,83 +73,48 @@ ApplicationWindow {
                 locViewer.contactCenterSelected.connect(ccViewer.showCenter)
             }
 
-			Layout.maximumWidth: 300
+            Layout.maximumWidth: 300
         }
 
         ContactCenterViewer {
-			Layout.maximumWidth: 200
+            Layout.maximumWidth: 200
             id: ccViewer
         }
 
-		ColumnLayout {
-			Layout.rightMargin: 4
+        ColumnLayout {
+            Layout.rightMargin: 4
             Layout.fillWidth: false
-            /*
-			CheckBox {
-				id: checkBox_School
-				text: qsTr("School")
-				checked: true
-			}
-
-			CheckBox {
-				id: checkBox_HighSchool
-				text: qsTr("HighSchool")
-				checked: true
-			}
-
-			CheckBox {
-				id: checkBox_Workplace
-				text: qsTr("Workplace")
-				checked: true
-			}
-
-			CheckBox {
-				id: checkBox_HouseHold
-				text: qsTr("HouseHold")
-				checked: true
-			}
-			CheckBox {
-				id: checkBox_Commutes
-				text: qsTr("Commutes")
-				checked: true
-			}
-			*/
-
-			Button {
-				id: buttonOpen
-				text: qsTr("Open File")
-                onClicked: fileSelector.open()
-				checked: true
-			}
-			Button {
-				id: buttonSave
-				text: qsTr("Save to File")
-                onClicked: saveFileSelector.open()
-				checked: true
-			}
-			MessageDialog {
-			    id: errorDialogBox
-			    objectName: 'errorDialog'
-			}
-		}
+            MessageDialog {
+                id: errorDialogBox
+                objectName: 'errorDialog'
+            }
+        }
     }
 
     Backend {
         id: backend
         Component.onCompleted: {
             backend.LocationsSelected.connect(clickSignal)
+            if (Qt.application.arguments.length > 1) {
+                backend.LoadGeoGridFromCommandLine(Qt.application.arguments);
+            }
         }
 
         function clickSignal (arg) {
             locViewer.showLocations(arg)
         }
+
+    }
+
+    Shortcut {
+            sequence: "Ctrl+A"
+            onActivated: backend.selectAll()
     }
 
     FileDialog {
         id: saveFileSelector
         selectExisting: false
         title: "Select a save location"
-        folder: shortcuts.home
         onAccepted: {
             backend.SaveGeoGridToFile(fileUrl, errorDialogBox)
         }
@@ -257,7 +123,6 @@ ApplicationWindow {
     FileDialog {
         id: fileSelector
         title: "Please choose a file"
-        folder: shortcuts.home
         onAccepted: {
             backend.LoadGeoGridFromFile(fileSelector.fileUrl, errorDialogBox)
         }
