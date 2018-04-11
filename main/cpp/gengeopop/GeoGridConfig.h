@@ -38,7 +38,7 @@ public:
                 double fraction_student_commutingPeople;
 
                 /**
-                 * Fraction of (calculated._1865_years - calculated._1826_years_and_student)
+                 * Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active
                  */
                 double fraction_1865_years_active;
 
@@ -77,11 +77,6 @@ public:
                  * Absolute amount of population which are [18, 65] years old and active.
                  */
                 unsigned int _1865_and_years_active;
-
-                /**
-                 * Fraction of population which are [18, 65] years old and active.
-                 */
-                double fraction_1865_and_years_active;
 
                 /**
                  * The number of households needed with this population size and these types of households.

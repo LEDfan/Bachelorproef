@@ -1,3 +1,4 @@
+#include <gengeopop/GeoGridConfig.h>
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gtest/gtest.h>
 #include <tuple>
@@ -34,10 +35,10 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize                      = 5 * 1000 * 1000;
-        config.calculated._1865_and_years_active         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        config.calculated.fraction_1865_and_years_active = 0.20;
-        config.input.fraction_active_commutingPeople     = 0;
+        config.input.populationSize                  = 5 * 1000 * 1000;
+        config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.fraction_1865_years_active      = 0.20;
+        config.input.fraction_active_commutingPeople = 0;
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
@@ -72,10 +73,10 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize                      = 5 * 1000 * 1000;
-        config.calculated._1865_and_years_active         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        config.calculated.fraction_1865_and_years_active = 0.20;
-        config.input.fraction_active_commutingPeople     = 0.10;
+        config.input.populationSize                  = 5 * 1000 * 1000;
+        config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.fraction_1865_years_active      = 0.20;
+        config.input.fraction_active_commutingPeople = 0.10;
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
@@ -124,10 +125,10 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager);
         GeoGridConfig      config{};
-        config.input.populationSize                      = 5 * 1000 * 1000;
-        config.calculated._1865_and_years_active         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        config.calculated.fraction_1865_and_years_active = 0.20;
-        config.input.fraction_active_commutingPeople     = 0.10;
+        config.input.populationSize                  = 5 * 1000 * 1000;
+        config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.fraction_1865_years_active      = 0.20;
+        config.input.fraction_active_commutingPeople = 0.10;
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
