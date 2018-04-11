@@ -25,3 +25,9 @@ void CompareProtoGeoGrid(proto::GeoGrid& protoGeoGrid);
 void compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid);
 
 void compareGeoGrid(proto::GeoGrid& protoGrid);
+
+std::shared_ptr<GeoGrid> getPopulatedGeoGrid();
+
+std::shared_ptr<GeoGrid> getGeoGrid();
+
+std::shared_ptr<GeoGrid> getCommutesGeoGrid();

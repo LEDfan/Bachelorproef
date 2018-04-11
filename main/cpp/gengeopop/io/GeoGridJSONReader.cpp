@@ -13,7 +13,7 @@
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader() : m_people(), m_commutes(), m_subMunicipalities() {}
+GeoGridJSONReader::GeoGridJSONReader() : GeoGridReader() {}
 
 std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 {
@@ -58,21 +58,11 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 #pragma omp taskwait
         }
         e->Rethrow();
-
-        for (const auto& commute_tuple : m_commutes) {
-                auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
-                auto b      = geoGrid->GetById(std::get<1>(commute_tuple));
-                auto amount = std::get<2>(commute_tuple);
-                a->addOutgoingCommutingLocation(b, amount);
-                b->addIncomingCommutingLocation(a, amount);
-        }
-
-        for (const auto& subMunTuple : m_subMunicipalities) {
-                geoGrid->GetById(subMunTuple.first)->addSubMunicipality(geoGrid->GetById(subMunTuple.second));
-        }
-
+        addCommutes(geoGrid);
+        addSubMunicipalities(geoGrid);
         m_people.clear();
         m_commutes.clear();
+        m_subMunicipalities.clear();
         return geoGrid;
 } // namespace gengeopop
 

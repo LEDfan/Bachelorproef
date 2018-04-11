@@ -43,6 +43,7 @@ set(GENGEOPOP_LIB
         io/GeoGridProtoReader.cpp
         io/GeoGridWriterFactory.cpp
         io/GeoGridReaderFactory.cpp
+        io/GeoGridReader.cpp
         io/SubMunicipalitiesReader.cpp
         io/SubMunicipalitiesCSVReader.cpp)
 

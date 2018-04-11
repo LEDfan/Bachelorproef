@@ -11,7 +11,7 @@
 #include <gtest/gtest.h>
 #include <util/FileSys.h>
 
-#include "compareProtoGeoGrid.h"
+#include "GeoGridIOUtils.h"
 using namespace gengeopop;
 
 namespace {

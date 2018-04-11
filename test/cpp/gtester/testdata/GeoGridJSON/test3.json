@@ -26,7 +26,7 @@
                 },
                 {
                     "id": 1,
-                    "type": "Community",
+                    "type": "Primary Community",
                     "pools": [
                         {
                             "id": 3,
@@ -38,7 +38,7 @@
                 },
                 {
                     "id": 2,
-                    "type": "Community",
+                    "type": "Secondary Community",
                     "pools": [
                         {
                             "id": 7,
