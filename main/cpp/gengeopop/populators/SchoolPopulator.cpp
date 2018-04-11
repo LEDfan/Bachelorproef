@@ -22,7 +22,7 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 // 1. find all schools in an area of 10-k*10 km
-                std::vector<std::shared_ptr<ContactPool>> classes =
+                const std::vector<std::shared_ptr<ContactPool>>& classes =
                     GetContactPoolInIncreasingRadius<School>(geoGrid, loc);
 
                 auto dist = m_rnManager.GetGenerator(
@@ -30,7 +30,7 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 
                 // 2. for every student assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
-                        const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
+                        const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
                                 if (person->GetAge() < 18 && person->GetAge() >= 6) {

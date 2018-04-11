@@ -24,6 +24,8 @@
 #include "output/CasesFile.h"
 #include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
+#include "pop/Population.h"
+#include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
@@ -31,7 +33,6 @@
 #include "util/TimeStamp.h"
 
 #include <boost/property_tree/xml_parser.hpp>
-#include <omp.h>
 #include <spdlog/spdlog.h>
 
 namespace stride {
@@ -61,19 +62,18 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         cout << "Starting up at:      " << TimeStamp().ToString() << endl;
 
         if (use_install_dirs) {
-                FileSys dirs;
-                cout << "Executing:           " << dirs.GetExecPath().string() << endl;
-                cout << "Current directory:   " << dirs.GetCurrentDir().string() << endl;
-                cout << "Install directory:   " << dirs.GetRootDir().string() << endl;
-                cout << "Data    directory:   " << dirs.GetDataDir().string() << endl;
+                cout << "Executing:           " << FileSys::GetExecPath().string() << endl;
+                cout << "Current directory:   " << FileSys::GetCurrentDir().string() << endl;
+                cout << "Install directory:   " << FileSys::GetRootDir().string() << endl;
+                cout << "Data    directory:   " << FileSys::GetDataDir().string() << endl;
 
                 // -----------------------------------------------------------------------------------------
                 // Check execution environment.
                 // -----------------------------------------------------------------------------------------
-                if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
+                if (FileSys::GetCurrentDir().compare(FileSys::GetRootDir()) != 0) {
                         throw runtime_error(string(__func__) + "> Current directory is not install root! Aborting.");
                 }
-                if (dirs.GetDataDir().empty()) {
+                if (FileSys::GetDataDir().empty()) {
                         throw runtime_error(string(__func__) + "> Data directory not present! Aborting.");
                 }
         }
@@ -137,31 +137,12 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         // -----------------------------------------------------------------------------------------
         cout << "Setting for track_index_case:  " << boolalpha << track_index_case << endl;
 
-        // -----------------------------------------------------------------------------------------
-        // Create logger
-        // Transmissions:     [TRANSMISSION] <infecterID> <infectedID> <contactpoolID>
-        // <day>
-        // General contacts:  [CNT] <person1ID> <person1AGE> <person2AGE>  <at_home>
-        // <at_work> <at_school> <at_other>
-        // -----------------------------------------------------------------------------------------
-        spdlog::set_async_mode(1048576);
-        boost::filesystem::path logfile_path = m_output_prefix;
-        if (use_install_dirs) {
-                logfile_path += "_logfile";
-        } else {
-                logfile_path /= "logfile";
-        }
-
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(),
-                                                      numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
-        file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
-
         // ------------------------------------------------------------------------------
         // Create the simulator.
         //------------------------------------------------------------------------------
         m_clock.Start();
         cout << "Building the simulator. " << endl;
-        SimulatorBuilder builder(m_pt_config);
+        SimulatorBuilder builder(m_pt_config, nullptr);
         m_sim = builder.Build();
         cout << "Done building the simulator. " << endl;
 
@@ -172,8 +153,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         if (m_operational) {
                 cout << "Done checking the simulator. " << endl << endl;
         } else {
-                file_logger->info("[ERROR] Invalid configuration");
-                cout << "Invalid configuration => terminate without output" << endl << endl;
+                cerr << "Invalid configuration => terminate without output" << endl << endl;
         }
 }
 
@@ -249,11 +229,11 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
         // Summary
         SummaryFile summary_file(output_prefix);
         summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetTransmissionRate(),
-                           run_time, total_time);
+                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetRate(), run_time,
+                           total_time);
 
         // Persons
-        if (pt_config.get<double>("run.generate_person_file") == 1) {
+        if (pt_config.get<bool>("run.output_persons", false)) {
                 PersonsFile person_file(output_prefix);
                 person_file.Print(m_sim->GetPopulation());
         }
