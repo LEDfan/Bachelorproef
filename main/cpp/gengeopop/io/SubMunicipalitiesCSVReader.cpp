@@ -12,7 +12,6 @@ SubMunicipalitiesCSVReader::SubMunicipalitiesCSVReader(std::unique_ptr<std::istr
 
 void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
-
         // columns: parent_id,id,parent_is_sub,population_rel_to_parent,latitude,longitude,name
         stride::util::CSV reader(*(m_inputStream.get()));
 
