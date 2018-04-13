@@ -123,7 +123,7 @@ after_script:
     if [ -f ./cmake-build-debug/installed/tests/gtester_all.xml ]; then
     wget https://github.com/LEDfan/xunit-viewer/files/1819066/xunit-viewer.tar.gz
     tar -xf xunit-viewer.tar.gz
-    ./xunit-viewer/bin/xunit-viewer --output=test_detail.html --results=./cmake-build-release/installed/tests/gtester_all.xml
+    ./xunit-viewer/bin/xunit-viewer --output=test_detail.html --results=./cmake-build-debug/installed/tests/gtester_all.xml
     git config --global user.email "bot@ledfan.be"
     git config --global user.name "LEDfan-bot"
     cp -r test_detail.html ../
