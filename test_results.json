@@ -83,6 +83,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/fix_travis_reports/450.4-osx-8.3-apple-clang.html",
       "name": "osx-8.3-apple-clang",
       "build_id": "450.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/fix_travis_reports/450.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "450.5"
     }
   ],
   "protobuf": [

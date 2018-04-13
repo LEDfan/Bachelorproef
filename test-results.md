@@ -100,6 +100,7 @@ Test results
  - [450.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/fix_travis_reports/450.2-linux-gcc-7.html)
  - [450.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/fix_travis_reports/450.3-linux-clang-5.html)
  - [450.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_travis_reports/450.4-osx-8.3-apple-clang.html)
+ - [450.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_travis_reports/450.5-osx-9.2-apple-clang.html)
 # protobuf
  - [448.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/protobuf/448.1-linux-gcc-6.html)
  - [448.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/protobuf/448.2-linux-gcc-7.html)
