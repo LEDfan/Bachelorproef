@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 import json
+import os
+import subprocess
+import shutil
 from sys import argv
 
 def add(testResults, branch, build_id, name, href):
@@ -36,6 +39,27 @@ def save(testResults):
     with open('test_results.json', 'w') as file:
         json.dump(testResults, file, indent=2, ensure_ascii=False)
 
+def clean(testResults):
+    to_delete = []
+    for branch in testResults.keys():
+        try:
+            devnull = open(os.devnull, 'w')
+            subprocess.run("git ls-remote --exit-code --heads git@github.com:LEDfan/bachelorproef.git " + str(branch), shell=True, check=True, stdout=devnull, stderr=devnull)
+            print("Keep", branch)
+        except subprocess.CalledProcessError:
+            print("Delete", branch)
+            to_delete.append(branch)
+
+    for branch in to_delete:
+        del testResults[branch]
+        try:
+            shutil.rmtree('./test_results/' + branch)
+        except FileNotFoundError:
+            print("File not found ./test_results/" + branch )
+
+    save(testResults)
+
+
 if __name__ == "__main__":
 
     with open('test_results.json') as file:
@@ -47,3 +71,5 @@ if __name__ == "__main__":
         save(testResults)
     elif argv[1] == "render":
         render(testResults)
+    elif argv[1] == "clean":
+        clean(testResults)
