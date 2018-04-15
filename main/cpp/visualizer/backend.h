@@ -51,7 +51,15 @@ public:
         void OnExtraMarkerClicked(unsigned int idOfClicked);
 
         Q_INVOKABLE
+        /**
+         * Handles the action that is needed when a marker is hovered over.
+         * @param idOfHover id of marker we hover over
+         */
+        void onMarkerHovered(unsigned int idOfHover);
+        Q_INVOKABLE
+        void onMarkerHoveredOff(unsigned int idOfHover);
 
+        Q_INVOKABLE
         /**
          * Removes all locations from selection and unselection + re-render the map.
          */
@@ -140,4 +148,6 @@ private:
                                 const std::shared_ptr<gengeopop::Location>& loc2);
 
         void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
+
+        QObject* getMarkerOfLocation(const std::shared_ptr<gengeopop::Location>& loc, std::string child = "rect");
 };

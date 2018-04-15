@@ -316,3 +316,52 @@ void Backend::showCommute(const std::shared_ptr<gengeopop::Location>& loc1,
                 m_commutes[key] = commuteLine;
         }
 }
+
+void Backend::onMarkerHovered(unsigned int idOfHover)
+{
+        auto loc = m_grid->GetById(idOfHover);
+        // Check if not in selection
+
+        if (m_selection.find(loc) == m_selection.end()) {
+                QObject* rectLoc = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                rectLoc->setProperty("color", "green");
+
+                // Change colors of submunicipalities
+                const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->getSubMunicipalities();
+                for (const auto& mun : sub) {
+                        QObject* marker = m_markers[std::to_string(mun->getID())];
+                        QObject* rect   = marker->findChild<QObject*>("rect");
+                        // Set green
+                        rect->setProperty("color", "green");
+                }
+        }
+}
+
+void Backend::onMarkerHoveredOff(unsigned int idOfHover)
+{
+        auto loc = m_grid->GetById(idOfHover);
+        // Check if not in selection
+
+        if (m_selection.find(loc) == m_selection.end()) {
+                QObject* rectLoc = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                rectLoc->setProperty("color", "red");
+
+                // Change colors of submunicipalities
+                const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->getSubMunicipalities();
+                for (const auto& mun : sub) {
+                        QObject* marker = m_markers[std::to_string(mun->getID())];
+                        QObject* rect   = marker->findChild<QObject*>("rect");
+                        // Save the old color
+                        if (m_selection.find(mun) == m_selection.end()) {
+                                rect->setProperty("color", "red");
+                        } else {
+                                rect->setProperty("color", "blue");
+                        }
+                }
+        }
+}
+
+QObject* Backend::getMarkerOfLocation(const std::shared_ptr<gengeopop::Location>& loc, std::string child)
+{
+        return m_markers[std::to_string(loc->getID())]->findChild<QObject*>(child.c_str());
+}
