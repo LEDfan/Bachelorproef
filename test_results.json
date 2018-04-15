@@ -46,6 +46,11 @@
       "build_id": "452.3",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/casing/452.3-linux-clang-5.html",
       "name": "linux-clang-5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/casing/452.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "452.5"
     }
   ],
   "visualizer-refactor": [
