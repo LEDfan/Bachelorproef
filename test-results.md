@@ -91,3 +91,4 @@ Test results
  - [459.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.1-linux-gcc-6.html)
  - [459.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.2-linux-gcc-7.html)
  - [459.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.3-linux-clang-5.html)
+ - [459.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.4-osx-8.3-apple-clang.html)
