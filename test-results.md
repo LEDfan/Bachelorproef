@@ -89,3 +89,4 @@ Test results
  - [180.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/master/180.6-osx-8.3-llvm-clang.html)
 # visualizer-hover-comments
  - [459.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.1-linux-gcc-6.html)
+ - [459.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.2-linux-gcc-7.html)
