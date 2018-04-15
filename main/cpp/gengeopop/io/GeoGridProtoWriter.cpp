@@ -21,7 +21,7 @@ void GeoGridProtoWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
 
         m_persons_found.clear();
         if (!protoGrid.SerializeToOstream(&stream)) {
-                throw std::runtime_error("There was an error writing the GeoGrid to the file.");
+                throw Exception("There was an error writing the GeoGrid to the file.");
         }
         google::protobuf::ShutdownProtobufLibrary();
         stream.flush();
