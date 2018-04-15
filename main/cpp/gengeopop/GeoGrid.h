@@ -88,7 +88,7 @@ private:
         class KdTree2DPoint
         {
         public:
-                KdTree2DPoint(const std::shared_ptr<Location>& location)
+                explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
                     : m_location(location), m_longitude(location->getCoordinate().longitude),
                       m_latitude(location->getCoordinate().latitude)
                 {

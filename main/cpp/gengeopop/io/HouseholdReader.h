@@ -16,10 +16,9 @@ public:
         double       getFractionCompulsoryPupils() const;
         double       getFraction1826Years() const;
         double       getFraction1865Years() const;
-        double       getFractionWorkables() const;
         unsigned int getTotalPersonsInHouseholds() const;
         double       averageHouseholdSize() const;
-        virtual ~HouseholdReader(){};
+        virtual ~HouseholdReader() = default;
 
 protected:
         std::vector<std::shared_ptr<Household>> m_households;

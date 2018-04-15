@@ -122,7 +122,7 @@ cores:
 
 configure: cores
 	$(CMAKE) -E make_directory $(BUILD_DIR)
-	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ..
+	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
 all: configure
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all

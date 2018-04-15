@@ -9,11 +9,11 @@ namespace gengeopop {
 class CommutesReader
 {
 public:
-        CommutesReader(std::unique_ptr<std::istream> inputStream);
+        explicit CommutesReader(std::unique_ptr<std::istream> inputStream);
 
         virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
 
-        virtual ~CommutesReader(){};
+        virtual ~CommutesReader() = default;
 
 protected:
         std::unique_ptr<std::istream> m_inputStream;

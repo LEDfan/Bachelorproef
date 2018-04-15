@@ -5,7 +5,7 @@
 namespace gengeopop {
 
 GeoGridPopulator::GeoGridPopulator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
-    : m_partialPopulators(), m_geoGrid(geoGrid), m_geoGridConfig(geoGridConfig)
+    : m_partialPopulators(), m_geoGrid(std::move(geoGrid)), m_geoGridConfig(geoGridConfig)
 {
 }
 

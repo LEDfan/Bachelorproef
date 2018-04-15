@@ -1,4 +1,5 @@
 #include "CommutesCSVReader.h"
+#include <Exception.h>
 #include <iostream>
 #include <util/CSV.h>
 
@@ -39,7 +40,7 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                 const auto& locTo      = geoGrid->GetById(headerMeaning[rowIndex]);
                                 double      proportion = abs / total;
                                 if (proportion < 0 || proportion > 1) {
-                                        throw std::invalid_argument(
+                                        throw Exception(
                                             "Proportion of commutes from " + std::to_string(locFrom->getID()) + " to " +
                                             std::to_string(locTo->getID()) + " is invalid (0 <= proportion <= 1)");
                                 }

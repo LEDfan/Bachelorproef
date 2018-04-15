@@ -13,7 +13,7 @@ class GeoGridJSONWriter : public GeoGridWriter
 public:
         GeoGridJSONWriter();
 
-        void write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream);
+        void write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) override;
 
 private:
         boost::property_tree::ptree writeLocation(std::shared_ptr<Location> location);

@@ -2,6 +2,7 @@
 #include "ThreadException.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <Exception.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
@@ -20,8 +21,8 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
         boost::property_tree::ptree root;
         try {
                 boost::property_tree::read_json(stream, root);
-        } catch (std::runtime_error) {
-                throw std::runtime_error(
+        } catch (const std::runtime_error& ex) {
+                throw Exception(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -143,7 +144,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
         } else if (type == "Workplace") {
                 result = std::make_shared<Workplace>(id);
         } else {
-                throw std::invalid_argument("No such ContactCenter type: " + type);
+                throw Exception("No such ContactCenter type: " + type);
         }
 
         auto contactPools = contactCenter.get_child("pools");
@@ -173,14 +174,14 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool,
                                                                  unsigned int                 poolSize)
 {
-        unsigned int id     = boost::lexical_cast<unsigned int>(contactPool.get<std::string>("id"));
-        auto         result = std::make_shared<ContactPool>(id, poolSize);
-        auto         people = contactPool.get_child("people");
+        auto id     = boost::lexical_cast<unsigned int>(contactPool.get<std::string>("id"));
+        auto result = std::make_shared<ContactPool>(id, poolSize);
+        auto people = contactPool.get_child("people");
 
         for (auto it = people.begin(); it != people.end(); it++) {
                 auto person_id = boost::lexical_cast<unsigned int>(it->second.get<std::string>(""));
                 if (m_people.count(person_id) == 0) {
-                        throw std::invalid_argument("No such person: " + std::to_string(person_id));
+                        throw Exception("No such person: " + std::to_string(person_id));
                 }
                 result->addMember(m_people[person_id]);
         }

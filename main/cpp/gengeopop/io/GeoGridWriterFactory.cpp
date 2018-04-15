@@ -2,6 +2,7 @@
 #include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
 #include <boost/filesystem.hpp>
+#include <Exception.h>
 #include <iostream>
 namespace gengeopop {
 
@@ -9,7 +10,7 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::createWriter(std::string fi
 {
         boost::filesystem::path path(filename);
         if (!boost::filesystem::exists(path)) {
-                throw std::invalid_argument("File not found: " + path.string());
+                throw Exception("File not found: " + path.string());
         }
 
         if (path.extension().string() == ".json") {
@@ -17,7 +18,7 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::createWriter(std::string fi
         } else if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoWriter>();
         } else {
-                throw std::runtime_error("Unsupported file extension: " + path.extension().string());
+                throw Exception("Unsupported file extension: " + path.extension().string());
         }
 }
 

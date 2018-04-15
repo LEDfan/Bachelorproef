@@ -1,11 +1,11 @@
 #include "GeoGridGenerator.h"
 #include <iostream>
 #include <memory>
-
+#include <utility>
 namespace gengeopop {
 
 GeoGridGenerator::GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
-    : m_partialGenerators(), m_geoGrid(geoGrid), m_geoGridConfig(geoGridConfig)
+    : m_partialGenerators(), m_geoGrid(std::move(geoGrid)), m_geoGridConfig(geoGridConfig)
 {
 }
 
