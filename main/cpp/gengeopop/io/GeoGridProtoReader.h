@@ -11,7 +11,7 @@ class GeoGridProtoReader : public GeoGridReader
 public:
         GeoGridProtoReader();
 
-        std::shared_ptr<GeoGrid> read(std::istream& stream);
+        std::shared_ptr<GeoGrid> read(std::istream& stream) override;
 
 private:
         std::shared_ptr<Location>      ParseLocation(const proto::GeoGrid_Location& protoLocation);

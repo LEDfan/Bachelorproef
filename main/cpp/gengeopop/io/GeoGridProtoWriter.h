@@ -11,7 +11,7 @@ class GeoGridProtoWriter : public GeoGridWriter
 public:
         GeoGridProtoWriter();
 
-        void write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream);
+        void write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) override;
 
 private:
         void writeLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation);

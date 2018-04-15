@@ -1,6 +1,7 @@
 #include "GeoGridProtoReader.h"
 #include "ThreadException.h"
 #include "proto/geogrid.pb.h"
+#include <Exception.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
@@ -10,6 +11,7 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <omp.h>
+#include <stdexcept>
 
 namespace gengeopop {
 
@@ -19,7 +21,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(&stream)) {
-                throw std::runtime_error("Failed to parse Proto file");
+                throw Exception("Failed to parse Proto file");
         }
         auto geoGrid = std::make_shared<GeoGrid>();
 #pragma omp parallel
@@ -95,11 +97,11 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
 #pragma omp critical
-                m_commutes.push_back(std::make_tuple(id, commute.to(), commute.proportion()));
+                m_commutes.emplace_back(std::make_tuple(id, commute.to(), commute.proportion()));
         }
 
         for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
-                m_subMunicipalities.push_back(std::make_pair(result->getID(), protoLocation.submunicipalities(idx)));
+                m_subMunicipalities.emplace_back(std::make_pair(result->getID(), protoLocation.submunicipalities(idx)));
         }
         return result;
 } // namespace gengeopop
@@ -131,7 +133,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         case proto::GeoGrid_Location_ContactCenter_Type_HighSchool: result = std::make_shared<HighSchool>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household: result = std::make_shared<Household>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace: result = std::make_shared<Workplace>(id); break;
-        default: throw std::invalid_argument("No such ContactCenter type");
+        default: throw Exception("No such ContactCenter type");
         }
 
         auto e = std::make_shared<ThreadException>();
@@ -161,12 +163,12 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize)
 {
-        unsigned int id     = static_cast<unsigned int>(protoContactPool.id());
-        auto         result = std::make_shared<ContactPool>(id, poolSize);
+        auto id     = static_cast<unsigned int>(protoContactPool.id());
+        auto result = std::make_shared<ContactPool>(id, poolSize);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);
-                result->addMember(m_people.at(person_id));
+                result->addMember(m_people.at(static_cast<const unsigned int&>(person_id)));
         }
 
         return result;
@@ -174,14 +176,13 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
 
 std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        auto        id                   = protoPerson.id();
-        auto        age                  = protoPerson.age();
-        std::string gender               = protoPerson.gender();
-        auto        schoolId             = protoPerson.school();
-        auto        householdId          = protoPerson.household();
-        auto        workplaceId          = protoPerson.workplace();
-        auto        primaryCommunityId   = protoPerson.primarycommunity();
-        auto        secondaryCommunityId = protoPerson.secondarycommunity();
+        auto id                   = protoPerson.id();
+        auto age                  = protoPerson.age();
+        auto schoolId             = protoPerson.school();
+        auto householdId          = protoPerson.household();
+        auto workplaceId          = protoPerson.workplace();
+        auto primaryCommunityId   = protoPerson.primarycommunity();
+        auto secondaryCommunityId = protoPerson.secondarycommunity();
 
         return std::make_shared<stride::Person>(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
                                                 secondaryCommunityId);
