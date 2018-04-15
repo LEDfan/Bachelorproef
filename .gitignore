@@ -112,6 +112,7 @@ Gemfile*
 vendor/
 .idea
 gengeopop.json
+gengeopop.proto
 html_coverage
 coverage.info
 test_logfile

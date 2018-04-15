@@ -16,9 +16,5 @@ private:
         std::shared_ptr<ContactCenter> ParseContactCenter(boost::property_tree::ptree& contactCenter);
         std::shared_ptr<ContactPool> ParseContactPool(boost::property_tree::ptree& contactPool, unsigned int poolSize);
         std::shared_ptr<stride::Person> ParsePerson(boost::property_tree::ptree& person);
-
-        std::map<unsigned int, std::shared_ptr<stride::Person>>     m_people;
-        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount
-        std::vector<std::pair<unsigned int, unsigned int>>          m_subMunicipalities; //// first has submun second
 };
 } // namespace gengeopop

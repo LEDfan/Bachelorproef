@@ -1,3 +1,5 @@
+#include "GeoGridJSONReader.h"
+#include "ThreadException.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <gengeopop/Community.h>
@@ -8,52 +10,10 @@
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <memory>
-#include <mutex>
-
-#include "GeoGridJSONReader.h"
-
-namespace {
-
-// Based on https://stackoverflow.com/a/13978507/1393103
-class ThreadException
-{
-public:
-        ThreadException() : ptr(nullptr), Lock() {}
-        ~ThreadException() {}
-
-        void Rethrow()
-        {
-                if (this->ptr != nullptr) {
-                        std::rethrow_exception(this->ptr);
-                }
-        }
-        void CaptureException()
-        {
-                std::unique_lock<std::mutex> guard(this->Lock);
-                this->ptr = std::current_exception();
-        }
-
-        template <typename Function, typename... Parameters>
-        void Run(Function f, Parameters... params)
-        {
-                try {
-                        f(params...);
-                } catch (...) {
-                        CaptureException();
-                }
-        }
-
-        bool HasError() const { return ptr != nullptr; }
-
-private:
-        std::exception_ptr ptr;
-        std::mutex         Lock;
-};
-} // namespace
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader() : m_people(), m_commutes(), m_subMunicipalities() {}
+GeoGridJSONReader::GeoGridJSONReader() : GeoGridReader() {}
 
 std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 {
@@ -98,21 +58,11 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
 #pragma omp taskwait
         }
         e->Rethrow();
-
-        for (const auto& commute_tuple : m_commutes) {
-                auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
-                auto b      = geoGrid->GetById(std::get<1>(commute_tuple));
-                auto amount = std::get<2>(commute_tuple);
-                a->addOutgoingCommutingLocation(b, amount);
-                b->addIncomingCommutingLocation(a, amount);
-        }
-
-        for (const auto& subMunTuple : m_subMunicipalities) {
-                geoGrid->GetById(subMunTuple.first)->addSubMunicipality(geoGrid->GetById(subMunTuple.second));
-        }
-
-        m_people.clear();
+        addSubMunicipalities(geoGrid);
+        addCommutes(geoGrid);
         m_commutes.clear();
+        m_people.clear();
+        m_subMunicipalities.clear();
         return geoGrid;
 } // namespace gengeopop
 

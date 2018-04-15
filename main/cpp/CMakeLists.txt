@@ -89,6 +89,8 @@ set(LIB_SRC
         viewers/CliViewer.cpp
         viewers/PersonsViewer.cpp
         viewers/SummaryViewer.cpp
+
+        Exception.cpp
         )
 
 #============================================================================
