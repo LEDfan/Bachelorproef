@@ -99,6 +99,7 @@ Test results
  - [452.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/casing/452.2-linux-gcc-7.html)
  - [452.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/casing/452.3-linux-clang-5.html)
  - [452.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/casing/452.5-osx-9.2-apple-clang.html)
+ - [452.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/casing/452.6-osx-8.3-llvm-clang.html)
 # visualizer-refactor
  - [443.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-refactor/443.1-linux-gcc-6.html)
  - [443.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-refactor/443.2-linux-gcc-7.html)
