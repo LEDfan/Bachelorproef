@@ -2,6 +2,8 @@
 #include "proto/geogrid.pb.h"
 #include <iostream>
 #include <omp.h>
+#include <exception>
+#include <Exception.h>
 
 namespace gengeopop {
 
