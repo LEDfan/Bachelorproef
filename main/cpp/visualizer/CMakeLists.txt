@@ -4,8 +4,9 @@ set(VISUALIZER_SRC
     backends/LocationViewerBackend.cpp
     backends/ContactCenterViewerBackend.cpp
     models/ContactPoolListModel.cpp
+    models/CommutesListModel.cpp
     models/ContactCenterListModel.cpp
-        )
+)
 
 set(TEST_SRC
         tests/tests.cpp

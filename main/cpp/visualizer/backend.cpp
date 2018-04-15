@@ -18,6 +18,7 @@
 #include <gengeopop/io/GeoGridReaderFactory.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
 #include <util/Stopwatch.h>
+#include <gengeopop/io/GeoGridProtoReader.h>
 
 Backend::Backend(QObject* parent)
     : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_commutes(), m_selection(),
@@ -43,15 +44,17 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         QUrl                                      info(file);
         std::string                               filename = info.toLocalFile().toStdString();
         std::ifstream                             inputFile(filename);
-        gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
-        std::shared_ptr<gengeopop::GeoGridReader> reader = geoGridReaderFactory.createReader(filename);
+        gengeopop::GeoGridProtoReader                   reader;
         try {
-                m_grid = reader->read(inputFile);
+                m_grid = reader.read(inputFile);
                 m_grid->finalize();
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
         }
+        m_selection.clear();
+        m_unselection.clear();
+        m_commutes.clear();
         PlaceMarkers();
 }
 
@@ -361,7 +364,3 @@ void Backend::onMarkerHoveredOff(unsigned int idOfHover)
         }
 }
 
-QObject* Backend::getMarkerOfLocation(const std::shared_ptr<gengeopop::Location>& loc, std::string child)
-{
-        return m_markers[std::to_string(loc->getID())]->findChild<QObject*>(child.c_str());
-}

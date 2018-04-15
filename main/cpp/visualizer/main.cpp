@@ -6,6 +6,7 @@
 #include <visualizer/backends/ContactCenterViewerBackend.h>
 #include <visualizer/models/ContactCenterListModel.h>
 #include <visualizer/models/ContactPoolListModel.h>
+#include <models/CommutesListModel.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
 Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
@@ -32,8 +33,10 @@ int main(int argc, char* argv[])
         // Create and expose the models
         ContactCenterListModel ccModel;
         ContactPoolListModel   cpModel;
+        CommutesListModel   commutesModel;
         engine.rootContext()->setContextProperty("ccModel", &ccModel);
         engine.rootContext()->setContextProperty("cpModel", &cpModel);
+        engine.rootContext()->setContextProperty("commutesModel", &commutesModel);
 
         // Load the main QML
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
