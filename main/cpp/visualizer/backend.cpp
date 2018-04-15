@@ -83,7 +83,7 @@ void Backend::PlaceMarkers()
         QMetaObject::invokeMethod(m_map, "clearMap");
 
         // Place the commutes of the selection
-        for (auto loc : m_selection) {
+        for (const auto& loc : m_selection) {
                 for (auto commute : loc->getIncomingCommuningCities()) {
                         auto otherCity = commute.first;
                         addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
@@ -92,14 +92,14 @@ void Backend::PlaceMarkers()
 
         // Place the new markers
         for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
-                bool   selected   = m_selection.find(loc) != m_selection.end();
-                bool   special    = !loc->getSubMunicipalities().empty();
-                double population = special ? loc->getPopulationOfSubmunicipalities() : loc->getPopulation();
+                bool         selected   = m_selection.find(loc) != m_selection.end();
+                bool         special    = !loc->getSubMunicipalities().empty();
+                unsigned int population = special ? loc->getPopulationOfSubmunicipalities() : loc->getPopulation();
                 PlaceMarker(loc->getCoordinate(), std::to_string(loc->getID()), population, selected, special);
         }
 }
 
-void Backend::OnMarkerClicked(int idOfClicked)
+void Backend::OnMarkerClicked(unsigned int idOfClicked)
 {
         auto loc = m_grid->GetById(idOfClicked);
 
@@ -170,9 +170,9 @@ void Backend::ClearSelectionAndRender()
 
 void Backend::emitLocations() { emit LocationsSelected(m_selection); }
 
-void Backend::OnExtraMarkerClicked(int idOfClicked)
+void Backend::OnExtraMarkerClicked(unsigned int idOfClicked)
 {
-        auto loc = m_grid->GetById(idOfClicked);
+        const auto& loc = m_grid->GetById(idOfClicked);
         toggleSelectionOfLocation(loc);
 
         emitLocations();
@@ -181,22 +181,22 @@ void Backend::OnExtraMarkerClicked(int idOfClicked)
 
 void Backend::toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc)
 {
-        auto subMun = loc->getSubMunicipalities();
+        const auto& subMun = loc->getSubMunicipalities();
         if (m_selection.find(loc) == m_selection.end()) {
-                m_selection.insert(loc);
+                m_selection.emplace(std::move(loc));
                 // Add subminicipalities
-                for (auto mun : subMun) {
+                for (const auto& mun : subMun) {
                         m_selection.insert(mun);
                 }
                 m_unselection.erase(loc);
         } else {
                 m_selection.erase(loc);
                 // Add subminicipalities
-                for (auto mun : subMun) {
+                for (const auto& mun : subMun) {
                         m_selection.erase(mun);
-                        m_unselection.insert(mun);
+                        m_unselection.emplace(mun);
                 }
-                m_unselection.insert(loc);
+                m_unselection.emplace(std::move(loc));
         }
 }
 
@@ -225,7 +225,7 @@ void Backend::UpdateColorOfMarkers()
                 marker->setProperty("color", "red");
                 // Hide all connections between unselection and unselection, and selection and unselection
                 if (m_showCommutes) {
-                        for (auto otherLoc : *m_grid) {
+                        for (const auto& otherLoc : *m_grid) {
                                 hideCommuteBetween(loc, otherLoc);
                         }
                 }
@@ -236,10 +236,10 @@ void Backend::UpdateColorOfMarkers()
                 marker->setProperty("color", "blue");
                 // Show the commutes
                 if (m_showCommutes) {
-                        for (auto commute : loc->getOutgoingCommuningCities()) {
+                        for (const auto& commute : loc->getOutgoingCommuningCities()) {
                                 // If the other city is also selected
                                 if (m_selection.find(commute.first) != m_selection.end()) {
-                                        showCommute(loc, commute.first, 1, 1);
+                                        showCommute(loc, commute.first);
                                 }
                         }
                 }
@@ -257,8 +257,8 @@ QObject* Backend::addCommuteLine(Coordinate from, Coordinate to, double /* amoun
 
 void Backend::selectAll()
 {
-        for (auto it = m_grid->begin(); it != m_grid->end(); it++) {
-                m_selection.insert(*it);
+        for (const auto& it : *m_grid) {
+                m_selection.emplace(it);
         }
 
         emitLocations();
@@ -296,7 +296,7 @@ void Backend::hideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc
 }
 
 void Backend::showCommute(const std::shared_ptr<gengeopop::Location>& loc1,
-                          const std::shared_ptr<gengeopop::Location>& loc2, double amount1to2, double amount2to1)
+                          const std::shared_ptr<gengeopop::Location>& loc2)
 {
         QVariant                               retVal;
         QObject*                               commuteLine = nullptr;
@@ -309,8 +309,4 @@ void Backend::showCommute(const std::shared_ptr<gengeopop::Location>& loc1,
                 commuteLine     = addCommuteLine(loc1->getCoordinate(), loc2->getCoordinate(), 100);
                 m_commutes[key] = commuteLine;
         }
-
-        //        QMetaObject::invokeMethod(commuteLine, "setText", Qt::DirectConnection, Q_RETURN_ARG(QVariant,
-        //        retVal),
-        //                                  Q_ARG(QVariant, QString::fromStdString(loc1->getName())));
 }

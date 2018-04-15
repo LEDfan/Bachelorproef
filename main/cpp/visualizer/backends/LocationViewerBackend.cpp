@@ -5,10 +5,10 @@
 
 void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
-        QObject* nameText       = parent()->findChild<QObject*>(QString("textName"));
-        QObject* provinceText   = parent()->findChild<QObject*>(QString("textProvince"));
-        QObject* idText         = parent()->findChild<QObject*>(QString("textID"));
-        QObject* populationText = parent()->findChild<QObject*>(QString("textPopulation"));
+        auto nameText       = parent()->findChild<QObject*>(QString("textName"));
+        auto provinceText   = parent()->findChild<QObject*>(QString("textProvince"));
+        auto idText         = parent()->findChild<QObject*>(QString("textID"));
+        auto populationText = parent()->findChild<QObject*>(QString("textPopulation"));
 
         QString nameString("Name: ");
         QString provinceString("Province: ");
@@ -18,7 +18,7 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
         int maxChars = 30;
 
         bool first = true;
-        for (auto location : locations) {
+        for (const auto& location : locations) {
                 // Handle situation when too much is selected to be shown fully
                 QString provinceName = NISToProvince(location->getProvince());
                 if (nameString.length() + QString::fromStdString(location->getName()).length() > maxChars ||
@@ -45,7 +45,7 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
 
         // Calculate aggregated population
         unsigned int totalPopulation = 0;
-        for (auto location : locations) {
+        for (const auto& location : locations) {
                 totalPopulation += location->getPopulation();
         }
         populationString += QString::number(totalPopulation);

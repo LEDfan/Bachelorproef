@@ -120,10 +120,10 @@ void Location::setParent(const std::shared_ptr<Location>& location)
         m_parent = location;
 }
 
-double Location::getPopulationOfSubmunicipalities() const
+unsigned int Location::getPopulationOfSubmunicipalities() const
 {
-        double total = 0;
-        for (auto subMunicipality : m_subMunicipalities) {
+        unsigned int total = 0;
+        for (const auto& subMunicipality : m_subMunicipalities) {
                 total += subMunicipality->getPopulation();
         }
         return total;

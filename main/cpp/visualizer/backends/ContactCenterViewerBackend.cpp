@@ -5,8 +5,8 @@
 
 void ContactCenterViewerBackend::showContactCenter(std::shared_ptr<gengeopop::ContactCenter> center)
 {
-        QObject* poolSizeText    = parent()->findChild<QObject*>(QString("textCCPoolSize"));
-        QObject* maxPoolSizeText = parent()->findChild<QObject*>(QString("textCCMaxPools"));
+        auto  poolSizeText    = parent()->findChild<QObject*>(QString("textCCPoolSize"));
+        auto* maxPoolSizeText = parent()->findChild<QObject*>(QString("textCCMaxPools"));
 
         QString poolsString    = "Pool Size: " + QString::number(center->getPoolSize());
         QString maxPoolsString = "Max # Pools: " + QString::number(center->getMaxPools());

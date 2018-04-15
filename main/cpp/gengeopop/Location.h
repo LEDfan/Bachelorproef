@@ -50,7 +50,7 @@ public:
 
         double getRelativePopulationSize() const;
 
-        double getPopulationOfSubmunicipalities() const;
+        unsigned int getPopulationOfSubmunicipalities() const;
 
         /**
          *

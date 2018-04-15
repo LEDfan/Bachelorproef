@@ -41,14 +41,14 @@ public:
          * that correspons to the clicked marker.
          * @param idOfClicked The id of the marker that was clicked.
          */
-        void OnMarkerClicked(int idOfClicked);
+        void OnMarkerClicked(unsigned int idOfClicked);
 
         Q_INVOKABLE
         /**
          * Adds the location of the marker to the selection
          * @param idOfClicked
          */
-        void OnExtraMarkerClicked(int idOfClicked);
+        void OnExtraMarkerClicked(unsigned int idOfClicked);
 
         Q_INVOKABLE
 
@@ -139,6 +139,5 @@ private:
         void hideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
                                 const std::shared_ptr<gengeopop::Location>& loc2);
 
-        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&,
-                         double amount1to2, double amount2to1);
+        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
 };
