@@ -41,7 +41,7 @@ ColumnLayout {
         TableViewColumn {
             role: "usedCapacity"
             title: "Used Capacity"
-            width: 100
+            width: 150
         }
     }
 

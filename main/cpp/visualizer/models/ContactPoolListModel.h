@@ -8,10 +8,10 @@ class ContactPoolListModel : public QAbstractListModel
 {
         Q_OBJECT
 public:
-        ContactPoolListModel(QObject* parent = 0);
-        QVariant               data(const QModelIndex& index, int role = Qt::DisplayRole) const;
-        int                    rowCount(const QModelIndex& parent = QModelIndex()) const;
-        int                    columnCount(const QModelIndex& parent = QModelIndex()) const;
+        ContactPoolListModel(QObject* parent = nullptr);
+        QVariant               data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+        int                    rowCount(const QModelIndex& parent = QModelIndex()) const override;
+        int                    columnCount(const QModelIndex& parent = QModelIndex()) const override;
         QHash<int, QByteArray> roleNames() const;
 
         Q_INVOKABLE

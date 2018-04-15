@@ -120,4 +120,13 @@ void Location::setParent(const std::shared_ptr<Location>& location)
         m_parent = location;
 }
 
+unsigned int Location::getPopulationOfSubmunicipalities() const
+{
+        unsigned int total = 0;
+        for (const auto& subMunicipality : m_subMunicipalities) {
+                total += subMunicipality->getPopulation();
+        }
+        return total;
+}
+
 } // namespace gengeopop
