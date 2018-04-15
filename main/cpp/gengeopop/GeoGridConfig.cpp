@@ -4,6 +4,8 @@ namespace gengeopop {
 
 using stride::util::intToDottedString;
 
+GeoGridConfig::GeoGridConfig() : input{}, calculated{} {}
+
 void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader)
 {
         calculated.compulsoryPupils = static_cast<unsigned int>(

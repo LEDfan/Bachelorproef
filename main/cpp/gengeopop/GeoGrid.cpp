@@ -1,4 +1,5 @@
 #include "GeoGrid.h"
+#include <Exception.h>
 #include <cmath>
 #include <iostream>
 #include <queue>
@@ -14,7 +15,7 @@ GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 void GeoGrid::addLocation(std::shared_ptr<Location> location)
 {
         if (m_finalized) {
-                throw std::runtime_error("Calling addLocation while GeoGrid is finalized is not supported!");
+                throw Exception("Calling addLocation while GeoGrid is finalized is not supported!");
         }
 
         m_locations.emplace_back(location);
@@ -83,7 +84,7 @@ void GeoGrid::finalize()
 std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
 {
         if (!m_finalized) {
-                throw std::runtime_error("Calling inBox while GeoGrid is not finalized is not supported!");
+                throw Exception("Calling inBox while GeoGrid is not finalized is not supported!");
         }
 
         std::set<std::shared_ptr<Location>> result;

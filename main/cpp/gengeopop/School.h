@@ -6,7 +6,7 @@ namespace gengeopop {
 class School : public ContactCenter
 {
 public:
-        School(unsigned int id);
+        explicit School(unsigned int id);
         std::string  getType() const override;
         unsigned int getMaxPools() const override;
         unsigned int getPoolSize() const override;

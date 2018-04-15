@@ -12,9 +12,9 @@ namespace gengeopop {
 class PartialPopulator
 {
 public:
-        PartialPopulator(stride::util::RNManager& rn_manager);
+        explicit PartialPopulator(stride::util::RNManager& rn_manager);
         virtual void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
-        virtual ~PartialPopulator(){};
+        virtual ~PartialPopulator()                                                        = default;
 
 protected:
         stride::util::RNManager& m_rnManager;

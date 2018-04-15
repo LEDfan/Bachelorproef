@@ -8,7 +8,7 @@ namespace gengeopop {
 class PrimaryCommunityPopulator : public PartialPopulator
 {
 public:
-        PrimaryCommunityPopulator(stride::util::RNManager& rn_manager);
+        explicit PrimaryCommunityPopulator(stride::util::RNManager& rn_manager);
 
         void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

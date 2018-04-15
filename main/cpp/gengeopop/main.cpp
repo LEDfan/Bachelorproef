@@ -29,7 +29,7 @@ using namespace TCLAP;
 
 void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
-        GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
+        GeoGridGenerator geoGridGenerator(geoGridConfig, std::move(geoGrid));
         geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
@@ -40,7 +40,7 @@ void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stri
 
 void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
-        GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
+        GeoGridPopulator geoGridPopulator(geoGridConfig, std::move(geoGrid));
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<HighSchoolPopulator>(rnManager));
@@ -50,7 +50,7 @@ void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stri
         geoGridPopulator.populateGeoGrid();
 }
 
-void generate(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
+void generate(GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
         stride::util::RNManager::Info info;
         stride::util::RNManager       rnManager(info);

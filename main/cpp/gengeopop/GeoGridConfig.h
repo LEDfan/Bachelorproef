@@ -13,6 +13,8 @@ using stride::util::intToDottedString;
 class GeoGridConfig
 {
 public:
+        GeoGridConfig();
+
         void Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader);
 
         friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);

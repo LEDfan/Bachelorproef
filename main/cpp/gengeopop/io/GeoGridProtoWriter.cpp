@@ -93,7 +93,7 @@ void GeoGridProtoWriter::writeContactPool(std::shared_ptr<ContactPool>          
 void GeoGridProtoWriter::writePerson(std::shared_ptr<stride::Person> person, proto::GeoGrid_Person* protoPerson)
 {
         protoPerson->set_id(person->GetId());
-        protoPerson->set_age(person->GetAge());
+        protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
         protoPerson->set_gender(std::string(1, person->GetGender()));
         protoPerson->set_school(person->GetSchoolId());
         protoPerson->set_household(person->GetHouseholdId());

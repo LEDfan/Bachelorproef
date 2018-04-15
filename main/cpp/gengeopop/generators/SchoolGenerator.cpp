@@ -17,8 +17,8 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
          * for that location the relative amount of pupils is equal to the relative amount of population
          */
 
-        int amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;
-        int amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 500.0)); // TODO magic constant
+        int  amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;
+        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 500.0)); // TODO magic constant
 
         std::vector<double> weights;
 

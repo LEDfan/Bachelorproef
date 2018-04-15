@@ -10,7 +10,7 @@ class ContactCenter
 public:
         using iterator = std::vector<std::shared_ptr<ContactPool>>::iterator;
 
-        ContactCenter(unsigned int id);
+        explicit ContactCenter(unsigned int id);
 
         virtual std::string  getType() const     = 0;
         virtual unsigned int getPoolSize() const = 0;
@@ -27,7 +27,7 @@ public:
         iterator begin();
         iterator end();
 
-        virtual ~ContactCenter(){};
+        virtual ~ContactCenter() = default;
 
 protected:
         std::vector<std::shared_ptr<ContactPool>> m_pools;

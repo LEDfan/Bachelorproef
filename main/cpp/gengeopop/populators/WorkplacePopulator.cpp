@@ -12,8 +12,8 @@
 namespace gengeopop {
 
 WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager)
-    : PartialPopulator(rn_manager),
-      m_fractionCommutingStudents(0), m_workplacesInCity{}, m_currentLoc{}, m_geoGridConfig{}, m_geoGrid{}
+    : PartialPopulator(rn_manager), m_currentLoc{}, m_geoGrid{}, m_geoGridConfig{}, m_workplacesInCity{},
+      m_fractionCommutingStudents(0)
 {
 }
 

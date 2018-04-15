@@ -1,5 +1,6 @@
 #include "Community.h"
 #include "GeoGridConfig.h"
+#include <Exception.h>
 namespace gengeopop {
 
 Community::Community(unsigned int id) : ContactCenter(id) {}
@@ -18,11 +19,11 @@ void         Community::fill(GeoGridConfig& geoGridConfig)
 void Community::addHouseHold(std::shared_ptr<Household> household)
 {
         if (m_pools.empty()) {
-                throw std::runtime_error("Could not add the Household to the Community, no ContactPool available");
+                throw Exception("Could not add the Household to the Community, no ContactPool available");
         } else {
                 if (household->GetPools().empty())
                         return;
-                for (std::shared_ptr<stride::Person> person : **household->begin()) {
+                for (const std::shared_ptr<stride::Person>& person : **household->begin()) {
                         m_pools[0]->addMember(person);
                 }
         }
@@ -31,10 +32,8 @@ bool Community::isAvailable() const
 {
         if (m_pools.empty()) {
                 return false;
-        } else if (m_pools[0]->getCapacity() <= m_pools[0]->getUsedCapacity()) {
-                return false;
         } else {
-                return true;
+                return m_pools[0]->getCapacity() > m_pools[0]->getUsedCapacity();
         }
 }
 } // namespace gengeopop

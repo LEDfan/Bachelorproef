@@ -1,4 +1,5 @@
 #include "Location.h"
+#include <Exception.h>
 #include <cmath>
 
 namespace gengeopop {
@@ -76,8 +77,8 @@ int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) cons
 
 bool Location::operator==(const Location& other) const
 {
-        auto sub1 = getSubMunicipalities();
-        auto sub2 = other.getSubMunicipalities();
+        auto        sub1 = getSubMunicipalities();
+        const auto& sub2 = other.getSubMunicipalities();
 
         return getID() == other.getID() && getCoordinate() == other.getCoordinate() && getName() == other.getName() &&
                getProvince() == other.getProvince() && getPopulation() == other.getPopulation() &&
@@ -103,7 +104,7 @@ double Location::getRelativePopulationSize() const { return m_relativePopulation
 void Location::addSubMunicipality(std::shared_ptr<Location> location)
 {
         if (m_parent) {
-                throw std::runtime_error("Can't have parent and submunicipalities at the same time!");
+                throw Exception("Can't have parent and submunicipalities at the same time!");
         }
         m_subMunicipalities.emplace(std::move(location));
 }
@@ -115,7 +116,7 @@ std::shared_ptr<Location> Location::getParent() const { return m_parent; }
 void Location::setParent(const std::shared_ptr<Location>& location)
 {
         if (!m_subMunicipalities.empty()) {
-                throw std::runtime_error("Can't have parent and submunicipalities at the same time!");
+                throw Exception("Can't have parent and submunicipalities at the same time!");
         }
         m_parent = location;
 }
