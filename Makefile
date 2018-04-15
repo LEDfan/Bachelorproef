@@ -150,7 +150,7 @@ format-check:
 	resources/bash/clang-format-all --check .
 
 function-names-check:
-	resources/bash/function-names-all .
+	bash resources/bash/function-names-all .
 
 coverage:
 	export STRIDE_GENERATE_COVERAGE=True
