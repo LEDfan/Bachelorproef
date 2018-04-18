@@ -59,7 +59,7 @@ int Location::IncomingCommutingPeople(double fractionOfPopulationCommuting) cons
         for (const auto& locProportion : m_incomingCommutingLocations) {
                 // locProportion.second of the people in locProportion.first are commuting to this
                 value += locProportion.second *
-                         (fractionOfPopulationCommuting * (double) locProportion.first->GetPopulation());
+                         (fractionOfPopulationCommuting * (double)locProportion.first->GetPopulation());
         }
         return static_cast<int>(std::floor(value));
 }
@@ -81,10 +81,10 @@ bool Location::operator==(const Location& other) const
         const auto& sub2 = other.GetSubMunicipalities();
 
         return GetID() == other.GetID() && GetCoordinate() == other.GetCoordinate() && GetName() == other.GetName() &&
-                GetProvince() == other.GetProvince() && GetPopulation() == other.GetPopulation() &&
-                GetContactCenters() == other.GetContactCenters() &&
-                GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
-                GetOutgoingCommuningCities() == other.GetOutgoingCommuningCities() &&
+               GetProvince() == other.GetProvince() && GetPopulation() == other.GetPopulation() &&
+               GetContactCenters() == other.GetContactCenters() &&
+               GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
+               GetOutgoingCommuningCities() == other.GetOutgoingCommuningCities() &&
                ((!GetParent() && !other.GetParent()) ||
                 (GetParent() && other.GetParent() && *GetParent() == *other.GetParent())) &&
                sub1.size() == sub2.size() &&
@@ -113,7 +113,7 @@ const std::set<std::shared_ptr<Location>>& Location::GetSubMunicipalities() cons
 
 std::shared_ptr<Location> Location::GetParent() const { return m_parent; }
 
-void Location::SetParent(const std::shared_ptr<Location> &location)
+void Location::SetParent(const std::shared_ptr<Location>& location)
 {
         if (!m_subMunicipalities.empty()) {
                 throw Exception("Can't have parent and submunicipalities at the same time!");

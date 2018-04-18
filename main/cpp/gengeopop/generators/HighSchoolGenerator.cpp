@@ -11,7 +11,7 @@ namespace gengeopop {
 
 HighSchoolGenerator::HighSchoolGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
 
-void HighSchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void HighSchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         int  amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;
         auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
@@ -32,7 +32,7 @@ void HighSchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig 
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : cities) {
-                weights.push_back((double) loc->GetPopulation() / (double)totalCitiesPopulation);
+                weights.push_back((double)loc->GetPopulation() / (double)totalCitiesPopulation);
         }
 
         auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));

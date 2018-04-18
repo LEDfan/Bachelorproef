@@ -9,7 +9,7 @@
 
 int ContactCenterListModel::rowCount(const QModelIndex& /*parent*/) const { return m_centers.size(); }
 
-QVariant ContactCenterListModel::data(const QModelIndex &index, int role) const
+QVariant ContactCenterListModel::data(const QModelIndex& index, int role) const
 {
         auto center = m_centers[index.row()];
         switch (role) {

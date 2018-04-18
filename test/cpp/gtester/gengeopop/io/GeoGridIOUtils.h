@@ -8,23 +8,23 @@
 
 using namespace gengeopop;
 
-void CompareContactPool(std::shared_ptr<ContactPool> contactPool,
-                        const proto::GeoGrid_Location_ContactCenter_ContactPool &protoContactPool);
+void CompareContactPool(std::shared_ptr<ContactPool>                             contactPool,
+                        const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool);
 
-void CompareContactCenter(std::shared_ptr<ContactCenter> contactCenter,
-                          const proto::GeoGrid_Location_ContactCenter &protoContactCenter);
+void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCenter,
+                          const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
 
-void CompareCoordinate(const Coordinate &coordinate, const proto::GeoGrid_Location_Coordinate &protoCoordinate);
+void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Location_Coordinate& protoCoordinate);
 
-void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location &protoLocation);
+void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location& protoLocation);
 
-void ComparePerson(const proto::GeoGrid_Person &protoPerson);
+void ComparePerson(const proto::GeoGrid_Person& protoPerson);
 
 void CompareProtoGeoGrid(proto::GeoGrid& protoGeoGrid);
 
 void CompareGeoGrid(std::shared_ptr<GeoGrid> geoGrid);
 
-void CompareGeoGrid(proto::GeoGrid &protoGrid);
+void CompareGeoGrid(proto::GeoGrid& protoGrid);
 
 std::shared_ptr<GeoGrid> GetPopulatedGeoGrid();
 

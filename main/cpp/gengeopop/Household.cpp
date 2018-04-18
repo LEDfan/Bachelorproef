@@ -13,7 +13,7 @@ unsigned int Household::GetPoolSize() const { return 15; }
 
 std::string Household::GetType() const { return "Household"; }
 
-void Household::Fill(GeoGridConfig &geoGridConfig)
+void Household::Fill(GeoGridConfig& geoGridConfig)
 {
         AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));
 }

@@ -13,7 +13,7 @@ namespace gengeopop {
 
 SchoolPopulator::SchoolPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
-void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &)
+void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
 
         std::cout << std::endl << "Starting to populate Schools" << std::endl;

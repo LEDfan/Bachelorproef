@@ -17,7 +17,7 @@ namespace gengeopop {
 
 GeoGridProtoReader::GeoGridProtoReader() : GeoGridReader() {}
 
-std::shared_ptr<GeoGrid> GeoGridProtoReader::Read(std::istream &stream)
+std::shared_ptr<GeoGrid> GeoGridProtoReader::Read(std::istream& stream)
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(&stream)) {
@@ -168,7 +168,7 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);
-                result->AddMember(m_people.at(static_cast<const unsigned int &>(person_id)));
+                result->AddMember(m_people.at(static_cast<const unsigned int&>(person_id)));
         }
 
         return result;

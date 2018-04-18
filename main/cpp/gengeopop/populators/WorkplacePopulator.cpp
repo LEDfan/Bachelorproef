@@ -13,11 +13,12 @@ namespace gengeopop {
 
 WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager)
     : PartialPopulator(rn_manager), m_currentLoc{}, m_geoGrid{}, m_geoGridConfig{}, m_workplacesInCity{},
-      m_fractionCommutingStudents(0), m_nearByWorkplaces{}, m_distNonCommuting{}, m_commutingLocations{}, m_disCommuting{}
+      m_fractionCommutingStudents(0), m_nearByWorkplaces{}, m_distNonCommuting{}, m_commutingLocations{},
+      m_disCommuting{}
 {
 }
 
-void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::cout << std::endl << "Starting to populate Workplaces" << std::endl;
 

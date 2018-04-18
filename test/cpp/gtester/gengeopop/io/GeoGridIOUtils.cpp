@@ -14,8 +14,8 @@
 std::map<int, std::shared_ptr<stride::Person>> persons_found;
 using namespace gengeopop;
 
-void CompareContactPool(std::shared_ptr<ContactPool> contactPool,
-                        const proto::GeoGrid_Location_ContactCenter_ContactPool &protoContactPool)
+void CompareContactPool(std::shared_ptr<ContactPool>                             contactPool,
+                        const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool)
 {
         EXPECT_EQ(contactPool->GetID(), protoContactPool.id());
         ASSERT_EQ(protoContactPool.people_size(), (contactPool->end() - contactPool->begin()));
@@ -27,8 +27,8 @@ void CompareContactPool(std::shared_ptr<ContactPool> contactPool,
         }
 }
 
-void CompareContactCenter(std::shared_ptr<ContactCenter> contactCenter,
-                          const proto::GeoGrid_Location_ContactCenter &protoContactCenter)
+void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCenter,
+                          const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
@@ -55,7 +55,7 @@ void CompareContactCenter(std::shared_ptr<ContactCenter> contactCenter,
         }
 }
 
-void CompareCoordinate(const Coordinate &coordinate, const proto::GeoGrid_Location_Coordinate &protoCoordinate)
+void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Location_Coordinate& protoCoordinate)
 {
         EXPECT_EQ(coordinate.x, protoCoordinate.x());
         EXPECT_EQ(coordinate.y, protoCoordinate.y());
@@ -63,7 +63,7 @@ void CompareCoordinate(const Coordinate &coordinate, const proto::GeoGrid_Locati
         EXPECT_EQ(coordinate.latitude, protoCoordinate.latitude());
 }
 
-void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location &protoLocation)
+void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location& protoLocation)
 {
         EXPECT_EQ(location->GetName(), protoLocation.name());
         EXPECT_EQ(location->GetProvince(), protoLocation.province());
@@ -100,7 +100,7 @@ void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Lo
                 idx++;
         }
 }
-void ComparePerson(const proto::GeoGrid_Person &protoPerson)
+void ComparePerson(const proto::GeoGrid_Person& protoPerson)
 {
         auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
@@ -138,7 +138,7 @@ void CompareGeoGrid(std::shared_ptr<GeoGrid> geoGrid)
         compareGeoGrid(geoGrid, protoGrid);
 }
 
-void CompareGeoGrid(proto::GeoGrid &protoGrid)
+void CompareGeoGrid(proto::GeoGrid& protoGrid)
 {
         GeoGridProtoReader reader;
         std::stringstream  ss;

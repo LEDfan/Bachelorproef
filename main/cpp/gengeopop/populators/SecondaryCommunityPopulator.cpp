@@ -15,7 +15,7 @@ SecondaryCommunityPopulator::SecondaryCommunityPopulator(stride::util::RNManager
 {
 }
 
-void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &)
+void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
 
         // for every location

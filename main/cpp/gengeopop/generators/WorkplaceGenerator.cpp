@@ -10,7 +10,7 @@ namespace gengeopop {
 
 WorkplaceGenerator::WorkplaceGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
 
-void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. the amount of active employees and the amount of commuting people are given
@@ -29,9 +29,9 @@ void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 double amountOfWorkingPeople =
-                        loc->GetPopulation() * geoGridConfig.input.fraction_1865_years_active +
-                                loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
-                                loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople);
+                    loc->GetPopulation() * geoGridConfig.input.fraction_1865_years_active +
+                    loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
+                    loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople);
                 weights.push_back(amountOfWorkingPeople / amountOfEmployees);
         }
 

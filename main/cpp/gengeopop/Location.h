@@ -34,7 +34,7 @@ public:
                 return m_contactCenterByType[typeid(T)];
         }
 
-        std::string     GetName() const;
+        std::string  GetName() const;
         unsigned int GetProvince() const;
         unsigned int GetID() const;
 
@@ -83,7 +83,7 @@ public:
 
         const std::set<std::shared_ptr<Location>>& GetSubMunicipalities() const;
 
-        void                      SetParent(const std::shared_ptr<Location> &location);
+        void                      SetParent(const std::shared_ptr<Location>& location);
         std::shared_ptr<Location> GetParent() const;
 
         const Coordinate& GetCoordinate() const;

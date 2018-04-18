@@ -11,7 +11,7 @@ namespace gengeopop {
 
 HouseholdPopulator::HouseholdPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
-void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::cout << std::endl << "Starting to populate Households" << std::endl;
         unsigned int current_person_id = 0;

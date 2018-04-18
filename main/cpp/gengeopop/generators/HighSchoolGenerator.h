@@ -10,6 +10,6 @@ class HighSchoolGenerator : public PartialGenerator
 public:
         explicit HighSchoolGenerator(stride::util::RNManager& rn_manager);
 
-        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig &geoGridConfig) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

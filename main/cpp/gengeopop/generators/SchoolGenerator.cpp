@@ -9,7 +9,7 @@ namespace gengeopop {
 
 SchoolGenerator::SchoolGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
 
-void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. calculate amount of schools, each school has average 500 pupils, taking in account the amount of pupils

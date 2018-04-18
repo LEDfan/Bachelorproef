@@ -59,20 +59,20 @@ public:
 
         /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
         /// introduce a perfomance tradeoff.
-        size_t GetIndexForLabel(const std::string &label) const;
+        size_t GetIndexForLabel(const std::string& label) const;
 
         /// Add row of values. Will all be converted to string with StringUtils::ToString
         template <typename... T>
-        void AddRow(const T &... values);
+        void AddRow(const T&... values);
 
         /// Add rom of string values.
         void AddRow(std::vector<std::string> values);
 
         /// Add a collection of rows.
-        void AddRows(std::vector<std::vector<std::string>> &rows);
+        void AddRows(std::vector<std::vector<std::string>>& rows);
 
         /// Write CSV to file.
-        void Write(const boost::filesystem::path &path) const;
+        void Write(const boost::filesystem::path& path) const;
 
         /// Compare operator.
         bool operator==(const CSV& other) const;
@@ -80,7 +80,7 @@ public:
         const std::vector<std::string>& GetLabels() const;
 
 private:
-        void ReadFromStream(std::istream &inputStream);
+        void ReadFromStream(std::istream& inputStream);
 
 protected:
         std::vector<std::string> labels;
@@ -88,7 +88,7 @@ protected:
 };
 
 template <typename... T>
-inline void CSV::AddRow(const T &... values)
+inline void CSV::AddRow(const T&... values)
 {
         AddRow({ToString(values)...});
 }

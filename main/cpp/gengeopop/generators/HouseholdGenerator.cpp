@@ -9,7 +9,7 @@ namespace gengeopop {
 
 HouseholdGenerator::HouseholdGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
 
-void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::vector<double> weights;
 

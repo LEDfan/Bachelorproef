@@ -14,7 +14,7 @@ public:
         bool         IsAvailable() const override;
         unsigned int GetPoolSize() const override;
         unsigned int GetMaxPools() const override;
-        void         Fill(GeoGridConfig &geoGridConfig) override;
+        void         Fill(GeoGridConfig& geoGridConfig) override;
 };
 
 } // namespace gengeopop

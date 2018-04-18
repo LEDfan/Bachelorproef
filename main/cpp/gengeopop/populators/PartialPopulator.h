@@ -13,7 +13,7 @@ class PartialPopulator
 {
 public:
         explicit PartialPopulator(stride::util::RNManager& rn_manager);
-        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig &geoGridConfig) = 0;
+        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
         virtual ~PartialPopulator()                                                        = default;
 
 protected:
@@ -29,7 +29,7 @@ protected:
 
                 while (pools.empty()) {
                         for (const std::shared_ptr<Location>& nearLoc :
-                                geoGrid->FindLocationsInRadius(start, currentRadius)) {
+                             geoGrid->FindLocationsInRadius(start, currentRadius)) {
                                 const auto& centers = nearLoc->GetContactCentersOfType<T>();
                                 for (const auto& center : centers) {
                                         if (center->IsAvailable()) {

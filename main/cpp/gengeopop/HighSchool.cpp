@@ -14,7 +14,7 @@ unsigned int HighSchool::GetPoolSize() const
         return 0; // TODO
 }
 
-void HighSchool::Fill(GeoGridConfig &geoGridConfig)
+void HighSchool::Fill(GeoGridConfig& geoGridConfig)
 {
         for (std::size_t i = 0; i < GetMaxPools(); ++i) {
                 AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));

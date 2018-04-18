@@ -56,8 +56,8 @@ public:
          */
         std::set<std::shared_ptr<Location>> InBox(double long1, double lat1, double long2, double lat2) const;
 
-        std::set<std::shared_ptr<Location>> InBox(const std::shared_ptr<Location> &loc1,
-                                                  std::shared_ptr<Location> &loc2) const
+        std::set<std::shared_ptr<Location>> InBox(const std::shared_ptr<Location>& loc1,
+                                                  std::shared_ptr<Location>&       loc2) const
         {
                 return InBox(loc1->GetCoordinate().longitude, loc1->GetCoordinate().latitude,
                              loc2->GetCoordinate().longitude, loc2->GetCoordinate().latitude);
@@ -141,7 +141,7 @@ private:
                 double                    m_longitude;
                 double                    m_latitude;
 
-                double Distance(const KdTree2DPoint &other) const
+                double Distance(const KdTree2DPoint& other) const
                 {
                         double lat1 = DegreeToRadian(m_latitude);
                         double lon1 = DegreeToRadian(m_longitude);

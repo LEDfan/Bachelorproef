@@ -6,7 +6,7 @@ namespace gengeopop {
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
-void GeoGridJSONWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream &stream)
+void GeoGridJSONWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream& stream)
 {
         boost::property_tree::ptree root;
         boost::property_tree::ptree locations;
@@ -96,7 +96,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(std::shared_ptr<Loc
         return location_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate &coordinate)
+boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate& coordinate)
 {
         boost::property_tree::ptree coordinate_root;
         coordinate_root.put("x", coordinate.x);

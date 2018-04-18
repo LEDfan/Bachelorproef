@@ -16,7 +16,7 @@ namespace gengeopop {
 
 GeoGridJSONReader::GeoGridJSONReader() : GeoGridReader() {}
 
-std::shared_ptr<GeoGrid> GeoGridJSONReader::Read(std::istream &stream)
+std::shared_ptr<GeoGrid> GeoGridJSONReader::Read(std::istream& stream)
 {
         boost::property_tree::ptree root;
         try {

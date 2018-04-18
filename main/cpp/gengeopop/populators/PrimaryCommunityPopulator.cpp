@@ -14,7 +14,7 @@ PrimaryCommunityPopulator::PrimaryCommunityPopulator(stride::util::RNManager& rn
 {
 }
 
-void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &)
+void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
 
         // for every location

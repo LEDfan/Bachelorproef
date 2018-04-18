@@ -11,7 +11,7 @@ class GeoGridReader
 public:
         GeoGridReader();
         virtual ~GeoGridReader()                                    = default;
-        virtual std::shared_ptr<GeoGrid> Read(std::istream &stream) = 0;
+        virtual std::shared_ptr<GeoGrid> Read(std::istream& stream) = 0;
 
 protected:
         void AddSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid);

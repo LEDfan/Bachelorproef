@@ -8,7 +8,7 @@ namespace gengeopop {
 
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}
 
-void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream &stream)
+void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream& stream)
 {
         GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -28,7 +28,7 @@ void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
         stream.flush();
 }
 
-void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location *protoLocation)
+void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
 {
         protoLocation->set_id(location->GetID());
         protoLocation->set_name(location->GetName());
@@ -53,8 +53,8 @@ void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto
         }
 }
 
-void GeoGridProtoWriter::WriteCoordinate(const Coordinate &coordinate,
-                                         proto::GeoGrid_Location_Coordinate *protoCoordinate)
+void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coordinate,
+                                         proto::GeoGrid_Location_Coordinate* protoCoordinate)
 {
         protoCoordinate->set_x(coordinate.x);
         protoCoordinate->set_y(coordinate.y);
@@ -62,8 +62,8 @@ void GeoGridProtoWriter::WriteCoordinate(const Coordinate &coordinate,
         protoCoordinate->set_latitude(coordinate.latitude);
 }
 
-void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter,
-                                            proto::GeoGrid_Location_ContactCenter *protoContactCenter)
+void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
+                                            proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
@@ -81,8 +81,8 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter> conta
         }
 }
 
-void GeoGridProtoWriter::WriteContactPool(std::shared_ptr<ContactPool> contactPool,
-                                          proto::GeoGrid_Location_ContactCenter_ContactPool *protoContactPool)
+void GeoGridProtoWriter::WriteContactPool(std::shared_ptr<ContactPool>                       contactPool,
+                                          proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool)
 {
         protoContactPool->set_id(contactPool->GetID());
         for (const auto& person : *contactPool) {
@@ -90,7 +90,7 @@ void GeoGridProtoWriter::WriteContactPool(std::shared_ptr<ContactPool> contactPo
                 m_persons_found.insert(person);
         }
 }
-void GeoGridProtoWriter::WritePerson(std::shared_ptr<stride::Person> person, proto::GeoGrid_Person *protoPerson)
+void GeoGridProtoWriter::WritePerson(std::shared_ptr<stride::Person> person, proto::GeoGrid_Person* protoPerson)
 {
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));

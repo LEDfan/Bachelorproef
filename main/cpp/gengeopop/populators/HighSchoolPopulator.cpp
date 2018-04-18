@@ -13,7 +13,7 @@ namespace gengeopop {
 
 HighSchoolPopulator::HighSchoolPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
-void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::cout << std::endl << "Starting to populate HighSchools" << std::endl;
         std::set<std::shared_ptr<ContactPool>> found;
@@ -65,7 +65,7 @@ void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig 
                                                 // create a list of ContactPools (i.e. classes) for each of highschool
                                                 // of this location
                                                 const auto& highSchools = commutingHighSchools[locationId]
-                                                        ->GetContactCentersOfType<HighSchool>();
+                                                                              ->GetContactCentersOfType<HighSchool>();
 
                                                 std::vector<std::shared_ptr<ContactPool>> contactPools;
                                                 for (const auto& highSchool : highSchools) {

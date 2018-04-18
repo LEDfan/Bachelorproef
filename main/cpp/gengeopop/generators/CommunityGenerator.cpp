@@ -10,7 +10,7 @@ namespace gengeopop {
 
 CommunityGenerator::CommunityGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
 
-void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
+void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. calculate amount of communities, each community has average 2000 persons

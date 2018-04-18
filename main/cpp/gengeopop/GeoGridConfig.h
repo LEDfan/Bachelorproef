@@ -105,7 +105,7 @@ public:
                 /**
                  * A list of possible households.
                  */
-                std::vector<std::shared_ptr<Household>> household_types {};
+                std::vector<std::shared_ptr<Household>> household_types{};
         } generated;
 };
 

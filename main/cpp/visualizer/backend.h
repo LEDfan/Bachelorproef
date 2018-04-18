@@ -134,10 +134,10 @@ private:
          */
         QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
 
-        void HideCommuteLine(QObject *obj);
+        void HideCommuteLine(QObject* obj);
 
-        void HideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc1,
-                                const std::shared_ptr<gengeopop::Location> &loc2);
+        void HideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+                                const std::shared_ptr<gengeopop::Location>& loc2);
 
-        void ShowCommute(const std::shared_ptr<gengeopop::Location> &loc1, const std::shared_ptr<gengeopop::Location> &);
+        void ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
 };

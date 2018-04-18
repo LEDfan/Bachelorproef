@@ -66,7 +66,7 @@ void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
                         std::ifstream                             inputFile(path.c_str());
                         gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
                         std::shared_ptr<gengeopop::GeoGridReader> reader =
-                                geoGridReaderFactory.CreateReader(path.c_str());
+                            geoGridReaderFactory.CreateReader(path.c_str());
 
                         try {
                                 m_grid = reader->Read(inputFile);
@@ -271,7 +271,7 @@ void Backend::SelectAll()
         PlaceMarkers();
 }
 
-void Backend::HideCommuteLine(QObject *line)
+void Backend::HideCommuteLine(QObject* line)
 {
         QVariant retVal;
         QMetaObject::invokeMethod(line, "hide", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
@@ -285,8 +285,8 @@ void Backend::SetShowCommutes(bool value)
         PlaceMarkers();
 }
 
-void Backend::HideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc1,
-                                 const std::shared_ptr<gengeopop::Location> &loc2)
+void Backend::HideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+                                 const std::shared_ptr<gengeopop::Location>& loc2)
 {
         std::tuple<unsigned int, unsigned int> key(loc1->GetID(), loc2->GetID());
         if (m_commutes.find(key) != m_commutes.end()) {
@@ -301,8 +301,8 @@ void Backend::HideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc
         }
 }
 
-void Backend::ShowCommute(const std::shared_ptr<gengeopop::Location> &loc1,
-                          const std::shared_ptr<gengeopop::Location> &loc2)
+void Backend::ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1,
+                          const std::shared_ptr<gengeopop::Location>& loc2)
 {
         QVariant                               retVal;
         QObject*                               commuteLine = nullptr;

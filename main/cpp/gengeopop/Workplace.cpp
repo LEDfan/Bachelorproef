@@ -11,7 +11,7 @@ unsigned int Workplace::GetPoolSize() const { return 20; }
 
 unsigned int Workplace::GetMaxPools() const { return 1; }
 
-void Workplace::Fill(GeoGridConfig &geoGridConfig)
+void Workplace::Fill(GeoGridConfig& geoGridConfig)
 {
         AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));
 }
