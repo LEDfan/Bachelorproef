@@ -97,6 +97,7 @@ Test results
 # tidy
  - [466.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.1-linux-gcc-6.html)
  - [466.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.2-linux-gcc-7.html)
+ - [466.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.3-linux-clang-5.html)
  - [460.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.1-linux-gcc-6.html)
  - [460.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.2-linux-gcc-7.html)
  - [460.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.3-linux-clang-5.html)
