@@ -87,14 +87,6 @@ Test results
  - [180.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/180.4-osx-8.3-apple-clang.html)
  - [180.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/180.5-osx-9.2-apple-clang.html)
  - [180.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/master/180.6-osx-8.3-llvm-clang.html)
-# tidy
- - [466.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.1-linux-gcc-6.html)
- - [460.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.1-linux-gcc-6.html)
- - [460.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.2-linux-gcc-7.html)
- - [460.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.3-linux-clang-5.html)
- - [460.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.4-osx-8.3-apple-clang.html)
- - [460.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.5-osx-9.2-apple-clang.html)
- - [460.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.6-osx-8.3-llvm-clang.html)
 # visualizer-hover-comments
  - [459.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.1-linux-gcc-6.html)
  - [459.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.2-linux-gcc-7.html)
@@ -102,3 +94,12 @@ Test results
  - [459.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.4-osx-8.3-apple-clang.html)
  - [459.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.5-osx-9.2-apple-clang.html)
  - [459.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.6-osx-8.3-llvm-clang.html)
+# tidy
+ - [466.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.1-linux-gcc-6.html)
+ - [466.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.2-linux-gcc-7.html)
+ - [460.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.1-linux-gcc-6.html)
+ - [460.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.2-linux-gcc-7.html)
+ - [460.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.3-linux-clang-5.html)
+ - [460.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.4-osx-8.3-apple-clang.html)
+ - [460.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.5-osx-9.2-apple-clang.html)
+ - [460.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.6-osx-8.3-llvm-clang.html)
