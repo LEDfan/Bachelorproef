@@ -99,6 +99,7 @@ Test results
  - [467.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/467.2-linux-gcc-7.html)
  - [467.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/tidy/467.3-linux-clang-5.html)
  - [467.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/467.4-osx-8.3-apple-clang.html)
+ - [467.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/467.5-osx-9.2-apple-clang.html)
  - [466.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.1-linux-gcc-6.html)
  - [466.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.2-linux-gcc-7.html)
  - [466.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/tidy/466.3-linux-clang-5.html)
