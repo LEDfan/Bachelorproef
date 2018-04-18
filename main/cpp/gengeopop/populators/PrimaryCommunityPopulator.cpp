@@ -14,7 +14,7 @@ PrimaryCommunityPopulator::PrimaryCommunityPopulator(stride::util::RNManager& rn
 {
 }
 
-void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
+void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &)
 {
 
         // for every location
@@ -36,7 +36,7 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 };
 
                 updatePools();
-                for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
+                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         auto                               pool        = dist();
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
@@ -45,9 +45,9 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                                         std::cout << pool << std::endl;
                                         break;
                                 }
-                                community_pools[pool]->addMember(person);
+                                community_pools[pool]->AddMember(person);
                         }
-                        if (community_pools[pool]->getCapacity() <= community_pools[pool]->getUsedCapacity()) {
+                        if (community_pools[pool]->GetCapacity() <= community_pools[pool]->GetUsedCapacity()) {
                                 full_capacity_count++;
                                 community_pools.erase(community_pools.begin() + pool);
                                 updatePools();

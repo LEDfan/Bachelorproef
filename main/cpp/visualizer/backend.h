@@ -64,16 +64,16 @@ public:
         void ClearSelection();
 
         Q_INVOKABLE
-        void selectArea(double slat, double slong, double elat, double elong);
+        void SelectArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
-        void selectAll();
+        void SelectAll();
 
         Q_INVOKABLE
         /**
          * @param value If commutes need to be shown
          */
-        void setShowCommutes(bool value);
+        void SetShowCommutes(bool value);
 
         Q_INVOKABLE
         /**
@@ -117,13 +117,13 @@ private:
         /**
          * Sends a signal with the currently selected locations.
          */
-        void emitLocations();
+        void EmitLocations();
 
         /**
          * Adds the location to the selection if it is not yet in the list. If it is already in the selection, it will
          * be removed.
          */
-        void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
+        void ToggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
 
         /**
          * Add a line on the map for the given commute info.
@@ -132,12 +132,12 @@ private:
          * @param toLatitude
          * @param toLongitude
          */
-        QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
+        QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
 
-        void hideCommuteLine(QObject* obj);
+        void HideCommuteLine(QObject *obj);
 
-        void hideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
-                                const std::shared_ptr<gengeopop::Location>& loc2);
+        void HideCommuteBetween(const std::shared_ptr<gengeopop::Location> &loc1,
+                                const std::shared_ptr<gengeopop::Location> &loc2);
 
-        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
+        void ShowCommute(const std::shared_ptr<gengeopop::Location> &loc1, const std::shared_ptr<gengeopop::Location> &);
 };

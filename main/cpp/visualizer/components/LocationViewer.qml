@@ -74,7 +74,7 @@ ColumnLayout {
 
         Component.onCompleted: {
             // Bind click row to handle click of model
-            cclist.clicked.connect(ccModel.handleClickRow)
+            cclist.clicked.connect(ccModel.HandleClickRow)
             // Bind contactCenter selected of model outside
             ccModel.ContactCenterSelected.connect(locViewerBase.contactCenterSelected)
 
@@ -86,7 +86,7 @@ ColumnLayout {
     }
 
     function showLocations(location) {
-        locationViewerBackend.showLocations(location)
-        ccModel.setCenters(location)
+        locationViewerBackend.ShowLocations(location)
+        ccModel.SetCenters(location)
     }
 }

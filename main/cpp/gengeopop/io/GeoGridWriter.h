@@ -10,7 +10,7 @@ class GeoGridWriter
 {
 public:
         virtual ~GeoGridWriter() {}
-        virtual void write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) = 0;
+        virtual void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream &stream) = 0;
 };
 
 } // namespace gengeopop

@@ -88,7 +88,7 @@ option go_package = "google.golang.org/genproto/protobuf/field_mask;field_mask";
 // operation applies to all fields (as if a FieldMask of all fields
 // had been specified).
 //
-// Note that a field mask does not necessarily apply to the
+// Note that a field mask does not necessarily Apply to the
 // top-level response message. In case of a REST get operation, the
 // field mask applies directly to the response, but in case of a REST
 // list operation, the mask instead applies to each individual message

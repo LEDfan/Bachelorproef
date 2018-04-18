@@ -27,11 +27,11 @@ std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
         for (unsigned int age : ages) {
                 auto p = std::make_shared<stride::Person>();
                 p->SetAge(age);
-                cp->addMember(p);
+                cp->AddMember(p);
         }
 
         auto hh = std::make_shared<Household>();
-        hh->addPool(cp);
+        hh->AddPool(cp);
         return hh;
 }
 

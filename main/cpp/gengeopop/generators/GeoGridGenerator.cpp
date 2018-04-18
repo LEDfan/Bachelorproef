@@ -9,16 +9,16 @@ GeoGridGenerator::GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr
 {
 }
 
-void GeoGridGenerator::generateGeoGrid()
+void GeoGridGenerator::GenerateGeoGrid()
 {
         for (std::shared_ptr<PartialGenerator>& partialGen : m_partialGenerators) {
-                partialGen->apply(m_geoGrid, m_geoGridConfig);
+                partialGen->Apply(m_geoGrid, m_geoGridConfig);
         }
 }
 
-std::shared_ptr<GeoGrid> GeoGridGenerator::getGeoGrid() { return m_geoGrid; }
+std::shared_ptr<GeoGrid> GeoGridGenerator::GetGeoGrid() { return m_geoGrid; }
 
-void GeoGridGenerator::addPartialGenerator(std::shared_ptr<PartialGenerator> gen)
+void GeoGridGenerator::AddPartialGenerator(std::shared_ptr<PartialGenerator> gen)
 {
         m_partialGenerators.push_back(gen);
 }

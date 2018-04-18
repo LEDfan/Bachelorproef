@@ -53,7 +53,7 @@ class DataPiece;
 //
 // Derived classes could be thread-unsafe.
 //
-// TODO(xinb): seems like a prime candidate to apply the RAII paradigm
+// TODO(xinb): seems like a prime candidate to Apply the RAII paradigm
 // and get rid the need to call EndXXX().
 class LIBPROTOBUF_EXPORT ObjectWriter {
  public:

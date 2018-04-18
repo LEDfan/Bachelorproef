@@ -11,11 +11,11 @@ class GeoGridReader
 public:
         GeoGridReader();
         virtual ~GeoGridReader()                                    = default;
-        virtual std::shared_ptr<GeoGrid> read(std::istream& stream) = 0;
+        virtual std::shared_ptr<GeoGrid> Read(std::istream &stream) = 0;
 
 protected:
-        void addSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid);
-        void addCommutes(std::shared_ptr<GeoGrid> geoGrid);
+        void AddSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid);
+        void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
 
         std::map<unsigned int, std::shared_ptr<stride::Person>>     m_people;
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount

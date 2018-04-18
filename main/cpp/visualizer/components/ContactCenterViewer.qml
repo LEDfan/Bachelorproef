@@ -50,7 +50,7 @@ ColumnLayout {
     }
 
     function showCenter(center) {
-        cpModel.setPools(center)
-        ccBackend.showContactCenter(center)
+        cpModel.SetPools(center)
+        ccBackend.ShowContactCenter(center)
     }
 }

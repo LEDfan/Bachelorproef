@@ -19,7 +19,7 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
         std::map<unsigned int, double> populationSizesMapping;
 
         for (const auto& loc : *geoGrid) {
-                populationSizesMapping[loc->getID()] = loc->getRelativePopulationSize();
+                populationSizesMapping[loc->GetID()] = loc->GetRelativePopulationSize();
         }
 
         for (const stride::util::CSVRow& row : reader) {
@@ -27,20 +27,20 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
                 auto id       = row.getValue<unsigned int>(1);
                 auto parent   = geoGrid->GetById(parentId);
 
-                parent->setRelativePopulation(0);
+                parent->SetRelativePopulation(0);
                 auto location = std::make_shared<Location>(id,                                           // id
-                                                           parent->getProvince(),                        // province
+                                                           parent->GetProvince(),                        // province
                                                            Coordinate(0,                                 // x_coord
                                                                       0,                                 // y_coord
                                                                       row.getValue<double>("longitude"), // longtitude
                                                                       row.getValue<double>("latitude")   // latitude
                                                                       ),
                                                            row.getValue(5));
-                location->setRelativePopulation(row.getValue<double>("population_rel_to_parent") *
+                location->SetRelativePopulation(row.getValue<double>("population_rel_to_parent") *
                                                 populationSizesMapping[parentId]);
-                parent->addSubMunicipality(location);
-                location->setParent(parent);
-                geoGrid->addLocation(location);
+                parent->AddSubMunicipality(location);
+                location->SetParent(parent);
+                geoGrid->AddLocation(location);
         }
 }
 } // namespace gengeopop

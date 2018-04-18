@@ -9,7 +9,7 @@ class PrimaryCommunity : public Community
 {
 public:
         explicit PrimaryCommunity(unsigned int id);
-        std::string getType() const override;
+        std::string GetType() const override;
 };
 
 } // namespace gengeopop

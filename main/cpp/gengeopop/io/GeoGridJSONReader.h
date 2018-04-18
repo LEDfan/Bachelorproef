@@ -8,7 +8,7 @@ class GeoGridJSONReader : public GeoGridReader
 {
 public:
         GeoGridJSONReader();
-        std::shared_ptr<GeoGrid> read(std::istream& stream) override;
+        std::shared_ptr<GeoGrid> Read(std::istream &stream) override;
 
 private:
         std::shared_ptr<Location>      ParseLocation(boost::property_tree::ptree& location);

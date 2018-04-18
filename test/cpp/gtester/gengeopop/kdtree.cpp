@@ -23,7 +23,7 @@ public:
         bool operator<(const Pt2D& o) const { return std::make_pair(x, y) < std::make_pair(o.x, o.y); }
 
         template <std::size_t D>
-        int get() const
+        int Get() const
         {
                 static_assert(0 <= D && D <= 1, "Dimension should be in range");
                 if (D == 0) {
@@ -63,7 +63,7 @@ public:
         }
 
         template <std::size_t D>
-        int get() const
+        int Get() const
         {
                 static_assert(0 <= D && D <= 3, "Dimension should be in range");
                 switch (D) {
@@ -96,7 +96,7 @@ public:
         struct dimension_type;
 
         template <std::size_t D>
-        typename dimension_type<D>::type get() const
+        typename dimension_type<D>::type Get() const
         {
                 static_assert(D != D, "This cannot be instanciated");
         }
@@ -109,7 +109,7 @@ struct PtIntStr::dimension_type<0>
 };
 
 template <>
-int PtIntStr::get<0>() const
+int PtIntStr::Get<0>() const
 {
         return x;
 }
@@ -121,7 +121,7 @@ struct PtIntStr::dimension_type<1>
 };
 
 template <>
-std::string PtIntStr::get<1>() const
+std::string PtIntStr::Get<1>() const
 {
         return y;
 }

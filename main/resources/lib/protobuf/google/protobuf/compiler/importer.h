@@ -241,7 +241,7 @@ class LIBPROTOBUF_EXPORT DiskSourceTree : public SourceTree {
   // under it will be mapped to the given virtual location.  To map a directory
   // to the root of the source tree, pass an empty string for virtual_path.
   //
-  // If multiple mapped paths apply when opening a file, they will be searched
+  // If multiple mapped paths Apply when opening a file, they will be searched
   // in order.  For example, if you do:
   //   MapPath("bar", "foo/bar");
   //   MapPath("", "baz");

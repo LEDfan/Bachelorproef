@@ -16,7 +16,7 @@ namespace gengeopop {
 
 GeoGridJSONReader::GeoGridJSONReader() : GeoGridReader() {}
 
-std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
+std::shared_ptr<GeoGrid> GeoGridJSONReader::Read(std::istream &stream)
 {
         boost::property_tree::ptree root;
         try {
@@ -53,14 +53,14 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
                                 e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        geoGrid->addLocation(std::move(loc));
+                                        geoGrid->AddLocation(std::move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        addSubMunicipalities(geoGrid);
-        addCommutes(geoGrid);
+        AddSubMunicipalities(geoGrid);
+        AddCommutes(geoGrid);
         m_commutes.clear();
         m_people.clear();
         m_subMunicipalities.clear();
@@ -90,7 +90,7 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
                                 e->Run([&it, this, &center] { center = ParseContactCenter(it->second.get_child("")); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        result->addContactCenter(center);
+                                        result->AddContactCenter(center);
                         }
                 }
 #pragma omp taskwait
@@ -158,11 +158,11 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 #pragma omp task firstprivate(it, pool)
                         {
                                 e->Run([&it, &pool, this, &result] {
-                                        pool = ParseContactPool(it->second.get_child(""), result->getPoolSize());
+                                        pool = ParseContactPool(it->second.get_child(""), result->GetPoolSize());
                                 });
                                 if (!e->HasError())
 #pragma omp critical
-                                        result->addPool(pool);
+                                        result->AddPool(pool);
                         }
                 }
 #pragma omp taskwait
@@ -183,7 +183,7 @@ std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property
                 if (m_people.count(person_id) == 0) {
                         throw Exception("No such person: " + std::to_string(person_id));
                 }
-                result->addMember(m_people[person_id]);
+                result->AddMember(m_people[person_id]);
         }
 
         return result;

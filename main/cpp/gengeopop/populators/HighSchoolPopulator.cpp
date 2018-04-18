@@ -13,7 +13,7 @@ namespace gengeopop {
 
 HighSchoolPopulator::HighSchoolPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
-void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &geoGridConfig)
 {
         std::cout << std::endl << "Starting to populate HighSchools" << std::endl;
         std::set<std::shared_ptr<ContactPool>> found;
@@ -31,8 +31,8 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                 // 2. find all highschools were students from this location commute to
                 std::vector<std::shared_ptr<Location>> commutingHighSchools;
                 std::vector<double>                    commutingWeights;
-                for (const std::pair<std::shared_ptr<Location>, double>& commute : loc->getOutgoingCommuningCities()) {
-                        const auto& highSchools = commute.first->getContactCentersOfType<HighSchool>();
+                for (const std::pair<std::shared_ptr<Location>, double>& commute : loc->GetOutgoingCommuningCities()) {
+                        const auto& highSchools = commute.first->GetContactCentersOfType<HighSchool>();
                         if (!highSchools.empty()) {
                                 commutingHighSchools.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
@@ -47,7 +47,7 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                 }
 
                 // 2. for every student assign a class
-                for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
+                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
@@ -65,7 +65,7 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                                                 // create a list of ContactPools (i.e. classes) for each of highschool
                                                 // of this location
                                                 const auto& highSchools = commutingHighSchools[locationId]
-                                                                              ->getContactCentersOfType<HighSchool>();
+                                                        ->GetContactCentersOfType<HighSchool>();
 
                                                 std::vector<std::shared_ptr<ContactPool>> contactPools;
                                                 for (const auto& highSchool : highSchools) {
@@ -78,11 +78,11 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                                                            contactPools.size())));
 
                                                 auto id = disPools();
-                                                contactPools[id]->addMember(person);
+                                                contactPools[id]->AddMember(person);
                                                 person->SetHighSchoolId(static_cast<unsigned int>(id));
                                         } else {
                                                 auto id = distNonCommuting();
-                                                nearByHighSchools[id]->addMember(person);
+                                                nearByHighSchools[id]->AddMember(person);
                                                 person->SetHighSchoolId(static_cast<unsigned int>(id));
                                         }
                                 }

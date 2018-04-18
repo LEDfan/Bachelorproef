@@ -13,9 +13,9 @@
 
 namespace gengeopop {
 
-inline double degreeToRadian(double degree) { return (degree * M_PI) / 180.0; }
+inline double DegreeToRadian(double degree) { return (degree * M_PI) / 180.0; }
 
-inline double radianToDegree(double radian) { return (180 * radian) / M_PI; }
+inline double RadianToDegree(double radian) { return (180 * radian) / M_PI; }
 
 class GeoGrid
 {
@@ -25,23 +25,23 @@ public:
 
         GeoGrid();
 
-        void addLocation(std::shared_ptr<Location> location);
+        void AddLocation(std::shared_ptr<Location> location);
 
         /**
          * Disables the addLocation method and builds the kdtree.
          */
-        void finalize();
+        void Finalize();
 
         /**
          * Search for locations in \p radius arodun \ start
          */
-        std::set<std::shared_ptr<Location>> findLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
+        std::set<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
 
         /**
          * @param k
          * @return the K biggest Location of this GeoGrid
          */
-        std::vector<std::shared_ptr<Location>> topK(size_t k) const;
+        std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
 
         /**
          * Get the Locations location in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
@@ -54,13 +54,13 @@ public:
          *  |       |     |       |
          *  +-------p2    p2------+
          */
-        std::set<std::shared_ptr<Location>> inBox(double long1, double lat1, double long2, double lat2) const;
+        std::set<std::shared_ptr<Location>> InBox(double long1, double lat1, double long2, double lat2) const;
 
-        std::set<std::shared_ptr<Location>> inBox(const std::shared_ptr<Location>& loc1,
-                                                  std::shared_ptr<Location>&       loc2) const
+        std::set<std::shared_ptr<Location>> InBox(const std::shared_ptr<Location> &loc1,
+                                                  std::shared_ptr<Location> &loc2) const
         {
-                return inBox(loc1->getCoordinate().longitude, loc1->getCoordinate().latitude,
-                             loc2->getCoordinate().longitude, loc2->getCoordinate().latitude);
+                return InBox(loc1->GetCoordinate().longitude, loc1->GetCoordinate().latitude,
+                             loc2->GetCoordinate().longitude, loc2->GetCoordinate().latitude);
         }
 
         iterator begin();
@@ -75,7 +75,7 @@ public:
 
         std::shared_ptr<Location> operator[](size_t index);
 
-        std::shared_ptr<Location> get(size_t index);
+        std::shared_ptr<Location> Get(size_t index);
 
         std::shared_ptr<Location> GetById(unsigned int id);
 
@@ -89,8 +89,8 @@ private:
         {
         public:
                 explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
-                    : m_location(location), m_longitude(location->getCoordinate().longitude),
-                      m_latitude(location->getCoordinate().latitude)
+                    : m_location(location), m_longitude(location->GetCoordinate().longitude),
+                      m_latitude(location->GetCoordinate().latitude)
                 {
                 }
 
@@ -110,7 +110,7 @@ private:
                 }
 
                 template <std::size_t D>
-                double get() const
+                double Get() const
                 {
                         static_assert(0 <= D && D <= 1, "Dimension should be in range");
                         if (D == 0) {
@@ -126,9 +126,9 @@ private:
                                box.lower.m_latitude <= m_latitude && m_latitude <= box.upper.m_latitude;
                 }
 
-                bool InRadius(const KdTree2DPoint& start, double radius) const { return distance(start) <= radius; }
+                bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
 
-                std::shared_ptr<Location> getLocation() const { return m_location; }
+                std::shared_ptr<Location> GetLocation() const { return m_location; }
 
                 template <std::size_t D>
                 struct dimension_type
@@ -141,12 +141,12 @@ private:
                 double                    m_longitude;
                 double                    m_latitude;
 
-                double distance(const KdTree2DPoint& other) const
+                double Distance(const KdTree2DPoint &other) const
                 {
-                        double lat1 = degreeToRadian(m_latitude);
-                        double lon1 = degreeToRadian(m_longitude);
-                        double lat2 = degreeToRadian(other.m_latitude);
-                        double lon2 = degreeToRadian(other.m_longitude);
+                        double lat1 = DegreeToRadian(m_latitude);
+                        double lon1 = DegreeToRadian(m_longitude);
+                        double lat2 = DegreeToRadian(other.m_latitude);
+                        double lon2 = DegreeToRadian(other.m_longitude);
 
                         return 6371.0 * std::acos(std::sin(lat1) * std::sin(lat2) +
                                                   std::cos(lat1) * std::cos(lat2) * std::cos(lon1 - lon2));

@@ -6,7 +6,7 @@
 #include <iostream>
 namespace gengeopop {
 
-std::shared_ptr<GeoGridReader> GeoGridReaderFactory::createReader(std::string filename) const
+std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string filename) const
 {
         boost::filesystem::path path(filename);
         if (!boost::filesystem::exists(path)) {

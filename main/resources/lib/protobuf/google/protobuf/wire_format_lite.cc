@@ -660,7 +660,7 @@ static size_t VarintSize(
   static const vus32 ones = {{1, 1, 1, 1}};
 
   // CodedOutputStream::VarintSize32SignExtended returns 10 for negative
-  // numbers.  We can apply the UInt32Size algorithm, and simultaneously logical
+  // numbers.  We can Apply the UInt32Size algorithm, and simultaneously logical
   // shift the MSB into the LSB to determine if it is negative.
   static const vus32 fives = {{5, 5, 5, 5}};
 

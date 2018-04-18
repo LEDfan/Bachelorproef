@@ -40,7 +40,7 @@ ApplicationWindow {
             title: "View"
             MenuItem {
                          text: "Show &Commutes"
-                         onTriggered: backend.setShowCommutes(checked)
+                         onTriggered: backend.SetShowCommutes(checked)
                          checkable: true
                          checked: false
                          shortcut: "Alt+c"
@@ -104,7 +104,7 @@ ApplicationWindow {
 
     Shortcut {
             sequence: "Ctrl+A"
-            onActivated: backend.selectAll()
+            onActivated: backend.SelectAll()
     }
 
     FileDialog {

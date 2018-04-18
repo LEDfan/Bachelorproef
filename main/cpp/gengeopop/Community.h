@@ -9,12 +9,12 @@ class Community : public ContactCenter
 {
 public:
         explicit Community(unsigned int id);
-        void         addHouseHold(std::shared_ptr<Household> household);
-        std::string  getType() const override;
-        bool         isAvailable() const override;
-        unsigned int getPoolSize() const override;
-        unsigned int getMaxPools() const override;
-        void         fill(GeoGridConfig& geoGridConfig) override;
+        void         AddHouseHold(std::shared_ptr<Household> household);
+        std::string  GetType() const override;
+        bool         IsAvailable() const override;
+        unsigned int GetPoolSize() const override;
+        unsigned int GetMaxPools() const override;
+        void         Fill(GeoGridConfig &geoGridConfig) override;
 };
 
 } // namespace gengeopop

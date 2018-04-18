@@ -16,49 +16,49 @@ using namespace gengeopop;
 
 namespace {
 
-std::shared_ptr<GeoGrid> getGeoGrid()
+std::shared_ptr<GeoGrid> GetGeoGrid()
 {
         GeoGridConfig config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
         GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>());
-        return geoGridGenerator.getGeoGrid();
+        return geoGridGenerator.GetGeoGrid();
 }
 
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        auto geoGrid = getGeoGrid();
-        geoGrid->addLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove"));
-        geoGrid->addLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent"));
-        geoGrid->addLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons"));
+        auto geoGrid = GetGeoGrid();
+        geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove"));
+        geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent"));
+        geoGrid->AddLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons"));
 
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
-        auto geoGrid  = getGeoGrid();
+        auto geoGrid  = GetGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
-        location->addContactCenter(std::make_shared<School>(0));
-        location->addContactCenter(std::make_shared<Community>(1));
-        location->addContactCenter(std::make_shared<HighSchool>(2));
-        location->addContactCenter(std::make_shared<Household>(3));
-        location->addContactCenter(std::make_shared<Workplace>(4));
-        geoGrid->addLocation(location);
+        location->AddContactCenter(std::make_shared<School>(0));
+        location->AddContactCenter(std::make_shared<Community>(1));
+        location->AddContactCenter(std::make_shared<HighSchool>(2));
+        location->AddContactCenter(std::make_shared<Household>(3));
+        location->AddContactCenter(std::make_shared<Workplace>(4));
+        geoGrid->AddLocation(location);
 
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoWriterTest, submunicipalityTest)
 {
-        auto geoGrid         = getGeoGrid();
+        auto geoGrid         = GetGeoGrid();
         auto location        = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
         auto submunicipality = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");
-        submunicipality->addContactCenter(std::make_shared<School>(0));
-        location->addSubMunicipality(submunicipality);
-        geoGrid->addLocation(location);
+        submunicipality->AddContactCenter(std::make_shared<School>(0));
+        location->AddSubMunicipality(submunicipality);
+        geoGrid->AddLocation(location);
 
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
-TEST(GeoGridProtoWriterTest, peopleTest) { compareGeoGrid(getPopulatedGeoGrid()); }
-TEST(GeoGridProtoWriterTest, commutesTest) { compareGeoGrid(getCommutesGeoGrid()); }
+TEST(GeoGridProtoWriterTest, peopleTest) { CompareGeoGrid(GetPopulatedGeoGrid()); }
+TEST(GeoGridProtoWriterTest, commutesTest) { CompareGeoGrid(GetCommutesGeoGrid()); }
 } // namespace

@@ -3,7 +3,7 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
+void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
         auto nameText       = parent()->findChild<QObject*>(QString("textName"));
         auto provinceText   = parent()->findChild<QObject*>(QString("textProvince"));
@@ -20,10 +20,10 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
         bool first = true;
         for (const auto& location : locations) {
                 // Handle situation when too much is selected to be shown fully
-                QString provinceName = NISToProvince(location->getProvince());
-                if (nameString.length() + QString::fromStdString(location->getName()).length() > maxChars ||
+                QString provinceName = NISToProvince(location->GetProvince());
+                if (nameString.length() + QString::fromStdString(location->GetName()).length() > maxChars ||
                     provinceString.length() + provinceName.length() > maxChars ||
-                    idString.length() + QString::number(location->getID()).length() > maxChars) {
+                    idString.length() + QString::number(location->GetID()).length() > maxChars) {
                         nameString += "...";
                         provinceString += "...";
                         idString += "...";
@@ -38,15 +38,15 @@ void LocationViewerBackend::showLocations(std::set<std::shared_ptr<gengeopop::Lo
                         idString += QString(",");
                 }
 
-                nameString += QString::fromStdString(location->getName());
+                nameString += QString::fromStdString(location->GetName());
                 provinceString += provinceName;
-                idString += QString::number(location->getID());
+                idString += QString::number(location->GetID());
         }
 
         // Calculate aggregated population
         unsigned int totalPopulation = 0;
         for (const auto& location : locations) {
-                totalPopulation += location->getPopulation();
+                totalPopulation += location->GetPopulation();
         }
         populationString += QString::number(totalPopulation);
 

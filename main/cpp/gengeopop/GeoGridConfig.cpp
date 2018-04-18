@@ -4,16 +4,16 @@ namespace gengeopop {
 
 using stride::util::intToDottedString;
 
-GeoGridConfig::GeoGridConfig() : input{}, calculated{} {}
+GeoGridConfig::GeoGridConfig() : input{}, calculated{}, generated{} {}
 
 void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader)
 {
         calculated.compulsoryPupils = static_cast<unsigned int>(
-            std::floor(householdReader->getFractionCompulsoryPupils() * input.populationSize));
+            std::floor(householdReader->GetFractionCompulsoryPupils() * input.populationSize));
         calculated._1865_years =
-            static_cast<unsigned int>(std::floor(householdReader->getFraction1865Years() * input.populationSize));
+            static_cast<unsigned int>(std::floor(householdReader->GetFraction1865Years() * input.populationSize));
         calculated._1826_years =
-            static_cast<unsigned int>(std::floor(householdReader->getFraction1826Years() * input.populationSize));
+            static_cast<unsigned int>(std::floor(householdReader->GetFraction1826Years() * input.populationSize));
         calculated._1826_years_and_student =
             static_cast<unsigned int>(std::floor(input.fraction_1826_years_WhichAreStudents * calculated._1826_years));
 
@@ -21,12 +21,12 @@ void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<
             input.fraction_1865_years_active * (calculated._1865_years - calculated._1826_years_and_student)));
 
         calculated.households = static_cast<unsigned int>(
-            std::floor(static_cast<double>(input.populationSize) / householdReader->averageHouseholdSize()));
+            std::floor(static_cast<double>(input.populationSize) / householdReader->AverageHouseholdSize()));
 
         generated.household_types = householdReader->GetHouseHolds();
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                loc->calculatePopulation(input.populationSize);
+                loc->CalculatePopulation(input.populationSize);
         }
 }
 

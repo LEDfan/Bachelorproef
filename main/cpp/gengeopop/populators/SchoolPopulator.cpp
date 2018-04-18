@@ -13,7 +13,7 @@ namespace gengeopop {
 
 SchoolPopulator::SchoolPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
-void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
+void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig &)
 {
 
         std::cout << std::endl << "Starting to populate Schools" << std::endl;
@@ -29,13 +29,13 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));
 
                 // 2. for every student assign a class
-                for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
+                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (const std::shared_ptr<stride::Person>& person : *contactPool) {
                                 if (person->GetAge() < 18 && person->GetAge() >= 6) {
                                         auto id = dist();
-                                        classes[id]->addMember(person);
+                                        classes[id]->AddMember(person);
                                         person->SetSchoolId(static_cast<unsigned int>(id));
                                         pupils++;
                                 }

@@ -7,9 +7,9 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 {
         auto pool = m_pools[index.row()];
         switch (role) {
-        case Roles::IDRole: return QString::number(pool->getID());
-        case Roles::Capacity: return QString::number(pool->getCapacity());
-        case Roles::UsedCapacity: return QString::number(pool->getUsedCapacity());
+        case Roles::IDRole: return QString::number(pool->GetID());
+        case Roles::Capacity: return QString::number(pool->GetCapacity());
+        case Roles::UsedCapacity: return QString::number(pool->GetUsedCapacity());
         default: break;
         }
         return QVariant();
@@ -17,7 +17,7 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 
 ContactPoolListModel::ContactPoolListModel(QObject* parent) : QAbstractListModel(parent), m_pools() {}
 
-QHash<int, QByteArray> ContactPoolListModel::roleNames() const
+QHash<int, QByteArray> ContactPoolListModel::RoleNames() const
 {
         QHash<int, QByteArray> roles;
         roles[Roles::IDRole]       = "id";
@@ -28,7 +28,7 @@ QHash<int, QByteArray> ContactPoolListModel::roleNames() const
 
 int ContactPoolListModel::columnCount(const QModelIndex& /*parent*/) const { return 2; }
 
-void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> loc)
+void ContactPoolListModel::SetPools(std::shared_ptr<gengeopop::ContactCenter> loc)
 {
         auto oldAmtRows = static_cast<int>(m_pools.size());
         m_pools         = loc->GetPools();

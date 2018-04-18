@@ -44,21 +44,21 @@ std::shared_ptr<GeoGrid> getExpectedGeoGrid()
         auto loc7 = std::make_shared<Location>(73109, 7, Coordinate(251986.4171, 160699.7771, 5.806343076, 50.74921941),
                                                "VOEREN-'S GRAVENVOEREN");
 
-        loc1->setRelativePopulation(0.76599210042448873);
-        loc2->setRelativePopulation(0.018849454066692393);
-        loc3->setRelativePopulation(0.065934783102172378);
-        loc4->setRelativePopulation(0.04604396976369373);
-        loc5->setRelativePopulation(0.029663133044287561);
-        loc6->setRelativePopulation(0.06618731981930856);
-        loc7->setRelativePopulation(0.0073292397793566838);
+        loc1->SetRelativePopulation(0.76599210042448873);
+        loc2->SetRelativePopulation(0.018849454066692393);
+        loc3->SetRelativePopulation(0.065934783102172378);
+        loc4->SetRelativePopulation(0.04604396976369373);
+        loc5->SetRelativePopulation(0.029663133044287561);
+        loc6->SetRelativePopulation(0.06618731981930856);
+        loc7->SetRelativePopulation(0.0073292397793566838);
 
-        geoGrid->addLocation(loc1);
-        geoGrid->addLocation(loc2);
-        geoGrid->addLocation(loc3);
-        geoGrid->addLocation(loc4);
-        geoGrid->addLocation(loc5);
-        geoGrid->addLocation(loc6);
-        geoGrid->addLocation(loc7);
+        geoGrid->AddLocation(loc1);
+        geoGrid->AddLocation(loc2);
+        geoGrid->AddLocation(loc3);
+        geoGrid->AddLocation(loc4);
+        geoGrid->AddLocation(loc5);
+        geoGrid->AddLocation(loc6);
+        geoGrid->AddLocation(loc7);
 
         return geoGrid;
 }
@@ -85,9 +85,9 @@ TEST(CitiesCSVReaderTest, test1)
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : *geoGrid) {
-                EXPECT_EQ(*loc, *(expectedGeoGrid->GetById(loc->getID())));
-                EXPECT_DOUBLE_EQ(loc->getRelativePopulationSize(),
-                                 (expectedGeoGrid->GetById(loc->getID()))->getRelativePopulationSize());
+                EXPECT_EQ(*loc, *(expectedGeoGrid->GetById(loc->GetID())));
+                EXPECT_DOUBLE_EQ(loc->GetRelativePopulationSize(),
+                                 (expectedGeoGrid->GetById(loc->GetID()))->GetRelativePopulationSize());
         }
 }
 

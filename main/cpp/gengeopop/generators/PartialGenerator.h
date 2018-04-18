@@ -12,9 +12,8 @@ class PartialGenerator
 {
 public:
         explicit PartialGenerator(stride::util::RNManager& rn_manager);
-        virtual void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
+        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig &geoGridConfig) = 0;
         virtual ~PartialGenerator()                                                        = default;
-        ;
 
 protected:
         stride::util::RNManager& m_rnManager;

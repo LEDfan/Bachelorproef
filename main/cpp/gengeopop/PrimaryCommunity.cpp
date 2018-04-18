@@ -3,6 +3,6 @@
 namespace gengeopop {
 
 PrimaryCommunity::PrimaryCommunity(unsigned int id) : Community(id) {}
-std::string PrimaryCommunity::getType() const { return "Primary Community"; }
+std::string PrimaryCommunity::GetType() const { return "Primary Community"; }
 
 } // namespace gengeopop

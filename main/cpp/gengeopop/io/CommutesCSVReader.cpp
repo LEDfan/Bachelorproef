@@ -20,11 +20,11 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         // represents the location id for column x
         std::vector<unsigned int> headerMeaning;
 
-        for (const std::string& label : m_reader.getLabels()) {
+        for (const std::string& label : m_reader.GetLabels()) {
                 headerMeaning.push_back(static_cast<unsigned int>(stoi(label.substr(3))));
         }
 
-        const size_t columnCount = m_reader.getColumnCount();
+        const size_t columnCount = m_reader.GetColumnCount();
 
         size_t rowIndex = 0;
         for (const stride::util::CSVRow& row : m_reader) {
@@ -41,11 +41,11 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                 double      proportion = abs / total;
                                 if (proportion < 0 || proportion > 1) {
                                         throw Exception(
-                                            "Proportion of commutes from " + std::to_string(locFrom->getID()) + " to " +
-                                            std::to_string(locTo->getID()) + " is invalid (0 <= proportion <= 1)");
+                                            "Proportion of commutes from " + std::to_string(locFrom->GetID()) + " to " +
+                                            std::to_string(locTo->GetID()) + " is invalid (0 <= proportion <= 1)");
                                 }
-                                locFrom->addOutgoingCommutingLocation(locTo, proportion);
-                                locTo->addIncomingCommutingLocation(locFrom, proportion);
+                                locFrom->AddOutgoingCommutingLocation(locTo, proportion);
+                                locTo->AddIncomingCommutingLocation(locFrom, proportion);
                         }
                 }
                 rowIndex++;

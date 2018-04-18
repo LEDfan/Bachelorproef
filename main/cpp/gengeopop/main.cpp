@@ -30,24 +30,24 @@ using namespace TCLAP;
 void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
         GeoGridGenerator geoGridGenerator(geoGridConfig, std::move(geoGrid));
-        geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
-        geoGridGenerator.generateGeoGrid();
+        geoGridGenerator.AddPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
+        geoGridGenerator.GenerateGeoGrid();
 }
 
 void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
         GeoGridPopulator geoGridPopulator(geoGridConfig, std::move(geoGrid));
-        geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<HighSchoolPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<WorkplacePopulator>(rnManager));
-        geoGridPopulator.populateGeoGrid();
+        geoGridPopulator.AddPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<HighSchoolPopulator>(rnManager));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(rnManager));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(rnManager));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<WorkplacePopulator>(rnManager));
+        geoGridPopulator.PopulateGeoGrid();
 }
 
 void generate(GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
                 geoGridConfig.Calculate(geoGrid, houseHoldsReader);
-                geoGrid->finalize();
+                geoGrid->Finalize();
 
                 std::cout << geoGridConfig;
 
@@ -156,8 +156,8 @@ int main(int argc, char* argv[])
                 std::cout << "Writing to file..." << std::endl;
 
                 GeoGridWriterFactory           geoGridWriterFactory;
-                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.createWriter(outputFile.getValue());
-                geoGridWriter->write(geoGrid, outputFileStream);
+                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
+                geoGridWriter->Write(geoGrid, outputFileStream);
                 outputFileStream.close();
 
                 std::cout << "Done writing to file" << std::endl;

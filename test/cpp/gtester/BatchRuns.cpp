@@ -79,7 +79,7 @@ TEST_P(BatchRuns, Run)
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        // Check within a 95% confidence interval (distance of 2 std deviations)
+        // Check within a 95% confidence interval (Distance of 2 std deviations)
         EXPECT_NEAR(res, target, sigma * 2) << "!! CHANGES for " << test_tag;
 }
 

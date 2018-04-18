@@ -5,16 +5,16 @@ namespace gengeopop {
 
 School::School(unsigned int id) : ContactCenter(id) {}
 
-unsigned int School::getMaxPools() const { return 25; }
+unsigned int School::GetMaxPools() const { return 25; }
 
-unsigned int School::getPoolSize() const { return 20; }
+unsigned int School::GetPoolSize() const { return 20; }
 
-std::string School::getType() const { return "School"; }
+std::string School::GetType() const { return "School"; }
 
-void School::fill(GeoGridConfig& geoGridConfig)
+void School::Fill(GeoGridConfig &geoGridConfig)
 {
-        for (std::size_t i = 0; i < getMaxPools(); ++i) {
-                addPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, getPoolSize()));
+        for (std::size_t i = 0; i < GetMaxPools(); ++i) {
+                AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));
         }
 }
 

@@ -6,7 +6,7 @@ namespace gengeopop {
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
-void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream& stream)
+void GeoGridJSONWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream &stream)
 {
         boost::property_tree::ptree root;
         boost::property_tree::ptree locations;
@@ -18,7 +18,7 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(location)
                         {
-                                child = std::make_pair("", writeLocation(location));
+                                child = std::make_pair("", WriteLocation(location));
 #pragma omp critical
 
                                 locations.push_back(std::move(child));
@@ -37,7 +37,7 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(person)
                         {
-                                child = std::make_pair("", writePerson(person));
+                                child = std::make_pair("", WritePerson(person));
 #pragma omp critical
                                 persons.push_back(std::move(child));
                         }
@@ -50,20 +50,20 @@ void GeoGridJSONWriter::write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::
         boost::property_tree::write_json(stream, root);
 } // namespace gengeopop
 
-boost::property_tree::ptree GeoGridJSONWriter::writeLocation(std::shared_ptr<Location> location)
+boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(std::shared_ptr<Location> location)
 {
         boost::property_tree::ptree location_root;
-        location_root.put("id", location->getID());
-        location_root.put("name", location->getName());
-        location_root.put("province", location->getProvince());
-        location_root.put("population", location->getPopulation());
-        location_root.add_child("coordinate", writeCoordinate(location->getCoordinate()));
+        location_root.put("id", location->GetID());
+        location_root.put("name", location->GetName());
+        location_root.put("province", location->GetProvince());
+        location_root.put("population", location->GetPopulation());
+        location_root.add_child("coordinate", WriteCoordinate(location->GetCoordinate()));
 
-        auto commutes = location->getOutgoingCommuningCities();
+        auto commutes = location->GetOutgoingCommuningCities();
         if (!commutes.empty()) {
                 boost::property_tree::ptree commutes_root;
                 for (auto commute_pair : commutes) {
-                        commutes_root.put(std::to_string(commute_pair.first->getID()), commute_pair.second);
+                        commutes_root.put(std::to_string(commute_pair.first->GetID()), commute_pair.second);
                 }
                 location_root.add_child("commutes", commutes_root);
         }
@@ -76,7 +76,7 @@ boost::property_tree::ptree GeoGridJSONWriter::writeLocation(std::shared_ptr<Loc
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(contactCenter)
                         {
-                                child = std::make_pair("", writeContactCenter(contactCenter));
+                                child = std::make_pair("", WriteContactCenter(contactCenter));
 #pragma omp critical
                                 contactCenters.push_back(std::move(child));
                         }
@@ -86,9 +86,9 @@ boost::property_tree::ptree GeoGridJSONWriter::writeLocation(std::shared_ptr<Loc
         location_root.add_child("contactCenters", contactCenters);
 
         boost::property_tree::ptree subMunicipalities;
-        for (const auto& subMunicipality : location->getSubMunicipalities()) {
+        for (const auto& subMunicipality : location->GetSubMunicipalities()) {
                 boost::property_tree::ptree person_root;
-                person_root.put("", subMunicipality->getID());
+                person_root.put("", subMunicipality->GetID());
                 subMunicipalities.push_back(std::make_pair("", person_root));
         }
         location_root.add_child("submunicipalities", subMunicipalities);
@@ -96,7 +96,7 @@ boost::property_tree::ptree GeoGridJSONWriter::writeLocation(std::shared_ptr<Loc
         return location_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::writeCoordinate(const Coordinate& coordinate)
+boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate &coordinate)
 {
         boost::property_tree::ptree coordinate_root;
         coordinate_root.put("x", coordinate.x);
@@ -106,11 +106,11 @@ boost::property_tree::ptree GeoGridJSONWriter::writeCoordinate(const Coordinate&
         return coordinate_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::writeContactCenter(std::shared_ptr<ContactCenter> contactCenter)
+boost::property_tree::ptree GeoGridJSONWriter::WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter)
 {
         boost::property_tree::ptree contactCenter_root;
-        contactCenter_root.put("id", contactCenter->getId());
-        contactCenter_root.put("type", contactCenter->getType());
+        contactCenter_root.put("id", contactCenter->GetId());
+        contactCenter_root.put("type", contactCenter->GetType());
         boost::property_tree::ptree pools;
 #pragma omp parallel
 #pragma omp single
@@ -119,7 +119,7 @@ boost::property_tree::ptree GeoGridJSONWriter::writeContactCenter(std::shared_pt
                         std::pair<std::string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(pool)
                         {
-                                child = std::make_pair("", writeContactPool(pool));
+                                child = std::make_pair("", WriteContactPool(pool));
 #pragma omp critical
                                 pools.push_back(std::move(child));
                         }
@@ -130,10 +130,10 @@ boost::property_tree::ptree GeoGridJSONWriter::writeContactCenter(std::shared_pt
         return contactCenter_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::writeContactPool(std::shared_ptr<ContactPool> contactPool)
+boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(std::shared_ptr<ContactPool> contactPool)
 {
         boost::property_tree::ptree contactPool_root;
-        contactPool_root.put("id", contactPool->getID());
+        contactPool_root.put("id", contactPool->GetID());
         boost::property_tree::ptree people;
         for (const auto& person : *contactPool) {
                 boost::property_tree::ptree person_root;
@@ -145,7 +145,7 @@ boost::property_tree::ptree GeoGridJSONWriter::writeContactPool(std::shared_ptr<
         contactPool_root.add_child("people", people);
         return contactPool_root;
 }
-boost::property_tree::ptree GeoGridJSONWriter::writePerson(std::shared_ptr<stride::Person> person)
+boost::property_tree::ptree GeoGridJSONWriter::WritePerson(std::shared_ptr<stride::Person> person)
 {
         boost::property_tree::ptree person_root;
         person_root.put("id", person->GetId());
