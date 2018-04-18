@@ -54,7 +54,7 @@ TEST(ReaderFactoryTest, TestCities)
         EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/empty.txt"),
                      std::runtime_error);
         EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/random.txt"),
-                     std::invalid_argument);
+                     std::runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestHouseHolds)
