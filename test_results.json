@@ -538,6 +538,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.3-linux-clang-5.html",
       "build_id": "467.3",
       "name": "linux-clang-5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "467.4"
     }
   ]
 }
