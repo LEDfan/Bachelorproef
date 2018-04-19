@@ -79,7 +79,16 @@ public:
 
         std::shared_ptr<Location> GetById(unsigned int id);
 
+        template<typename... Args>
+        std::shared_ptr<stride::Person> CreatePerson(Args&&... args) {
+                return createPersonImpl(args...) ;
+        }
+
+        static std::function<std::shared_ptr<stride::Person>(unsigned int, double, unsigned int, unsigned int, unsigned int,
+                                                        unsigned int, unsigned int)> createPersonImpl;
+
 private:
+
         std::vector<std::shared_ptr<Location>>                      m_locations;
         std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
 

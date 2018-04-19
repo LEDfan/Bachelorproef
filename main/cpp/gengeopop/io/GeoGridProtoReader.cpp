@@ -184,7 +184,7 @@ std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::Geo
         auto primaryCommunityId   = protoPerson.primarycommunity();
         auto secondaryCommunityId = protoPerson.secondarycommunity();
 
-        return std::make_shared<stride::Person>(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
+        return geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
                                                 secondaryCommunityId);
 }
 

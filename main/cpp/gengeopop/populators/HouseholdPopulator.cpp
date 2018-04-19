@@ -25,9 +25,7 @@ void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         std::shared_ptr<ContactPool> householdType =
                             geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
                         for (const std::shared_ptr<stride::Person>& personType : *householdType) {
-                                auto person = std::make_shared<stride::Person>(*personType);
-                                person->SetId(current_person_id++);
-                                person->SetHouseholdId(household->getId());
+                                auto person = geoGrid->CreatePerson(current_person_id++, personType->GetAge(), household->getId(), personType->GetSchoolId(), personType->GetWorkId(),personType->GetPrimaryCommunityId(), personType->GetSecondaryCommunityId());
                                 contactPool->addMember(person);
                         }
                 }
