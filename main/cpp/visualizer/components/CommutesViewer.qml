@@ -18,6 +18,7 @@ ColumnLayout {
         objectName: 'commuteslist'
         height: 50
         model: commutesModel
+        visible: false
 
         TableViewColumn {
             role: "destination"

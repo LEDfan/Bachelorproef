@@ -37,8 +37,15 @@ void CommutesListModel::setCommutes(std::set<std::shared_ptr<gengeopop::Location
                 hasCommutes(false);
                 return;
         }
-        hasCommutes(true);
+
         m_location         = *locations.begin();
+        // Signal if the commutes need to be shown.
+        // If there are no commutes other components may want to adapt to this
+        if(m_location->getOutgoingCommuningCities().size() > 0) {
+                hasCommutes(true);
+        } else {
+                hasCommutes(false);
+        }
         int newAmount = static_cast<int>(m_location->getOutgoingCommuningCities().size());
         int diff        = newAmount - oldAmtRows;
         if (diff < 0) {
