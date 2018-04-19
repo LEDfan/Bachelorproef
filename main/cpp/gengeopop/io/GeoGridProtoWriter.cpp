@@ -1,4 +1,5 @@
 #include "GeoGridProtoWriter.h"
+#include "Exception.h"
 #include "proto/geogrid.pb.h"
 #include <iostream>
 #include <omp.h>

@@ -49,7 +49,7 @@ CliController::CliController(const ptree& config_pt)
         m_stride_log_level = m_config_pt.get<string>("run.stride_log_level");
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-};
+}
 
 void CliController::CheckEnv()
 {

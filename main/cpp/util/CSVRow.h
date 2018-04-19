@@ -106,14 +106,14 @@ std::string CSVRow::GetValue<std::string>(const std::string& label) const;
 template <typename T>
 inline T CSVRow::GetValue(size_t index) const
 {
-        return safe_cast<T>(getValue<std::string>(index));
+        return safe_cast<T>(GetValue<std::string>(index));
 }
 
 ///
 template <typename T>
 inline T CSVRow::GetValue(const std::string& label) const
 {
-        return safe_cast<T>(getValue<std::string>(label));
+        return safe_cast<T>(GetValue<std::string>(label));
 }
 
 } // namespace util

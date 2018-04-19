@@ -119,12 +119,6 @@ void CSV::Write(const boost::filesystem::path& path) const
         file.close();
 }
 
-<<<<<<< HEAD
-bool CSV::operator==(const CSV& other) const
-{
-        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
-}
-
 void CSV::readFromStream(std::istream& inputStream)
 {
         std::string line;
@@ -144,14 +138,12 @@ void CSV::readFromStream(std::istream& inputStream)
                 if (!line.empty()) {
                         std::vector<std::string> values =
                             Split(line, ","); // Split is bad! There is no option to escape ",".
-                        addRow(values);
+                        AddRow(values);
                 }
         }
 }
 
 const std::vector<std::string>& CSV::getLabels() const { return labels; }
 
-=======
->>>>>>> 383838e28717550e7f1f3e2bf4b2e447b3d81089
 } // namespace util
 } // namespace stride

@@ -28,6 +28,7 @@ set(SRC
 
 add_library(sha1 ${SRC})
 set_property(TARGET sha1 PROPERTY POSITION_INDEPENDENT_CODE ON)
+set_target_properties(sha1 PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 unset(SRC)
 
 #############################################################################

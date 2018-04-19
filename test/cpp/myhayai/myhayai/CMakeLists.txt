@@ -42,6 +42,7 @@ set(SRC
 
 add_library(myhayai STATIC ${SRC})
 set_property(TARGET myhayai PROPERTY POSITION_INDEPENDENT_CODE ON)
+set_target_properties(myhayai PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 
 #============================================================================
 # Clean up.

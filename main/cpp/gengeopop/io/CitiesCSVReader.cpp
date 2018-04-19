@@ -16,18 +16,18 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         unsigned int totalPopulation = 0;
 
         for (const stride::util::CSVRow& row : reader) {
-                auto id       = row.getValue<int>(0);
+                auto id       = row.GetValue<int>(0);
                 auto location = std::make_shared<Location>(id,                                 // id
-                                                           row.getValue<int>(1),               // province
-                                                           Coordinate(row.getValue<double>(3), // x_coord
-                                                                      row.getValue<double>(4), // y_coord
-                                                                      row.getValue<double>(6), // longtitude
-                                                                      row.getValue<double>(5)  // latitude
+                                                           row.GetValue<int>(1),               // province
+                                                           Coordinate(row.GetValue<double>(3), // x_coord
+                                                                      row.GetValue<double>(4), // y_coord
+                                                                      row.GetValue<double>(6), // longtitude
+                                                                      row.GetValue<double>(5)  // latitude
                                                                       ),
-                                                           row.getValue(7));
+                                                           row.GetValue(7));
                 geoGrid->addLocation(location);
-                addedLocations.emplace_back(location, row.getValue<int>(2));
-                totalPopulation += row.getValue<int>(2);
+                addedLocations.emplace_back(location, row.GetValue<int>(2));
+                totalPopulation += row.GetValue<int>(2);
         }
 
         for (const auto& loc : addedLocations) {
