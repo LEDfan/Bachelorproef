@@ -1,11 +1,12 @@
 #pragma once
 
-#include <spdlog/logger.h>
 #include <sim/event/Payload.h>
+#include <spdlog/logger.h>
 
 namespace stride {
-    namespace viewers {
-        class VisualizerViewer {
+namespace viewers {
+class VisualizerViewer
+{
 public:
         /// Instantiate cli viewer.
         VisualizerViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) {}
@@ -15,8 +16,6 @@ public:
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
-        };
-    }
-}
-
-
+};
+} // namespace viewers
+} // namespace stride

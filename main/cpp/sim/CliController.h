@@ -70,7 +70,7 @@ public:
 
 protected:
         /// Register the viewers of the SimRunner.
-        virtual void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
+        virtual void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
         /// Returns the logger
         std::shared_ptr<spdlog::logger> getLogger() const;
@@ -94,9 +94,6 @@ private:
 
         /// Read configuration file.
         void ReadConfigFile();
-
-        /// Register the viewers of the SimRunner.
-        void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 private:
         std::string                                       m_config_file;      /// Config parameters file name.

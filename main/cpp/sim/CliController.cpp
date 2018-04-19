@@ -248,8 +248,6 @@ void CliController::Setup()
         }
 }
 
-std::shared_ptr<spdlog::logger> CliController::getLogger() const {
-    return m_stride_logger;
-}
+std::shared_ptr<spdlog::logger> CliController::getLogger() const { return m_stride_logger; }
 
 } // namespace stride

@@ -18,9 +18,9 @@
  * Main program: command line handling.
  */
 
+#include "CliWithVisualizerController.h"
 #include "sim/CliController.h"
 #include "util/StringUtils.h"
-#include "CliWithVisualizerController.h"
 
 #include <tclap/CmdLine.h>
 #include <vector>
@@ -54,7 +54,8 @@ int main(int argc, char** argv)
                 SwitchArg working_dir_Arg("w", "working_dir",
                                           "Use working directory to find files i.o install directories", cmd, false);
 
-                SwitchArg show_visualiser("v", "visualizer", "Open a visualizer window when the simulation runs.", cmd, false);
+                SwitchArg show_visualiser("v", "visualizer", "Open a visualizer window when the simulation runs.", cmd,
+                                          false);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -72,17 +73,16 @@ int main(int argc, char** argv)
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
                 // We have been using use_installdirs for a while, so ..
-                const bool    use_install_dirs = !working_dir_Arg.getValue();
-
-
-
-                std::shared_ptr<CliController> controller = nullptr;
-                if(show_visualiser.getValue()) {
-                        controller = std::make_shared<CliWithVisualizerController>(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
-                                    stride_log_level.getValue(), use_install_dirs);
+                const bool                     use_install_dirs = !working_dir_Arg.getValue();
+                std::shared_ptr<CliController> controller       = nullptr;
+                if (show_visualiser.getValue()) {
+                        controller = std::make_shared<CliWithVisualizerController>(
+                            config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
+                            stride_log_level.getValue(), use_install_dirs);
                 } else {
-                        controller = std::make_shared<CliController>(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
-                                    stride_log_level.getValue(), use_install_dirs);
+                        controller = std::make_shared<CliController>(config_file_Arg.getValue(), p_overrides,
+                                                                     index_case_Arg.getValue(),
+                                                                     stride_log_level.getValue(), use_install_dirs);
                 }
                 controller->Setup();
                 controller->Execute();
