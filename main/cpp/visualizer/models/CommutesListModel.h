@@ -17,6 +17,11 @@ public:
         void setCommutes(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 signals:
+        /**
+         * Sends a signal to listeners whether or not there are commutes.
+         * This can be used to hide a list when nothing needs to be shown for example.
+         * @param status If the model contains commutes
+         */
         void hasCommutes(bool status);
 
 private:
