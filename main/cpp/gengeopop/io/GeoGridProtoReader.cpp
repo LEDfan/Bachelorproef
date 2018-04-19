@@ -15,12 +15,12 @@
 
 namespace gengeopop {
 
-GeoGridProtoReader::GeoGridProtoReader() : GeoGridReader() {}
+GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream) : GeoGridReader(std::move(inputStream)) {}
 
-std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
+std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
 {
         proto::GeoGrid protoGrid;
-        if (!protoGrid.ParseFromIstream(&stream)) {
+        if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw Exception("Failed to parse Proto file");
         }
         auto geoGrid = std::make_shared<GeoGrid>();

@@ -13,13 +13,13 @@
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader() : GeoGridReader() {}
+GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream) : GeoGridReader(std::move(inputStream)) {}
 
-std::shared_ptr<GeoGrid> GeoGridJSONReader::read(std::istream& stream)
+std::shared_ptr<GeoGrid> GeoGridJSONReader::read()
 {
         boost::property_tree::ptree root;
         try {
-                boost::property_tree::read_json(stream, root);
+                boost::property_tree::read_json(*m_inputStream, root);
         } catch (std::runtime_error) {
                 throw std::runtime_error(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");

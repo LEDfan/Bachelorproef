@@ -9,9 +9,9 @@ namespace gengeopop {
 class GeoGridProtoReader : public GeoGridReader
 {
 public:
-        GeoGridProtoReader();
+        GeoGridProtoReader(std::unique_ptr<std::istream> inputStream);
 
-        std::shared_ptr<GeoGrid> read(std::istream& stream) override;
+        std::shared_ptr<GeoGrid> read() override;
 
 private:
         std::shared_ptr<Location>      ParseLocation(const proto::GeoGrid_Location& protoLocation);
