@@ -37,13 +37,13 @@ namespace stride {
 /**
  * Container for persons in population.
  */
-class Population : public std::vector<Person>
+class Population : public std::vector<std::shared_ptr<Person>>
 {
 public:
         Population() : beliefs_container(){};
 
         /// Inheriting constructors.
-        using std::vector<Person>::vector;
+        using std::vector<std::shared_ptr<Person>>::vector;
 
         ///
         unsigned int GetAdoptedCount() const;

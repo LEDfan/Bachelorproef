@@ -24,7 +24,7 @@ namespace stride {
 class NoLocalInformation
 {
 public:
-        static void Update(Person* /*p1*/, Person* /*p2*/) {}
+        static void Update(const std::shared_ptr<Person>& /*p1*/, const std::shared_ptr<Person>& /*p2*/) {}
 };
 
 } // namespace stride

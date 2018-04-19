@@ -24,6 +24,7 @@
 
 #include <array>
 #include <vector>
+#include <memory>
 
 namespace stride {
 
@@ -39,13 +40,13 @@ public:
         ContactPool(std::size_t pool_id, ContactPoolType::Id type);
 
         /// Add the given Person.
-        void AddMember(const Person* p);
+        void AddMember(std::shared_ptr<Person> p);
 
         /// Get member at index.
-        Person* GetMember(unsigned int index) const { return m_members[index]; }
+        std::shared_ptr<Person> GetMember(unsigned int index) const { return m_members[index]; }
 
         /// Get the entire pool of members.
-        const std::vector<Person*>& GetPool() const { return m_members; }
+        const std::vector<std::shared_ptr<Person>>& GetPool() const { return m_members; }
 
         /// Get size (number of members).
         std::size_t GetSize() const { return m_members.size(); }
@@ -63,7 +64,7 @@ private:
         std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
         ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
-        std::vector<Person*> m_members;      ///< Container with pointers to contactpool members.
+        std::vector<std::shared_ptr<Person>> m_members;      ///< Container with pointers to contactpool members.
 };
 
 } // namespace stride

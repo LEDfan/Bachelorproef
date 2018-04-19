@@ -28,7 +28,7 @@ namespace stride {
 class LocalDiscussion
 {
 public:
-        static void Update(Person* /*p1*/, Person* /*p2*/)
+        static void Update(std::shared_ptr<Person> /*p1*/, std::shared_ptr<Person> /*p2*/)
         {
                 // TODO discussion probability
                 // TODO if discussion: update p1

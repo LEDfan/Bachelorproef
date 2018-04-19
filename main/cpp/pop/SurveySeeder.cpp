@@ -46,13 +46,13 @@ void SurveySeeder::Seed(const boost::property_tree::ptree& config_pt, shared_ptr
                 // A for loop will not do because we might draw the same person twice.
                 auto num_samples = 0U;
                 while (num_samples < num_participants) {
-                        Person& p = population[int_generator()];
-                        if (!p.IsParticipatingInSurvey()) {
-                                p.ParticipateInSurvey();
-                                contact_logger->info("[PART] {}", p.GetId());
-                                contact_logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                                     p.GetPoolId(ContactPoolType::Id::School),
-                                                     p.GetPoolId(ContactPoolType::Id::Work));
+                        const std::shared_ptr<Person>& p = population[int_generator()];
+                        if (!p->IsParticipatingInSurvey()) {
+                                p->ParticipateInSurvey();
+                                contact_logger->info("[PART] {}", p->GetId());
+                                contact_logger->info("[PART] {} {} {} {} {}", p->GetId(), p->GetAge(), p->GetGender(),
+                                                     p->GetPoolId(ContactPoolType::Id::School),
+                                                     p->GetPoolId(ContactPoolType::Id::Work));
                                 num_samples++;
                         }
                 }

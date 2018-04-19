@@ -86,7 +86,7 @@ unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
 void HealthSeeder::Seed(std::shared_ptr<stride::Population> pop)
 {
         for (auto& p : *pop) {
-                p.GetHealth() = Sample();
+                p->GetHealth() = Sample();
         }
 }
 
