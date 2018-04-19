@@ -55,7 +55,7 @@ public:
 
         /// Get value based on label. Note this is slower than using the index.
         template <typename T = std::string>
-        T GetValue(const std::string &label) const;
+        T GetValue(const std::string& label) const;
 
         /// Compare operator.
         bool operator==(const CSVRow& other) const;
@@ -100,7 +100,7 @@ std::string CSVRow::GetValue<std::string>(size_t index) const;
 
 /// Declaration of specialization
 template <>
-std::string CSVRow::GetValue<std::string>(const std::string &label) const;
+std::string CSVRow::GetValue<std::string>(const std::string& label) const;
 
 ///
 template <typename T>
@@ -111,7 +111,7 @@ inline T CSVRow::GetValue(size_t index) const
 
 ///
 template <typename T>
-inline T CSVRow::GetValue(const std::string &label) const
+inline T CSVRow::GetValue(const std::string& label) const
 {
         return safe_cast<T>(getValue<std::string>(label));
 }
