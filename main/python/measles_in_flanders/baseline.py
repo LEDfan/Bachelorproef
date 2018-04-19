@@ -35,13 +35,13 @@ def runBaseline():
     sim.runConfig.setParameter("seeding_age_max", 99)
 
     sim.runConfig.setParameter("population_file", "data/pop_flanders600.csv")
-    sim.runConfig.setParameter("generate_person_file", 0)
+    sim.runConfig.setParameter("output_persons", "false")
     sim.runConfig.setParameter("num_participants_survey", 10000)
     sim.runConfig.setParameter("age_contact_matrix_file", "data/contact_matrix_flanders_subpop.xml")
     sim.runConfig.setParameter("log_level", "SusceptibleContacts")
     sim.runConfig.setParameter("start_date", "2017-01-01")
     sim.runConfig.setParameter("holidays_file", "data/holidays_none.json")
-    
+
     # immunity_profile
     # vaccine_profile
     # vaccine_link_probability

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "GeoGridGenerator.h"
 #include "PartialGenerator.h"
 
 namespace gengeopop {

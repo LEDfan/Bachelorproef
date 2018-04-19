@@ -12,7 +12,10 @@ Dialog {
                 Select extra marker: Hold Control and press the marker.
                 Select Area: Hold control and drag over the area you want to select.
 
-                Select All: Ctrl + A"
+                Select All: Ctrl + A
+
+                Show commutes: Click checkbox 'View > Show Commutes' then select cities.
+                The commutes between them will be shown"
         anchors.centerIn: parent
     }
 }

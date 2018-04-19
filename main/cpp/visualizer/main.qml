@@ -77,17 +77,13 @@ ApplicationWindow {
         }
 
         ContactCenterViewer {
-            Layout.maximumWidth: 200
+            Layout.maximumWidth: 250
             id: ccViewer
         }
 
-        ColumnLayout {
-            Layout.rightMargin: 4
-            Layout.fillWidth: false
-            MessageDialog {
-                id: errorDialogBox
-                objectName: 'errorDialog'
-            }
+        MessageDialog {
+            id: errorDialogBox
+            objectName: 'errorDialog'
         }
     }
 

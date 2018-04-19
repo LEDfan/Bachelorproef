@@ -147,10 +147,10 @@ void runPeopleTest(std::string filename)
 {
         auto                       geoGrid  = getGeoGridForFile(filename);
         auto                       location = geoGrid->get(0);
-        std::map<int, std::string> types    = {{2, "School"},     {3, "Community"}, {7, "Community"},
-                                            {4, "HighSchool"}, {5, "Household"}, {6, "Workplace"}};
-        std::map<int, std::string> ids      = {{0, "School"},     {1, "Community"}, {2, "Community"},
-                                          {3, "HighSchool"}, {4, "Household"}, {5, "Workplace"}};
+        std::map<int, std::string> types    = {{2, "School"},     {3, "Primary Community"}, {7, "Secondary Community"},
+                                            {4, "HighSchool"}, {5, "Household"},         {6, "Workplace"}};
+        std::map<int, std::string> ids      = {{0, "School"},     {1, "Primary Community"}, {2, "Secondary Community"},
+                                          {3, "HighSchool"}, {4, "Household"},         {5, "Workplace"}};
 
         EXPECT_EQ(location->getID(), 1);
         EXPECT_EQ(location->getName(), "Bavikhove");

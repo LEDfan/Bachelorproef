@@ -19,6 +19,8 @@
  */
 
 #include "AdoptedViewer.h"
+
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 
@@ -28,13 +30,24 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void AdoptedViewer::update(const sim_event::Payload& p)
+void AdoptedViewer::Update(const sim_event::Payload& p)
 {
-        const auto pop = p.m_runner->GetSim()->GetPopulation();
         switch (p.m_event_id) {
-        case Id::AtStart: m_adopted.push_back(pop->GetAdoptedCount()); break;
-        case Id::Stepped: m_adopted.push_back(pop->GetAdoptedCount()); break;
-        case Id::Finished: m_adopted_file.Print(m_adopted); break;
+        case Id::AtStart: {
+                const auto pop = p.m_runner->GetSim()->GetPopulation();
+                m_adopted.push_back(pop->GetAdoptedCount());
+                break;
+        }
+        case Id::Stepped: {
+                const auto pop = p.m_runner->GetSim()->GetPopulation();
+                m_adopted.push_back(pop->GetAdoptedCount());
+                break;
+        }
+        case Id::Finished: {
+                m_adopted_file.Print(m_adopted);
+                break;
+        }
+        default: break;
         }
 }
 

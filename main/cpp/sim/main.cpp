@@ -23,7 +23,6 @@
 #include "CliWithVisualizerController.h"
 
 #include <tclap/CmdLine.h>
-#include <string>
 #include <vector>
 
 using namespace std;
@@ -40,16 +39,20 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine          cmd("stride", ' ', "1.0", false);
-                MultiArg<string> params_override_Arg("p", "param_override", "Config Parameter Override", false,
-                                                     "parameter assignment", cmd);
-                ValueArg<string> config_file_Arg("c", "config", "Config File", false, "run_config_default.xml",
+                CmdLine cmd("stride", ' ', "1.0", false);
+
+                vector<string>           vals{"trace", "debug", "info", "warning", "error", "critical"};
+                ValuesConstraint<string> vc(vals);
+                ValueArg<string>         stride_log_level("l", "loglevel", "stride log level", false, "info", &vc, cmd);
+                MultiArg<string>         params_override_Arg("p", "param_override",
+                                                     "config parameter override -p <p_name>=<p_value>", false,
+                                                     "parameter override", cmd);
+                ValueArg<string>         config_file_Arg("c", "config", "config file", false, "run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
 
-                SwitchArg index_case_Arg("r", "r0", "R0 only", cmd, false);
-                SwitchArg working_dir_Arg("w", "working_dir", "Use working dir to find files i.o install dirs.", cmd,
-                                          false);
-                SwitchArg silent_mode_Arg("s", "silent", "silent mode", cmd, false);
+                SwitchArg index_case_Arg("r", "r0", "R0 only i.e. track index case mode", cmd, false);
+                SwitchArg working_dir_Arg("w", "working_dir",
+                                          "Use working directory to find files i.o install directories", cmd, false);
 
                 SwitchArg show_visualiser("v", "visualizer", "Open a visualizer window when the simulation runs.", cmd, false);
 
@@ -62,7 +65,7 @@ int main(int argc, char** argv)
                 const auto                    p_vec = params_override_Arg.getValue();
                 for (const auto& p_assignment : p_vec) {
                         const auto v = util::Tokenize(p_assignment, "=");
-                        p_overrides.push_back(make_tuple(v[0], v[1]));
+                        p_overrides.emplace_back(make_tuple(v[0], v[1]));
                 }
 
                 // -----------------------------------------------------------------------------------------
@@ -70,16 +73,20 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // We have been using use_installdirs for a while, so ..
                 const bool    use_install_dirs = !working_dir_Arg.getValue();
+
+
+
                 std::shared_ptr<CliController> controller = nullptr;
                 if(show_visualiser.getValue()) {
-                        controller = std::make_shared<CliWithVisualizerController>(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
-                                                                                       silent_mode_Arg.getValue(), use_install_dirs);
+                        controller = std::make_shared<CliWithVisualizerController>(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
+                                    stride_log_level.getValue(), use_install_dirs);
                 } else {
-                        controller = std::make_shared<CliController>(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
-                                                                                       silent_mode_Arg.getValue(), use_install_dirs);
+                        controller = std::make_shared<CliController>(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
+                                    stride_log_level.getValue(), use_install_dirs);
                 }
                 controller->Setup();
-                controller->Go();
+                controller->Execute();
+
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

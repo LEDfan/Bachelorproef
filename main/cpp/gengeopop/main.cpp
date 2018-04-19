@@ -1,8 +1,6 @@
 #include "Community.h"
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
-#include "School.h"
-#include "Workplace.h"
 #include <tclap/CmdLine.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -10,11 +8,12 @@
 #include <gengeopop/generators/HouseholdGenerator.h>
 #include <gengeopop/generators/SchoolGenerator.h>
 #include <gengeopop/generators/WorkplaceGenerator.h>
-#include <gengeopop/io/GeoGridJSONWriter.h>
+#include <gengeopop/io/GeoGridProtoWriter.h>
+#include <gengeopop/io/GeoGridWriterFactory.h>
 #include <gengeopop/io/ReaderFactory.h>
-#include <util/StringUtils.h>
 
 #include <boost/lexical_cast.hpp>
+#include <fstream>
 #include <gengeopop/populators/GeoGridPopulator.h>
 #include <gengeopop/populators/HighSchoolPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
@@ -22,6 +21,7 @@
 #include <gengeopop/populators/SchoolPopulator.h>
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
+#include <iostream>
 #include <utility>
 
 using namespace gengeopop;
@@ -34,16 +34,12 @@ void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stri
         geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
         geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
+        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
         geoGridGenerator.generateGeoGrid();
 }
 
 void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
 {
-        // TODO move to genGeo
-        GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
-        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
-        geoGridGenerator.generateGeoGrid();
-
         GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
         geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
         geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
@@ -58,8 +54,14 @@ void generate(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
 {
         stride::util::RNManager::Info info;
         stride::util::RNManager       rnManager(info);
+        std::cout << "Starting Gen-Geo" << std::endl;
         genGeo(geoGridConfig, geoGrid, rnManager);
+        std::cout << "Finished Gen-Geo" << std::endl;
+        std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
+        std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
+        std::cout << "Starting Gen-Pop" << std::endl;
         genPop(geoGridConfig, geoGrid, rnManager);
+        std::cout << "Finished Gen-Pop" << std::endl;
 }
 
 int main(int argc, char* argv[])
@@ -73,7 +75,7 @@ int main(int argc, char* argv[])
                                                  "CITIES FILE", cmd);
                 ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv",
                                                     "COMMUTING FILE", cmd);
-                ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.json", "OUTPUT FILE",
+                ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.proto", "OUTPUT FILE",
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
@@ -81,11 +83,22 @@ int main(int argc, char* argv[])
                                                       "Fraction of 1826 years which are students", false, 0.50,
                                                       "FRACTION STUDENTS (1826)", cmd);
 
-                ValueArg<double> fractionCommutingPeople("t", "fracCommuting", "Fraction of people commuting", false,
-                                                         0.50, "FRACTION OF PEOPLE COMMUTING", cmd);
+                ValueArg<double> fractionActiveCommutingPeople("t", "fracActiveCommuting",
+                                                               "Fraction of active people commuting", false, 0.50,
+                                                               "FRACTION OF ACTIVE PEOPLE COMMUTING", cmd);
 
-                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 1000000,
+                ValueArg<double> fractionStudentCommutingPeople("w", "fracStudentCommuting",
+                                                                "Fraction of students commuting", false, 0.50,
+                                                                "FRACTION OF STUDENTS COMMUTING", cmd);
+
+                ValueArg<double> fractionActivePeople("a", "fracActive", "Fraction of people active", false, 1.00,
+                                                      "FRACTION OF PEOPLE ACTIVE", cmd);
+
+                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
                                                       "POPULATION SIZE", cmd);
+
+                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
+                                                            "submunicipalities.csv", "OUTPUT FILE", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -118,13 +131,19 @@ int main(int argc, char* argv[])
                 }
 
                 std::ofstream outputFileStream(outputFile.getValue());
+                auto          subMunicipalitiesReader =
+                    readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
 
+                citiesReader->FillGeoGrid(geoGrid);
                 commutesReader->FillGeoGrid(geoGrid);
+                subMunicipalitiesReader->FillGeoGrid(geoGrid);
 
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input.populationSize                       = populationSize.getValue();
                 geoGridConfig.input.fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
-                geoGridConfig.input.fraction_commutingPeople             = fractionCommutingPeople.getValue();
+                geoGridConfig.input.fraction_active_commutingPeople      = fractionActiveCommutingPeople.getValue();
+                geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommutingPeople.getValue();
+                geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
                 geoGridConfig.Calculate(geoGrid, houseHoldsReader);
                 geoGrid->finalize();
@@ -133,19 +152,15 @@ int main(int argc, char* argv[])
 
                 stride::util::RNManager::Info info;
                 stride::util::RNManager       rnManager(info);
-                std::cout << "Starting Gen-Geo" << std::endl;
-                // FIXME use this instead once I/O is fixed
-                // generate(geoGridConfig, geoGrid);
-                genGeo(geoGridConfig, geoGrid, rnManager);
-                std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
-                std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
-                std::cout << "Generation done, writing to file" << std::endl;
-                GeoGridJSONWriter geoGridJsonWriter;
-                geoGridJsonWriter.write(geoGrid, outputFileStream);
-                std::cout << "Done writing to file, starting Gen-Pop" << std::endl;
-                genPop(geoGridConfig, geoGrid, rnManager);
+                generate(geoGridConfig, geoGrid);
+                std::cout << "Writing to file..." << std::endl;
 
-                std::cout << "Done" << std::endl;
+                GeoGridWriterFactory           geoGridWriterFactory;
+                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.createWriter(outputFile.getValue());
+                geoGridWriter->write(geoGrid, outputFileStream);
+                outputFileStream.close();
+
+                std::cout << "Done writing to file" << std::endl;
         } catch (std::exception& e) {
                 exit_status = EXIT_FAILURE;
                 std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;

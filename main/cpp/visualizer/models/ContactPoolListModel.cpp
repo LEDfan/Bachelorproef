@@ -1,7 +1,7 @@
 #include "ContactPoolListModel.h"
 #include <iostream>
 
-int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return m_pools.size(); }
+int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return static_cast<int>(m_pools.size()); }
 
 QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 {
@@ -10,6 +10,7 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
         case Roles::IDRole: return QString::number(pool->getID());
         case Roles::Capacity: return QString::number(pool->getCapacity());
         case Roles::UsedCapacity: return QString::number(pool->getUsedCapacity());
+        default: break;
         }
         return QVariant();
 }
@@ -29,16 +30,16 @@ int ContactPoolListModel::columnCount(const QModelIndex& /*parent*/) const { ret
 
 void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> loc)
 {
-        unsigned int oldAmtRows = m_pools.size();
-        m_pools                 = loc->GetPools();
-        int diff                = loc->GetPools().size() - oldAmtRows;
+        auto oldAmtRows = static_cast<int>(m_pools.size());
+        m_pools         = loc->GetPools();
+        int diff        = static_cast<int>(loc->GetPools().size()) - oldAmtRows;
         if (diff < 0) {
-                beginRemoveRows(QModelIndex(), oldAmtRows, -diff);
+                beginRemoveRows(QModelIndex(), oldAmtRows, diff);
                 endRemoveRows();
         } else if (diff > 0) {
-                beginInsertRows(QModelIndex(), 0, m_pools.size());
+                beginInsertRows(QModelIndex(), 0, static_cast<int>(m_pools.size()));
                 endInsertRows();
         }
-        int commonRows = std::min(oldAmtRows, (unsigned int)m_pools.size());
+        int commonRows = std::min(oldAmtRows, static_cast<int>(m_pools.size()));
         dataChanged(createIndex(0, 0), createIndex(commonRows, 2));
 }

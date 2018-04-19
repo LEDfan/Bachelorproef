@@ -41,14 +41,14 @@ public:
          * that correspons to the clicked marker.
          * @param idOfClicked The id of the marker that was clicked.
          */
-        void OnMarkerClicked(int idOfClicked);
+        void OnMarkerClicked(unsigned int idOfClicked);
 
         Q_INVOKABLE
         /**
          * Adds the location of the marker to the selection
          * @param idOfClicked
          */
-        void OnExtraMarkerClicked(int idOfClicked);
+        void OnExtraMarkerClicked(unsigned int idOfClicked);
 
         Q_INVOKABLE
 
@@ -60,6 +60,7 @@ public:
         /**
          * Removes all locations from selection and unselection but don't re-render the map.
          */
+        Q_INVOKABLE
         void ClearSelection();
 
         Q_INVOKABLE
@@ -85,17 +86,21 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                                  m_map = nullptr;
-        std::shared_ptr<gengeopop::GeoGrid>       m_grid;
-        std::unordered_map<std::string, QObject*> m_markers;
-        std::unordered_map<std::string, std::vector<QObject*>>
+        QObject*                            m_map = nullptr;
+        std::shared_ptr<gengeopop::GeoGrid> m_grid;
+        std::map<std::string, QObject*>     m_markers;
+        std::map<std::tuple<unsigned int, unsigned int>, QObject*>
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
         bool                                           m_showCommutes = false;
         std::set<std::shared_ptr<gengeopop::Location>> m_selection; ///< The currently selected locations
         std::set<std::shared_ptr<gengeopop::Location>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
 
-        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected);
+        /*
+         * @Param specialmarker Whether or not to display a special marker
+         */
+        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected,
+                         bool specialmarker);
 
         /*
          * Places the markers on the map, according to the current checked boxes.
@@ -131,7 +136,8 @@ private:
 
         void hideCommuteLine(QObject* obj);
 
-        void hideIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+        void hideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+                                const std::shared_ptr<gengeopop::Location>& loc2);
 
-        void showIncommingCommutesOfLocation(std::shared_ptr<gengeopop::Location> loc);
+        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
 };
