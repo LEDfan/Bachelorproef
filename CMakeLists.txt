@@ -18,7 +18,10 @@
 #  CMake config.
 #
 #############################################################################
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.5)
+if(CMAKE_VERSION VERSION_LESS 3.8)
+	set(STRIDE_FORCE_NO_PYTHON ON)
+endif()
 include(CMakeConfig.cmake)
 include(CMakeLocal.cmake OPTIONAL)
 
@@ -38,6 +41,19 @@ set(DOC_INSTALL_LOCATION     doc)
 set(TESTS_INSTALL_LOCATION   tests)
 
 #============================================================================
+# Configuration for Git.
+#============================================================================
+find_package(Git QUIET)
+if(GIT_FOUND)
+    GIT_WC_INFO(${CMAKE_SOURCE_DIR} STRIDE)
+else()
+    # This is done to eliminate blank output of undefined CMake variables.
+    set(GIT_FOUND FALSE)
+    set(STRIDE_WC_REVISION_HASH       "0000-0000-000")
+    set(STRIDE_WC_LAST_CHANGED_DATE   "0000 0000 0000")
+endif()
+
+#============================================================================
 # Configuration for CPP.
 #============================================================================
 include(CMakeCPP.cmake)
@@ -45,21 +61,10 @@ include(CMakeCPP.cmake)
 #============================================================================
 # Configuration for Swig & Python.
 #============================================================================
-find_package(SWIG)
-find_package(PythonInterp 3)
-find_package(PythonLibs 3)
-
-#============================================================================
-# Configuration for Git.
-#============================================================================
-find_package(Git QUIET)
-if(GIT_FOUND)
-	GIT_WC_INFO(${CMAKE_SOURCE_DIR} STRIDE)
-else()
-    # This is done to eliminate blank output of undefined CMake variables.
-    set(GIT_FOUND FALSE)
-	set(STRIDE_WC_REVISION_HASH       "0000-0000-000")
-	set(STRIDE_WC_LAST_CHANGED_DATE   "0000 0000 0000")
+if(NOT STRIDE_FORCE_NO_PYTHON)
+	find_package(SWIG)
+	find_package(PythonInterp 3)
+	find_package(PythonLibs 3)
 endif()
 
 #============================================================================

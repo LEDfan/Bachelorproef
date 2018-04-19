@@ -136,21 +136,17 @@ private:
         double       m_age;    ///< The age.
         char         m_gender; ///< The gender.
 
-        //        bool m_at_household;           ///< Is person present at household today?
-        //        bool m_at_school;              ///< Is person present at school today?
-        //        bool m_at_work;                ///< Is person present at work today?
-        //        bool m_at_primary_community;   ///< Is person present at primary_community today?
-        //        bool m_at_secondary_community; ///< Is person present at secundary_community today?
-
         Health m_health; ///< Health info for this person.
 
         bool m_is_participant; ///< Is participating in the social contact study
                                //        bool m_at_home_due_to_illness; ///< Is person present home due to illness?
-        using PoolIds = ContactPoolType::IdSubscriptArray<unsigned int>;
-        PoolIds m_pool_ids; ///< Ids of each of the types of pool (school, work,..) the person belongs to.
+        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids; ///< Ids (school, work, etc) of pools you belong to.
+                                                                    ///< Id value 0 means you do not belong to any
+                                                                    ///< pool of that type (e.g. school and work are
+                                                                    ///< mutually exclusive.
 
-        using InPools = ContactPoolType::IdSubscriptArray<bool>;
-        InPools m_in_pools; ///< Is person present in pool of each of the types (school, work,..)?
+        ContactPoolType::IdSubscriptArray<bool> m_in_pools; ///< Is person present/absent in pools of each of the
+                                                            ///< types (school, work, etc)?
 
         Belief* m_belief; ///< Health beliefs related data.
 

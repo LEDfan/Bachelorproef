@@ -75,20 +75,18 @@ CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { readFromStream(
 
 CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
 
-void CSV::addRow(vector<string> values)
+bool CSV::operator==(const CSV& other) const
+{
+        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
+}
+
+void CSV::AddRow(vector<string> values)
 {
         CSVRow csvRow(this, values);
         this->push_back(csvRow);
 }
 
-void CSV::addRows(vector<vector<string>>& rows)
-{
-        for (const vector<string>& row : rows) {
-                addRow(row);
-        }
-}
-
-size_t CSV::getIndexForLabel(const string& label) const
+size_t CSV::GetIndexForLabel(const string &label) const
 {
         for (unsigned int index = 0; index < labels.size(); ++index) {
                 if (labels.at(index) == label)
@@ -97,7 +95,7 @@ size_t CSV::getIndexForLabel(const string& label) const
         throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void CSV::write(const boost::filesystem::path& path) const
+void CSV::Write(const boost::filesystem::path &path) const
 {
         boost::filesystem::ofstream file;
         file.open(path.string());
@@ -121,6 +119,7 @@ void CSV::write(const boost::filesystem::path& path) const
         file.close();
 }
 
+<<<<<<< HEAD
 bool CSV::operator==(const CSV& other) const
 {
         return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
@@ -152,5 +151,7 @@ void CSV::readFromStream(std::istream& inputStream)
 
 const std::vector<std::string>& CSV::getLabels() const { return labels; }
 
+=======
+>>>>>>> 383838e28717550e7f1f3e2bf4b2e447b3d81089
 } // namespace util
 } // namespace stride

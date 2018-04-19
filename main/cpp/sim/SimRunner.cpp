@@ -20,6 +20,7 @@
 
 #include "SimRunner.h"
 
+#include "pop/Population.h"
 #include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/FileSys.h"
@@ -43,7 +44,7 @@ SimRunner::SimRunner()
 {
 }
 
-bool SimRunner::Setup(const ptree& run_config_pt)
+bool SimRunner::Setup(const ptree& config_pt)
 {
         Notify({shared_from_this(), Id::SetupBegin});
 
@@ -52,7 +53,7 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
         bool status     = true;
-        m_config_pt     = run_config_pt;
+        m_config_pt     = config_pt;
         m_log_level     = m_config_pt.get<string>("run.stride_log_level", "info");
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 
@@ -69,7 +70,7 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         m_stride_logger->info("SimRunner setup starting at: {}", TimeStamp().ToString());
 
         // -----------------------------------------------------------------------------------------
-        // Output the full run config.
+        // Log the full run config.
         // -----------------------------------------------------------------------------------------
         ostringstream ss;
         write_xml(ss, m_config_pt, xml_writer_make_settings<ptree::key_type>(' ', 8));
@@ -81,22 +82,7 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         m_stride_logger->trace("Building the simulator.");
         SimulatorBuilder builder(m_config_pt, m_stride_logger);
         m_sim = builder.Build();
-        if (m_sim) {
-                m_stride_logger->trace("Done building the simulator.");
-        } else {
-                m_stride_logger->critical("Simulator build failed!");
-                throw runtime_error("SimRunner::Setup> Simulator build failed!");
-        }
-
-        // -----------------------------------------------------------------------------------------
-        // Check the simulator.
-        // -----------------------------------------------------------------------------------------
-        if (m_sim->IsOperational()) {
-                m_stride_logger->trace("Simulator is operational.");
-        } else {
-                m_stride_logger->critical("Invalid configuration => terminate without output");
-                throw runtime_error("SimRunner::Setup> Simulator not operational!");
-        }
+        m_stride_logger->trace("Done building the simulator.");
 
         // -----------------------------------------------------------------------------------------
         // Done.
@@ -119,7 +105,8 @@ void SimRunner::Run()
         Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
                 m_sim->TimeStep();
-                m_stride_logger->trace("Time step starting at day {} done.", i);
+                m_stride_logger->trace("    Day: {:4}  Done, infected count: {:7}", i,
+                                       m_sim->GetPopulation()->GetInfectedCount());
                 Notify({shared_from_this(), Id::Stepped});
         }
         Notify({shared_from_this(), Id::Finished});
