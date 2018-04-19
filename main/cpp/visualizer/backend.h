@@ -106,9 +106,9 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                            m_map = nullptr;    ///< The QML Map the info is displayed on
+        QObject*                            m_map = nullptr; ///< The QML Map the info is displayed on
         std::shared_ptr<gengeopop::GeoGrid> m_grid;
-        std::map<std::string, QObject*>     m_markers;          ///< Reference to the markers so we do not need to search
+        std::map<std::string, QObject*>     m_markers; ///< Reference to the markers so we do not need to search
         std::map<std::tuple<unsigned int, unsigned int>, QObject*>
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
         bool                                           m_showCommutes = false;
@@ -154,7 +154,6 @@ private:
          * @param toLongitude
          */
         QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
-
 
         /**
          * Hides the commute line on the map.

@@ -15,10 +15,10 @@
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
+#include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
 #include <util/Stopwatch.h>
-#include <gengeopop/io/GeoGridProtoReader.h>
 
 Backend::Backend(QObject* parent)
     : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_commutes(), m_selection(),
@@ -41,10 +41,10 @@ Backend& Backend::operator=(const Backend& b)
 
 void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
-        QUrl                                      info(file);
-        std::string                               filename = info.toLocalFile().toStdString();
-        std::ifstream                             inputFile(filename);
-        gengeopop::GeoGridProtoReader                   reader;
+        QUrl                          info(file);
+        std::string                   filename = info.toLocalFile().toStdString();
+        std::ifstream                 inputFile(filename);
+        gengeopop::GeoGridProtoReader reader;
         try {
                 m_grid = reader.read(inputFile);
                 m_grid->finalize();
@@ -363,4 +363,3 @@ void Backend::onMarkerHoveredOff(unsigned int idOfHover)
                 }
         }
 }
-

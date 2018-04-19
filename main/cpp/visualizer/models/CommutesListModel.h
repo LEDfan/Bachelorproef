@@ -14,11 +14,10 @@ public:
         QHash<int, QByteArray> roleNames() const;
 
         Q_INVOKABLE
-        void setCommutes(std::set<std::shared_ptr<gengeopop::Location> > locations);
+        void setCommutes(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
-    signals:
-    void hasCommutes(bool status);
-
+signals:
+        void hasCommutes(bool status);
 
 private:
         enum Roles
