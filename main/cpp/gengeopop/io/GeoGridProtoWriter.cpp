@@ -1,9 +1,9 @@
 #include "GeoGridProtoWriter.h"
 #include "proto/geogrid.pb.h"
+#include <Exception.h>
+#include <exception>
 #include <iostream>
 #include <omp.h>
-#include <exception>
-#include <Exception.h>
 
 namespace gengeopop {
 
