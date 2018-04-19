@@ -99,6 +99,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/482.3-linux-clang-5.html",
       "build_id": "482.3",
       "name": "linux-clang-5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/482.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "482.4"
     }
   ],
   "master": [
