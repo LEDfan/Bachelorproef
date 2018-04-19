@@ -14,6 +14,12 @@
 #  Copyright 2017, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
+#============================================================================
+# Config related to using Google test (src in resources/lib/gtest) for cpp
+#============================================================================
+set(GTEST_RESOURCE_DIR	   ${CMAKE_SOURCE_DIR}/test/resources/lib/gtest/)
+include_directories(SYSTEM ${GTEST_RESOURCE_DIR})
+add_definitions(-DGTEST_LANG_CXX11)
 
 #============================================================================
 # Build & install the (OpenMP enabled if OpenMP available) executable.
@@ -55,7 +61,7 @@ install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 #============================================================================
 # Define tests.
 #============================================================================
-add_test(NAME ${EXEC}_all
+add_test(NAME ${EXEC}
         WORKING_DIRECTORY ${TESTS_DIR}
         COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
         --gtest_output=xml:gtester_all.xml

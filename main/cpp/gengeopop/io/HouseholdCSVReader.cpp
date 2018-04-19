@@ -15,7 +15,7 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
-                                age = row.getValue<unsigned int>(i);
+                                age = row.GetValue<unsigned int>(i);
                         } catch (const std::bad_cast& e) {
                                 // NA
                                 break;

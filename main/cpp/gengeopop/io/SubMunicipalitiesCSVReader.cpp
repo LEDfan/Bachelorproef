@@ -23,8 +23,8 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
         }
 
         for (const stride::util::CSVRow& row : reader) {
-                auto parentId = row.getValue<unsigned int>(0);
-                auto id       = row.getValue<unsigned int>(1);
+                auto parentId = row.GetValue<unsigned int>(0);
+                auto id       = row.GetValue<unsigned int>(1);
                 auto parent   = geoGrid->GetById(parentId);
 
                 parent->setRelativePopulation(0);
@@ -32,11 +32,11 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
                                                            parent->getProvince(),                        // province
                                                            Coordinate(0,                                 // x_coord
                                                                       0,                                 // y_coord
-                                                                      row.getValue<double>("longitude"), // longtitude
-                                                                      row.getValue<double>("latitude")   // latitude
+                                                                      row.GetValue<double>("longitude"), // longtitude
+                                                                      row.GetValue<double>("latitude")   // latitude
                                                                       ),
-                                                           row.getValue(5));
-                location->setRelativePopulation(row.getValue<double>("population_rel_to_parent") *
+                                                           row.GetValue(5));
+                location->setRelativePopulation(row.GetValue<double>("population_rel_to_parent") *
                                                 populationSizesMapping[parentId]);
                 parent->addSubMunicipality(location);
                 location->setParent(parent);

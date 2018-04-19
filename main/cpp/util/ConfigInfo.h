@@ -11,22 +11,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Info on configuration through compile time constants i.o. macros.
+ * Info on configuration..
  */
 
-#include <omp.h>
 #include <string>
 
 namespace stride {
 namespace util {
 
 /**
- * Info on revision id and commit date.
+ * Config information.
  */
 class ConfigInfo
 {
@@ -42,15 +41,16 @@ public:
         }
 
         ///
-        static unsigned int NumberAvailableThreads()
-        {
-                unsigned int i = 1U;
-#pragma omp parallel
-                {
-                        i = static_cast<unsigned int>(omp_get_num_threads());
-                }
-                return i;
-        }
+        static std::string GitRevision();
+
+        ///
+        static std::string GetHostname();
+
+        ///
+        static unsigned int NumberAvailableThreads();
+
+        ///
+        static constexpr unsigned int ProcessorCount() { return PROCCOUNT; }
 };
 
 } // namespace util

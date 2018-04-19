@@ -68,7 +68,7 @@ matrix:
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@5 && brew link --force --overwrite llvm@5; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@6 && brew link --force --overwrite llvm@6; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig qt; brew link --force qt; sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins; sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs;  fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt; export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.10.1/; fi

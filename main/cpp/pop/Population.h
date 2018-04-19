@@ -42,6 +42,9 @@ class Population : public std::vector<Person>
 public:
         Population() : beliefs_container(){};
 
+        /// Inheriting constructors.
+        using std::vector<Person>::vector;
+
         ///
         unsigned int GetAdoptedCount() const;
 
