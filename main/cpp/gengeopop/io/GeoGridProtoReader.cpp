@@ -15,7 +15,10 @@
 
 namespace gengeopop {
 
-GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream) : GeoGridReader(std::move(inputStream)) {}
+GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream)
+    : GeoGridReader(std::move(inputStream))
+{
+}
 
 std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
 {
@@ -32,9 +35,11 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
                         const proto::GeoGrid_Person&    protoPerson = protoGrid.persons(idx);
 #pragma omp task firstprivate(protoPerson, person)
                         {
-                                person = ParsePerson(protoPerson);
 #pragma omp critical
-                                m_people[person->GetId()] = std::move(person);
+                                {
+                                        person                    = ParsePerson(geoGrid, protoPerson);
+                                        m_people[person->GetId()] = std::move(person);
+                                }
                         }
                 }
 #pragma omp taskwait
@@ -174,7 +179,8 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
         return result;
 }
 
-std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
+std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const std::shared_ptr<GeoGrid>& geoGrid,
+                                                                const proto::GeoGrid_Person&    protoPerson)
 {
         auto id                   = protoPerson.id();
         auto age                  = protoPerson.age();
@@ -185,7 +191,7 @@ std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::Geo
         auto secondaryCommunityId = protoPerson.secondarycommunity();
 
         return geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
-                                                secondaryCommunityId);
+                                     secondaryCommunityId);
 }
 
 } // namespace gengeopop

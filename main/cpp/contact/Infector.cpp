@@ -74,13 +74,13 @@ template <ContactLogMode::Id LL>
 class LOG_POLICY
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&, const std::shared_ptr<Person>&, Id,
-                            unsigned short int /*sim_day*/)
+        static void Contact(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
+                            const std::shared_ptr<Person>&, Id, unsigned short int /*sim_day*/)
         {
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&, const std::shared_ptr<Person>&, Id,
-                                 unsigned short int /*sim_day*/)
+        static void Transmission(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
+                                 const std::shared_ptr<Person>&, Id, unsigned short int /*sim_day*/)
         {
         }
 };
@@ -90,10 +90,13 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Transmissions>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&, const std::shared_ptr<Person>&, Id, unsigned short int) {}
+        static void Contact(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
+                            const std::shared_ptr<Person>&, Id, unsigned short int)
+        {
+        }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1, const std::shared_ptr<Person>& p2,
-                                 Id type, unsigned short int sim_day)
+        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1,
+                                 const std::shared_ptr<Person>& p2, Id type, unsigned short int sim_day)
         {
                 contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
         }
@@ -104,8 +107,8 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1, const std::shared_ptr<Person>& p2,
-                            Id type, unsigned short int sim_day)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1,
+                            const std::shared_ptr<Person>& p2, Id type, unsigned short int sim_day)
         {
                 contact_logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                                      static_cast<unsigned int>(type == Id::Household),
@@ -115,8 +118,8 @@ public:
                                      static_cast<unsigned int>(type == Id::SecondaryCommunity), sim_day);
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, const std::shared_ptr<Person>& p1, const std::shared_ptr<Person>& p2, Id type,
-                                 unsigned short int sim_day)
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, const std::shared_ptr<Person>& p1,
+                                 const std::shared_ptr<Person>& p2, Id type, unsigned short int sim_day)
         {
                 logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
         }
@@ -127,16 +130,16 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1, const std::shared_ptr<Person>& p2, Id,
-                            unsigned short int)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1,
+                            const std::shared_ptr<Person>& p2, Id, unsigned short int)
         {
                 if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         contact_logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
                 }
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&, const std::shared_ptr<Person>&, Id,
-                                 unsigned short int)
+        static void Transmission(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
+                                 const std::shared_ptr<Person>&, Id, unsigned short int)
         {
         }
 };

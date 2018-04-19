@@ -13,7 +13,9 @@
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream) : GeoGridReader(std::move(inputStream)) {}
+GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream) : GeoGridReader(std::move(inputStream))
+{
+}
 
 std::shared_ptr<GeoGrid> GeoGridJSONReader::read()
 {

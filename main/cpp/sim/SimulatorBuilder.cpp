@@ -25,6 +25,7 @@
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
 #include "pop/PopPoolBuilder.h"
+#include "pop/Population.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
@@ -35,6 +36,8 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
+
+#include <gengeopop/io/GeoGridReaderFactory.h>
 
 namespace stride {
 
@@ -111,7 +114,40 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+        // in an ideal situation this could have been done using DI and polymorphism
+        // To don't make too much code changes to the upstream project we don't do this
+        std::string geopop_type = m_config_pt.get<std::string>("run.geopop_type");
+        if (geopop_type == "default") {
+                m_stride_logger->debug("Using default population builder");
+                sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+        } else if (geopop_type == "import") {
+
+                std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
+
+                gengeopop::GeoGridReaderFactory                  geoGridReaderFactory;
+                const std::shared_ptr<gengeopop::GeoGridReader>& reader = geoGridReaderFactory.createReader(importFile);
+
+                sim->m_population = std::make_shared<Population>();
+
+                const auto belief_pt = m_config_pt.get_child("run.belief_policy");
+
+                gengeopop::GeoGrid::createPersonImpl =
+                    [&belief_pt, &sim, this](unsigned int id, double age, unsigned int household_id,
+                                             unsigned int school_id, unsigned int work_id,
+                                             unsigned int primary_community_id,
+                                             unsigned int secondary_community_id) -> std::shared_ptr<Person> {
+                        sim->m_population->CreatePerson(id, age, household_id, school_id, work_id, primary_community_id,
+                                                        secondary_community_id, Health(), belief_pt, 0);
+                        return sim->m_population->back();
+                };
+
+                m_stride_logger->debug("Importing population from " + importFile);
+
+                const std::shared_ptr<gengeopop::GeoGrid> geoGrid = reader->read();
+
+        } else if (geopop_type == "generate") {
+                m_stride_logger->debug("Generating population");
+        }
 
         // --------------------------------------------------------------
         // Seed the population with social contact survey participants.

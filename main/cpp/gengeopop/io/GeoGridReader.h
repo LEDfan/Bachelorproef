@@ -10,7 +10,7 @@ class GeoGridReader
 {
 public:
         GeoGridReader(std::unique_ptr<std::istream> inputStream);
-        virtual ~GeoGridReader()                                    = default;
+        virtual ~GeoGridReader()                = default;
         virtual std::shared_ptr<GeoGrid> read() = 0;
 
 protected:

@@ -23,8 +23,8 @@
 #include "pool/ContactPoolType.h"
 
 #include <array>
-#include <vector>
 #include <memory>
+#include <vector>
 
 namespace stride {
 
@@ -61,9 +61,9 @@ private:
         friend class Infector;
 
 private:
-        std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
-        ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
-        std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
+        std::size_t                          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        ContactPoolType::Id                  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
+        std::size_t                          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<std::shared_ptr<Person>> m_members;      ///< Container with pointers to contactpool members.
 };
 

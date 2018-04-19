@@ -144,7 +144,7 @@ void compareGeoGrid(proto::GeoGrid& protoGrid)
         protoGrid.SerializeToOstream(ss.get());
         std::unique_ptr<std::istream> is(std::move(ss));
 
-        GeoGridProtoReader reader(std::move(is));
+        GeoGridProtoReader       reader(std::move(is));
         std::shared_ptr<GeoGrid> geogrid = reader.read();
         compareGeoGrid(geogrid, protoGrid);
 }

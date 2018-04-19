@@ -20,6 +20,7 @@ private:
             const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
         std::shared_ptr<ContactPool> ParseContactPool(
             const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize);
-        std::shared_ptr<stride::Person> ParsePerson(const proto::GeoGrid_Person& protoPerson);
+        std::shared_ptr<stride::Person> ParsePerson(const std::shared_ptr<GeoGrid>& protoPerson,
+                                                    const proto::GeoGrid_Person&    person);
 };
 } // namespace gengeopop
