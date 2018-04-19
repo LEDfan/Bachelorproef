@@ -1,620 +1,625 @@
 {
-  "tidy": [
+  "visualizer-hover-comments": [
     {
-      "build_id": "460.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "459.1"
     },
     {
-      "build_id": "460.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "459.2"
     },
     {
-      "build_id": "460.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "459.3"
     },
     {
-      "build_id": "460.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "459.4"
     },
     {
-      "build_id": "460.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "459.5"
     },
     {
-      "build_id": "460.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "459.6"
     },
     {
-      "build_id": "466.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "472.1"
     },
     {
-      "build_id": "466.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "472.2"
     },
     {
-      "build_id": "466.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "472.3"
     },
     {
-      "build_id": "466.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "472.4"
     },
     {
-      "build_id": "466.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "472.5"
     },
     {
-      "build_id": "466.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "472.6"
     },
     {
-      "build_id": "467.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "476.1"
     },
     {
-      "build_id": "467.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "476.2"
     },
     {
-      "build_id": "467.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "476.3"
     },
     {
-      "build_id": "467.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "476.4"
     },
     {
-      "build_id": "467.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "467.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "476.5"
     }
   ],
-  "master": [
+  "tidy": [
     {
-      "build_id": "451.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "460.1"
     },
     {
-      "build_id": "451.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "460.2"
     },
     {
-      "build_id": "451.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "460.3"
     },
     {
-      "build_id": "451.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "460.4"
     },
     {
-      "build_id": "451.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "460.5"
     },
     {
-      "build_id": "451.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/460.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "460.6"
     },
     {
-      "build_id": "441.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "466.1"
     },
     {
-      "build_id": "441.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "466.2"
     },
     {
-      "build_id": "441.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "466.3"
     },
     {
-      "build_id": "441.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "466.4"
     },
     {
-      "build_id": "441.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "466.5"
     },
     {
-      "build_id": "441.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/466.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "466.6"
     },
     {
-      "build_id": "421.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "467.1"
     },
     {
-      "build_id": "421.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "467.2"
     },
     {
-      "build_id": "421.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "467.3"
     },
     {
-      "build_id": "421.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "467.4"
     },
     {
-      "build_id": "421.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "467.5"
     },
     {
-      "build_id": "421.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "407.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "407.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "407.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "407.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "407.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "407.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "305.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "305.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "305.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "305.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "305.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "305.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "295.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "295.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "295.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "295.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "295.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "293.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/293.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "293.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/293.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "293.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/293.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "275.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "275.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "275.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "275.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "275.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "275.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "258.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "258.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "258.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "258.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "258.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "258.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "245.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "245.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "245.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "245.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "245.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "245.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "239.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "239.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "239.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "239.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "239.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "239.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "232.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "232.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "232.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "232.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "232.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "232.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "222.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "222.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "222.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "222.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "222.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "222.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "198.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "198.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "198.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "198.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "198.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "198.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
-    },
-    {
-      "build_id": "180.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
-    },
-    {
-      "build_id": "180.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
-    },
-    {
-      "build_id": "180.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.3-linux-clang-5.html",
-      "name": "linux-clang-5"
-    },
-    {
-      "build_id": "180.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
-    },
-    {
-      "build_id": "180.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
-    },
-    {
-      "build_id": "180.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/tidy/467.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "467.6"
     }
   ],
   "visualizer-mvc": [
     {
-      "build_id": "481.1",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "name": "linux-gcc-6",
+      "build_id": "481.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "481.2"
     }
   ],
-  "visualizer-hover-comments": [
+  "master": [
     {
-      "build_id": "459.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "451.1"
     },
     {
-      "build_id": "459.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "451.2"
     },
     {
-      "build_id": "459.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "451.3"
     },
     {
-      "build_id": "459.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "451.4"
     },
     {
-      "build_id": "459.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "451.5"
     },
     {
-      "build_id": "459.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/459.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/451.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "451.6"
     },
     {
-      "build_id": "472.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "441.1"
     },
     {
-      "build_id": "472.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "441.2"
     },
     {
-      "build_id": "472.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "441.3"
     },
     {
-      "build_id": "472.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "441.4"
     },
     {
-      "build_id": "472.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "441.5"
     },
     {
-      "build_id": "472.6",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/472.6-osx-8.3-llvm-clang.html",
-      "name": "osx-8.3-llvm-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/441.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "441.6"
     },
     {
-      "build_id": "476.1",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.1-linux-gcc-6.html",
-      "name": "linux-gcc-6"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "421.1"
     },
     {
-      "build_id": "476.2",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.2-linux-gcc-7.html",
-      "name": "linux-gcc-7"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "421.2"
     },
     {
-      "build_id": "476.3",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.3-linux-clang-5.html",
-      "name": "linux-clang-5"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "421.3"
     },
     {
-      "build_id": "476.4",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.4-osx-8.3-apple-clang.html",
-      "name": "osx-8.3-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "421.4"
     },
     {
-      "build_id": "476.5",
-      "href": "https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.5-osx-9.2-apple-clang.html",
-      "name": "osx-9.2-apple-clang"
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "421.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/421.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "421.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "407.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "407.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "407.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "407.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "407.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/407.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "407.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "305.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "305.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "305.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "305.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "305.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/305.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "305.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "295.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "295.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "295.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "295.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/295.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "295.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/293.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "293.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/293.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "293.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/293.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "293.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "275.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "275.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "275.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "275.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "275.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/275.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "275.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "258.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "258.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "258.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "258.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "258.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/258.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "258.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "245.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "245.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "245.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "245.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "245.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/245.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "245.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "239.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "239.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "239.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "239.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "239.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/239.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "239.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "232.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "232.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "232.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "232.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "232.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/232.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "232.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "222.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "222.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "222.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "222.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "222.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/222.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "222.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "198.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "198.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "198.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "198.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "198.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/198.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "198.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.1-linux-gcc-6.html",
+      "name": "linux-gcc-6",
+      "build_id": "180.1"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.2-linux-gcc-7.html",
+      "name": "linux-gcc-7",
+      "build_id": "180.2"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.3-linux-clang-5.html",
+      "name": "linux-clang-5",
+      "build_id": "180.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "180.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "180.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/180.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "180.6"
     }
   ]
 }
