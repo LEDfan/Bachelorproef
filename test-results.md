@@ -114,6 +114,7 @@ Test results
  - [481.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.5-osx-9.2-apple-clang.html)
  - [481.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.6-osx-8.3-llvm-clang.html)
 # visualizer-hover-comments
+ - [482.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/482.1-linux-gcc-6.html)
  - [476.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.1-linux-gcc-6.html)
  - [476.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.2-linux-gcc-7.html)
  - [476.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/476.3-linux-clang-5.html)
