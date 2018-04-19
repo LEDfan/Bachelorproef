@@ -32,7 +32,7 @@ ColumnLayout {
         }
 
         Component.onCompleted: {
-            commutesModel.hasCommutes.connect(hasCommutesChanged)
+            commutesModel.HasCommutes.connect(hasCommutesChanged)
         }
 
         function hasCommutesChanged(status) {
@@ -42,6 +42,6 @@ ColumnLayout {
     }
 
     function showCommutes(locations) {
-        commutesModel.setCommutes(locations)
+        commutesModel.SetCommutes(locations)
     }
 }

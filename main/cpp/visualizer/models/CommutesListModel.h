@@ -14,7 +14,7 @@ public:
         QHash<int, QByteArray> roleNames() const;
 
         Q_INVOKABLE
-        void setCommutes(std::set<std::shared_ptr<gengeopop::Location>> locations);
+        void SetCommutes(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 signals:
         /**
@@ -22,7 +22,7 @@ signals:
          * This can be used to hide a list when nothing needs to be shown for example.
          * @param status If the model contains commutes
          */
-        void hasCommutes(bool status);
+        void HasCommutes(bool status);
 
 private:
         enum Roles

@@ -44,9 +44,10 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         QUrl                          info(file);
         std::string                   filename = info.toLocalFile().toStdString();
         std::ifstream                 inputFile(filename);
-        gengeopop::GeoGridProtoReader reader;
+        gengeopop::GeoGridReaderFactory factory;
+        std::shared_ptr<gengeopop::GeoGridReader> reader = factory.createReader(filename);
         try {
-                m_grid = reader.read(inputFile);
+                m_grid = reader->read(inputFile);
                 m_grid->finalize();
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");

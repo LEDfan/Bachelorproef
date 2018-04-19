@@ -17,7 +17,7 @@ QVariant CommutesListModel::data(const QModelIndex& index, int role) const
         return QVariant();
 }
 
-CommutesListModel::CommutesListModel(QObject* parent) : QAbstractListModel(parent) {}
+CommutesListModel::CommutesListModel(QObject* parent) : QAbstractListModel(parent), m_location(nullptr) {}
 
 QHash<int, QByteArray> CommutesListModel::roleNames() const
 {
@@ -29,14 +29,14 @@ QHash<int, QByteArray> CommutesListModel::roleNames() const
 
 int CommutesListModel::columnCount(const QModelIndex& /*parent*/) const { return 2; }
 
-void CommutesListModel::setCommutes(std::set<std::shared_ptr<gengeopop::Location>> locations)
+void CommutesListModel::SetCommutes(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
         auto oldAmtRows = m_location == nullptr ? 0 : static_cast<int>(m_location->getOutgoingCommuningCities().size());
         if (locations.size() != 1) {
                 m_location = nullptr;
                 beginRemoveRows(QModelIndex(), 0, oldAmtRows);
                 endRemoveRows();
-                hasCommutes(false);
+                HasCommutes(false);
                 return;
         }
 
@@ -44,9 +44,9 @@ void CommutesListModel::setCommutes(std::set<std::shared_ptr<gengeopop::Location
         // Signal if the commutes need to be shown.
         // If there are no commutes other components may want to adapt to this
         if (m_location->getOutgoingCommuningCities().size() > 0) {
-                hasCommutes(true);
+                HasCommutes(true);
         } else {
-                hasCommutes(false);
+                HasCommutes(false);
         }
         int newAmount = static_cast<int>(m_location->getOutgoingCommuningCities().size());
         int diff      = newAmount - oldAmtRows;
