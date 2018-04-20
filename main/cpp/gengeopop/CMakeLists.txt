@@ -68,6 +68,7 @@ else()
     add_library(libproto ${PROTO_HEADER} ${PROTO_SRC})
 endif()
 set_target_properties(libproto PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
+set_property(TARGET libproto PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/io/proto)
 
