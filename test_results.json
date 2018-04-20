@@ -178,6 +178,11 @@
       "build_id": "484.2",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/integration/484.2-linux-gcc-7.html",
       "name": "linux-gcc-7"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/integration/484.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "484.4"
     }
   ],
   "master": [
