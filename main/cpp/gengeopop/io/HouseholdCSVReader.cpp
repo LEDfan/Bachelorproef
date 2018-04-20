@@ -35,10 +35,10 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
 
                         m_total++;
 
-                        auto* p = new stride::Person;
+                        stride::Person p;
                         m_persons.push_back(p);
-                        p->SetAge(age);
-                        newCP->addMember(p);
+                        p.SetAge(age);
+                        newCP->addMember(&p);
                 }
                 household->addPool(newCP);
                 m_households.push_back(household);

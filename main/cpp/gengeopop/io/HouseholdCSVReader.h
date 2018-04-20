@@ -10,6 +10,7 @@ public:
         HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
 
 private:
-        std::vector<stride::Person*> m_persons;
+        ///< Persons used in this Household, segmented vector to be able to have working pointers to it
+        stride::util::SegmentedVector<stride::Person> m_persons;
 };
 } // namespace gengeopop
