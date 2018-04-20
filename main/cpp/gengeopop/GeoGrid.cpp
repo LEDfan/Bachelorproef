@@ -1,4 +1,5 @@
 #include "GeoGrid.h"
+#include <Exception.h>
 #include <cmath>
 #include <iostream>
 #include <queue>
@@ -93,9 +94,7 @@ void GeoGrid::finalize()
 
 std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
 {
-        if (!m_finalized) {
-                throw std::runtime_error("Calling inBox while GeoGrid is not finalized is not supported!");
-        }
+        checkFinalized(__func__);
 
         std::set<std::shared_ptr<Location>> result;
 
@@ -110,6 +109,8 @@ std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, do
 
 std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_ptr<Location> start, double radius) const
 {
+        checkFinalized(__func__);
+
         AABB<KdTree2DPoint> box{};
 
         double maxlat = start->getCoordinate().latitude + radianToDegree(radius / 6371.0);
@@ -140,5 +141,12 @@ std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_p
 }
 
 std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_population; }
+
+void GeoGrid::checkFinalized(const std::string& functionName) const
+{
+        if (!m_finalized) {
+                throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");
+        }
+}
 
 } // namespace gengeopop

@@ -92,6 +92,9 @@ public:
         std::shared_ptr<stride::Population> GetPopulation();
 
 private:
+        void checkFinalized(const std::string& functionName)
+            const; ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
+
         std::vector<std::shared_ptr<Location>>                      m_locations;
         std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
 
