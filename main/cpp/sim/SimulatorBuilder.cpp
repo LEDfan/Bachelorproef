@@ -132,7 +132,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
                 const auto belief_pt = m_config_pt.get_child("run.belief_policy");
                 sim->m_population    = std::make_shared<Population>(belief_pt);
                 reader->UsePopulation(sim->m_population);
-                reader->read(); // TODO make GeoGrid accesible for visualisr
+                sim->m_geoGrid = reader->read();
+                sim->m_geoGrid->finalize();
 
         } else if (geopop_type == "generate") {
                 m_stride_logger->debug("Generating population");

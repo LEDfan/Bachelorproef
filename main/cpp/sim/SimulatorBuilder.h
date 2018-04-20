@@ -23,6 +23,8 @@
 #include <memory>
 #include <spdlog/spdlog.h>
 
+#include <gengeopop/GeoGrid.h>
+
 namespace stride {
 
 class Simulator;

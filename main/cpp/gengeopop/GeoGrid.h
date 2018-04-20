@@ -97,8 +97,7 @@ private:
 
         std::vector<std::shared_ptr<Location>>                      m_locations;
         std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
-
-        std::shared_ptr<stride::Population> m_population;
+        std::shared_ptr<stride::Population>                         m_population;
 
         bool m_finalized;
 

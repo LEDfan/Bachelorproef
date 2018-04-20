@@ -28,6 +28,7 @@
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <gengeopop/GeoGrid.h>
 
 namespace spdlog {
 class logger;
@@ -70,6 +71,9 @@ public:
         /// Get the random number manager.
         util::RNManager& GetRNManager() { return m_rn_manager; }
 
+        /// Get the GeoGrid.
+        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() { return m_geoGrid; }
+
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
 
@@ -96,9 +100,10 @@ private:
         unsigned int m_sim_day;
 
 private:
-        std::shared_ptr<Population> m_population;        ///< Pointer to the Population.
-        ContactPoolSys              m_pool_sys;          ///< Holds vector of ContactPool of different types.
-        std::string                 m_local_info_policy; ///< Local information name.
+        std::shared_ptr<Population>         m_population;        ///< Pointer to the Population.
+        ContactPoolSys                      m_pool_sys;          ///< Holds vector of ContactPool of different types.
+        std::string                         m_local_info_policy; ///< Local information name.
+        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;           ///< The GeoGrid used during the Simulation (if any)
 
 private:
         friend class SimulatorBuilder;

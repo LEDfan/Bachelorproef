@@ -21,6 +21,8 @@
 #include "sim/CliController.h"
 
 #include "sim/SimRunner.h"
+#include "sim/Simulator.h"
+#include "sim/SimulatorBuilder.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
@@ -32,6 +34,7 @@
 #include "viewers/SummaryViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
+#include <gengeopop/GeoGrid.h>
 
 using namespace std;
 using namespace stride::util;
@@ -92,6 +95,9 @@ void CliController::Control()
         RegisterViewers(runner);
         runner->Setup(m_config_pt);
         runner->Run();
+        if (runner->GetSim()->GetGeoGrid()) {
+                std::cout << "GeoGrid size " << runner->GetSim()->GetGeoGrid()->size() << std::endl;
+        }
         m_stride_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());
 
         // -----------------------------------------------------------------------------------------
