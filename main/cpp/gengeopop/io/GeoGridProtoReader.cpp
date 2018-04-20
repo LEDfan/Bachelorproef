@@ -28,9 +28,9 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
         }
         std::shared_ptr<GeoGrid> geoGrid;
         if (m_population) {
-                geoGrid = std::make_shared<GeoGrid>();
-        } else {
                 geoGrid = std::make_shared<GeoGrid>(m_population);
+        } else {
+                geoGrid = std::make_shared<GeoGrid>();
         }
 #pragma omp parallel
 #pragma omp single

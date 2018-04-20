@@ -40,16 +40,10 @@ namespace stride {
 class Population : public util::SegmentedVector<Person>
 {
 public:
-        explicit Population(const boost::property_tree::ptree& belief_pt) : m_belief_pt(belief_pt), beliefs_container()
-        {
-                std::cout << "With belief_pt" << std::endl;
-        };
+        explicit Population(const boost::property_tree::ptree& belief_pt)
+            : m_belief_pt(belief_pt), beliefs_container(){};
 
-        Population() : m_belief_pt{}, beliefs_container()
-        {
-                m_belief_pt.add("name", "NoBelief");
-                std::cerr << "Without belief_pt" << std::endl;
-        };
+        Population() : m_belief_pt{}, beliefs_container() { m_belief_pt.add("name", "NoBelief"); };
 
         ///
         unsigned int GetAdoptedCount() const;

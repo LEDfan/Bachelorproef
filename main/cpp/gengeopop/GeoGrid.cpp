@@ -12,7 +12,11 @@ GeoGrid::GeoGrid()
 {
 }
 
-GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population) : GeoGrid() { m_population = std::move(population); }
+GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population)
+    : m_locations(), m_locationsToIdIndex(), m_population(std::move(population)), m_finalized(false), m_tree()
+
+{
+}
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 

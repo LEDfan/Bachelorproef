@@ -79,7 +79,9 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
                               unsigned int secondary_community_id, Health health, const ptree& belief_pt,
                               double risk_averseness)
 {
-        string belief_policy = belief_pt.get<string>("name");
+
+        string belief_policy;
+        belief_policy = belief_pt.get<string>("name");
 
         if (belief_policy == "NoBelief") {
                 NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
