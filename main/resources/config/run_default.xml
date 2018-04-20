@@ -34,6 +34,5 @@
     <vaccine_link_probability>0</vaccine_link_probability>
     <vaccine_profile>Random</vaccine_profile>
     <vaccine_rate>0.8</vaccine_rate>
-    <geopop_type>import</geopop_type>
-    <geopop_import_file>../../gengeopop.proto</geopop_import_file>
+    <geopop_type>default</geopop_type>
 </run>
