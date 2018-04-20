@@ -111,6 +111,7 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
         }
 
         for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
+#pragma omp critical
                 m_subMunicipalities.emplace_back(std::make_pair(result->getID(), protoLocation.submunicipalities(idx)));
         }
         return result;
