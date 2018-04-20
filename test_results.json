@@ -94,6 +94,11 @@
       "build_id": "487.3",
       "name": "linux-clang-5",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/integration/487.3-linux-clang-5.html"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/integration/487.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "487.4"
     }
   ],
   "master": [
