@@ -11,18 +11,22 @@ namespace {
 void disableCout() { std::cout.setstate(std::ios_base::failbit); }
 void enableCout() { std::cout.clear(); }
 
-TEST(HouseholdPopulatorTest, OneHouseholdTest)
+HouseholdPopulator getPopulator()
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
+        return HouseholdPopulator(rnManager);
+}
 
-        HouseholdPopulator householdPopulator(rnManager);
-        GeoGridConfig      config{};
-        auto               householdType = std::make_shared<Household>();
-        auto               poolType      = std::make_shared<ContactPool>();
-        auto               personType    = std::make_shared<stride::Person>();
+TEST(HouseholdPopulatorTest, OneHouseholdTest)
+{
+        HouseholdPopulator householdPopulator = getPopulator();
+
+        GeoGridConfig config{};
+        auto          householdType = std::make_shared<Household>();
+        auto          poolType      = std::make_shared<ContactPool>();
+        auto          personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
         poolType->addMember(personType);
         householdType->addPool(poolType);
@@ -46,12 +50,7 @@ TEST(HouseholdPopulatorTest, OneHouseholdTest)
 
 TEST(HouseholdPopulatorTest, ZeroHouseholdsTest)
 {
-
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
-
-        HouseholdPopulator householdPopulator(rnManager);
+        HouseholdPopulator householdPopulator = getPopulator();
         GeoGridConfig      config{};
 
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -63,11 +62,7 @@ TEST(HouseholdPopulatorTest, ZeroHouseholdsTest)
 
 TEST(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
-
-        HouseholdPopulator householdPopulator(rnManager);
+        HouseholdPopulator householdPopulator = getPopulator();
         GeoGridConfig      config{};
         auto               householdType = std::make_shared<Household>();
         auto               poolType      = std::make_shared<ContactPool>();
@@ -110,11 +105,7 @@ TEST(HouseholdPopulatorTest, FiveHouseholdsTest)
 }
 TEST(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
-
-        HouseholdPopulator householdPopulator(rnManager);
+        HouseholdPopulator householdPopulator = getPopulator();
         GeoGridConfig      config{};
         {
                 auto householdType = std::make_shared<Household>();
