@@ -127,27 +127,20 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
                 gengeopop::GeoGridReaderFactory                  geoGridReaderFactory;
                 const std::shared_ptr<gengeopop::GeoGridReader>& reader = geoGridReaderFactory.createReader(importFile);
 
-                sim->m_population = std::make_shared<Population>();
-
                 const auto belief_pt = m_config_pt.get_child("run.belief_policy");
 
-                gengeopop::GeoGrid::createPersonImpl =
-                    [&belief_pt, &sim, this](unsigned int id, double age, unsigned int household_id,
-                                             unsigned int school_id, unsigned int work_id,
-                                             unsigned int primary_community_id,
-                                             unsigned int secondary_community_id) -> std::shared_ptr<Person> {
-                        sim->m_population->CreatePerson(id, age, household_id, school_id, work_id, primary_community_id,
-                                                        secondary_community_id, Health(), belief_pt, 0);
-                        return sim->m_population->back();
-                };
-
                 m_stride_logger->debug("Importing population from " + importFile);
+
+                sim->m_population = std::make_shared<Population>(belief_pt);
+                reader->UsePopulation(sim->m_population);
 
                 const std::shared_ptr<gengeopop::GeoGrid> geoGrid = reader->read();
 
         } else if (geopop_type == "generate") {
                 m_stride_logger->debug("Generating population");
         }
+
+        m_stride_logger->debug("Found " + std::to_string(sim->m_population->size()) + " persons");
 
         // --------------------------------------------------------------
         // Seed the population with social contact survey participants.

@@ -32,9 +32,9 @@ ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
 {
 }
 
-void ContactPool::AddMember(std::shared_ptr<Person> p)
+void ContactPool::AddMember(const Person* p)
 {
-        m_members.emplace_back(p);
+        m_members.emplace_back(const_cast<Person*>(p));
         m_index_immune++;
 }
 

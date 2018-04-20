@@ -64,12 +64,12 @@ void DiseaseSeeder::Seed(std::shared_ptr<Simulator> sim)
 
         auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {
-                const std::shared_ptr<Person>& p = sim->GetPopulation()->at(static_cast<size_t>(int_generator()));
-                if (p->GetHealth().IsSusceptible() && (p->GetAge() >= seeding_age_min) &&
-                    (p->GetAge() <= seeding_age_max)) {
-                        p->GetHealth().StartInfection();
+                Person& p = sim->GetPopulation()->at(static_cast<size_t>(int_generator()));
+                if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
+                    (p.GetAge() <= seeding_age_max)) {
+                        p.GetHealth().StartInfection();
                         num_infected--;
-                        sim->GetContactLogger()->info("[PRIM] {} {} {} {}", -1, p->GetId(), -1, 0);
+                        sim->GetContactLogger()->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
 }

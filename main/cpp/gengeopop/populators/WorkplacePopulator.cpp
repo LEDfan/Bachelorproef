@@ -46,7 +46,7 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 // 2. for every worker assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                        for (stride::Person* person : *contactPool) {
                                 if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
 
                                         bool isStudent =
@@ -94,7 +94,7 @@ void WorkplacePopulator::calculateWorkplacesInCity()
         }
 }
 
-void WorkplacePopulator::AssignActive(const std::shared_ptr<stride::Person>& person)
+void WorkplacePopulator::AssignActive(stride::Person* person)
 {
         // this person is (student and active) or active
         if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_active_commutingPeople)) {

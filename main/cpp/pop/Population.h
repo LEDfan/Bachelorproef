@@ -37,13 +37,19 @@ namespace stride {
 /**
  * Container for persons in population.
  */
-class Population : public std::vector<std::shared_ptr<Person>>
+class Population : public util::SegmentedVector<Person>
 {
 public:
-        Population() : beliefs_container(){};
+        explicit Population(const boost::property_tree::ptree& belief_pt) : m_belief_pt(belief_pt), beliefs_container()
+        {
+                std::cout << "With belief_pt" << std::endl;
+        };
 
-        /// Inheriting constructors.
-        using std::vector<std::shared_ptr<Person>>::vector;
+        Population() : m_belief_pt{}, beliefs_container()
+        {
+                m_belief_pt.add("name", "NoBelief");
+                std::cerr << "Without belief_pt" << std::endl;
+        };
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -56,12 +62,19 @@ public:
                           unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                           Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
 
+        /// New Person in the population.
+        void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
+                          unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
+                          Health health = Health(), double risk_averseness = 0);
+
 private:
         ///
         template <typename BeliefPolicy>
         void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                        unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                        Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+
+        boost::property_tree::ptree m_belief_pt;
 
         /**
          * A RAII void* for type erasure that can contain anything, owns the pointer, and cleans up

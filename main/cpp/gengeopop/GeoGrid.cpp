@@ -2,10 +2,17 @@
 #include <cmath>
 #include <iostream>
 #include <queue>
+#include <utility>
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_tree() {}
+GeoGrid::GeoGrid()
+    : m_locations(), m_locationsToIdIndex(), m_population(std::make_shared<stride::Population>()), m_finalized(false),
+      m_tree()
+{
+}
+
+GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population) : GeoGrid() { m_population = std::move(population); }
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
@@ -128,13 +135,6 @@ std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_p
         return result;
 }
 
-std::function<std::shared_ptr<stride::Person>(unsigned int, double, unsigned int, unsigned int, unsigned int,
-                                              unsigned int, unsigned int)>
-    GeoGrid::createPersonImpl = [](unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                                   unsigned int work_id, unsigned int primary_community_id,
-                                   unsigned int secondary_community_id) -> std::shared_ptr<stride::Person> {
-        return std::make_shared<stride::Person>(id, age, household_id, school_id, work_id, primary_community_id,
-                                                secondary_community_id);
-};
+std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_population; }
 
 } // namespace gengeopop

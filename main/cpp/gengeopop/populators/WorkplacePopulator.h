@@ -41,7 +41,7 @@ private:
 
         void calculateNearbyWorkspaces();
 
-        void AssignActive(const std::shared_ptr<stride::Person>& person);
+        void AssignActive(stride::Person* person);
 
 public:
         WorkplacePopulator(stride::util::RNManager& rn_manager);

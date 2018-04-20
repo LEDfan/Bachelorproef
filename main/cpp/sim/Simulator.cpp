@@ -59,7 +59,7 @@ void Simulator::TimeStep()
 
         // Update individual's health status & presence in contactpools.
         for (auto& p : *m_population) {
-                p->Update(is_work_off, is_school_off);
+                p.Update(is_work_off, is_school_off);
         }
 
         using Id = ContactLogMode::Id;

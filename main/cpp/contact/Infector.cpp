@@ -30,7 +30,7 @@ namespace {
 using namespace stride;
 using namespace stride::ContactPoolType;
 
-inline double GetContactRate(const AgeContactProfile& profile, const std::shared_ptr<Person> p, size_t pool_size)
+inline double GetContactRate(const AgeContactProfile& profile, const Person* p, size_t pool_size)
 {
         const double reference_num_contacts{profile[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
         const double potential_num_contacts{static_cast<double>(pool_size - 1)};
@@ -57,7 +57,7 @@ template <bool TIC>
 class R0_POLICY
 {
 public:
-        static void Exec(std::shared_ptr<Person>) {}
+        static void Exec(Person*) {}
 };
 
 /// Specialized R0_POLICY: track only the index case.
@@ -65,7 +65,7 @@ template <>
 class R0_POLICY<true>
 {
 public:
-        static void Exec(std::shared_ptr<Person> p) { p->GetHealth().StopInfection(); }
+        static void Exec(Person* p) { p->GetHealth().StopInfection(); }
 };
 
 /// Primary LOG_POLICY policy, implements LogMode::None.
@@ -74,13 +74,13 @@ template <ContactLogMode::Id LL>
 class LOG_POLICY
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
-                            const std::shared_ptr<Person>&, Id, unsigned short int /*sim_day*/)
+        static void Contact(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
+                            unsigned short int /*sim_day*/)
         {
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
-                                 const std::shared_ptr<Person>&, Id, unsigned short int /*sim_day*/)
+        static void Transmission(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
+                                 unsigned short int /*sim_day*/)
         {
         }
 };
@@ -90,13 +90,10 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Transmissions>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
-                            const std::shared_ptr<Person>&, Id, unsigned short int)
-        {
-        }
+        static void Contact(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id, unsigned short int) {}
 
-        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1,
-                                 const std::shared_ptr<Person>& p2, Id type, unsigned short int sim_day)
+        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2,
+                                 Id type, unsigned short int sim_day)
         {
                 contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
         }
@@ -107,8 +104,8 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1,
-                            const std::shared_ptr<Person>& p2, Id type, unsigned short int sim_day)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2,
+                            Id type, unsigned short int sim_day)
         {
                 contact_logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                                      static_cast<unsigned int>(type == Id::Household),
@@ -117,9 +114,8 @@ public:
                                      static_cast<unsigned int>(type == Id::PrimaryCommunity),
                                      static_cast<unsigned int>(type == Id::SecondaryCommunity), sim_day);
         }
-
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, const std::shared_ptr<Person>& p1,
-                                 const std::shared_ptr<Person>& p2, Id type, unsigned short int sim_day)
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2, Id type,
+                                 unsigned short int sim_day)
         {
                 logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
         }
@@ -130,16 +126,16 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const std::shared_ptr<Person>& p1,
-                            const std::shared_ptr<Person>& p2, Id, unsigned short int)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2, Id,
+                            unsigned short int)
         {
                 if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         contact_logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
                 }
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>&, const std::shared_ptr<Person>&,
-                                 const std::shared_ptr<Person>&, Id, unsigned short int)
+        static void Transmission(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
+                                 unsigned short int)
         {
         }
 };

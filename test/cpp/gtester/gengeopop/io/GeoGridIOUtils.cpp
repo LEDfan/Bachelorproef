@@ -11,7 +11,7 @@
 #include <gengeopop/io/GeoGridProtoWriter.h>
 #include <gtest/gtest.h>
 
-std::map<int, std::shared_ptr<stride::Person>> persons_found;
+std::map<int, stride::Person*> persons_found;
 using namespace gengeopop;
 
 void compareContactPool(std::shared_ptr<ContactPool>                             contactPool,
@@ -20,8 +20,8 @@ void compareContactPool(std::shared_ptr<ContactPool>                            
         EXPECT_EQ(contactPool->getID(), protoContactPool.id());
         ASSERT_EQ(protoContactPool.people_size(), (contactPool->end() - contactPool->begin()));
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
-                auto                            personId = protoContactPool.people(idx);
-                std::shared_ptr<stride::Person> person   = contactPool->begin()[idx];
+                auto            personId = protoContactPool.people(idx);
+                stride::Person* person   = contactPool->begin()[idx];
                 EXPECT_EQ(person->GetId(), personId);
                 persons_found[personId] = person;
         }
@@ -195,13 +195,13 @@ std::shared_ptr<GeoGrid> getPopulatedGeoGrid()
         workplace->addPool(workplacePool);
 
         geoGrid->addLocation(location);
-        auto person = std::make_shared<stride::Person>(1, 18, 4, 2, 6, 3, 7);
-        communityPool->addMember(person);
-        schoolPool->addMember(person);
-        secondaryCommunityPool->addMember(person);
-        highschoolPool->addMember(person);
-        householdPool->addMember(person);
-        workplacePool->addMember(person);
+        //        auto person = std::make_shared<stride::Person>(1, 18, 4, 2, 6, 3, 7);
+        //        communityPool->addMember(person);
+        //        schoolPool->addMember(person);
+        //        secondaryCommunityPool->addMember(person);
+        //        highschoolPool->addMember(person);
+        //        householdPool->addMember(person);
+        //        workplacePool->addMember(person);
         return geoGrid;
 }
 

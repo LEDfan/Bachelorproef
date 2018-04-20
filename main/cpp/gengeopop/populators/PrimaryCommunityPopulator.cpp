@@ -39,7 +39,7 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         auto                               pool        = dist();
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                        for (stride::Person* person : *contactPool) {
                                 found.insert(community_pools[pool]);
                                 if (community_pools[pool].get() == nullptr) {
                                         std::cout << pool << std::endl;

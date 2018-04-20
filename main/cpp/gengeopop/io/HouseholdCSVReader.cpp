@@ -35,7 +35,8 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
 
                         m_total++;
 
-                        std::shared_ptr<stride::Person> p = std::make_shared<stride::Person>();
+                        auto* p = new stride::Person;
+                        m_persons.push_back(p);
                         p->SetAge(age);
                         newCP->addMember(p);
                 }

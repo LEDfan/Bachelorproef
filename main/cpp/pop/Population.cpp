@@ -38,7 +38,7 @@ unsigned int Population::GetInfectedCount() const
 {
         unsigned int total{0U};
         for (const auto& p : *this) {
-                const auto& h = p->GetHealth();
+                const auto& h = p.GetHealth();
                 total += h.IsInfected() || h.IsRecovered();
         }
         return total;
@@ -48,7 +48,7 @@ unsigned int Population::GetAdoptedCount() const
 {
         unsigned int total{0U};
         for (const auto& p : *this) {
-                if (p->GetBelief()->HasAdopted()) {
+                if (p.GetBelief()->HasAdopted()) {
                         total++;
                 }
         }
@@ -68,8 +68,8 @@ void Population::NewPerson(unsigned int id, double age, unsigned int household_i
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 
         BeliefPolicy* bp = container->emplace_back(belief_pt);
-        this->emplace_back(std::make_shared<Person>(id, age, household_id, school_id, work_id, primary_community_id,
-                                                    secondary_community_id, health, risk_averseness, bp));
+        this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
+                                  secondary_community_id, health, risk_averseness, bp));
 
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 }
@@ -90,6 +90,14 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
         } else {
                 throw runtime_error(string(__func__) + "No valid belief policy!");
         }
+}
+
+void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
+                              unsigned int work_id, unsigned int primary_community_id,
+                              unsigned int secondary_community_id, Health health, double risk_averseness)
+{
+        CreatePerson(id, age, household_id, school_id, work_id, primary_community_id, secondary_community_id, health,
+                     m_belief_pt, risk_averseness);
 }
 
 } // namespace stride

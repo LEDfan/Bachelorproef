@@ -36,7 +36,7 @@ class Person
 public:
         /// Default construction.
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0U},
+            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0, 0, 0, 0, 0},
               m_in_pools(false), m_belief(nullptr)
         {
         }

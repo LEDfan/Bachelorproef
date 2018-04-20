@@ -7,6 +7,7 @@
 #include <vector>
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <pop/Population.h>
 
 #include "KdTree.h"
 #include "Location.h"
@@ -22,6 +23,8 @@ class GeoGrid
 public:
         using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
+
+        GeoGrid(std::shared_ptr<stride::Population> population);
 
         GeoGrid();
 
@@ -80,18 +83,19 @@ public:
         std::shared_ptr<Location> GetById(unsigned int id);
 
         template <typename... Args>
-        std::shared_ptr<stride::Person> CreatePerson(Args&&... args)
+        stride::Person* CreatePerson(Args&&... args)
         {
-                return createPersonImpl(args...);
+                m_population->CreatePerson(args...);
+                return &m_population->back();
         }
 
-        static std::function<std::shared_ptr<stride::Person>(unsigned int, double, unsigned int, unsigned int,
-                                                             unsigned int, unsigned int, unsigned int)>
-            createPersonImpl;
+        std::shared_ptr<stride::Population> GetPopulation();
 
 private:
         std::vector<std::shared_ptr<Location>>                      m_locations;
         std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
+
+        std::shared_ptr<stride::Population> m_population;
 
         bool m_finalized;
 

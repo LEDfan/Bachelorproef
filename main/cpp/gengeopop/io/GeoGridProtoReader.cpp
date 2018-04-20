@@ -26,19 +26,24 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw Exception("Failed to parse Proto file");
         }
-        auto geoGrid = std::make_shared<GeoGrid>();
+        std::shared_ptr<GeoGrid> geoGrid;
+        if (m_population) {
+                geoGrid = std::make_shared<GeoGrid>();
+        } else {
+                geoGrid = std::make_shared<GeoGrid>(m_population);
+        }
 #pragma omp parallel
 #pragma omp single
         {
                 for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
-                        std::shared_ptr<stride::Person> person;
-                        const proto::GeoGrid_Person&    protoPerson = protoGrid.persons(idx);
+                        stride::Person*              person;
+                        const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
 #pragma omp task firstprivate(protoPerson, person)
                         {
 #pragma omp critical
                                 {
                                         person                    = ParsePerson(geoGrid, protoPerson);
-                                        m_people[person->GetId()] = std::move(person);
+                                        m_people[person->GetId()] = person;
                                 }
                         }
                 }
@@ -179,8 +184,8 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
         return result;
 }
 
-std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const std::shared_ptr<GeoGrid>& geoGrid,
-                                                                const proto::GeoGrid_Person&    protoPerson)
+stride::Person* GeoGridProtoReader::ParsePerson(const std::shared_ptr<GeoGrid>& geoGrid,
+                                                const proto::GeoGrid_Person&    protoPerson)
 {
         auto id                   = protoPerson.id();
         auto age                  = protoPerson.age();
