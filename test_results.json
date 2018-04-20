@@ -96,6 +96,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/integration/485.5-osx-9.2-apple-clang.html",
       "name": "osx-9.2-apple-clang",
       "build_id": "485.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/integration/485.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "485.6"
     }
   ],
   "visualizer-hover-comments": [
