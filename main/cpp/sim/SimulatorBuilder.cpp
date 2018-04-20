@@ -116,27 +116,33 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // in an ideal situation this could have been done using DI and polymorphism
         // To don't make too much code changes to the upstream project we don't do this
-        std::string geopop_type = m_config_pt.get<std::string>("run.geopop_type");
-        if (geopop_type == "default") {
+        if (m_config_pt.count("run.geopop_type") == 0) {
                 m_stride_logger->debug("Using default population builder");
                 sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
-        } else if (geopop_type == "import") {
+        } else {
+                std::string geopop_type = m_config_pt.get<std::string>("run.geopop_type");
+                if (geopop_type == "default") {
+                        m_stride_logger->debug("Using default population builder");
+                        sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+                } else if (geopop_type == "import") {
 
-                std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
+                        std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
 
-                gengeopop::GeoGridReaderFactory                  geoGridReaderFactory;
-                const std::shared_ptr<gengeopop::GeoGridReader>& reader = geoGridReaderFactory.createReader(importFile);
+                        gengeopop::GeoGridReaderFactory                  geoGridReaderFactory;
+                        const std::shared_ptr<gengeopop::GeoGridReader>& reader =
+                            geoGridReaderFactory.createReader(importFile);
 
-                m_stride_logger->debug("Importing population from " + importFile);
+                        m_stride_logger->debug("Importing population from " + importFile);
 
-                const auto belief_pt = m_config_pt.get_child("run.belief_policy");
-                sim->m_population    = std::make_shared<Population>(belief_pt);
-                reader->UsePopulation(sim->m_population);
-                sim->m_geoGrid = reader->read();
-                sim->m_geoGrid->finalize();
+                        const auto belief_pt = m_config_pt.get_child("run.belief_policy");
+                        sim->m_population    = std::make_shared<Population>(belief_pt);
+                        reader->UsePopulation(sim->m_population);
+                        sim->m_geoGrid = reader->read();
+                        sim->m_geoGrid->finalize();
 
-        } else if (geopop_type == "generate") {
-                m_stride_logger->debug("Generating population");
+                } else if (geopop_type == "generate") {
+                        m_stride_logger->debug("Generating population");
+                }
         }
 
         m_stride_logger->debug("Found " + std::to_string(sim->m_population->size()) + " persons");
