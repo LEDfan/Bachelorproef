@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
                                                                 "Fraction of students commuting", false, 0.50,
                                                                 "FRACTION OF STUDENTS COMMUTING", cmd);
 
-                ValueArg<double> fractionActivePeople("a", "fracActive", "Fraction of people active", false, 1.00,
+                ValueArg<double> fractionActivePeople("a", "fracActive", "Fraction of people active", false, 0.75,
                                                       "FRACTION OF PEOPLE ACTIVE", cmd);
 
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,

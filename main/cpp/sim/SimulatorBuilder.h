@@ -59,6 +59,12 @@ private:
         /// Get the disease configuration data.
         boost::property_tree::ptree ReadDiseasePtree();
 
+        /// Import GoeGrid from file
+        void ImportGeoGrid(std::shared_ptr<Simulator> ptr);
+
+        /// Generate GeoGrid with given parameters
+        void GenerateGeoGrid(std::shared_ptr<Simulator> ptr);
+
 private:
         boost::property_tree::ptree     m_config_pt;     ///< Run config in ptree.
         std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger (!= contact_logger).

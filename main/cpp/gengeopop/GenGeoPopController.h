@@ -23,12 +23,17 @@ public:
         /// Get the generated GeoGrid
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
+        /// Use the given Population storage during generation
+        void UsePopulation(std::shared_ptr<stride::Population> pop);
+
 private:
         GeoGridConfig& m_geoGridConfig; ///< The GeoGridConfig used to generate
 
         stride::util::RNManager& m_rnManager; ///< The RNManager used
 
         std::shared_ptr<GeoGrid> m_geoGrid; ///< The generated GeoGrid
+
+        std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid
 
         std::shared_ptr<CitiesReader>            m_citiesReader;            ///< The CitiesReader
         std::shared_ptr<CommutesReader>          m_commutesReader;          ///< The CommutesReader

@@ -34,6 +34,16 @@
     <vaccine_link_probability>0</vaccine_link_probability>
     <vaccine_profile>Random</vaccine_profile>
     <vaccine_rate>0.8</vaccine_rate>
-    <geopop_type>import</geopop_type>
-    <geopop_import_file>../../gengeopop.proto</geopop_import_file>
+    <geopop_type>generate</geopop_type>
+    <geopop_gen>
+        <population_size>600000</population_size>
+        <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+        <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+        <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+        <fraction_1865_years_active>0.75</fraction_1865_years_active>
+        <cities_file>flanders_cities.csv</cities_file>
+        <commuting_file>flanders_commuting.csv</commuting_file>
+        <household_file>households_flanders.csv</household_file>
+        <submunicipalities_file>submunicipalities.csv</submunicipalities_file>
+    </geopop_gen>
 </run>
