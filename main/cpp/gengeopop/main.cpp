@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
         int exit_status = EXIT_SUCCESS;
 
         // base structure copied from sim/main.cpp
-        // try {
+        try {
                 // --------------------------------------------------------------
                 // Parse parameters.
                 // --------------------------------------------------------------
@@ -133,12 +133,12 @@ int main(int argc, char* argv[])
                 outputFileStream.close();
 
                 logger->info("Done writing to file...");
-        // } catch (std::exception& e) {
-        //         exit_status = EXIT_FAILURE;
-        //         std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
-        // } catch (...) {
-        //         exit_status = EXIT_FAILURE;
-        //         std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
-        // }
+        } catch (std::exception& e) {
+                exit_status = EXIT_FAILURE;
+                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
+        } catch (...) {
+                exit_status = EXIT_FAILURE;
+                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
+        }
         return exit_status;
 }
