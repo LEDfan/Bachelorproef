@@ -1,11 +1,23 @@
 #include "GeoGrid.h"
+#include <Exception.h>
 #include <cmath>
 #include <iostream>
 #include <queue>
+#include <utility>
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid() : m_locations(), m_locationsToIdIndex(), m_finalized(false), m_tree() {}
+GeoGrid::GeoGrid()
+    : m_locations(), m_locationsToIdIndex(), m_population(std::make_shared<stride::Population>()), m_finalized(false),
+      m_tree()
+{
+}
+
+GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population)
+    : m_locations(), m_locationsToIdIndex(), m_population(std::move(population)), m_finalized(false), m_tree()
+
+{
+}
 
 GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
 
@@ -82,9 +94,7 @@ void GeoGrid::finalize()
 
 std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, double long2, double lat2) const
 {
-        if (!m_finalized) {
-                throw std::runtime_error("Calling inBox while GeoGrid is not finalized is not supported!");
-        }
+        checkFinalized(__func__);
 
         std::set<std::shared_ptr<Location>> result;
 
@@ -99,6 +109,8 @@ std::set<std::shared_ptr<Location>> GeoGrid::inBox(double long1, double lat1, do
 
 std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_ptr<Location> start, double radius) const
 {
+        checkFinalized(__func__);
+
         AABB<KdTree2DPoint> box{};
 
         double maxlat = start->getCoordinate().latitude + radianToDegree(radius / 6371.0);
@@ -126,6 +138,15 @@ std::set<std::shared_ptr<Location>> GeoGrid::findLocationsInRadius(std::shared_p
             box);
 
         return result;
+}
+
+std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_population; }
+
+void GeoGrid::checkFinalized(const std::string& functionName) const
+{
+        if (!m_finalized) {
+                throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");
+        }
 }
 
 } // namespace gengeopop

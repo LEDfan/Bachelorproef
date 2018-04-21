@@ -1,3 +1,4 @@
+#include "../../createlogger.h"
 #include <gengeopop/Community.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gtest/gtest.h>
@@ -14,7 +15,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        CommunityGenerator communityGenerator(rnManager);
+        CommunityGenerator communityGenerator(rnManager, createLogger());
         GeoGridConfig      config{};
         config.input.populationSize = 10000;
 
@@ -35,7 +36,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         rnInfo.m_seed = 10;
         stride::util::RNManager rnManager(rnInfo);
 
-        CommunityGenerator communityGenerator(rnManager);
+        CommunityGenerator communityGenerator(rnManager, createLogger());
         GeoGridConfig      config{};
         config.input.populationSize = 100 * 100 * 1000;
 
@@ -60,7 +61,7 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        CommunityGenerator communityGenerator(rnManager);
+        CommunityGenerator communityGenerator(rnManager, createLogger());
         GeoGridConfig      config{};
         config.input.populationSize = 10000;
 
@@ -77,7 +78,7 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        CommunityGenerator communityGenerator(rnManager);
+        CommunityGenerator communityGenerator(rnManager, createLogger());
         GeoGridConfig      config{};
         config.input.populationSize        = 37542 * 100;
         config.calculated.compulsoryPupils = 750840;

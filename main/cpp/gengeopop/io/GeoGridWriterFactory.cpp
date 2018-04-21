@@ -8,9 +8,6 @@ namespace gengeopop {
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::createWriter(std::string filename) const
 {
         boost::filesystem::path path(filename);
-        if (!boost::filesystem::exists(path)) {
-                throw std::invalid_argument("File not found: " + path.string());
-        }
 
         if (path.extension().string() == ".json") {
                 return std::make_shared<GeoGridJSONWriter>();

@@ -25,6 +25,7 @@
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <gengeopop/GeoGrid.h>
 #include <memory>
 #include <string>
 #include <vector>

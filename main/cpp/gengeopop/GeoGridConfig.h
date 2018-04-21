@@ -92,13 +92,15 @@ public:
         {
                 /**
                  * The current amount of ContactPools, used to obtain an Id for a new contactPool.
+                 * ! 0 has special meaning (not assigned)!
                  */
-                unsigned int contactPools = 0;
+                unsigned int contactPools = 1;
 
                 /**
                  * The current amount of ContactCenters, used to obtain an Id for a new contactCenter.
+                 * ! 0 has special meaning (not assigned)!
                  */
-                unsigned int contactCenters = 0;
+                unsigned int contactCenters = 1;
 
                 /**
                  * A list of possible households.

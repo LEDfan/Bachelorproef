@@ -25,6 +25,7 @@
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
 #include "pop/PopPoolBuilder.h"
+#include "pop/Population.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
@@ -35,6 +36,13 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
+#include <spdlog/fmt/ostr.h>
+
+#include <gengeopop/GenGeoPopController.h>
+#include <gengeopop/GeoGridConfig.h>
+#include <gengeopop/io/GeoGridReaderFactory.h>
+
+using namespace gengeopop;
 
 namespace stride {
 
@@ -111,7 +119,19 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+        // in an ideal situation this could have been done using DI and polymorphism
+        // To don't make too much code changes to the upstream project we don't do this
+        std::string geopop_type = m_config_pt.get<std::string>("run.geopop_type", "default");
+        if (geopop_type == "default") {
+                m_stride_logger->debug("Using default population builder");
+                sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+        } else if (geopop_type == "import") {
+                ImportGeoGrid(sim);
+        } else if (geopop_type == "generate") {
+                GenerateGeoGrid(sim);
+        }
+
+        m_stride_logger->debug("Found " + std::to_string(sim->m_population->size()) + " persons");
 
         // --------------------------------------------------------------
         // Seed the population with social contact survey participants.
@@ -193,6 +213,78 @@ ptree SimulatorBuilder::ReadDiseasePtree()
         }
 
         return pt;
+}
+void SimulatorBuilder::ImportGeoGrid(std::shared_ptr<Simulator> sim)
+{
+        std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
+
+        GeoGridReaderFactory                  geoGridReaderFactory;
+        const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.createReader(importFile);
+
+        m_stride_logger->debug("Importing population from " + importFile);
+
+        const auto belief_pt = m_config_pt.get_child("run.belief_policy");
+        sim->m_population    = std::make_shared<Population>(belief_pt);
+        reader->UsePopulation(sim->m_population);
+        sim->m_geoGrid = reader->read();
+        sim->m_geoGrid->finalize();
+}
+
+void SimulatorBuilder::GenerateGeoGrid(std::shared_ptr<Simulator> sim)
+{
+        m_stride_logger->debug("Generating population");
+
+        // --------------------------------------------------------------
+        // Configure.
+        // --------------------------------------------------------------
+        GeoGridConfig geoGridConfig{};
+        geoGridConfig.input.populationSize = m_config_pt.get<unsigned int>("run.geopop_gen.population_size");
+        geoGridConfig.input.fraction_1826_years_WhichAreStudents =
+            m_config_pt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
+        geoGridConfig.input.fraction_active_commutingPeople =
+            m_config_pt.get<double>("run.geopop_gen.fraction_active_commuting_people");
+        geoGridConfig.input.fraction_student_commutingPeople =
+            m_config_pt.get<double>("run.geopop_gen.fraction_student_commuting_people");
+        geoGridConfig.input.fraction_1865_years_active =
+            m_config_pt.get<double>("run.geopop_gen.fraction_1865_years_active");
+
+        stride::util::RNManager::Info info;
+        stride::util::RNManager       rnManager(info);
+
+        GenGeoPopController genGeoPopController(m_stride_logger, geoGridConfig, rnManager,
+                                                m_config_pt.get<std::string>("run.geopop_gen.cities_file"),
+                                                m_config_pt.get<std::string>("run.geopop_gen.commuting_file"),
+                                                m_config_pt.get<std::string>("run.geopop_gen.household_file"),
+                                                m_config_pt.get<std::string>("run.geopop_gen.submunicipalities_file"));
+
+        const auto belief_pt = m_config_pt.get_child("run.belief_policy");
+        sim->m_population    = std::make_shared<Population>(belief_pt);
+        genGeoPopController.UsePopulation(sim->m_population);
+
+        // --------------------------------------------------------------
+        // Read input files.
+        // --------------------------------------------------------------
+        genGeoPopController.ReadDataFiles();
+
+        m_stride_logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
+
+        // --------------------------------------------------------------
+        // Generate Geo
+        // --------------------------------------------------------------
+        m_stride_logger->info("Starting Gen-Geo");
+        genGeoPopController.GenGeo();
+        m_stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
+        m_stride_logger->info("ContactPools generated: {}", geoGridConfig.generated.contactPools);
+        m_stride_logger->info("Finished Gen-Geo");
+
+        // --------------------------------------------------------------
+        // Generate Pop
+        // --------------------------------------------------------------
+        m_stride_logger->info("Starting Gen-Pop");
+        genGeoPopController.GenPop();
+        m_stride_logger->info("Finished Gen-Pop");
+
+        sim->m_geoGrid = genGeoPopController.GetGeoGrid();
 }
 
 } // namespace stride

@@ -11,12 +11,10 @@
 
 namespace gengeopop {
 
-SchoolPopulator::SchoolPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
-
 void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
+        m_logger->info("Starting to populate Schools");
 
-        std::cout << std::endl << "Starting to populate Schools" << std::endl;
         std::set<std::shared_ptr<ContactPool>> found;
         unsigned int                           pupils = 0;
         // for every location
@@ -32,7 +30,7 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         found.insert(contactPool);
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                        for (stride::Person* person : *contactPool) {
                                 if (person->GetAge() < 18 && person->GetAge() >= 6) {
                                         auto id = dist();
                                         classes[id]->addMember(person);
@@ -42,9 +40,10 @@ void SchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                         }
                 }
         }
-        std::cout << "Finished populating Schools" << std::endl;
-        std::cout << "Used " << found.size() << " different classes" << std::endl;
-        std::cout << "Placed " << pupils << " pupils in Schools" << std::endl;
+
+        m_logger->info("Finished populating Schools");
+        m_logger->info("Used {} different classes", found.size());
+        m_logger->info("Placed {} pupils in Schools", pupils);
 }
 
 } // namespace gengeopop

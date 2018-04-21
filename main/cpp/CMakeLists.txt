@@ -112,7 +112,7 @@ set(LIB_SRC
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
-target_link_libraries(libstride ${LIBS})
+target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 include(ProcessorCount)
@@ -124,7 +124,7 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 # Build and install the stride executable.
 #============================================================================
 add_executable(stride sim/main.cpp)
-target_link_libraries(stride ${LIBS} libstride)
+target_link_libraries(stride ${LIBS} libstride libgengeopop)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 add_subdirectory(visualizer)
