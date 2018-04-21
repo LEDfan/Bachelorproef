@@ -8,6 +8,9 @@
 
 namespace gengeopop {
 
+/**
+ * Controls the complete generation and population of a GeoGrid.
+ */
 class GenGeoPopController
 {
 public:
@@ -16,10 +19,13 @@ public:
                             std::string commutingFileName, std::string householdFileName,
                             std::string subMunicipalitiesFileName);
 
+        /// Reads the data files
         void ReadDataFiles();
 
+        /// Generate and store the Geo part of the GeoGrid
         void GenGeo();
 
+        /// Populate and store the Pop part of the GeoGrid
         void GenPop();
 
         /// Get the generated GeoGrid
@@ -43,10 +49,11 @@ private:
         std::shared_ptr<SubMunicipalitiesReader> m_subMunicipalitiesReader; ///< The SubMunicipalitiesReader
         std::shared_ptr<spdlog::logger>          m_logger;                  ///< The logger used
 
-        std::string m_citiesFileName;
-        std::string m_commutingFileName;
-        std::string m_householdsFileName;
-        std::string m_subMunicipalitiesFileName;
+        std::string m_citiesFileName;     ///< Filename of the file which stores information about the cities
+        std::string m_commutingFileName;  ///< Filename of the file which stores information about the commutes
+        std::string m_householdsFileName; ///< Filename of the file which stores information about the households
+        std::string
+            m_subMunicipalitiesFileName; ///< Filename of the file which stores information about the submunicipalities
 };
 
 } // namespace gengeopop
