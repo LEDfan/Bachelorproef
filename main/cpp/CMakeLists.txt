@@ -111,6 +111,7 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 add_executable(stride sim/main.cpp)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 target_link_libraries(stride ${LIBS} libstride)
+target_link_libraries(stride libvis)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 add_subdirectory(visualizer)

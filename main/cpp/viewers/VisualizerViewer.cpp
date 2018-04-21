@@ -5,7 +5,14 @@ namespace stride {
 namespace viewers {
 void VisualizerViewer::update(const stride::sim_event::Payload& p)
 {
-        std::cout << "Visualizer step" << std::endl;
+    if(m_first){
+        m_first = false;
+
+        // Set the geogrid
+//        m_vis->setGeoGrid(p.m_runner->GetSim());
+    }
+
+    // Update the markers
 }
 } // namespace viewers
 } // namespace stride

@@ -21,6 +21,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 add_executable(visualizer ${VISUALIZER_SRC} ${QT_RESOURCES})
+add_library(libvis ${VISUALIZER_SRC} ${QT_RESOURCES})
 target_link_libraries(visualizer
     libgengeopop
     Qt5::Widgets
