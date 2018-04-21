@@ -12,6 +12,8 @@ public:
 
     void forceUpdateMarkers();
 
+    void join();
+
 private:
     QObject* m_rootContext = nullptr;
     std::unique_ptr<std::thread> m_thread;

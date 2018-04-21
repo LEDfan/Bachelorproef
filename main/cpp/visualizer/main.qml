@@ -89,7 +89,7 @@ ApplicationWindow {
 
     Backend {
         id: backend
-        objectName: backend
+        objectName: 'backend'
         Component.onCompleted: {
             backend.LocationsSelected.connect(clickSignal)
             if (Qt.application.arguments.length > 1) {
@@ -99,6 +99,11 @@ ApplicationWindow {
 
         function clickSignal (arg) {
             locViewer.showLocations(arg)
+        }
+
+        function setGrid(grid){
+        console.warn('set grid')
+            backend.SetGeoGrid(grid)
         }
 
     }

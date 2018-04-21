@@ -42,7 +42,8 @@ Visualizer::Visualizer() {
             return -1;
 
         // Save the root contect
-        m_rootContext = engine.rootContext();
+        m_rootContext = engine.rootObjects()[0];
+        std::cout << "Root ctx " << m_rootContext << std::endl;
 
         return app.exec();
     };
@@ -56,10 +57,14 @@ void Visualizer::forceUpdateMarkers() {
 }
 
 void Visualizer::setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid) {
-    auto backend = m_rootContext->findChild<QObject*>("backend");
-    QVariant retVal;
-    QMetaObject::invokeMethod(backend, "SetGeoGrid", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(std::shared_ptr<gengeopop::GeoGrid>, grid));
+    QObject* backend = m_rootContext->findChild<QObject*>("backend");
+    Backend* backendClass = qobject_cast<Backend*>(backend);
+    std::cout << "Setting geogrid from vis" << std::endl;
+    backendClass->SetGeoGrid(grid);
 
+}
+
+void Visualizer::join() {
+    m_thread->join();
 
 }
