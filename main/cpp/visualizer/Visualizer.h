@@ -3,6 +3,7 @@
 #include <gengeopop/GeoGrid.h>
 #include <QtCore/QObject>
 #include <thread>
+#include <visualizer/backends/LogicBridge.h>
 
 class Visualizer {
 public:
@@ -17,6 +18,7 @@ public:
 private:
     QObject* m_rootContext = nullptr;
     std::unique_ptr<std::thread> m_thread;
+    LogicBridge* m_bridge = nullptr;
 
 };
 

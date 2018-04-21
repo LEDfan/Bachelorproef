@@ -17,6 +17,8 @@ Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 Visualizer::Visualizer() {
     Q_INIT_RESOURCE(qml);
 
+    m_bridge =  new LogicBridge;
+
     auto func = [this](){
         int i = 0;
         QGuiApplication app(i,nullptr);
@@ -38,6 +40,7 @@ Visualizer::Visualizer() {
         ContactPoolListModel   cpModel;
         engine.rootContext()->setContextProperty("ccModel", &ccModel);
         engine.rootContext()->setContextProperty("cpModel", &cpModel);
+        engine.rootContext()->setContextProperty("bridge", m_bridge);
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
         if (engine.rootObjects().isEmpty())
             return -1;
@@ -58,10 +61,11 @@ void Visualizer::forceUpdateMarkers() {
 }
 
 void Visualizer::setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid) {
-    QObject* backend = m_rootContext->findChild<QObject*>("backend");
-    Backend* backendClass = qobject_cast<Backend*>(backend);
+//    QObject* backend = m_rootContext->findChild<QObject*>("backend");
+//    Backend* backendClass = qobject_cast<Backend*>(backend);
     std::cout << "Setting geogrid from vis" << std::endl;
-    backendClass->SetGeoGrid(grid);
+//    backendClass->SetGeoGrid(grid);
+    m_bridge->SetGeoGrid(grid);
 
 }
 
