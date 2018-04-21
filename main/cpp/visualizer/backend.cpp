@@ -41,10 +41,10 @@ Backend& Backend::operator=(const Backend& b)
 
 void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
-        QUrl                          info(file);
-        std::string                   filename = info.toLocalFile().toStdString();
-        std::ifstream                 inputFile(filename);
-        gengeopop::GeoGridReaderFactory factory;
+        QUrl                                      info(file);
+        std::string                               filename = info.toLocalFile().toStdString();
+        std::ifstream                             inputFile(filename);
+        gengeopop::GeoGridReaderFactory           factory;
         std::shared_ptr<gengeopop::GeoGridReader> reader = factory.createReader(filename);
         try {
                 m_grid = reader->read(inputFile);
