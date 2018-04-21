@@ -119,6 +119,7 @@ Test results
  - [483.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/integration/483.5-osx-9.2-apple-clang.html)
 # visualizer-mvc
  - [492.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/492.1-linux-gcc-6.html)
+ - [492.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/492.2-linux-gcc-7.html)
  - [481.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.1-linux-gcc-6.html)
  - [481.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.2-linux-gcc-7.html)
  - [481.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.3-linux-clang-5.html)
