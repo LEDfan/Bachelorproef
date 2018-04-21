@@ -68,7 +68,7 @@ private:
                        unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                        Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
 
-        boost::property_tree::ptree m_belief_pt; ///< The default belief ptree used when none is passed
+        boost::property_tree::ptree m_belief_pt; ///< The default belief ptree used when none is passe
 
         /**
          * A RAII void* for type erasure that can contain anything, owns the pointer, and cleans up
