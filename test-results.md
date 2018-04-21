@@ -92,6 +92,7 @@ Test results
  - [490.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/integration/490.2-linux-gcc-7.html)
  - [490.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/integration/490.3-linux-clang-5.html)
  - [490.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/integration/490.4-osx-8.3-apple-clang.html)
+ - [490.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/integration/490.5-osx-9.2-apple-clang.html)
  - [489.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/integration/489.1-linux-gcc-6.html)
  - [487.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/integration/487.1-linux-gcc-6.html)
  - [487.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/integration/487.2-linux-gcc-7.html)
