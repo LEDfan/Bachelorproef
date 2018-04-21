@@ -9,8 +9,6 @@
 
 namespace gengeopop {
 
-HighSchoolGenerator::HighSchoolGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
-
 void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         int amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;

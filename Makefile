@@ -26,6 +26,13 @@ NCORES=`getconf _NPROCESSORS_ONLN`
 ifeq ($(PARALLEL_MAKE),)
 	PARALLEL_MAKE = -j$(NCORES)
 endif
+
+#============================================================================
+#   Test related: had to duplicate CMAKE_INSTALL_PREFIX here for gtester
+#============================================================================
+#LABEL=$(shell git rev-list HEAD --count)
+#CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride-$(LABEL)
+
 #============================================================================
 # 	CMake command
 #============================================================================
@@ -77,10 +84,24 @@ ifneq ($(STRIDE_BOOST_NO_SYSTEM_PATHS),)
 	CMAKE_ARGS += -DSTRIDE_BOOST_NO_SYSTEM_PATHS:STRING=$(STRIDE_BOOST_NO_SYSTEM_PATHS)
 endif
 ifneq ($(STRIDE_FORCE_NO_OPENMP),)
-	CMAKE_ARGS += -DSTRIDE_FORCE_NO_OPENMP:BOOL=${STRIDE_FORCE_NO_OPENMP}
+	CMAKE_ARGS += -DSTRIDE_FORCE_NO_OPENMP:BOOL=$(STRIDE_FORCE_NO_OPENMP)
+endif
+ifneq ($(STRIDE_FORCE_NO_PYHTON),)
+	CMAKE_ARGS += -DSTRIDE_FORCE_NO_PYTHON:BOOL=$(STRIDE_FORCE_NO_PYTHON)
 endif
 ifneq ($(STRIDE_FORCE_NO_HDF5),)
-	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=${STRIDE_FORCE_NO_HDF5}
+	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=$(STRIDE_FORCE_NO_HDF5)
+endif
+
+#============================================================================
+#   Build directory.
+#============================================================================
+ifeq ($(BUILD_DIR),)
+ifeq ($(CMAKE_BUILD_TYPE),Debug)
+	BUILD_DIR = ./cmake-build-debug
+else
+	BUILD_DIR = ./cmake-build-release
+endif
 endif
 ifneq ($(STRIDE_GENERATE_COVERAGE),)
 	CMAKE_ARGS += -DGENERATE_COVERAGE:BOOL=${STRIDE_GENERATE_COVERAGE}
@@ -131,16 +152,16 @@ install: all
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
 clean: cores
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean
+	 if [ -d $(BUILD_DIR) ]; then $(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean; fi
 
 distclean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)
 
-test installcheck: install
-	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest
+test: install
+	cd $(BUILD_DIR)/test; ctest $(TESTARGS) -V
 
-test_py: install
-	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest_py
+gtest: install
+	cd $(CMAKE_INSTALL_PREFIX); bin/gtester $(GTESTARGS)
 
 format:
 	resources/bash/clang-format-all .
@@ -161,3 +182,4 @@ coverage:
 	genhtml -o html_coverage -t "Stride" -s --num-spaces 4 coverage.info
 
 #############################################################################
+REGERX=influen

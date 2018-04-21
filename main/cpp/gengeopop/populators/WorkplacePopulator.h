@@ -41,10 +41,10 @@ private:
 
         void calculateNearbyWorkspaces();
 
-        void AssignActive(const std::shared_ptr<stride::Person>& person);
+        void AssignActive(stride::Person* person);
 
 public:
-        WorkplacePopulator(stride::util::RNManager& rn_manager);
+        WorkplacePopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
 
         void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

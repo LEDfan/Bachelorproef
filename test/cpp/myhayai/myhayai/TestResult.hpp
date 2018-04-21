@@ -11,31 +11,22 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
-
 /**
  * @file
- * Produce run config ptree.
+ * Header file for TestResult.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include <chrono>
+#include <cstdint>
+#include <iterator>
+#include <tuple>
+#include <vector>
 
-namespace stride {
-namespace util {
+namespace myhayai {
 
-/**
- * Produce run config ptree.
- */
-class RunConfigPtree
-{
-public:
-        ///
-        static const boost::property_tree::ptree& CreateTestsBasic1();
+/// Test result descriptor. All durations are expressed in nanoseconds.
+using TestResult = std::vector<std::chrono::steady_clock::duration>;
 
-        ///
-        static const boost::property_tree::ptree& CreateTestsBasic2();
-};
-
-} // namespace util
-} // namespace stride
+} // namespace myhayai

@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -19,67 +19,109 @@
  */
 
 #include "sim/CliController.h"
+#include "util/FileSys.h"
+#include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
+#include "util/TimeStamp.h"
 
 #include <tclap/CmdLine.h>
+#include <iostream>
+#include <regex>
+#include <string>
 #include <vector>
 
 using namespace std;
 using namespace stride;
 using namespace stride::util;
 using namespace TCLAP;
+using namespace boost::property_tree;
 
 /// Main program of the stride simulator.
 int main(int argc, char** argv)
 {
-        int exit_status = EXIT_SUCCESS;
+        int exitStatus = EXIT_SUCCESS;
 
         try {
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine cmd("stride", ' ', "1.0", false);
+                CmdLine cmd("stride", ' ', "1.0");
 
-                vector<string>           vals{"trace", "debug", "info", "warning", "error", "critical"};
-                ValuesConstraint<string> vc(vals);
-                ValueArg<string>         stride_log_level("l", "loglevel", "stride log level", false, "info", &vc, cmd);
-                MultiArg<string>         params_override_Arg("p", "param_override",
-                                                     "config parameter override -p <p_name>=<p_value>", false,
-                                                     "parameter override", cmd);
-                ValueArg<string>         config_file_Arg("c", "config", "config file", false, "run_default.xml",
-                                                 "CONFIGURATION FILE", cmd);
+                vector<string>           execs{"clean", "dump", "sim"};
+                ValuesConstraint<string> vc(execs);
+                string se = "Execute the indicated function. The clean function takes the configuration file "
+                            "specified by the --config file=<file> parameter, cleans it (indent, sort) and "
+                            "rewrites it to a new file. The dump function takes the built-in configuration "
+                            "(used for testing/benchmarking) specified by the --config name=<name> parameter "
+                            "and writes it, cleanly (i.e. indented, sorted) to a new file. The sim function "
+                            "runs the simulator using the configuration specified by the --config parameter."
+                            "The latter may use either --config file=<file> or --config name=<name>. The sim"
+                            "function is the default.";
+                ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
 
-                SwitchArg index_case_Arg("r", "r0", "R0 only i.e. track index case mode", cmd, false);
-                SwitchArg working_dir_Arg("w", "working_dir",
-                                          "Use working directory to find files i.o install directories", cmd, false);
+                string so = "Override configuration parameters in the configuration file. The format is "
+                            "--override <name>=<value>. It can be used multiple times.";
+                MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
+
+                string sc = "Specifies the run configuration parameters to be used. It may be either "
+                            "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
+                            "shortened to -c <file>.";
+                ValueArg<string> configArg("c", "config", sc, false, "run_default.xml", "RUN CONFIGURATION", cmd);
+
+                string si = "Look for configuration file specified by the -c file=<file> or -c <file> in the "
+                            "stride install directories";
+                SwitchArg installedArg("i", "installed", si, cmd, true);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
-                // Parse commandline config parameter overrides (if any).
+                // Get configuration and path with overrides (if any).
                 // -----------------------------------------------------------------------------------------
-                vector<tuple<string, string>> p_overrides;
-                const auto                    p_vec = params_override_Arg.getValue();
-                for (const auto& p_assignment : p_vec) {
+                auto  config = configArg.getValue();
+                ptree configPt;
+
+                if (regex_search(config, regex("^name="))) {
+                        config   = regex_replace(config, regex(string("^name=")), string(""));
+                        configPt = RunConfigManager::Create(config);
+                } else {
+                        config = regex_replace(config, regex(string("^file=")), string(""));
+                        const boost::filesystem::path configPath =
+                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;
+                        configPt = FileSys::ReadPtreeFile(configPath);
+                }
+
+                for (const auto& p_assignment : overrideArg.getValue()) {
                         const auto v = util::Tokenize(p_assignment, "=");
-                        p_overrides.emplace_back(make_tuple(v[0], v[1]));
+                        configPt.put("run." + v[0], v[1]);
                 }
 
                 // -----------------------------------------------------------------------------------------
-                // Run the Stride simulator.
+                // If run simulation ...
                 // -----------------------------------------------------------------------------------------
-                // We have been using use_installdirs for a while, so ..
-                const bool    use_install_dirs = !working_dir_Arg.getValue();
-                CliController cntrl(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
-                                    stride_log_level.getValue(), use_install_dirs);
-                cntrl.Setup();
-                cntrl.Execute();
+                if (execArg.getValue() == "sim") {
+
+                        if (configPt.get<string>("run.output_prefix", "").empty()) {
+                                configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
+                        }
+                        configPt.sort();
+
+                        CliController cntrl(configPt);
+                        cntrl.Setup();
+                        cntrl.Control();
+                }
+                // -----------------------------------------------------------------------------------------
+                // If clean/dump ...
+                // -----------------------------------------------------------------------------------------
+                else {
+                        RunConfigManager::CleanConfigFile(configPt);
+                }
+
         } catch (exception& e) {
-                exit_status = EXIT_FAILURE;
+                exitStatus = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;
         } catch (...) {
-                exit_status = EXIT_FAILURE;
+                exitStatus = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: Unknown exception." << endl;
         }
-        return exit_status;
+        return exitStatus;
 }

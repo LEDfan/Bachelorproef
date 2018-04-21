@@ -43,11 +43,10 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
         QUrl                                      info(file);
         std::string                               filename = info.toLocalFile().toStdString();
-        std::ifstream                             inputFile(filename);
         gengeopop::GeoGridReaderFactory           factory;
         std::shared_ptr<gengeopop::GeoGridReader> reader = factory.createReader(filename);
         try {
-                m_grid = reader->read(inputFile);
+                m_grid = reader->read();
                 m_grid->finalize();
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
@@ -67,13 +66,12 @@ void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
                         path = boost::filesystem::canonical(path);
                         qDebug() << "Reading from " << path.c_str();
 
-                        std::ifstream                             inputFile(path.c_str());
                         gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
                         std::shared_ptr<gengeopop::GeoGridReader> reader =
                             geoGridReaderFactory.createReader(path.c_str());
 
                         try {
-                                m_grid = reader->read(inputFile);
+                                m_grid = reader->read();
                                 m_grid->finalize();
                         } catch (const std::exception& e) {
                                 qWarning() << QString("Error: ") + e.what();

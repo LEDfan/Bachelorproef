@@ -25,7 +25,8 @@ std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
 {
         auto cp = std::make_shared<ContactPool>();
         for (unsigned int age : ages) {
-                auto p = std::make_shared<stride::Person>();
+                //                auto p = std::make_shared<stride::Person>();
+                stride::Person* p = new stride::Person();
                 p->SetAge(age);
                 cp->addMember(p);
         }
@@ -55,14 +56,14 @@ TEST(HouseholdCSVReader, test1)
 {
         std::string csvString =
             R"(hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12
-42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA
-70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-40,39,9,6,NA,NA,NA,NA,NA,NA,NA,NA
-43,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-55,54,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-40,40,3,3,NA,NA,NA,NA,NA,NA,NA,NA
-35,32,6,3,NA,NA,NA,NA,NA,NA,NA,NA
-78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+ 42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA
+ 70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+ 40,39,9,6,NA,NA,NA,NA,NA,NA,NA,NA
+ 43,42,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+ 55,54,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+ 40,40,3,3,NA,NA,NA,NA,NA,NA,NA,NA
+ 35,32,6,3,NA,NA,NA,NA,NA,NA,NA,NA
+ 78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 )";
 
         auto instream = std::make_unique<std::istringstream>(csvString);
@@ -85,6 +86,11 @@ TEST(HouseholdCSVReader, test1)
                 }
 
                 i++;
+        }
+        for (const auto& hh : expectedHHS) {
+                for (const auto& person : *hh->GetPools()[0]) {
+                        delete person;
+                }
         }
 }
 
