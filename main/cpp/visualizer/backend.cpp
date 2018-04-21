@@ -131,7 +131,7 @@ void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int po
 {
         QVariant returnVal;
         double   size = std::min(50.0, 10 + population * 0.0015);
-        QMetaObject::invokeMethod(m_map, "addMarker", Qt::DirectConnection, Q_RETURN_ARG(QVariant, returnVal),
+        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection,
                                   Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
                                   Q_ARG(QVariant, QString(id.c_str())), Q_ARG(QVariant, size),
                                   Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));

@@ -61,11 +61,11 @@ void Visualizer::forceUpdateMarkers() {
 }
 
 void Visualizer::setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid) {
-//    QObject* backend = m_rootContext->findChild<QObject*>("backend");
-//    Backend* backendClass = qobject_cast<Backend*>(backend);
+    QObject* backend = m_rootContext->findChild<QObject*>("backend");
+    Backend* backendClass = qobject_cast<Backend*>(backend);
     std::cout << "Setting geogrid from vis" << std::endl;
-//    backendClass->SetGeoGrid(grid);
-    m_bridge->SetGeoGrid(grid);
+    backendClass->SetGeoGrid(grid);
+//    m_bridge->SetGeoGrid(grid);
 
 }
 
