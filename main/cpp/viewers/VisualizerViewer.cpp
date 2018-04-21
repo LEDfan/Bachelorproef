@@ -8,20 +8,18 @@ namespace viewers {
 void VisualizerViewer::update(const stride::sim_event::Payload& p)
 {
     m_logger->info("Visualizer updated");
-    if(m_first){
-//        m_first = false;
+    if(m_first and p.m_runner->GetSim() != nullptr){
+        m_first = false;
 
         // Set the geogrid
-        std::this_thread::sleep_for(std::chrono::seconds(10));
-        if(p.m_runner->GetSim() == nullptr){
-            std::cout << "no sim \U0001F985" << std::endl;
-            return;
-        }
         m_vis->setGeoGrid(p.m_runner->GetSim()->GetGeoGrid());
-        std::this_thread::sleep_for(std::chrono::seconds(10));
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+    } else {
+        // Update the markers
+        m_vis->forceUpdateMarkers();
+        std::this_thread::sleep_for(std::chrono::seconds(5));
     }
 
-    // Update the markers
 }
 } // namespace viewers
 } // namespace stride

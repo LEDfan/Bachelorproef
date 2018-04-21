@@ -47,25 +47,22 @@ Visualizer::Visualizer() {
 
         // Save the root contect
         m_rootContext = engine.rootObjects()[0];
-        std::cout << "Root ctx " << m_rootContext << std::endl;
 
         return app.exec();
     };
 
     m_thread = std::make_unique<std::thread>(func);
-    std::cout << "Started visualizer" << std::endl;
 }
 
 void Visualizer::forceUpdateMarkers() {
     auto backend = m_rootContext->findChild<QObject*>("backend");
+    // Force to update colors of sickness
 }
 
 void Visualizer::setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid) {
     QObject* backend = m_rootContext->findChild<QObject*>("backend");
     Backend* backendClass = qobject_cast<Backend*>(backend);
-    std::cout << "Setting geogrid from vis" << std::endl;
     backendClass->SetGeoGrid(grid);
-//    m_bridge->SetGeoGrid(grid);
 
 }
 

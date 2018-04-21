@@ -31,6 +31,10 @@ public:
 
 
         Q_INVOKABLE
+        void saveMarker(QString id, QObject* marker);
+
+
+        Q_INVOKABLE
         /**
          * Load a GeoGrid from JSON file, specified in the command line arguments
          */
@@ -82,6 +86,9 @@ public:
          * @param value If commutes need to be shown
          */
         void setShowCommutes(bool value);
+
+        Q_INVOKABLE
+        void updateAllHealthColors();
 
         Q_INVOKABLE
         /**

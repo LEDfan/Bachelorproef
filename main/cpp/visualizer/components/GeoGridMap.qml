@@ -141,6 +141,7 @@ ColumnLayout {
                 marker.sourceItem.color = 'blue'
             }
             map.addMapItem(marker)
+            backend.saveMarker(markerID, marker)
 //            return marker;
         }
 
