@@ -96,7 +96,7 @@ void CliController::Control()
         runner->Setup(m_config_pt);
         runner->Run();
         if (runner->GetSim()->GetGeoGrid()) {
-                std::cout << "GeoGrid size " << runner->GetSim()->GetGeoGrid()->size() << std::endl;
+                m_stride_logger->info("GeoGrid size {}", runner->GetSim()->GetGeoGrid()->size());
         }
         m_stride_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());
 

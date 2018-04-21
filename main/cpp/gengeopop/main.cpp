@@ -23,6 +23,9 @@
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
 #include <iostream>
+#include <spdlog/common.h>
+#include <spdlog/fmt/ostr.h>
+#include <util/LogUtils.h>
 #include <utility>
 
 using namespace gengeopop;
@@ -46,7 +49,10 @@ int main(int argc, char* argv[])
                                                  cmd);
                 ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
                                                     "households_flanders.csv", "OUTPUT FILE", cmd);
-                ValueArg<double>      fraction1826Students("s", "frac1826students",
+
+                ValueArg<std::string> logLevel("l", "loglevel", "Loglevel", false, "info", "LOGLEVEL", cmd);
+
+                ValueArg<double> fraction1826Students("s", "frac1826students",
                                                       "Fraction of 1826 years which are students", false, 0.50,
                                                       "FRACTION STUDENTS (1826)", cmd);
 
@@ -70,6 +76,14 @@ int main(int argc, char* argv[])
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // --------------------------------------------------------------
+                // Create logger.
+                // --------------------------------------------------------------
+                std::shared_ptr<spdlog::logger> logger =
+                    stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                logger->set_level(spdlog::level::from_str(logLevel.getValue()));
+                logger->flush_on(spdlog::level::err);
+
+                // --------------------------------------------------------------
                 // Configure.
                 // --------------------------------------------------------------
                 GeoGridConfig geoGridConfig{};
@@ -82,7 +96,7 @@ int main(int argc, char* argv[])
                 stride::util::RNManager::Info info;
                 stride::util::RNManager       rnManager(info);
 
-                GenGeoPopController genGeoPopController(geoGridConfig, rnManager, citiesFile.getValue(),
+                GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
                                                         commutingFile.getValue(), houseHoldFile.getValue(),
                                                         subMunicipalitiesFile.getValue());
 
@@ -90,36 +104,35 @@ int main(int argc, char* argv[])
                 // Read input files.
                 // --------------------------------------------------------------
                 genGeoPopController.ReadDataFiles();
-
-                std::cout << geoGridConfig;
+                logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
 
                 // --------------------------------------------------------------
                 // Generate Geo
                 // --------------------------------------------------------------
-                std::cout << "Starting Gen-Geo" << std::endl;
-                genGeoPopController.GengGeo();
-                std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
-                std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
-                std::cout << "Finished Gen-Geo" << std::endl;
+                logger->info("Starting Gen-Geo");
+                genGeoPopController.GenGeo();
+                logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
+                logger->info("ContactPools generated: {}", geoGridConfig.generated.contactPools);
+                logger->info("Finished Gen-Geo");
 
                 // --------------------------------------------------------------
                 // Generate Pop
                 // --------------------------------------------------------------
-                std::cout << "Starting Gen-Pop" << std::endl;
+                logger->info("Starting Gen-Pop");
                 genGeoPopController.GenPop();
-                std::cout << "Finished Gen-Pop" << std::endl;
+                logger->info("Finished Gen-Pop");
 
                 // --------------------------------------------------------------
                 // Write to file.
                 // --------------------------------------------------------------
-                std::cout << "Writing to file..." << std::endl;
+                logger->info("Writing to file...");
                 GeoGridWriterFactory           geoGridWriterFactory;
                 std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.createWriter(outputFile.getValue());
                 std::ofstream                  outputFileStream(outputFile.getValue());
                 geoGridWriter->write(genGeoPopController.GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
 
-                std::cout << "Done writing to file" << std::endl;
+                logger->info("Done writing to file...");
         } catch (std::exception& e) {
                 exit_status = EXIT_FAILURE;
                 std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;

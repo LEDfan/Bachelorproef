@@ -26,6 +26,7 @@ add_definitions(-DGTEST_LANG_CXX11)
 #============================================================================
 set(EXEC gtester)
 set(SRC
+        createlogger.h
         BatchRuns.cpp
         CSVTest.cpp
         ScenarioData.cpp

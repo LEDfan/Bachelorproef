@@ -9,11 +9,12 @@
 
 namespace gengeopop {
 
-HouseholdPopulator::HouseholdPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
+// HouseholdPopulator::HouseholdPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
 void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        std::cout << std::endl << "Starting to populate Households" << std::endl;
+        m_logger->info("Starting to populate Households");
+
         unsigned int current_person_id = 0;
         auto         household_dist    = m_rnManager.GetGenerator(trng::uniform_int_dist(
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
@@ -33,8 +34,8 @@ void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         }
                 }
         }
-        std::cout << "Finished populating Households" << std::endl;
-        std::cout << "Generated " << current_person_id << " persons" << std::endl;
+        m_logger->info("Finished populating Households");
+        m_logger->info("Generated {} persons", current_person_id);
 }
 
 } // namespace gengeopop

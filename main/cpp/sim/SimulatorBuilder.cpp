@@ -36,6 +36,7 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
+#include <spdlog/fmt/ostr.h>
 
 #include <gengeopop/GenGeoPopController.h>
 #include <gengeopop/GeoGridConfig.h>
@@ -250,7 +251,7 @@ void SimulatorBuilder::GenerateGeoGrid(std::shared_ptr<Simulator> sim)
         stride::util::RNManager::Info info;
         stride::util::RNManager       rnManager(info);
 
-        GenGeoPopController genGeoPopController(geoGridConfig, rnManager,
+        GenGeoPopController genGeoPopController(m_stride_logger, geoGridConfig, rnManager,
                                                 m_config_pt.get<std::string>("run.geopop_gen.cities_file"),
                                                 m_config_pt.get<std::string>("run.geopop_gen.commuting_file"),
                                                 m_config_pt.get<std::string>("run.geopop_gen.household_file"),
@@ -265,23 +266,23 @@ void SimulatorBuilder::GenerateGeoGrid(std::shared_ptr<Simulator> sim)
         // --------------------------------------------------------------
         genGeoPopController.ReadDataFiles();
 
-        std::cout << geoGridConfig;
+        m_stride_logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
 
         // --------------------------------------------------------------
         // Generate Geo
         // --------------------------------------------------------------
-        std::cout << "Starting Gen-Geo" << std::endl;
-        genGeoPopController.GengGeo();
-        std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
-        std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
-        std::cout << "Finished Gen-Geo" << std::endl;
+        m_stride_logger->info("Starting Gen-Geo");
+        genGeoPopController.GenGeo();
+        m_stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
+        m_stride_logger->info("ContactPools generated: {}", geoGridConfig.generated.contactPools);
+        m_stride_logger->info("Finished Gen-Geo");
 
         // --------------------------------------------------------------
         // Generate Pop
         // --------------------------------------------------------------
-        std::cout << "Starting Gen-Pop" << std::endl;
+        m_stride_logger->info("Starting Gen-Pop");
         genGeoPopController.GenPop();
-        std::cout << "Finished Gen-Pop" << std::endl;
+        m_stride_logger->info("Finished Gen-Pop");
 
         sim->m_geoGrid = genGeoPopController.GetGeoGrid();
 }

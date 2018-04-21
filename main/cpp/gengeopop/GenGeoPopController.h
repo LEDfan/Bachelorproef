@@ -3,6 +3,7 @@
 #include "GeoGridConfig.h"
 #include <gengeopop/io/CommutesReader.h>
 #include <gengeopop/io/SubMunicipalitiesReader.h>
+#include <spdlog/logger.h>
 #include <util/RNManager.h>
 
 namespace gengeopop {
@@ -10,13 +11,14 @@ namespace gengeopop {
 class GenGeoPopController
 {
 public:
-        GenGeoPopController(GeoGridConfig& geoGridConfig, stride::util::RNManager& rnManager,
-                            std::string citiesFileName, std::string commutingFileName, std::string householdFileName,
+        GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
+                            stride::util::RNManager& rnManager, std::string citiesFileName,
+                            std::string commutingFileName, std::string householdFileName,
                             std::string subMunicipalitiesFileName);
 
         void ReadDataFiles();
 
-        void GengGeo();
+        void GenGeo();
 
         void GenPop();
 
@@ -39,6 +41,7 @@ private:
         std::shared_ptr<CommutesReader>          m_commutesReader;          ///< The CommutesReader
         std::shared_ptr<HouseholdReader>         m_householdsReader;        ///< The HouseholdsReader
         std::shared_ptr<SubMunicipalitiesReader> m_subMunicipalitiesReader; ///< The SubMunicipalitiesReader
+        std::shared_ptr<spdlog::logger>          m_logger;                  ///< The logger used
 
         std::string m_citiesFileName;
         std::string m_commutingFileName;

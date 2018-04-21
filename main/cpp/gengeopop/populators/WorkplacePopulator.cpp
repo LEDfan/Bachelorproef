@@ -11,15 +11,15 @@
 
 namespace gengeopop {
 
-WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager)
-    : PartialPopulator(rn_manager),
+WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger)
+    : PartialPopulator(rn_manager, logger),
       m_fractionCommutingStudents(0), m_workplacesInCity{}, m_currentLoc{}, m_geoGridConfig{}, m_geoGrid{}
 {
 }
 
 void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        std::cout << std::endl << "Starting to populate Workplaces" << std::endl;
+        m_logger->info("Starting to populate Workplaces");
 
         m_geoGrid                   = geoGrid;
         m_geoGridConfig             = geoGridConfig;
@@ -66,8 +66,9 @@ void WorkplacePopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         }
                 }
         }
-        std::cout << "Populated workplaces, assigned to 0 " << m_assignedTo0 << ", assigned (commuting) "
-                  << m_assignedCommuting << ", assigned (not commuting) " << m_assignedNotCommuting << std::endl;
+
+        m_logger->info("Populated workplaces, assigned to 0 {}, assigned (commuting) {} assigned (not commuting) {} ",
+                       m_assignedTo0, m_assignedCommuting, m_assignedNotCommuting);
 }
 
 void WorkplacePopulator::calculateFractionCommutingStudents()

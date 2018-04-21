@@ -11,11 +11,10 @@
 
 namespace gengeopop {
 
-HighSchoolPopulator::HighSchoolPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
-
 void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        std::cout << std::endl << "Starting to populate HighSchools" << std::endl;
+        m_logger->info("Starting to populate HighSchools");
+
         std::set<std::shared_ptr<ContactPool>> found;
         unsigned int                           students  = 0;
         unsigned int                           commuting = 0;
@@ -89,10 +88,10 @@ void HighSchoolPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                         }
                 }
         }
-        std::cout << "Finished populating HighSchools" << std::endl;
-        std::cout << "Used " << found.size() << " different classes" << std::endl;
-        std::cout << "Placed " << students << " students in HighSchools, " << commuting
-                  << " of whom are commuting to a different location" << std::endl;
+        m_logger->info("Finished populating HighSchools");
+        m_logger->info("Used {} different classes", found.size());
+        m_logger->info("Placed {} students in HighSchools, {} of whom are commuting to a different location", students,
+                       commuting);
 }
 
 } // namespace gengeopop

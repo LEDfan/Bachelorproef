@@ -3,6 +3,7 @@
 #include "../../util/RNManager.h"
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
+#include <spdlog/logger.h>
 
 namespace gengeopop {
 /**
@@ -11,11 +12,12 @@ namespace gengeopop {
 class PartialGenerator
 {
 public:
-        PartialGenerator(stride::util::RNManager& rn_manager);
+        PartialGenerator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
         virtual void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
         virtual ~PartialGenerator(){};
 
 protected:
-        stride::util::RNManager& m_rnManager;
+        stride::util::RNManager&        m_rnManager;
+        std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by generators
 };
 } // namespace gengeopop
