@@ -99,6 +99,7 @@ Test results
  - [506.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/506.3-linux-clang-5.html)
  - [506.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/506.4-osx-8.3-apple-clang.html)
  - [506.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/506.5-osx-9.2-apple-clang.html)
+ - [506.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/506.6-osx-8.3-llvm-clang.html)
  - [492.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/492.1-linux-gcc-6.html)
  - [492.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/492.2-linux-gcc-7.html)
  - [492.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/492.3-linux-clang-5.html)
