@@ -10,6 +10,7 @@ import io.bistromatics.contactcenterviewerbackend 1.0
 
 ColumnLayout {
     Layout.fillWidth: true
+    Layout.fillHeight: true
     Text {
         id: textSelCCMaxPoolSize
         objectName: 'textCCPoolSize'

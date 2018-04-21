@@ -66,15 +66,24 @@ ApplicationWindow {
             id: geogridmap
         }
 
-        LocationViewer {
-            id: locViewer
+        ColumnLayout {
+            Layout.maximumWidth: 300
 
-            Component.onCompleted: {
-                locViewer.contactCenterSelected.connect(ccViewer.showCenter)
+            LocationViewer {
+                id: locViewer
+
+                Component.onCompleted: {
+                    locViewer.contactCenterSelected.connect(ccViewer.showCenter)
+                }
+
             }
 
-            Layout.maximumWidth: 300
+            CommutesViewer {
+                id: commutesViewer
+            }
+
         }
+
 
         ContactCenterViewer {
             Layout.maximumWidth: 250
@@ -98,6 +107,7 @@ ApplicationWindow {
 
         function clickSignal (arg) {
             locViewer.showLocations(arg)
+            commutesViewer.showCommutes(arg)
         }
 
     }
