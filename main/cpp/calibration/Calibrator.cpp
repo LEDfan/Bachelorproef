@@ -13,7 +13,7 @@ Calibrator::Calibrator()
 {
 }
 
-void Calibrator::run()
+void Calibrator::Run()
 {
         std::vector<std::string> cases = {"influenza_a", "influenza_b", "influenza_c", "measles_16", "r0_12"};
         unsigned int             count = 100;
@@ -24,10 +24,11 @@ void Calibrator::run()
 #pragma omp parallel
 #pragma omp for
                 for (unsigned int i = 0; i < count; i++) {
-                        logger->info("Starting the testcase {}, run {}", tag, i);
+                        logger->info("Starting the testcase {}, run {} of {}", tag, i, count);
                         auto runner = stride::SimRunner::Create();
                         runner->Setup(config_pt);
-                        runner->Run();
+                        // FIXME set seeds
+
                         // Get the infected count
                         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
                         logger->info("Finished running testcase {}, {} people were infected", tag, res);
@@ -37,7 +38,7 @@ void Calibrator::run()
         }
 }
 
-void Calibrator::printResults()
+void Calibrator::PrintResults()
 {
         for (auto& result_pair : results) {
                 auto&       results = result_pair.second;

@@ -5,16 +5,24 @@
 
 namespace calibration {
 
+/**
+ * A calibration tool used to calibrate the Stride scenario tests
+ */
 class Calibrator
 {
 public:
+        // Setup the Calibrator
         Calibrator();
-        void run();
-        void printResults();
+
+        // Run the actual simulations and gather results
+        void Run();
+
+        // Print the mean and standard deviation for the different testcases to the Logger
+        void PrintResults();
 
 private:
-        std::map<std::string, std::vector<unsigned int>> results;
-        std::shared_ptr<spdlog::logger>                  logger;
+        std::map<std::string, std::vector<unsigned int>> results; ///< Storage for the simulation results
+        std::shared_ptr<spdlog::logger>                  logger;  ///< Logger to use for this class
 };
 
 } // namespace calibration

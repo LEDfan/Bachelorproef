@@ -5,6 +5,6 @@ using namespace calibration;
 int main()
 {
         Calibrator calibrator;
-        calibrator.run();
-        calibrator.printResults();
+        calibrator.Run();
+        calibrator.PrintResults();
 }
