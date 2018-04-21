@@ -23,6 +23,7 @@
 #include "pool/ContactPoolType.h"
 
 #include <array>
+#include <memory>
 #include <vector>
 
 namespace stride {

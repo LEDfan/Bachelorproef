@@ -12,7 +12,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 
@@ -26,7 +26,23 @@ add_subdirectory(gengeopop)
 #============================================================================
 set(LIB_SRC
         #---
+        behaviour/behaviour_policies/NoBehaviour.h
+        behaviour/behaviour_policies/Vaccination.h
+        behaviour/belief_policies/Belief.h
+        behaviour/belief_policies/HBM.h
+        behaviour/belief_policies/Imitation.h
+        behaviour/belief_policies/NoBelief.h
+        behaviour/belief_policies/Threshold.h
+        behaviour/information_policies/LocalDiscussion.h
+        behaviour/information_policies/NoGlobalInformation.h
+        behaviour/information_policies/NoLocalInformation.h
+        #---
         calendar/Calendar.cpp
+        calendar/DaysOffAll.h
+        calendar/DaysOffInterface.h
+        calendar/DaysOffNone.h
+        calendar/DaysOffSchool.h
+        calendar/DaysOffStandard.h
         #---
         contact/AgeContactProfile.cpp
         contact/AgeContactProfiles.h
@@ -69,14 +85,14 @@ set(LIB_SRC
         sim/python/StrideRunner.cpp
         #---
         util/Any.h
-        util/ConfigInfo.h
+        util/ConfigInfo.cpp
         util/CSV.cpp
         util/CSVRow.cpp
         util/FileSys.cpp
         util/LogUtils.cpp
         util/RNEngineType.cpp
         util/RNManager.cpp
-        util/RunConfigPtree.cpp
+        util/RunConfigManager.cpp
         util/RunConfigString.cpp
         util/SegmentedVector.h
         util/Stopwatch.h
@@ -101,16 +117,26 @@ set(LIB_SRC
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
-target_link_libraries(libstride ${LIBS})
+target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
+target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+include(ProcessorCount)
+ProcessorCount(PROCCOUNT)
+target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================
 # Build and install the stride executable.
 #============================================================================
+# QT related
+find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
+include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
+add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+
 add_executable(stride sim/main.cpp)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
-target_link_libraries(stride ${LIBS} libstride)
+target_link_libraries(stride ${LIBS} libstride libgengeopop)
 target_link_libraries(stride libvis)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 

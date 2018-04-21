@@ -28,6 +28,7 @@
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <gengeopop/GeoGrid.h>
 
 namespace spdlog {
 class logger;
@@ -48,9 +49,6 @@ public:
         /// Default constructor for empty Simulator.
         Simulator();
 
-        /// Check if the simulator is operational.
-        bool IsOperational() const { return m_operational; }
-
         /// Caledar associated with simulated world. Represents date/simulated day of
         /// last TimeStep completed (it is incremented at the very end of TimeStep).
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
@@ -64,14 +62,17 @@ public:
         /// The ContactPoolSys of the simulator.
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
-        /// Get the disease profile.
-        const TransmissionProfile& GetDiseaseProfile() const { return m_disease_profile; }
+        /// Get the transmission profile.
+        const TransmissionProfile& GetTransmissionProfile() const { return m_transmission_profile; }
 
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 
         /// Get the random number manager.
         util::RNManager& GetRNManager() { return m_rn_manager; }
+
+        /// Get the GeoGrid.
+        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() { return m_geoGrid; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
@@ -82,17 +83,16 @@ private:
         void UpdatePools();
 
 private:
-        boost::property_tree::ptree     m_config_pt;        ///< Configuration property tree
-        ContactLogMode::Id              m_contact_log_mode; ///< Specifies contact/transmission logging mode.
-        std::shared_ptr<spdlog::logger> m_contact_logger;   ///< Logger for contact/transmission.
-        AgeContactProfiles              m_contact_profiles; ///< Contact profiles w.r.t age.
-        TransmissionProfile             m_disease_profile;  ///< Profile of disease.
-        unsigned int                    m_num_threads;      ///< The number of (OpenMP) threads.
-        bool                            m_track_index_case; ///< General simulation or tracking index case.
+        boost::property_tree::ptree     m_config_pt;            ///< Configuration property tree
+        ContactLogMode::Id              m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
+        std::shared_ptr<spdlog::logger> m_contact_logger;       ///< Logger for contact/transmission.
+        AgeContactProfiles              m_contact_profiles;     ///< Contact profiles w.r.t age.
+        unsigned int                    m_num_threads;          ///< The number of (OpenMP) threads.
+        bool                            m_track_index_case;     ///< General simulation or tracking index case.
+        TransmissionProfile             m_transmission_profile; ///< Profile of disease.
 
-        std::shared_ptr<Calendar> m_calendar;    ///< Management of calendar.
-        bool                      m_operational; ///< False when invalid disease profile is specified.
-        util::RNManager           m_rn_manager;  ///< Random numbere generation management.
+        std::shared_ptr<Calendar> m_calendar;   ///< Management of calendar.
+        util::RNManager           m_rn_manager; ///< Random numbere generation management.
 
 private:
         ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is
@@ -100,9 +100,10 @@ private:
         unsigned int m_sim_day;
 
 private:
-        std::shared_ptr<Population> m_population;               ///< Pointer to the Population.
-        ContactPoolSys              m_pool_sys;                 ///< Holds vector of ContactPool of different types.
-        std::string                 m_local_information_policy; ///< Local information name.
+        std::shared_ptr<Population>         m_population;        ///< Pointer to the Population.
+        ContactPoolSys                      m_pool_sys;          ///< Holds vector of ContactPool of different types.
+        std::string                         m_local_info_policy; ///< Local information name.
+        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;           ///< The GeoGrid used during the Simulation (if any)
 
 private:
         friend class SimulatorBuilder;

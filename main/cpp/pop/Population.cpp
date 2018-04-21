@@ -79,7 +79,9 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
                               unsigned int secondary_community_id, Health health, const ptree& belief_pt,
                               double risk_averseness)
 {
-        string belief_policy = belief_pt.get<string>("name");
+
+        string belief_policy;
+        belief_policy = belief_pt.get<string>("name");
 
         if (belief_policy == "NoBelief") {
                 NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
@@ -90,6 +92,14 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
         } else {
                 throw runtime_error(string(__func__) + "No valid belief policy!");
         }
+}
+
+void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
+                              unsigned int work_id, unsigned int primary_community_id,
+                              unsigned int secondary_community_id, Health health, double risk_averseness)
+{
+        CreatePerson(id, age, household_id, school_id, work_id, primary_community_id, secondary_community_id, health,
+                     m_belief_pt, risk_averseness);
 }
 
 } // namespace stride

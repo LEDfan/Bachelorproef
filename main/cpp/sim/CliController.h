@@ -55,15 +55,13 @@ class CliController
 {
 public:
         /// Straight initialization.
-        CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
-                      bool track_index_case = false, std::string stride_log_level = "info",
-                      bool use_install_dirs = true);
+        explicit CliController(const boost::property_tree::ptree& config_pt);
 
         /// Virtual desctructor for overloading
         virtual ~CliController() = default;
 
         /// Actual run of the simulator.
-        void Execute();
+        void Control();
 
         /// Setup the controller.
         void Setup();
@@ -96,9 +94,8 @@ private:
         void ReadConfigFile();
 
 private:
-        std::string                                       m_config_file;      /// Config parameters file name.
-        std::vector<std::tuple<std::string, std::string>> m_p_overrides;      /// Cli overides of config parameters.
-        bool                                              m_track_index_case; /// Full calculation or track index case.
+        std::string                                       m_config_file; /// Config parameters file name.
+        std::vector<std::tuple<std::string, std::string>> m_p_overrides; /// Cli overides of config parameters.
 
         std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
         bool        m_use_install_dirs; /// Working dir or install dir mode.

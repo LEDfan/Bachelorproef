@@ -4,6 +4,8 @@
 #include <gtest/gtest.h>
 #include <util/RNManager.h>
 
+#include "../../createlogger.h"
+
 using namespace gengeopop;
 
 namespace {
@@ -15,7 +17,7 @@ TEST(HighSchoolGeneratorTest, OneLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolGenerator schoolGenerator(rnManager);
+        HighSchoolGenerator schoolGenerator(rnManager, createLogger());
         GeoGridConfig       config{};
         config.input.populationSize               = 45000;
         config.calculated._1826_years_and_student = 9000;
@@ -38,7 +40,7 @@ TEST(HighSchoolGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolGenerator schoolGenerator(rnManager);
+        HighSchoolGenerator schoolGenerator(rnManager, createLogger());
         GeoGridConfig       config{};
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 2000;
@@ -56,7 +58,7 @@ TEST(HighSchoolGeneratorTest, FiveLocationsTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolGenerator schoolGenerator(rnManager);
+        HighSchoolGenerator schoolGenerator(rnManager, createLogger());
         GeoGridConfig       config{};
         config.input.populationSize               = 399992;
         config.calculated._1826_years_and_student = 79998;

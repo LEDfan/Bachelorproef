@@ -163,6 +163,7 @@ endif (CMAKE_USE_PTHREADS_INIT)
 add_definitions(-DGOOGLE_PROTOBUF_CMAKE_BUILD)
 add_library(libprotobuf ${libprotobuf_files} ${libprotobuf_includes})
 set_target_properties(libprotobuf PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
+set_property(TARGET libprotobuf PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(libprotobuf ${CMAKE_THREAD_LIBS_INIT})
 target_include_directories(libprotobuf PUBLIC .)
 # set_target_properties(libprotobuf PROPERTIES

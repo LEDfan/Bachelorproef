@@ -15,6 +15,7 @@ Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
 Visualizer::Visualizer() {
+    Q_INIT_RESOURCE(qml);
 
     auto func = [this](){
         int i = 0;

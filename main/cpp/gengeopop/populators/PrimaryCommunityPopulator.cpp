@@ -10,17 +10,14 @@
 
 namespace gengeopop {
 
-PrimaryCommunityPopulator::PrimaryCommunityPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager)
-{
-}
-
 void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
 
-        // for every location
-        std::cout << std::endl << "Starting to populate Primary Communities" << std::endl;
+        m_logger->info("Starting to populate Primary Communities");
+
         unsigned int                           full_capacity_count = 0;
         std::set<std::shared_ptr<ContactPool>> found;
+        // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 std::vector<std::shared_ptr<ContactPool>> community_pools;
                 std::function<unsigned int()>             dist;
@@ -39,10 +36,9 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         auto                               pool        = dist();
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                        for (stride::Person* person : *contactPool) {
                                 found.insert(community_pools[pool]);
                                 if (community_pools[pool].get() == nullptr) {
-                                        std::cout << pool << std::endl;
                                         break;
                                 }
                                 community_pools[pool]->addMember(person);
@@ -52,15 +48,15 @@ void PrimaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                                 community_pools.erase(community_pools.begin() + pool);
                                 updatePools();
                                 if (community_pools.empty()) {
-                                        std::cout << "Could not find a pool for person" << std::endl;
+                                        m_logger->warn("Could not find a pool for person");
                                         return;
                                 }
                         }
                 }
         }
-        std::cout << "Finished populating Primary Communities" << std::endl;
-        std::cout << "Used " << found.size() << " different Primary communities" << std::endl;
-        std::cout << "Filled " << full_capacity_count << " Primary communities completely" << std::endl;
+        m_logger->info("Finished populating Primary Communities");
+        m_logger->info("Used {} different Primary communities", found.size());
+        m_logger->info("Filled {} Primary communities completely", full_capacity_count);
 }
 
 } // namespace gengeopop

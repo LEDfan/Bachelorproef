@@ -36,9 +36,8 @@ class Person
 public:
         /// Default construction.
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0U},
-              m_in_pools(false), m_belief(nullptr), m_household_id(0), m_school_id(0), m_highschool_id(0), m_work_id(0),
-              m_primary_community_id(0), m_secondary_community_id(0)
+            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0, 0, 0, 0, 0},
+              m_in_pools(false), m_belief(nullptr)
         {
         }
 
@@ -49,11 +48,9 @@ public:
             : m_id(id), m_age(age), m_gender('M'), m_health(health),
               m_is_participant(false), m_pool_ids{household_id, school_id, work_id, primary_community_id,
                                                   secondary_community_id},
-              m_in_pools(true), m_belief(bp), m_household_id(household_id), m_school_id(school_id), m_highschool_id(0),
-              m_work_id(work_id), m_primary_community_id(primary_community_id),
-              m_secondary_community_id(secondary_community_id)
+              m_in_pools(true), m_belief(bp)
         {
-                // TODO highSchooldid?
+                // TODO m_in_pools: shouldn't this check if every id is not 0?
         }
 
         /// Is this person not equal to the given person?
@@ -104,62 +101,78 @@ public:
         /// Set the age of the person
         void SetAge(unsigned int newAge);
 
-        unsigned int GetHouseholdId() { return m_household_id; }
+        unsigned int GetHouseholdId() { return GetPoolId(ContactPoolType::Id::Household); }
 
-        void SetHouseholdId(unsigned int household_id) { m_household_id = household_id; }
+        void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
 
-        unsigned int GetSchoolId() { return m_school_id; }
+        unsigned int GetSchoolId()
+        {
+                // TODO highschool vs not highschool
+                return GetPoolId(ContactPoolType::Id::School);
+        }
 
-        void SetSchoolId(unsigned int school_id) { m_school_id = school_id; }
+        void SetSchoolId(unsigned int school_id)
+        {
+                // TODO highschool vs not highschool
+                SetPoolId(ContactPoolType::Id::School, school_id);
+        }
 
-        unsigned int GetHighSchoolId() { return m_highschool_id; };
+        unsigned int GetHighSchoolId()
+        {
+                // TODO highschool vs not highschool
+                return GetPoolId(ContactPoolType::Id::School);
+        }
 
-        void SetHighSchoolId(unsigned int highschool_id) { m_highschool_id = highschool_id; };
+        void SetHighSchoolId(unsigned int highschool_id)
+        {
+                // TODO highschool vs not highschool
+                SetPoolId(ContactPoolType::Id::School, highschool_id);
+        };
 
-        unsigned int GetWorkId() { return m_work_id; }
+        unsigned int GetWorkId() { return GetPoolId(ContactPoolType::Id::Work); }
 
-        void SetWorkId(unsigned int work_id) { m_work_id = work_id; }
+        void SetWorkId(unsigned int work_id) { SetPoolId(ContactPoolType::Id::Work, work_id); }
 
-        unsigned int GetPrimaryCommunityId() { return m_primary_community_id; }
+        unsigned int GetPrimaryCommunityId() { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
 
-        void SetPrimaryCommunityId(unsigned int primary_community_id) { m_primary_community_id = primary_community_id; }
+        void SetPrimaryCommunityId(unsigned int primary_community_id)
+        {
+                SetPoolId(ContactPoolType::Id::PrimaryCommunity, primary_community_id);
+        }
 
-        unsigned int GetSecondaryCommunityId() { return m_secondary_community_id; }
+        unsigned int GetSecondaryCommunityId() { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
 
         void SetSecondaryCommunityId(unsigned int secondary_community_id)
         {
-                m_secondary_community_id = secondary_community_id;
+                SetPoolId(ContactPoolType::Id::SecondaryCommunity, secondary_community_id);
         }
+
+        void SetPoolId(ContactPoolType::Id type, unsigned int poolId)
+        {
+                m_pool_ids[type] = poolId;
+                m_in_pools[type] = poolId != 0;
+        }
+
+        unsigned int GetPoolId(ContactPoolType::Id type) { return m_pool_ids[type]; }
 
 private:
         unsigned int m_id;     ///< The id.
         double       m_age;    ///< The age.
         char         m_gender; ///< The gender.
 
-        //        bool m_at_household;           ///< Is person present at household today?
-        //        bool m_at_school;              ///< Is person present at school today?
-        //        bool m_at_work;                ///< Is person present at work today?
-        //        bool m_at_primary_community;   ///< Is person present at primary_community today?
-        //        bool m_at_secondary_community; ///< Is person present at secundary_community today?
-
         Health m_health; ///< Health info for this person.
 
         bool m_is_participant; ///< Is participating in the social contact study
                                //        bool m_at_home_due_to_illness; ///< Is person present home due to illness?
-        using PoolIds = ContactPoolType::IdSubscriptArray<unsigned int>;
-        PoolIds m_pool_ids; ///< Ids of each of the types of pool (school, work,..) the person belongs to.
+        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids; ///< Ids (school, work, etc) of pools you belong to.
+                                                                    ///< Id value 0 means you do not belong to any
+                                                                    ///< pool of that type (e.g. school and work are
+                                                                    ///< mutually exclusive.
 
-        using InPools = ContactPoolType::IdSubscriptArray<bool>;
-        InPools m_in_pools; ///< Is person present in pool of each of the types (school, work,..)?
+        ContactPoolType::IdSubscriptArray<bool> m_in_pools; ///< Is person present/absent in pools of each of the
+                                                            ///< types (school, work, etc)?
 
         Belief* m_belief; ///< Health beliefs related data.
-
-        unsigned int m_household_id;           ///< The household id.
-        unsigned int m_school_id;              ///< The school contactpool id
-        unsigned int m_highschool_id;          ///< The highschool contactpool id
-        unsigned int m_work_id;                ///< The work contactpool id
-        unsigned int m_primary_community_id;   ///< The primary community id
-        unsigned int m_secondary_community_id; ///< The secondary community id
 };
 
 } // namespace stride

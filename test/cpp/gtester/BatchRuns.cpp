@@ -22,7 +22,7 @@
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
-#include "util/RunConfigPtree.h"
+#include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
@@ -93,10 +93,10 @@ const char* tags_r0[] = {"r0_0", "r0_4", "r0_8", "r0_12", "r0_16"};
 
 } // namespace
 
-INSTANTIATE_TEST_CASE_P(Run_influenza, BatchRuns, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza, BatchRuns, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(Run_measles, BatchRuns, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles, BatchRuns, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(Run_r0, BatchRuns, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0, BatchRuns, ValuesIn(tags_r0));
 
 } // namespace Tests

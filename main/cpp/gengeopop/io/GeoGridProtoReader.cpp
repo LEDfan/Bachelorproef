@@ -15,26 +15,36 @@
 
 namespace gengeopop {
 
-GeoGridProtoReader::GeoGridProtoReader() : GeoGridReader() {}
+GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream)
+    : GeoGridReader(std::move(inputStream))
+{
+}
 
-std::shared_ptr<GeoGrid> GeoGridProtoReader::read(std::istream& stream)
+std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
 {
         proto::GeoGrid protoGrid;
-        if (!protoGrid.ParseFromIstream(&stream)) {
+        if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw Exception("Failed to parse Proto file");
         }
-        auto geoGrid = std::make_shared<GeoGrid>();
+        std::shared_ptr<GeoGrid> geoGrid;
+        if (m_population) {
+                geoGrid = std::make_shared<GeoGrid>(m_population);
+        } else {
+                geoGrid = std::make_shared<GeoGrid>();
+        }
 #pragma omp parallel
 #pragma omp single
         {
                 for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
-                        std::shared_ptr<stride::Person> person;
-                        const proto::GeoGrid_Person&    protoPerson = protoGrid.persons(idx);
+                        stride::Person*              person;
+                        const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
 #pragma omp task firstprivate(protoPerson, person)
                         {
-                                person = ParsePerson(protoPerson);
 #pragma omp critical
-                                m_people[person->GetId()] = std::move(person);
+                                {
+                                        person                    = ParsePerson(geoGrid, protoPerson);
+                                        m_people[person->GetId()] = person;
+                                }
                         }
                 }
 #pragma omp taskwait
@@ -101,6 +111,7 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
         }
 
         for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
+#pragma omp critical
                 m_subMunicipalities.emplace_back(std::make_pair(result->getID(), protoLocation.submunicipalities(idx)));
         }
         return result;
@@ -174,7 +185,8 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
         return result;
 }
 
-std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
+stride::Person* GeoGridProtoReader::ParsePerson(const std::shared_ptr<GeoGrid>& geoGrid,
+                                                const proto::GeoGrid_Person&    protoPerson)
 {
         auto id                   = protoPerson.id();
         auto age                  = protoPerson.age();
@@ -184,8 +196,8 @@ std::shared_ptr<stride::Person> GeoGridProtoReader::ParsePerson(const proto::Geo
         auto primaryCommunityId   = protoPerson.primarycommunity();
         auto secondaryCommunityId = protoPerson.secondarycommunity();
 
-        return std::make_shared<stride::Person>(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
-                                                secondaryCommunityId);
+        return geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
+                                     secondaryCommunityId);
 }
 
 } // namespace gengeopop

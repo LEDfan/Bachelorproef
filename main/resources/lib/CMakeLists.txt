@@ -12,14 +12,14 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 #============================================================================
 # Add subdirs:
 #============================================================================
-
 add_subdirectory( protobuf )
+add_subdirectory(sha1)
 add_subdirectory(trng-4.20)
 
 #############################################################################

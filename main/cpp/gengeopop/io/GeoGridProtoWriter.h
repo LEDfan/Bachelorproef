@@ -20,8 +20,8 @@ private:
                                 proto::GeoGrid_Location_ContactCenter* protoContactCenter);
         void writeContactPool(std::shared_ptr<ContactPool>                       contactPool,
                               proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool);
-        void writePerson(std::shared_ptr<stride::Person> person, proto::GeoGrid_Person* protoPerson);
+        void writePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson);
 
-        std::set<std::shared_ptr<stride::Person>> m_persons_found;
+        std::set<stride::Person*> m_persons_found;
 };
 } // namespace gengeopop

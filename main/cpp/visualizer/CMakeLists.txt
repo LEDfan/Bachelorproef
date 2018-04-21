@@ -20,9 +20,20 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
+
+# Create executable
 add_executable(visualizer ${VISUALIZER_SRC} ${QT_RESOURCES})
-add_library(libvis ${VISUALIZER_SRC} ${QT_RESOURCES})
 target_link_libraries(visualizer
+    libgengeopop
+    Qt5::Widgets
+    Qt5::Qml
+    Qt5::Quick
+)
+
+# Create libary
+include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
+add_library(libvis ${VISUALIZER_SRC} ${QT_RESOURCES})
+target_link_libraries(libvis
     libgengeopop
     Qt5::Widgets
     Qt5::Qml

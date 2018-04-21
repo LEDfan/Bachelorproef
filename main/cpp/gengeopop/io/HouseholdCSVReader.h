@@ -1,11 +1,17 @@
 #pragma once
 
 #include "HouseholdReader.h"
+#include <pop/Population.h>
 
 namespace gengeopop {
 class HouseholdCSVReader : public HouseholdReader
 {
 public:
         HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
+
+        ///< Persons used in this Household, segmented vector to be able to have working pointers to it
+        stride::util::SegmentedVector<stride::Person> m_persons;
+
+private:
 };
 } // namespace gengeopop
