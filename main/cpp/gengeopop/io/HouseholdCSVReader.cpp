@@ -1,7 +1,7 @@
 #include "HouseholdCSVReader.h"
 #include <util/CSV.h>
 
-gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
+gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream) : m_persons()
 {
         stride::util::CSV reader(*(inputStream.get()));
 

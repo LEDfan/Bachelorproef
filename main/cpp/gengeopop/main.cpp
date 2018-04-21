@@ -1,4 +1,5 @@
 #include "Community.h"
+#include "GenGeoPopController.h"
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 #include <tclap/CmdLine.h>
@@ -27,49 +28,15 @@
 using namespace gengeopop;
 using namespace TCLAP;
 
-void genGeo(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
-{
-        GeoGridGenerator geoGridGenerator(geoGridConfig, geoGrid);
-        geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(rnManager));
-        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(rnManager));
-        geoGridGenerator.generateGeoGrid();
-}
-
-void genPop(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid, stride::util::RNManager& rnManager)
-{
-        GeoGridPopulator geoGridPopulator(geoGridConfig, geoGrid);
-        geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<HighSchoolPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(rnManager));
-        geoGridPopulator.addPartialPopulator(std::make_shared<WorkplacePopulator>(rnManager));
-        geoGridPopulator.populateGeoGrid();
-}
-
-void generate(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
-{
-        stride::util::RNManager::Info info;
-        stride::util::RNManager       rnManager(info);
-        std::cout << "Starting Gen-Geo" << std::endl;
-        genGeo(geoGridConfig, geoGrid, rnManager);
-        std::cout << "Finished Gen-Geo" << std::endl;
-        std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
-        std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
-        std::cout << "Starting Gen-Pop" << std::endl;
-        genPop(geoGridConfig, geoGrid, rnManager);
-        std::cout << "Finished Gen-Pop" << std::endl;
-}
-
 int main(int argc, char* argv[])
 {
         int exit_status = EXIT_SUCCESS;
 
         // base structure copied from sim/main.cpp
         try {
+                // --------------------------------------------------------------
+                // Parse parameters.
+                // --------------------------------------------------------------
                 CmdLine               cmd("gengeopop", ' ', "1.0");
                 ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv",
                                                  "CITIES FILE", cmd);
@@ -102,42 +69,9 @@ int main(int argc, char* argv[])
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
-                ReaderFactory readerFactory;
-
-                std::shared_ptr<CitiesReader>    citiesReader;
-                std::shared_ptr<CommutesReader>  commutesReader;
-                std::shared_ptr<HouseholdReader> houseHoldsReader;
-                auto                             geoGrid = std::make_shared<GeoGrid>();
-
-#pragma omp parallel sections
-                {
-#pragma omp section
-                        {
-                                citiesReader = readerFactory.CreateCitiesReader(std::string(citiesFile.getValue()));
-                                citiesReader->FillGeoGrid(geoGrid);
-                        }
-
-#pragma omp section
-                        {
-                                commutesReader =
-                                    readerFactory.CreateCommutesReader(std::string(commutingFile.getValue()));
-                        }
-
-#pragma omp section
-                        {
-                                houseHoldsReader =
-                                    readerFactory.CreateHouseholdReader(std::string(houseHoldFile.getValue()));
-                        }
-                }
-
-                std::ofstream outputFileStream(outputFile.getValue());
-                auto          subMunicipalitiesReader =
-                    readerFactory.CreateSubMunicipalitiesReader(std::string(subMunicipalitiesFile.getValue()));
-
-                citiesReader->FillGeoGrid(geoGrid);
-                commutesReader->FillGeoGrid(geoGrid);
-                subMunicipalitiesReader->FillGeoGrid(geoGrid);
-
+                // --------------------------------------------------------------
+                // Configure.
+                // --------------------------------------------------------------
                 GeoGridConfig geoGridConfig{};
                 geoGridConfig.input.populationSize                       = populationSize.getValue();
                 geoGridConfig.input.fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
@@ -145,19 +79,44 @@ int main(int argc, char* argv[])
                 geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommutingPeople.getValue();
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
-                geoGridConfig.Calculate(geoGrid, houseHoldsReader);
-                geoGrid->finalize();
+                stride::util::RNManager::Info info;
+                stride::util::RNManager       rnManager(info);
+
+                GenGeoPopController genGeoPopController(geoGridConfig, rnManager, citiesFile.getValue(),
+                                                        commutingFile.getValue(), houseHoldFile.getValue(),
+                                                        subMunicipalitiesFile.getValue());
+
+                // --------------------------------------------------------------
+                // Read input files.
+                // --------------------------------------------------------------
+                genGeoPopController.ReadDataFiles();
 
                 std::cout << geoGridConfig;
 
-                stride::util::RNManager::Info info;
-                stride::util::RNManager       rnManager(info);
-                generate(geoGridConfig, geoGrid);
-                std::cout << "Writing to file..." << std::endl;
+                // --------------------------------------------------------------
+                // Generate Geo
+                // --------------------------------------------------------------
+                std::cout << "Starting Gen-Geo" << std::endl;
+                genGeoPopController.GengGeo();
+                std::cout << "ContactCenters generated: " << geoGridConfig.generated.contactCenters << std::endl;
+                std::cout << "ContactPools generated: " << geoGridConfig.generated.contactPools << std::endl;
+                std::cout << "Finished Gen-Geo" << std::endl;
 
+                // --------------------------------------------------------------
+                // Generate Pop
+                // --------------------------------------------------------------
+                std::cout << "Starting Gen-Pop" << std::endl;
+                genGeoPopController.GenPop();
+                std::cout << "Finished Gen-Pop" << std::endl;
+
+                // --------------------------------------------------------------
+                // Write to file.
+                // --------------------------------------------------------------
+                std::cout << "Writing to file..." << std::endl;
                 GeoGridWriterFactory           geoGridWriterFactory;
                 std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.createWriter(outputFile.getValue());
-                geoGridWriter->write(geoGrid, outputFileStream);
+                std::ofstream                  outputFileStream(outputFile.getValue());
+                geoGridWriter->write(genGeoPopController.GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
 
                 std::cout << "Done writing to file" << std::endl;
