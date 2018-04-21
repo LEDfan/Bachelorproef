@@ -5,7 +5,7 @@ set(VISUALIZER_SRC
     backends/ContactCenterViewerBackend.cpp
     models/ContactPoolListModel.cpp
     models/ContactCenterListModel.cpp
-        )
+        Visualizer.cpp Visualizer.h)
 
 set(TEST_SRC
         tests/tests.cpp

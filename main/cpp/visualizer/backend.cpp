@@ -46,12 +46,20 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
         std::shared_ptr<gengeopop::GeoGridReader> reader = geoGridReaderFactory.createReader(filename);
         try {
-                m_grid = reader->read(inputFile);
-                m_grid->finalize();
+                SetGeoGrid(reader->read(inputFile));
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
         }
+}
+
+void Backend::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid) {
+        std::cout << "Backend: set geo grid" << std::endl;
+        m_grid = grid;
+        m_grid->finalize();
+        m_selection.clear();
+        m_unselection.clear();
+        m_commutes.clear();
         PlaceMarkers();
 }
 
