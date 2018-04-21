@@ -894,6 +894,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.3-linux-clang-5.html",
       "name": "linux-clang-5",
       "build_id": "503.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "503.5"
     }
   ]
 }
