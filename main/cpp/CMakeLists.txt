@@ -20,6 +20,7 @@
 # Subdirectories.
 #============================================================================
 add_subdirectory(gengeopop)
+add_subdirectory(calibration)
 
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
