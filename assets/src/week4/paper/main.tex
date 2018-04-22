@@ -1,4 +1,4 @@
-\documentclass{acmart}
+\documentclass[natbib=true]{acmart}
 \usepackage[utf8]{inputenc}
 \usepackage{subfig}
 \usepackage{graphicx}
@@ -7,6 +7,8 @@
 \usepackage{placeins}
 \usepackage{colortbl}
 \usepackage{bm}
+
+\setcitestyle{numbers,sort&compress}
 
 \title{An inquiry into the influence of parallelism and the choice of random
 engines on the runtime and results of Stride}
@@ -41,7 +43,7 @@ by using a QQ-Plot and hypothesis tests that the Attack Rate can be considered t
 For the accepted ranges, we decided to allow a distance of 2 standard deviations from the observed mean.
 
 The second topic of this paper is to analyze the influence of the random number generator engine on the Attack Rate.
-Stride uses the TRNG library \cite{bauke2015tina} as random number generator. The inspected engines are \texttt{lgc64}, \texttt{lgc64\_shift}, \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2} and \texttt{yarn3}.
+Stride uses the TRNG library \citep{bauke2015tina} as random number generator. The inspected engines are \texttt{lgc64}, \texttt{lgc64\_shift}, \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2} and \texttt{yarn3}.
 
 \pagebreak
 
