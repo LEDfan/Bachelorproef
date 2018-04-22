@@ -75,10 +75,9 @@ CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { ReadFromStream(
 
 CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
 
-void CSV::AddRow(vector<string> values)
+bool CSV::operator==(const CSV& other) const
 {
-        CSVRow csvRow(this, values);
-        this->push_back(csvRow);
+        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
 }
 
 void CSV::AddRows(vector<vector<string>>& rows)
@@ -121,11 +120,6 @@ void CSV::Write(const boost::filesystem::path& path) const
         file.close();
 }
 
-bool CSV::operator==(const CSV& other) const
-{
-        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
-}
-
 void CSV::ReadFromStream(std::istream& inputStream)
 {
         std::string line;
@@ -148,6 +142,12 @@ void CSV::ReadFromStream(std::istream& inputStream)
                         AddRow(values);
                 }
         }
+}
+
+void CSV::AddRow(vector<string> values)
+{
+        CSVRow csvRow(this, values);
+        this->push_back(csvRow);
 }
 
 const std::vector<std::string>& CSV::GetLabels() const { return labels; }

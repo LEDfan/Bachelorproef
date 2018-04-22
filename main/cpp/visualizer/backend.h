@@ -51,19 +51,38 @@ public:
         void OnExtraMarkerClicked(unsigned int idOfClicked);
 
         Q_INVOKABLE
+        /**
+         * Handles the action that is needed when a marker is hovered over.
+         * @param idOfHover id of marker we hover over
+         */
+        void onMarkerHovered(unsigned int idOfHover);
+        Q_INVOKABLE
+        /**
+         * Handles the action that is needed when a marker is no longer hovered over.
+         * @param idOfHover id of marker we hovered over
+         */
+        void onMarkerHoveredOff(unsigned int idOfHover);
 
+        Q_INVOKABLE
         /**
          * Removes all locations from selection and unselection + re-render the map.
          */
         void ClearSelectionAndRender();
 
+        Q_INVOKABLE
         /**
          * Removes all locations from selection and unselection but don't re-render the map.
          */
-        Q_INVOKABLE
         void ClearSelection();
 
         Q_INVOKABLE
+        /**
+         * Selects all locations in between
+         * @param slat
+         * @param slong
+         * @param elat
+         * @param elong
+         */
         void SelectArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
@@ -83,12 +102,13 @@ public:
         void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
 
 signals:
+        /// Emits the locations that are selected. Other components can connect to this to be notified.
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                            m_map = nullptr;
+        QObject*                            m_map = nullptr; ///< The QML Map the info is displayed on
         std::shared_ptr<gengeopop::GeoGrid> m_grid;
-        std::map<std::string, QObject*>     m_markers;
+        std::map<std::string, QObject*>     m_markers; ///< Reference to the markers so we do not need to search
         std::map<std::tuple<unsigned int, unsigned int>, QObject*>
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
         bool                                           m_showCommutes = false;
@@ -96,13 +116,14 @@ private:
         std::set<std::shared_ptr<gengeopop::Location>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
 
-        /*
+        /**
+         * Places a marker at the given coordinate
          * @Param specialmarker Whether or not to display a special marker
          */
         void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected,
                          bool specialmarker);
 
-        /*
+        /**
          * Places the markers on the map, according to the current checked boxes.
          * @Pre: m_map is initialized correctly and holds the map we want to place markers on
          */
@@ -134,10 +155,24 @@ private:
          */
         QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
 
+        /**
+         * Hides the commute line on the map.
+         * @param obj The commute line QObject
+         */
         void HideCommuteLine(QObject* obj);
 
+        /**
+         * Hides the commutes between the given 2 locations on the map.
+         * @param loc1
+         * @param loc2
+         */
         void HideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
                                 const std::shared_ptr<gengeopop::Location>& loc2);
 
+        /**
+         * Shows the commute from loc1 to loc2 on the map.
+         * @param loc1
+         */
         void ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
+
 };

@@ -48,7 +48,7 @@ CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : pare
 
 /// specialization for string
 template <>
-std::string CSVRow::getValue<std::string>(size_t index) const
+std::string CSVRow::GetValue<std::string>(size_t index) const
 {
         if (index >= parent->GetColumnCount()) {
                 throw std::runtime_error("Index out of range for CSV: " + ToString(index));
@@ -58,10 +58,10 @@ std::string CSVRow::getValue<std::string>(size_t index) const
 
 /// specialization for string
 template <>
-std::string CSVRow::getValue<std::string>(const std::string& label) const
+std::string CSVRow::GetValue<std::string>(const std::string& label) const
 {
         size_t index = parent->GetIndexForLabel(label);
-        return getValue(index);
+        return GetValue(index);
 }
 
 bool CSVRow::operator==(const CSVRow& other) const { return values == other.values; }

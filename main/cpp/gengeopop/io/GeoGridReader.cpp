@@ -2,7 +2,11 @@
 
 namespace gengeopop {
 
-GeoGridReader::GeoGridReader() : m_people(), m_commutes(), m_subMunicipalities() {}
+GeoGridReader::GeoGridReader(std::unique_ptr<std::istream> inputStream)
+    : m_people(), m_commutes(), m_subMunicipalities(), m_inputStream(std::move(inputStream))
+{
+}
+
 void GeoGridReader::AddSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid)
 {
         for (const auto& subMunTuple : m_subMunicipalities) {

@@ -14,9 +14,9 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
         }
 
         if (path.extension().string() == ".json") {
-                return std::make_shared<GeoGridJSONReader>();
+                return std::make_shared<GeoGridJSONReader>(std::make_unique<std::ifstream>(path.string()));
         } else if (path.extension().string() == ".proto") {
-                return std::make_shared<GeoGridProtoReader>();
+                return std::make_shared<GeoGridProtoReader>(std::make_unique<std::ifstream>(path.string()));
         } else {
                 throw Exception("Unsupported file extension: " + path.extension().string());
         }

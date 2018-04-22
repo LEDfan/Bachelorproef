@@ -135,7 +135,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(std::shared_ptr<
         boost::property_tree::ptree contactPool_root;
         contactPool_root.put("id", contactPool->GetID());
         boost::property_tree::ptree people;
-        for (const auto& person : *contactPool) {
+        for (stride::Person* person : *contactPool) {
                 boost::property_tree::ptree person_root;
 #pragma omp critical
                 m_persons_found.insert(person);
@@ -145,7 +145,8 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(std::shared_ptr<
         contactPool_root.add_child("people", people);
         return contactPool_root;
 }
-boost::property_tree::ptree GeoGridJSONWriter::WritePerson(std::shared_ptr<stride::Person> person)
+
+boost::property_tree::ptree GeoGridJSONWriter::WritePerson(stride::Person* person)
 {
         boost::property_tree::ptree person_root;
         person_root.put("id", person->GetId());

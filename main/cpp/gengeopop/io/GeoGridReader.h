@@ -9,17 +9,23 @@ namespace gengeopop {
 class GeoGridReader
 {
 public:
-        GeoGridReader();
-        virtual ~GeoGridReader()                                    = default;
-        virtual std::shared_ptr<GeoGrid> Read(std::istream& stream) = 0;
+        GeoGridReader(std::unique_ptr<std::istream> inputStream);
+        virtual ~GeoGridReader()                = default;
+        virtual std::shared_ptr<GeoGrid> Read() = 0;
+
+        void UsePopulation(const std::shared_ptr<stride::Population>& pop) { m_population = pop; }
 
 protected:
         void AddSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid);
         void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
 
-        std::map<unsigned int, std::shared_ptr<stride::Person>>     m_people;
+        std::map<unsigned int, stride::Person*>                     m_people;
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount
         std::vector<std::pair<unsigned int, unsigned int>>          m_subMunicipalities; //// first has submun second
+
+        std::unique_ptr<std::istream> m_inputStream; ///< file to read
+
+        std::shared_ptr<stride::Population> m_population{nullptr}; ///< population to use in the GeoGrid may be nullptr
 };
 
 } // namespace gengeopop

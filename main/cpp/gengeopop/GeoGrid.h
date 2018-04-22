@@ -7,6 +7,7 @@
 #include <vector>
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <pop/Population.h>
 
 #include "KdTree.h"
 #include "Location.h"
@@ -22,6 +23,8 @@ class GeoGrid
 public:
         using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
+
+        GeoGrid(std::shared_ptr<stride::Population> population);
 
         GeoGrid();
 
@@ -79,9 +82,25 @@ public:
 
         std::shared_ptr<Location> GetById(unsigned int id);
 
+        /// Create and store a Person in the GeoGrid and return a pointer to it, which works until deletion of the
+        /// GeoGrid
+        template <typename... Args>
+        stride::Person* CreatePerson(Args&&... args)
+        {
+                m_population->CreatePerson(args...);
+                return &m_population->back();
+        }
+
+        /// Get the population of this GeoGrid
+        std::shared_ptr<stride::Population> GetPopulation();
+
 private:
+        void checkFinalized(const std::string& functionName)
+            const; ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
+
         std::vector<std::shared_ptr<Location>>                      m_locations;
         std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
+        std::shared_ptr<stride::Population> m_population; ///< Stores and Owns the population of this GeoGrid
 
         bool m_finalized;
 

@@ -1,7 +1,7 @@
 #include "HouseholdCSVReader.h"
 #include <util/CSV.h>
 
-gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
+gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream) : m_persons()
 {
         stride::util::CSV reader(*(inputStream.get()));
 
@@ -15,7 +15,7 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
-                                age = row.getValue<unsigned int>(i);
+                                age = row.GetValue<unsigned int>(i);
                         } catch (const std::bad_cast& e) {
                                 // NA
                                 break;
@@ -35,9 +35,12 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
 
                         m_total++;
 
-                        std::shared_ptr<stride::Person> p = std::make_shared<stride::Person>();
-                        p->SetAge(age);
-                        newCP->AddMember(p);
+                        stride::Person p;
+                        m_persons.push_back(p);
+
+                        stride::Person* p_ptr = &m_persons.back();
+                        p_ptr->SetAge(age);
+                        newCP->AddMember(p_ptr);
                 }
                 household->AddPool(newCP);
                 m_households.push_back(household);

@@ -23,7 +23,7 @@ void Community::AddHouseHold(std::shared_ptr<Household> household)
         } else {
                 if (household->GetPools().empty())
                         return;
-                for (const std::shared_ptr<stride::Person>& person : **household->begin()) {
+                for (stride::Person* person : **household->begin()) {
                         m_pools[0]->AddMember(person);
                 }
         }

@@ -25,6 +25,7 @@
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
 #include "pop/PopPoolBuilder.h"
+#include "pop/Population.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
@@ -35,6 +36,13 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
+#include <spdlog/fmt/ostr.h>
+
+#include <gengeopop/GenGeoPopController.h>
+#include <gengeopop/GeoGridConfig.h>
+#include <gengeopop/io/GeoGridReaderFactory.h>
+
+using namespace gengeopop;
 
 namespace stride {
 
@@ -44,11 +52,10 @@ using namespace std;
 using namespace util;
 using namespace ContactPoolType;
 
-SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
+SimulatorBuilder::SimulatorBuilder(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(config_pt), m_stride_logger(std::move(logger))
 {
-        // assert(m_stride_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!"); // TODO
-        assert(!m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
+        assert(!m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty config ptree not acceptable!");
         // So as not to have to guard all log statements
         if (!m_stride_logger) {
                 m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
@@ -58,15 +65,109 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt,
 std::shared_ptr<Simulator> SimulatorBuilder::Build()
 {
         m_stride_logger->trace("Starting SimulatorBuilder::Build.");
-        const auto pt_contact = ReadContactPtree();
-        const auto pt_disease = ReadDiseasePtree();
+        const auto contact_pt = ReadContactPtree();
+        const auto disease_pt = ReadDiseasePtree();
 
-        std::shared_ptr<Simulator> sim = nullptr;
-        if (!pt_contact.empty() && !pt_disease.empty()) {
-                sim = Build(pt_disease, pt_contact);
-        }
+        assert(!contact_pt.empty() && "SimulatorBuilder::Build> Empty contact ptree not acceptable!");
+        assert(!disease_pt.empty() && "SimulatorBuilder::Build> Empty disease ptree not acceptable!");
+
+        auto sim = Build(disease_pt, contact_pt);
 
         m_stride_logger->trace("Finished SimulatorBuilder::Build.");
+        return sim;
+}
+
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, const ptree& contact_pt)
+{
+        // --------------------------------------------------------------
+        // Uninitialized simulator object.
+        // --------------------------------------------------------------
+        auto sim = make_shared<Simulator>();
+
+        // --------------------------------------------------------------
+        // Config info.
+        // --------------------------------------------------------------
+        sim->m_config_pt         = m_config_pt;
+        sim->m_track_index_case  = m_config_pt.get<bool>("run.track_index_case");
+        sim->m_num_threads       = m_config_pt.get<unsigned int>("run.num_threads");
+        sim->m_calendar          = make_shared<Calendar>(m_config_pt);
+        sim->m_local_info_policy = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
+        sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
+
+        // --------------------------------------------------------------
+        // Initialize RNManager for random number engine management.
+        // --------------------------------------------------------------
+        sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
+                                                     m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
+                                                     sim->m_num_threads});
+
+        // -----------------------------------------------------------------------------------------
+        // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
+        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
+        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
+        // -----------------------------------------------------------------------------------------
+        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix     = m_config_pt.get<string>("run.output_prefix");
+                const auto logPath    = FileSys::BuildPath(prefix, "contact_log.txt");
+                sim->m_contact_logger = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                // Remove meta data from log => time-stamp of logging
+                sim->m_contact_logger->set_pattern("%v");
+        } else {
+                sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
+        }
+
+        // --------------------------------------------------------------
+        // Build population.
+        // --------------------------------------------------------------
+        // in an ideal situation this could have been done using DI and polymorphism
+        // To don't make too much code changes to the upstream project we don't do this
+        std::string geopop_type = m_config_pt.get<std::string>("run.geopop_type", "default");
+        if (geopop_type == "default") {
+                m_stride_logger->debug("Using default population builder");
+                sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+        } else if (geopop_type == "import") {
+                ImportGeoGrid(sim);
+        } else if (geopop_type == "generate") {
+                GenerateGeoGrid(sim);
+        }
+
+        m_stride_logger->debug("Found " + std::to_string(sim->m_population->size()) + " persons");
+
+        // --------------------------------------------------------------
+        // Seed the population with social contact survey participants.
+        // --------------------------------------------------------------
+        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager, sim->m_contact_logger);
+
+        // --------------------------------------------------------------
+        // Seed the population with health data.
+        // --------------------------------------------------------------
+        HealthSeeder(disease_pt, sim->m_rn_manager).Seed(sim->m_population);
+
+        // --------------------------------------------------------------
+        // Initialize the age-related contact profiles.
+        // --------------------------------------------------------------
+        for (Id typ : IdList) {
+                sim->m_contact_profiles[typ] = AgeContactProfile(typ, contact_pt);
+        }
+
+        // --------------------------------------------------------------
+        // Build the ContactPoolSystem of the simulator.
+        // --------------------------------------------------------------
+        PopPoolBuilder(m_stride_logger).Build(sim->m_pool_sys, *sim->m_population);
+
+        // --------------------------------------------------------------
+        // Initialize the transmission profile (fixes rates).
+        // --------------------------------------------------------------
+        sim->m_transmission_profile.Initialize(m_config_pt, disease_pt);
+
+        // --------------------------------------------------------------
+        // Seed population wrt immunity/vaccination/infection.
+        // --------------------------------------------------------------
+        DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim);
+
+        // --------------------------------------------------------------
+        // Done.
+        // --------------------------------------------------------------
         return sim;
 }
 
@@ -113,104 +214,77 @@ ptree SimulatorBuilder::ReadDiseasePtree()
 
         return pt;
 }
-
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, const ptree& contact_pt)
+void SimulatorBuilder::ImportGeoGrid(std::shared_ptr<Simulator> sim)
 {
-        // --------------------------------------------------------------
-        // Uninitialized simulator object.
-        // --------------------------------------------------------------
-        auto sim = make_shared<Simulator>();
+        std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
+
+        GeoGridReaderFactory                  geoGridReaderFactory;
+        const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile);
+
+        m_stride_logger->debug("Importing population from " + importFile);
+
+        const auto belief_pt = m_config_pt.get_child("run.belief_policy");
+        sim->m_population    = std::make_shared<Population>(belief_pt);
+        reader->UsePopulation(sim->m_population);
+        sim->m_geoGrid = reader->Read();
+        sim->m_geoGrid->Finalize();
+}
+
+void SimulatorBuilder::GenerateGeoGrid(std::shared_ptr<Simulator> sim)
+{
+        m_stride_logger->debug("Generating population");
 
         // --------------------------------------------------------------
-        // Config info.
+        // Configure.
         // --------------------------------------------------------------
-        sim->m_config_pt        = m_config_pt;
-        sim->m_track_index_case = m_config_pt.get<bool>("run.track_index_case");
-        sim->m_num_threads      = m_config_pt.get<unsigned int>("run.num_threads");
-        sim->m_calendar         = make_shared<Calendar>(m_config_pt);
+        GeoGridConfig geoGridConfig{};
+        geoGridConfig.input.populationSize = m_config_pt.get<unsigned int>("run.geopop_gen.population_size");
+        geoGridConfig.input.fraction_1826_years_WhichAreStudents =
+            m_config_pt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
+        geoGridConfig.input.fraction_active_commutingPeople =
+            m_config_pt.get<double>("run.geopop_gen.fraction_active_commuting_people");
+        geoGridConfig.input.fraction_student_commutingPeople =
+            m_config_pt.get<double>("run.geopop_gen.fraction_student_commuting_people");
+        geoGridConfig.input.fraction_1865_years_active =
+            m_config_pt.get<double>("run.geopop_gen.fraction_1865_years_active");
+
+        stride::util::RNManager::Info info;
+        stride::util::RNManager       rnManager(info);
+
+        GenGeoPopController genGeoPopController(m_stride_logger, geoGridConfig, rnManager,
+                                                m_config_pt.get<std::string>("run.geopop_gen.cities_file"),
+                                                m_config_pt.get<std::string>("run.geopop_gen.commuting_file"),
+                                                m_config_pt.get<std::string>("run.geopop_gen.household_file"),
+                                                m_config_pt.get<std::string>("run.geopop_gen.submunicipalities_file"));
+
+        const auto belief_pt = m_config_pt.get_child("run.belief_policy");
+        sim->m_population    = std::make_shared<Population>(belief_pt);
+        genGeoPopController.UsePopulation(sim->m_population);
 
         // --------------------------------------------------------------
-        // Initialize RNManager for random number engine management.
+        // Read input files.
         // --------------------------------------------------------------
-        const auto            rng_seed = m_config_pt.get<unsigned long>("run.rng_seed", 1UL);
-        const auto            rng_type = m_config_pt.get<string>("run.rng_type", "mrg2");
-        const RNManager::Info info{rng_type, rng_seed, "", sim->m_num_threads};
-        sim->m_rn_manager.Initialize(info);
+        genGeoPopController.ReadDataFiles();
+
+        m_stride_logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
 
         // --------------------------------------------------------------
-        // ContactLogMode related initialization.
+        // Generate Geo
         // --------------------------------------------------------------
-        const string l          = m_config_pt.get<string>("run.contact_log_level", "None");
-        sim->m_contact_log_mode = ContactLogMode::IsMode(l)
-                                      ? ContactLogMode::ToMode(l)
-                                      : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
-
-        // -----------------------------------------------------------------------------------------
-        // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
-        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
-        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
-        // -----------------------------------------------------------------------------------------
-        const auto contact_output_file = m_config_pt.get<bool>("run.contact_output_file", true);
-        if (contact_output_file) {
-                const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
-                const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
-                sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
-                // Remove meta data from log => time-stamp of logging
-                sim->m_contact_logger->set_pattern("%v");
-        } else {
-                sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
-        }
+        m_stride_logger->info("Starting Gen-Geo");
+        genGeoPopController.GenGeo();
+        m_stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
+        m_stride_logger->info("ContactPools generated: {}", geoGridConfig.generated.contactPools);
+        m_stride_logger->info("Finished Gen-Geo");
 
         // --------------------------------------------------------------
-        // Set correct information policies.
+        // Generate Pop
         // --------------------------------------------------------------
-        const string loc_info_policy    = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
-        sim->m_local_information_policy = loc_info_policy;
+        m_stride_logger->info("Starting Gen-Pop");
+        genGeoPopController.GenPop();
+        m_stride_logger->info("Finished Gen-Pop");
 
-        // --------------------------------------------------------------
-        // Build population.
-        // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
-
-        // --------------------------------------------------------------
-        // Seed the population with social contact survey participants.
-        // --------------------------------------------------------------
-        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager, sim->m_contact_logger);
-
-        // --------------------------------------------------------------
-        // Seed the population with health data.
-        // --------------------------------------------------------------
-        HealthSeeder h_seeder(disease_pt, sim->m_rn_manager);
-        h_seeder.Seed(sim->m_population);
-
-        // --------------------------------------------------------------
-        // Initialize the age-related contact profiles.
-        // --------------------------------------------------------------
-        for (Id typ : IdList) {
-                sim->m_contact_profiles[typ] = AgeContactProfile(typ, contact_pt);
-        }
-
-        // --------------------------------------------------------------
-        // Build the ContactPoolSystem of the simulator.
-        // --------------------------------------------------------------
-        PopPoolBuilder cp_builder(m_stride_logger);
-        cp_builder.Build(sim->m_pool_sys, *sim->m_population);
-
-        // --------------------------------------------------------------
-        // Initialize the transmission profile (fixes rates).
-        // --------------------------------------------------------------
-        sim->m_operational = sim->m_disease_profile.Initialize(m_config_pt, disease_pt);
-
-        // --------------------------------------------------------------
-        // Seed population wrt immunity/vaccination/infection.
-        // --------------------------------------------------------------
-        DiseaseSeeder d_builder(m_config_pt, sim->m_rn_manager);
-        d_builder.Seed(sim);
-
-        // --------------------------------------------------------------
-        // Done.
-        // --------------------------------------------------------------
-        return sim;
+        sim->m_geoGrid = genGeoPopController.GetGeoGrid();
 }
 
 } // namespace stride

@@ -114,7 +114,6 @@ public:
                                      static_cast<unsigned int>(type == Id::PrimaryCommunity),
                                      static_cast<unsigned int>(type == Id::SecondaryCommunity), sim_day);
         }
-
         static void Transmission(const shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2, Id type,
                                  unsigned short int sim_day)
         {

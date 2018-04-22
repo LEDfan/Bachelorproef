@@ -20,8 +20,8 @@ private:
         boost::property_tree::ptree WriteCoordinate(const Coordinate& coordinate);
         boost::property_tree::ptree WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter);
         boost::property_tree::ptree WriteContactPool(std::shared_ptr<ContactPool> contactPool);
-        boost::property_tree::ptree WritePerson(std::shared_ptr<stride::Person> person);
+        boost::property_tree::ptree WritePerson(stride::Person* person);
 
-        std::set<std::shared_ptr<stride::Person>> m_persons_found;
+        std::set<stride::Person*> m_persons_found;
 };
 } // namespace gengeopop

@@ -4,6 +4,7 @@
 #include <trng/discrete_dist.hpp>
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
+#include <spdlog/logger.h>
 
 namespace gengeopop {
 /**
@@ -12,12 +13,13 @@ namespace gengeopop {
 class PartialPopulator
 {
 public:
-        explicit PartialPopulator(stride::util::RNManager& rn_manager);
+        PartialPopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
-        virtual ~PartialPopulator()                                                        = default;
+        virtual ~PartialPopulator(){};
 
 protected:
-        stride::util::RNManager& m_rnManager;
+        stride::util::RNManager&        m_rnManager; ///< RnManager used by populators
+        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 
         template <typename T>
         std::vector<std::shared_ptr<ContactPool>> GetContactPoolInIncreasingRadius(

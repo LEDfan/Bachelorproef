@@ -44,3 +44,11 @@ The visualiser is compiled with the other binaries. It can run by `./cmake-build
 You can select multiple locations by using SHIFT.
 
 The current status of the project build is : ![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
+
+## Integration
+
+The Stride binary can use a Population in three ways:
+  
+  - `default`   Generate a Population using `PopulationBuilder` (use `./bin/stride`)
+  - `import`    Import a Population from a `proto` or `json` file, which was generated using `gengeopop`. (use `./bin/stride -c run_import_default.xml`)
+  - `generate`  Generate a Population using GenGeoPop and provide data files and parameters. (use `./bin/stride -c run_generate_default.xml`)

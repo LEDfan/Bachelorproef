@@ -9,9 +9,9 @@ namespace gengeopop {
 class GeoGridProtoReader : public GeoGridReader
 {
 public:
-        GeoGridProtoReader();
+        GeoGridProtoReader(std::unique_ptr<std::istream> inputStream);
 
-        std::shared_ptr<GeoGrid> Read(std::istream& stream) override;
+        std::shared_ptr<GeoGrid> Read() override;
 
 private:
         std::shared_ptr<Location>      ParseLocation(const proto::GeoGrid_Location& protoLocation);
@@ -20,6 +20,6 @@ private:
             const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
         std::shared_ptr<ContactPool> ParseContactPool(
             const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize);
-        std::shared_ptr<stride::Person> ParsePerson(const proto::GeoGrid_Person& protoPerson);
+        stride::Person* ParsePerson(const std::shared_ptr<GeoGrid>& protoPerson, const proto::GeoGrid_Person& person);
 };
 } // namespace gengeopop

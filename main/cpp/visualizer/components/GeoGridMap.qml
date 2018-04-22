@@ -134,6 +134,8 @@ ColumnLayout {
             marker.anchorPoint.x = size/2
             marker.anchorPoint.y =  size/2
             marker.clicked.connect(markerClicked)
+            marker.hovered.connect(markerHovered)
+            marker.hoveredOff.connect(markerHoveredOff)
             marker.setID(markerID)
             marker.coordinate.latitude = lat
             marker.coordinate.longitude = lon
@@ -165,6 +167,14 @@ ColumnLayout {
             } else {
                 backend.OnMarkerClicked(id)
             }
+        }
+
+        function markerHovered(id) {
+            backend.onMarkerHovered(id)
+        }
+
+        function markerHoveredOff(id) {
+            backend.onMarkerHoveredOff(id)
         }
 
         function mapClicked(event) {

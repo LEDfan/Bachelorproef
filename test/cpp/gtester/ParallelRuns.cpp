@@ -23,7 +23,7 @@
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 #include "util/ConfigInfo.h"
-#include "util/RunConfigPtree.h"
+#include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
@@ -85,7 +85,7 @@ TEST_P(ParallelRuns, Run)
         // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
         for (const auto n : num_threads) {
-                config_pt.put("num_threads", n);
+                config_pt.put("run.num_threads", n);
                 cerr << "test tag: " << test_tag << " with #threads: " << n << endl;
                 auto runner = SimRunner::Create();
                 runner->Setup(config_pt);
@@ -106,10 +106,10 @@ const char* tags_r0[] = {"r0_0", "r0_4", "r0_8", "r0_12", "r0_16"};
 
 } // namespace
 
-INSTANTIATE_TEST_CASE_P(Run_influenza, ParallelRuns, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza, ParallelRuns, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(Run_measles, ParallelRuns, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles, ParallelRuns, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(Run_r0, ParallelRuns, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0, ParallelRuns, ValuesIn(tags_r0));
 
 } // namespace Tests

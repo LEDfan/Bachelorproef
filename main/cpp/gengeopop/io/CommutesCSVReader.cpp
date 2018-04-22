@@ -30,11 +30,11 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         for (const stride::util::CSVRow& row : m_reader) {
                 int total = 0;
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-                        total += row.getValue<int>(columnIndex);
+                        total += row.GetValue<int>(columnIndex);
                 }
 
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-                        auto abs = row.getValue<double>(columnIndex);
+                        auto abs = row.GetValue<double>(columnIndex);
                         if (abs != 0 && columnIndex != rowIndex) {
                                 const auto& locFrom    = geoGrid->GetById(headerMeaning[columnIndex]);
                                 const auto& locTo      = geoGrid->GetById(headerMeaning[rowIndex]);

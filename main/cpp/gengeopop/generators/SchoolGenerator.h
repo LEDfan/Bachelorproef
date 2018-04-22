@@ -8,7 +8,7 @@ namespace gengeopop {
 class SchoolGenerator : public PartialGenerator
 {
 public:
-        explicit SchoolGenerator(stride::util::RNManager& rn_manager);
+        using PartialGenerator::PartialGenerator;
 
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

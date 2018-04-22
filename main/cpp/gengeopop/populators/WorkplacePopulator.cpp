@@ -11,16 +11,15 @@
 
 namespace gengeopop {
 
-WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager)
-    : PartialPopulator(rn_manager), m_currentLoc{}, m_geoGrid{}, m_geoGridConfig{}, m_workplacesInCity{},
-      m_fractionCommutingStudents(0), m_nearByWorkplaces{}, m_distNonCommuting{}, m_commutingLocations{},
-      m_disCommuting{}
+WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger)
+    : PartialPopulator(rn_manager, logger),
+      m_fractionCommutingStudents(0), m_workplacesInCity{}, m_currentLoc{}, m_geoGridConfig{}, m_geoGrid{}
 {
 }
 
 void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        std::cout << std::endl << "Starting to populate Workplaces" << std::endl;
+        m_logger->info("Starting to populate Workplaces");
 
         m_geoGrid                   = geoGrid;
         m_geoGridConfig             = geoGridConfig;
@@ -47,7 +46,7 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 // 2. for every worker assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                        for (stride::Person* person : *contactPool) {
                                 if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
 
                                         bool isStudent =
@@ -67,8 +66,9 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         }
                 }
         }
-        std::cout << "Populated workplaces, assigned to 0 " << m_assignedTo0 << ", assigned (commuting) "
-                  << m_assignedCommuting << ", assigned (not commuting) " << m_assignedNotCommuting << std::endl;
+
+        m_logger->info("Populated workplaces, assigned to 0 {}, assigned (commuting) {} assigned (not commuting) {} ",
+                       m_assignedTo0, m_assignedCommuting, m_assignedNotCommuting);
 }
 
 void WorkplacePopulator::CalculateFractionCommutingStudents()
@@ -95,7 +95,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
         }
 }
 
-void WorkplacePopulator::AssignActive(const std::shared_ptr<stride::Person>& person)
+void WorkplacePopulator::AssignActive(stride::Person* person)
 {
         // this person is (student and active) or active
         if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_active_commutingPeople)) {

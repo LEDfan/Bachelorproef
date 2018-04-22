@@ -7,8 +7,6 @@
 
 namespace gengeopop {
 
-SchoolGenerator::SchoolGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
-
 void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
@@ -39,7 +37,6 @@ void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
                 auto                      school = std::make_shared<School>(geoGridConfig.generated.contactCenters++);
                 school->Fill(geoGridConfig);
                 loc->AddContactCenter(school);
-                //        std::cout << "Assign school " << schoolId << " to " << loc->getName() << std::endl;
         }
 }
 

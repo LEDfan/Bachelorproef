@@ -10,18 +10,14 @@
 
 namespace gengeopop {
 
-SecondaryCommunityPopulator::SecondaryCommunityPopulator(stride::util::RNManager& rn_manager)
-    : PartialPopulator(rn_manager)
-{
-}
-
 void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
 
-        // for every location
-        std::cout << std::endl << "Starting to populate Secondary Communities" << std::endl;
+        m_logger->info("Starting to populate Secondary Communities");
+
         unsigned int                           full_capacity_count = 0;
         std::set<std::shared_ptr<ContactPool>> found;
+        // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 // 1. find all communities in an area of 10-k*10 km
                 std::vector<std::shared_ptr<ContactPool>> community_pools;
@@ -41,7 +37,7 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
-                        for (const std::shared_ptr<stride::Person>& person : *contactPool) {
+                        for (stride::Person* person : *contactPool) {
                                 auto pool = dist();
                                 found.insert(community_pools[pool]);
                                 community_pools[pool]->AddMember(person);
@@ -50,7 +46,7 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                                         community_pools.erase(community_pools.begin() + pool);
                                         updatePools();
                                         if (community_pools.empty()) {
-                                                std::cout << "Could not find a pool for person" << std::endl;
+                                                m_logger->warn("Could not find a pool for person");
                                                 break;
                                         }
                                 }
@@ -60,9 +56,10 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                         }
                 }
         }
-        std::cout << "Finished populating Secondary Communities" << std::endl;
-        std::cout << "Used " << found.size() << " different Secondary communities" << std::endl;
-        std::cout << "Filled " << full_capacity_count << " Secondary communities completely" << std::endl;
+
+        m_logger->info("Finished populating Secondary Communities");
+        m_logger->info("Used {} different Secondary communities", found.size());
+        m_logger->info("Filled {} Secondary communities completely", full_capacity_count);
 }
 
 } // namespace gengeopop

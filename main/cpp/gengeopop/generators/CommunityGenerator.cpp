@@ -8,8 +8,6 @@
 
 namespace gengeopop {
 
-CommunityGenerator::CommunityGenerator(stride::util::RNManager& rn_manager) : PartialGenerator(rn_manager) {}
-
 void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*

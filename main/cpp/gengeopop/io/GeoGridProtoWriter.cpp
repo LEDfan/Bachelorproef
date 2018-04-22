@@ -1,4 +1,5 @@
 #include "GeoGridProtoWriter.h"
+#include "Exception.h"
 #include "proto/geogrid.pb.h"
 #include <Exception.h>
 #include <iostream>
@@ -90,7 +91,8 @@ void GeoGridProtoWriter::WriteContactPool(std::shared_ptr<ContactPool>          
                 m_persons_found.insert(person);
         }
 }
-void GeoGridProtoWriter::WritePerson(std::shared_ptr<stride::Person> person, proto::GeoGrid_Person* protoPerson)
+
+void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson)
 {
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));

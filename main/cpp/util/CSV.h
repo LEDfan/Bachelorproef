@@ -57,15 +57,14 @@ public:
         /// Amount of columns in the CSV.
         size_t GetColumnCount() const { return columnCount; }
 
-        /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
-        /// introduce a perfomance tradeoff.
-        size_t GetIndexForLabel(const std::string& label) const;
+        /// Compare operator.
+        bool operator==(const CSV& other) const;
 
         /// Add row of values. Will all be converted to string with StringUtils::ToString
         template <typename... T>
         void AddRow(const T&... values);
 
-        /// Add rom of string values.
+        /// Add row of string values.
         void AddRow(std::vector<std::string> values);
 
         /// Add a collection of rows.
@@ -74,8 +73,9 @@ public:
         /// Write CSV to file.
         void Write(const boost::filesystem::path& path) const;
 
-        /// Compare operator.
-        bool operator==(const CSV& other) const;
+        /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
+        /// introduce a perfomance tradeoff.
+        size_t GetIndexForLabel(const std::string& label) const;
 
         const std::vector<std::string>& GetLabels() const;
 

@@ -29,16 +29,16 @@ TEST(CSVTest, TestBadCast)
         CSV reader(instream);
 
         const auto& row1 = reader.begin();
-        EXPECT_THROW(row1->getValue<int>("id"), boost::bad_lexical_cast);
-        EXPECT_THROW(row1->getValue<int>("naam"), boost::bad_lexical_cast);
-        EXPECT_THROW(row1->getValue<unsigned int>("col3"), boost::bad_numeric_cast);
-        EXPECT_THROW(row1->getValue<uint8_t>("col4"), boost::bad_numeric_cast);
-        EXPECT_THROW(row1->getValue<double>("col5"), boost::bad_lexical_cast);
+        EXPECT_THROW(row1->GetValue<int>("id"), boost::bad_lexical_cast);
+        EXPECT_THROW(row1->GetValue<int>("naam"), boost::bad_lexical_cast);
+        EXPECT_THROW(row1->GetValue<unsigned int>("col3"), boost::bad_numeric_cast);
+        EXPECT_THROW(row1->GetValue<uint8_t>("col4"), boost::bad_numeric_cast);
+        EXPECT_THROW(row1->GetValue<double>("col5"), boost::bad_lexical_cast);
 
         const auto& row2 = reader.begin() + 1;
-        EXPECT_EQ(row2->getValue<int>("id"), 10);
-        EXPECT_EQ(row2->getValue("naam"), "abc");
-        EXPECT_EQ(row2->getValue<unsigned int>("col3"), 100);
-        EXPECT_EQ(row2->getValue<uint8_t>("col4"), 125);
-        EXPECT_EQ(row2->getValue<double>("col5"), 100.10);
+        EXPECT_EQ(row2->GetValue<int>("id"), 10);
+        EXPECT_EQ(row2->GetValue("naam"), "abc");
+        EXPECT_EQ(row2->GetValue<unsigned int>("col3"), 100);
+        EXPECT_EQ(row2->GetValue<uint8_t>("col4"), 125);
+        EXPECT_EQ(row2->GetValue<double>("col5"), 100.10);
 }
