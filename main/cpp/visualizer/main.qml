@@ -67,7 +67,7 @@ ApplicationWindow {
         }
 
         ColumnLayout {
-            Layout.maximumWidth: 300
+            Layout.maximumWidth: 320
 
             LocationViewer {
                 id: locViewer
@@ -104,8 +104,6 @@ ApplicationWindow {
             if (Qt.application.arguments.length > 1) {
                 backend.LoadGeoGridFromCommandLine(Qt.application.arguments);
             }
-            bridge.SetGeoGrid.connect(backend.SetGeoGrid)
-//            bridge.updateMarkers.connect(backend.SetGeoGrid)
         }
 
         function clickSignal (arg) {

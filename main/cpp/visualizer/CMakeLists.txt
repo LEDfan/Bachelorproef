@@ -3,7 +3,6 @@ set(VISUALIZER_SRC
     main.cpp
     backends/LocationViewerBackend.cpp
     backends/ContactCenterViewerBackend.cpp
-    backends/LogicBridge.h
     models/ContactPoolListModel.cpp
     models/CommutesListModel.cpp
     models/ContactCenterListModel.cpp

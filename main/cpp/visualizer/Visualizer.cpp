@@ -7,10 +7,7 @@
 #include <models/CommutesListModel.h>
 #include <models/ContactCenterListModel.h>
 #include <models/ContactPoolListModel.h>
-#include <thread>
 #include <visualizer/backends/ContactCenterViewerBackend.h>
-#include <visualizer/models/ContactCenterListModel.h>
-#include <visualizer/models/ContactPoolListModel.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::GeoGrid>)
@@ -20,8 +17,6 @@ Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 Visualizer::Visualizer()
 {
         Q_INIT_RESOURCE(qml);
-
-        m_bridge = new LogicBridge;
 
         auto func = [this]() {
                 int             i = 0;
@@ -46,7 +41,6 @@ Visualizer::Visualizer()
                 CommutesListModel      commutesModel;
                 engine.rootContext()->setContextProperty("ccModel", &ccModel);
                 engine.rootContext()->setContextProperty("cpModel", &cpModel);
-                engine.rootContext()->setContextProperty("bridge", m_bridge);
                 engine.rootContext()->setContextProperty("commutesModel", &commutesModel);
                 engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
                 if (engine.rootObjects().isEmpty())
@@ -63,7 +57,7 @@ Visualizer::Visualizer()
 
 void Visualizer::forceUpdateMarkers()
 {
-        auto backend = m_rootContext->findChild<QObject*>("backend");
+//        auto backend = m_rootContext->findChild<QObject*>("backend");
         // Force to update colors of sickness
 }
 
