@@ -38,6 +38,7 @@ void Calibrator::Run()
                         logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
                         auto runner = stride::SimRunner::Create();
                         runner->Setup(config_pt);
+                        runner->Run();
 
                         // Get the infected count
                         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
