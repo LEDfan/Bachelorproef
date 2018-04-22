@@ -21,6 +21,7 @@ Tobia De Koninck
 - [Follow-up Bounds research](https://ledfan.github.io/Bachelorproef/assets/src/week4/paper/main.pdf)
 - [Design](design)
 - [Test Plan](test-plan)
+- [Analysis of the stochastic spread of Stride simulation outcomes](/assets/src/paper-stochastisch/main.pdf)
 
 
 # Links
