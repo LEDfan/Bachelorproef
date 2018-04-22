@@ -67,7 +67,7 @@ ApplicationWindow {
         }
 
         ColumnLayout {
-            Layout.maximumWidth: 300
+            Layout.maximumWidth: 320
 
             LocationViewer {
                 id: locViewer
@@ -98,6 +98,7 @@ ApplicationWindow {
 
     Backend {
         id: backend
+        objectName: 'backend'
         Component.onCompleted: {
             backend.LocationsSelected.connect(clickSignal)
             if (Qt.application.arguments.length > 1) {

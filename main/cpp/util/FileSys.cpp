@@ -66,6 +66,8 @@ bool FileSys::CheckInstallEnv(function<void(const string&)> logger)
         bool status = true;
 
         // Current working dir has to be install root dir.
+        std::cout << "Working dir: " << GetCurrentDir() << std::endl;
+        std::cout << "Working dir: " << GetRootDir() << std::endl;
         if (GetCurrentDir().compare(GetRootDir()) != 0) {
                 if (logger)
                         logger("Current working dir not install root!");

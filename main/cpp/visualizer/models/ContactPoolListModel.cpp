@@ -34,12 +34,11 @@ void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> lo
         m_pools         = loc->GetPools();
         int diff        = static_cast<int>(loc->GetPools().size()) - oldAmtRows;
         if (diff < 0) {
-                beginRemoveRows(QModelIndex(), oldAmtRows, diff);
+                beginRemoveRows(QModelIndex(), 0, -diff - 1);
                 endRemoveRows();
         } else if (diff > 0) {
-                beginInsertRows(QModelIndex(), 0, static_cast<int>(m_pools.size()));
+                beginInsertRows(QModelIndex(), 0, diff - 1);
                 endInsertRows();
         }
-        int commonRows = std::min(oldAmtRows, static_cast<int>(m_pools.size()));
-        dataChanged(createIndex(0, 0), createIndex(commonRows, 2));
+        dataChanged(createIndex(0, 0), createIndex(m_pools.size(), 2));
 }

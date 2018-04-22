@@ -51,14 +51,13 @@ void ContactCenterListModel::setCenters(std::set<std::shared_ptr<gengeopop::Loca
 
         int diff = m_centers.size() - oldAmtRows;
         if (diff < 0) {
-                beginRemoveRows(QModelIndex(), 0, -diff);
+                beginRemoveRows(QModelIndex(), 0, -diff - 1);
                 endRemoveRows();
         } else if (diff > 0) {
                 beginInsertRows(QModelIndex(), 0, diff - 1);
                 endInsertRows();
         }
-        int commonRows = std::min(oldAmtRows, (unsigned int)m_centers.size());
-        dataChanged(createIndex(0, 0), createIndex(commonRows, 2));
+        dataChanged(createIndex(0, 0), createIndex(m_centers.size(), 2));
 }
 
 void ContactCenterListModel::handleClickRow(unsigned int row)

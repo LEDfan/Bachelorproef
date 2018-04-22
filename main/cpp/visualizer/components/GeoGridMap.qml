@@ -143,7 +143,8 @@ ColumnLayout {
                 marker.sourceItem.color = 'blue'
             }
             map.addMapItem(marker)
-            return marker;
+            backend.saveMarker(markerID, marker)
+//            return marker;
         }
 
         function addCommute(latFrom, longFrom, latTo, longTo){

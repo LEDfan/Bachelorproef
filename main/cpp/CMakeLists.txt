@@ -15,6 +15,11 @@
 #  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
+#============================================================================
+# Proto.
+#============================================================================
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf)
 
 #============================================================================
 # Subdirectories.
@@ -50,6 +55,7 @@ set(LIB_SRC
         contact/ContactLogMode.cpp
         contact/Infector.cpp
         contact/TransmissionProfile.cpp
+
         #---
         disease/DiseaseSeeder.cpp
         disease/Health.cpp
@@ -74,6 +80,7 @@ set(LIB_SRC
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp
+        sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
         sim/Simulator.cpp
         sim/SimulatorBuilder.cpp
@@ -105,6 +112,9 @@ set(LIB_SRC
         viewers/CliViewer.cpp
         viewers/PersonsViewer.cpp
         viewers/SummaryViewer.cpp
+        viewers/VisualizerViewer.cpp
+        viewers/VisualizerViewer.h
+		#---
         Exception.cpp
         )
 
@@ -123,8 +133,16 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 #============================================================================
 # Build and install the stride executable.
 #============================================================================
+# QT related
+find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
+include_directories(SYSTEM ${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
+add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+
 add_executable(stride sim/main.cpp)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 target_link_libraries(stride ${LIBS} libstride libgengeopop)
+target_link_libraries(stride libvis)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 add_subdirectory(visualizer)

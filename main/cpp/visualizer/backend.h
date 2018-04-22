@@ -24,6 +24,16 @@ public:
 
         Q_INVOKABLE
         /**
+         * Changes the geogrid to the given one. Redraws the markers on the map.
+         * @param grid The grid we want to change to.
+         */
+        void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
+
+        Q_INVOKABLE
+        void saveMarker(QString id, QObject* marker);
+
+        Q_INVOKABLE
+        /**
          * Load a GeoGrid from JSON file, specified in the command line arguments
          */
         void LoadGeoGridFromCommandLine(const QStringList& args);
@@ -93,6 +103,9 @@ public:
          * @param value If commutes need to be shown
          */
         void setShowCommutes(bool value);
+
+        Q_INVOKABLE
+        void updateAllHealthColors();
 
         Q_INVOKABLE
         /**

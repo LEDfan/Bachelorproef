@@ -18,6 +18,7 @@
  * Main program: command line handling.
  */
 
+#include "CliWithVisualizerController.h"
 #include "sim/CliController.h"
 #include "util/FileSys.h"
 #include "util/RunConfigManager.h"
@@ -72,6 +73,9 @@ int main(int argc, char** argv)
                             "stride install directories";
                 SwitchArg installedArg("i", "installed", si, cmd, true);
 
+                SwitchArg show_visualiser("v", "visualizer", "Open a visualizer window when the simulation runs.", cmd,
+                                          false);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
@@ -105,9 +109,16 @@ int main(int argc, char** argv)
                         }
                         configPt.sort();
 
-                        CliController cntrl(configPt);
-                        cntrl.Setup();
-                        cntrl.Control();
+                        std::shared_ptr<CliController> controller = nullptr;
+
+                        // Check if we need the visualiser
+                        if (show_visualiser.getValue()) {
+                                controller = std::make_shared<CliWithVisualizerController>(configPt);
+                        } else {
+                                controller = std::make_shared<CliController>(configPt);
+                        }
+                        controller->Setup();
+                        controller->Control();
                 }
                 // -----------------------------------------------------------------------------------------
                 // If clean/dump ...
