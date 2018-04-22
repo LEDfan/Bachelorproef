@@ -42,7 +42,6 @@ void Calibrator::Run()
 
 #pragma omp parallel for collapse(2)
         for (unsigned int caseIdx = 0; caseIdx < cases.size(); ++caseIdx) {
-
                 for (unsigned int i = 0; i < count; i++) {
                         auto tag = cases[caseIdx];
 
