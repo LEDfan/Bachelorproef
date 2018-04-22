@@ -43,12 +43,17 @@ The GeoGrid will be written into `gengeopop.json`, which can be opened using the
 The visualiser is compiled with the other binaries. It can run by `./cmake-build-release/installed/bin/visualizer`. You then have to load a geogrid file by clicking the load file button on the right hand side. The map on the left hand side shows all the locations in the geogrid. You can get more info by clicking on a marker. The middle column will then have the info about the location and the contact centers. You can click on one of the contact centers in that list, you will then get info about it in the right column.
 You can select multiple locations by using SHIFT.
 
+## Calibration tool
+The calibration tool can be run by `./cmake-build-release/installed/bin/calibration`.
+This will first compute the exact values for the scenario tests, then compute the mean and standard deviation for each testcase by running it multiple times using different seeds, and finally show a boxplot of the results using QtCharts.
+
 The current status of the project build is : ![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
+
 
 ## Integration
 
 The Stride binary can use a Population in three ways:
-  
+
   - `default`   Generate a Population using `PopulationBuilder` (use `./bin/stride`)
   - `import`    Import a Population from a `proto` or `json` file, which was generated using `gengeopop`. (use `./bin/stride -c run_import_default.xml`)
   - `generate`  Generate a Population using GenGeoPop and provide data files and parameters. (use `./bin/stride -c run_generate_default.xml`)
