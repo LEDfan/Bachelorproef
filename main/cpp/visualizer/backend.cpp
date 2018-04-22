@@ -15,6 +15,7 @@
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
+#include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
 #include <util/Stopwatch.h>
@@ -42,8 +43,8 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
         QUrl                                      info(file);
         std::string                               filename = info.toLocalFile().toStdString();
-        gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
-        std::shared_ptr<gengeopop::GeoGridReader> reader = geoGridReaderFactory.createReader(filename);
+        gengeopop::GeoGridReaderFactory           factory;
+        std::shared_ptr<gengeopop::GeoGridReader> reader = factory.createReader(filename);
         try {
                 SetGeoGrid(reader->read());
         } catch (const std::exception& e) {
@@ -329,4 +330,47 @@ void Backend::saveMarker(QString id, QObject* marker) { m_markers[id.toStdString
 void Backend::updateAllHealthColors()
 {
         // TODO
+}
+void Backend::onMarkerHovered(unsigned int idOfHover)
+{
+        auto loc = m_grid->GetById(idOfHover);
+        // Check if not in selection
+
+        if (m_selection.find(loc) == m_selection.end()) {
+                QObject* rectLoc = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                rectLoc->setProperty("color", "green");
+
+                // Change colors of submunicipalities
+                const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->getSubMunicipalities();
+                for (const auto& mun : sub) {
+                        QObject* marker = m_markers[std::to_string(mun->getID())];
+                        QObject* rect   = marker->findChild<QObject*>("rect");
+                        // Set green
+                        rect->setProperty("color", "green");
+                }
+        }
+}
+
+void Backend::onMarkerHoveredOff(unsigned int idOfHover)
+{
+        auto loc = m_grid->GetById(idOfHover);
+        // Check if not in selection
+
+        if (m_selection.find(loc) == m_selection.end()) {
+                QObject* rectLoc = m_markers[std::to_string(loc->getID())]->findChild<QObject*>("rect");
+                rectLoc->setProperty("color", "red");
+
+                // Change colors of submunicipalities
+                const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->getSubMunicipalities();
+                for (const auto& mun : sub) {
+                        QObject* marker = m_markers[std::to_string(mun->getID())];
+                        QObject* rect   = marker->findChild<QObject*>("rect");
+                        // Save the old color
+                        if (m_selection.find(mun) == m_selection.end()) {
+                                rect->setProperty("color", "red");
+                        } else {
+                                rect->setProperty("color", "blue");
+                        }
+                }
+        }
 }

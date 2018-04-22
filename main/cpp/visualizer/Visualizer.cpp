@@ -4,6 +4,9 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
+#include <models/CommutesListModel.h>
+#include <models/ContactCenterListModel.h>
+#include <models/ContactPoolListModel.h>
 #include <thread>
 #include <visualizer/backends/ContactCenterViewerBackend.h>
 #include <visualizer/models/ContactCenterListModel.h>
@@ -40,9 +43,11 @@ Visualizer::Visualizer()
 
                 ContactCenterListModel ccModel;
                 ContactPoolListModel   cpModel;
+                CommutesListModel      commutesModel;
                 engine.rootContext()->setContextProperty("ccModel", &ccModel);
                 engine.rootContext()->setContextProperty("cpModel", &cpModel);
                 engine.rootContext()->setContextProperty("bridge", m_bridge);
+                engine.rootContext()->setContextProperty("commutesModel", &commutesModel);
                 engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
                 if (engine.rootObjects().isEmpty())
                         return -1;

@@ -101,6 +101,7 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
         e->Rethrow();
 
         for (const auto& subMun : location.get_child("submunicipalities")) {
+#pragma omp critical
                 m_subMunicipalities.emplace_back(id,
                                                  boost::lexical_cast<unsigned int>(subMun.second.get_child("").data()));
         }
@@ -186,6 +187,7 @@ std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property
                 if (m_people.count(person_id) == 0) {
                         throw std::invalid_argument("No such person: " + std::to_string(person_id));
                 }
+#pragma omp critical
                 result->addMember(m_people[person_id]);
         }
 
