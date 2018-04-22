@@ -666,6 +666,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/master/525.6-osx-8.3-llvm-clang.html",
       "name": "osx-8.3-llvm-clang",
       "build_id": "525.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/531.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "531.4"
     }
   ],
   "fix_parallel": [
