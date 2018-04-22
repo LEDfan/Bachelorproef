@@ -15,6 +15,11 @@
 #  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
+#============================================================================
+# Proto.
+#============================================================================
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf)
 
 #============================================================================
 # Subdirectories.
@@ -130,7 +135,7 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 #============================================================================
 # QT related
 find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
-include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
+include_directories(SYSTEM ${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
 add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 

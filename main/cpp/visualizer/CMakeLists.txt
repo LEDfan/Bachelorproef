@@ -11,11 +11,12 @@ set(VISUALIZER_SRC
 
 set (CMAKE_CXX_STANDARD 14)
 
+
 #============================================================================
 # Find dependencies and correct flags.
 #============================================================================
 find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
-include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
+include_directories(SYSTEM ${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
 add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
 qt5_add_resources(QT_RESOURCES qml.qrc)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
