@@ -5,6 +5,7 @@
 
 #include <numeric>
 #include <omp.h>
+#include <random>
 
 namespace calibration {
 
@@ -16,7 +17,15 @@ Calibrator::Calibrator()
 void Calibrator::Run()
 {
         std::vector<std::string> cases = {"influenza_a", "influenza_b", "influenza_c", "measles_16", "r0_12"};
-        unsigned int             count = 100;
+        unsigned int             count = 10;
+        std::random_device       rd;
+
+        std::vector<std::random_device::result_type> seeds;
+
+        for (unsigned int i = 0; i < count; i++) {
+                seeds.push_back(rd());
+        }
+
         for (auto& tag : cases) {
                 const auto d         = Tests::ScenarioData::Get(tag);
                 auto       config_pt = std::get<0>(d);
@@ -24,10 +33,11 @@ void Calibrator::Run()
 #pragma omp parallel
 #pragma omp for
                 for (unsigned int i = 0; i < count; i++) {
-                        logger->info("Starting the testcase {}, run {} of {}", tag, i, count);
+                        auto seed = seeds[i];
+                        config_pt.put("run.rng_seed", seed);
+                        logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
                         auto runner = stride::SimRunner::Create();
                         runner->Setup(config_pt);
-                        // FIXME set seeds
 
                         // Get the infected count
                         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
