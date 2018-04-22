@@ -33,12 +33,11 @@ double Boxplot::FindMedian(int begin, int end, std::string testcase)
 
 void Boxplot::Display(int argc, char* argv[])
 {
-        QApplication    a(argc, argv);
-        QBoxPlotSeries* boxplot = new QBoxPlotSeries();
-
         for (auto testcasepair : results) {
-                unsigned int count = results[testcasepair.first].size();
-                QBoxSet*     box   = new QBoxSet(testcasepair.first.c_str());
+                QApplication    a(argc, argv);
+                QBoxPlotSeries* boxplot = new QBoxPlotSeries();
+                unsigned int    count   = results[testcasepair.first].size();
+                QBoxSet*        box     = new QBoxSet(testcasepair.first.c_str());
                 box->setValue(QBoxSet::LowerExtreme,
                               *std::min_element(testcasepair.second.begin(), testcasepair.second.end()));
                 box->setValue(QBoxSet::UpperExtreme,
@@ -47,24 +46,24 @@ void Boxplot::Display(int argc, char* argv[])
                 box->setValue(QBoxSet::LowerQuartile, FindMedian(0, count / 2.0, testcasepair.first));
                 box->setValue(QBoxSet::UpperQuartile, FindMedian(count / 2.0 + (count % 2), count, testcasepair.first));
                 boxplot->append(box);
+
+                QChart* chart = new QChart();
+                chart->addSeries(boxplot);
+                chart->setTitle("Boxplot of results");
+                chart->setAnimationOptions(QChart::SeriesAnimations);
+                chart->createDefaultAxes();
+                chart->legend()->setVisible(true);
+                chart->legend()->setAlignment(Qt::AlignBottom);
+
+                QChartView* chartView = new QChartView(chart);
+                chartView->setRenderHint(QPainter::Antialiasing);
+
+                QMainWindow window;
+                window.setCentralWidget(chartView);
+                window.resize(800, 600);
+                window.show();
+                a.exec();
         }
-
-        QChart* chart = new QChart();
-        chart->addSeries(boxplot);
-        chart->setTitle("Boxplot of results");
-        chart->setAnimationOptions(QChart::SeriesAnimations);
-        chart->createDefaultAxes();
-        chart->legend()->setVisible(true);
-        chart->legend()->setAlignment(Qt::AlignBottom);
-
-        QChartView* chartView = new QChartView(chart);
-        chartView->setRenderHint(QPainter::Antialiasing);
-
-        QMainWindow window;
-        window.setCentralWidget(chartView);
-        window.resize(800, 600);
-        window.show();
-        a.exec();
 }
 
 } // namespace calibration
