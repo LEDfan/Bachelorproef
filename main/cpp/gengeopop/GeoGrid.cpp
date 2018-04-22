@@ -142,7 +142,7 @@ std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_p
 
 std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_population; }
 
-void GeoGrid::CheckFinalized(const std::string &functionName) const
+void GeoGrid::CheckFinalized(const std::string& functionName) const
 {
         if (!m_finalized) {
                 throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");

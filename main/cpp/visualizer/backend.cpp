@@ -325,7 +325,7 @@ void Backend::ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1,
         }
 }
 
-void Backend::SaveMarker(QString id, QObject *marker) { m_markers[id.toStdString()] = marker; }
+void Backend::SaveMarker(QString id, QObject* marker) { m_markers[id.toStdString()] = marker; }
 
 void Backend::UpdateAllHealthColors()
 {
