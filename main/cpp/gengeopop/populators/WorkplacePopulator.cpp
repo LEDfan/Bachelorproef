@@ -8,12 +8,14 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <pop/Person.h>
+#include <utility>
 
 namespace gengeopop {
 
 WorkplacePopulator::WorkplacePopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger)
-    : PartialPopulator(rn_manager, logger),
-      m_fractionCommutingStudents(0), m_workplacesInCity{}, m_currentLoc{}, m_geoGridConfig{}, m_geoGrid{}
+    : PartialPopulator(rn_manager, std::move(logger)), m_currentLoc(nullptr), m_geoGrid(nullptr), m_geoGridConfig(),
+      m_workplacesInCity(), m_fractionCommutingStudents(0), m_nearByWorkplaces(), m_distNonCommuting(),
+      m_commutingLocations(), m_disCommuting()
 {
 }
 
