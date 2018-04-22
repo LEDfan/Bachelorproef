@@ -103,11 +103,6 @@ ApplicationWindow {
             locViewer.showLocations(arg)
         }
 
-        function setGrid(grid){
-        console.warn('set grid')
-            backend.SetGeoGrid(grid)
-        }
-
     }
 
     Shortcut {

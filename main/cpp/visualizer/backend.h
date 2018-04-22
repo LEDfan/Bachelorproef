@@ -29,10 +29,8 @@ public:
          */
         void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
 
-
         Q_INVOKABLE
         void saveMarker(QString id, QObject* marker);
-
 
         Q_INVOKABLE
         /**

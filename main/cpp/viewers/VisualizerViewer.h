@@ -10,7 +10,8 @@ class VisualizerViewer
 {
 public:
         /// Instantiate cli viewer.
-        VisualizerViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) {
+        VisualizerViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger)
+        {
                 m_vis = std::make_unique<Visualizer>();
         }
 
@@ -19,8 +20,8 @@ public:
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
-        bool m_first = true;
-        std::unique_ptr<Visualizer> m_vis{};
+        bool                            m_first = true;
+        std::unique_ptr<Visualizer>     m_vis{};
 };
 } // namespace viewers
 } // namespace stride

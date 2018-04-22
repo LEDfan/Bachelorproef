@@ -1,25 +1,23 @@
 #pragma once
 
-#include <gengeopop/GeoGrid.h>
 #include <QtCore/QObject>
+#include <gengeopop/GeoGrid.h>
 #include <thread>
 #include <visualizer/backends/LogicBridge.h>
 
-class Visualizer {
+class Visualizer
+{
 public:
-    Visualizer();
+        Visualizer();
 
-    void setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
+        void setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
 
-    void forceUpdateMarkers();
+        void forceUpdateMarkers();
 
-    void join();
+        void join();
 
 private:
-    QObject* m_rootContext = nullptr;
-    std::unique_ptr<std::thread> m_thread;
-    LogicBridge* m_bridge = nullptr;
-
+        QObject*                     m_rootContext = nullptr;
+        std::unique_ptr<std::thread> m_thread;
+        LogicBridge*                 m_bridge = nullptr;
 };
-
-

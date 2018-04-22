@@ -37,7 +37,7 @@ void ContactPoolListModel::setPools(std::shared_ptr<gengeopop::ContactCenter> lo
                 beginRemoveRows(QModelIndex(), 0, -diff - 1);
                 endRemoveRows();
         } else if (diff > 0) {
-                beginInsertRows(QModelIndex(), 0, diff -1);
+                beginInsertRows(QModelIndex(), 0, diff - 1);
                 endInsertRows();
         }
         dataChanged(createIndex(0, 0), createIndex(m_pools.size(), 2));

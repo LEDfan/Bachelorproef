@@ -52,8 +52,8 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         }
 }
 
-void Backend::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid) {
-        std::cout << "Backend: set geo grid" << std::endl;
+void Backend::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
+{
         m_grid = grid;
         m_grid->finalize();
         m_selection.clear();
@@ -93,10 +93,12 @@ void Backend::PlaceMarkers()
         QMetaObject::invokeMethod(m_map, "clearMap");
 
         // Place the commutes of the selection
-        for (const auto& loc : m_selection) {
-                for (auto commute : loc->getIncomingCommuningCities()) {
-                        auto otherCity = commute.first;
-                        addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+        if (m_showCommutes) {
+                for (const auto& loc : m_selection) {
+                        for (auto commute : loc->getIncomingCommuningCities()) {
+                                auto otherCity = commute.first;
+                                addCommuteLine(otherCity->getCoordinate(), loc->getCoordinate(), commute.second);
+                        }
                 }
         }
 
@@ -131,10 +133,9 @@ void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int po
 {
         QVariant returnVal;
         double   size = std::min(50.0, 10 + population * 0.0015);
-        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection,
-                                  Q_ARG(QVariant, coordinate.latitude), Q_ARG(QVariant, coordinate.longitude),
-                                  Q_ARG(QVariant, QString(id.c_str())), Q_ARG(QVariant, size),
-                                  Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
+        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, coordinate.latitude),
+                                  Q_ARG(QVariant, coordinate.longitude), Q_ARG(QVariant, QString(id.c_str())),
+                                  Q_ARG(QVariant, size), Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
         m_markers[id] = qvariant_cast<QObject*>(returnVal);
 }
 
@@ -323,11 +324,9 @@ void Backend::showCommute(const std::shared_ptr<gengeopop::Location>& loc1,
         }
 }
 
-void Backend::saveMarker(QString id, QObject *marker) {
-    m_markers[id.toStdString()] = marker;
-}
+void Backend::saveMarker(QString id, QObject* marker) { m_markers[id.toStdString()] = marker; }
 
-void Backend::updateAllHealthColors() {
-//TODO
-
+void Backend::updateAllHealthColors()
+{
+        // TODO
 }
