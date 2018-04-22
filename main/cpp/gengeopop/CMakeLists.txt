@@ -85,7 +85,7 @@ set_target_properties(libgengeopop PROPERTIES PREFIX "")
 # Build and install the stride executable.
 #============================================================================
 add_executable(gengeopop main.cpp)
-include_directories(gengeopop SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+include_directories(gengeopop SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 target_link_libraries(gengeopop ${LIBS} libprotobuf libproto libstride libgengeopop)
 install(TARGETS gengeopop DESTINATION ${BIN_INSTALL_LOCATION})
 

@@ -12,6 +12,5 @@ public:
 private:
         ///< Persons used in this Household, segmented vector to be able to have working pointers to it
         stride::util::SegmentedVector<stride::Person> m_persons;
-
 };
 } // namespace gengeopop
