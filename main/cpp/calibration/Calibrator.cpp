@@ -22,18 +22,21 @@ void Calibrator::Run()
 
         std::vector<std::random_device::result_type> seeds;
 
-        for (unsigned int i = 0; i < count; i++) {
+        for (unsigned int i = 0; i < count * cases.size(); i++) {
                 seeds.push_back(rd());
         }
 
-        for (auto& tag : cases) {
-                const auto d         = Tests::ScenarioData::Get(tag);
-                auto       config_pt = std::get<0>(d);
+#pragma omp parallel for collapse(2)
+        for (unsigned int caseIdx = 0; caseIdx < cases.size(); ++caseIdx) {
 
-#pragma omp parallel
-#pragma omp for
                 for (unsigned int i = 0; i < count; i++) {
-                        auto seed = seeds[i];
+                        auto tag = cases[caseIdx];
+
+                        const auto d         = Tests::ScenarioData::Get(tag);
+                        auto       config_pt = std::get<0>(d);
+
+                        auto seed = seeds[caseIdx * count + i];
+
                         config_pt.put("run.rng_seed", seed);
                         logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
                         auto runner = stride::SimRunner::Create();
