@@ -1,6 +1,7 @@
 Test results
 ===
 # master
+ - [512.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/512.1-linux-gcc-6.html)
  - [499.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/499.1-linux-gcc-6.html)
  - [499.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/master/499.2-linux-gcc-7.html)
  - [499.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/master/499.3-linux-clang-5.html)
@@ -112,20 +113,6 @@ Test results
  - [460.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.4-osx-8.3-apple-clang.html)
  - [460.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.5-osx-9.2-apple-clang.html)
  - [460.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.6-osx-8.3-llvm-clang.html)
-# fix_parallel
- - [507.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.1-linux-gcc-6.html)
- - [507.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.2-linux-gcc-7.html)
- - [507.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.3-linux-clang-5.html)
- - [507.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.4-osx-8.3-apple-clang.html)
- - [507.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.5-osx-9.2-apple-clang.html)
- - [507.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.6-osx-8.3-llvm-clang.html)
-# calibration_tool
- - [503.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.1-linux-gcc-6.html)
- - [503.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.2-linux-gcc-7.html)
- - [503.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.3-linux-clang-5.html)
- - [503.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.4-osx-8.3-apple-clang.html)
- - [503.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.5-osx-9.2-apple-clang.html)
- - [503.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.6-osx-8.3-llvm-clang.html)
 # visualizer-hover-comments
  - [482.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/482.1-linux-gcc-6.html)
  - [482.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/visualizer-hover-comments/482.2-linux-gcc-7.html)
@@ -174,6 +161,13 @@ Test results
  - [481.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.4-osx-8.3-apple-clang.html)
  - [481.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.5-osx-9.2-apple-clang.html)
  - [481.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/visualizer-mvc/481.6-osx-8.3-llvm-clang.html)
+# fix_parallel
+ - [507.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.1-linux-gcc-6.html)
+ - [507.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.2-linux-gcc-7.html)
+ - [507.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.3-linux-clang-5.html)
+ - [507.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.4-osx-8.3-apple-clang.html)
+ - [507.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.5-osx-9.2-apple-clang.html)
+ - [507.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.6-osx-8.3-llvm-clang.html)
 # integration
  - [495.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/integration/495.1-linux-gcc-6.html)
  - [490.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/integration/490.1-linux-gcc-6.html)
@@ -205,3 +199,10 @@ Test results
  - [483.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/integration/483.2-linux-gcc-7.html)
  - [483.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/integration/483.4-osx-8.3-apple-clang.html)
  - [483.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/integration/483.5-osx-9.2-apple-clang.html)
+# calibration_tool
+ - [503.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.1-linux-gcc-6.html)
+ - [503.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.2-linux-gcc-7.html)
+ - [503.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.3-linux-clang-5.html)
+ - [503.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.4-osx-8.3-apple-clang.html)
+ - [503.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.5-osx-9.2-apple-clang.html)
+ - [503.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.6-osx-8.3-llvm-clang.html)
