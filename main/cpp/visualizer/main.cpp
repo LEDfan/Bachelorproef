@@ -1,6 +1,6 @@
 #include "Visualizer.h"
 
-int main(int argc, char* argv[])
+int main(int, char* [])
 {
         Visualizer v;
         v.join();
