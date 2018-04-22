@@ -179,7 +179,6 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);
-                result->AddMember(m_people.at(static_cast<const unsigned int&>(person_id)));
 #pragma omp critical
                 result->AddMember(m_people.at(static_cast<const unsigned int&>(person_id)));
         }
