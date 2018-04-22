@@ -15,7 +15,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HouseholdGenerator householdGenerator(rnManager, createLogger());
+        HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
@@ -36,7 +36,7 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HouseholdGenerator householdGenerator(rnManager, createLogger());
+        HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
@@ -53,7 +53,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HouseholdGenerator householdGenerator(rnManager, createLogger());
+        HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4000;
         config.input.populationSize  = 37542 * 100;

@@ -94,7 +94,7 @@ void GeoGrid::Finalize()
 
 std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
 {
-        checkFinalized(__func__);
+        CheckFinalized(__func__);
 
         std::set<std::shared_ptr<Location>> result;
 
@@ -109,7 +109,7 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
 
 std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const
 {
-        checkFinalized(__func__);
+        CheckFinalized(__func__);
 
         AABB<KdTree2DPoint> box{};
 
@@ -142,7 +142,7 @@ std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_p
 
 std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_population; }
 
-void GeoGrid::checkFinalized(const std::string& functionName) const
+void GeoGrid::CheckFinalized(const std::string &functionName) const
 {
         if (!m_finalized) {
                 throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");

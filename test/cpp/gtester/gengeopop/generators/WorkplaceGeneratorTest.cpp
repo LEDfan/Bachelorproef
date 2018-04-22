@@ -16,7 +16,7 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 20000;
@@ -34,7 +34,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize                  = 5 * 1000 * 1000;
         config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -72,7 +72,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize                  = 5 * 1000 * 1000;
         config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -124,7 +124,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize                  = 5 * 1000 * 1000;
         config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);

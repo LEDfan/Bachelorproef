@@ -325,13 +325,13 @@ void Backend::ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1,
         }
 }
 
-void Backend::saveMarker(QString id, QObject* marker) { m_markers[id.toStdString()] = marker; }
+void Backend::SaveMarker(QString id, QObject *marker) { m_markers[id.toStdString()] = marker; }
 
-void Backend::updateAllHealthColors()
+void Backend::UpdateAllHealthColors()
 {
         // TODO
 }
-void Backend::onMarkerHovered(unsigned int idOfHover)
+void Backend::OnMarkerHovered(unsigned int idOfHover)
 {
         auto loc = m_grid->GetById(idOfHover);
         // Check if not in selection
@@ -351,7 +351,7 @@ void Backend::onMarkerHovered(unsigned int idOfHover)
         }
 }
 
-void Backend::onMarkerHoveredOff(unsigned int idOfHover)
+void Backend::OnMarkerHoveredOff(unsigned int idOfHover)
 {
         auto loc = m_grid->GetById(idOfHover);
         // Check if not in selection

@@ -143,7 +143,7 @@ ColumnLayout {
                 marker.sourceItem.color = 'blue'
             }
             map.addMapItem(marker)
-            backend.saveMarker(markerID, marker)
+            backend.SaveMarker(markerID, marker)
 //            return marker;
         }
 
@@ -171,11 +171,11 @@ ColumnLayout {
         }
 
         function markerHovered(id) {
-            backend.onMarkerHovered(id)
+            backend.OnMarkerHovered(id)
         }
 
         function markerHoveredOff(id) {
-            backend.onMarkerHoveredOff(id)
+            backend.OnMarkerHoveredOff(id)
         }
 
         function mapClicked(event) {

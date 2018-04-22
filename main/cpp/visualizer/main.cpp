@@ -3,5 +3,5 @@
 int main(int, char* [])
 {
         Visualizer v;
-        v.join();
+        v.Join();
 }

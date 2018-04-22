@@ -30,7 +30,7 @@ public:
         void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
 
         Q_INVOKABLE
-        void saveMarker(QString id, QObject* marker);
+        void SaveMarker(QString id, QObject *marker);
 
         Q_INVOKABLE
         /**
@@ -65,13 +65,13 @@ public:
          * Handles the action that is needed when a marker is hovered over.
          * @param idOfHover id of marker we hover over
          */
-        void onMarkerHovered(unsigned int idOfHover);
+        void OnMarkerHovered(unsigned int idOfHover);
         Q_INVOKABLE
         /**
          * Handles the action that is needed when a marker is no longer hovered over.
          * @param idOfHover id of marker we hovered over
          */
-        void onMarkerHoveredOff(unsigned int idOfHover);
+        void OnMarkerHoveredOff(unsigned int idOfHover);
 
         Q_INVOKABLE
         /**
@@ -105,7 +105,7 @@ public:
         void SetShowCommutes(bool value);
 
         Q_INVOKABLE
-        void updateAllHealthColors();
+        void UpdateAllHealthColors();
 
         Q_INVOKABLE
         /**
