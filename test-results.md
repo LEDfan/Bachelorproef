@@ -129,6 +129,7 @@ Test results
  - [520.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/520.2-linux-gcc-7.html)
  - [520.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/520.3-linux-clang-5.html)
  - [520.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/520.4-osx-8.3-apple-clang.html)
+ - [520.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/520.5-osx-9.2-apple-clang.html)
  - [503.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.1-linux-gcc-6.html)
  - [503.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.2-linux-gcc-7.html)
  - [503.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/calibration_tool/503.3-linux-clang-5.html)
