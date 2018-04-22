@@ -756,7 +756,7 @@ void ProtoWriter::WriteRootMessage() {
     // Write up to where we need to insert the size field.
     // The number of bytes we may write is the smaller of:
     //   - the current fragment size
-    //   - the Distance to the next position where a size field needs to be
+    //   - the distance to the next position where a size field needs to be
     //     inserted.
     if (!size_insert_.empty() &&
         size_insert_.front().pos - curr_pos < num_bytes) {

@@ -39,7 +39,7 @@ inline double GetContactRate(const AgeContactProfile& profile, const Person* p, 
         if (individual_contact_rate >= 1) {
                 individual_contact_rate = 0.999;
         }
-        // Contacts are reciprocal, so one needs to Apply only half of the contacts here.
+        // Contacts are reciprocal, so one needs to apply only half of the contacts here.
         individual_contact_rate = individual_contact_rate / 2;
         // Contacts are bi-directional: contact probability for 1=>2 and 2=>1 = indiv_cnt_rate*indiv_cnt_rate
         individual_contact_rate += (individual_contact_rate * individual_contact_rate);

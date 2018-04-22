@@ -275,7 +275,7 @@ class LIBPROTOBUF_EXPORT SimpleDescriptorDatabase : public DescriptorDatabase {
 // Very similar to SimpleDescriptorDatabase, but stores all the descriptors
 // as raw bytes and generally tries to use as little memory as possible.
 //
-// The same caveats regarding FindFileContainingExtension() Apply as with
+// The same caveats regarding FindFileContainingExtension() apply as with
 // SimpleDescriptorDatabase.
 class LIBPROTOBUF_EXPORT EncodedDescriptorDatabase : public DescriptorDatabase {
  public:
