@@ -71,7 +71,7 @@ protected:
         virtual void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
         /// Returns the logger
-        std::shared_ptr<spdlog::logger> getLogger() const;
+        std::shared_ptr<spdlog::logger> GetLogger() const;
 
 private:
         /// Check install environment.

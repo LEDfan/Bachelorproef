@@ -6,11 +6,7 @@ namespace stride {
 class CliWithVisualizerController : public CliController
 {
 public:
-        CliWithVisualizerController(const boost::property_tree::ptree& config_pt) : CliController(config_pt)
-        {
-
-                std::cout << "HALLO VAN DE VIS" << std::endl;
-        };
+        CliWithVisualizerController(const boost::property_tree::ptree& config_pt) : CliController(config_pt){};
 
 protected:
         /// Register the viewers of the SimRunner.

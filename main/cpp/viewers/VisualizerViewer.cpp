@@ -5,7 +5,7 @@
 
 namespace stride {
 namespace viewers {
-void VisualizerViewer::update(const stride::sim_event::Payload& p)
+void VisualizerViewer::Update(const stride::sim_event::Payload& p)
 {
         m_logger->info("Visualizer updated");
         if (m_first and p.m_runner->GetSim() != nullptr) {

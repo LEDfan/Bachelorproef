@@ -12,8 +12,8 @@ void CliWithVisualizerController::RegisterViewers(std::shared_ptr<SimRunner> run
         CliController::RegisterViewers(runner);
 
         // Register the visualizer viewer
-        getLogger()->info("Setting for output of summary: true");
-        const auto v = make_shared<viewers::VisualizerViewer>(getLogger());
-        runner->Register(v, bind(&viewers::VisualizerViewer::update, v, placeholders::_1));
+        GetLogger()->info("Setting for output of summary: true");
+        const auto v = make_shared<viewers::VisualizerViewer>(GetLogger());
+        runner->Register(v, bind(&viewers::VisualizerViewer::Update, v, placeholders::_1));
 }
 } // namespace stride

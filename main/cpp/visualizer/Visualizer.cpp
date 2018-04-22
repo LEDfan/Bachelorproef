@@ -14,7 +14,7 @@ Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::GeoGrid>)
 Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
-Visualizer::Visualizer()
+Visualizer::Visualizer() : m_thread(nullptr)
 {
         Q_INIT_RESOURCE(qml);
 
@@ -57,7 +57,7 @@ Visualizer::Visualizer()
 
 void Visualizer::forceUpdateMarkers()
 {
-//        auto backend = m_rootContext->findChild<QObject*>("backend");
+        //        auto backend = m_rootContext->findChild<QObject*>("backend");
         // Force to update colors of sickness
 }
 

@@ -16,7 +16,7 @@ public:
         }
 
         /// Let viewer perform update.
-        void update(const sim_event::Payload& p);
+        void Update(const sim_event::Payload& p);
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
