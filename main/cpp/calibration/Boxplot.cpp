@@ -35,13 +35,14 @@ void Boxplot::Display(int argc, char* argv[])
 {
         for (auto testcasepair : results) {
                 QApplication    a(argc, argv);
-                QBoxPlotSeries* boxplot = new QBoxPlotSeries();
-                unsigned int    count   = results[testcasepair.first].size();
-                QBoxSet*        box     = new QBoxSet(testcasepair.first.c_str());
-                box->setValue(QBoxSet::LowerExtreme,
-                              *std::min_element(testcasepair.second.begin(), testcasepair.second.end()));
-                box->setValue(QBoxSet::UpperExtreme,
-                              *std::max_element(testcasepair.second.begin(), testcasepair.second.end()));
+                QBoxPlotSeries* boxplot   = new QBoxPlotSeries();
+                unsigned int    count     = results[testcasepair.first].size();
+                QBoxSet*        box       = new QBoxSet(testcasepair.first.c_str());
+                unsigned int    min_value = *std::min_element(testcasepair.second.begin(), testcasepair.second.end());
+                unsigned int    max_value = *std::max_element(testcasepair.second.begin(), testcasepair.second.end());
+
+                box->setValue(QBoxSet::LowerExtreme, min_value);
+                box->setValue(QBoxSet::UpperExtreme, max_value);
                 box->setValue(QBoxSet::Median, FindMedian(0, count, testcasepair.first));
                 box->setValue(QBoxSet::LowerQuartile, FindMedian(0, count / 2.0, testcasepair.first));
                 box->setValue(QBoxSet::UpperQuartile, FindMedian(count / 2.0 + (count % 2), count, testcasepair.first));
@@ -52,6 +53,8 @@ void Boxplot::Display(int argc, char* argv[])
                 chart->setTitle("Boxplot of results");
                 chart->setAnimationOptions(QChart::SeriesAnimations);
                 chart->createDefaultAxes();
+                chart->axisY()->setMin(min_value);
+                chart->axisY()->setMax(max_value);
                 chart->legend()->setVisible(true);
                 chart->legend()->setAlignment(Qt::AlignBottom);
 
