@@ -25,6 +25,7 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf
 # Subdirectories.
 #============================================================================
 add_subdirectory(gengeopop)
+add_subdirectory(calibration)
 
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
