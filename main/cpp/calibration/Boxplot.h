@@ -7,7 +7,7 @@ namespace calibration {
 
 /**
  * A class used to generate QtCharts Boxplots
- * */
+ */
 class Boxplot
 {
 public:
