@@ -87,9 +87,10 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Config info.
         // --------------------------------------------------------------
-        sim->m_config_pt         = m_config_pt;
-        sim->m_track_index_case  = m_config_pt.get<bool>("run.track_index_case");
-        sim->m_num_threads       = m_config_pt.get<unsigned int>("run.num_threads");
+        sim->m_config_pt        = m_config_pt;
+        sim->m_track_index_case = m_config_pt.get<bool>("run.track_index_case");
+        sim->m_num_threads      = m_config_pt.get<unsigned int>("run.num_threads");
+        std::cout << "USING THREADS\t" << sim->m_num_threads << std::endl;
         sim->m_calendar          = make_shared<Calendar>(m_config_pt);
         sim->m_local_info_policy = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
         sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
