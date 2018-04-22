@@ -17,8 +17,22 @@ Calibrator::Calibrator()
 void Calibrator::Run()
 {
         std::vector<std::string> cases = {"influenza_a", "influenza_b", "influenza_c", "measles_16", "r0_12"};
-        unsigned int             count = 10;
-        std::random_device       rd;
+
+        logger->info("Starting to compute exact values for testcases");
+#pragma omp parallel for
+        for (unsigned int caseIdx = 0; caseIdx < cases.size(); ++caseIdx) {
+                auto       tag       = cases[caseIdx];
+                const auto d         = Tests::ScenarioData::Get(tag);
+                auto       config_pt = std::get<0>(d);
+                auto       runner    = stride::SimRunner::Create();
+                runner->Setup(config_pt);
+                runner->Run();
+                const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
+                logger->info("Found exact value for testcase {}: {}", tag, res);
+        }
+
+        unsigned int       count = 10;
+        std::random_device rd;
 
         std::vector<std::random_device::result_type> seeds;
 
@@ -69,5 +83,7 @@ void Calibrator::PrintResults()
                 logger->info("Found mean {} and standard deviation {} for testcase {}", mean, stdev, tag);
         }
 }
+
+std::map<std::string, std::vector<unsigned int>> Calibrator::GetResults() { return results; }
 
 } // namespace calibration

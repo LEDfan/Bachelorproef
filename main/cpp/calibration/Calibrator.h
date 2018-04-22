@@ -20,6 +20,9 @@ public:
         // Print the mean and standard deviation for the different testcases to the Logger
         void PrintResults();
 
+        // Return the results of the simulations
+        std::map<std::string, std::vector<unsigned int>> GetResults();
+
 private:
         std::map<std::string, std::vector<unsigned int>> results; ///< Storage for the simulation results
         std::shared_ptr<spdlog::logger>                  logger;  ///< Logger to use for this class
