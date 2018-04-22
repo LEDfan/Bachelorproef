@@ -126,10 +126,11 @@ int main(int argc, char* argv[])
                 // Write to file.
                 // --------------------------------------------------------------
                 logger->info("Writing to file...");
-                GeoGridWriterFactory           geoGridWriterFactory;
-                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.createWriter(outputFile.getValue());
+                GeoGridWriterFactory geoGridWriterFactory;
+
+                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
                 std::ofstream                  outputFileStream(outputFile.getValue());
-                geoGridWriter->write(genGeoPopController.GetGeoGrid(), outputFileStream);
+                geoGridWriter->Write(genGeoPopController.GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
 
                 logger->info("Done writing to file...");

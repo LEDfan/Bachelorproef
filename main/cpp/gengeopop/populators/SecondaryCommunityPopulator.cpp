@@ -10,7 +10,7 @@
 
 namespace gengeopop {
 
-void SecondaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
+void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
 
         m_logger->info("Starting to populate Secondary Communities");
@@ -35,13 +35,13 @@ void SecondaryCommunityPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
 
                 updatePools();
 
-                for (const std::shared_ptr<ContactCenter>& household : loc->getContactCentersOfType<Household>()) {
+                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         for (stride::Person* person : *contactPool) {
                                 auto pool = dist();
                                 found.insert(community_pools[pool]);
-                                community_pools[pool]->addMember(person);
-                                if (community_pools[pool]->getCapacity() <= community_pools[pool]->getUsedCapacity()) {
+                                community_pools[pool]->AddMember(person);
+                                if (community_pools[pool]->GetCapacity() <= community_pools[pool]->GetUsedCapacity()) {
                                         full_capacity_count++;
                                         community_pools.erase(community_pools.begin() + pool);
                                         updatePools();

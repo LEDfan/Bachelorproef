@@ -6,6 +6,6 @@ namespace gengeopop {
 class GeoGridReaderFactory
 {
 public:
-        std::shared_ptr<GeoGridReader> createReader(std::string filename) const;
+        std::shared_ptr<GeoGridReader> CreateReader(std::string filename) const;
 };
 } // namespace gengeopop

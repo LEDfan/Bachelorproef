@@ -8,7 +8,7 @@
 
 namespace gengeopop {
 
-void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. the amount of active employees and the amount of commuting people are given
@@ -27,9 +27,9 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 double amountOfWorkingPeople =
-                    loc->getPopulation() * geoGridConfig.input.fraction_1865_years_active +
-                    loc->incomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
-                    loc->outGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople);
+                    loc->GetPopulation() * geoGridConfig.input.fraction_1865_years_active +
+                    loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
+                    loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople);
                 weights.push_back(amountOfWorkingPeople / amountOfEmployees);
         }
 
@@ -44,8 +44,8 @@ void WorkplaceGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 auto workplace = std::make_shared<Workplace>(geoGridConfig.generated.contactCenters++);
-                workplace->fill(geoGridConfig);
-                loc->addContactCenter(workplace);
+                workplace->Fill(geoGridConfig);
+                loc->AddContactCenter(workplace);
         }
 }
 

@@ -11,7 +11,7 @@ namespace gengeopop {
 
 // HouseholdPopulator::HouseholdPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
 
-void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         m_logger->info("Starting to populate Households");
 
@@ -19,7 +19,7 @@ void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         auto         household_dist    = m_rnManager.GetGenerator(trng::uniform_int_dist(
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                const std::set<std::shared_ptr<ContactCenter>>& households = loc->getContactCentersOfType<Household>();
+                const std::set<std::shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
                 for (const auto& household : households) {
                         std::shared_ptr<ContactPool> contactPool     = household->GetPools()[0];
                         auto                         householdTypeId = static_cast<unsigned int>(household_dist());
@@ -27,10 +27,10 @@ void HouseholdPopulator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                             geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
                         for (stride::Person* personType : *householdType) {
                                 auto person = geoGrid->CreatePerson(
-                                    current_person_id++, personType->GetAge(), household->getId(),
+                                    current_person_id++, personType->GetAge(), household->GetId(),
                                     personType->GetSchoolId(), personType->GetWorkId(),
                                     personType->GetPrimaryCommunityId(), personType->GetSecondaryCommunityId());
-                                contactPool->addMember(person);
+                                contactPool->AddMember(person);
                         }
                 }
         }

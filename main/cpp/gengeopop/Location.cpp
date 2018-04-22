@@ -1,4 +1,5 @@
 #include "Location.h"
+#include <Exception.h>
 #include <cmath>
 
 namespace gengeopop {
@@ -16,54 +17,54 @@ Location::Location(unsigned int id, unsigned int province, unsigned int populati
         m_population = population;
 }
 
-std::string Location::getName() const { return m_name; }
+std::string Location::GetName() const { return m_name; }
 
-unsigned int Location::getProvince() const { return m_province; }
+unsigned int Location::GetProvince() const { return m_province; }
 
-unsigned int Location::getID() const { return m_id; }
+unsigned int Location::GetID() const { return m_id; }
 
-unsigned int Location::getPopulation() const { return m_population; }
+unsigned int Location::GetPopulation() const { return m_population; }
 
-const std::vector<std::shared_ptr<ContactCenter>>& Location::getContactCenters() const { return m_contactCenters; }
+const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }
 
-const Coordinate& Location::getCoordinate() const { return m_coordinate; }
+const Coordinate& Location::GetCoordinate() const { return m_coordinate; }
 
 Location::iterator Location::begin() { return m_contactCenters.begin(); }
 
 Location::iterator Location::end() { return m_contactCenters.end(); }
 
-const std::vector<std::pair<std::shared_ptr<Location>, double>>& Location::getIncomingCommuningCities() const
+const std::vector<std::pair<std::shared_ptr<Location>, double>>& Location::GetIncomingCommuningCities() const
 {
         return m_incomingCommutingLocations;
 }
 
-void Location::addIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion)
+void Location::AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion)
 {
         m_incomingCommutingLocations.emplace_back(location, proportion);
 }
 
-const std::vector<std::pair<std::shared_ptr<Location>, double>>& Location::getOutgoingCommuningCities() const
+const std::vector<std::pair<std::shared_ptr<Location>, double>>& Location::GetOutgoingCommuningCities() const
 {
         return m_outgoingCommutingLocations;
 }
 
-void Location::addOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion)
+void Location::AddOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion)
 {
         m_outgoingCommutingLocations.emplace_back(location, proportion);
 }
 
-int Location::incomingCommutingPeople(double fractionOfPopulationCommuting) const
+int Location::IncomingCommutingPeople(double fractionOfPopulationCommuting) const
 {
         double value = 0;
         for (const auto& locProportion : m_incomingCommutingLocations) {
                 // locProportion.second of the people in locProportion.first are commuting to this
                 value += locProportion.second *
-                         (fractionOfPopulationCommuting * (double)locProportion.first->getPopulation());
+                         (fractionOfPopulationCommuting * (double)locProportion.first->GetPopulation());
         }
         return static_cast<int>(std::floor(value));
 }
 
-int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) const
+int Location::OutGoingCommutingPeople(double fractionOfPopulationCommuting) const
 {
         double totalProportion = 0;
         for (const auto& locProportion : m_outgoingCommutingLocations) {
@@ -76,55 +77,55 @@ int Location::outGoingCommutingPeople(double fractionOfPopulationCommuting) cons
 
 bool Location::operator==(const Location& other) const
 {
-        auto sub1 = getSubMunicipalities();
-        auto sub2 = other.getSubMunicipalities();
+        auto        sub1 = GetSubMunicipalities();
+        const auto& sub2 = other.GetSubMunicipalities();
 
-        return getID() == other.getID() && getCoordinate() == other.getCoordinate() && getName() == other.getName() &&
-               getProvince() == other.getProvince() && getPopulation() == other.getPopulation() &&
-               getContactCenters() == other.getContactCenters() &&
-               getIncomingCommuningCities() == other.getIncomingCommuningCities() &&
-               getOutgoingCommuningCities() == other.getOutgoingCommuningCities() &&
-               ((!getParent() && !other.getParent()) ||
-                (getParent() && other.getParent() && *getParent() == *other.getParent())) &&
+        return GetID() == other.GetID() && GetCoordinate() == other.GetCoordinate() && GetName() == other.GetName() &&
+               GetProvince() == other.GetProvince() && GetPopulation() == other.GetPopulation() &&
+               GetContactCenters() == other.GetContactCenters() &&
+               GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
+               GetOutgoingCommuningCities() == other.GetOutgoingCommuningCities() &&
+               ((!GetParent() && !other.GetParent()) ||
+                (GetParent() && other.GetParent() && *GetParent() == *other.GetParent())) &&
                sub1.size() == sub2.size() &&
                std::equal(sub1.begin(), sub1.end(), sub1.begin(), sub1.end(),
                           [](std::shared_ptr<Location> lhs, std::shared_ptr<Location> rhs) {
-                                  return lhs->getID() == rhs->getID();
+                                  return lhs->GetID() == rhs->GetID();
                           });
 }
 
-void Location::calculatePopulation(unsigned int totalPopulation)
+void Location::CalculatePopulation(unsigned int totalPopulation)
 {
         m_population = static_cast<unsigned int>(std::floor(m_relativePopulation * totalPopulation));
 }
-void   Location::setRelativePopulation(double relativePopulation) { m_relativePopulation = relativePopulation; }
-double Location::getRelativePopulationSize() const { return m_relativePopulation; }
+void   Location::SetRelativePopulation(double relativePopulation) { m_relativePopulation = relativePopulation; }
+double Location::GetRelativePopulationSize() const { return m_relativePopulation; }
 
-void Location::addSubMunicipality(std::shared_ptr<Location> location)
+void Location::AddSubMunicipality(std::shared_ptr<Location> location)
 {
         if (m_parent) {
-                throw std::runtime_error("Can't have parent and submunicipalities at the same time!");
+                throw Exception("Can't have parent and submunicipalities at the same time!");
         }
         m_subMunicipalities.emplace(std::move(location));
 }
 
-const std::set<std::shared_ptr<Location>>& Location::getSubMunicipalities() const { return m_subMunicipalities; }
+const std::set<std::shared_ptr<Location>>& Location::GetSubMunicipalities() const { return m_subMunicipalities; }
 
-std::shared_ptr<Location> Location::getParent() const { return m_parent; }
+std::shared_ptr<Location> Location::GetParent() const { return m_parent; }
 
-void Location::setParent(const std::shared_ptr<Location>& location)
+void Location::SetParent(const std::shared_ptr<Location>& location)
 {
         if (!m_subMunicipalities.empty()) {
-                throw std::runtime_error("Can't have parent and submunicipalities at the same time!");
+                throw Exception("Can't have parent and submunicipalities at the same time!");
         }
         m_parent = location;
 }
 
-unsigned int Location::getPopulationOfSubmunicipalities() const
+unsigned int Location::GetPopulationOfSubmunicipalities() const
 {
         unsigned int total = 0;
         for (const auto& subMunicipality : m_subMunicipalities) {
-                total += subMunicipality->getPopulation();
+                total += subMunicipality->GetPopulation();
         }
         return total;
 }

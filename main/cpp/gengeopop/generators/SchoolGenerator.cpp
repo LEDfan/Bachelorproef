@@ -7,7 +7,7 @@
 
 namespace gengeopop {
 
-void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. calculate amount of schools, each school has average 500 pupils, taking in account the amount of pupils
@@ -15,13 +15,13 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
          * for that location the relative amount of pupils is equal to the relative amount of population
          */
 
-        int amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;
-        int amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 500.0)); // TODO magic constant
+        int  amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;
+        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 500.0)); // TODO magic constant
 
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                weights.push_back(loc->getRelativePopulationSize());
+                weights.push_back(loc->GetRelativePopulationSize());
         }
 
         if (weights.empty()) {
@@ -35,8 +35,8 @@ void SchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 auto                      school = std::make_shared<School>(geoGridConfig.generated.contactCenters++);
-                school->fill(geoGridConfig);
-                loc->addContactCenter(school);
+                school->Fill(geoGridConfig);
+                loc->AddContactCenter(school);
         }
 }
 

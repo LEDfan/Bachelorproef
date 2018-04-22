@@ -13,13 +13,13 @@ public:
         QVariant               data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
         int                    rowCount(const QModelIndex& parent = QModelIndex()) const override;
         int                    columnCount(const QModelIndex& parent = QModelIndex()) const override;
-        QHash<int, QByteArray> roleNames() const;
+        QHash<int, QByteArray> roleNames() const override;
 
         Q_INVOKABLE
-        void setCenters(std::set<std::shared_ptr<gengeopop::Location>> locs);
+        void SetCenters(std::set<std::shared_ptr<gengeopop::Location>> locs);
 
         Q_INVOKABLE
-        void handleClickRow(unsigned int row);
+        void HandleClickRow(unsigned int row);
 
 signals:
         void ContactCenterSelected(std::shared_ptr<gengeopop::ContactCenter> cc);

@@ -11,7 +11,7 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
                 std::shared_ptr<gengeopop::Household> household = std::make_shared<gengeopop::Household>();
 
                 // Create contactpool of the household
-                std::shared_ptr<ContactPool> newCP = std::make_shared<ContactPool>(id++, household->getPoolSize());
+                std::shared_ptr<ContactPool> newCP = std::make_shared<ContactPool>(id++, household->GetPoolSize());
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
@@ -40,9 +40,9 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
 
                         stride::Person* p_ptr = &m_persons.back();
                         p_ptr->SetAge(age);
-                        newCP->addMember(p_ptr);
+                        newCP->AddMember(p_ptr);
                 }
-                household->addPool(newCP);
+                household->AddPool(newCP);
                 m_households.push_back(household);
         }
 }

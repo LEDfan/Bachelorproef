@@ -4,6 +4,7 @@
 #include "HouseholdCSVReader.h"
 #include "SubMunicipalitiesCSVReader.h"
 #include <boost/filesystem.hpp>
+#include <Exception.h>
 #include <iostream>
 #include <util/FileSys.h>
 
@@ -53,13 +54,13 @@ std::shared_ptr<SubMunicipalitiesReader> ReaderFactory::CreateSubMunicipalitiesR
 std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const
 {
         if (!boost::filesystem::exists(path)) {
-                throw std::invalid_argument("File not found: " + path.string());
+                throw Exception("File not found: " + path.string());
         }
 
         if (path.extension().string() == ".csv") {
                 return std::make_unique<std::ifstream>(path.string());
         } else {
-                throw std::runtime_error("Unsupported file extension: " + path.extension().string());
+                throw Exception("Unsupported file extension: " + path.extension().string());
         }
 }
 

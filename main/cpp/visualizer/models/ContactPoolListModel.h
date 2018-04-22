@@ -12,10 +12,10 @@ public:
         QVariant               data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
         int                    rowCount(const QModelIndex& parent = QModelIndex()) const override;
         int                    columnCount(const QModelIndex& parent = QModelIndex()) const override;
-        QHash<int, QByteArray> roleNames() const;
+        QHash<int, QByteArray> RoleNames() const;
 
         Q_INVOKABLE
-        void setPools(std::shared_ptr<gengeopop::ContactCenter> cc);
+        void SetPools(std::shared_ptr<gengeopop::ContactCenter> cc);
 
 private:
         enum Roles

@@ -36,11 +36,6 @@ namespace util {
 class CSV : protected std::vector<CSVRow>
 {
 public:
-        using std::vector<CSVRow>::begin;
-        using std::vector<CSVRow>::end;
-        using std::vector<CSVRow>::size;
-
-public:
         /// Initialize from file. If optLabels not specied, the file is required. Otherwise initialize like second
         /// constructor.
         explicit CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
@@ -54,6 +49,14 @@ public:
         /// Default constructor. Mainly used for swig.
         CSV() = default;
 
+        /// iterators
+        using std::vector<CSVRow>::begin;
+        using std::vector<CSVRow>::end;
+        using std::vector<CSVRow>::size;
+
+        /// Amount of columns in the CSV.
+        size_t GetColumnCount() const { return columnCount; }
+
         /// Compare operator.
         bool operator==(const CSV& other) const;
 
@@ -64,20 +67,20 @@ public:
         /// Add row of string values.
         void AddRow(std::vector<std::string> values);
 
-        /// Amount of columns in the CSV.
-        size_t GetColumnCount() const { return columnCount; }
+        /// Add a collection of rows.
+        void AddRows(std::vector<std::vector<std::string>>& rows);
+
+        /// Write CSV to file.
+        void Write(const boost::filesystem::path& path) const;
 
         /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
         /// introduce a perfomance tradeoff.
         size_t GetIndexForLabel(const std::string& label) const;
 
-        /// Write CSV to file.
-        void Write(const boost::filesystem::path& path) const;
-
-        const std::vector<std::string>& getLabels() const;
+        const std::vector<std::string>& GetLabels() const;
 
 private:
-        void readFromStream(std::istream& inputStream);
+        void ReadFromStream(std::istream& inputStream);
 
 protected:
         std::vector<std::string> labels;

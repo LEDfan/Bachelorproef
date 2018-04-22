@@ -66,30 +66,30 @@ void GenGeoPopController::ReadDataFiles()
 
         m_geoGridConfig.Calculate(m_geoGrid, m_householdsReader);
 
-        m_geoGrid->finalize();
+        m_geoGrid->Finalize();
 }
 
 void GenGeoPopController::GenGeo()
 {
         GeoGridGenerator geoGridGenerator(m_geoGridConfig, m_geoGrid);
-        geoGridGenerator.addPartialGenerator(std::make_shared<SchoolGenerator>(m_rnManager, m_logger));
-        geoGridGenerator.addPartialGenerator(std::make_shared<HighSchoolGenerator>(m_rnManager, m_logger));
-        geoGridGenerator.addPartialGenerator(std::make_shared<WorkplaceGenerator>(m_rnManager, m_logger));
-        geoGridGenerator.addPartialGenerator(std::make_shared<CommunityGenerator>(m_rnManager, m_logger));
-        geoGridGenerator.addPartialGenerator(std::make_shared<HouseholdGenerator>(m_rnManager, m_logger));
-        geoGridGenerator.generateGeoGrid();
+        geoGridGenerator.AddPartialGenerator(std::make_shared<SchoolGenerator>(m_rnManager, m_logger));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<HighSchoolGenerator>(m_rnManager, m_logger));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<WorkplaceGenerator>(m_rnManager, m_logger));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<CommunityGenerator>(m_rnManager, m_logger));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<HouseholdGenerator>(m_rnManager, m_logger));
+        geoGridGenerator.GenerateGeoGrid();
 }
 
 void GenGeoPopController::GenPop()
 {
         GeoGridPopulator geoGridPopulator(m_geoGridConfig, m_geoGrid);
-        geoGridPopulator.addPartialPopulator(std::make_shared<HouseholdPopulator>(m_rnManager, m_logger));
-        geoGridPopulator.addPartialPopulator(std::make_shared<SchoolPopulator>(m_rnManager, m_logger));
-        geoGridPopulator.addPartialPopulator(std::make_shared<HighSchoolPopulator>(m_rnManager, m_logger));
-        geoGridPopulator.addPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(m_rnManager, m_logger));
-        geoGridPopulator.addPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(m_rnManager, m_logger));
-        geoGridPopulator.addPartialPopulator(std::make_shared<WorkplacePopulator>(m_rnManager, m_logger));
-        geoGridPopulator.populateGeoGrid();
+        geoGridPopulator.AddPartialPopulator(std::make_shared<HouseholdPopulator>(m_rnManager, m_logger));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<SchoolPopulator>(m_rnManager, m_logger));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<HighSchoolPopulator>(m_rnManager, m_logger));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<PrimaryCommunityPopulator>(m_rnManager, m_logger));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<SecondaryCommunityPopulator>(m_rnManager, m_logger));
+        geoGridPopulator.AddPartialPopulator(std::make_shared<WorkplacePopulator>(m_rnManager, m_logger));
+        geoGridPopulator.PopulateGeoGrid();
 }
 
 std::shared_ptr<GeoGrid> GenGeoPopController::GetGeoGrid() { return m_geoGrid; }

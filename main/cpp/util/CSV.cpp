@@ -58,7 +58,7 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
                         throw runtime_error("Error opening csv file: " + full_path.string());
                 }
 
-                readFromStream(file);
+                ReadFromStream(file);
 
         } catch (std::runtime_error& error) {
                 // thrown by util::checkFile
@@ -71,7 +71,7 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
         }
 }
 
-CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { readFromStream(inputStream); }
+CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { ReadFromStream(inputStream); }
 
 CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
 
@@ -80,10 +80,11 @@ bool CSV::operator==(const CSV& other) const
         return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
 }
 
-void CSV::AddRow(vector<string> values)
+void CSV::AddRows(vector<vector<string>>& rows)
 {
-        CSVRow csvRow(this, values);
-        this->push_back(csvRow);
+        for (const vector<string>& row : rows) {
+                AddRow(row);
+        }
 }
 
 size_t CSV::GetIndexForLabel(const string& label) const
@@ -119,7 +120,7 @@ void CSV::Write(const boost::filesystem::path& path) const
         file.close();
 }
 
-void CSV::readFromStream(std::istream& inputStream)
+void CSV::ReadFromStream(std::istream& inputStream)
 {
         std::string line;
 
@@ -143,7 +144,13 @@ void CSV::readFromStream(std::istream& inputStream)
         }
 }
 
-const std::vector<std::string>& CSV::getLabels() const { return labels; }
+void CSV::AddRow(vector<string> values)
+{
+        CSVRow csvRow(this, values);
+        this->push_back(csvRow);
+}
+
+const std::vector<std::string>& CSV::GetLabels() const { return labels; }
 
 } // namespace util
 } // namespace stride

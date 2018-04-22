@@ -20,7 +20,7 @@ GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream
 {
 }
 
-std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
+std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
@@ -61,14 +61,14 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::read()
                                 e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        geoGrid->addLocation(std::move(loc));
+                                        geoGrid->AddLocation(std::move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        addCommutes(geoGrid);
-        addSubMunicipalities(geoGrid);
+        AddCommutes(geoGrid);
+        AddSubMunicipalities(geoGrid);
         m_people.clear();
         m_commutes.clear();
         m_subMunicipalities.clear();
@@ -97,7 +97,7 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
                                 e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        result->addContactCenter(center);
+                                        result->AddContactCenter(center);
                         }
                 }
 #pragma omp taskwait
@@ -112,7 +112,7 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
 
         for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
 #pragma omp critical
-                m_subMunicipalities.emplace_back(std::make_pair(result->getID(), protoLocation.submunicipalities(idx)));
+                m_subMunicipalities.emplace_back(std::make_pair(result->GetID(), protoLocation.submunicipalities(idx)));
         }
         return result;
 } // namespace gengeopop
@@ -158,11 +158,11 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 #pragma omp task firstprivate(protoContactPool, pool)
                         {
                                 e->Run([&protoContactPool, &pool, this, &result] {
-                                        pool = ParseContactPool(protoContactPool, result->getPoolSize());
+                                        pool = ParseContactPool(protoContactPool, result->GetPoolSize());
                                 });
                                 if (!e->HasError())
 #pragma omp critical
-                                        result->addPool(pool);
+                                        result->AddPool(pool);
                         }
                 }
 #pragma omp taskwait
@@ -180,7 +180,7 @@ std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);
 #pragma omp critical
-                result->addMember(m_people.at(static_cast<const unsigned int&>(person_id)));
+                result->AddMember(m_people.at(static_cast<const unsigned int&>(person_id)));
         }
 
         return result;

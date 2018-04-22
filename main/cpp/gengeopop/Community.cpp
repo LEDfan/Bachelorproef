@@ -1,40 +1,39 @@
 #include "Community.h"
 #include "GeoGridConfig.h"
+#include <Exception.h>
 namespace gengeopop {
 
 Community::Community(unsigned int id) : ContactCenter(id) {}
 
-std::string  Community::getType() const { return "Community"; }
-unsigned int Community::getPoolSize() const { return 2000; }
-unsigned int Community::getMaxPools() const { return 1; }
-void         Community::fill(GeoGridConfig& geoGridConfig)
+std::string  Community::GetType() const { return "Community"; }
+unsigned int Community::GetPoolSize() const { return 2000; }
+unsigned int Community::GetMaxPools() const { return 1; }
+void         Community::Fill(GeoGridConfig& geoGridConfig)
 {
         if (m_pools.empty()) {
                 m_pools.push_back(
-                    std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, this->getPoolSize()));
+                    std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, this->GetPoolSize()));
         }
 }
 
-void Community::addHouseHold(std::shared_ptr<Household> household)
+void Community::AddHouseHold(std::shared_ptr<Household> household)
 {
         if (m_pools.empty()) {
-                throw std::runtime_error("Could not add the Household to the Community, no ContactPool available");
+                throw Exception("Could not add the Household to the Community, no ContactPool available");
         } else {
                 if (household->GetPools().empty())
                         return;
                 for (stride::Person* person : **household->begin()) {
-                        m_pools[0]->addMember(person);
+                        m_pools[0]->AddMember(person);
                 }
         }
 }
-bool Community::isAvailable() const
+bool Community::IsAvailable() const
 {
         if (m_pools.empty()) {
                 return false;
-        } else if (m_pools[0]->getCapacity() <= m_pools[0]->getUsedCapacity()) {
-                return false;
         } else {
-                return true;
+                return m_pools[0]->GetCapacity() > m_pools[0]->GetUsedCapacity();
         }
 }
 } // namespace gengeopop

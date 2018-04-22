@@ -25,13 +25,14 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                                                       row.GetValue<double>(5)  // latitude
                                                                       ),
                                                            row.GetValue(7));
-                geoGrid->addLocation(location);
+
+                geoGrid->AddLocation(location);
                 addedLocations.emplace_back(location, row.GetValue<int>(2));
                 totalPopulation += row.GetValue<int>(2);
         }
 
         for (const auto& loc : addedLocations) {
-                loc.first->setRelativePopulation(static_cast<double>(loc.second) /
+                loc.first->SetRelativePopulation(static_cast<double>(loc.second) /
                                                  static_cast<double>(totalPopulation));
         }
 }

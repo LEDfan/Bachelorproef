@@ -22,76 +22,76 @@ public:
                  Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0), std::string name = "");
 
         template <typename T>
-        void addContactCenter(std::shared_ptr<T> contactCenter)
+        void AddContactCenter(std::shared_ptr<T> contactCenter)
         {
                 m_contactCenters.push_back(contactCenter);
                 m_contactCenterByType[typeid(T)].insert(contactCenter);
         }
 
         template <typename T>
-        std::set<std::shared_ptr<ContactCenter>> getContactCentersOfType()
+        std::set<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
         {
                 return m_contactCenterByType[typeid(T)];
         }
 
-        std::string  getName() const;
-        unsigned int getProvince() const;
-        unsigned int getID() const;
+        std::string  GetName() const;
+        unsigned int GetProvince() const;
+        unsigned int GetID() const;
 
-        unsigned int getPopulation() const;
+        unsigned int GetPopulation() const;
 
         /**
          * Given the total population calculates this location's population using the relative population of this
          * location.
          */
-        void calculatePopulation(unsigned int totalPopulation);
+        void CalculatePopulation(unsigned int totalPopulation);
 
-        void setRelativePopulation(double relativePopulation);
+        void SetRelativePopulation(double relativePopulation);
 
-        double getRelativePopulationSize() const;
+        double GetRelativePopulationSize() const;
 
-        unsigned int getPopulationOfSubmunicipalities() const;
+        unsigned int GetPopulationOfSubmunicipalities() const;
 
         /**
          *
          * @return a vector with the outgoing cities which people are commuting to + the proportion
          */
-        const std::vector<std::pair<std::shared_ptr<Location>, double>>& getIncomingCommuningCities() const;
+        const std::vector<std::pair<std::shared_ptr<Location>, double>>& GetIncomingCommuningCities() const;
 
         /**
          * Adds a Location and a proportion to the incoming commutng vector
          * I.e. \p proportion of the commuting population in \p location are commuting to \p this
          */
-        void addIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
+        void AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
         /**
          *
          * @return a vector with the outgoing cities which people are commuting to + the proportion
          */
-        const std::vector<std::pair<std::shared_ptr<Location>, double>>& getOutgoingCommuningCities() const;
+        const std::vector<std::pair<std::shared_ptr<Location>, double>>& GetOutgoingCommuningCities() const;
 
         /**
          * Adds a Location and a proportion to the incoming commuting vector
          * I.e. \p proportion of the commuting population in \p this are commuting to \p location
          */
-        void addOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion);
+        void AddOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
-        int outGoingCommutingPeople(double fractionOfPopulationCommuting) const;
-        int incomingCommutingPeople(double fractionOfPopulationCommuting) const;
+        int OutGoingCommutingPeople(double fractionOfPopulationCommuting) const;
+        int IncomingCommutingPeople(double fractionOfPopulationCommuting) const;
 
-        void addSubMunicipality(std::shared_ptr<Location> location);
+        void AddSubMunicipality(std::shared_ptr<Location> location);
 
-        const std::set<std::shared_ptr<Location>>& getSubMunicipalities() const;
+        const std::set<std::shared_ptr<Location>>& GetSubMunicipalities() const;
 
-        void                      setParent(const std::shared_ptr<Location>& location);
-        std::shared_ptr<Location> getParent() const;
+        void                      SetParent(const std::shared_ptr<Location>& location);
+        std::shared_ptr<Location> GetParent() const;
 
-        const Coordinate& getCoordinate() const;
+        const Coordinate& GetCoordinate() const;
 
         iterator begin();
         iterator end();
 
-        const std::vector<std::shared_ptr<ContactCenter>>& getContactCenters() const;
+        const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const;
 
         bool operator==(const Location& other) const;
 

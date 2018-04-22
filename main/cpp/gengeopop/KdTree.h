@@ -238,7 +238,7 @@ private:
                         return nullptr;
 
                 std::size_t med        = kd::median<P, D>(points);
-                auto        median_val = points[med].template get<D>();
+                auto        median_val = points[med].template Get<D>();
                 P           root_pt;
 
                 std::vector<P> left, right;
@@ -246,7 +246,7 @@ private:
                         const auto& p = points[i];
                         if (i == med) {
                                 root_pt = p;
-                        } else if (p.template get<D>() <= median_val) {
+                        } else if (p.template Get<D>() <= median_val) {
                                 left.push_back(p);
                         } else {
                                 right.push_back(p);
@@ -321,8 +321,8 @@ public:
 
         BaseNode<P>* BorrowSplitChild(const P& point) const override
         {
-                auto refval  = m_point.template get<D>();
-                auto testval = point.template get<D>();
+                auto refval  = m_point.template Get<D>();
+                auto testval = point.template Get<D>();
                 if (testval <= refval) {
                         return m_left.get();
                 } else {
@@ -332,8 +332,8 @@ public:
 
         void AddChild(P point) override
         {
-                auto refval  = m_point.template get<D>();
-                auto testval = point.template get<D>();
+                auto refval  = m_point.template Get<D>();
+                auto testval = point.template Get<D>();
                 if (testval <= refval) {
                         m_left = std::make_unique<Child>(point);
                 } else {
@@ -358,10 +358,10 @@ std::size_t median(const std::vector<P>& points)
         if (points.empty())
                 return 0;
 
-        using C = std::pair<decltype(points[0].template get<D>()), std::size_t>;
+        using C = std::pair<decltype(points[0].template Get<D>()), std::size_t>;
         std::vector<C> sorting;
         for (std::size_t i = 0; i < points.size(); i++) {
-                sorting.emplace_back(points[i].template get<D>(), i);
+                sorting.emplace_back(points[i].template Get<D>(), i);
         }
         std::sort(sorting.begin(), sorting.end());
         return sorting[sorting.size() / 2].second;

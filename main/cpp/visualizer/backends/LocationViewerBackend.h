@@ -17,10 +17,10 @@ public:
          * Adapts the text and tableView model to show the correct info about the location.
          * @param location The location to show in the viewer.
          */
-        void showLocations(std::set<std::shared_ptr<gengeopop::Location>> location);
+        void ShowLocations(std::set<std::shared_ptr<gengeopop::Location>> location);
 
 signals:
-        void contactCenterSelected();
+        void ContactCenterSelected();
 
 private:
         /**

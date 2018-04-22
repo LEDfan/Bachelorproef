@@ -26,26 +26,26 @@ private:
                            std::pair<std::vector<std::shared_ptr<ContactPool>>, discreteDist>>
             m_workplacesInCity;
 
-        void calculateWorkplacesInCity();
+        void CalculateWorkplacesInCity();
 
         double m_fractionCommutingStudents;
-        void   calculateFractionCommutingStudents();
+        void   CalculateFractionCommutingStudents();
 
         std::vector<std::shared_ptr<ContactPool>> m_nearByWorkplaces;
         discreteDist                              m_distNonCommuting;
 
-        void calculateCommutingLocations();
+        void CalculateCommutingLocations();
 
         std::vector<std::shared_ptr<Location>> m_commutingLocations;
         discreteDist                           m_disCommuting;
 
-        void calculateNearbyWorkspaces();
+        void CalculateNearbyWorkspaces();
 
         void AssignActive(stride::Person* person);
 
 public:
         WorkplacePopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
 
-        void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

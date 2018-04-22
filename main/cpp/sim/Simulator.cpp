@@ -50,7 +50,7 @@ void Simulator::TimeStep()
         std::shared_ptr<DaysOffInterface> days_off{nullptr};
 
         // Logic where you compute (on the basis of input/config for initial day or on the basis of
-        // number of sick persons, duration of epidemic etc) what kind of DaysOff scheme you apply.
+        // number of sick persons, duration of epidemic etc) what kind of DaysOff scheme you Apply.
         // If we want to make this independent of contacpools, then the days_off object has to be
         // passed into the Update function.
         days_off                 = std::make_shared<DaysOffStandard>(m_calendar);

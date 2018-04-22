@@ -31,15 +31,15 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
             readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/commutes.csv");
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        geoGrid->addLocation(std::make_shared<Location>(21, 0, 1000));
-        geoGrid->addLocation(std::make_shared<Location>(22, 0, 1000));
+        geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
+        geoGrid->AddLocation(std::make_shared<Location>(22, 0, 1000));
 
         res2->FillGeoGrid(geoGrid);
 
-        EXPECT_EQ(geoGrid->GetById(21)->incomingCommutingPeople(1.0), 666);
-        EXPECT_EQ(geoGrid->GetById(22)->outGoingCommutingPeople(1.0), 666);
-        EXPECT_EQ(geoGrid->GetById(21)->incomingCommutingPeople(1.0), 666);
-        EXPECT_EQ(geoGrid->GetById(22)->outGoingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(21)->IncomingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(22)->OutGoingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(21)->IncomingCommutingPeople(1.0), 666);
+        EXPECT_EQ(geoGrid->GetById(22)->OutGoingCommutingPeople(1.0), 666);
 }
 
 TEST(ReaderFactoryTest, TestCities)
@@ -54,7 +54,7 @@ TEST(ReaderFactoryTest, TestCities)
         EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/empty.txt"),
                      std::runtime_error);
         EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/random.txt"),
-                     std::invalid_argument);
+                     std::runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestHouseHolds)

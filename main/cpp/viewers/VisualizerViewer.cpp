@@ -12,11 +12,11 @@ void VisualizerViewer::Update(const stride::sim_event::Payload& p)
                 m_first = false;
 
                 // Set the geogrid
-                m_vis->setGeoGrid(p.m_runner->GetSim()->GetGeoGrid());
+                m_vis->SetGeoGrid(p.m_runner->GetSim()->GetGeoGrid());
                 std::this_thread::sleep_for(std::chrono::seconds(5));
         } else {
                 // Update the markers
-                m_vis->forceUpdateMarkers();
+                m_vis->ForceUpdateMarkers();
                 std::this_thread::sleep_for(std::chrono::seconds(5));
         }
 }

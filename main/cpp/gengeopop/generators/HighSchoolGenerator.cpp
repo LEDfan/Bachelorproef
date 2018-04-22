@@ -9,12 +9,12 @@
 
 namespace gengeopop {
 
-void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void HighSchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        int amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;
-        int amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
+        int  amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;
+        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
 
-        std::vector<std::shared_ptr<Location>> cities = geoGrid->topK(10);
+        std::vector<std::shared_ptr<Location>> cities = geoGrid->TopK(10);
 
         if (cities.empty()) {
                 // trng can't handle empty vectors
@@ -24,13 +24,13 @@ void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
         int totalCitiesPopulation = 0;
 
         for (const std::shared_ptr<Location>& loc : cities) {
-                totalCitiesPopulation += loc->getPopulation();
+                totalCitiesPopulation += loc->GetPopulation();
         }
 
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : cities) {
-                weights.push_back((double)loc->getPopulation() / (double)totalCitiesPopulation);
+                weights.push_back((double)loc->GetPopulation() / (double)totalCitiesPopulation);
         }
 
         auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
@@ -39,8 +39,8 @@ void HighSchoolGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = cities[locationId];
                 auto highschool = std::make_shared<HighSchool>(geoGridConfig.generated.contactCenters++);
-                highschool->fill(geoGridConfig);
-                loc->addContactCenter(highschool);
+                highschool->Fill(geoGridConfig);
+                loc->AddContactCenter(highschool);
         }
 }
 

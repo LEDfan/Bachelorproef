@@ -15,17 +15,17 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HouseholdGenerator householdGenerator(rnManager, createLogger());
+        HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
-        geoGrid->addLocation(loc1);
+        geoGrid->AddLocation(loc1);
 
-        householdGenerator.apply(geoGrid, config);
+        householdGenerator.Apply(geoGrid, config);
 
-        const auto& centersOfLoc1 = loc1->getContactCenters();
+        const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 4);
 }
 
@@ -36,12 +36,12 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HouseholdGenerator householdGenerator(rnManager, createLogger());
+        HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        householdGenerator.apply(geoGrid, config);
+        householdGenerator.Apply(geoGrid, config);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -53,7 +53,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HouseholdGenerator householdGenerator(rnManager, createLogger());
+        HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4000;
         config.input.populationSize  = 37542 * 100;
@@ -65,32 +65,32 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         auto loc4    = std::make_shared<Location>(4, 4, 3269 * 100, Coordinate(0, 0, 0, 0), "Limburg");
         auto loc5    = std::make_shared<Location>(5, 4, 4123 * 100, Coordinate(0, 0, 0, 0), "Luxemburg");
 
-        geoGrid->addLocation(loc1);
-        geoGrid->addLocation(loc2);
-        geoGrid->addLocation(loc3);
-        geoGrid->addLocation(loc4);
-        geoGrid->addLocation(loc5);
+        geoGrid->AddLocation(loc1);
+        geoGrid->AddLocation(loc2);
+        geoGrid->AddLocation(loc3);
+        geoGrid->AddLocation(loc4);
+        geoGrid->AddLocation(loc5);
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                loc->setRelativePopulation(static_cast<double>(loc->getPopulation()) /
+                loc->SetRelativePopulation(static_cast<double>(loc->GetPopulation()) /
                                            static_cast<double>(config.input.populationSize));
         }
 
-        householdGenerator.apply(geoGrid, config);
+        householdGenerator.Apply(geoGrid, config);
 
-        const auto& centersOfLoc1 = loc1->getContactCenters();
+        const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 1109);
 
-        const auto& centersOfLoc2 = loc2->getContactCenters();
+        const auto& centersOfLoc2 = loc2->GetContactCenters();
         EXPECT_EQ(centersOfLoc2.size(), 1166);
 
-        const auto& centersOfLoc3 = loc3->getContactCenters();
+        const auto& centersOfLoc3 = loc3->GetContactCenters();
         EXPECT_EQ(centersOfLoc3.size(), 865);
 
-        const auto& centersOfLoc4 = loc4->getContactCenters();
+        const auto& centersOfLoc4 = loc4->GetContactCenters();
         EXPECT_EQ(centersOfLoc4.size(), 373);
 
-        const auto& centersOfLoc5 = loc5->getContactCenters();
+        const auto& centersOfLoc5 = loc5->GetContactCenters();
         EXPECT_EQ(centersOfLoc5.size(), 487);
 }
 

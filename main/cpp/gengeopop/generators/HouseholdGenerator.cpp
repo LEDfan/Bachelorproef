@@ -7,12 +7,12 @@
 
 namespace gengeopop {
 
-void HouseholdGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                weights.push_back(loc->getRelativePopulationSize());
+                weights.push_back(loc->GetRelativePopulationSize());
         }
 
         if (weights.empty()) {
@@ -25,8 +25,8 @@ void HouseholdGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 int                       locationId = loc_dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 auto household = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
-                household->fill(geoGridConfig);
-                loc->addContactCenter(household);
+                household->Fill(geoGridConfig);
+                loc->AddContactCenter(household);
         }
 }
 

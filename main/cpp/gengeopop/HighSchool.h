@@ -6,10 +6,10 @@ namespace gengeopop {
 class HighSchool : public ContactCenter
 {
 public:
-        HighSchool(unsigned int id);
-        std::string  getType() const override;
-        unsigned int getPoolSize() const override;
-        unsigned int getMaxPools() const override;
-        void         fill(GeoGridConfig& geoGridConfig) override;
+        explicit HighSchool(unsigned int id);
+        std::string  GetType() const override;
+        unsigned int GetPoolSize() const override;
+        unsigned int GetMaxPools() const override;
+        void         Fill(GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

@@ -10,24 +10,24 @@ class ContactCenter
 public:
         using iterator = std::vector<std::shared_ptr<ContactPool>>::iterator;
 
-        ContactCenter(unsigned int id);
+        explicit ContactCenter(unsigned int id);
 
-        virtual std::string  getType() const     = 0;
-        virtual unsigned int getPoolSize() const = 0;
-        virtual unsigned int getMaxPools() const = 0;
-        virtual bool         isAvailable() const;
-        virtual void         fill(GeoGridConfig& geoGridConfig) = 0;
+        virtual std::string  GetType() const     = 0;
+        virtual unsigned int GetPoolSize() const = 0;
+        virtual unsigned int GetMaxPools() const = 0;
+        virtual bool         IsAvailable() const;
+        virtual void         Fill(GeoGridConfig& geoGridConfig) = 0;
 
-        unsigned int getId() const;
+        unsigned int GetId() const;
 
-        void addPool(std::shared_ptr<ContactPool> pool);
+        void AddPool(std::shared_ptr<ContactPool> pool);
 
         const std::vector<std::shared_ptr<ContactPool>>& GetPools() const;
 
         iterator begin();
         iterator end();
 
-        virtual ~ContactCenter(){};
+        virtual ~ContactCenter() = default;
 
 protected:
         std::vector<std::shared_ptr<ContactPool>> m_pools;

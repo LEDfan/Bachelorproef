@@ -30,7 +30,7 @@ public:
         void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
 
         Q_INVOKABLE
-        void saveMarker(QString id, QObject* marker);
+        void SaveMarker(QString id, QObject* marker);
 
         Q_INVOKABLE
         /**
@@ -65,13 +65,13 @@ public:
          * Handles the action that is needed when a marker is hovered over.
          * @param idOfHover id of marker we hover over
          */
-        void onMarkerHovered(unsigned int idOfHover);
+        void OnMarkerHovered(unsigned int idOfHover);
         Q_INVOKABLE
         /**
          * Handles the action that is needed when a marker is no longer hovered over.
          * @param idOfHover id of marker we hovered over
          */
-        void onMarkerHoveredOff(unsigned int idOfHover);
+        void OnMarkerHoveredOff(unsigned int idOfHover);
 
         Q_INVOKABLE
         /**
@@ -93,19 +93,19 @@ public:
          * @param elat
          * @param elong
          */
-        void selectArea(double slat, double slong, double elat, double elong);
+        void SelectArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
-        void selectAll();
+        void SelectAll();
 
         Q_INVOKABLE
         /**
          * @param value If commutes need to be shown
          */
-        void setShowCommutes(bool value);
+        void SetShowCommutes(bool value);
 
         Q_INVOKABLE
-        void updateAllHealthColors();
+        void UpdateAllHealthColors();
 
         Q_INVOKABLE
         /**
@@ -151,13 +151,13 @@ private:
         /**
          * Sends a signal with the currently selected locations.
          */
-        void emitLocations();
+        void EmitLocations();
 
         /**
          * Adds the location to the selection if it is not yet in the list. If it is already in the selection, it will
          * be removed.
          */
-        void toggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
+        void ToggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc);
 
         /**
          * Add a line on the map for the given commute info.
@@ -166,25 +166,25 @@ private:
          * @param toLatitude
          * @param toLongitude
          */
-        QObject* addCommuteLine(Coordinate from, Coordinate to, double amount);
+        QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
 
         /**
          * Hides the commute line on the map.
          * @param obj The commute line QObject
          */
-        void hideCommuteLine(QObject* obj);
+        void HideCommuteLine(QObject* obj);
 
         /**
          * Hides the commutes between the given 2 locations on the map.
          * @param loc1
          * @param loc2
          */
-        void hideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+        void HideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
                                 const std::shared_ptr<gengeopop::Location>& loc2);
 
         /**
          * Shows the commute from loc1 to loc2 on the map.
          * @param loc1
          */
-        void showCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
+        void ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
 };

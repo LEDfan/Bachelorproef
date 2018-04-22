@@ -43,8 +43,8 @@ void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
-        protoContactCenter->set_type(types[contactCenter->getType()]);
-        protoContactCenter->set_id(contactCenter->getId());
+        protoContactCenter->set_type(types[contactCenter->GetType()]);
+        protoContactCenter->set_id(contactCenter->GetId());
 }
 
 TEST(GeoGridProtoReaderTest, locationTest)
@@ -53,7 +53,7 @@ TEST(GeoGridProtoReaderTest, locationTest)
         fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", geoGrid.add_locations());
         fillLocation(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent", geoGrid.add_locations());
         fillLocation(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons", geoGrid.add_locations());
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoReaderTest, contactCentersTest)
 {
@@ -66,7 +66,7 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         fillContactCenter(std::make_shared<Household>(3), location->add_contactcenters());
         fillContactCenter(std::make_shared<Workplace>(4), location->add_contactcenters());
 
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoReaderTest, submunicipalityTest)
 {
@@ -76,7 +76,7 @@ TEST(GeoGridProtoReaderTest, submunicipalityTest)
         fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
         fillLocation(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent", submunicipality);
         location->add_submunicipalities(submunicipality->id());
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoReaderTest, peopleTest)
 {
@@ -136,7 +136,7 @@ TEST(GeoGridProtoReaderTest, peopleTest)
         person->set_primarycommunity(1);
         person->set_secondarycommunity(1);
 
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoReaderTest, commutesTest)
 {
@@ -168,6 +168,6 @@ TEST(GeoGridProtoReaderTest, commutesTest)
                 commute->set_proportion(0.5);
         }
 
-        compareGeoGrid(geoGrid);
+        CompareGeoGrid(geoGrid);
 }
 } // namespace

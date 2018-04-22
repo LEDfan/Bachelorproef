@@ -15,14 +15,14 @@ public:
          * Shows the given geogrid in the visualizer. Places the markers.
          * @param grid The grid we want to show
          */
-        void setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
+        void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
 
-        void forceUpdateMarkers();
+        void ForceUpdateMarkers();
 
         /**
          * Block until the visualizer is closed.
          */
-        void join();
+        void Join();
 
 private:
         QObject*                     m_rootContext = nullptr; ///< The root context of the main QML file

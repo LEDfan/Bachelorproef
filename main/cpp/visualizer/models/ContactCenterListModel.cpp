@@ -15,11 +15,11 @@ QVariant ContactCenterListModel::data(const QModelIndex& index, int role) const
         switch (role) {
         case Roles::IDRole: break;
 
-        case Roles::TypeRole: return QString::fromStdString(center->getType());
+        case Roles::TypeRole: return QString::fromStdString(center->GetType());
 
-        case Roles::PoolSize: return QString::number(center->getPoolSize());
+        case Roles::PoolSize: return QString::number(center->GetPoolSize());
 
-        case Roles::MaxPools: return QString::number(center->getMaxPools());
+        case Roles::MaxPools: return QString::number(center->GetMaxPools());
         }
         return QVariant();
 }
@@ -38,12 +38,12 @@ QHash<int, QByteArray> ContactCenterListModel::roleNames() const
 
 int ContactCenterListModel::columnCount(const QModelIndex& /*parent*/) const { return 2; }
 
-void ContactCenterListModel::setCenters(std::set<std::shared_ptr<gengeopop::Location>> locs)
+void ContactCenterListModel::SetCenters(std::set<std::shared_ptr<gengeopop::Location>> locs)
 {
         unsigned int oldAmtRows = m_centers.size();
         m_centers.clear();
         for (auto loc : locs) {
-                auto centers = loc->getContactCenters();
+                auto centers = loc->GetContactCenters();
                 for (auto center : centers) {
                         m_centers.push_back(center);
                 }
@@ -60,7 +60,7 @@ void ContactCenterListModel::setCenters(std::set<std::shared_ptr<gengeopop::Loca
         dataChanged(createIndex(0, 0), createIndex(m_centers.size(), 2));
 }
 
-void ContactCenterListModel::handleClickRow(unsigned int row)
+void ContactCenterListModel::HandleClickRow(unsigned int row)
 {
         try {
                 auto cc = m_centers.at(row);

@@ -55,17 +55,17 @@ Visualizer::Visualizer() : m_thread(nullptr)
         m_thread = std::make_unique<std::thread>(func);
 }
 
-void Visualizer::forceUpdateMarkers()
+void Visualizer::ForceUpdateMarkers()
 {
         //        auto backend = m_rootContext->findChild<QObject*>("backend");
         // Force to update colors of sickness
 }
 
-void Visualizer::setGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
+void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 {
         QObject* backend      = m_rootContext->findChild<QObject*>("backend");
         Backend* backendClass = qobject_cast<Backend*>(backend);
         backendClass->SetGeoGrid(grid);
 }
 
-void Visualizer::join() { m_thread->join(); }
+void Visualizer::Join() { m_thread->join(); }

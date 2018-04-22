@@ -16,13 +16,13 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 20000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        workplaceGenerator.apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -34,7 +34,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize                  = 5 * 1000 * 1000;
         config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -49,11 +49,11 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
                                49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
                                134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
         for (int size : sizes) {
-                geoGrid->addLocation(
+                geoGrid->AddLocation(
                     std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
         }
 
-        workplaceGenerator.apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config);
 
         std::vector<int> expectedWorkplaceCount{
             1289, 482,  1849, 1734, 1890, 1012, 1338, 5,    1147, 1679, 651, 468,  464, 1678, 1919, 1343, 852,
@@ -61,7 +61,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
             1179, 1510, 1024, 615,  777,  920,  1304, 579,  105,  1232, 159, 87,   126, 511,  636,  1648};
 
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->get(i)->getContactCenters().size());
+                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->Get(i)->GetContactCenters().size());
         }
 }
 
@@ -72,7 +72,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize                  = 5 * 1000 * 1000;
         config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -87,33 +87,33 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
                                49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
                                134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
         for (int size : sizes) {
-                geoGrid->addLocation(
+                geoGrid->AddLocation(
                     std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
         }
 
         // 10% of the pop of loc0 is commuting to loc1 = 12.833 people
-        geoGrid->get(0)->addOutgoingCommutingLocation(geoGrid->get(1), 0.10); // 0.10 is relative to loc0
-        geoGrid->get(1)->addIncomingCommutingLocation(geoGrid->get(0), 0.10); // 0.10 is relative to loc0
+        geoGrid->Get(0)->AddOutgoingCommutingLocation(geoGrid->Get(1), 0.10); // 0.10 is relative to loc0
+        geoGrid->Get(1)->AddIncomingCommutingLocation(geoGrid->Get(0), 0.10); // 0.10 is relative to loc0
 
         // 25,26% of the pop of loc1 is commuting to loc0 = 12.833 people
-        geoGrid->get(1)->addOutgoingCommutingLocation(geoGrid->get(0), 0.252697700063012); // 0.25 is relative to loc1
-        geoGrid->get(0)->addIncomingCommutingLocation(geoGrid->get(1), 0.252697700063012); // 0.25 is relative to loc1
+        geoGrid->Get(1)->AddOutgoingCommutingLocation(geoGrid->Get(0), 0.252697700063012); // 0.25 is relative to loc1
+        geoGrid->Get(0)->AddIncomingCommutingLocation(geoGrid->Get(1), 0.252697700063012); // 0.25 is relative to loc1
 
-        EXPECT_EQ(1283, geoGrid->get(0)->incomingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(1283, geoGrid->get(0)->outGoingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(1283, geoGrid->get(1)->incomingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(1283, geoGrid->get(1)->outGoingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(1283, geoGrid->Get(0)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(1283, geoGrid->Get(0)->OutGoingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(1283, geoGrid->Get(1)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(1283, geoGrid->Get(1)->OutGoingCommutingPeople(config.input.fraction_active_commutingPeople));
 
         // -> shouldn't change the test outcome in comparision with the previous test
 
-        workplaceGenerator.apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config);
 
         std::vector<int> expectedWorkplaceCount{
             1289, 482,  1849, 1734, 1890, 1012, 1338, 5,    1147, 1679, 651, 468,  464, 1678, 1919, 1343, 852,
             422,  1262, 1702, 1718, 153,  204,  1446, 1811, 1260, 1432, 200, 1535, 890, 494,  1803, 1160, 296,
             1179, 1510, 1024, 615,  777,  920,  1304, 579,  105,  1232, 159, 87,   126, 511,  636,  1648};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->get(i)->getContactCenters().size());
+                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->Get(i)->GetContactCenters().size());
         }
 }
 
@@ -124,7 +124,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        WorkplaceGenerator workplaceGenerator(rnManager, createLogger());
+        WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
         config.input.populationSize                  = 5 * 1000 * 1000;
         config.calculated._1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -139,7 +139,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
                                49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
                                134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
         for (int size : sizes) {
-                geoGrid->addLocation(
+                geoGrid->AddLocation(
                     std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
         }
 
@@ -149,58 +149,58 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         };
 
         for (const std::tuple<size_t, size_t, double>& info : commuting) {
-                geoGrid->get(std::get<0>(info))
-                    ->addOutgoingCommutingLocation(geoGrid->get(std::get<1>(info)), std::get<2>(info));
-                geoGrid->get(std::get<1>(info))
-                    ->addIncomingCommutingLocation(geoGrid->get(std::get<0>(info)), std::get<2>(info));
+                geoGrid->Get(std::get<0>(info))
+                    ->AddOutgoingCommutingLocation(geoGrid->Get(std::get<1>(info)), std::get<2>(info));
+                geoGrid->Get(std::get<1>(info))
+                    ->AddIncomingCommutingLocation(geoGrid->Get(std::get<0>(info)), std::get<2>(info));
         }
 
-        EXPECT_EQ(2951, geoGrid->get(0)->outGoingCommutingPeople(
+        EXPECT_EQ(2951, geoGrid->Get(0)->OutGoingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // = 0,23 * 128331 * 0,10 = 2951,613
-        EXPECT_EQ(0, geoGrid->get(0)->incomingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(1591, geoGrid->get(10)->outGoingCommutingPeople(
+        EXPECT_EQ(0, geoGrid->Get(0)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(1591, geoGrid->Get(10)->OutGoingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // = 0,25 * 63673 * 0,10 = 1591,825
-        EXPECT_EQ(2951, geoGrid->get(10)->incomingCommutingPeople(
+        EXPECT_EQ(2951, geoGrid->Get(10)->IncomingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // = 0,23 * 128331 * 0,10 = 2951,613
-        EXPECT_EQ(5029, geoGrid->get(25)->outGoingCommutingPeople(
+        EXPECT_EQ(5029, geoGrid->Get(25)->OutGoingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // = 0,43 * 116959 * 0,10 = 5029,023
-        EXPECT_EQ(0, geoGrid->get(25)->incomingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(0, geoGrid->get(3)->outGoingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(5029, geoGrid->get(3)->incomingCommutingPeople(
+        EXPECT_EQ(0, geoGrid->Get(25)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(0, geoGrid->Get(3)->OutGoingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(5029, geoGrid->Get(3)->IncomingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // = 0,43 * 116959 * 0,10 = 5029,023
-        EXPECT_EQ(0, geoGrid->get(17)->outGoingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(0, geoGrid->Get(17)->OutGoingCommutingPeople(config.input.fraction_active_commutingPeople));
         EXPECT_EQ(
             10680,
-            geoGrid->get(17)->incomingCommutingPeople(config.input.fraction_active_commutingPeople)); // = 0,10 * (0,65
+            geoGrid->Get(17)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople)); // = 0,10 * (0,65
                                                                                                       // * 76946 + 0,22
                                                                                                       // * 141389 + 0,47
                                                                                                       // * 20775 + 0,25*
                                                                                                       // 63673) =
                                                                                                       // 10680,298
-        EXPECT_EQ(5001, geoGrid->get(38)->outGoingCommutingPeople(
+        EXPECT_EQ(5001, geoGrid->Get(38)->OutGoingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // = 0,65 * 76946 * 0,10 = 5001,048
-        EXPECT_EQ(0, geoGrid->get(38)->incomingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(3110, geoGrid->get(15)->outGoingCommutingPeople(
+        EXPECT_EQ(0, geoGrid->Get(38)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(3110, geoGrid->Get(15)->OutGoingCommutingPeople(
                             config.input.fraction_active_commutingPeople)); // 0,22 * 141389 * 0,10 = 3310,558
-        EXPECT_EQ(0, geoGrid->get(15)->incomingCommutingPeople(config.input.fraction_active_commutingPeople));
-        EXPECT_EQ(0, geoGrid->get(17)->outGoingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(0, geoGrid->Get(15)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople));
+        EXPECT_EQ(0, geoGrid->Get(17)->OutGoingCommutingPeople(config.input.fraction_active_commutingPeople));
         EXPECT_EQ(
             10680,
-            geoGrid->get(17)->incomingCommutingPeople(config.input.fraction_active_commutingPeople)); // = 0,10 * (0,65
+            geoGrid->Get(17)->IncomingCommutingPeople(config.input.fraction_active_commutingPeople)); // = 0,10 * (0,65
                                                                                                       // * 76946 + 0,22
                                                                                                       // * 141389 + 0,47
                                                                                                       // * 20775 + 0,25*
                                                                                                       // 63673) =
                                                                                                       // 10680,298
 
-        workplaceGenerator.apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config);
 
         std::vector<int> expectedWorkplaceCount{
             1133, 511,  1829, 1987, 1870, 1020, 1350, 7,    1127, 1696, 735, 467,  475, 1647, 1898, 1215, 855,
             933,  1271, 1679, 1734, 175,  216,  1430, 1851, 970,  1423, 144, 1528, 895, 501,  1796, 1184, 306,
             1179, 1500, 1023, 606,  527,  920,  1304, 579,  105,  1232, 159, 87,   126, 511,  636,  1648};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->get(i)->getContactCenters().size());
+                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid->Get(i)->GetContactCenters().size());
         }
 
         std::cout << std::endl;

@@ -5,20 +5,20 @@
 namespace gengeopop {
 
 GeoGridPopulator::GeoGridPopulator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
-    : m_partialPopulators(), m_geoGrid(geoGrid), m_geoGridConfig(geoGridConfig)
+    : m_partialPopulators(), m_geoGrid(std::move(geoGrid)), m_geoGridConfig(geoGridConfig)
 {
 }
 
-void GeoGridPopulator::populateGeoGrid()
+void GeoGridPopulator::PopulateGeoGrid()
 {
         for (std::shared_ptr<PartialPopulator>& partialGen : m_partialPopulators) {
-                partialGen->apply(m_geoGrid, m_geoGridConfig);
+                partialGen->Apply(m_geoGrid, m_geoGridConfig);
         }
 }
 
-std::shared_ptr<GeoGrid> GeoGridPopulator::getGeoGrid() { return m_geoGrid; }
+std::shared_ptr<GeoGrid> GeoGridPopulator::GetGeoGrid() { return m_geoGrid; }
 
-void GeoGridPopulator::addPartialPopulator(std::shared_ptr<PartialPopulator> gen)
+void GeoGridPopulator::AddPartialPopulator(std::shared_ptr<PartialPopulator> gen)
 {
         m_partialPopulators.push_back(gen);
 }

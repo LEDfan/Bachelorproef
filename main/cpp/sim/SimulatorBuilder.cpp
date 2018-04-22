@@ -219,15 +219,15 @@ void SimulatorBuilder::ImportGeoGrid(std::shared_ptr<Simulator> sim)
         std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
 
         GeoGridReaderFactory                  geoGridReaderFactory;
-        const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.createReader(importFile);
+        const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile);
 
         m_stride_logger->debug("Importing population from " + importFile);
 
         const auto belief_pt = m_config_pt.get_child("run.belief_policy");
         sim->m_population    = std::make_shared<Population>(belief_pt);
         reader->UsePopulation(sim->m_population);
-        sim->m_geoGrid = reader->read();
-        sim->m_geoGrid->finalize();
+        sim->m_geoGrid = reader->Read();
+        sim->m_geoGrid->Finalize();
 }
 
 void SimulatorBuilder::GenerateGeoGrid(std::shared_ptr<Simulator> sim)

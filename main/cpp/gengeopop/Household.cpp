@@ -7,14 +7,14 @@ Household::Household() : ContactCenter(0) {}
 
 Household::Household(unsigned int id) : ContactCenter(id) {}
 
-unsigned int Household::getMaxPools() const { return 1; }
+unsigned int Household::GetMaxPools() const { return 1; }
 
-unsigned int Household::getPoolSize() const { return 15; }
+unsigned int Household::GetPoolSize() const { return 15; }
 
-std::string Household::getType() const { return "Household"; }
+std::string Household::GetType() const { return "Household"; }
 
-void Household::fill(GeoGridConfig& geoGridConfig)
+void Household::Fill(GeoGridConfig& geoGridConfig)
 {
-        addPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, getPoolSize()));
+        AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));
 }
 } // namespace gengeopop

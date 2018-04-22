@@ -12,10 +12,10 @@ public:
 
         using iterator = std::vector<stride::Person*>::iterator;
 
-        unsigned int  getID() const;
-        unsigned long getCapacity() const;
-        unsigned long getUsedCapacity() const;
-        void          addMember(stride::Person* p);
+        unsigned int  GetID() const;
+        unsigned long GetCapacity() const;
+        unsigned long GetUsedCapacity() const;
+        void          AddMember(stride::Person* p);
 
         iterator begin();
         iterator end();

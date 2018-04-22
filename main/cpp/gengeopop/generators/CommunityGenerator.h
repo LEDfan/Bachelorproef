@@ -10,6 +10,6 @@ class CommunityGenerator : public PartialGenerator
 public:
         using PartialGenerator::PartialGenerator;
 
-        void apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
 } // namespace gengeopop

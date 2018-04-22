@@ -46,10 +46,10 @@ for dir in "$@"; do
     for f in $(find main/cpp test/cpp \
                   -name '*.h' \
                   -o -name '*.hh' \
-                  -o -name '*.hpp' | grep -v ".*immunity/Immunizer.h" | grep -v "behaviour"); do
+                  -o -name '*.hpp' | grep -v ".*immunity/Immunizer.h" | grep -v "behaviour" | grep -v "SegmentedVector"); do
         echo $f
-        "${FMT}" -I `pwd`/main/cpp  -I `pwd`/main/resources/lib/spdlog/include -I `pwd`/main/resources/lib/trng-4.20/include -I $qtInclude/QtWidgets -I $qtInclude/QtCore/ -I $qtInclude/ -D __PIC__ ${f}
-        if [ $? -ne 1 ]; then
+        "${FMT}" -I `pwd`/main/cpp  -I `pwd`/main/resources/lib/spdlog/include -I `pwd`/main/resources/lib/protobuf -I `pwd`/main/resources/lib/trng-4.20/include -I $qtInclude/QtWidgets -I $qtInclude/QtCore/ -I $qtInclude/ -D __PIC__ ${f}
+        if [ $? -ne 0 ]; then
            EXIT=1
         fi
     done

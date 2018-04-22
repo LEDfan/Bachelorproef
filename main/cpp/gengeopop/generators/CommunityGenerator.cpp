@@ -8,7 +8,7 @@
 
 namespace gengeopop {
 
-void CommunityGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. calculate amount of communities, each community has average 2000 persons
@@ -22,7 +22,7 @@ void CommunityGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                weights.push_back(static_cast<double>(loc->getPopulation()) /
+                weights.push_back(static_cast<double>(loc->GetPopulation()) /
                                   static_cast<double>(geoGridConfig.input.populationSize));
         }
 
@@ -38,12 +38,12 @@ void CommunityGenerator::apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 if (communityId < amountOfCommunities) {
                         auto community = std::make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
-                        community->fill(geoGridConfig);
-                        loc->addContactCenter(community);
+                        community->Fill(geoGridConfig);
+                        loc->AddContactCenter(community);
                 } else {
                         auto community = std::make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
-                        community->fill(geoGridConfig);
-                        loc->addContactCenter(community);
+                        community->Fill(geoGridConfig);
+                        loc->AddContactCenter(community);
                 }
         }
 }

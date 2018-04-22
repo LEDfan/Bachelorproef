@@ -10,11 +10,11 @@ MapPolyline {
         { latitude: 0, longitude: 0  }
     ]
 
-    function hide(){
+    function Hide(){
         line.color = "#00000000"
     }
 
-    function show(){
+    function Show(){
         line.color = "#60002200"
     }
 
