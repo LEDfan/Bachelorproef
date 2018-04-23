@@ -31,10 +31,15 @@ double Boxplot::FindMedian(int begin, int end, std::string testcase)
         }
 }
 
-void Boxplot::Display(int argc, char* argv[])
+void Boxplot::WriteToFile() { GeneratePlots(true); }
+
+void Boxplot::Display() { GeneratePlots(false); }
+
+void Boxplot::GeneratePlots(bool write)
 {
         for (auto testcasepair : results) {
-                QApplication    a(argc, argv);
+                int             argc = 0;
+                QApplication    a(argc, nullptr);
                 QBoxPlotSeries* boxplot   = new QBoxPlotSeries();
                 unsigned int    count     = results[testcasepair.first].size();
                 QBoxSet*        box       = new QBoxSet(testcasepair.first.c_str());
@@ -51,10 +56,9 @@ void Boxplot::Display(int argc, char* argv[])
                 QChart* chart = new QChart();
                 chart->addSeries(boxplot);
                 chart->setTitle("Boxplot of results");
-                chart->setAnimationOptions(QChart::SeriesAnimations);
                 chart->createDefaultAxes();
-                chart->axisY()->setMin(min_value);
-                chart->axisY()->setMax(max_value);
+                chart->axisY()->setMin(min_value * 0.99);
+                chart->axisY()->setMax(max_value * 1.01);
                 chart->legend()->setVisible(true);
                 chart->legend()->setAlignment(Qt::AlignBottom);
 
@@ -63,9 +67,13 @@ void Boxplot::Display(int argc, char* argv[])
 
                 QMainWindow window;
                 window.setCentralWidget(chartView);
-                window.resize(800, 600);
-                window.show();
-                a.exec();
+                if (write) {
+                        window.grab().save((testcasepair.first + ".png").c_str());
+                } else {
+                        window.resize(800, 600);
+                        window.show();
+                        a.exec();
+                }
         }
 }
 
