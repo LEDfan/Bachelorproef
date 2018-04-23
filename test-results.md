@@ -234,3 +234,4 @@ Test results
  - [460.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/tidy/460.6-osx-8.3-llvm-clang.html)
 # calibration_improvements
  - [532.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/532.4-osx-8.3-apple-clang.html)
+ - [532.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/532.5-osx-9.2-apple-clang.html)
