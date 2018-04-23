@@ -1158,6 +1158,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/533.4-osx-8.3-apple-clang.html",
       "name": "osx-8.3-apple-clang",
       "build_id": "533.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/533.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "533.5"
     }
   ]
 }
