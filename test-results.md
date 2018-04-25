@@ -239,3 +239,5 @@ Test results
  - [532.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/532.4-osx-8.3-apple-clang.html)
  - [532.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/532.5-osx-9.2-apple-clang.html)
  - [532.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/532.6-osx-8.3-llvm-clang.html)
+# travis_qt
+ - [535.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/535.4-osx-8.3-apple-clang.html)

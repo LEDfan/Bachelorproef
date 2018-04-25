@@ -1169,5 +1169,12 @@
       "name": "osx-8.3-llvm-clang",
       "build_id": "533.6"
     }
+  ],
+  "travis_qt": [
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/travis_qt/535.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "535.4"
+    }
   ]
 }
