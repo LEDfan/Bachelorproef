@@ -119,6 +119,7 @@ Test results
  - [536.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.2-linux-gcc-7.html)
  - [536.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.3-linux-clang-5.html)
  - [536.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.4-osx-8.3-apple-clang.html)
+ - [536.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.5-osx-9.2-apple-clang.html)
  - [535.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/535.4-osx-8.3-apple-clang.html)
  - [535.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/535.5-osx-9.2-apple-clang.html)
 # calibration_improvements
