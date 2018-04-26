@@ -250,3 +250,4 @@ Test results
  - [507.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.6-osx-8.3-llvm-clang.html)
 # mapviewer-name
  - [537.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-name/537.4-osx-8.3-apple-clang.html)
+ - [537.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-name/537.5-osx-9.2-apple-clang.html)
