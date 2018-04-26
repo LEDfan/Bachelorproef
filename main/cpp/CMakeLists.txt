@@ -113,8 +113,8 @@ set(LIB_SRC
         viewers/CliViewer.cpp
         viewers/PersonsViewer.cpp
         viewers/SummaryViewer.cpp
-        viewers/VisualizerViewer.cpp
-        viewers/VisualizerViewer.h
+        viewers/MapViewer.cpp
+        viewers/MapViewer.h
 		#---
         Exception.cpp
         )
