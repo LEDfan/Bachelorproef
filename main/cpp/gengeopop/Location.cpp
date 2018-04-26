@@ -25,16 +25,24 @@ unsigned int Location::GetID() const { return m_id; }
 
 unsigned int Location::GetPopulation() const { return m_population; }
 
-double Location::GetInfectedRatio() const {
-    if(GetPopulation() == 0) {
-            return 0;
-    }
-    unsigned int infectedAmount = 0;
-    for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters){
-           infectedAmount += cc->GetInfectedCount();
-    }
+double Location::GetInfectedRatio() const
+{
+        unsigned int infected   = 0;
+        unsigned int population = 0;
 
-    return infectedAmount / GetPopulation();
+        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
+                auto r = cc->GetPopulationAndInfectedCount();
+                population += r.first;
+                infected += r.second;
+        }
+
+        if (GetPopulation() == 0) {
+                return 0;
+        }
+
+        double r = static_cast<double>(infected) / static_cast<double>(population);
+
+        return r;
 }
 
 const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }

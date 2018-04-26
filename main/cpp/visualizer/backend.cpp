@@ -330,39 +330,36 @@ void Backend::SaveMarker(QString id, QObject* marker) { m_markers[id.toStdString
 void Backend::UpdateAllHealthColors()
 {
         for (auto loc : *m_grid) {
-                auto* marker = m_markers[std::to_string(loc->GetID())];
+                auto*             marker = m_markers[std::to_string(loc->GetID())];
                 std::stringstream red;
                 std::stringstream green;
-                double infectedRatio = loc->GetInfectedRatio();
-                if(infectedRatio < 0 or infectedRatio > 1) {
+                double            infectedRatio = loc->GetInfectedRatio();
+                if (infectedRatio < 0 or infectedRatio > 1) {
                         std::cout << "Infected ratio incorrect : " << infectedRatio << std::endl;
                         continue;
                 }
                 red << std::hex << (int)(infectedRatio * 255);
-                green << std::hex << (int)( (1-infectedRatio) * 255);
+                green << std::hex << (int)((1 - infectedRatio) * 255);
 
                 std::string greenString = green.str();
-                std::string redString = red.str();
+                std::string redString   = red.str();
 
-                if (greenString.size() == 1){
+                if (greenString.size() == 1) {
                         greenString = "0" + greenString;
                 }
 
-                if (redString.size() == 1){
+                if (redString.size() == 1) {
                         redString = "0" + redString;
                 }
-                if(redString.size() != 2 or greenString.size() != 2){
+                if (redString.size() != 2 or greenString.size() != 2) {
                         std::cout << "Wrong color " << redString << " " << greenString << std::endl;
                         continue;
                 }
 
                 std::string color = "#" + redString + greenString + "00";
 
-                if(loc->GetInfectedRatio()  > 0){
-                        std::cout << color << std::endl;
-                }
-                QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection, Q_ARG(QVariant, QString::fromStdString(color)));
-
+                QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
+                                          Q_ARG(QVariant, QString::fromStdString(color)));
         }
 }
 void Backend::OnMarkerHovered(unsigned int idOfHover)

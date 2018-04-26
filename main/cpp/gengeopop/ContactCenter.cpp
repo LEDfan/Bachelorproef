@@ -16,14 +16,18 @@ unsigned int ContactCenter::GetId() const { return m_id; }
 
 bool ContactCenter::IsAvailable() const { return true; }
 
-unsigned int ContactCenter::GetInfectedCount() const {
-    unsigned int count = 0;
+std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCount() const
+{
+        unsigned int population = 0;
+        unsigned int infected   = 0;
 
-    for(const std::shared_ptr<gengeopop::ContactPool>& pool : m_pools){
-            count += pool->GetInfectedCount();
-    }
+        for (const std::shared_ptr<gengeopop::ContactPool>& pool : m_pools) {
+                auto poolR = pool->GetPopulationAndInfectedCount();
+                population += poolR.first;
+                infected += poolR.second;
+        }
 
-    return count;
+        return {population, infected};
 }
 
 } // namespace gengeopop

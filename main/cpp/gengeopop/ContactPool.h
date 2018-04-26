@@ -17,7 +17,7 @@ public:
         unsigned long GetUsedCapacity() const;
         void          AddMember(stride::Person* p);
 
-        double        GetInfectedCount() const;
+        std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
 
         iterator begin();
         iterator end();

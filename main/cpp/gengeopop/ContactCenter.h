@@ -20,7 +20,7 @@ public:
 
         unsigned int GetId() const;
 
-        unsigned int GetInfectedCount() const;
+        std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
 
         void AddPool(std::shared_ptr<ContactPool> pool);
 
