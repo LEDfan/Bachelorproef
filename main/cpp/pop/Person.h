@@ -153,8 +153,6 @@ public:
                 m_in_pools[type] = poolId != 0;
         }
 
-        unsigned int GetPoolId(ContactPoolType::Id type) { return m_pool_ids[type]; }
-
 private:
         unsigned int m_id;     ///< The id.
         double       m_age;    ///< The age.
