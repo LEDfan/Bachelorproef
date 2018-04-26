@@ -1211,5 +1211,12 @@
       "name": "osx-8.3-llvm-clang",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/master/531.6-osx-8.3-llvm-clang.html"
     }
+  ],
+  "mapviewer-name": [
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-name/537.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "537.4"
+    }
   ]
 }
