@@ -18,7 +18,14 @@ using namespace stride::util;
 %include <std_shared_ptr.i>
 
 %include "pop/Person.h"
+
 %include "util/SegmentedVector.h"
+
+%extend stride::util::SegmentedVector<stride::Person> {
+    stride::Person& __getitem__(std::size_t pos) {
+        return (*($self))[pos];
+    }
+}
 
 %shared_ptr(stride::util::SegmentedVector<stride::Person>);
 %shared_ptr(stride::Population);

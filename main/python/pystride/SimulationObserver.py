@@ -11,7 +11,4 @@ class SimulationObserver(SimulatorObserver):
 
     def Update(self, timestep):
         for c in self.callbacks:
-            try:
-                c(self.simulation, timestep)
-            except Exception as e:
-                print(e)
+            c(self.simulation, timestep)
