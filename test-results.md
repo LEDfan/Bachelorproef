@@ -160,6 +160,7 @@ Test results
  - [538.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/538.2-linux-gcc-7.html)
  - [538.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/538.3-linux-clang-5.html)
  - [538.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/538.4-osx-8.3-apple-clang.html)
+ - [538.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/538.5-osx-9.2-apple-clang.html)
  - [536.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.1-linux-gcc-6.html)
  - [536.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.2-linux-gcc-7.html)
  - [536.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/travis_qt/536.3-linux-clang-5.html)
