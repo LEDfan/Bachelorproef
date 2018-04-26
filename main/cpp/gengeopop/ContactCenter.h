@@ -20,6 +20,8 @@ public:
 
         unsigned int GetId() const;
 
+        unsigned int GetInfectedCount() const;
+
         void AddPool(std::shared_ptr<ContactPool> pool);
 
         const std::vector<std::shared_ptr<ContactPool>>& GetPools() const;

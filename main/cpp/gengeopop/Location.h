@@ -40,6 +40,8 @@ public:
 
         unsigned int GetPopulation() const;
 
+        double GetInfectedRatio() const;
+
         /**
          * Given the total population calculates this location's population using the relative population of this
          * location.

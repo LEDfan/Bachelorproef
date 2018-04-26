@@ -16,4 +16,14 @@ unsigned int ContactCenter::GetId() const { return m_id; }
 
 bool ContactCenter::IsAvailable() const { return true; }
 
+unsigned int ContactCenter::GetInfectedCount() const {
+    unsigned int count = 0;
+
+    for(const std::shared_ptr<gengeopop::ContactPool>& pool : m_pools){
+            count += pool->GetInfectedCount();
+    }
+
+    return count;
+}
+
 } // namespace gengeopop

@@ -2,7 +2,7 @@ import QtLocation 5.3;
 import QtQuick 2.0;
 MapQuickItem {
     id: marker
-    sourceItem: Rectangle {id: rect; width: 20; height: 20; color: '#e41e25'; border.width: 2; border.color: 'white'; smooth: true; radius: 0; objectName: 'rect' }
+    sourceItem: Rectangle {id: rect; width: 20; height: 20; color: '#FFFFFF'; border.width: 2; border.color: 'black'; smooth: true; radius: 0; objectName: 'rect' }
     coordinate {
                latitude: 51.2
                longitude: 4.4
