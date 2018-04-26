@@ -16,6 +16,10 @@ MapQuickItem {
         markerID = newID
     }
 
+    function setColor(color){
+        rect.color = color
+    }
+
     signal clicked(string id, var mouse)
     signal hovered(string id)
     signal hoveredOff(string id)
