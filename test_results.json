@@ -121,6 +121,11 @@
       "build_id": "546.6",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/546.6-osx-8.3-llvm-clang.html",
       "name": "osx-8.3-llvm-clang"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/553.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "553.4"
     }
   ],
   "calibration_tool": [
