@@ -17,16 +17,14 @@ void MapViewer::Update(const stride::sim_event::Payload& p)
 
                 // Set the geogrid
                 m_vis->SetGeoGrid(p.m_runner->GetSim()->GetGeoGrid());
-                                std::this_thread::sleep_for(std::chrono::seconds(5));
+                std::this_thread::sleep_for(std::chrono::seconds(5));
         } else {
                 // Update the markers
                 m_vis->ForceUpdateMarkers();
-                                std::this_thread::sleep_for(std::chrono::seconds(1));
+                std::this_thread::sleep_for(std::chrono::seconds(1));
         }
 }
 
-    MapViewer::~MapViewer() {
-        m_vis->Join();
-    }
+MapViewer::~MapViewer() { m_vis->Join(); }
 } // namespace viewers
 } // namespace stride

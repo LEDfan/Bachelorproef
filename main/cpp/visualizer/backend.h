@@ -187,4 +187,10 @@ private:
          * @param loc1
          */
         void ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
+
+        /**
+         * Updates the health color of the location on the map so it represents the current situation.
+         * @param loc The location we want to update on the map.
+         */
+        void setHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc);
 };

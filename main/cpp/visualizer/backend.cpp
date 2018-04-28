@@ -235,8 +235,7 @@ void Backend::SelectArea(double slat, double slong, double elat, double elong)
 void Backend::UpdateColorOfMarkers()
 {
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                marker->setProperty("color", "white");
+                setHealthColorOf(loc);
                 // Hide all connections between unselection and unselection, and selection and unselection
                 if (m_showCommutes) {
                         for (const auto& otherLoc : *m_grid) {
@@ -330,39 +329,54 @@ void Backend::SaveMarker(QString id, QObject* marker) { m_markers[id.toStdString
 void Backend::UpdateAllHealthColors()
 {
         for (auto loc : *m_grid) {
-                auto*             marker = m_markers[std::to_string(loc->GetID())];
-                std::stringstream red;
-                std::stringstream green;
-                double            infectedRatio = loc->GetInfectedRatio();
-
-                double colorRatio = std::pow(infectedRatio, 0.15);
-                colorRatio = std::max(0.0, colorRatio);
-                colorRatio = std::min(1.0, colorRatio);
-
-                red << std::hex << (int)(colorRatio * 255);
-                green << std::hex << (int)((1 - colorRatio) * 255);
-
-                std::string greenString = green.str();
-                std::string redString   = red.str();
-
-                if (greenString.size() == 1) {
-                        greenString = "0" + greenString;
+                if (m_selection.find(loc) == m_selection.end()) {
+                        setHealthColorOf(loc);
                 }
-
-                if (redString.size() == 1) {
-                        redString = "0" + redString;
-                }
-                if (redString.size() != 2 or greenString.size() != 2) {
-                        std::cout << "Wrong color " << redString << " " << greenString << std::endl;
-                        continue;
-                }
-
-                std::string color = "#" + redString + greenString + "00";
-
-                QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
-                                          Q_ARG(QVariant, QString::fromStdString(color)));
         }
 }
+
+void Backend::setHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
+{
+
+        auto*             marker = m_markers[std::to_string(loc->GetID())];
+        std::stringstream red;
+        std::stringstream green;
+        double            infectedRatio = loc->GetInfectedRatio();
+
+        // Check if it is a submuncipality
+        if (loc->GetSubMunicipalities().size() > 0) {
+                infectedRatio = loc->GetInfectedRatioOfSubmunicipalities();
+        }
+
+        double colorRatio = std::pow(infectedRatio, 0.15);
+        colorRatio        = std::max(0.0, colorRatio);
+        colorRatio        = std::min(1.0, colorRatio);
+
+        red << std::hex << (int)(colorRatio * 255);
+        green << std::hex << (int)((1 - colorRatio) * 255);
+
+        std::string greenString = green.str();
+        std::string redString   = red.str();
+
+        // Prepend 0 to make sure it is length two
+        if (greenString.size() == 1) {
+                greenString = "0" + greenString;
+        }
+
+        if (redString.size() == 1) {
+                redString = "0" + redString;
+        }
+        if (redString.size() != 2 or greenString.size() != 2) {
+                std::cout << "Wrong color " << redString << " " << greenString << std::endl;
+                return;
+        }
+
+        std::string color = "#" + redString + greenString + "00";
+
+        QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
+                                  Q_ARG(QVariant, QString::fromStdString(color)));
+}
+
 void Backend::OnMarkerHovered(unsigned int idOfHover)
 {
         auto loc = m_grid->GetById(idOfHover);
@@ -389,18 +403,17 @@ void Backend::OnMarkerHoveredOff(unsigned int idOfHover)
         // Check if not in selection
 
         if (m_selection.find(loc) == m_selection.end()) {
-                QObject* rectLoc = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                rectLoc->setProperty("color", "white");
+                setHealthColorOf(loc);
 
                 // Change colors of submunicipalities
                 const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
                 for (const auto& mun : sub) {
-                        QObject* marker = m_markers[std::to_string(mun->GetID())];
-                        QObject* rect   = marker->findChild<QObject*>("rect");
                         // Save the old color
                         if (m_selection.find(mun) == m_selection.end()) {
-                                rect->setProperty("color", "white");
+                                setHealthColorOf(mun);
                         } else {
+                                QObject* marker = m_markers[std::to_string(mun->GetID())];
+                                QObject* rect   = marker->findChild<QObject*>("rect");
                                 rect->setProperty("color", "purple");
                         }
                 }

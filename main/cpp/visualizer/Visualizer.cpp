@@ -57,19 +57,19 @@ Visualizer::Visualizer() : m_thread(nullptr)
 
 void Visualizer::ForceUpdateMarkers()
 {
-        QObject* backend      = m_rootContext->findChild<QObject*>("backend");
-        if(backend != nullptr){
-            Backend* backendClass = qobject_cast<Backend*>(backend);
-            backendClass->UpdateAllHealthColors();
+        QObject* backend = m_rootContext->findChild<QObject*>("backend");
+        if (backend != nullptr) {
+                Backend* backendClass = qobject_cast<Backend*>(backend);
+                backendClass->UpdateAllHealthColors();
         }
 }
 
 void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 {
-        QObject* backend      = m_rootContext->findChild<QObject*>("backend");
-        if(backend != nullptr) {
-            Backend *backendClass = qobject_cast<Backend *>(backend);
-            backendClass->SetGeoGrid(grid);
+        QObject* backend = m_rootContext->findChild<QObject*>("backend");
+        if (backend != nullptr) {
+                Backend* backendClass = qobject_cast<Backend*>(backend);
+                backendClass->SetGeoGrid(grid);
         }
 }
 

@@ -45,6 +45,24 @@ double Location::GetInfectedRatio() const
         return r;
 }
 
+double Location::GetInfectedRatioOfSubmunicipalities() const
+{
+        unsigned int infected   = 0;
+        unsigned int population = 0;
+        for (auto loc : m_subMunicipalities) {
+                for (const std::shared_ptr<gengeopop::ContactCenter>& cc : loc->GetContactCenters()) {
+                        auto r = cc->GetPopulationAndInfectedCount();
+                        population += r.first;
+                        infected += r.second;
+                }
+
+                if (GetPopulation() == 0) {
+                        continue;
+                }
+        }
+        return static_cast<double>(infected) / static_cast<double>(population);
+}
+
 const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }
 
 const Coordinate& Location::GetCoordinate() const { return m_coordinate; }

@@ -54,6 +54,8 @@ public:
 
         unsigned int GetPopulationOfSubmunicipalities() const;
 
+        double GetInfectedRatioOfSubmunicipalities() const;
+
         /**
          *
          * @return a vector with the outgoing cities which people are commuting to + the proportion
