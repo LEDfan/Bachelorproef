@@ -107,6 +107,7 @@ set(LIB_SRC
         util/SVIterator.h
         util/TimeStamp.h
         util/TimeToString.h
+        util/exc_assert.h
         #---
         viewers/AdoptedViewer.cpp
         viewers/CasesViewer.cpp

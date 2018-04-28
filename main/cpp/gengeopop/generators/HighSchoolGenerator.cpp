@@ -30,7 +30,12 @@ void HighSchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : cities) {
-                weights.push_back((double)loc->GetPopulation() / (double)totalCitiesPopulation);
+                double weight =
+                    static_cast<double>(loc->GetPopulation()) / static_cast<double>((double)totalCitiesPopulation);
+
+                checkWeight("HighSchoolGenerator", weight);
+
+                weights.push_back(weight);
         }
 
         auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
