@@ -41,6 +41,9 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                if (loc->GetPopulation() == 0) {
+                        continue;
+                }
                 m_currentLoc = loc;
                 CalculateCommutingLocations();
                 CalculateNearbyWorkspaces();
