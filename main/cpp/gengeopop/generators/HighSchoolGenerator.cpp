@@ -33,7 +33,7 @@ void HighSchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                 double weight =
                     static_cast<double>(loc->GetPopulation()) / static_cast<double>((double)totalCitiesPopulation);
 
-                checkWeight("HighSchoolGenerator", weight);
+                CheckWeight("HighSchoolGenerator", weight);
 
                 weights.push_back(weight);
         }

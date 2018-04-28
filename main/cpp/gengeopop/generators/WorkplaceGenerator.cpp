@@ -34,7 +34,7 @@ void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
                 double weight = amountOfWorkingPeople / amountOfEmployees;
 
-                checkWeight("WorkplaceGenerator", weight);
+                CheckWeight("WorkplaceGenerator", weight);
 
                 weights.push_back(weight);
         }

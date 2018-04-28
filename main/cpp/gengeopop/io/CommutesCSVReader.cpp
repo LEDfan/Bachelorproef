@@ -29,18 +29,16 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         std::map<unsigned int, unsigned int> sizes; // indexed by header/row id
 
         /*
-         * Since columns represent the "from city" and the proportion is calculated using the from
-         * the total population if a city is calculated using the values found in the columns.
+         * Since columns represent the "from city" and the proportion is calculated using the from city,
+         * the total population of a city is calculated using the values found in the columns.
          */
-        size_t rowIndex = 0;
         for (const stride::util::CSVRow& row : m_reader) {
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         sizes[columnIndex] += row.GetValue<int>(columnIndex);
                 }
-                rowIndex++;
         }
 
-        rowIndex = 0;
+        size_t rowIndex = 0;
         for (const stride::util::CSVRow& row : m_reader) {
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         auto abs = row.GetValue<double>(columnIndex);

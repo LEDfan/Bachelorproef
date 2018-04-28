@@ -3,9 +3,9 @@
 #include <string>
 
 #ifdef NDEBUG
-inline void exc_assert(bool, const std::string&) {}
+inline void ExcAssert(bool, const std::string&) {}
 #else
-inline void exc_assert(bool condition, const std::string& error)
+inline void ExcAssert(bool condition, const std::string& error)
 {
         if (!condition) {
                 throw Exception(error);

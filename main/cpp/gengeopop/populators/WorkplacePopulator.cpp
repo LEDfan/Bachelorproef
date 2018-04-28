@@ -8,7 +8,7 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <pop/Person.h>
-#include <util/exc_assert.h>
+#include <util/ExcAssert.h>
 #include <utility>
 
 namespace gengeopop {
@@ -135,10 +135,9 @@ void WorkplacePopulator::CalculateCommutingLocations()
                 if (!Workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
                         double weight = commute.second - (commute.second * m_fractionCommutingStudents);
-                        exc_assert(weight >= 0 || weight <= 1 || !std::isnan(weight),
-                                   "Invalid weight due to invalid input data in WorkplacePopulator, weight: " +
-                                       std::to_string(weight));
-                        commutingWeights.push_back(weight);
+                        ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                                  "Invalid weight due to invalid input data in WorkplacePopulator, weight: " +
+                                      std::to_string(weight));
                 }
         }
 
