@@ -33,12 +33,8 @@ void GeoGrid::AddLocation(std::shared_ptr<Location> location)
         m_locationsToIdIndex[location->GetID()] = location;
 }
 
-std::shared_ptr<Location> GeoGrid::operator[](size_t index)
-{
-        // TODO range check needed?
-        return *(begin() + index);
-}
-std::shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
+std::shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
+std::shared_ptr<Location>          GeoGrid::Get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {
