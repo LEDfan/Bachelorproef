@@ -113,16 +113,18 @@ std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_p
 
         AABB<KdTree2DPoint> box{};
 
-        double maxlat = start->GetCoordinate().latitude + RadianToDegree(radius / 6371.0);
-        double minlat = start->GetCoordinate().latitude - RadianToDegree(radius / 6371.0);
+        /*
+         * double maxlat = start->GetCoordinate().latitude + RadianToDegree(radius / 6371.0);
+         * double minlat = start->GetCoordinate().latitude - RadianToDegree(radius / 6371.0);
 
-        double maxlon = start->GetCoordinate().longitude +
-                        RadianToDegree(radius / 6371.0 / std::cos(DegreeToRadian(start->GetCoordinate().latitude)));
-        double minlon = start->GetCoordinate().longitude -
-                        RadianToDegree(radius / 6371.0 / std::cos(DegreeToRadian(start->GetCoordinate().latitude)));
+         * double maxlon = start->GetCoordinate().longitude +
+         *                 RadianToDegree(radius / 6371.0 / std::cos(DegreeToRadian(start->GetCoordinate().latitude)));
+         * double minlon = start->GetCoordinate().longitude -
+         *                 RadianToDegree(radius / 6371.0 / std::cos(DegreeToRadian(start->GetCoordinate().latitude)));
 
-        box.upper = KdTree2DPoint(maxlon, maxlat);
-        box.lower = KdTree2DPoint(minlon, minlat);
+         * box.upper = KdTree2DPoint(maxlon, maxlat);
+         * box.lower = KdTree2DPoint(minlon, minlat);
+         */
 
         KdTree2DPoint startPt(start);
 
