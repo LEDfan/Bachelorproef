@@ -1,163 +1,160 @@
 #include <gengeopop/Household.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
 #include <gtest/gtest.h>
+#include <util/LogUtils.h>
 #include <util/RNManager.h>
 
 using namespace gengeopop;
 
-namespace {
-
-// FIXME: use logger instead
-void disableCout() { std::cout.setstate(std::ios_base::failbit); }
-void enableCout() { std::cout.clear(); }
-
-HouseholdPopulator getPopulator()
+class HouseholdPopulatorTest : public testing::Test
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
-        return HouseholdPopulator(rnManager);
-}
+public:
+        HouseholdPopulatorTest() : householdPopulator(), rnManager() {}
 
-TEST(HouseholdPopulatorTest, OneHouseholdTest)
+protected:
+        virtual void SetUp()
+        {
+                stride::util::RNManager::Info rnInfo;
+                rnInfo.m_seed = 2;
+                rnManager     = std::make_shared<stride::util::RNManager>(rnInfo);
+                std::shared_ptr<spdlog::logger> logger =
+                    stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                logger->set_level(spdlog::level::off);
+                householdPopulator = std::make_shared<HouseholdPopulator>(*rnManager.get(), logger);
+        }
+
+        std::shared_ptr<HouseholdPopulator>      householdPopulator;
+        std::shared_ptr<stride::util::RNManager> rnManager;
+};
+
+TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 {
-        HouseholdPopulator householdPopulator = getPopulator();
-
         GeoGridConfig config{};
         auto          householdType = std::make_shared<Household>();
         auto          poolType      = std::make_shared<ContactPool>();
         auto          personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
-        poolType->addMember(personType);
-        householdType->addPool(poolType);
+        poolType->AddMember(personType.get());
+        householdType->AddPool(poolType);
         config.generated.household_types.push_back(householdType);
 
         auto geoGrid   = std::make_shared<GeoGrid>();
         auto loc1      = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
         auto household = std::make_shared<Household>();
-        household->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household);
-        geoGrid->addLocation(loc1);
+        household->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household);
+        geoGrid->AddLocation(loc1);
 
-        disableCout();
-        householdPopulator.apply(geoGrid, config);
-        enableCout();
+        householdPopulator->Apply(geoGrid, config);
 
         const auto& pools = household->GetPools();
         ASSERT_EQ(pools.size(), 1);
-        EXPECT_EQ(pools[0]->getUsedCapacity(), 1);
+        EXPECT_EQ(pools[0]->GetUsedCapacity(), 1);
 }
 
-TEST(HouseholdPopulatorTest, ZeroHouseholdsTest)
+TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 {
-        HouseholdPopulator householdPopulator = getPopulator();
-        GeoGridConfig      config{};
+        GeoGridConfig config{};
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
-        disableCout();
-        EXPECT_NO_THROW(householdPopulator.apply(geoGrid, config));
-        enableCout();
+        EXPECT_NO_THROW(householdPopulator->Apply(geoGrid, config));
 }
 
-TEST(HouseholdPopulatorTest, FiveHouseholdsTest)
+TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
-        HouseholdPopulator householdPopulator = getPopulator();
-        GeoGridConfig      config{};
-        auto               householdType = std::make_shared<Household>();
-        auto               poolType      = std::make_shared<ContactPool>();
-        auto               personType    = std::make_shared<stride::Person>();
+        GeoGridConfig config{};
+        auto          householdType = std::make_shared<Household>();
+        auto          poolType      = std::make_shared<ContactPool>();
+        auto          personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
-        poolType->addMember(personType);
-        householdType->addPool(poolType);
+        poolType->AddMember(personType.get());
+        householdType->AddPool(poolType);
         config.generated.household_types.push_back(householdType);
 
         auto geoGrid = std::make_shared<GeoGrid>();
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
 
         auto household1 = std::make_shared<Household>();
-        household1->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household1);
+        household1->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household1);
         auto household2 = std::make_shared<Household>();
-        household2->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household2);
+        household2->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household2);
         auto household3 = std::make_shared<Household>();
-        household3->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household3);
+        household3->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household3);
         auto household4 = std::make_shared<Household>();
-        household4->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household4);
+        household4->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household4);
         auto household5 = std::make_shared<Household>();
-        household5->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household5);
+        household5->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household5);
 
-        geoGrid->addLocation(loc1);
+        geoGrid->AddLocation(loc1);
 
-        disableCout();
-        householdPopulator.apply(geoGrid, config);
-        enableCout();
+        householdPopulator->Apply(geoGrid, config);
 
         for (auto household : *loc1) {
                 ASSERT_EQ(household->GetPools().size(), 1);
-                ASSERT_EQ(household->GetPools()[0]->getUsedCapacity(), 1);
+                ASSERT_EQ(household->GetPools()[0]->GetUsedCapacity(), 1);
                 EXPECT_EQ((*household->GetPools()[0]->begin())->GetAge(), 18);
         }
 }
-TEST(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
+TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 {
-        HouseholdPopulator householdPopulator = getPopulator();
-        GeoGridConfig      config{};
+        std::shared_ptr<stride::Person> personType1;
+        std::shared_ptr<stride::Person> personType2;
+        std::shared_ptr<stride::Person> personType3;
+
+        GeoGridConfig config{};
         {
                 auto householdType = std::make_shared<Household>();
                 auto poolType      = std::make_shared<ContactPool>();
-                auto personType    = std::make_shared<stride::Person>();
-                personType->SetAge(18);
-                poolType->addMember(personType);
-                householdType->addPool(poolType);
+                personType1        = std::make_shared<stride::Person>();
+                personType1->SetAge(18);
+                poolType->AddMember(personType1.get());
+                householdType->AddPool(poolType);
                 config.generated.household_types.push_back(householdType);
         }
         {
                 auto householdType = std::make_shared<Household>();
                 auto poolType      = std::make_shared<ContactPool>();
-                auto personType    = std::make_shared<stride::Person>();
-                personType->SetAge(12);
-                poolType->addMember(personType);
-                householdType->addPool(poolType);
-                auto personType2 = std::make_shared<stride::Person>();
-                personType2->SetAge(56);
-                poolType->addMember(personType2);
+                personType2        = std::make_shared<stride::Person>();
+                personType2->SetAge(12);
+                poolType->AddMember(personType2.get());
+                householdType->AddPool(poolType);
+                personType3 = std::make_shared<stride::Person>();
+                personType3->SetAge(56);
+                poolType->AddMember(personType3.get());
                 config.generated.household_types.push_back(householdType);
         }
 
         auto geoGrid   = std::make_shared<GeoGrid>();
         auto loc1      = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
         auto household = std::make_shared<Household>();
-        household->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household);
-        geoGrid->addLocation(loc1);
+        household->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household);
+        geoGrid->AddLocation(loc1);
         auto household2 = std::make_shared<Household>();
-        household2->addPool(std::make_shared<ContactPool>());
-        loc1->addContactCenter(household2);
+        household2->AddPool(std::make_shared<ContactPool>());
+        loc1->AddContactCenter(household2);
+        householdPopulator->Apply(geoGrid, config);
 
-        disableCout();
-        householdPopulator.apply(geoGrid, config);
-        enableCout();
         std::map<int, std::vector<std::shared_ptr<ContactPool>>> pools_map;
-        pools_map[household->GetPools()[0]->getUsedCapacity()]  = household->GetPools();
-        pools_map[household2->GetPools()[0]->getUsedCapacity()] = household2->GetPools();
+        pools_map[household->GetPools()[0]->GetUsedCapacity()]  = household->GetPools();
+        pools_map[household2->GetPools()[0]->GetUsedCapacity()] = household2->GetPools();
         {
                 const auto& pools = pools_map[1];
                 ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->getUsedCapacity(), 1);
+                EXPECT_EQ(pools[0]->GetUsedCapacity(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetAge(), 18);
         }
         {
                 const auto& pools = pools_map[2];
                 ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->getUsedCapacity(), 2);
+                EXPECT_EQ(pools[0]->GetUsedCapacity(), 2);
                 EXPECT_EQ((*pools[0]->begin())->GetAge(), 12);
                 EXPECT_EQ((*(pools[0]->begin() + 1))->GetAge(), 56);
         }
 }
-
-} // namespace
