@@ -6,14 +6,11 @@
 
 namespace stride {
 namespace viewers {
-class VisualizerViewer
+class MapViewer
 {
 public:
         /// Instantiate cli viewer.
-        VisualizerViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger)
-        {
-                m_vis = std::make_unique<Visualizer>();
-        }
+        MapViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) { m_vis = std::make_unique<Visualizer>(); }
 
         /// Let viewer perform update.
         void Update(const sim_event::Payload& p);

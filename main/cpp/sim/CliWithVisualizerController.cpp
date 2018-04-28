@@ -1,7 +1,7 @@
 #include "CliWithVisualizerController.h"
 #include <functional>
 #include <sim/SimRunner.h>
-#include <viewers/VisualizerViewer.h>
+#include <viewers/MapViewer.h>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ void CliWithVisualizerController::RegisterViewers(std::shared_ptr<SimRunner> run
 
         // Register the visualizer viewer
         GetLogger()->info("Setting for output of summary: true");
-        const auto v = make_shared<viewers::VisualizerViewer>(GetLogger());
-        runner->Register(v, bind(&viewers::VisualizerViewer::Update, v, placeholders::_1));
+        const auto v = make_shared<viewers::MapViewer>(GetLogger());
+        runner->Register(v, bind(&viewers::MapViewer::Update, v, placeholders::_1));
 }
 } // namespace stride

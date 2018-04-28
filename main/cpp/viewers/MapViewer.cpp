@@ -1,11 +1,11 @@
-#include "VisualizerViewer.h"
+#include "MapViewer.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 #include <iostream>
 
 namespace stride {
 namespace viewers {
-void VisualizerViewer::Update(const stride::sim_event::Payload& p)
+void MapViewer::Update(const stride::sim_event::Payload& p)
 {
         m_logger->info("Visualizer updated");
         if (m_first and p.m_runner->GetSim() != nullptr) {
