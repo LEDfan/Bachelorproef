@@ -26,19 +26,30 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 
         const size_t columnCount = m_reader.GetColumnCount();
 
+        std::map<unsigned int, unsigned int> sizes; // indexed by header/row id
+
+        /*
+         * Since columns represent the "from city" and the proportion is calculated using the from
+         * the total population if a city is calculated using the values found in the columns.
+         */
         size_t rowIndex = 0;
         for (const stride::util::CSVRow& row : m_reader) {
-                int total = 0;
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-                        total += row.GetValue<int>(columnIndex);
+                        sizes[columnIndex] += row.GetValue<int>(columnIndex);
                 }
+                rowIndex++;
+        }
 
+        rowIndex = 0;
+        for (const stride::util::CSVRow& row : m_reader) {
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         auto abs = row.GetValue<double>(columnIndex);
                         if (abs != 0 && columnIndex != rowIndex) {
                                 const auto& locFrom    = geoGrid->GetById(headerMeaning[columnIndex]);
                                 const auto& locTo      = geoGrid->GetById(headerMeaning[rowIndex]);
+                                const auto& total      = sizes[columnIndex];
                                 double      proportion = abs / total;
+
                                 if (proportion < 0 || proportion > 1) {
                                         throw Exception(
                                             "Proportion of commutes from " + std::to_string(locFrom->GetID()) + " to " +
