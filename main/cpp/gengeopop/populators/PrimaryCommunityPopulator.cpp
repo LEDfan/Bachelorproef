@@ -18,7 +18,6 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
         std::set<std::shared_ptr<ContactPool>> found;
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-
                 // 1. find all communities in an area of 10-k*10 km
                 auto community_pools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
 
