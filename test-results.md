@@ -287,6 +287,7 @@ Test results
  - [550.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/swig/550.2-linux-gcc-7.html)
  - [550.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/swig/550.3-linux-clang-5.html)
  - [550.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/swig/550.4-osx-8.3-apple-clang.html)
+ - [550.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/swig/550.5-osx-9.2-apple-clang.html)
  - [544.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/swig/544.4-osx-8.3-apple-clang.html)
  - [544.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/swig/544.5-osx-9.2-apple-clang.html)
  - [544.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/swig/544.6-osx-8.3-llvm-clang.html)
