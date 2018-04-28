@@ -14,6 +14,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/geometry/571.3-linux-clang-5.html",
       "build_id": "571.3",
       "name": "linux-clang-5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/geometry/571.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "571.4"
     }
   ],
   "visualizer-mvc": [
