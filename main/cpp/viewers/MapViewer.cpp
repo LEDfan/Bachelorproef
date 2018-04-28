@@ -21,8 +21,12 @@ void MapViewer::Update(const stride::sim_event::Payload& p)
         } else {
                 // Update the markers
                 m_vis->ForceUpdateMarkers();
-                                std::this_thread::sleep_for(std::chrono::seconds(10));
+                                std::this_thread::sleep_for(std::chrono::seconds(1));
         }
 }
+
+    MapViewer::~MapViewer() {
+        m_vis->Join();
+    }
 } // namespace viewers
 } // namespace stride

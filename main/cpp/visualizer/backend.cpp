@@ -334,12 +334,13 @@ void Backend::UpdateAllHealthColors()
                 std::stringstream red;
                 std::stringstream green;
                 double            infectedRatio = loc->GetInfectedRatio();
-                if (infectedRatio < 0 or infectedRatio > 1) {
-                        std::cout << "Infected ratio incorrect : " << infectedRatio << std::endl;
-                        continue;
-                }
-                red << std::hex << (int)(infectedRatio * 255);
-                green << std::hex << (int)((1 - infectedRatio) * 255);
+
+                double colorRatio = std::pow(infectedRatio, 0.15);
+                colorRatio = std::max(0.0, colorRatio);
+                colorRatio = std::min(1.0, colorRatio);
+
+                red << std::hex << (int)(colorRatio * 255);
+                green << std::hex << (int)((1 - colorRatio) * 255);
 
                 std::string greenString = green.str();
                 std::string redString   = red.str();

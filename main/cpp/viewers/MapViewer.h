@@ -12,6 +12,8 @@ public:
         /// Instantiate cli viewer.
         MapViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) { m_vis = std::make_unique<Visualizer>(); }
 
+        ~MapViewer();
+
         /// Let viewer perform update.
         void Update(const sim_event::Payload& p);
 
