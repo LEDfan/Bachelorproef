@@ -12,7 +12,7 @@ class Boxplot
 {
 public:
         // Setup
-        Boxplot(std::map<std::string, std::vector<unsigned int>> results);
+        explicit Boxplot(std::map<std::string, std::vector<unsigned int>>& results);
 
         // Display the boxplots
         void Display();
@@ -21,8 +21,9 @@ public:
         void WriteToFile();
 
 private:
-        double                                           FindMedian(int begin, int end, std::string testcase);
-        void                                             GeneratePlots(bool write);
+        double FindMedian(unsigned long begin, unsigned long end, std::string testcase);
+        void GeneratePlots(bool write); ///< Generate the actual plots. Write them to files if write is true, otherwise
+                                        ///< display them on screen.
         std::map<std::string, std::vector<unsigned int>> results; ///< Storage for the simulation results
 };
 

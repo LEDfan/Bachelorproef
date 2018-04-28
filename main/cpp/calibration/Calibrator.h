@@ -15,7 +15,7 @@ public:
         Calibrator();
 
         // Run the actual simulations and gather results
-        void Run();
+        void Run(unsigned int count = 10);
 
         // Print the mean and standard deviation for the different testcases to the Logger
         void PrintResults();
