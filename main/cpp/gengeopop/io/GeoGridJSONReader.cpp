@@ -2,7 +2,6 @@
 #include "ThreadException.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
-#include <Exception.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
@@ -11,6 +10,7 @@
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <memory>
+#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -24,7 +24,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
         try {
                 boost::property_tree::read_json(*m_inputStream, root);
         } catch (std::runtime_error) {
-                throw Exception(
+                throw stride::util::Exception(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
         auto geoGrid = std::make_shared<GeoGrid>();
@@ -149,7 +149,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
         } else if (type == "Workplace") {
                 result = std::make_shared<Workplace>(id);
         } else {
-                throw Exception("No such ContactCenter type: " + type);
+                throw stride::util::Exception("No such ContactCenter type: " + type);
         }
 
         auto contactPools = contactCenter.get_child("pools");
@@ -186,7 +186,7 @@ std::shared_ptr<ContactPool> GeoGridJSONReader::ParseContactPool(boost::property
         for (auto it = people.begin(); it != people.end(); it++) {
                 auto person_id = boost::lexical_cast<unsigned int>(it->second.get<std::string>(""));
                 if (m_people.count(person_id) == 0) {
-                        throw Exception("No such person: " + std::to_string(person_id));
+                        throw stride::util::Exception("No such person: " + std::to_string(person_id));
                 }
 #pragma omp critical
                 result->AddMember(m_people[person_id]);

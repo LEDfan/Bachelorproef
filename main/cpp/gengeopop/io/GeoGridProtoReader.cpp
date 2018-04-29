@@ -1,7 +1,6 @@
 #include "GeoGridProtoReader.h"
 #include "ThreadException.h"
 #include "proto/geogrid.pb.h"
-#include <Exception.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
@@ -12,6 +11,7 @@
 #include <iostream>
 #include <omp.h>
 #include <stdexcept>
+#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -24,7 +24,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
-                throw Exception("Failed to parse Proto file");
+                throw stride::util::Exception("Failed to parse Proto file");
         }
         std::shared_ptr<GeoGrid> geoGrid;
         if (m_population) {
@@ -144,7 +144,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         case proto::GeoGrid_Location_ContactCenter_Type_HighSchool: result = std::make_shared<HighSchool>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household: result = std::make_shared<Household>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace: result = std::make_shared<Workplace>(id); break;
-        default: throw Exception("No such ContactCenter type");
+        default: throw stride::util::Exception("No such ContactCenter type");
         }
 
         auto e = std::make_shared<ThreadException>();

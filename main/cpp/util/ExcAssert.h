@@ -1,6 +1,6 @@
 #pragma once
-#include <Exception.h>
 #include <string>
+#include <util/Exception.h>
 
 #ifdef NDEBUG
 inline void ExcAssert(bool, const std::string&) {}
@@ -8,7 +8,7 @@ inline void ExcAssert(bool, const std::string&) {}
 inline void ExcAssert(bool condition, const std::string& error)
 {
         if (!condition) {
-                throw Exception(error);
+                throw stride::util::Exception(error);
         }
 }
 #endif

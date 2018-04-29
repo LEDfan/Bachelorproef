@@ -2,8 +2,8 @@
 #include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
 #include <boost/filesystem.hpp>
-#include <Exception.h>
 #include <iostream>
+#include <util/Exception.h>
 namespace gengeopop {
 
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string filename) const
@@ -15,7 +15,7 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string fi
         } else if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoWriter>();
         } else {
-                throw Exception("Unsupported file extension: " + path.extension().string());
+                throw stride::util::Exception("Unsupported file extension: " + path.extension().string());
         }
 }
 

@@ -1,8 +1,8 @@
 #include "GeoGrid.h"
-#include <Exception.h>
 #include <cmath>
 #include <iostream>
 #include <queue>
+#include <util/Exception.h>
 #include <utility>
 
 namespace gengeopop {
@@ -26,7 +26,7 @@ GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 void GeoGrid::AddLocation(std::shared_ptr<Location> location)
 {
         if (m_finalized) {
-                throw Exception("Calling addLocation while GeoGrid is finalized is not supported!");
+                throw stride::util::Exception("Calling addLocation while GeoGrid is finalized is not supported!");
         }
 
         m_locations.emplace_back(location);
@@ -141,7 +141,8 @@ std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_populati
 void GeoGrid::CheckFinalized(const std::string& functionName) const
 {
         if (!m_finalized) {
-                throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");
+                throw stride::util::Exception("Calling \"" + functionName +
+                                              "\" while GeoGrid is not finalized is not supported!");
         }
 }
 

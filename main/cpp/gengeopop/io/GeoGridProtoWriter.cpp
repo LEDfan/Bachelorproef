@@ -1,9 +1,8 @@
 #include "GeoGridProtoWriter.h"
-#include "Exception.h"
 #include "proto/geogrid.pb.h"
-#include <Exception.h>
 #include <iostream>
 #include <omp.h>
+#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -23,7 +22,7 @@ void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
 
         m_persons_found.clear();
         if (!protoGrid.SerializeToOstream(&stream)) {
-                throw Exception("There was an error writing the GeoGrid to the file.");
+                throw stride::util::Exception("There was an error writing the GeoGrid to the file.");
         }
         google::protobuf::ShutdownProtobufLibrary();
         stream.flush();
