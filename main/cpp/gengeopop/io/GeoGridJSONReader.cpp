@@ -2,8 +2,8 @@
 #include "ThreadException.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
-#include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
 #include <gengeopop/PrimaryCommunity.h>
 #include <gengeopop/School.h>
@@ -138,8 +138,8 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                 result = std::make_shared<School>(id);
         } else if (type == "Community") {
                 result = std::make_shared<Community>(id);
-        } else if (type == "HighSchool") {
-                result = std::make_shared<HighSchool>(id);
+        } else if (type == "College") {
+                result = std::make_shared<College>(id);
         } else if (type == "Household") {
                 result = std::make_shared<Household>(id);
         } else if (type == "Primary Community") {

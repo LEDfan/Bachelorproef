@@ -1,14 +1,14 @@
 #pragma once
 
 #include "../GeoGridConfig.h"
-#include "PartialPopulator.h"
+#include "PartialGenerator.h"
 
 namespace gengeopop {
 
-class HighSchoolPopulator : public PartialPopulator
+class ColleGenerator : public PartialGenerator
 {
 public:
-        using PartialPopulator::PartialPopulator;
+        using PartialGenerator::PartialGenerator;
 
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

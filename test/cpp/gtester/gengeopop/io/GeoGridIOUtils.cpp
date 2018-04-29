@@ -1,7 +1,7 @@
 #include "GeoGridIOUtils.h"
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/HighSchool.h>
 #include <gengeopop/PrimaryCommunity.h>
 #include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
@@ -35,7 +35,7 @@ void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCe
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
             {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
@@ -179,10 +179,10 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
         auto secondaryCommunityPool = std::make_shared<ContactPool>(7, secondaryCommunity->GetPoolSize());
         secondaryCommunity->AddPool(secondaryCommunityPool);
 
-        auto highschool = std::make_shared<HighSchool>(3);
-        location->AddContactCenter(highschool);
-        auto highschoolPool = std::make_shared<ContactPool>(4, highschool->GetPoolSize());
-        highschool->AddPool(highschoolPool);
+        auto college = std::make_shared<College>(3);
+        location->AddContactCenter(college);
+        auto collegePool = std::make_shared<ContactPool>(4, college->GetPoolSize());
+        college->AddPool(collegePool);
 
         auto household = std::make_shared<Household>(4);
         location->AddContactCenter(household);
@@ -199,7 +199,7 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
         communityPool->AddMember(person);
         schoolPool->AddMember(person);
         secondaryCommunityPool->AddMember(person);
-        highschoolPool->AddMember(person);
+        collegePool->AddMember(person);
         householdPool->AddMember(person);
         workplacePool->AddMember(person);
         return geoGrid;

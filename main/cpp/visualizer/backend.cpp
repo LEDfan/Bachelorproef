@@ -12,7 +12,7 @@
 #include <cmath>
 #include <iostream>
 
-#include <gengeopop/HighSchool.h>
+#include <gengeopop/College.h>
 #include <gengeopop/School.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridProtoReader.h>

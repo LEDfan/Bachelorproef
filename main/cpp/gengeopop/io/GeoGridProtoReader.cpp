@@ -1,8 +1,8 @@
 #include "GeoGridProtoReader.h"
 #include "ThreadException.h"
 #include "proto/geogrid.pb.h"
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
-#include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
 #include <gengeopop/PrimaryCommunity.h>
 #include <gengeopop/School.h>
@@ -141,7 +141,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
                 result = std::make_shared<SecondaryCommunity>(id);
                 break;
-        case proto::GeoGrid_Location_ContactCenter_Type_HighSchool: result = std::make_shared<HighSchool>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_College: result = std::make_shared<College>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household: result = std::make_shared<Household>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace: result = std::make_shared<Workplace>(id); break;
         default: throw stride::util::Exception("No such ContactCenter type");

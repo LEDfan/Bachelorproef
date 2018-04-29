@@ -1,6 +1,6 @@
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/HighSchool.h>
 #include <gengeopop/PrimaryCommunity.h>
 #include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
@@ -39,7 +39,7 @@ void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
             {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
@@ -62,7 +62,7 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
         fillContactCenter(std::make_shared<School>(0), location->add_contactcenters());
         fillContactCenter(std::make_shared<Community>(1), location->add_contactcenters());
-        fillContactCenter(std::make_shared<HighSchool>(2), location->add_contactcenters());
+        fillContactCenter(std::make_shared<College>(2), location->add_contactcenters());
         fillContactCenter(std::make_shared<Household>(3), location->add_contactcenters());
         fillContactCenter(std::make_shared<Workplace>(4), location->add_contactcenters());
 
@@ -107,7 +107,7 @@ TEST(GeoGridProtoReaderTest, peopleTest)
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<HighSchool>(3), contactCenter);
+                fillContactCenter(std::make_shared<College>(3), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(4);
                 pool->add_people(1);

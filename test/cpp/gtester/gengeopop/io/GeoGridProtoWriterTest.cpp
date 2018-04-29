@@ -1,6 +1,6 @@
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/HighSchool.h>
 #include <gengeopop/PrimaryCommunity.h>
 #include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
@@ -41,7 +41,7 @@ TEST(GeoGridProtoWriterTest, contactCentersTest)
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<School>(0));
         location->AddContactCenter(std::make_shared<Community>(1));
-        location->AddContactCenter(std::make_shared<HighSchool>(2));
+        location->AddContactCenter(std::make_shared<College>(2));
         location->AddContactCenter(std::make_shared<Household>(3));
         location->AddContactCenter(std::make_shared<Workplace>(4));
         geoGrid->AddLocation(location);

@@ -3,9 +3,9 @@
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 #include <tclap/CmdLine.h>
+#include <gengeopop/generators/ColleGenerator.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
-#include <gengeopop/generators/HighSchoolGenerator.h>
 #include <gengeopop/generators/HouseholdGenerator.h>
 #include <gengeopop/generators/SchoolGenerator.h>
 #include <gengeopop/generators/WorkplaceGenerator.h>
@@ -15,8 +15,8 @@
 
 #include <boost/lexical_cast.hpp>
 #include <fstream>
+#include <gengeopop/populators/CollegePopulator.h>
 #include <gengeopop/populators/GeoGridPopulator.h>
-#include <gengeopop/populators/HighSchoolPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
 #include <gengeopop/populators/PrimaryCommunityPopulator.h>
 #include <gengeopop/populators/SchoolPopulator.h>

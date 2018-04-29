@@ -9,7 +9,7 @@ set(GENGEOPOP_LIB
         ContactCenter.cpp
         ContactPool.cpp
         GeoGrid.cpp
-        HighSchool.cpp
+        College.cpp
         Household.cpp
         Location.cpp
         School.cpp
@@ -18,7 +18,7 @@ set(GENGEOPOP_LIB
         generators/GeoGridGenerator.cpp
         generators/SchoolGenerator.cpp
         generators/PartialGenerator.cpp
-        generators/HighSchoolGenerator.cpp
+        generators/ColleGenerator.cpp
         generators/HouseholdGenerator.cpp
         generators/WorkplaceGenerator.cpp
         generators/CommunityGenerator.cpp
@@ -28,7 +28,7 @@ set(GENGEOPOP_LIB
         populators/HouseholdPopulator.cpp
         populators/PartialPopulator.cpp
         populators/SchoolPopulator.cpp
-        populators/HighSchoolPopulator.cpp
+        populators/CollegePopulator.cpp
         populators/WorkplacePopulator.cpp
         io/CitiesCSVReader.cpp
         io/CitiesReader.cpp

@@ -70,7 +70,7 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
             {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 

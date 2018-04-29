@@ -21,7 +21,7 @@ message GeoGrid {
                 Community = 1;
                 PrimaryCommunity = 2;
                 SecondaryCommunity = 3;
-                HighSchool = 4;
+                College = 4;
                 Household = 5;
                 Workplace = 6;
             }
