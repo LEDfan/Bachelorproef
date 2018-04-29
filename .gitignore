@@ -116,3 +116,4 @@ gengeopop.proto
 html_coverage
 coverage.info
 test_logfile
+*_log.txt
