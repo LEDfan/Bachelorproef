@@ -22,8 +22,12 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                weights.push_back(static_cast<double>(loc->GetPopulation()) /
-                                  static_cast<double>(geoGridConfig.input.populationSize));
+                double weight =
+                    static_cast<double>(loc->GetPopulation()) / static_cast<double>(geoGridConfig.input.populationSize);
+
+                CheckWeight("CommunityGenerator", weight);
+
+                weights.push_back(weight);
         }
 
         if (weights.empty()) {

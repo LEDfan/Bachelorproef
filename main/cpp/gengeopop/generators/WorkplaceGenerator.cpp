@@ -27,10 +27,16 @@ void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 double amountOfWorkingPeople =
-                    loc->GetPopulation() * geoGridConfig.input.fraction_1865_years_active +
-                    loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
-                    loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople);
-                weights.push_back(amountOfWorkingPeople / amountOfEmployees);
+                    (loc->GetPopulation() +
+                     loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
+                     loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) *
+                         geoGridConfig.input.fraction_1865_years_active);
+
+                double weight = amountOfWorkingPeople / amountOfEmployees;
+
+                CheckWeight("WorkplaceGenerator", weight);
+
+                weights.push_back(weight);
         }
 
         if (weights.empty()) {
