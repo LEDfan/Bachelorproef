@@ -182,6 +182,7 @@ Test results
  - [507.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.6-osx-8.3-llvm-clang.html)
 # mapviewer-controller-color
  - [579.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/579.4-osx-8.3-apple-clang.html)
+ - [579.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/579.6-osx-8.3-llvm-clang.html)
  - [575.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/575.4-osx-8.3-apple-clang.html)
  - [575.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/575.5-osx-9.2-apple-clang.html)
  - [575.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/575.6-osx-8.3-llvm-clang.html)
