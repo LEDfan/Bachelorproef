@@ -20,6 +20,10 @@ MapQuickItem {
         rect.color = color
     }
 
+    function setBorder(color){
+        rect.border.color = color
+    }
+
     signal clicked(string id, var mouse)
     signal hovered(string id)
     signal hoveredOff(string id)

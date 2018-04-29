@@ -1,7 +1,7 @@
 #include "ContactPoolListModel.h"
 #include <iostream>
 
-int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return static_cast<int>(m_pools.size()); }
+int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return m_pools.size(); }
 
 QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 {
@@ -33,6 +33,7 @@ void ContactPoolListModel::SetPools(std::shared_ptr<gengeopop::ContactCenter> lo
         auto oldAmtRows = static_cast<int>(m_pools.size());
         m_pools         = loc->GetPools();
         int diff        = static_cast<int>(loc->GetPools().size()) - oldAmtRows;
+        std::cout << "CP set pools: " << loc->GetPools().size() << std::endl;
         if (diff < 0) {
                 beginRemoveRows(QModelIndex(), 0, -diff - 1);
                 endRemoveRows();
