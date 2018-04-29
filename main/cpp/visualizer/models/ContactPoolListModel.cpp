@@ -17,7 +17,7 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 
 ContactPoolListModel::ContactPoolListModel(QObject* parent) : QAbstractListModel(parent), m_pools() {}
 
-QHash<int, QByteArray> ContactPoolListModel::RoleNames() const
+QHash<int, QByteArray> ContactPoolListModel::roleNames() const
 {
         QHash<int, QByteArray> roles;
         roles[Roles::IDRole]       = "id";
@@ -33,7 +33,6 @@ void ContactPoolListModel::SetPools(std::shared_ptr<gengeopop::ContactCenter> lo
         auto oldAmtRows = static_cast<int>(m_pools.size());
         m_pools         = loc->GetPools();
         int diff        = static_cast<int>(loc->GetPools().size()) - oldAmtRows;
-        std::cout << "CP set pools: " << loc->GetPools().size() << std::endl;
         if (diff < 0) {
                 beginRemoveRows(QModelIndex(), 0, -diff - 1);
                 endRemoveRows();
