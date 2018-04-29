@@ -1,5 +1,5 @@
 %module Population
-#pragma SWIG nowarn=315
+#pragma SWIG nowarn=315,341,362,389,509
 // headers for generated file
 %{
 #include "pop/Person.h"
