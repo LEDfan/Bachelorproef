@@ -313,6 +313,7 @@ Test results
  - [573.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/harden/573.3-linux-clang-5.html)
  - [573.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/harden/573.4-osx-8.3-apple-clang.html)
  - [573.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/harden/573.5-osx-9.2-apple-clang.html)
+ - [573.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/harden/573.6-osx-8.3-llvm-clang.html)
 # fix_parallel
  - [507.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.1-linux-gcc-6.html)
  - [507.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/fix_parallel/507.2-linux-gcc-7.html)
