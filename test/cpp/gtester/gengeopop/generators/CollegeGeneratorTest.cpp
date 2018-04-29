@@ -1,6 +1,6 @@
 #include <gengeopop/College.h>
 #include <gengeopop/generators/ColleGenerator.h>
-#include <gengeopop/generators/SchoolGenerator.h>
+#include <gengeopop/generators/K12SchoolGenerator.h>
 #include <gtest/gtest.h>
 #include <util/RNManager.h>
 

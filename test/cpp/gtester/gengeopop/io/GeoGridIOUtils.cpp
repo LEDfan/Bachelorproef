@@ -2,8 +2,8 @@
 #include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/GeoGridConfig.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -31,7 +31,7 @@ void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCe
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
+            {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
             {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
@@ -105,7 +105,7 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(std::string(1, person->GetGender()), protoPerson.gender());
-        EXPECT_EQ(person->GetSchoolId(), protoPerson.school());
+        EXPECT_EQ(person->GetK12SchoolId(), protoPerson.school());
         EXPECT_EQ(person->GetHouseholdId(), protoPerson.household());
         EXPECT_EQ(person->GetWorkId(), protoPerson.workplace());
         EXPECT_EQ(person->GetPrimaryCommunityId(), protoPerson.primarycommunity());
@@ -164,7 +164,7 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
         auto geoGrid  = GetGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
 
-        auto school = std::make_shared<School>(0);
+        auto school = std::make_shared<K12School>(0);
         location->AddContactCenter(school);
         auto schoolPool = std::make_shared<ContactPool>(2, school->GetPoolSize());
         school->AddPool(schoolPool);

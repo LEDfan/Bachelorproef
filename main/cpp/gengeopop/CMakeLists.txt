@@ -12,11 +12,11 @@ set(GENGEOPOP_LIB
         College.cpp
         Household.cpp
         Location.cpp
-        School.cpp
+        K12School.cpp
         Workplace.cpp
         GeoGridConfig.cpp
         generators/GeoGridGenerator.cpp
-        generators/SchoolGenerator.cpp
+        generators/K12SchoolGenerator.cpp
         generators/PartialGenerator.cpp
         generators/ColleGenerator.cpp
         generators/HouseholdGenerator.cpp
@@ -27,7 +27,7 @@ set(GENGEOPOP_LIB
         populators/GeoGridPopulator.cpp
         populators/HouseholdPopulator.cpp
         populators/PartialPopulator.cpp
-        populators/SchoolPopulator.cpp
+        populators/K12SchoolPopulator.cpp
         populators/CollegePopulator.cpp
         populators/WorkplacePopulator.cpp
         io/CitiesCSVReader.cpp

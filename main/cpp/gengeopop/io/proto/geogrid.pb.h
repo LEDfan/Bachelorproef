@@ -93,7 +93,7 @@ extern GeoGrid_PersonDefaultTypeInternal _GeoGrid_Person_default_instance_;
 namespace proto {
 
 enum GeoGrid_Location_ContactCenter_Type {
-  GeoGrid_Location_ContactCenter_Type_School = 0,
+  GeoGrid_Location_ContactCenter_Type_K12School = 0,
   GeoGrid_Location_ContactCenter_Type_Community = 1,
   GeoGrid_Location_ContactCenter_Type_PrimaryCommunity = 2,
   GeoGrid_Location_ContactCenter_Type_SecondaryCommunity = 3,
@@ -102,7 +102,7 @@ enum GeoGrid_Location_ContactCenter_Type {
   GeoGrid_Location_ContactCenter_Type_Workplace = 6
 };
 bool GeoGrid_Location_ContactCenter_Type_IsValid(int value);
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter_Type_Type_MIN = GeoGrid_Location_ContactCenter_Type_School;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter_Type_Type_MIN = GeoGrid_Location_ContactCenter_Type_K12School;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter_Type_Type_MAX = GeoGrid_Location_ContactCenter_Type_Workplace;
 const int GeoGrid_Location_ContactCenter_Type_Type_ARRAYSIZE = GeoGrid_Location_ContactCenter_Type_Type_MAX + 1;
 
@@ -474,8 +474,8 @@ class GeoGrid_Location_ContactCenter : public ::google::protobuf::Message /* @@p
   typedef GeoGrid_Location_ContactCenter_ContactPool ContactPool;
 
   typedef GeoGrid_Location_ContactCenter_Type Type;
-  static const Type School =
-    GeoGrid_Location_ContactCenter_Type_School;
+  static const Type K12School =
+    GeoGrid_Location_ContactCenter_Type_K12School;
   static const Type Community =
     GeoGrid_Location_ContactCenter_Type_Community;
   static const Type PrimaryCommunity =

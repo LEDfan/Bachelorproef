@@ -1,5 +1,5 @@
-#include "SchoolGenerator.h"
-#include "../School.h"
+#include "K12SchoolGenerator.h"
+#include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <cmath>
@@ -7,7 +7,7 @@
 
 namespace gengeopop {
 
-void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
          * 1. calculate amount of schools, each school has average 500 pupils, taking in account the amount of pupils
@@ -34,9 +34,9 @@ void SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geo
         for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                auto                      school = std::make_shared<School>(geoGridConfig.generated.contactCenters++);
-                school->Fill(geoGridConfig);
-                loc->AddContactCenter(school);
+                auto k12School = std::make_shared<K12School>(geoGridConfig.generated.contactCenters++);
+                k12School->Fill(geoGridConfig);
+                loc->AddContactCenter(k12School);
         }
 }
 

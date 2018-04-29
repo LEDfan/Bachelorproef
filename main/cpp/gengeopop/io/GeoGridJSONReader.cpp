@@ -5,8 +5,8 @@
 #include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/Household.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <memory>
@@ -134,8 +134,8 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
         std::string                    type = contactCenter.get<std::string>("type");
         std::shared_ptr<ContactCenter> result;
         auto                           id = boost::lexical_cast<unsigned int>(contactCenter.get<std::string>("id"));
-        if (type == "School") {
-                result = std::make_shared<School>(id);
+        if (type == "K12School") {
+                result = std::make_shared<K12School>(id);
         } else if (type == "Community") {
                 result = std::make_shared<Community>(id);
         } else if (type == "College") {
@@ -201,7 +201,7 @@ stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree&    p
         auto        id                 = boost::lexical_cast<unsigned int>(person.get<std::string>("id"));
         auto        age                = boost::lexical_cast<unsigned int>(person.get<std::string>("age"));
         std::string gender             = person.get<std::string>("gender");
-        auto        schoolId           = boost::lexical_cast<unsigned int>(person.get<std::string>("School"));
+        auto        schoolId           = boost::lexical_cast<unsigned int>(person.get<std::string>("K12School"));
         auto        householdId        = boost::lexical_cast<unsigned int>(person.get<std::string>("Household"));
         auto        workplaceId        = boost::lexical_cast<unsigned int>(person.get<std::string>("Workplace"));
         auto        primaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("PrimaryCommunity"));

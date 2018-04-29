@@ -14,7 +14,7 @@
             "contactCenters": [
                 {
                     "id": "0",
-                    "type": "School",
+                    "type": "K12School",
                     "pools": [
                         {
                             "id": "2",
@@ -93,7 +93,7 @@
             "id": "1",
             "age": "18",
             "gender": "M",
-            "School": "2",
+            "K12School": "2",
             "Household": "4",
             "Workplace": "6",
             "PrimaryCommunity": "3",

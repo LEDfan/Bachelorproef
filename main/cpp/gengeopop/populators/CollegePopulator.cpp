@@ -81,11 +81,11 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(person);
-                                                person->SetHighSchoolId(static_cast<unsigned int>(id));
+                                                person->SetCollegeId(static_cast<unsigned int>(id));
                                         } else {
                                                 auto id = distNonCommuting();
                                                 nearByHighSchools[id]->AddMember(person);
-                                                person->SetHighSchoolId(static_cast<unsigned int>(id));
+                                                person->SetCollegeId(static_cast<unsigned int>(id));
                                         }
                                 }
                         }

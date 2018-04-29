@@ -3,10 +3,10 @@
 #include "ContactCenter.h"
 
 namespace gengeopop {
-class School : public ContactCenter
+class K12School : public ContactCenter
 {
 public:
-        explicit School(unsigned int id);
+        explicit K12School(unsigned int id);
         std::string  GetType() const override;
         unsigned int GetMaxPools() const override;
         unsigned int GetPoolSize() const override;

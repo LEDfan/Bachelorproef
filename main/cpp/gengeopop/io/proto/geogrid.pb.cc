@@ -350,9 +350,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rgeogrid.proto\022\005proto\"\304\007\n\007GeoGrid\022*\n\tlo"
+      "\n\rgeogrid.proto\022\005proto\"\307\007\n\007GeoGrid\022*\n\tlo"
       "cations\030\001 \003(\0132\027.proto.GeoGrid.Location\022&"
-      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\304"
+      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\307"
       "\005\n\010Location\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n"
       "\010province\030\003 \002(\003\022\022\n\npopulation\030\004 \002(\003\0226\n\nc"
       "oordinate\030\005 \002(\0132\".proto.GeoGrid.Location"
@@ -361,23 +361,23 @@ void AddDescriptorsImpl() {
       "mmutes\030\007 \003(\0132\037.proto.GeoGrid.Location.Co"
       "mmute\022\031\n\021submunicipalities\030\010 \003(\003\032G\n\nCoor"
       "dinate\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001\022\021\n\tlongitud"
-      "e\030\003 \002(\001\022\020\n\010latitude\030\004 \002(\001\032\276\002\n\rContactCen"
+      "e\030\003 \002(\001\022\020\n\010latitude\030\004 \002(\001\032\301\002\n\rContactCen"
       "ter\022\n\n\002id\030\001 \002(\003\0228\n\004type\030\002 \002(\0162*.proto.Ge"
       "oGrid.Location.ContactCenter.Type\022@\n\005poo"
       "ls\030\003 \003(\01321.proto.GeoGrid.Location.Contac"
       "tCenter.ContactPool\032)\n\013ContactPool\022\n\n\002id"
-      "\030\001 \002(\003\022\016\n\006people\030\002 \003(\003\"z\n\004Type\022\n\n\006School"
-      "\020\000\022\r\n\tCommunity\020\001\022\024\n\020PrimaryCommunity\020\002\022"
-      "\026\n\022SecondaryCommunity\020\003\022\013\n\007College\020\004\022\r\n\t"
-      "Household\020\005\022\r\n\tWorkplace\020\006\032)\n\007Commute\022\n\n"
-      "\002to\030\001 \002(\003\022\022\n\nproportion\030\002 \002(\001\032\235\001\n\006Person"
-      "\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003 \002("
-      "\t\022\016\n\006School\030\004 \002(\003\022\021\n\tHousehold\030\005 \002(\003\022\021\n\t"
-      "Workplace\030\006 \002(\003\022\030\n\020PrimaryCommunity\030\007 \002("
-      "\003\022\032\n\022SecondaryCommunity\030\010 \002(\003"
+      "\030\001 \002(\003\022\016\n\006people\030\002 \003(\003\"}\n\004Type\022\r\n\tK12Sch"
+      "ool\020\000\022\r\n\tCommunity\020\001\022\024\n\020PrimaryCommunity"
+      "\020\002\022\026\n\022SecondaryCommunity\020\003\022\013\n\007College\020\004\022"
+      "\r\n\tHousehold\020\005\022\r\n\tWorkplace\020\006\032)\n\007Commute"
+      "\022\n\n\002to\030\001 \002(\003\022\022\n\nproportion\030\002 \002(\001\032\235\001\n\006Per"
+      "son\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003"
+      " \002(\t\022\016\n\006School\030\004 \002(\003\022\021\n\tHousehold\030\005 \002(\003\022"
+      "\021\n\tWorkplace\030\006 \002(\003\022\030\n\020PrimaryCommunity\030\007"
+      " \002(\003\022\032\n\022SecondaryCommunity\030\010 \002(\003"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 989);
+      descriptor, 992);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "geogrid.proto", &protobuf_RegisterTypes);
 }
@@ -414,7 +414,7 @@ bool GeoGrid_Location_ContactCenter_Type_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::School;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::K12School;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Community;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::PrimaryCommunity;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::SecondaryCommunity;

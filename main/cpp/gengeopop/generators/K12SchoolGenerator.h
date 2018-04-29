@@ -5,7 +5,7 @@
 
 namespace gengeopop {
 
-class SchoolGenerator : public PartialGenerator
+class K12SchoolGenerator : public PartialGenerator
 {
 public:
         using PartialGenerator::PartialGenerator;

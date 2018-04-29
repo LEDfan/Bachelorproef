@@ -1,17 +1,17 @@
-#include "SchoolPopulator.h"
-#include "../School.h"
+#include "K12SchoolPopulator.h"
+#include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cmath>
-#include <gengeopop/School.h>
+#include <gengeopop/K12School.h>
 #include <iostream>
 #include <pop/Person.h>
 #include <set>
 
 namespace gengeopop {
 
-void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
+void K12SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
         m_logger->info("Starting to populate Schools");
 
@@ -26,7 +26,7 @@ void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 
                 // 1. find all schools in an area of 10-k*10 km
                 const std::vector<std::shared_ptr<ContactPool>>& classes =
-                    GetContactPoolInIncreasingRadius<School>(geoGrid, loc);
+                    GetContactPoolInIncreasingRadius<K12School>(geoGrid, loc);
 
                 auto dist = m_rnManager.GetGenerator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));
@@ -39,7 +39,7 @@ void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                                 if (person->GetAge() < 18 && person->GetAge() >= 6) {
                                         auto id = dist();
                                         classes[id]->AddMember(person);
-                                        person->SetSchoolId(static_cast<unsigned int>(id));
+                                        person->SetK12SchoolId(static_cast<unsigned int>(id));
                                         pupils++;
                                 }
                         }

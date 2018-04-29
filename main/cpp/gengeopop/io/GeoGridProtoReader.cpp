@@ -4,8 +4,8 @@
 #include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/Household.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <iostream>
@@ -133,7 +133,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         std::shared_ptr<ContactCenter>             result;
         auto                                       id = protoContactCenter.id();
         switch (type) {
-        case proto::GeoGrid_Location_ContactCenter_Type_School: result = std::make_shared<School>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_K12School: result = std::make_shared<K12School>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Community: result = std::make_shared<Community>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 result = std::make_shared<PrimaryCommunity>(id);

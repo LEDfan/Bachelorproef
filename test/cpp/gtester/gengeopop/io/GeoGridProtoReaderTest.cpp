@@ -1,8 +1,8 @@
 #include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/GeoGridConfig.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -35,7 +35,7 @@ void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
+            {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
             {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
@@ -60,7 +60,7 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         proto::GeoGrid geoGrid;
         auto           location = geoGrid.add_locations();
         fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
-        fillContactCenter(std::make_shared<School>(0), location->add_contactcenters());
+        fillContactCenter(std::make_shared<K12School>(0), location->add_contactcenters());
         fillContactCenter(std::make_shared<Community>(1), location->add_contactcenters());
         fillContactCenter(std::make_shared<College>(2), location->add_contactcenters());
         fillContactCenter(std::make_shared<Household>(3), location->add_contactcenters());
@@ -86,7 +86,7 @@ TEST(GeoGridProtoReaderTest, peopleTest)
 
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<School>(0), contactCenter);
+                fillContactCenter(std::make_shared<K12School>(0), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(2);
                 pool->add_people(1);
