@@ -9,7 +9,7 @@ using namespace gengeopop;
 class HouseholdPopulatorTest : public testing::Test
 {
 public:
-        HouseholdPopulatorTest() : householdPopulator(), rnManager() {}
+        HouseholdPopulatorTest() : householdPopulator(), rnManager(), config() {}
 
 protected:
         virtual void SetUp()
@@ -25,14 +25,14 @@ protected:
 
         std::shared_ptr<HouseholdPopulator>      householdPopulator;
         std::shared_ptr<stride::util::RNManager> rnManager;
+        GeoGridConfig                            config;
 };
 
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 {
-        GeoGridConfig config{};
-        auto          householdType = std::make_shared<Household>();
-        auto          poolType      = std::make_shared<ContactPool>();
-        auto          personType    = std::make_shared<stride::Person>();
+        auto householdType = std::make_shared<Household>();
+        auto poolType      = std::make_shared<ContactPool>();
+        auto personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
         poolType->AddMember(personType.get());
         householdType->AddPool(poolType);
@@ -54,8 +54,6 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 {
-        GeoGridConfig config{};
-
         auto geoGrid = std::make_shared<GeoGrid>();
 
         EXPECT_NO_THROW(householdPopulator->Apply(geoGrid, config));
@@ -63,10 +61,9 @@ TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 
 TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
-        GeoGridConfig config{};
-        auto          householdType = std::make_shared<Household>();
-        auto          poolType      = std::make_shared<ContactPool>();
-        auto          personType    = std::make_shared<stride::Person>();
+        auto householdType = std::make_shared<Household>();
+        auto poolType      = std::make_shared<ContactPool>();
+        auto personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
         poolType->AddMember(personType.get());
         householdType->AddPool(poolType);
@@ -107,7 +104,6 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         std::shared_ptr<stride::Person> personType2;
         std::shared_ptr<stride::Person> personType3;
 
-        GeoGridConfig config{};
         {
                 auto householdType = std::make_shared<Household>();
                 auto poolType      = std::make_shared<ContactPool>();

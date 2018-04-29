@@ -28,12 +28,4 @@ void Community::AddHouseHold(std::shared_ptr<Household> household)
                 }
         }
 }
-bool Community::IsAvailable() const
-{
-        if (m_pools.empty()) {
-                return false;
-        } else {
-                return m_pools[0]->GetCapacity() > m_pools[0]->GetUsedCapacity();
-        }
-}
 } // namespace gengeopop
