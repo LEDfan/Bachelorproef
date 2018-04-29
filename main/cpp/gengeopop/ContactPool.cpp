@@ -18,4 +18,8 @@ ContactPool::iterator gengeopop::ContactPool::begin() { return m_people.begin();
 
 ContactPool::iterator gengeopop::ContactPool::end() { return m_people.end(); }
 
+ContactPool::const_iterator ContactPool::cbegin() { return m_people.cbegin(); }
+
+ContactPool::const_iterator ContactPool::cend() { return m_people.cend(); }
+
 } // namespace gengeopop

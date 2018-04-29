@@ -26,11 +26,11 @@ add_definitions(-DGTEST_LANG_CXX11)
 #============================================================================
 set(EXEC gtester)
 set(SRC
-        createlogger.h
         BatchRuns.cpp
         CSVTest.cpp
         ScenarioData.cpp
         UnitSegmentedVector.cpp
+        createlogger.h
         gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/HighSchoolGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp
@@ -40,25 +40,31 @@ set(SRC
         gengeopop/io/CommutesCSVReaderTest.cpp
         gengeopop/populators/HouseholdPopulatorTest.cpp
         gengeopop/populators/PrimaryCommunityPopulatorTest.cpp
+        gengeopop/populators/SchoolPopulatorTest.cpp
+        gengeopop/io/GeoGridIOUtils.cpp
+        gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
-        gengeopop/io/GeoGridProtoWriterTest.cpp
         gengeopop/io/GeoGridProtoReaderTest.cpp
+        gengeopop/io/GeoGridProtoWriterTest.cpp
         gengeopop/io/HouseholdCSVReaderTest.cpp
         gengeopop/io/ReaderFactoryTest.cpp
         gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
-        gengeopop/io/GeoGridIOUtils.cpp
         gengeopop/kdtree.cpp
-        main.cpp)
+        main.cpp
+)
 
 if (OPENMP_FOUND)
         set(SRC ${SRC} ParallelRuns.cpp)
 endif ()
 
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+#if (OPENMP_FOUND)
+#        set(SRC ${SRC} ParallelRuns.cpp)
+#endif ()
 
-add_executable(${EXEC} ${SRC})
-target_link_libraries(${EXEC} ${LIBS} gtest pthread libstride libgengeopop)
-install(TARGETS ${EXEC} DESTINATION ${BIN_INSTALL_LOCATION})
+add_executable(${EXEC}   ${SRC} )
+target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
+install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
 #============================================================================
