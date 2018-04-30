@@ -39,7 +39,7 @@ void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                                 if (person->GetAge() < 18 && person->GetAge() >= 6) {
                                         auto id = dist();
                                         classes[id]->AddMember(person);
-                                        person->SetSchoolId(static_cast<unsigned int>(id));
+                                        person->SetSchoolId(classes[id]->GetID());
                                         pupils++;
                                 }
                         }

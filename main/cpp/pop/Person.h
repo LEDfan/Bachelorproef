@@ -105,7 +105,7 @@ public:
 
         void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
 
-        unsigned int GetSchoolId()
+        unsigned int GetSchoolId() const
         {
                 // TODO highschool vs not highschool
                 return GetPoolId(ContactPoolType::Id::School);
@@ -117,7 +117,7 @@ public:
                 SetPoolId(ContactPoolType::Id::School, school_id);
         }
 
-        unsigned int GetHighSchoolId()
+        unsigned int GetHighSchoolId() const
         {
                 // TODO highschool vs not highschool
                 return GetPoolId(ContactPoolType::Id::School);
@@ -129,18 +129,18 @@ public:
                 SetPoolId(ContactPoolType::Id::School, highschool_id);
         };
 
-        unsigned int GetWorkId() { return GetPoolId(ContactPoolType::Id::Work); }
+        unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }
 
         void SetWorkId(unsigned int work_id) { SetPoolId(ContactPoolType::Id::Work, work_id); }
 
-        unsigned int GetPrimaryCommunityId() { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
+        unsigned int GetPrimaryCommunityId() const { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
 
         void SetPrimaryCommunityId(unsigned int primary_community_id)
         {
                 SetPoolId(ContactPoolType::Id::PrimaryCommunity, primary_community_id);
         }
 
-        unsigned int GetSecondaryCommunityId() { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
+        unsigned int GetSecondaryCommunityId() const { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
 
         void SetSecondaryCommunityId(unsigned int secondary_community_id)
         {
