@@ -87,6 +87,7 @@ public:
         std::shared_ptr<Location> GetParent() const;
 
         const Coordinate& GetCoordinate() const;
+        void              SetCoordinate(const Coordinate& coordinate);
 
         iterator begin();
         iterator end();

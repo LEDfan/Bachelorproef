@@ -38,7 +38,8 @@ public:
         /**
          * Search for locations in \p radius arodun \ start
          */
-        std::set<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
+        std::vector<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start,
+                                                                     double                    radius) const;
 
         /**
          * @param k

@@ -29,6 +29,8 @@ const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters()
 
 const Coordinate& Location::GetCoordinate() const { return m_coordinate; }
 
+void Location::SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
+
 Location::iterator Location::begin() { return m_contactCenters.begin(); }
 
 Location::iterator Location::end() { return m_contactCenters.end(); }
