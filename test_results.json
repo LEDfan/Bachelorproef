@@ -121,6 +121,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/585.5-osx-9.2-apple-clang.html",
       "name": "osx-9.2-apple-clang",
       "build_id": "585.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/585.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "585.6"
     }
   ],
   "travis_qt": [
