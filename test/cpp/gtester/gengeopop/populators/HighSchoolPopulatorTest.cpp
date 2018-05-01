@@ -25,7 +25,6 @@ TEST(HighSchoolPopulatorTest, NoPopulation)
         HighSchoolPopulator highSchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
 
         GeoGridConfig config{};
-        highSchoolPopulator.Apply(geoGrid, config);
 
         geoGrid->Finalize();
 
@@ -226,7 +225,6 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        std::cout << person->GetHighSchoolId() << std::endl;
                         EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
                                     (person->GetHighSchoolId() >= 271 && person->GetHighSchoolId() <= 290));
                 }
@@ -235,7 +233,6 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        std::cout << person->GetHighSchoolId() << std::endl;
                         EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
                                     (person->GetHighSchoolId() >= 251 && person->GetHighSchoolId() <= 270));
                 }

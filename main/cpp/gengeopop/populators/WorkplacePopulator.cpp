@@ -84,6 +84,7 @@ void WorkplacePopulator::CalculateFractionCommutingStudents()
              m_geoGridConfig.input.fraction_student_commutingPeople) /
             (m_geoGridConfig.calculated._1865_and_years_active * m_geoGridConfig.input.fraction_active_commutingPeople);
 }
+
 void WorkplacePopulator::CalculateWorkplacesInCity()
 {
         for (const std::shared_ptr<Location>& loc : *m_geoGrid) {
@@ -113,12 +114,12 @@ void WorkplacePopulator::AssignActive(stride::Person* person)
                 auto        id         = info.second();
 
                 info.first[id]->AddMember(person);
-                person->SetWorkId(static_cast<unsigned int>(id));
+                person->SetWorkId(info.first[id]->GetID());
                 m_assignedCommuting++;
         } else {
                 auto id = m_distNonCommuting();
                 m_nearByWorkplaces[id]->AddMember(person);
-                person->SetWorkId(static_cast<unsigned int>(id));
+                person->SetWorkId(m_nearByWorkplaces[id]->GetID());
                 m_assignedNotCommuting++;
         }
 }
@@ -135,6 +136,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
                 if (!Workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
                         double weight = commute.second - (commute.second * m_fractionCommutingStudents);
+                        commutingWeights.push_back(weight);
                         ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
                                   "Invalid weight due to invalid input data in WorkplacePopulator, weight: " +
                                       std::to_string(weight));

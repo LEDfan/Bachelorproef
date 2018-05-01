@@ -43,6 +43,7 @@ set(SRC
         gengeopop/populators/CommunityPopulatorTests.cpp
         gengeopop/populators/SchoolPopulatorTest.cpp
         gengeopop/populators/HighSchoolPopulatorTest.cpp
+        gengeopop/populators/WorkplacePopulatorTest.cpp
         gengeopop/io/GeoGridIOUtils.cpp
         gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp

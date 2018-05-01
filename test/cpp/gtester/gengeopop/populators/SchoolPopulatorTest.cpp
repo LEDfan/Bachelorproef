@@ -24,7 +24,6 @@ TEST(SchoolPopulatorTest, NoPopulation)
         SchoolPopulator schoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
 
         GeoGridConfig config{};
-        schoolPopulator.Apply(geoGrid, config);
 
         geoGrid->Finalize();
 
