@@ -10,7 +10,7 @@ class PrimaryCommunityPopulatorTest : public testing::Test
 {
 public:
         PrimaryCommunityPopulatorTest()
-            : primaryCommunityPopulator(), rnManager(), config(), location(), primaryCommunity(), geoGrid()
+            : primaryCommunityPopulator(), rnManager(), config(), location(), primaryCommunity(), geoGrid(), person()
         {
         }
 
