@@ -6,7 +6,6 @@ using namespace gengeopop;
 std::shared_ptr<GeoGrid> createGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
                                        GeoGridConfig& geoGridConfig)
 {
-
         std::vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
             1,  30, 23, 6,  71, 50, 65, 8,  26, 44, 76, 23, 22, 69, 22, 4,  22, 48, 12, 57, 42, 36, 45, 73, 13,

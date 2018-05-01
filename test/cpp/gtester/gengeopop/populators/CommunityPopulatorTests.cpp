@@ -103,7 +103,6 @@ protected:
 
         void OtherLocationTest()
         {
-
                 auto location2 = std::make_shared<Location>(2, 5, 1500, Coordinate(1, 1, 1, 1), "Brussel");
                 location2->AddContactCenter(community);
                 geoGrid->AddLocation(location2);
@@ -119,7 +118,6 @@ protected:
 
         void HouseholdTest()
         {
-
                 auto pool    = *location->GetContactCentersOfType<Household>()[0]->begin();
                 auto person2 = std::make_shared<stride::Person>();
                 person2->SetId(5);
@@ -160,15 +158,14 @@ public:
         PrimaryCommunityPopulatorTest() {}
 
 protected:
-        virtual void SetUp() override
+        void SetUp() override
         {
                 CommunityPopulatorTest::SetUp();
                 communityPopulator = std::make_shared<PrimaryCommunityPopulator>(*rnManager.get(), logger);
         }
 
-        virtual void HouseholdTestCheck(std::shared_ptr<Community> community2) override
+        void HouseholdTestCheck(std::shared_ptr<Community> community2) override
         {
-
                 {
                         const auto& pools = community->GetPools();
                         ASSERT_EQ(pools.size(), 1);
@@ -190,15 +187,14 @@ public:
         SecondaryCommunityPopulatorTest() {}
 
 protected:
-        virtual void SetUp() override
+        void SetUp() override
         {
                 CommunityPopulatorTest::SetUp();
                 communityPopulator = std::make_shared<SecondaryCommunityPopulator>(*rnManager.get(), logger);
         }
 
-        virtual void HouseholdTestCheck(std::shared_ptr<Community> community2) override
+        void HouseholdTestCheck(std::shared_ptr<Community> community2) override
         {
-
                 {
                         const auto& pools = community->GetPools();
                         ASSERT_EQ(pools.size(), 1);

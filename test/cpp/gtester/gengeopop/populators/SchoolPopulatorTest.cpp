@@ -13,7 +13,6 @@ namespace {
 
 TEST(SchoolPopulatorTest, NoPopulation)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -34,7 +33,6 @@ TEST(SchoolPopulatorTest, NoPopulation)
 
 TEST(SchoolPopulatorTest, OneLocationTest)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -122,7 +120,6 @@ TEST(SchoolPopulatorTest, OneLocationTest)
 
 TEST(SchoolPopulatorTest, TwoLocationTest)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);

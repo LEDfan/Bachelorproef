@@ -14,7 +14,6 @@ namespace {
 
 TEST(HighSchoolPopulatorTest, NoPopulation)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -35,7 +34,6 @@ TEST(HighSchoolPopulatorTest, NoPopulation)
 
 TEST(HighSchoolPopulatorTest, NoStudents)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -81,7 +79,6 @@ TEST(HighSchoolPopulatorTest, NoStudents)
 
 TEST(HighSchoolPopulatorTest, NotCommuting)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -191,7 +188,6 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
 
 TEST(HighSchoolPopulatorTest, OnlyCommuting)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -248,7 +244,6 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
 
 TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
