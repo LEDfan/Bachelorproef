@@ -40,7 +40,7 @@ set(SRC
         gengeopop/io/CommutesCSVReaderTest.cpp
         gengeopop/populators/createGeogrid.cpp
         gengeopop/populators/HouseholdPopulatorTest.cpp
-        gengeopop/populators/PrimaryCommunityPopulatorTest.cpp
+        gengeopop/populators/CommunityPopulatorTests.cpp
         gengeopop/populators/SchoolPopulatorTest.cpp
         gengeopop/populators/HighSchoolPopulatorTest.cpp
         gengeopop/io/GeoGridIOUtils.cpp

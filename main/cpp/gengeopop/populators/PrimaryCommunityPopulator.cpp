@@ -33,9 +33,6 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                         const auto                          pool        = dist();
                         for (stride::Person* person : *contactPool) {
                                 found.insert(community_pools[pool]);
-                                if (community_pools[pool].get() == nullptr) {
-                                        break;
-                                }
                                 community_pools[pool]->AddMember(person);
                         }
                 }
