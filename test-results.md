@@ -257,6 +257,7 @@ Test results
  - [589.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/589.2-linux-gcc-7.html)
  - [589.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/589.3-linux-clang-5.html)
  - [589.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/589.4-osx-8.3-apple-clang.html)
+ - [589.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/589.5-osx-9.2-apple-clang.html)
  - [587.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/587.1-linux-gcc-6.html)
  - [587.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/587.2-linux-gcc-7.html)
  - [587.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/genpop-tests/587.3-linux-clang-5.html)
