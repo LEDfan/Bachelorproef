@@ -8,6 +8,7 @@
 #include <gengeopop/HighSchool.h>
 #include <iostream>
 #include <pop/Person.h>
+#include <util/ExcAssert.h>
 
 namespace gengeopop {
 
@@ -27,6 +28,10 @@ void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                 // 1. find all highschools in an area of 10-k*10 km
                 const std::vector<std::shared_ptr<ContactPool>>& nearByHighSchools =
                     GetContactPoolInIncreasingRadius<HighSchool>(geoGrid, loc);
+
+                ExcAssert(!nearByHighSchools.empty(),
+                          "Did not find any HighSchool due to invalid input data in HighSchoolPopulator");
+
                 auto distNonCommuting = m_rnManager.GetGenerator(trng::uniform_int_dist(
                     0, static_cast<trng::uniform_int_dist::result_type>(nearByHighSchools.size())));
 
@@ -81,11 +86,11 @@ void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(person);
-                                                person->SetHighSchoolId(static_cast<unsigned int>(id));
+                                                person->SetHighSchoolId(contactPools[id]->GetID());
                                         } else {
                                                 auto id = distNonCommuting();
                                                 nearByHighSchools[id]->AddMember(person);
-                                                person->SetHighSchoolId(static_cast<unsigned int>(id));
+                                                person->SetHighSchoolId(nearByHighSchools[id]->GetID());
                                         }
                                 }
                         }
