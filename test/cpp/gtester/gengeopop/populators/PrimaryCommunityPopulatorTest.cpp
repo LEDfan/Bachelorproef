@@ -31,7 +31,7 @@ protected:
 
                 auto household   = std::make_shared<Household>(2);
                 auto contactPool = std::make_shared<ContactPool>();
-                auto person      = std::make_shared<stride::Person>();
+                person           = std::make_shared<stride::Person>();
                 person->SetId(42);
                 contactPool->AddMember(person.get());
                 household->AddPool(contactPool);
@@ -47,6 +47,7 @@ protected:
         std::shared_ptr<Location>                  location;
         std::shared_ptr<PrimaryCommunity>          primaryCommunity;
         std::shared_ptr<GeoGrid>                   geoGrid;
+        std::shared_ptr<stride::Person>            person;
 };
 
 TEST_F(PrimaryCommunityPopulatorTest, OneCommunityTest)
