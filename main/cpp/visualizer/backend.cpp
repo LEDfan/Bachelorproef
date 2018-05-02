@@ -330,11 +330,11 @@ void Backend::SaveMarker(QString id, QObject* marker) { m_markers[id.toStdString
 void Backend::UpdateAllHealthColors()
 {
         for (auto loc : *m_grid) {
-                setHealthColorOf(loc);
+                SetHealthColorOf(loc);
         }
 }
 
-void Backend::setHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
+void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
 {
 
         auto*             marker = m_markers[std::to_string(loc->GetID())];
@@ -347,7 +347,7 @@ void Backend::setHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
                 infectedRatio = loc->GetInfectedRatioOfSubmunicipalities();
         }
 
-        double colorRatio = std::pow(infectedRatio, 0.15);
+        double colorRatio = std::pow(infectedRatio, m_colorExponent);
         colorRatio        = std::max(0.0, colorRatio);
         colorRatio        = std::min(1.0, colorRatio);
 
@@ -365,7 +365,7 @@ void Backend::setHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
         if (redString.size() == 1) {
                 redString = "0" + redString;
         }
-        if (redString.size() != 2 or greenString.size() != 2) {
+        if (redString.size() != 2 || greenString.size() != 2) {
                 std::cout << "Wrong color " << redString << " " << greenString << std::endl;
                 return;
         }

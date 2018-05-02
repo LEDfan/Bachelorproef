@@ -10,7 +10,7 @@ class MapViewer
 {
 public:
         /// Instantiate cli viewer.
-        MapViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) { m_vis = std::make_unique<Visualizer>(); }
+        MapViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger), m_vis{std::make_unique<Visualizer>()} {}
 
         ~MapViewer();
 
@@ -20,7 +20,7 @@ public:
 private:
         std::shared_ptr<spdlog::logger> m_logger;
         bool                            m_first = true;
-        std::unique_ptr<Visualizer>     m_vis{};
+        std::unique_ptr<Visualizer>     m_vis;
 };
 } // namespace viewers
 } // namespace stride

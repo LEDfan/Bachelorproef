@@ -119,7 +119,8 @@ signals:
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
 private:
-        QObject*                            m_map = nullptr; ///< The QML Map the info is displayed on
+        double   m_colorExponent = 0.15;    ///< We use this exponent to make the color change not linear
+        QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
         std::shared_ptr<gengeopop::GeoGrid> m_grid;
         std::map<std::string, QObject*>     m_markers; ///< Reference to the markers so we do not need to search
         std::map<std::tuple<unsigned int, unsigned int>, QObject*>
@@ -192,5 +193,5 @@ private:
          * Updates the health color of the location on the map so it represents the current situation.
          * @param loc The location we want to update on the map.
          */
-        void setHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc);
+        void SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc);
 };

@@ -55,11 +55,12 @@ double Location::GetInfectedRatioOfSubmunicipalities() const
                         population += r.first;
                         infected += r.second;
                 }
-
-                if (GetPopulation() == 0) {
-                        continue;
-                }
         }
+
+        if (population == 0) {
+                return 0;
+        }
+
         return static_cast<double>(infected) / static_cast<double>(population);
 }
 
