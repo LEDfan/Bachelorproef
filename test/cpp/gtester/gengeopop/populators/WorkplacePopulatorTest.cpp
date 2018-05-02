@@ -16,7 +16,6 @@ namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -45,7 +44,7 @@ TEST(WorkplacePopulatorTest, NoActive)
         config.input.fraction_1865_years_active           = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = createGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
 
         auto location = *geoGrid->begin();
 
@@ -82,7 +81,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto geoGrid = createGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
@@ -164,7 +163,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto geoGrid = createGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
 
         // only commuting
         auto schoten = *(geoGrid->begin());
@@ -236,7 +235,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto geoGrid = createGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));

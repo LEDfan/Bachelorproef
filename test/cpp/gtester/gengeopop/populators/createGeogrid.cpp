@@ -3,7 +3,7 @@
 
 using namespace gengeopop;
 
-std::shared_ptr<GeoGrid> createGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
+std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
                                        GeoGridConfig& geoGridConfig)
 {
         std::vector<unsigned int> populationSample = {
