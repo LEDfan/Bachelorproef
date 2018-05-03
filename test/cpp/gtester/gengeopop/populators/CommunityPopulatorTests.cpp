@@ -169,14 +169,14 @@ protected:
                 {
                         const auto& pools = community->GetPools();
                         ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 2);
+                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 1);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
-                        EXPECT_EQ((*(pools[0]->begin() + 1))->GetId(), 5);
                 }
                 {
                         const auto& pools = community2->GetPools();
                         ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 0);
+                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 1);
+                        EXPECT_EQ((*pools[0]->begin())->GetId(), 5);
                 }
         }
 };
@@ -198,14 +198,14 @@ protected:
                 {
                         const auto& pools = community->GetPools();
                         ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 1);
+                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 2);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
+                        EXPECT_EQ((*(pools[0]->begin() + 1))->GetId(), 5);
                 }
                 {
                         const auto& pools = community2->GetPools();
                         ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 1);
-                        EXPECT_EQ((*pools[0]->begin())->GetId(), 5);
+                        EXPECT_EQ(pools[0]->GetUsedCapacity(), 0);
                 }
         }
 };

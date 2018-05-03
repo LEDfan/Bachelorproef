@@ -21,7 +21,6 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                 if (loc->GetPopulation() == 0) {
                         continue;
                 }
-
                 // 1. find all communities in an area of 10-k*10 km
                 const auto& community_pools = GetContactPoolInIncreasingRadius<SecondaryCommunity>(geoGrid, loc);
 
@@ -31,8 +30,8 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
+                        const auto                          pool        = dist();
                         for (stride::Person* person : *contactPool) {
-                                const auto pool = dist();
                                 found.insert(community_pools[pool]);
                                 community_pools[pool]->AddMember(person);
                         }
