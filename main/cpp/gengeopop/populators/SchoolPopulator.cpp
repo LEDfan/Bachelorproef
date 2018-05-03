@@ -36,7 +36,7 @@ void SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (stride::Person* person : *contactPool) {
-                                if (person->GetAge() < 18 && person->GetAge() >= 6) {
+                                if (person->IsStudentCandidate()) {
                                         auto id = dist();
                                         classes[id]->AddMember(person);
                                         person->SetSchoolId(classes[id]->GetID());

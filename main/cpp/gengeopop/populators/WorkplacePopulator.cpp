@@ -53,15 +53,13 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         for (stride::Person* person : *contactPool) {
-                                if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
-
+                                if (person->IsWorkableCandidate()) {
                                         bool isStudent =
                                             MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents);
                                         bool isActiveWorker =
                                             MakeChoice(geoGridConfig.input.fraction_1865_years_active);
 
-                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 && !isStudent) ||
-                                            isActiveWorker) {
+                                        if ((person->IsCollegeStudentCandidate() && !isStudent) || isActiveWorker) {
                                                 AssignActive(person);
                                         } else {
                                                 // this person isn't an active employee

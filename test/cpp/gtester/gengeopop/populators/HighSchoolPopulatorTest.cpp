@@ -153,7 +153,7 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
 
         for (const stride::Person& person : *geoGrid->GetPopulation()) {
                 EXPECT_EQ(persons[person.GetId()], person.GetHighSchoolId());
-                if (person.GetAge() >= 18 && person.GetAge() < 26) {
+                if (person.IsCollegeStudentCandidate()) {
                         EXPECT_NE(0, person.GetHighSchoolId());
                 } else {
                         EXPECT_EQ(0, person.GetHighSchoolId());

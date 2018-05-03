@@ -58,7 +58,7 @@ void HighSchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (stride::Person* person : *contactPool) {
-                                if (person->GetAge() >= 18 && person->GetAge() < 26 &&
+                                if (person->IsCollegeStudentCandidate() &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) {
                                         students++;
                                         // this person is a student

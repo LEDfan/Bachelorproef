@@ -127,7 +127,7 @@ public:
         {
                 // TODO highschool vs not highschool
                 SetPoolId(ContactPoolType::Id::School, highschool_id);
-        };
+        }
 
         unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }
 
@@ -152,6 +152,12 @@ public:
                 m_pool_ids[type] = poolId;
                 m_in_pools[type] = poolId != 0;
         }
+
+        bool IsStudentCandidate() const { return m_age < 18 && m_age >= 6; }
+
+        bool IsCollegeStudentCandidate() const { return m_age >= 18 && m_age < 26; }
+
+        bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
 private:
         unsigned int m_id;     ///< The id.
