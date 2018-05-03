@@ -1,4 +1,4 @@
-#include "ColleGenerator.h"
+#include "CollegeGenerator.h"
 #include "gengeopop/College.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
@@ -9,7 +9,7 @@
 
 namespace gengeopop {
 
-void ColleGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void CollegeGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         int  amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;
         auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
@@ -33,7 +33,7 @@ void ColleGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoG
                 double weight =
                     static_cast<double>(loc->GetPopulation()) / static_cast<double>((double)totalCitiesPopulation);
 
-                CheckWeight("ColleGenerator", weight);
+                CheckWeight("CollegeGenerator", weight);
 
                 weights.push_back(weight);
         }

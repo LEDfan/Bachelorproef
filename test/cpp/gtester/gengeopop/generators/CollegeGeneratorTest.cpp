@@ -1,5 +1,5 @@
 #include <gengeopop/College.h>
-#include <gengeopop/generators/ColleGenerator.h>
+#include <gengeopop/generators/CollegeGenerator.h>
 #include <gengeopop/generators/K12SchoolGenerator.h>
 #include <gtest/gtest.h>
 #include <util/RNManager.h>
@@ -17,8 +17,8 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        ColleGenerator schoolGenerator(rnManager, CreateLogger());
-        GeoGridConfig  config{};
+        CollegeGenerator collegeGenerator(rnManager, CreateLogger());
+        GeoGridConfig    config{};
         config.input.populationSize               = 45000;
         config.calculated._1826_years_and_student = 9000;
 
@@ -27,7 +27,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
         geoGrid->AddLocation(loc1);
 
-        schoolGenerator.Apply(geoGrid, config);
+        collegeGenerator.Apply(geoGrid, config);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 3);
@@ -40,13 +40,13 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        ColleGenerator schoolGenerator(rnManager, CreateLogger());
-        GeoGridConfig  config{};
+        CollegeGenerator collegeGenerator(rnManager, CreateLogger());
+        GeoGridConfig    config{};
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 2000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        schoolGenerator.Apply(geoGrid, config);
+        collegeGenerator.Apply(geoGrid, config);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -58,8 +58,8 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        ColleGenerator schoolGenerator(rnManager, CreateLogger());
-        GeoGridConfig  config{};
+        CollegeGenerator collegeGenerator(rnManager, CreateLogger());
+        GeoGridConfig    config{};
         config.input.populationSize               = 399992;
         config.calculated._1826_years_and_student = 79998;
 
@@ -71,7 +71,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
                     std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
         }
 
-        schoolGenerator.Apply(geoGrid, config);
+        collegeGenerator.Apply(geoGrid, config);
 
         std::vector<int> expectedSchoolCount{4, 4, 2, 2, 1, 0, 0, 0, 0, 2, 4, 0, 6, 0, 2};
         for (size_t i = 0; i < sizes.size(); i++) {

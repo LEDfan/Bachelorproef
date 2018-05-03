@@ -3,7 +3,7 @@
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 #include <tclap/CmdLine.h>
-#include <gengeopop/generators/ColleGenerator.h>
+#include <gengeopop/generators/CollegeGenerator.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
 #include <gengeopop/generators/HouseholdGenerator.h>

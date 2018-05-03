@@ -1,5 +1,5 @@
 #include "GenGeoPopController.h"
-#include <gengeopop/generators/ColleGenerator.h>
+#include <gengeopop/generators/CollegeGenerator.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
 #include <gengeopop/generators/HouseholdGenerator.h>
@@ -73,7 +73,7 @@ void GenGeoPopController::GenGeo()
 {
         GeoGridGenerator geoGridGenerator(m_geoGridConfig, m_geoGrid);
         geoGridGenerator.AddPartialGenerator(std::make_shared<K12SchoolGenerator>(m_rnManager, m_logger));
-        geoGridGenerator.AddPartialGenerator(std::make_shared<ColleGenerator>(m_rnManager, m_logger));
+        geoGridGenerator.AddPartialGenerator(std::make_shared<CollegeGenerator>(m_rnManager, m_logger));
         geoGridGenerator.AddPartialGenerator(std::make_shared<WorkplaceGenerator>(m_rnManager, m_logger));
         geoGridGenerator.AddPartialGenerator(std::make_shared<CommunityGenerator>(m_rnManager, m_logger));
         geoGridGenerator.AddPartialGenerator(std::make_shared<HouseholdGenerator>(m_rnManager, m_logger));
