@@ -8,6 +8,7 @@
 #include <QtQml/QQmlProperty>
 
 #include <boost/filesystem.hpp>
+#include <boost/format.hpp>
 
 #include <cmath>
 #include <iostream>
@@ -336,10 +337,7 @@ void Backend::UpdateAllHealthColors()
 
 void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
 {
-
         auto*             marker = m_markers[std::to_string(loc->GetID())];
-        std::stringstream red;
-        std::stringstream green;
         double            infectedRatio = loc->GetInfectedRatio();
 
         // Check if it is a submuncipality
@@ -351,26 +349,12 @@ void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
         colorRatio        = std::max(0.0, colorRatio);
         colorRatio        = std::min(1.0, colorRatio);
 
-        red << std::hex << (int)(colorRatio * 255);
-        green << std::hex << (int)((1 - colorRatio) * 255);
+        std::string color = (boost::format("#%02x%02x00") % static_cast<int>(colorRatio * 255) % static_cast<int>((1 - colorRatio) * 255)).str();
 
-        std::string greenString = green.str();
-        std::string redString   = red.str();
-
-        // Prepend 0 to make sure it is length two
-        if (greenString.size() == 1) {
-                greenString = "0" + greenString;
-        }
-
-        if (redString.size() == 1) {
-                redString = "0" + redString;
-        }
-        if (redString.size() != 2 || greenString.size() != 2) {
-                std::cout << "Wrong color " << redString << " " << greenString << std::endl;
+        if (color.length() != 7) {
+                std::cout << "Wrong color " << color << std::endl;
                 return;
         }
-
-        std::string color = "#" + redString + greenString + "00";
 
         QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
                                   Q_ARG(QVariant, QString::fromStdString(color)));
