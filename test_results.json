@@ -746,6 +746,11 @@
       "name": "linux-clang-5",
       "build_id": "599.3",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/599.3-linux-clang-5.html"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/599.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "599.4"
     }
   ],
   "tidy": [
