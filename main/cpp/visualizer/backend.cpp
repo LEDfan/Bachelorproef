@@ -337,8 +337,8 @@ void Backend::UpdateAllHealthColors()
 
 void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
 {
-        auto*             marker = m_markers[std::to_string(loc->GetID())];
-        double            infectedRatio = loc->GetInfectedRatio();
+        auto*  marker        = m_markers[std::to_string(loc->GetID())];
+        double infectedRatio = loc->GetInfectedRatio();
 
         // Check if it is a submuncipality
         if (loc->GetSubMunicipalities().size() > 0) {
@@ -349,7 +349,9 @@ void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
         colorRatio        = std::max(0.0, colorRatio);
         colorRatio        = std::min(1.0, colorRatio);
 
-        std::string color = (boost::format("#%02x%02x00") % static_cast<int>(colorRatio * 255) % static_cast<int>((1 - colorRatio) * 255)).str();
+        std::string color = (boost::format("#%02x%02x00") % static_cast<int>(colorRatio * 255) %
+                             static_cast<int>((1 - colorRatio) * 255))
+                                .str();
 
         if (color.length() != 7) {
                 std::cout << "Wrong color " << color << std::endl;
