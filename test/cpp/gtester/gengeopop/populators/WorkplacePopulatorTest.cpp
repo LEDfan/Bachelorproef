@@ -126,24 +126,42 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 325 && person->GetWorkId() <= 328));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 328);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 328) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 325 && person->GetWorkId() <= 328));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 328);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 328) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 329 && person->GetWorkId() <= 330));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 329 && person->GetWorkId() <= 330);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 329 && person->GetWorkId() <= 330) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 }
@@ -206,16 +224,28 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 367 && person->GetWorkId() <= 368));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 367 && person->GetWorkId() <= 368);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 367 && person->GetWorkId() <= 368) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 345 && person->GetWorkId() <= 346));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 345 && person->GetWorkId() <= 346);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 345 && person->GetWorkId() <= 346) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 }
@@ -284,24 +314,42 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 329 && person->GetWorkId() <= 330));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 329 && person->GetWorkId() <= 330);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 329 && person->GetWorkId() <= 330) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 
         // Assert that persons of Brasschaat only go to Brasschaat or Schoten
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 325 && person->GetWorkId() <= 328));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 328);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 328) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetWorkId() == 0 ||
-                                    (person->GetWorkId() >= 327 && person->GetWorkId() <= 328));
+                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetWorkId() >= 327 && person->GetWorkId() <= 328);
+                        } else if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE((person->GetWorkId() >= 327 && person->GetWorkId() <= 328) ||
+                                            person->GetWorkId() == 0);
+                        } else {
+                                EXPECT_EQ(0, person->GetWorkId());
+                        }
                 }
         }
 }

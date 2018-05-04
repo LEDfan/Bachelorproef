@@ -163,24 +163,33 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 365 && person->GetHighSchoolId() <= 384));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 365 && person->GetHighSchoolId() <= 384);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 }
@@ -225,16 +234,22 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 271 && person->GetHighSchoolId() <= 290));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 271 && person->GetHighSchoolId() <= 290);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 251 && person->GetHighSchoolId() <= 270));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 251 && person->GetHighSchoolId() <= 270);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 }
@@ -284,24 +299,33 @@ TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 365 && person->GetHighSchoolId() <= 384));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 365 && person->GetHighSchoolId() <= 384);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 
         // Assert that persons of Brasschaat only go to Brasschaat or Schoten
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        EXPECT_TRUE(person->GetHighSchoolId() == 0 ||
-                                    (person->GetHighSchoolId() >= 345 && person->GetHighSchoolId() <= 364));
+                        if (person->IsCollegeStudentCandidate()) {
+                                EXPECT_TRUE(person->GetHighSchoolId() >= 345 && person->GetHighSchoolId() <= 364);
+                        } else {
+                                EXPECT_EQ(0, person->GetHighSchoolId());
+                        }
                 }
         }
 }
