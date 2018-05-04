@@ -26,11 +26,6 @@ addons:
     packages: &default_packages
       - swig3.0
       - libhdf5-dev
-      - qtdeclarative5-dev
-      - qtdeclarative5-qtlocation-plugin
-      - qtdeclarative5-controls-plugin
-      - qtdeclarative5-dialogs-plugin
-      - qtdeclarative5-qtpositioning-plugin
 
 matrix:
   include:
@@ -73,6 +68,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig qt; brew link --force qt; sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins; sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs;  fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt; export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.10.1/; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb; sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get -y remove qtchooser; wget -O qt.deb https://c.ledfan.be/s/ZJDRPiFrrtWHC3F/download ; sudo dpkg -i qt.deb; fi;
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
   - export GTEST_COLOR=1

@@ -1,13 +1,17 @@
 %module Population
-#pragma SWIG nowarn=315
+#pragma SWIG nowarn=315,341,362,389,509
 // headers for generated file
 %{
 #include "pop/Person.h"
 #include "pop/Population.h"
 #include <vector>
 #include <memory>
+#include "util/SegmentedVector.h"
+
 
 using namespace stride;
+using namespace stride::util;
+
 %}
 
 %include <std_vector.i>
@@ -15,9 +19,17 @@ using namespace stride;
 
 %include "pop/Person.h"
 
-%shared_ptr(std::vector<stride::Person>);
+%include "util/SegmentedVector.h"
+
+%extend stride::util::SegmentedVector<stride::Person> {
+    stride::Person& __getitem__(std::size_t pos) {
+        return (*($self))[pos];
+    }
+}
+
+%shared_ptr(stride::util::SegmentedVector<stride::Person>);
 %shared_ptr(stride::Population);
 
-%template(PopulationBaseClass) std::vector<stride::Person>;
+%template(PopulationBaseClass) stride::util::SegmentedVector<stride::Person>;
 
 %include "pop/Population.h"

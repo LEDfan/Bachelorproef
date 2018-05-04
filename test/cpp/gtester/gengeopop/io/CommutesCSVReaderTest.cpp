@@ -16,32 +16,32 @@ std::shared_ptr<GeoGrid> getExpectedGeoGrid()
         geoGrid->AddLocation(std::make_shared<Location>(24, 0, 1300));
 
         // to 21
-        geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(22), 0.18218018914883027);
-        geoGrid->GetById(22)->AddOutgoingCommutingLocation(geoGrid->GetById(21), 0.18218018914883027);
+        geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(22), 0.15012305168170631);
+        geoGrid->GetById(22)->AddOutgoingCommutingLocation(geoGrid->GetById(21), 0.15012305168170631);
 
-        geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(23), 0.33250373320059728);
-        geoGrid->GetById(23)->AddOutgoingCommutingLocation(geoGrid->GetById(21), 0.33250373320059728);
+        geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(23), 0.59115044247787607);
+        geoGrid->GetById(23)->AddOutgoingCommutingLocation(geoGrid->GetById(21), 0.59115044247787607);
 
-        geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(24), 0.21154803384768542);
-        geoGrid->GetById(24)->AddOutgoingCommutingLocation(geoGrid->GetById(21), 0.21154803384768542);
+        geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(24), 0.37610619469026546);
+        geoGrid->GetById(24)->AddOutgoingCommutingLocation(geoGrid->GetById(21), 0.37610619469026546);
 
         // to 22
-        geoGrid->GetById(22)->AddIncomingCommutingLocation(geoGrid->GetById(21), 0.087741132545115119);
-        geoGrid->GetById(21)->AddOutgoingCommutingLocation(geoGrid->GetById(22), 0.087741132545115119);
+        geoGrid->GetById(22)->AddIncomingCommutingLocation(geoGrid->GetById(21), 0.11969439728353141);
+        geoGrid->GetById(21)->AddOutgoingCommutingLocation(geoGrid->GetById(22), 0.11969439728353141);
 
-        geoGrid->GetById(22)->AddIncomingCommutingLocation(geoGrid->GetById(24), 0.4387056627255756);
-        geoGrid->GetById(24)->AddOutgoingCommutingLocation(geoGrid->GetById(22), 0.4387056627255756);
+        geoGrid->GetById(22)->AddIncomingCommutingLocation(geoGrid->GetById(24), 0.62389380530973448);
+        geoGrid->GetById(24)->AddOutgoingCommutingLocation(geoGrid->GetById(22), 0.62389380530973448);
 
         // to 23
-        geoGrid->GetById(23)->AddIncomingCommutingLocation(geoGrid->GetById(21), 0.29533050333535477);
-        geoGrid->GetById(21)->AddOutgoingCommutingLocation(geoGrid->GetById(23), 0.29533050333535477);
+        geoGrid->GetById(23)->AddIncomingCommutingLocation(geoGrid->GetById(21), 0.41341256366723261);
+        geoGrid->GetById(21)->AddOutgoingCommutingLocation(geoGrid->GetById(23), 0.41341256366723261);
 
-        geoGrid->GetById(23)->AddIncomingCommutingLocation(geoGrid->GetById(22), 0.42449969678593086);
-        geoGrid->GetById(22)->AddOutgoingCommutingLocation(geoGrid->GetById(23), 0.42449969678593086);
+        geoGrid->GetById(23)->AddIncomingCommutingLocation(geoGrid->GetById(22), 0.28712059064807222);
+        geoGrid->GetById(22)->AddOutgoingCommutingLocation(geoGrid->GetById(23), 0.28712059064807222);
 
         // to 24
-        geoGrid->GetById(24)->AddIncomingCommutingLocation(geoGrid->GetById(22), 1);
-        geoGrid->GetById(22)->AddOutgoingCommutingLocation(geoGrid->GetById(24), 1);
+        geoGrid->GetById(24)->AddIncomingCommutingLocation(geoGrid->GetById(22), 0.2506152584085316);
+        geoGrid->GetById(22)->AddOutgoingCommutingLocation(geoGrid->GetById(24), 0.2506152584085316);
 
         return geoGrid;
 }

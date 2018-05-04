@@ -8,6 +8,7 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <pop/Person.h>
+#include <util/ExcAssert.h>
 #include <utility>
 
 namespace gengeopop {
@@ -41,6 +42,9 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                if (loc->GetPopulation() == 0) {
+                        continue;
+                }
                 m_currentLoc = loc;
                 CalculateCommutingLocations();
                 CalculateNearbyWorkspaces();
@@ -130,7 +134,10 @@ void WorkplacePopulator::CalculateCommutingLocations()
                 const auto& Workplaces = commute.first->GetContactCentersOfType<Workplace>();
                 if (!Workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
-                        commutingWeights.push_back(commute.second - (commute.second * m_fractionCommutingStudents));
+                        double weight = commute.second - (commute.second * m_fractionCommutingStudents);
+                        ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                                  "Invalid weight due to invalid input data in WorkplacePopulator, weight: " +
+                                      std::to_string(weight));
                 }
         }
 

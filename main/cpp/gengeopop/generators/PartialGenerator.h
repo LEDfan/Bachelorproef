@@ -4,6 +4,7 @@
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
 #include <spdlog/logger.h>
+#include <util/ExcAssert.h>
 
 namespace gengeopop {
 /**
@@ -17,7 +18,14 @@ public:
         virtual ~PartialGenerator(){};
 
 protected:
-        stride::util::RNManager&        m_rnManager;
-        std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by generators
+        stride::util::RNManager&        m_rnManager; ///< RnManager used by generators
+        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators
+
+        void CheckWeight(const std::string& func, double weight)
+        {
+                ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                          "Invalid weight due to invalid input data in " + func +
+                              ", weight: " + std::to_string(weight));
+        }
 };
 } // namespace gengeopop
