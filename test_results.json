@@ -532,6 +532,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/600.5-osx-9.2-apple-clang.html",
       "name": "osx-9.2-apple-clang",
       "build_id": "600.5"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/600.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "600.6"
     }
   ],
   "harden": [
