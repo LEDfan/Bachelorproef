@@ -227,6 +227,7 @@ Test results
  - [600.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/600.2-linux-gcc-7.html)
  - [600.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/600.3-linux-clang-5.html)
  - [600.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/600.4-osx-8.3-apple-clang.html)
+ - [600.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/600.5-osx-9.2-apple-clang.html)
  - [599.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/599.1-linux-gcc-6.html)
  - [599.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/599.2-linux-gcc-7.html)
  - [599.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/mapviewer-controller-color/599.3-linux-clang-5.html)
