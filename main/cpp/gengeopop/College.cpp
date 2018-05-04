@@ -9,10 +9,7 @@ std::string College::GetType() const { return "College"; }
 
 unsigned int College::GetMaxPools() const { return 20; }
 
-unsigned int College::GetPoolSize() const
-{
-        return 0; // TODO
-}
+unsigned int College::GetPoolSize() const { return 150; }
 
 void College::Fill(GeoGridConfig& geoGridConfig)
 {

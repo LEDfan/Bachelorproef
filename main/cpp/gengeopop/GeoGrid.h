@@ -34,7 +34,7 @@ public:
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();
 
-        /// Search for locations in \p radius arodun \ start
+        /// Search for locations in \p radius around \p start
         std::set<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
 
         /// Gets the K biggest Location of this GeoGrid

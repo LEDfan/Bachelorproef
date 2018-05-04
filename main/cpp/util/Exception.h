@@ -6,7 +6,7 @@
 namespace stride {
 namespace util {
 
-/// Basic exception class. Needed to prevent clang-tidy warning: "hrown exception type is not nothrow copy
+/// Basic exception class. Needed to prevent clang-tidy warning: "thrown exception type is not nothrow copy
 /// constructible"
 class Exception : public std::runtime_error
 {

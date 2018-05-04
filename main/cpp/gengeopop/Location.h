@@ -62,7 +62,7 @@ public:
         //// Gets the sum of the population of all sub municipalities
         unsigned int GetPopulationOfSubmunicipalities() const;
 
-        /// Gets avector with the outgoing cities which people are commuting to + the proportion
+        /// Gets a vector with the outgoing cities which people are commuting to + the proportion
         const std::vector<std::pair<std::shared_ptr<Location>, double>>& GetIncomingCommuningCities() const;
 
         /**
