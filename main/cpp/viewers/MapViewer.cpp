@@ -8,7 +8,11 @@ namespace viewers {
 void MapViewer::Update(const stride::sim_event::Payload& p)
 {
         m_logger->info("Visualizer updated");
-        if (m_first and p.m_runner->GetSim() != nullptr) {
+        if (p.m_runner->GetSim() == nullptr) {
+                return;
+        }
+
+        if (m_first) {
                 m_first = false;
 
                 // Set the geogrid
@@ -17,8 +21,10 @@ void MapViewer::Update(const stride::sim_event::Payload& p)
         } else {
                 // Update the markers
                 m_vis->ForceUpdateMarkers();
-                std::this_thread::sleep_for(std::chrono::seconds(5));
+                std::this_thread::sleep_for(std::chrono::seconds(1));
         }
 }
+
+MapViewer::~MapViewer() { m_vis->Join(); }
 } // namespace viewers
 } // namespace stride
