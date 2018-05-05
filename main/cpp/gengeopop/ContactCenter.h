@@ -12,10 +12,9 @@ public:
 
         explicit ContactCenter(unsigned int id);
 
-        virtual std::string  GetType() const     = 0;
-        virtual unsigned int GetPoolSize() const = 0;
-        virtual unsigned int GetMaxPools() const = 0;
-        virtual bool         IsAvailable() const;
+        virtual std::string  GetType() const                    = 0;
+        virtual unsigned int GetPoolSize() const                = 0;
+        virtual unsigned int GetMaxPools() const                = 0;
         virtual void         Fill(GeoGridConfig& geoGridConfig) = 0;
 
         unsigned int GetId() const;

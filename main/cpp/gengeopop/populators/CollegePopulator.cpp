@@ -8,6 +8,7 @@
 #include <gengeopop/GeoGridConfig.h>
 #include <iostream>
 #include <pop/Person.h>
+#include <util/ExcAssert.h>
 
 namespace gengeopop {
 
@@ -27,6 +28,10 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                 // 1. find all highschools in an area of 10-k*10 km
                 const std::vector<std::shared_ptr<ContactPool>>& nearByHighSchools =
                     GetContactPoolInIncreasingRadius<College>(geoGrid, loc);
+
+                ExcAssert(!nearByHighSchools.empty(),
+                          "Did not find any HighSchool due to invalid input data in HighSchoolPopulator");
+
                 auto distNonCommuting = m_rnManager.GetGenerator(trng::uniform_int_dist(
                     0, static_cast<trng::uniform_int_dist::result_type>(nearByHighSchools.size())));
 
@@ -53,7 +58,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                         const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (stride::Person* person : *contactPool) {
-                                if (person->GetAge() >= 18 && person->GetAge() < 26 &&
+                                if (person->IsCollegeStudentCandidate() &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) {
                                         students++;
                                         // this person is a student
@@ -81,11 +86,11 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(person);
-                                                person->SetCollegeId(static_cast<unsigned int>(id));
+                                                person->SetCollegeId(contactPools[id]->GetID());
                                         } else {
                                                 auto id = distNonCommuting();
                                                 nearByHighSchools[id]->AddMember(person);
-                                                person->SetCollegeId(static_cast<unsigned int>(id));
+                                                person->SetCollegeId(nearByHighSchools[id]->GetID());
                                         }
                                 }
                         }

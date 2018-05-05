@@ -27,12 +27,12 @@ public:
         void AddContactCenter(std::shared_ptr<T> contactCenter)
         {
                 m_contactCenters.push_back(contactCenter);
-                m_contactCenterByType[typeid(T)].insert(contactCenter);
+                m_contactCenterByType[typeid(T)].push_back(contactCenter);
         }
 
         /// Gets the Contact Centers of a specific type \p T
         template <typename T>
-        std::set<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
+        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
         {
                 return m_contactCenterByType[typeid(T)];
         }
@@ -106,6 +106,7 @@ public:
 
         /// Gets the Coordinate of this location
         const Coordinate& GetCoordinate() const;
+        void              SetCoordinate(const Coordinate& coordinate);
 
         /// Gets iterator to the first location
         iterator begin();
@@ -126,24 +127,16 @@ private:
         unsigned int m_population;         ///< The absolute population
         double       m_relativePopulation; ///< The relative population (relative against whole population)
         Coordinate   m_coordinate;         ///< Coordinate
-        std::vector<std::shared_ptr<ContactCenter>>               m_contactCenters;             ///< All contactCenters
-        std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations; ///< Incomming commutes
-                                                                                                ///< stored as pair of
-                                                                                                ///< location and
-                                                                                                ///< proportion relative
-                                                                                                ///< to the given
-                                                                                                ///< location
-        std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations; ///< Outgoing commutes
-                                                                                                ///< stored as pair of
-                                                                                                ///< location and
-                                                                                                ///< proportion relative
-                                                                                                ///< to the this
-                                                                                                ///< location
+        std::vector<std::shared_ptr<ContactCenter>> m_contactCenters; ///< All contactCenters
+        /// Incomming commutes stored as pair of location and proportion relative to the given location
+        std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
+        ///< Outgoing commutes stored as pair of location and proportion relative to the this location
+        std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
         std::set<std::shared_ptr<Location>>
             m_subMunicipalities; ///< Set of sub-municipalties, must be empty when m_parent is set
         std::shared_ptr<Location>
             m_parent; ///< Parent of this sub-municipality, must be nullptr when m_subMunicipalities is et
-        std::unordered_map<std::type_index, std::set<std::shared_ptr<ContactCenter>>>
+        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>>
             m_contactCenterByType; ///< Stores the contact centers indexed by their type
 };
 

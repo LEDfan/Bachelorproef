@@ -105,7 +105,7 @@ public:
 
         void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
 
-        unsigned int GetK12SchoolId()
+        unsigned int GetK12SchoolId() const
         {
                 // TODO highschool vs not highschool
                 return GetPoolId(ContactPoolType::Id::School);
@@ -117,7 +117,7 @@ public:
                 SetPoolId(ContactPoolType::Id::School, school_id);
         }
 
-        unsigned int GetCollegeId()
+        unsigned int GetCollegeId() const
         {
                 // TODO highschool vs not highschool
                 return GetPoolId(ContactPoolType::Id::School);
@@ -127,20 +127,20 @@ public:
         {
                 // TODO highschool vs not highschool
                 SetPoolId(ContactPoolType::Id::School, highschool_id);
-        };
+        }
 
-        unsigned int GetWorkId() { return GetPoolId(ContactPoolType::Id::Work); }
+        unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }
 
         void SetWorkId(unsigned int work_id) { SetPoolId(ContactPoolType::Id::Work, work_id); }
 
-        unsigned int GetPrimaryCommunityId() { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
+        unsigned int GetPrimaryCommunityId() const { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
 
         void SetPrimaryCommunityId(unsigned int primary_community_id)
         {
                 SetPoolId(ContactPoolType::Id::PrimaryCommunity, primary_community_id);
         }
 
-        unsigned int GetSecondaryCommunityId() { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
+        unsigned int GetSecondaryCommunityId() const { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
 
         void SetSecondaryCommunityId(unsigned int secondary_community_id)
         {
@@ -152,6 +152,12 @@ public:
                 m_pool_ids[type] = poolId;
                 m_in_pools[type] = poolId != 0;
         }
+
+        bool IsStudentCandidate() const { return m_age < 18 && m_age >= 6; }
+
+        bool IsCollegeStudentCandidate() const { return m_age >= 18 && m_age < 26; }
+
+        bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
 private:
         unsigned int m_id;     ///< The id.

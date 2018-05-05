@@ -35,7 +35,8 @@ public:
         void Finalize();
 
         /// Search for locations in \p radius around \p start
-        std::set<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
+        std::vector<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start,
+                                                                     double                    radius) const;
 
         /// Gets the K biggest Location of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;

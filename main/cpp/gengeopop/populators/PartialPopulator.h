@@ -34,9 +34,7 @@ protected:
                              geoGrid->FindLocationsInRadius(start, currentRadius)) {
                                 const auto& centers = nearLoc->GetContactCentersOfType<T>();
                                 for (const auto& center : centers) {
-                                        if (center->IsAvailable()) {
-                                                pools.insert(pools.end(), center->begin(), center->end());
-                                        }
+                                        pools.insert(pools.end(), center->begin(), center->end());
                                 }
                         }
                         currentRadius *= 2;

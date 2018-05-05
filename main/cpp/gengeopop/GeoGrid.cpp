@@ -103,7 +103,8 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
         return result;
 }
 
-std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const
+std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_ptr<Location> start,
+                                                                      double                    radius) const
 {
         CheckFinalized(__func__);
 
@@ -122,12 +123,12 @@ std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_p
 
         KdTree2DPoint startPt(start);
 
-        std::set<std::shared_ptr<Location>> result;
+        std::vector<std::shared_ptr<Location>> result;
 
         m_tree.Apply(
             [&startPt, &radius, &result](const KdTree2DPoint& pt) -> bool {
                     if (pt.InRadius(startPt, radius)) {
-                            result.insert(pt.GetLocation());
+                            result.push_back(pt.GetLocation());
                     }
                     return true;
             },

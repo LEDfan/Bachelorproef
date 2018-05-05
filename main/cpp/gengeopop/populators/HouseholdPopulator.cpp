@@ -19,7 +19,8 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         auto         household_dist    = m_rnManager.GetGenerator(trng::uniform_int_dist(
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                const std::set<std::shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
+                const std::vector<std::shared_ptr<ContactCenter>>& households =
+                    loc->GetContactCentersOfType<Household>();
                 for (const auto& household : households) {
                         std::shared_ptr<ContactPool> contactPool     = household->GetPools()[0];
                         auto                         householdTypeId = static_cast<unsigned int>(household_dist());

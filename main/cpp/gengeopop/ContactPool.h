@@ -10,7 +10,8 @@ public:
         ContactPool(unsigned int id, unsigned long capacity);
         ContactPool();
 
-        using iterator = std::vector<stride::Person*>::iterator;
+        using iterator       = std::vector<stride::Person*>::iterator;
+        using const_iterator = std::vector<stride::Person*>::const_iterator;
 
         unsigned int  GetID() const;
         unsigned long GetCapacity() const;
@@ -21,6 +22,9 @@ public:
 
         iterator begin();
         iterator end();
+
+        const_iterator cbegin();
+        const_iterator cend();
 
 private:
         std::vector<stride::Person*> m_people;
