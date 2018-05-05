@@ -12,7 +12,6 @@ namespace {
 
 TEST(CollegeGeneratorTest, OneLocationTest)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -35,7 +34,6 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
 TEST(CollegeGeneratorTest, ZeroLocationTest)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
@@ -53,7 +51,6 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
 
 TEST(CollegeGeneratorTest, FiveLocationsTest)
 {
-
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
