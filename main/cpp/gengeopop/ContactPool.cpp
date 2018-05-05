@@ -18,4 +18,16 @@ ContactPool::iterator gengeopop::ContactPool::begin() { return m_people.begin();
 
 ContactPool::iterator gengeopop::ContactPool::end() { return m_people.end(); }
 
+std::pair<unsigned int, unsigned int> ContactPool::GetPopulationAndInfectedCount() const
+{
+        unsigned int infected = 0;
+
+        for (stride::Person* person : m_people) {
+                if (person->GetHealth().IsInfected()) {
+                        infected++;
+                }
+        }
+        return {m_people.size(), infected};
+}
+
 } // namespace gengeopop

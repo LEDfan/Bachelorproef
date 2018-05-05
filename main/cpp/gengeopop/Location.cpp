@@ -25,6 +25,45 @@ unsigned int Location::GetID() const { return m_id; }
 
 unsigned int Location::GetPopulation() const { return m_population; }
 
+double Location::GetInfectedRatio() const
+{
+        unsigned int infected   = 0;
+        unsigned int population = 0;
+
+        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
+                auto r = cc->GetPopulationAndInfectedCount();
+                population += r.first;
+                infected += r.second;
+        }
+
+        if (GetPopulation() == 0) {
+                return 0;
+        }
+
+        double r = static_cast<double>(infected) / static_cast<double>(population);
+
+        return r;
+}
+
+double Location::GetInfectedRatioOfSubmunicipalities() const
+{
+        unsigned int infected   = 0;
+        unsigned int population = 0;
+        for (auto loc : m_subMunicipalities) {
+                for (const std::shared_ptr<gengeopop::ContactCenter>& cc : loc->GetContactCenters()) {
+                        auto r = cc->GetPopulationAndInfectedCount();
+                        population += r.first;
+                        infected += r.second;
+                }
+        }
+
+        if (population == 0) {
+                return 0;
+        }
+
+        return static_cast<double>(infected) / static_cast<double>(population);
+}
+
 const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }
 
 const Coordinate& Location::GetCoordinate() const { return m_coordinate; }

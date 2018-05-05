@@ -49,6 +49,12 @@ public:
         /// Gets the absolute population
         unsigned int GetPopulation() const;
 
+        /// Gets the ratio of infected persons in all contactPools of this location
+        double GetInfectedRatio() const;
+
+        /// Gets the ratio of infected persons in all contactPools of this location's subMunicipalities
+        double GetInfectedRatioOfSubmunicipalities() const;
+
         /// Given the total population calculates this location's population using the relative population of this
         /// location
         void CalculatePopulation(unsigned int totalPopulation);
