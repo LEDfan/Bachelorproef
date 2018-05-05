@@ -5,6 +5,8 @@ set(SRC
     main.cpp
     Calibrator.cpp
     Boxplot.cpp
+    BoxplotGenerator.cpp
+    TestCalibrationRunner.cpp
     ../../../test/cpp/gtester/ScenarioData.cpp
 )
 

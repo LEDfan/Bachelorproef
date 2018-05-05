@@ -1,32 +1,38 @@
 #pragma once
 #include <map>
 #include <string>
+#include <util/LogUtils.h>
 #include <vector>
+
+#include "BoxplotData.h"
 
 namespace calibration {
 
 /**
- * A class used to generate QtCharts Boxplots
+ * A class used to compute the necessary information to generate boxplots
  */
 class Boxplot
 {
 public:
         // Setup
-        explicit Boxplot(std::map<std::string, std::vector<unsigned int>>& results);
+        Boxplot();
 
-        // Display the boxplots
-        void Display();
+        // Compute the information for each step in a list of testcase results
+        std::vector<BoxplotData> Calculate(
+            const std::map<std::string, std::vector<std::vector<unsigned int>>>& data) const;
 
-        // Write the boxplots to files
-        void WriteToFile();
+        // Compute the information for a specific step in a list of testcase results
+        std::vector<BoxplotData> Calculate(const std::map<std::string, std::vector<std::vector<unsigned int>>>& data,
+                                           unsigned int step) const;
+
+        // Compute the information for a single set of data
+        BoxplotData Calculate(const std::vector<unsigned int>& data, std::string name) const;
 
 private:
-        double FindMedian(
-            unsigned long begin, unsigned long end,
-            std::string testcase);      ///< Find the median of values between begin and end in the results[testcase]
-        void GeneratePlots(bool write); ///< Generate the actual plots. Write them to files if write is true, otherwise
-                                        ///< display them on screen.
-        std::map<std::string, std::vector<unsigned int>> results; ///< Storage for the simulation results
+        double FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int> results)
+            const; ///< Find the median of values between begin and end in the results[testcase]
+
+        std::shared_ptr<spdlog::logger> logger; ///< Logger to use for this class
 };
 
 } // namespace calibration
