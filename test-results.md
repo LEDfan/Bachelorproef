@@ -204,6 +204,7 @@ Test results
  - [606.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/geometry/606.3-linux-clang-5.html)
  - [606.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/geometry/606.4-osx-8.3-apple-clang.html)
  - [606.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/geometry/606.5-osx-9.2-apple-clang.html)
+ - [606.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/geometry/606.6-osx-8.3-llvm-clang.html)
  - [571.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/geometry/571.1-linux-gcc-6.html)
  - [571.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/geometry/571.2-linux-gcc-7.html)
  - [571.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/geometry/571.3-linux-clang-5.html)
