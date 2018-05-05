@@ -14,7 +14,7 @@
             "contactCenters": [
                 {
                     "id": "0",
-                    "type": "School",
+                    "type": "K12School",
                     "pools": ""
                 },
                 {
@@ -24,7 +24,7 @@
                 },
                 {
                     "id": "2",
-                    "type": "HighSchool",
+                    "type": "College",
                     "pools": ""
                 },
                 {

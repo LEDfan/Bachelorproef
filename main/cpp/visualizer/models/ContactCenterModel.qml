@@ -3,12 +3,12 @@ import QtQuick 2.0
 ListModel {
     ListElement {
         name: "Sint-Vincentius"
-        type: "School"
+        type: "K12School"
         ID: "1"
     }
     ListElement {
         name: "UAntwerpen"
-        type: "High School"
+        type: "High K12School"
         ID: "2"
     }
     ListElement {
@@ -18,12 +18,12 @@ ListModel {
     }
     ListElement {
         name: "Sint-Vincentius"
-        type: "School"
+        type: "K12School"
         ID: "4"
     }
     ListElement {
         name: "UAntwerpen"
-        type: "High School"
+        type: "High K12School"
         ID: "5"
     }
     ListElement {
@@ -33,12 +33,12 @@ ListModel {
     }
     ListElement {
         name: "Sint-Vincentius"
-        type: "School"
+        type: "K12School"
         ID: "8"
     }
     ListElement {
         name: "UAntwerpen"
-        type: "High School"
+        type: "High K12School"
         ID: "9"
     }
     ListElement {

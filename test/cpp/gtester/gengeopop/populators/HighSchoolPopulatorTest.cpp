@@ -1,8 +1,8 @@
 #include "createGeogrid.h"
+#include <gengeopop/College.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/HighSchool.h>
-#include <gengeopop/School.h>
-#include <gengeopop/populators/HighSchoolPopulator.h>
+#include <gengeopop/K12School.h>
+#include <gengeopop/populators/CollegePopulator.h>
 #include <gtest/gtest.h>
 #include <util/LogUtils.h>
 #include <util/RNManager.h>
@@ -12,7 +12,7 @@ using namespace stride;
 
 namespace {
 
-TEST(HighSchoolPopulatorTest, NoPopulation)
+TEST(CollegePopulatorTest, NoPopulation)
 {
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
@@ -22,23 +22,23 @@ TEST(HighSchoolPopulatorTest, NoPopulation)
 
         geoGrid->AddLocation(std::make_shared<Location>(0, 0, 0));
 
-        HighSchoolPopulator highSchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
 
         GeoGridConfig config{};
 
         geoGrid->Finalize();
 
-        EXPECT_NO_THROW(highSchoolPopulator.Apply(geoGrid, config));
+        EXPECT_NO_THROW(collegePopulator.Apply(geoGrid, config));
 }
 
-TEST(HighSchoolPopulatorTest, NoStudents)
+TEST(CollegePopulatorTest, NoStudents)
 {
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolPopulator highSchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-        GeoGridConfig       config{};
+        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 0;
 
@@ -51,39 +51,39 @@ TEST(HighSchoolPopulatorTest, NoStudents)
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
-        auto highschoolBra = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolBra->Fill(config);
-        brasschaat->AddContactCenter(highschoolBra);
+        auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
+        collegeBra->Fill(config);
+        brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
-        auto highschoolScho = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolScho->Fill(config);
-        schoten->AddContactCenter(highschoolScho);
+        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        collegeScho->Fill(config);
+        schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
-        auto highschoolKort = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolKort->Fill(config);
-        kortrijk->AddContactCenter(highschoolKort);
+        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        collegeKort->Fill(config);
+        kortrijk->AddContactCenter(collegeKort);
 
         geoGrid->Finalize();
 
-        highSchoolPopulator.Apply(geoGrid, config);
+        collegePopulator.Apply(geoGrid, config);
 
         for (const stride::Person& person : *geoGrid->GetPopulation()) {
-                EXPECT_EQ(0, person.GetHighSchoolId());
+                EXPECT_EQ(0, person.GetCollegeId());
         }
 }
 
-TEST(HighSchoolPopulatorTest, NotCommuting)
+TEST(CollegePopulatorTest, NotCommuting)
 {
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolPopulator highSchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-        GeoGridConfig       config{};
+        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
@@ -96,25 +96,25 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
-        auto highschoolBra = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolBra->Fill(config);
-        brasschaat->AddContactCenter(highschoolBra);
+        auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
+        collegeBra->Fill(config);
+        brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
-        auto highschoolScho = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolScho->Fill(config);
-        schoten->AddContactCenter(highschoolScho);
+        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        collegeScho->Fill(config);
+        schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
-        auto highschoolKort = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolKort->Fill(config);
-        kortrijk->AddContactCenter(highschoolKort);
+        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        collegeKort->Fill(config);
+        kortrijk->AddContactCenter(collegeKort);
 
         geoGrid->Finalize();
 
-        highSchoolPopulator.Apply(geoGrid, config);
+        collegePopulator.Apply(geoGrid, config);
 
         std::map<int, int> persons{
             {0, 0},     {1, 0},     {2, 0},     {3, 0},     {4, 0},     {5, 0},     {6, 0},     {7, 0},    {8, 0},
@@ -152,11 +152,11 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
             {288, 374}, {289, 0},   {290, 373}, {291, 0},   {292, 0},   {293, 0},   {294, 0},   {295, 0},  {296, 0}};
 
         for (const stride::Person& person : *geoGrid->GetPopulation()) {
-                EXPECT_EQ(persons[person.GetId()], person.GetHighSchoolId());
+                EXPECT_EQ(persons[person.GetId()], person.GetCollegeId());
                 if (person.IsCollegeStudentCandidate()) {
-                        EXPECT_NE(0, person.GetHighSchoolId());
+                        EXPECT_NE(0, person.GetCollegeId());
                 } else {
-                        EXPECT_EQ(0, person.GetHighSchoolId());
+                        EXPECT_EQ(0, person.GetCollegeId());
                 }
         }
 
@@ -164,9 +164,9 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364);
+                                EXPECT_TRUE(person->GetCollegeId() >= 325 && person->GetCollegeId() <= 364);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
@@ -175,9 +175,9 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364);
+                                EXPECT_TRUE(person->GetCollegeId() >= 325 && person->GetCollegeId() <= 364);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
@@ -186,22 +186,22 @@ TEST(HighSchoolPopulatorTest, NotCommuting)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 365 && person->GetHighSchoolId() <= 384);
+                                EXPECT_TRUE(person->GetCollegeId() >= 365 && person->GetCollegeId() <= 384);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
 }
 
-TEST(HighSchoolPopulatorTest, OnlyCommuting)
+TEST(CollegePopulatorTest, OnlyCommuting)
 {
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolPopulator highSchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-        GeoGridConfig       config{};
+        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
@@ -212,15 +212,15 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
         // only commuting
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
-        auto highschoolScho = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolScho->Fill(config);
-        schoten->AddContactCenter(highschoolScho);
+        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        collegeScho->Fill(config);
+        schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
-        auto highschoolKort = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolKort->Fill(config);
-        kortrijk->AddContactCenter(highschoolKort);
+        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        collegeKort->Fill(config);
+        kortrijk->AddContactCenter(collegeKort);
 
         schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
         kortrijk->AddIncomingCommutingLocation(schoten, 0.5);
@@ -229,15 +229,15 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
 
         geoGrid->Finalize();
 
-        highSchoolPopulator.Apply(geoGrid, config);
+        collegePopulator.Apply(geoGrid, config);
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 271 && person->GetHighSchoolId() <= 290);
+                                EXPECT_TRUE(person->GetCollegeId() >= 271 && person->GetCollegeId() <= 290);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
@@ -246,22 +246,22 @@ TEST(HighSchoolPopulatorTest, OnlyCommuting)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 251 && person->GetHighSchoolId() <= 270);
+                                EXPECT_TRUE(person->GetCollegeId() >= 251 && person->GetCollegeId() <= 270);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
 }
 
-TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
+TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
         stride::util::RNManager::Info rnInfo;
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        HighSchoolPopulator highSchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-        GeoGridConfig       config{};
+        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
@@ -269,21 +269,21 @@ TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
-        auto highschoolBra = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolBra->Fill(config);
-        brasschaat->AddContactCenter(highschoolBra);
+        auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
+        collegeBra->Fill(config);
+        brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
-        auto highschoolScho = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolScho->Fill(config);
-        schoten->AddContactCenter(highschoolScho);
+        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        collegeScho->Fill(config);
+        schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
-        auto highschoolKort = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolKort->Fill(config);
-        kortrijk->AddContactCenter(highschoolKort);
+        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        collegeKort->Fill(config);
+        kortrijk->AddContactCenter(collegeKort);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
         schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
@@ -294,15 +294,15 @@ TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         geoGrid->Finalize();
 
-        highSchoolPopulator.Apply(geoGrid, config);
+        collegePopulator.Apply(geoGrid, config);
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 365 && person->GetHighSchoolId() <= 384);
+                                EXPECT_TRUE(person->GetCollegeId() >= 365 && person->GetCollegeId() <= 384);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
@@ -311,9 +311,9 @@ TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 325 && person->GetHighSchoolId() <= 364);
+                                EXPECT_TRUE(person->GetCollegeId() >= 325 && person->GetCollegeId() <= 364);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }
@@ -322,9 +322,9 @@ TEST(HighSchoolPopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetHighSchoolId() >= 345 && person->GetHighSchoolId() <= 364);
+                                EXPECT_TRUE(person->GetCollegeId() >= 345 && person->GetCollegeId() <= 364);
                         } else {
-                                EXPECT_EQ(0, person->GetHighSchoolId());
+                                EXPECT_EQ(0, person->GetCollegeId());
                         }
                 }
         }

@@ -1,9 +1,9 @@
 #include "createGeogrid.h"
+#include <gengeopop/College.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/HighSchool.h>
-#include <gengeopop/School.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/Workplace.h>
-#include <gengeopop/populators/HighSchoolPopulator.h>
+#include <gengeopop/populators/CollegePopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
 #include <gtest/gtest.h>
 #include <util/LogUtils.h>
@@ -186,9 +186,6 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         // only commuting
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
-        auto highschoolScho = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolScho->Fill(config);
-        schoten->AddContactCenter(highschoolScho);
 
         auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
         workScho1->Fill(config);
@@ -200,9 +197,6 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
-        auto highschoolKort = std::make_shared<HighSchool>(config.generated.contactCenters++);
-        highschoolKort->Fill(config);
-        kortrijk->AddContactCenter(highschoolKort);
 
         auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
         workKor1->Fill(config);
@@ -225,9 +219,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 367 && person->GetWorkId() <= 368);
+                                EXPECT_TRUE(person->GetWorkId() >= 327 && person->GetWorkId() <= 328);
                         } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 367 && person->GetWorkId() <= 368) ||
+                                EXPECT_TRUE((person->GetWorkId() >= 327 && person->GetWorkId() <= 328) ||
                                             person->GetWorkId() == 0);
                         } else {
                                 EXPECT_EQ(0, person->GetWorkId());
@@ -239,9 +233,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 345 && person->GetWorkId() <= 346);
+                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 326);
                         } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 345 && person->GetWorkId() <= 346) ||
+                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 326) ||
                                             person->GetWorkId() == 0);
                         } else {
                                 EXPECT_EQ(0, person->GetWorkId());

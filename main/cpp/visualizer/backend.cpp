@@ -8,12 +8,13 @@
 #include <QtQml/QQmlProperty>
 
 #include <boost/filesystem.hpp>
+#include <boost/format.hpp>
 
 #include <cmath>
 #include <iostream>
 
-#include <gengeopop/HighSchool.h>
-#include <gengeopop/School.h>
+#include <gengeopop/College.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>
@@ -168,12 +169,12 @@ void Backend::ClearSelection()
 void Backend::ClearSelectionAndRender()
 {
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                marker->setProperty("color", "red");
+                auto* marker = m_markers[std::to_string(loc->GetID())];
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
         }
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                marker->setProperty("color", "red");
+                auto* marker = m_markers[std::to_string(loc->GetID())];
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
         }
         m_selection.clear();
         m_unselection.clear();
@@ -235,8 +236,8 @@ void Backend::SelectArea(double slat, double slong, double elat, double elong)
 void Backend::UpdateColorOfMarkers()
 {
         for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                marker->setProperty("color", "red");
+                auto* marker = m_markers[std::to_string(loc->GetID())];
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
                 // Hide all connections between unselection and unselection, and selection and unselection
                 if (m_showCommutes) {
                         for (const auto& otherLoc : *m_grid) {
@@ -246,8 +247,8 @@ void Backend::UpdateColorOfMarkers()
         }
         m_unselection.clear();
         for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                marker->setProperty("color", "blue");
+                auto* marker = m_markers[std::to_string(loc->GetID())];
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
                 // Show the commutes
                 if (m_showCommutes) {
                         for (const auto& commute : loc->GetOutgoingCommuningCities()) {
@@ -329,24 +330,53 @@ void Backend::SaveMarker(QString id, QObject* marker) { m_markers[id.toStdString
 
 void Backend::UpdateAllHealthColors()
 {
-        // TODO
+        for (auto loc : *m_grid) {
+                SetHealthColorOf(loc);
+        }
 }
+
+void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
+{
+        auto*  marker        = m_markers[std::to_string(loc->GetID())];
+        double infectedRatio = loc->GetInfectedRatio();
+
+        // Check if it is a submuncipality
+        if (loc->GetSubMunicipalities().size() > 0) {
+                infectedRatio = loc->GetInfectedRatioOfSubmunicipalities();
+        }
+
+        double colorRatio = std::pow(infectedRatio, m_colorExponent);
+        colorRatio        = std::max(0.0, colorRatio);
+        colorRatio        = std::min(1.0, colorRatio);
+
+        std::string color = (boost::format("#%02x%02x00") % static_cast<int>(colorRatio * 255) %
+                             static_cast<int>((1 - colorRatio) * 255))
+                                .str();
+
+        if (color.length() != 7) {
+                std::cout << "Wrong color " << color << std::endl;
+                return;
+        }
+
+        QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
+                                  Q_ARG(QVariant, QString::fromStdString(color)));
+}
+
 void Backend::OnMarkerHovered(unsigned int idOfHover)
 {
         auto loc = m_grid->GetById(idOfHover);
         // Check if not in selection
 
         if (m_selection.find(loc) == m_selection.end()) {
-                QObject* rectLoc = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                rectLoc->setProperty("color", "green");
+                QObject* marker = m_markers[std::to_string(loc->GetID())];
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "blue"));
 
                 // Change colors of submunicipalities
                 const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
                 for (const auto& mun : sub) {
-                        QObject* marker = m_markers[std::to_string(mun->GetID())];
-                        QObject* rect   = marker->findChild<QObject*>("rect");
-                        // Set green
-                        rect->setProperty("color", "green");
+                        QObject* markerMun = m_markers[std::to_string(mun->GetID())];
+                        QMetaObject::invokeMethod(markerMun, "setBorder", Qt::DirectConnection,
+                                                  Q_ARG(QVariant, "blue"));
                 }
         }
 }
@@ -355,21 +385,22 @@ void Backend::OnMarkerHoveredOff(unsigned int idOfHover)
 {
         auto loc = m_grid->GetById(idOfHover);
         // Check if not in selection
-
         if (m_selection.find(loc) == m_selection.end()) {
-                QObject* rectLoc = m_markers[std::to_string(loc->GetID())]->findChild<QObject*>("rect");
-                rectLoc->setProperty("color", "red");
+                QObject* locMarker = m_markers[std::to_string(loc->GetID())];
+                QMetaObject::invokeMethod(locMarker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
 
                 // Change colors of submunicipalities
                 const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
                 for (const auto& mun : sub) {
-                        QObject* marker = m_markers[std::to_string(mun->GetID())];
-                        QObject* rect   = marker->findChild<QObject*>("rect");
                         // Save the old color
+                        QObject* marker = m_markers[std::to_string(mun->GetID())];
                         if (m_selection.find(mun) == m_selection.end()) {
-                                rect->setProperty("color", "red");
+                                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
+                                                          Q_ARG(QVariant, "black"));
                         } else {
-                                rect->setProperty("color", "blue");
+                                // Back to selection color
+                                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
+                                                          Q_ARG(QVariant, "purple"));
                         }
                 }
         }

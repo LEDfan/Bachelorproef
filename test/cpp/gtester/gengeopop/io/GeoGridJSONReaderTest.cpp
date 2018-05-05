@@ -3,8 +3,8 @@
 #include <iomanip>
 #include <memory>
 
-#include <Exception.h>
 #include <gengeopop/io/GeoGridJSONReader.h>
+#include <util/Exception.h>
 #include <util/FileSys.h>
 
 using namespace gengeopop;
@@ -132,7 +132,7 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         auto                        location       = geoGrid->Get(0);
         auto                        contactCenters = location->GetContactCenters();
         std::map<std::string, bool> found          = {
-            {"School", false}, {"Community", false}, {"HighSchool", false}, {"Household", false}, {"Workplace", false}};
+            {"K12School", false}, {"Community", false}, {"College", false}, {"Household", false}, {"Workplace", false}};
 
         for (unsigned int i = 0; i < 5; i++) {
                 EXPECT_FALSE(found[contactCenters[i]->GetType()]);
@@ -147,10 +147,10 @@ void runPeopleTest(std::string filename)
 {
         auto                       geoGrid  = getGeoGridForFile(filename);
         auto                       location = geoGrid->Get(0);
-        std::map<int, std::string> types    = {{2, "School"},     {3, "Primary Community"}, {7, "Secondary Community"},
-                                            {4, "HighSchool"}, {5, "Household"},         {6, "Workplace"}};
-        std::map<int, std::string> ids      = {{0, "School"},     {1, "Primary Community"}, {2, "Secondary Community"},
-                                          {3, "HighSchool"}, {4, "Household"},         {5, "Workplace"}};
+        std::map<int, std::string> types    = {{2, "K12School"}, {3, "Primary Community"}, {7, "Secondary Community"},
+                                            {4, "College"},   {5, "Household"},         {6, "Workplace"}};
+        std::map<int, std::string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
+                                          {3, "College"},   {4, "Household"},         {5, "Workplace"}};
 
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");
@@ -170,7 +170,7 @@ void runPeopleTest(std::string filename)
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');
-                EXPECT_EQ(person->GetSchoolId(), 2);
+                EXPECT_EQ(person->GetK12SchoolId(), 2);
                 EXPECT_EQ(person->GetHouseholdId(), 4);
                 EXPECT_EQ(person->GetWorkId(), 6);
                 EXPECT_EQ(person->GetPrimaryCommunityId(), 3);
@@ -186,13 +186,16 @@ TEST(GeoGridJSONReaderTest, emptyStreamTest)
 {
         auto              instream = std::make_unique<std::istringstream>("");
         GeoGridJSONReader geoGridJSONReader(std::move(instream));
-        EXPECT_THROW(geoGridJSONReader.Read(), Exception);
+        EXPECT_THROW(geoGridJSONReader.Read(), stride::util::Exception);
 }
 
-TEST(GeoGridJSONReaderTest, invalidTypeTest) { EXPECT_THROW(getGeoGridForFile("test4.json"), Exception); }
+TEST(GeoGridJSONReaderTest, invalidTypeTest) { EXPECT_THROW(getGeoGridForFile("test4.json"), stride::util::Exception); }
 
-TEST(GeoGridJSONReaderTest, invalidPersonTest) { EXPECT_THROW(getGeoGridForFile("test5.json"), Exception); }
+TEST(GeoGridJSONReaderTest, invalidPersonTest)
+{
+        EXPECT_THROW(getGeoGridForFile("test5.json"), stride::util::Exception);
+}
 
-TEST(GeoGridJSONReaderTest, invalidJSONTest) { EXPECT_THROW(getGeoGridForFile("test6.json"), Exception); }
+TEST(GeoGridJSONReaderTest, invalidJSONTest) { EXPECT_THROW(getGeoGridForFile("test6.json"), stride::util::Exception); }
 
 } // namespace

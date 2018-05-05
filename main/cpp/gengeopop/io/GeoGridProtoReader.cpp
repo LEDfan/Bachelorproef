@@ -1,17 +1,17 @@
 #include "GeoGridProtoReader.h"
 #include "ThreadException.h"
 #include "proto/geogrid.pb.h"
-#include <Exception.h>
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
-#include <gengeopop/HighSchool.h>
 #include <gengeopop/Household.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <omp.h>
 #include <stdexcept>
+#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -24,7 +24,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
-                throw Exception("Failed to parse Proto file");
+                throw stride::util::Exception("Failed to parse Proto file");
         }
         std::shared_ptr<GeoGrid> geoGrid;
         if (m_population) {
@@ -133,7 +133,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         std::shared_ptr<ContactCenter>             result;
         auto                                       id = protoContactCenter.id();
         switch (type) {
-        case proto::GeoGrid_Location_ContactCenter_Type_School: result = std::make_shared<School>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_K12School: result = std::make_shared<K12School>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Community: result = std::make_shared<Community>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 result = std::make_shared<PrimaryCommunity>(id);
@@ -141,10 +141,10 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
                 result = std::make_shared<SecondaryCommunity>(id);
                 break;
-        case proto::GeoGrid_Location_ContactCenter_Type_HighSchool: result = std::make_shared<HighSchool>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_College: result = std::make_shared<College>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household: result = std::make_shared<Household>(id); break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace: result = std::make_shared<Workplace>(id); break;
-        default: throw Exception("No such ContactCenter type");
+        default: throw stride::util::Exception("No such ContactCenter type");
         }
 
         auto e = std::make_shared<ThreadException>();

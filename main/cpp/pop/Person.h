@@ -105,25 +105,25 @@ public:
 
         void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
 
-        unsigned int GetSchoolId() const
+        unsigned int GetK12SchoolId() const
         {
                 // TODO highschool vs not highschool
                 return GetPoolId(ContactPoolType::Id::School);
         }
 
-        void SetSchoolId(unsigned int school_id)
+        void SetK12SchoolId(unsigned int school_id)
         {
                 // TODO highschool vs not highschool
                 SetPoolId(ContactPoolType::Id::School, school_id);
         }
 
-        unsigned int GetHighSchoolId() const
+        unsigned int GetCollegeId() const
         {
                 // TODO highschool vs not highschool
                 return GetPoolId(ContactPoolType::Id::School);
         }
 
-        void SetHighSchoolId(unsigned int highschool_id)
+        void SetCollegeId(unsigned int highschool_id)
         {
                 // TODO highschool vs not highschool
                 SetPoolId(ContactPoolType::Id::School, highschool_id);

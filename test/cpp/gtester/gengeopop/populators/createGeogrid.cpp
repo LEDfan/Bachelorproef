@@ -1,10 +1,10 @@
 #include "createGeogrid.h"
-#include <gengeopop/School.h>
+#include <gengeopop/K12School.h>
 
 using namespace gengeopop;
 
-std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
-                                       GeoGridConfig& geoGridConfig)
+std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, int houseHoldCount,
+                                       int personCount, GeoGridConfig& geoGridConfig)
 {
         std::vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
@@ -29,10 +29,11 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int schoolCount
         for (int locI = 0; locI < locCount; locI++) {
                 auto loc = std::make_shared<Location>(locI, 1, locPop);
 
-                for (int schI = 0; schI < schoolCount; schI++) {
-                        auto school = std::make_shared<School>(std::stoi(std::to_string(locI) + std::to_string(schI)));
-                        school->Fill(geoGridConfig);
-                        loc->AddContactCenter(school);
+                for (int schI = 0; schI < k12SchoolCount; schI++) {
+                        auto k12School =
+                            std::make_shared<K12School>(std::stoi(std::to_string(locI) + std::to_string(schI)));
+                        k12School->Fill(geoGridConfig);
+                        loc->AddContactCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {

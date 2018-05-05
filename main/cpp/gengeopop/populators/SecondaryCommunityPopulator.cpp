@@ -1,5 +1,5 @@
 #include "SecondaryCommunityPopulator.h"
-#include "../School.h"
+#include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>

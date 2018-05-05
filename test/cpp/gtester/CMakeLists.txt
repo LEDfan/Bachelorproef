@@ -32,7 +32,7 @@ set(SRC
         UnitSegmentedVector.cpp
         createlogger.h
         gengeopop/generators/CommunityGeneratorTest.cpp
-        gengeopop/generators/HighSchoolGeneratorTest.cpp
+        gengeopop/generators/CollegeGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
@@ -41,7 +41,7 @@ set(SRC
         gengeopop/populators/createGeogrid.cpp
         gengeopop/populators/HouseholdPopulatorTest.cpp
         gengeopop/populators/CommunityPopulatorTests.cpp
-        gengeopop/populators/SchoolPopulatorTest.cpp
+    gengeopop/populators/K12SchoolPopulatorTest.cpp
         gengeopop/populators/HighSchoolPopulatorTest.cpp
         gengeopop/populators/WorkplacePopulatorTest.cpp
         gengeopop/io/GeoGridIOUtils.cpp

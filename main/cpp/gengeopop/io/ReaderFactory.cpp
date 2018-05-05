@@ -4,8 +4,8 @@
 #include "HouseholdCSVReader.h"
 #include "SubMunicipalitiesCSVReader.h"
 #include <boost/filesystem.hpp>
-#include <Exception.h>
 #include <iostream>
+#include <util/Exception.h>
 #include <util/FileSys.h>
 
 namespace gengeopop {
@@ -54,13 +54,13 @@ std::shared_ptr<SubMunicipalitiesReader> ReaderFactory::CreateSubMunicipalitiesR
 std::unique_ptr<std::istream> ReaderFactory::OpenFile(const boost::filesystem::path& path) const
 {
         if (!boost::filesystem::exists(path)) {
-                throw Exception("File not found: " + path.string());
+                throw stride::util::Exception("File not found: " + path.string());
         }
 
         if (path.extension().string() == ".csv") {
                 return std::make_unique<std::ifstream>(path.string());
         } else {
-                throw Exception("Unsupported file extension: " + path.extension().string());
+                throw stride::util::Exception("Unsupported file extension: " + path.extension().string());
         }
 }
 

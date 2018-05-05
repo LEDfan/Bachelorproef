@@ -1,8 +1,8 @@
+#include <gengeopop/College.h>
 #include <gengeopop/Community.h>
 #include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/HighSchool.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/School.h>
 #include <gengeopop/SecondaryCommunity.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/generators/GeoGridGenerator.h>
@@ -39,9 +39,9 @@ TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
         auto geoGrid  = GetGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
-        location->AddContactCenter(std::make_shared<School>(0));
+        location->AddContactCenter(std::make_shared<K12School>(0));
         location->AddContactCenter(std::make_shared<Community>(1));
-        location->AddContactCenter(std::make_shared<HighSchool>(2));
+        location->AddContactCenter(std::make_shared<College>(2));
         location->AddContactCenter(std::make_shared<Household>(3));
         location->AddContactCenter(std::make_shared<Workplace>(4));
         geoGrid->AddLocation(location);
@@ -53,7 +53,7 @@ TEST(GeoGridProtoWriterTest, submunicipalityTest)
         auto geoGrid         = GetGeoGrid();
         auto location        = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
         auto submunicipality = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");
-        submunicipality->AddContactCenter(std::make_shared<School>(0));
+        submunicipality->AddContactCenter(std::make_shared<K12School>(0));
         location->AddSubMunicipality(submunicipality);
         geoGrid->AddLocation(location);
 
