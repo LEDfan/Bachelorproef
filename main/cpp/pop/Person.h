@@ -37,33 +37,19 @@ class Person
 public:
         /// Default construction (for population vector).
         Person()
-<<<<<<< HEAD
             : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0, 0, 0, 0, 0},
               m_in_pools(false), m_belief(nullptr)
-=======
-            : m_age(0.0), m_belief(), m_gender(' '), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools()
->>>>>>> b5361e86f8dd40ed61165070b2fdd59b0649370e
         {
         }
 
         /// Constructor: set the person data.
-<<<<<<< HEAD
-        Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,
-               unsigned int primary_community_id, unsigned int secondary_community_id, Health health = Health(),
-               double /*risk_averseness*/ = 0, Belief* bp = nullptr)
-            : m_id(id), m_age(age), m_gender('M'), m_health(health),
-              m_is_participant(false), m_pool_ids{household_id, school_id, work_id, primary_community_id,
-                                                  secondary_community_id},
-              m_in_pools(true), m_belief(bp)
-=======
         Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
                unsigned int primaryCommunityId, unsigned int secondaryCommunityId, Health health = Health(),
-               double risk_averseness = 0, Belief* bp = nullptr)
-            : m_age(age), m_belief(bp), m_gender('M'), m_health(health), m_id(id),
+               double /*risk_averseness*/ = 0, Belief* bp = nullptr)
+            : m_id(id), m_age(age), m_gender('M'), m_health(health),
               m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
                                                   secondaryCommunityId},
-              m_in_pools(true)
->>>>>>> b5361e86f8dd40ed61165070b2fdd59b0649370e
+              m_in_pools(true), m_belief(bp)
         {
                 // TODO m_in_pools: shouldn't this check if every id is not 0?
         }
@@ -175,11 +161,10 @@ public:
         bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
 private:
+        unsigned int m_id;             ///< The id.
         double       m_age;            ///< The age.
-        Belief*      m_belief;         ///< Health beliefs related data (raw pointer intentional).
         char         m_gender;         ///< The gender.
         Health       m_health;         ///< Health info for this person.
-        unsigned int m_id;             ///< The id.
         bool         m_is_participant; ///< Is participating in the social contact study
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
@@ -188,6 +173,8 @@ private:
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;
+
+        Belief* m_belief; ///< Health beliefs related data (raw pointer intentional).
 };
 
 } // namespace stride

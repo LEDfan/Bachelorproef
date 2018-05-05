@@ -58,6 +58,7 @@ set(LIB_SRC
         contact/InfectorExec.h
         contact/InfectorMap.h
         contact/LogPolicy.h
+        contact/TransmissionProfile.cpp
         #---
         disease/DiseaseSeeder.cpp
         disease/Health.cpp
@@ -67,6 +68,7 @@ set(LIB_SRC
         output/AdoptedFile.cpp
         output/PersonsFile.cpp
         output/SummaryFile.cpp
+        output/InfectedFile.cpp
         #---
         pool/ContactPool.cpp
         pool/ContactPoolSys.h
@@ -82,8 +84,8 @@ set(LIB_SRC
         sim/CliController.cpp
         sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
-        sim/Simulator.cpp
         sim/SimBuilder.cpp
+        sim/Sim.cpp
         sim/event/Id.cpp
         sim/event/Subject.cpp
         #---
@@ -112,6 +114,7 @@ set(LIB_SRC
         viewers/SummaryViewer.cpp
         viewers/MapViewer.cpp
         viewers/MapViewer.h
+        viewers/InfectedViewer.cpp
 		#---
         )
 

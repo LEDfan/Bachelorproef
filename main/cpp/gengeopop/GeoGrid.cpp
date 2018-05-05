@@ -8,8 +8,7 @@
 namespace gengeopop {
 
 GeoGrid::GeoGrid()
-    : m_locations(), m_locationsToIdIndex(), m_population(std::make_shared<stride::Population>()), m_finalized(false),
-      m_tree()
+    : m_locations(), m_locationsToIdIndex(), m_population(stride::Population::Create("")), m_finalized(false), m_tree()
 {
 }
 

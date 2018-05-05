@@ -1,7 +1,7 @@
 #include "Calibrator.h"
 #include "../../test/cpp/gtester/ScenarioData.h"
+#include <sim/Sim.h>
 #include <sim/SimRunner.h>
-#include <sim/Simulator.h>
 
 #include <numeric>
 #include <omp.h>
@@ -24,10 +24,10 @@ void Calibrator::Run(unsigned int count)
                 auto        tag       = cases[caseIdx];
                 const auto  d         = Tests::ScenarioData::Get(tag);
                 const auto& config_pt = std::get<0>(d);
-                auto        runner    = stride::SimRunner::Create();
-                runner->Setup(config_pt);
-                runner->Run();
-                const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
+                auto        pop       = stride::Population::Create(config_pt);
+                auto        runner    = stride::SimRunner(config_pt, pop);
+                runner.Run();
+                const unsigned int res = runner.GetSim()->GetPopulation()->GetInfectedCount();
                 logger->info("Found exact value for testcase {}: {}", tag, res);
         }
 
@@ -51,12 +51,12 @@ void Calibrator::Run(unsigned int count)
 
                         config_pt.put("run.rng_seed", seed);
                         logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
-                        auto runner = stride::SimRunner::Create();
-                        runner->Setup(config_pt);
-                        runner->Run();
+                        auto pop    = stride::Population::Create(config_pt);
+                        auto runner = stride::SimRunner(config_pt, pop);
+                        runner.Run();
 
                         // Get the infected count
-                        const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
+                        const unsigned int res = runner.GetSim()->GetPopulation()->GetInfectedCount();
                         logger->info("Finished running testcase {}, {} people were infected", tag, res);
 #pragma omp critical
                         results[tag].push_back(res);

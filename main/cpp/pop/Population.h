@@ -42,12 +42,6 @@ namespace stride {
 class Population : public util::SegmentedVector<Person>
 {
 public:
-        // TODO remove usage of constructors?
-        explicit Population(const boost::property_tree::ptree& belief_pt)
-            : m_belief_pt(belief_pt), beliefs_container(){};
-
-        Population() : m_belief_pt{}, beliefs_container() { m_belief_pt.add("name", "NoBelief"); };
-
         /// Create a population initialized by the configuration in property tree.
         static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt);
 
@@ -75,8 +69,7 @@ public:
                           Health health = Health(), double risk_averseness = 0);
 
 private:
-        ///
-        Population() = default;
+        Population() : m_belief_pt(), m_beliefs_container(), m_pool_sys(), m_contact_logger(){};
 
         /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
@@ -91,9 +84,10 @@ private:
 
         friend class PopBuilder;
 
-        util::Any                       beliefs_container; ///< Holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;        ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger;  ///< Logger for contact/transmission.
+        boost::property_tree::ptree     m_belief_pt;
+        util::Any                       m_beliefs_container; ///< Holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;          ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger;    ///< Logger for contact/transmission.
 };
 
 } // namespace stride

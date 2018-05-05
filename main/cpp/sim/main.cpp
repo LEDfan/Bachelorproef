@@ -119,7 +119,6 @@ int main(int argc, char** argv)
                         } else {
                                 controller = std::make_shared<CliController>(configPt);
                         }
-                        controller->Setup();
                         controller->Control();
                         CliController(configPt).Control();
                 }

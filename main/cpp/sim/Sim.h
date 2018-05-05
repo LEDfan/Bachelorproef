@@ -25,6 +25,7 @@
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
 #include "util/RNManager.h"
+#include <gengeopop/GeoGrid.h>
 
 #include <boost/property_tree/ptree.hpp>
 #include <string>
@@ -64,6 +65,9 @@ public:
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
 
+        /// Get the GeoGrid.
+        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() { return m_geoGrid; }
+
 private:
         /// Default constructor for empty Simulator.
         Sim();
@@ -78,13 +82,14 @@ private:
         bool                        m_track_index_case;  ///< General simulation or tracking index case.
         std::string                 m_local_info_policy; ///< Local information policy name.
 
-        std::shared_ptr<Calendar>   m_calendar;             ///< Managment of calendar.
-        AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
-        std::vector<ContactHandler> m_handlers;             ///< Contact handlers (rng & rates).
-        InfectorExec*               m_infector;             ///< Executes contacts/transmission loops in contact pool.
-        std::shared_ptr<Population> m_population;           ///< Pointer to the Population.
-        util::RNManager             m_rn_manager;           ///< Random numbere generation management.
-        TransmissionProfile         m_transmission_profile; ///< Profile of disease.
+        std::shared_ptr<Calendar>           m_calendar;         ///< Managment of calendar.
+        AgeContactProfiles                  m_contact_profiles; ///< Contact profiles w.r.t age.
+        std::vector<ContactHandler>         m_handlers;         ///< Contact handlers (rng & rates).
+        InfectorExec*                       m_infector;   ///< Executes contacts/transmission loops in contact pool.
+        std::shared_ptr<Population>         m_population; ///< Pointer to the Population.
+        util::RNManager                     m_rn_manager; ///< Random numbere generation management.
+        TransmissionProfile                 m_transmission_profile; ///< Profile of disease.
+        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;              ///< The GeoGrid used during the Simulation (if any)
 };
 
 } // namespace stride

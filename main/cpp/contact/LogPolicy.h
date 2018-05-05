@@ -35,12 +35,12 @@ class LOG_POLICY
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
-                            unsigned short int sim_day)
+                            unsigned short int /*sim_day*/)
         {
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
-                          unsigned short int sim_day)
+                          unsigned short int /*sim_day*/)
         {
         }
 };
