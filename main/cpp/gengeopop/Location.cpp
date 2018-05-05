@@ -1,6 +1,6 @@
 #include "Location.h"
-#include <Exception.h>
 #include <cmath>
+#include <util/Exception.h>
 
 namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
@@ -143,7 +143,7 @@ double Location::GetRelativePopulationSize() const { return m_relativePopulation
 void Location::AddSubMunicipality(std::shared_ptr<Location> location)
 {
         if (m_parent) {
-                throw Exception("Can't have parent and submunicipalities at the same time!");
+                throw stride::util::Exception("Can't have parent and submunicipalities at the same time!");
         }
         m_subMunicipalities.emplace(std::move(location));
 }
@@ -155,7 +155,7 @@ std::shared_ptr<Location> Location::GetParent() const { return m_parent; }
 void Location::SetParent(const std::shared_ptr<Location>& location)
 {
         if (!m_subMunicipalities.empty()) {
-                throw Exception("Can't have parent and submunicipalities at the same time!");
+                throw stride::util::Exception("Can't have parent and submunicipalities at the same time!");
         }
         m_parent = location;
 }

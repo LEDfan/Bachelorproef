@@ -138,6 +138,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
                         ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
                                   "Invalid weight due to invalid input data in WorkplacePopulator, weight: " +
                                       std::to_string(weight));
+                        commutingWeights.push_back(weight);
                 }
         }
 

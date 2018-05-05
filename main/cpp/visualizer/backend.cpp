@@ -13,8 +13,8 @@
 #include <cmath>
 #include <iostream>
 
-#include <gengeopop/HighSchool.h>
-#include <gengeopop/School.h>
+#include <gengeopop/College.h>
+#include <gengeopop/K12School.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>

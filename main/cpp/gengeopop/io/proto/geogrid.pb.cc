@@ -366,9 +366,9 @@ void AddDescriptorsImpl() {
       "oGrid.Location.ContactCenter.Type\022@\n\005poo"
       "ls\030\003 \003(\01321.proto.GeoGrid.Location.Contac"
       "tCenter.ContactPool\032)\n\013ContactPool\022\n\n\002id"
-      "\030\001 \002(\003\022\016\n\006people\030\002 \003(\003\"}\n\004Type\022\n\n\006School"
-      "\020\000\022\r\n\tCommunity\020\001\022\024\n\020PrimaryCommunity\020\002\022"
-      "\026\n\022SecondaryCommunity\020\003\022\016\n\nHighSchool\020\004\022"
+      "\030\001 \002(\003\022\016\n\006people\030\002 \003(\003\"}\n\004Type\022\r\n\tK12Sch"
+      "ool\020\000\022\r\n\tCommunity\020\001\022\024\n\020PrimaryCommunity"
+      "\020\002\022\026\n\022SecondaryCommunity\020\003\022\013\n\007College\020\004\022"
       "\r\n\tHousehold\020\005\022\r\n\tWorkplace\020\006\032)\n\007Commute"
       "\022\n\n\002to\030\001 \002(\003\022\022\n\nproportion\030\002 \002(\001\032\235\001\n\006Per"
       "son\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003"
@@ -414,11 +414,11 @@ bool GeoGrid_Location_ContactCenter_Type_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::School;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::K12School;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Community;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::PrimaryCommunity;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::SecondaryCommunity;
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::HighSchool;
+const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::College;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Household;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Workplace;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Type_MIN;

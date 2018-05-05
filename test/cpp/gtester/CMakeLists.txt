@@ -32,7 +32,7 @@ set(SRC
         ScenarioData.cpp
         UnitSegmentedVector.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
-        gengeopop/generators/HighSchoolGeneratorTest.cpp
+        gengeopop/generators/CollegeGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp

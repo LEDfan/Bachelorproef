@@ -28,26 +28,20 @@ public:
 
         GeoGrid();
 
+        /// Adds a location to this GeoGrid
         void AddLocation(std::shared_ptr<Location> location);
 
-        /**
-         * Disables the addLocation method and builds the kdtree.
-         */
+        /// Disables the addLocation method and builds the kdtree.
         void Finalize();
 
-        /**
-         * Search for locations in \p radius arodun \ start
-         */
+        /// Search for locations in \p radius around \p start
         std::set<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const;
 
-        /**
-         * @param k
-         * @return the K biggest Location of this GeoGrid
-         */
+        /// Gets the K biggest Location of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
 
         /**
-         * Get the Locations location in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
+         * Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
          *
          * The coordinates must be position on the diagonal, i.e:
          *
@@ -59,27 +53,39 @@ public:
          */
         std::set<std::shared_ptr<Location>> InBox(double long1, double lat1, double long2, double lat2) const;
 
+        /// Gets the location in a rectangle defined by the two locations
         std::set<std::shared_ptr<Location>> InBox(const std::shared_ptr<Location>& loc1,
-                                                  std::shared_ptr<Location>&       loc2) const
+                                                  const std::shared_ptr<Location>& loc2) const
         {
                 return InBox(loc1->GetCoordinate().longitude, loc1->GetCoordinate().latitude,
                              loc2->GetCoordinate().longitude, loc2->GetCoordinate().latitude);
         }
 
+        /// Iterator to first Location
         iterator begin();
+
+        /// Iterator to the end of the Location storage
         iterator end();
 
+        /// Const Iterator to first Location
         const_iterator cbegin() const;
+
+        /// Const iterator to the end of the Location storage
         const_iterator cend() const;
 
+        /// Gets amount of Location
         size_t size() const;
 
+        /// Remove element of GeoGrid
         void remove(const std::shared_ptr<Location>& location);
 
+        /// Gets a Location by index, doesn't performs a range check
         std::shared_ptr<Location> operator[](size_t index);
 
+        /// Gets a Location by index, doesn't performs a range check
         std::shared_ptr<Location> Get(size_t index);
 
+        /// Gets a Location by id and check if the id exists
         std::shared_ptr<Location> GetById(unsigned int id);
 
         /// Create and store a Person in the GeoGrid and return a pointer to it, which works until deletion of the
@@ -98,9 +104,10 @@ private:
         void CheckFinalized(const std::string& functionName)
             const; ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
 
-        std::vector<std::shared_ptr<Location>>                      m_locations;
-        std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
-        std::shared_ptr<stride::Population> m_population; ///< Stores and Owns the population of this GeoGrid
+        std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid
+        std::unordered_map<unsigned int, std::shared_ptr<Location>>
+                                            m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id
+        std::shared_ptr<stride::Population> m_population;         ///< Stores and Owns the population of this GeoGrid
 
         bool m_finalized;
 

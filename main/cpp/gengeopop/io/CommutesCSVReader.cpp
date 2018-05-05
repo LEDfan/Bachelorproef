@@ -1,7 +1,7 @@
 #include "CommutesCSVReader.h"
-#include <Exception.h>
 #include <iostream>
 #include <util/CSV.h>
+#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -49,7 +49,7 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                 double      proportion = abs / total;
 
                                 if (proportion < 0 || proportion > 1) {
-                                        throw Exception(
+                                        throw stride::util::Exception(
                                             "Proportion of commutes from " + std::to_string(locFrom->GetID()) + " to " +
                                             std::to_string(locTo->GetID()) + " is invalid (0 <= proportion <= 1)");
                                 }

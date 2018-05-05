@@ -1,8 +1,8 @@
 #include "GeoGrid.h"
-#include <Exception.h>
 #include <cmath>
 #include <iostream>
 #include <queue>
+#include <util/Exception.h>
 #include <utility>
 
 namespace gengeopop {
@@ -26,19 +26,15 @@ GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 void GeoGrid::AddLocation(std::shared_ptr<Location> location)
 {
         if (m_finalized) {
-                throw Exception("Calling addLocation while GeoGrid is finalized is not supported!");
+                throw stride::util::Exception("Calling addLocation while GeoGrid is finalized is not supported!");
         }
 
         m_locations.emplace_back(location);
         m_locationsToIdIndex[location->GetID()] = location;
 }
 
-std::shared_ptr<Location> GeoGrid::operator[](size_t index)
-{
-        // TODO range check needed?
-        return *(begin() + index);
-}
-std::shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
+std::shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
+std::shared_ptr<Location>          GeoGrid::Get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {
@@ -145,7 +141,8 @@ std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_populati
 void GeoGrid::CheckFinalized(const std::string& functionName) const
 {
         if (!m_finalized) {
-                throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");
+                throw stride::util::Exception("Calling \"" + functionName +
+                                              "\" while GeoGrid is not finalized is not supported!");
         }
 }
 

@@ -132,7 +132,7 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         auto                        location       = geoGrid->get(0);
         auto                        contactCenters = location->getContactCenters();
         std::map<std::string, bool> found          = {
-            {"School", false}, {"Community", false}, {"HighSchool", false}, {"Household", false}, {"Workplace", false}};
+            {"K12School", false}, {"Community", false}, {"Colleg", false}, {"Household", false}, {"Workplace", false}};
 
         for (unsigned int i = 0; i < 5; i++) {
                 EXPECT_FALSE(found[contactCenters[i]->getType()]);
@@ -147,10 +147,10 @@ void runPeopleTest(std::string filename)
 {
         auto                       geoGrid  = getGeoGridForFile(filename);
         auto                       location = geoGrid->get(0);
-        std::map<int, std::string> types    = {{2, "School"},     {3, "Primary Community"}, {7, "Secondary Community"},
-                                            {4, "HighSchool"}, {5, "Household"},         {6, "Workplace"}};
-        std::map<int, std::string> ids      = {{0, "School"},     {1, "Primary Community"}, {2, "Secondary Community"},
-                                          {3, "HighSchool"}, {4, "Household"},         {5, "Workplace"}};
+        std::map<int, std::string> types    = {{2, "K12School"}, {3, "Primary Community"}, {7, "Secondary Community"},
+                                            {4, "College"},   {5, "Household"},         {6, "Workplace"}};
+        std::map<int, std::string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
+                                          {3, "Coolege"},   {4, "Household"},         {5, "Workplace"}};
 
         EXPECT_EQ(location->getID(), 1);
         EXPECT_EQ(location->getName(), "Bavikhove");

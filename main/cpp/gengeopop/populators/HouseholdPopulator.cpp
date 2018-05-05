@@ -1,5 +1,5 @@
 #include "HouseholdPopulator.h"
-#include "../School.h"
+#include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
@@ -28,7 +28,7 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         for (stride::Person* personType : *householdType) {
                                 auto person = geoGrid->CreatePerson(
                                     current_person_id++, personType->GetAge(), household->GetId(),
-                                    personType->GetSchoolId(), personType->GetWorkId(),
+                                    personType->GetK12SchoolId(), personType->GetWorkId(),
                                     personType->GetPrimaryCommunityId(), personType->GetSecondaryCommunityId());
                                 contactPool->AddMember(person);
                         }

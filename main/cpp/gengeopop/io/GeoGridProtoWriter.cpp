@@ -1,9 +1,8 @@
 #include "GeoGridProtoWriter.h"
-#include "Exception.h"
 #include "proto/geogrid.pb.h"
-#include <Exception.h>
 #include <iostream>
 #include <omp.h>
+#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -23,7 +22,7 @@ void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
 
         m_persons_found.clear();
         if (!protoGrid.SerializeToOstream(&stream)) {
-                throw Exception("There was an error writing the GeoGrid to the file.");
+                throw stride::util::Exception("There was an error writing the GeoGrid to the file.");
         }
         google::protobuf::ShutdownProtobufLibrary();
         stream.flush();
@@ -67,11 +66,11 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {"School", proto::GeoGrid_Location_ContactCenter_Type_School},
+            {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
             {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"HighSchool", proto::GeoGrid_Location_ContactCenter_Type_HighSchool},
+            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
@@ -97,7 +96,7 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
         protoPerson->set_gender(std::string(1, person->GetGender()));
-        protoPerson->set_school(person->GetSchoolId());
+        protoPerson->set_school(person->GetK12SchoolId());
         protoPerson->set_household(person->GetHouseholdId());
         protoPerson->set_workplace(person->GetWorkId());
         protoPerson->set_primarycommunity(person->GetPrimaryCommunityId());
