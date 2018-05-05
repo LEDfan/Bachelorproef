@@ -11,28 +11,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Header for the SimulatorObserver class.
+ * Header for the InfectorExec class.
  */
 
+#include <spdlog/spdlog.h>
+
 namespace stride {
-namespace python {
 
-/// Hook to allow python environment to get simulator state.
-class SimulatorObserver
-{
-public:
-        SimulatorObserver() {}
+class ContactPool;
+class AgeContactProfile;
+class TransmissionProfile;
+class ContactHandler;
 
-        virtual ~SimulatorObserver() {}
+/// For use in the InfectorMap and Sim.
+typedef void(InfectorExec)(ContactPool& pool, const AgeContactProfile& profile,
+                           const TransmissionProfile& trans_profile, ContactHandler& c_handler,
+                           unsigned short int sim_day, std::shared_ptr<spdlog::logger> c_logger);
 
-        /// Update with time step as an argument.
-        virtual void Update(unsigned int) {}
-};
-
-} // namespace python
 } // namespace stride

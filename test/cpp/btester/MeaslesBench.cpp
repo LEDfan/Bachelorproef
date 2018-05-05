@@ -15,16 +15,16 @@
 
 /**
  * @file
- * Implementation of influenza_a runs for benchmarking.
+ * Implementation of Measles runs for benchmarking.
  */
 
 #include "myhayai/BenchmarkRunner.hpp"
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <iostream>
 
 using namespace std;
 using namespace stride;
@@ -34,24 +34,19 @@ using boost::property_tree::ptree;
 
 void MeaslesBench()
 {
-        auto num_builder = [](unsigned int n) {
-                return [n]() {
-                        auto runner = SimRunner::Create();
-                        return Test([runner]() { runner->Run(); },
-                                    [runner, n]() {
-                                            auto config_pt = RunConfigManager::CreateBenchMeasles();
-                                            config_pt.put("run.num_threads", n);
-                                            runner->Setup(config_pt);
-                                    });
+        auto builder = [](unsigned int n) {
+                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchMeasles());
+                return [n, configPt]() {
+                        return Test([n, configPt]() {
+                                configPt->put("run.num_threads", n);
+                                SimRunner(*configPt, Population::Create(*configPt)).Run();
+                        });
                 };
         };
 
         const auto num = RunConfigManager::CreateNumThreads();
         for (const auto n : num) {
-                BenchmarkRunner::RegisterTest("MeaselsBench", "NumThreads: " + ToString(n), 1, num_builder(n), [n]() {
-                        ptree pt;
-                        pt.put("num_threads", n);
-                        return pt;
-                });
+                auto info = [n]() { return ptree().put("num_threads", n); };
+                BenchmarkRunner::RegisterTest("Measles", "NumThreads." + ToString(n), 7, builder(n), info);
         }
 }

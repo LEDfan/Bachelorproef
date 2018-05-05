@@ -20,8 +20,8 @@
 
 #include "ScenarioData.h"
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "sim/Simulator.h"
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -47,7 +47,7 @@ public:
 
 protected:
         /// Destructor has to be virtual.
-        ~BatchRuns() override {}
+        ~BatchRuns() override = default;
 
         /// Set up for the test fixture
         void SetUp() override {}
@@ -61,18 +61,16 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
-        const string test_tag  = GetParam();
-        const auto   d         = ScenarioData::Get(test_tag);
-        auto         config_pt = get<0>(d);
-        const auto   target    = get<1>(d);
-        const auto   sigma     = get<2>(d);
+        const string testTag  = GetParam();
+        const auto   d        = ScenarioData::Get(testTag);
+        auto         configPt = get<0>(d);
+        const auto   target   = get<1>(d);
+        const auto   sigma    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
-        // Actual simualtor run.
+        // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        cerr << "test tag: " << test_tag << endl;
-        auto runner = SimRunner::Create();
-        runner->Setup(config_pt);
+        auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt));
         runner->Run();
 
         // -----------------------------------------------------------------------------------------

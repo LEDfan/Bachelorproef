@@ -39,21 +39,21 @@ class HealthSeeder
 {
 public:
         /// Constructor requires diease data and random number manager.
-        HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager);
-
-        /// Generate a health item by sample from distributions.
-        Health Sample();
+        HealthSeeder(const boost::property_tree::ptree& diseasePt, util::RNManager& rnManager);
 
         /// Seeds the population with Health data.
         void Seed(std::shared_ptr<Population> pop);
 
 private:
+        /// Utility method to etract distribution from data in ptree.
+        void GetDistribution(std::vector<double>& distribution, const boost::property_tree::ptree& rootPt,
+                             const std::string& xmlTag);
+
+        /// Generate a health item by sample from distributions.
+        Health Sample();
+
         /// Sample for each of the health data item individually.
         unsigned short int Sample(const std::vector<double>& distribution);
-
-        /// Utility method to etract distribution from data in ptree.
-        void GetDistribution(std::vector<double>& distribution, const boost::property_tree::ptree& root_pt,
-                             const std::string& xml_tag);
 
 private:
         std::vector<double>     m_distrib_start_infectiousness;

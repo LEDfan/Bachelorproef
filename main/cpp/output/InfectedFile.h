@@ -16,28 +16,34 @@
 
 /**
  * @file
- * Produce run config ptree.
+ * Header for the CasesFile class.
  */
 
+#include <fstream>
 #include <string>
+#include <vector>
 
 namespace stride {
-namespace util {
+namespace output {
 
 /**
- * Produce run config xml string. Intended for use in python as
- * import xml.etree.ElementTree as ET
- * tree = ET.ElementTree(ET.fromstring(xmlstring))
+ * Produces a file with daily cases count.
  */
-class RunConfigString
+class InfectedFile
 {
 public:
-        ///
-        static std::string CreateTestsBasic1();
+        /// Constructor: initialize.
+        explicit InfectedFile(const std::string& output_dir = "output");
 
-        ///
-        static std::string CreateTestsBasic2();
+        /// Destructor: close the file stream.
+        ~InfectedFile();
+
+        /// Print the given cases with corresponding tag.
+        void Print(const std::vector<unsigned int>& infectionCounts);
+
+private:
+        std::ofstream m_fstream; ///< The file stream.
 };
 
-} // namespace util
+} // namespace output
 } // namespace stride

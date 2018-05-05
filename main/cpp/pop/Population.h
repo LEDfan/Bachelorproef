@@ -19,6 +19,7 @@
  * Header file for the core Population class
  */
 
+#include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/Any.h"
 #include "util/SegmentedVector.h"
@@ -29,6 +30,7 @@
 #include <exception>
 #include <functional>
 #include <memory>
+#include <spdlog/spdlog.h>
 #include <typeinfo>
 #include <vector>
 
@@ -40,10 +42,17 @@ namespace stride {
 class Population : public util::SegmentedVector<Person>
 {
 public:
+        // TODO remove usage of constructors?
         explicit Population(const boost::property_tree::ptree& belief_pt)
             : m_belief_pt(belief_pt), beliefs_container(){};
 
         Population() : m_belief_pt{}, beliefs_container() { m_belief_pt.add("name", "NoBelief"); };
+
+        /// Create a population initialized by the configuration in property tree.
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt);
+
+        /// For use in python environment: create using configuration string i.o ptree.
+        static std::shared_ptr<Population> Create(const std::string& configString);
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -51,10 +60,14 @@ public:
         /// Get the cumulative number of cases.
         unsigned int GetInfectedCount() const;
 
-        /// New Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                          unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                          Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+        ///
+        std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
+
+        /// The ContactPoolSys of the simulator.
+        ContactPoolSys& GetContactPoolSys() { return m_pool_sys; }
+
+        /// The ContactPoolSys of the simulator.
+        const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
@@ -63,72 +76,24 @@ public:
 
 private:
         ///
+        Population() = default;
+
+        /// New Person in the population.
+        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+
+        ///
         template <typename BeliefPolicy>
-        void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                       unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                       Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+        void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                       unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                       Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
 
-        boost::property_tree::ptree m_belief_pt; ///< The default belief ptree used when none is passe
+        friend class PopBuilder;
 
-        /**
-         * A RAII void* for type erasure that can contain anything, owns the pointer, and cleans up
-         * Does type verification when NDEBUG is not set
-         */
-        class Any
-        {
-        public:
-                Any()
-                    : m_ptr(nullptr), m_destroy([]() {})
-#if not defined(NDEBUG)
-                      ,
-                      m_id("")
-#endif
-                {
-                }
-
-                ~Any() { m_destroy(); }
-
-                // We don't need these right now, so this is less work
-                Any(const Any&) = delete;
-                Any& operator=(const Any&) = delete;
-                Any(Any&&)                 = delete;
-                Any& operator=(Any&&) = delete;
-
-                template <typename T, class... Args>
-                void emplace(Args&&... args)
-                {
-                        m_destroy();
-                        m_ptr     = new T(std::forward<Args>(args)...);
-                        m_destroy = [this]() { delete static_cast<T*>(m_ptr); };
-#if not defined(NDEBUG)
-                        m_id = typeid(T).name();
-#endif
-                }
-
-                template <typename T>
-                T* cast() const
-                {
-#if not defined(NDEBUG)
-                        if (!*this) {
-                                throw std::bad_cast();
-                        }
-                        if (typeid(T).name() != m_id) {
-                                throw std::bad_cast();
-                        }
-#endif
-                        return static_cast<T*>(m_ptr);
-                }
-
-                operator bool() const { return m_ptr != nullptr; }
-
-        private:
-                void*                 m_ptr;
-                std::function<void()> m_destroy;
-#if not defined(NDEBUG)
-                std::string m_id;
-#endif
-        } beliefs_container; ///< Is either nullptr or util::SegmentedVector<T> where T is the BeliefPolicy NewPerson is
-                             ///< called with every time for this instance of Population
+        util::Any                       beliefs_container; ///< Holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;        ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger;  ///< Logger for contact/transmission.
 };
 
 } // namespace stride

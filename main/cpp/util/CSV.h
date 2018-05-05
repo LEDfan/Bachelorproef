@@ -82,6 +82,9 @@ public:
 private:
         void ReadFromStream(std::istream& inputStream);
 
+        /// Write CSV to file.
+        void Write(const boost::filesystem::path& path) const;
+
 protected:
         std::vector<std::string> labels;
         size_t                   columnCount = 0;

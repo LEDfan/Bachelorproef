@@ -48,7 +48,7 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 CmdLine cmd("stride", ' ', "1.0");
 
-                vector<string>           execs{"clean", "dump", "sim"};
+                vector<string>           execs{"clean", "dump", "sim", "simgui", "geopop"};
                 ValuesConstraint<string> vc(execs);
                 string se = "Execute the indicated function. The clean function takes the configuration file "
                             "specified by the --config file=<file> parameter, cleans it (indent, sort) and "
@@ -57,7 +57,8 @@ int main(int argc, char** argv)
                             "and writes it, cleanly (i.e. indented, sorted) to a new file. The sim function "
                             "runs the simulator using the configuration specified by the --config parameter."
                             "The latter may use either --config file=<file> or --config name=<name>. The sim"
-                            "function is the default.";
+                            "function is the default. The simgui function runs the simulator with a graphical"
+                            "interface. The geopop executes the geospatial synthetic population generator";
                 ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
 
                 string so = "Override configuration parameters in the configuration file. The format is "
@@ -100,16 +101,17 @@ int main(int argc, char** argv)
                 }
 
                 // -----------------------------------------------------------------------------------------
-                // If run simulation ...
+                // If run simulation in cli ...
                 // -----------------------------------------------------------------------------------------
                 if (execArg.getValue() == "sim") {
-
                         if (configPt.get<string>("run.output_prefix", "").empty()) {
                                 configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
                         configPt.sort();
 
                         std::shared_ptr<CliController> controller = nullptr;
+
+                        // TODO @Niels see new upstream switches
 
                         // Check if we need the visualiser
                         if (show_visualiser.getValue()) {
@@ -119,11 +121,25 @@ int main(int argc, char** argv)
                         }
                         controller->Setup();
                         controller->Control();
+                        CliController(configPt).Control();
+                }
+                // -----------------------------------------------------------------------------------------
+                // If run simulation in gui ...
+                // -----------------------------------------------------------------------------------------
+                else if (execArg.getValue() == "simgui") {
+                        cout << "Not implented here yet ..." << endl;
+                }
+                // -----------------------------------------------------------------------------------------
+                // If geopop ...
+                // -----------------------------------------------------------------------------------------
+                else if (execArg.getValue() == "geopop") {
+                        cout << "Not implented here yet ..." << endl;
                 }
                 // -----------------------------------------------------------------------------------------
                 // If clean/dump ...
                 // -----------------------------------------------------------------------------------------
-                else {
+                else if (execArg.getValue() == "clean" || execArg.getValue() == "dump") {
+
                         RunConfigManager::CleanConfigFile(configPt);
                 }
 
