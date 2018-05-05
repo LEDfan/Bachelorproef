@@ -5,6 +5,12 @@
 #include <queue>
 #include <utility>
 
+namespace {
+double RadianToDegree(double rad) { return rad / M_PI * 180.0; }
+
+double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
+} // namespace
+
 namespace gengeopop {
 
 GeoGrid::GeoGrid()
@@ -113,18 +119,17 @@ std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_p
 
         AABB<KdTree2DPoint> box{};
 
-        /*
-         * double maxlat = start->GetCoordinate().latitude + RadianToDegree(radius / 6371.0);
-         * double minlat = start->GetCoordinate().latitude - RadianToDegree(radius / 6371.0);
+        // As of boost 1.66, there's seems no way to do this in Boost.Geometry
+        constexpr double EARTH_RADIUS_KM = 6371.0;
+        double           scaled_radius   = radius / EARTH_RADIUS_KM;
 
-         * double maxlon = start->GetCoordinate().longitude +
-         *                 RadianToDegree(radius / 6371.0 / std::cos(DegreeToRadian(start->GetCoordinate().latitude)));
-         * double minlon = start->GetCoordinate().longitude -
-         *                 RadianToDegree(radius / 6371.0 / std::cos(DegreeToRadian(start->GetCoordinate().latitude)));
+        double startlon = start->GetCoordinate().longitude;
+        double startlat = start->GetCoordinate().latitude;
+        double londiff  = RadianToDegree(scaled_radius / std::cos(DegreeToRadian(startlat)));
+        double latdiff  = RadianToDegree(scaled_radius);
 
-         * box.upper = KdTree2DPoint(maxlon, maxlat);
-         * box.lower = KdTree2DPoint(minlon, minlat);
-         */
+        box.upper = KdTree2DPoint(startlon + londiff, startlat + latdiff);
+        box.lower = KdTree2DPoint(startlon - londiff, startlat - latdiff);
 
         KdTree2DPoint startPt(start);
 
