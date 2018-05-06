@@ -1,7 +1,7 @@
 #include "ContactPoolListModel.h"
 #include <iostream>
 
-int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return static_cast<int>(m_pools.size()); }
+int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return m_pools.size(); }
 
 QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 {
@@ -17,7 +17,7 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 
 ContactPoolListModel::ContactPoolListModel(QObject* parent) : QAbstractListModel(parent), m_pools() {}
 
-QHash<int, QByteArray> ContactPoolListModel::RoleNames() const
+QHash<int, QByteArray> ContactPoolListModel::roleNames() const
 {
         QHash<int, QByteArray> roles;
         roles[Roles::IDRole]       = "id";

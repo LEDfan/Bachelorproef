@@ -26,5 +26,6 @@ public:
 
 private:
         QObject*                     m_rootContext = nullptr; ///< The root context of the main QML file
-        std::unique_ptr<std::thread> m_thread; ///< The thread that the visualizer QT application is run on
+        std::unique_ptr<std::thread> m_thread;          ///< The thread that the visualizer QT application is run on
+        bool                         m_setGrid = false; ///< If the grid was set for the visualizer
 };

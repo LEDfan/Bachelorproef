@@ -1,5 +1,5 @@
 #include "HouseholdPopulator.h"
-#include "../School.h"
+#include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
@@ -19,7 +19,8 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         auto         household_dist    = m_rnManager.GetGenerator(trng::uniform_int_dist(
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                const std::set<std::shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
+                const std::vector<std::shared_ptr<ContactCenter>>& households =
+                    loc->GetContactCentersOfType<Household>();
                 for (const auto& household : households) {
                         std::shared_ptr<ContactPool> contactPool     = household->GetPools()[0];
                         auto                         householdTypeId = static_cast<unsigned int>(household_dist());
@@ -28,7 +29,7 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         for (stride::Person* personType : *householdType) {
                                 auto person = geoGrid->CreatePerson(
                                     current_person_id++, personType->GetAge(), household->GetId(),
-                                    personType->GetSchoolId(), personType->GetWorkId(),
+                                    personType->GetK12SchoolId(), personType->GetWorkId(),
                                     personType->GetPrimaryCommunityId(), personType->GetSecondaryCommunityId());
                                 contactPool->AddMember(person);
                         }

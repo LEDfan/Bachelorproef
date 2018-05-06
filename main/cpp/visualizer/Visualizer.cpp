@@ -14,7 +14,7 @@ Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::GeoGrid>)
 Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
-Visualizer::Visualizer() : m_thread(nullptr)
+Visualizer::Visualizer() : m_thread(nullptr), m_setGrid(false)
 {
         Q_INIT_RESOURCE(qml);
 
@@ -57,15 +57,21 @@ Visualizer::Visualizer() : m_thread(nullptr)
 
 void Visualizer::ForceUpdateMarkers()
 {
-        //        auto backend = m_rootContext->findChild<QObject*>("backend");
-        // Force to update colors of sickness
+        QObject* backend = m_rootContext->findChild<QObject*>("backend");
+        if (backend != nullptr && m_setGrid) {
+                Backend* backendClass = qobject_cast<Backend*>(backend);
+                backendClass->UpdateAllHealthColors();
+        }
 }
 
 void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 {
-        QObject* backend      = m_rootContext->findChild<QObject*>("backend");
-        Backend* backendClass = qobject_cast<Backend*>(backend);
-        backendClass->SetGeoGrid(grid);
+        QObject* backend = m_rootContext->findChild<QObject*>("backend");
+        if (backend != nullptr && grid != nullptr) {
+                Backend* backendClass = qobject_cast<Backend*>(backend);
+                backendClass->SetGeoGrid(grid);
+                m_setGrid = true;
+        }
 }
 
 void Visualizer::Join() { m_thread->join(); }

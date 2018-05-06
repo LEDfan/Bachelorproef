@@ -52,11 +52,6 @@ public:
         // ==================================================================
         // Member types
         // ==================================================================
-        using value_type     = T;
-        using size_type      = std::size_t;
-        using self_type      = SegmentedVector<T, N>;
-        using iterator       = SVIterator<T, N, T*, T&, false>;
-        using const_iterator = SVIterator<T, N>;
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
@@ -66,7 +61,7 @@ public:
         SegmentedVector() : m_blocks(), m_size(0) {}
 
         /// Copy constructor
-        SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
+        SegmentedVector(const SegmentedVector<T, N>& other) : m_blocks(), m_size(0)
         {
                 m_blocks.reserve(other.m_blocks.size());
                 for (const auto& elem : other) {
@@ -77,13 +72,14 @@ public:
         }
 
         /// Move constructor
-        SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        SegmentedVector(SegmentedVector<T, N>&& other) noexcept
+            : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
 
         /// Copy assignment
-        SegmentedVector& operator=(const self_type& other)
+        SegmentedVector& operator=(const SegmentedVector<T, N>& other)
         {
                 if (this != &other) {
                         clear();
@@ -98,7 +94,7 @@ public:
         }
 
         /// Move assignment
-        SegmentedVector& operator=(self_type&& other) noexcept
+        SegmentedVector& operator=(SegmentedVector<T, N>&& other) noexcept
         {
                 if (this != &other) {
                         clear();
@@ -159,23 +155,29 @@ public:
         // Iterators
         // ==================================================================
 
-        /// Returns an iterator to the beginning of the container.
-        iterator begin() { return (m_size == 0) ? end() : iterator(0, this); }
+        /// Returns an SVIterator<T, N, T*, T&, false> to the beginning of the container.
+        SVIterator<T, N, T*, T&, false> begin()
+        {
+                return (m_size == 0) ? end() : SVIterator<T, N, T*, T&, false>(0, this);
+        }
 
-        /// Returns a const_iterator to the beginning of the container.
-        const_iterator begin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
+        /// Returns a SVIterator<T, N>; to the beginning of the container.
+        SVIterator<T, N> begin() const { return (m_size == 0) ? end() : SVIterator<T, N>(0, this); }
 
-        /// Returns a const_iterator to the beginning of the container.
-        const_iterator cbegin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
+        /// Returns a SVIterator<T, N>; to the beginning of the container.
+        SVIterator<T, N> cbegin() const { return (m_size == 0) ? end() : SVIterator<T, N>(0, this); }
 
-        /// Returns an iterator to the end of the container.
-        iterator end() { return iterator(iterator::m_end, this); }
+        /// Returns an SVIterator<T, N, T*, T&, false> to the end of the container.
+        SVIterator<T, N, T*, T&, false> end()
+        {
+                return SVIterator<T, N, T*, T&, false>(SVIterator<T, N, T*, T&, false>::m_end, this);
+        }
 
-        /// Returns a const_iterator to the end of the container.
-        const_iterator end() const { return const_iterator(const_iterator::m_end, this); }
+        /// Returns a SVIterator<T, N>; to the end of the container.
+        SVIterator<T, N> end() const { return SVIterator<T, N>(SVIterator<T, N>::m_end, this); }
 
-        /// Returns a const_iterator to the end.
-        const_iterator cend() const { return const_iterator(const_iterator::m_end, this); }
+        /// Returns a SVIterator<T, N>; to the end.
+        SVIterator<T, N> cend() const { return SVIterator<T, N>(SVIterator<T, N>::m_end, this); }
 
         // ==================================================================
         // Capacity

@@ -8,6 +8,7 @@
 #include <gengeopop/Workplace.h>
 #include <iostream>
 #include <pop/Person.h>
+#include <util/ExcAssert.h>
 #include <utility>
 
 namespace gengeopop {
@@ -41,6 +42,9 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
+                if (loc->GetPopulation() == 0) {
+                        continue;
+                }
                 m_currentLoc = loc;
                 CalculateCommutingLocations();
                 CalculateNearbyWorkspaces();
@@ -49,15 +53,13 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
                         for (stride::Person* person : *contactPool) {
-                                if ((person->GetAge() >= 18 && person->GetAge() < 65)) {
-
+                                if (person->IsWorkableCandidate()) {
                                         bool isStudent =
                                             MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents);
                                         bool isActiveWorker =
                                             MakeChoice(geoGridConfig.input.fraction_1865_years_active);
 
-                                        if ((person->GetAge() >= 18 && person->GetAge() < 26 && !isStudent) ||
-                                            isActiveWorker) {
+                                        if ((person->IsCollegeStudentCandidate() && !isStudent) || isActiveWorker) {
                                                 AssignActive(person);
                                         } else {
                                                 // this person isn't an active employee
@@ -80,6 +82,7 @@ void WorkplacePopulator::CalculateFractionCommutingStudents()
              m_geoGridConfig.input.fraction_student_commutingPeople) /
             (m_geoGridConfig.calculated._1865_and_years_active * m_geoGridConfig.input.fraction_active_commutingPeople);
 }
+
 void WorkplacePopulator::CalculateWorkplacesInCity()
 {
         for (const std::shared_ptr<Location>& loc : *m_geoGrid) {
@@ -109,12 +112,12 @@ void WorkplacePopulator::AssignActive(stride::Person* person)
                 auto        id         = info.second();
 
                 info.first[id]->AddMember(person);
-                person->SetWorkId(static_cast<unsigned int>(id));
+                person->SetWorkId(info.first[id]->GetID());
                 m_assignedCommuting++;
         } else {
                 auto id = m_distNonCommuting();
                 m_nearByWorkplaces[id]->AddMember(person);
-                person->SetWorkId(static_cast<unsigned int>(id));
+                person->SetWorkId(m_nearByWorkplaces[id]->GetID());
                 m_assignedNotCommuting++;
         }
 }
@@ -130,7 +133,11 @@ void WorkplacePopulator::CalculateCommutingLocations()
                 const auto& Workplaces = commute.first->GetContactCentersOfType<Workplace>();
                 if (!Workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
-                        commutingWeights.push_back(commute.second - (commute.second * m_fractionCommutingStudents));
+                        double weight = commute.second - (commute.second * m_fractionCommutingStudents);
+                        commutingWeights.push_back(weight);
+                        ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                                  "Invalid weight due to invalid input data in WorkplacePopulator, weight: " +
+                                      std::to_string(weight));
                 }
         }
 

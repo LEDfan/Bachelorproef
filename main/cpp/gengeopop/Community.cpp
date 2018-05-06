@@ -1,6 +1,6 @@
 #include "Community.h"
 #include "GeoGridConfig.h"
-#include <Exception.h>
+#include <util/Exception.h>
 namespace gengeopop {
 
 Community::Community(unsigned int id) : ContactCenter(id) {}
@@ -19,21 +19,13 @@ void         Community::Fill(GeoGridConfig& geoGridConfig)
 void Community::AddHouseHold(std::shared_ptr<Household> household)
 {
         if (m_pools.empty()) {
-                throw Exception("Could not add the Household to the Community, no ContactPool available");
+                throw stride::util::Exception("Could not add the Household to the Community, no ContactPool available");
         } else {
                 if (household->GetPools().empty())
                         return;
                 for (stride::Person* person : **household->begin()) {
                         m_pools[0]->AddMember(person);
                 }
-        }
-}
-bool Community::IsAvailable() const
-{
-        if (m_pools.empty()) {
-                return false;
-        } else {
-                return m_pools[0]->GetCapacity() > m_pools[0]->GetUsedCapacity();
         }
 }
 } // namespace gengeopop

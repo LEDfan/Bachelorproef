@@ -1,8 +1,8 @@
 #include "GeoGrid.h"
-#include <Exception.h>
 #include <cmath>
 #include <iostream>
 #include <queue>
+#include <util/Exception.h>
 #include <utility>
 
 namespace {
@@ -32,19 +32,15 @@ GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 void GeoGrid::AddLocation(std::shared_ptr<Location> location)
 {
         if (m_finalized) {
-                throw Exception("Calling addLocation while GeoGrid is finalized is not supported!");
+                throw stride::util::Exception("Calling addLocation while GeoGrid is finalized is not supported!");
         }
 
         m_locations.emplace_back(location);
         m_locationsToIdIndex[location->GetID()] = location;
 }
 
-std::shared_ptr<Location> GeoGrid::operator[](size_t index)
-{
-        // TODO range check needed?
-        return *(begin() + index);
-}
-std::shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
+std::shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
+std::shared_ptr<Location>          GeoGrid::Get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {
@@ -113,7 +109,8 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
         return result;
 }
 
-std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_ptr<Location> start, double radius) const
+std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_ptr<Location> start,
+                                                                      double                    radius) const
 {
         CheckFinalized(__func__);
 
@@ -133,12 +130,12 @@ std::set<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_p
 
         KdTree2DPoint startPt(start);
 
-        std::set<std::shared_ptr<Location>> result;
+        std::vector<std::shared_ptr<Location>> result;
 
         m_tree.Apply(
             [&startPt, &radius, &result](const KdTree2DPoint& pt) -> bool {
                     if (pt.InRadius(startPt, radius)) {
-                            result.insert(pt.GetLocation());
+                            result.push_back(pt.GetLocation());
                     }
                     return true;
             },
@@ -152,7 +149,8 @@ std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_populati
 void GeoGrid::CheckFinalized(const std::string& functionName) const
 {
         if (!m_finalized) {
-                throw Exception("Calling \"" + functionName + "\" while GeoGrid is not finalized is not supported!");
+                throw stride::util::Exception("Calling \"" + functionName +
+                                              "\" while GeoGrid is not finalized is not supported!");
         }
 }
 

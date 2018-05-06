@@ -107,6 +107,8 @@ set(LIB_SRC
         util/SVIterator.h
         util/TimeStamp.h
         util/TimeToString.h
+        util/ExcAssert.h
+        util/Exception.cpp
         #---
         viewers/AdoptedViewer.cpp
         viewers/CasesViewer.cpp
@@ -116,7 +118,6 @@ set(LIB_SRC
         viewers/MapViewer.cpp
         viewers/MapViewer.h
 		#---
-        Exception.cpp
         )
 
 #============================================================================

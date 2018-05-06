@@ -1,6 +1,6 @@
 #include "../../createlogger.h"
-#include <gengeopop/School.h>
-#include <gengeopop/generators/SchoolGenerator.h>
+#include <gengeopop/K12School.h>
+#include <gengeopop/generators/K12SchoolGenerator.h>
 #include <gtest/gtest.h>
 #include <util/RNManager.h>
 
@@ -15,8 +15,8 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        SchoolGenerator schoolGenerator(rnManager, CreateLogger());
-        GeoGridConfig   config{};
+        K12SchoolGenerator schoolGenerator(rnManager, CreateLogger());
+        GeoGridConfig      config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = 2000;
 
@@ -37,8 +37,8 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        SchoolGenerator schoolGenerator(rnManager, CreateLogger());
-        GeoGridConfig   config{};
+        K12SchoolGenerator schoolGenerator(rnManager, CreateLogger());
+        GeoGridConfig      config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = 2000;
 
@@ -55,8 +55,8 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         rnInfo.m_seed = 2;
         stride::util::RNManager rnManager(rnInfo);
 
-        SchoolGenerator schoolGenerator(rnManager, CreateLogger());
-        GeoGridConfig   config{};
+        K12SchoolGenerator schoolGenerator(rnManager, CreateLogger());
+        GeoGridConfig      config{};
         config.input.populationSize        = 37542 * 100;
         config.calculated.compulsoryPupils = 750840;
 

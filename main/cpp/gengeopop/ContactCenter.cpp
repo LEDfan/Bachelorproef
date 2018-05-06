@@ -14,6 +14,18 @@ const std::vector<std::shared_ptr<ContactPool>>& ContactCenter::GetPools() const
 
 unsigned int ContactCenter::GetId() const { return m_id; }
 
-bool ContactCenter::IsAvailable() const { return true; }
+std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCount() const
+{
+        unsigned int population = 0;
+        unsigned int infected   = 0;
+
+        for (const std::shared_ptr<gengeopop::ContactPool>& pool : m_pools) {
+                auto poolR = pool->GetPopulationAndInfectedCount();
+                population += poolR.first;
+                infected += poolR.second;
+        }
+
+        return {population, infected};
+}
 
 } // namespace gengeopop
