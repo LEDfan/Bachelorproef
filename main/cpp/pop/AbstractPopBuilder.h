@@ -16,11 +16,12 @@
 
 /**
  * @file
- * Initialize populations.
+ * Base Class for PopBuilders
  */
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
+#include <spdlog/logger.h>
 
 namespace stride {
 
@@ -30,34 +31,24 @@ class RNManager;
 }
 
 /**
- * Initializes Population objects.
+ * Base Class for PopBuilders
  */
-class PopBuilder
+class AbstractPopBuilder
 {
 public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
         /// \param rnManager   Random number manager for pop build process.
-        PopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
 
         /// Build Population and return it afterwards.
-        /// The steps are:
-        /// - Check input data.
-        /// - Read persons from file and instatiate them.
-        /// - Fill up the various type of contactpools.
-        /// - Seed the population with contact survey participants.
-        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
+        virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
 
-private:
-        /// Fills up pop's contact pool system and return pop.
-        std::shared_ptr<Population> MakePoolSys(std::shared_ptr<Population> pop);
+        virtual ~AbstractPopBuilder(){};
 
-        /// Generates pop's individuals and return pop.
-        std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
-
-private:
-        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree
-        util::RNManager&                   m_rn_manager; ///< Random numbere generation management.
+protected:
+        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree.
+        util::RNManager&                   m_rn_manager; ///< Random number generation management.
 };
 
 } // namespace stride

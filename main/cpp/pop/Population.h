@@ -19,6 +19,7 @@
  * Header file for the core Population class
  */
 
+#include "AbstractPopBuilder.h"
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/Any.h"
@@ -33,6 +34,11 @@
 #include <spdlog/spdlog.h>
 #include <typeinfo>
 #include <vector>
+//#include <gengeopop/GeoGrid.h>
+
+namespace gengeopop {
+class GeoGrid;
+}
 
 namespace stride {
 
@@ -68,8 +74,10 @@ public:
                           unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                           Health health = Health(), double risk_averseness = 0);
 
+        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
+
 private:
-        Population() : m_belief_pt(), m_beliefs_container(), m_pool_sys(), m_contact_logger(){};
+        Population() : m_belief_pt(), m_beliefs_container(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr){};
 
         /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
@@ -82,12 +90,14 @@ private:
                        unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
                        Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
 
-        friend class PopBuilder;
+        friend class DefaultPopBuilder;
+        friend class GenPopBuilder;
 
-        boost::property_tree::ptree     m_belief_pt;
-        util::Any                       m_beliefs_container; ///< Holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;          ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger;    ///< Logger for contact/transmission.
+        boost::property_tree::ptree         m_belief_pt;
+        util::Any                           m_beliefs_container; ///< Holds belief data for the persons.
+        ContactPoolSys                      m_pool_sys;          ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger>     m_contact_logger;    ///< Logger for contact/transmission.
+        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;           ///< Associated geoGrid may be nullptr
 };
 
 } // namespace stride

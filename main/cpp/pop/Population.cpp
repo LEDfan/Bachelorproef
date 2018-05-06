@@ -22,16 +22,12 @@
 
 #include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
-#include "disease/Health.h"
-#include "pop/PopBuilder.h"
+#include "pop/DefaultPopBuilder.h"
+#include "pop/GenPopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/RNManager.h"
 #include "util/RunConfigManager.h"
-#include "util/SegmentedVector.h"
-
-#include <boost/property_tree/ptree.hpp>
-#include <utility>
 
 using namespace boost::property_tree;
 using namespace std;
@@ -67,7 +63,14 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         // Build population (at later date multiple builder or build instances ...).
         // -----------------------------------------------------------------------------------------
-        return PopBuilder(configPt, rnManager).Build(pop);
+        std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
+        if (geopop_type == "import") {
+
+        } else if (geopop_type == "generate") {
+                return GenPopBuilder(configPt, rnManager).Build(pop);
+        } else {
+                return DefaultPopBuilder(configPt, rnManager).Build(pop);
+        }
 }
 
 std::shared_ptr<Population> Population::Create(const string& configString)

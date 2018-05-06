@@ -18,7 +18,7 @@
  * Initialize populations: implementation.
  */
 
-#include "PopBuilder.h"
+#include "DefaultPopBuilder.h"
 
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
@@ -34,9 +34,7 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
-
-shared_ptr<Population> PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
+shared_ptr<Population> DefaultPopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
 {
         using namespace ContactPoolType;
         auto& population = *pop;
@@ -81,7 +79,7 @@ shared_ptr<Population> PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
         return pop;
 }
 
-shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
+shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Read persosns from file.
@@ -123,7 +121,7 @@ shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
         return pop;
 }
 
-shared_ptr<Population> PopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Check validity of input data.

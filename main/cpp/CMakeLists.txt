@@ -78,7 +78,9 @@ set(LIB_SRC
         pop/Age.h
         pop/Person.cpp
         pop/Population.cpp
-        pop/PopBuilder.cpp
+        pop/DefaultPopBuilder.cpp
+        pop/AbstractPopBuilder.cpp
+        pop/GenPopBuilder.cpp
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp

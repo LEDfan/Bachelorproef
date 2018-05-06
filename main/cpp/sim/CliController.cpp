@@ -104,6 +104,7 @@ void CliController::MakeLogger()
         m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
+        spdlog::register_logger(m_stride_logger);
 }
 
 void CliController::RegisterViewers(shared_ptr<SimRunner> runner)

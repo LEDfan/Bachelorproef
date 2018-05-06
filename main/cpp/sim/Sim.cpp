@@ -29,7 +29,7 @@
 #include "util/RunConfigManager.h"
 
 #include <omp.h>
-
+#include <utility>
 namespace stride {
 
 using namespace std;
@@ -40,7 +40,7 @@ using namespace ContactLogMode;
 Sim::Sim()
     : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
       m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(),
-      m_transmission_profile(), m_geoGrid()
+      m_transmission_profile()
 {
 }
 
@@ -50,7 +50,7 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, sh
         {
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
-        SimBuilder(configPt).Build(sim, pop);
+        SimBuilder(configPt).Build(sim, std::move(pop));
         return sim;
 }
 
