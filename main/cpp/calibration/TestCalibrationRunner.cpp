@@ -1,8 +1,11 @@
 #include "TestCalibrationRunner.h"
 #include "../../test/cpp/gtester/ScenarioData.h"
 #include "Boxplot.h"
-#include "BoxplotGenerator.h"
 #include "Calibrator.h"
+
+#ifdef QTCHARTS
+#include "BoxplotGenerator.h"
+#endif
 
 namespace calibration {
 
@@ -40,6 +43,8 @@ void TestCalibrationRunner::WriteResults(std::string filename)
                 calibrator.WriteResults(multipleResults, filename);
 }
 
+#ifdef QTCHARTS
+
 void TestCalibrationRunner::WriteBoxplots()
 {
         Boxplot                  boxplot;
@@ -55,5 +60,7 @@ void TestCalibrationRunner::DisplayBoxplots(unsigned int step)
         BoxplotGenerator         boxplotGenerator;
         boxplotGenerator.WriteToFile(data);
 }
+
+#endif
 
 } // namespace calibration

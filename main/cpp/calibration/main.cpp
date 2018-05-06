@@ -1,4 +1,3 @@
-#include "Boxplot.h"
 #include "Calibrator.h"
 #include "TestCalibrationRunner.h"
 #include <tclap/CmdLine.h>
@@ -43,9 +42,15 @@ int main(int argc, char* argv[])
         if (count.getValue() <= 1 && (write.getValue() || display.isSet())) {
                 std::cerr << "Invalid parameters: cannot generate boxplots with count value " << count.getValue()
                           << std::endl;
-        } else if (display.isSet())
+        }
+#ifdef QTCHARTS
+        else if (display.isSet())
                 testCalibrationRunner.DisplayBoxplots(display.getValue());
         else if (write.getValue())
                 testCalibrationRunner.WriteBoxplots();
+#else
+        if (display.isSet() || write.getValue())
+                std::cerr << "The calibration tool was not compiled with support for Qt5Charts" << std::endl;
+#endif
         return 0;
 }
