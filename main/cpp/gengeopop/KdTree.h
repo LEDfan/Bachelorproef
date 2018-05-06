@@ -18,7 +18,7 @@ class BaseNode;
 template <typename P, std::size_t D>
 class Node;
 template <typename P, std::size_t D>
-std::size_t median(const std::vector<P>& points);
+std::size_t Median(const std::vector<P>& points);
 } // namespace kd
 
 /**********************************
@@ -46,7 +46,7 @@ struct AABB
  *  - A `static constexpr std::size_t dim`: the number of dimensions of the point type.
  *  - A `template <std::size_d D> get() const` method that returns the coordinate of the `D`th dimension of the point
  *  - A nested `template <std::size_t D> struct dimension_type` that has a member type `type` giving the return type for
- *    `get<D>`
+ *    `Get<D>`
  *  - A default constructor and a copy constructor
  *  - The individual dimensions should each have a total order and equality
  *  - A method `bool InBox(const AABB<P>& box) const` that indicates if a point falls withing the bounding box (only for
@@ -237,7 +237,7 @@ private:
                 if (points.empty())
                         return nullptr;
 
-                std::size_t med        = kd::median<P, D>(points);
+                std::size_t med        = kd::Median<P, D>(points);
                 auto        median_val = points[med].template Get<D>();
                 P           root_pt;
 
@@ -353,7 +353,7 @@ private:
 };
 
 template <typename P, std::size_t D>
-std::size_t median(const std::vector<P>& points)
+std::size_t Median(const std::vector<P>& points)
 {
         if (points.empty())
                 return 0;
