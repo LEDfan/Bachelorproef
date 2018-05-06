@@ -1084,6 +1084,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/calibrator_feedback/613.5-osx-9.2-apple-clang.html",
       "build_id": "613.5",
       "name": "osx-9.2-apple-clang"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/calibrator_feedback/613.6-osx-8.3-llvm-clang.html",
+      "name": "osx-8.3-llvm-clang",
+      "build_id": "613.6"
     }
   ],
   "genpop-tests": [
