@@ -24,7 +24,6 @@ addons:
     sources: &default_sources
       - ubuntu-toolchain-r-test
     packages: &default_packages
-      - swig3.0
       - libhdf5-dev
 
 matrix:
@@ -75,8 +74,8 @@ install:
     #--------- Linux
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-        wget https://mirrors.edge.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.12-1_amd64.deb;
-        sudo dpkg -i swig3.0_3.0.12-0ubuntu3_amd64.deb;
+        wget -O swig.deb https://c.ledfan.be/s/eXQ5LW4yTxTYwja/download;
+        sudo dpkg -i swig.deb;
         sudo apt-get -y remove qtchooser;
         wget -O qt.deb https://c.ledfan.be/s/ZJDRPiFrrtWHC3F/download;
         sudo dpkg -i qt.deb;
@@ -116,8 +115,8 @@ script:
   #         STRIDE_GENERATE_COVERAGE: enable coverage -- set in `matrix`
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-  - CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make test
+  - CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$BOOSTHOME STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$BOOSTHOME STRIDE_BOOST_NO_SYSTEM_PATHS=ON make test
 
 after_success:
     - |
