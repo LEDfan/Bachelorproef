@@ -137,9 +137,7 @@ private:
                             m_pt, boost::geometry::model::box<BoostPoint>{box.lower.m_pt, box.upper.m_pt});
                 }
 
-                /**
-                 * Does the point lie within `radius` km from `start`?
-                 */
+                /// Does the point lie within `radius` km from `start`?
                 bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
 
                 std::shared_ptr<Location> GetLocation() const { return m_location; }
@@ -154,9 +152,7 @@ private:
                 BoostPoint                m_pt;
                 std::shared_ptr<Location> m_location;
 
-                /**
-                 * Distance in kilometers, following great circle distance on a speroid earth
-                 */
+                /// Distance in kilometers, following great circle distance on a speroid earth
                 double Distance(const KdTree2DPoint& other) const
                 {
                         return boost::geometry::distance(m_pt, other.m_pt,
