@@ -120,7 +120,6 @@ int main(int argc, char** argv)
                                 controller = std::make_shared<CliController>(configPt);
                         }
                         controller->Control();
-                        CliController(configPt).Control();
                 }
                 // -----------------------------------------------------------------------------------------
                 // If run simulation in gui ...
