@@ -33,12 +33,12 @@ class RNManager;
 /**
  * Initializes Population objects.
  */
-class GenPopBuilder : public AbstractPopBuilder
+class ImportPopBuilder : public AbstractPopBuilder
 {
 public:
         using AbstractPopBuilder::AbstractPopBuilder;
 
-        /// Creates a population by generating it
+        /// Creates a population by importing it
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
 };
 

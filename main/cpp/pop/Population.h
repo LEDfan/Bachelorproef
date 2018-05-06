@@ -20,6 +20,7 @@
  */
 
 #include "AbstractPopBuilder.h"
+#include "ImportPopBuilder.h"
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/Any.h"
@@ -53,6 +54,9 @@ public:
 
         /// For use in python environment: create using configuration string i.o ptree.
         static std::shared_ptr<Population> Create(const std::string& configString);
+
+        /// Create an empty Population with NoBelief policy, used in gengeopop
+        static std::shared_ptr<Population> Create();
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -92,6 +96,7 @@ private:
 
         friend class DefaultPopBuilder;
         friend class GenPopBuilder;
+        friend class ImportPopBuilder;
 
         boost::property_tree::ptree         m_belief_pt;
         util::Any                           m_beliefs_container; ///< Holds belief data for the persons.

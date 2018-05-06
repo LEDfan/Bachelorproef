@@ -80,6 +80,7 @@ set(LIB_SRC
         pop/Population.cpp
         pop/DefaultPopBuilder.cpp
         pop/AbstractPopBuilder.cpp
+        pop/ImportPopBuilder.cpp
         pop/GenPopBuilder.cpp
         pop/SurveySeeder.cpp
         #---

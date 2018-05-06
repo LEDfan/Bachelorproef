@@ -45,14 +45,6 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
-        //        if (!stride_logger) {
-        //                std::cout << "Can't find stride logger" << std::endl;
-        //        }
-        //
-        //        auto logger2 = LogUtils::CreateCliLogger("stride_logger", "");
-
-        std::cout << "hoi" << std::endl;
-
         pop->m_belief_pt = m_config_pt.get_child("run.belief_policy");
 
         // --------------------------------------------------------------

@@ -65,7 +65,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
         if (geopop_type == "import") {
-
+                return ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (geopop_type == "generate") {
                 return GenPopBuilder(configPt, rnManager).Build(pop);
         } else {
@@ -76,6 +76,19 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
 std::shared_ptr<Population> Population::Create(const string& configString)
 {
         return Create(RunConfigManager::FromString(configString));
+}
+
+std::shared_ptr<Population> Population::Create()
+{
+        // --------------------------------------------------------------
+        // Create (empty) population and return it
+        // --------------------------------------------------------------
+        struct make_shared_enabler : public Population
+        {
+        };
+        auto r = make_shared<make_shared_enabler>();
+        r->m_belief_pt.add("name", "NoBelief");
+        return r;
 }
 
 unsigned int Population::GetAdoptedCount() const
