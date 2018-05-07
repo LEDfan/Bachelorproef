@@ -85,6 +85,7 @@ set(LIB_SRC
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp
+        sim/BaseController.cpp
         sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
         sim/SimBuilder.cpp
@@ -146,6 +147,7 @@ target_link_libraries(stride libvis)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 add_subdirectory(visualizer)
+add_subdirectory(guicontroller)
 
 #============================================================================
 # Clean up.

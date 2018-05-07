@@ -1,12 +1,6 @@
-set(VISUALIZER_SRC
-    backend.cpp
-    main.cpp
-    backends/LocationViewerBackend.cpp
-    backends/ContactCenterViewerBackend.cpp
-    models/ContactPoolListModel.cpp
-    models/CommutesListModel.cpp
-    models/ContactCenterListModel.cpp
-    Visualizer.cpp Visualizer.h
+set(GUICONTROLLER_SRC
+        main.cpp
+        GuiController.cpp
 )
 set (CMAKE_CXX_STANDARD 14)
 
@@ -27,24 +21,16 @@ set(CMAKE_AUTOUIC ON)
 #============================================================================
 # Build and link the visualizer executable.
 #============================================================================
-add_executable(visualizer ${VISUALIZER_SRC} ${QT_RESOURCES})
-target_link_libraries(visualizer
+
+add_executable(guicontroller ${GUICONTROLLER_SRC} ${QT_RESOURCES})
+target_link_libraries(guicontroller
     libgengeopop
     Qt5::Widgets
     Qt5::Qml
     Qt5::Quick
 )
 
-# Create libary
-include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
-add_library(libvis ${VISUALIZER_SRC} ${QT_RESOURCES})
-target_link_libraries(libvis
-    libgengeopop
-    Qt5::Widgets
-    Qt5::Qml
-    Qt5::Quick
-)
 
-install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
+install(TARGETS guicontroller DESTINATION   ${BIN_INSTALL_LOCATION})
 
-unset(VISUALIZER_SRC)
+unset(GUICONTROLLER_SRC)
