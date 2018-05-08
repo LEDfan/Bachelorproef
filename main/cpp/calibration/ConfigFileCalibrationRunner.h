@@ -14,8 +14,8 @@ namespace calibration {
 class ConfigFileCalibrationRunner : public CalibrationRunner
 {
 public:
-        /// Setup
-        ConfigFileCalibrationRunner(std::string configFile);
+        /// Setup, creates a ptree based on the filenames in configFiles
+        ConfigFileCalibrationRunner(std::vector<std::string> configFiles);
 };
 
 } // namespace calibration

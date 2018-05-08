@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
         std::string           sc = "Specifies the run configuration parameters to be used. It may be either "
                          "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
                          "shortened to -c <file>.";
-        ValueArg<std::string> configArg("c", "config", sc, false, "run_default.xml", "RUN CONFIGURATION", cmd);
+        MultiArg<std::string> configArg("c", "config", sc, false, "RUN CONFIGURATION", cmd);
         cmd.parse(argc, static_cast<const char* const*>(argv));
 
         if (!count.isSet() && !single.isSet()) {

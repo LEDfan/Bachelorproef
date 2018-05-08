@@ -14,7 +14,7 @@ namespace calibration {
 class TestCalibrationRunner : public CalibrationRunner
 {
 public:
-        /// Setup
+        /// Setup, retrieves the ptrees from the ScenarioData
         TestCalibrationRunner(std::vector<std::string> testcases);
 };
 

@@ -9,20 +9,21 @@
 
 namespace calibration {
 
-ConfigFileCalibrationRunner::ConfigFileCalibrationRunner(std::string config) : CalibrationRunner()
+ConfigFileCalibrationRunner::ConfigFileCalibrationRunner(std::vector<std::string> configFiles) : CalibrationRunner()
 {
+        for (auto config : configFiles) {
+                boost::property_tree::ptree configPt;
 
-        boost::property_tree::ptree configPt;
-
-        if (regex_search(config, std::regex("^name="))) {
-                config   = regex_replace(config, std::regex(std::string("^name=")), std::string(""));
-                configPt = stride::util::RunConfigManager::Create(config);
-        } else {
-                config = regex_replace(config, std::regex(std::string("^file=")), std::string(""));
-                const boost::filesystem::path configPath = config;
-                configPt                                 = stride::util::FileSys::ReadPtreeFile(configPath);
+                if (regex_search(config, std::regex("^name="))) {
+                        config   = regex_replace(config, std::regex(std::string("^name=")), std::string(""));
+                        configPt = stride::util::RunConfigManager::Create(config);
+                } else {
+                        config = regex_replace(config, std::regex(std::string("^file=")), std::string(""));
+                        const boost::filesystem::path configPath = config;
+                        configPt                                 = stride::util::FileSys::ReadPtreeFile(configPath);
+                }
+                configs.push_back(std::make_pair(configPt, config));
         }
-        configs.push_back(std::make_pair(configPt, config));
 }
 
 } // namespace calibration
