@@ -22,10 +22,7 @@
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <functional>
 #include <memory>
-#include <spdlog/spdlog.h>
-#include <string>
 
 namespace stride {
 
@@ -37,14 +34,18 @@ class Population;
 class SurveySeeder
 {
 public:
+        /// Initialize Seeder.
+        /// \param configPt         Configuration parameters.
+        /// \param rnManager         Random number manager.
+        SurveySeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+
         /// Seeds the population with survey participants.
-        ///
-        /// \param config_pt         Configuration parameters.
         /// \param pop               Population.
-        /// \param rn_manager        Random number manager.
-        /// \param contact_logger    To log contacts/transmission events.
-        static void Seed(const boost::property_tree::ptree& config_pt, std::shared_ptr<Population> pop,
-                         util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> contact_logger);
+        std::shared_ptr<Population> Seed(std::shared_ptr<Population> pop);
+
+private:
+        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
+        util::RNManager&                   m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

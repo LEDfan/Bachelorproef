@@ -21,6 +21,4 @@
 %include "./contactpooltype.i";
 %include "./health.i";
 %include "./population.i";
-%include "./simulatorobserver.i";
-%include "./simulator.i";
-%include "./striderunner.i";
+%include "./sim.i";

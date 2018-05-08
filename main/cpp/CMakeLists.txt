@@ -55,8 +55,10 @@ set(LIB_SRC
         contact/ContactHandler.h
         contact/ContactLogMode.cpp
         contact/Infector.cpp
+        contact/InfectorExec.h
+        contact/InfectorMap.h
+        contact/LogPolicy.h
         contact/TransmissionProfile.cpp
-
         #---
         disease/DiseaseSeeder.cpp
         disease/Health.cpp
@@ -64,9 +66,9 @@ set(LIB_SRC
         disease/Immunizer.cpp
         #---
         output/AdoptedFile.cpp
-        output/CasesFile.cpp
         output/PersonsFile.cpp
         output/SummaryFile.cpp
+        output/InfectedFile.cpp
         #---
         pool/ContactPool.cpp
         pool/ContactPoolSys.h
@@ -74,21 +76,21 @@ set(LIB_SRC
         pool/IdSubscriptArray.h
         #---
         pop/Age.h
-        pop/PopPoolBuilder.cpp
         pop/Person.cpp
         pop/Population.cpp
-        pop/PopulationBuilder.cpp
+        pop/DefaultPopBuilder.cpp
+        pop/AbstractPopBuilder.cpp
+        pop/ImportPopBuilder.cpp
+        pop/GenPopBuilder.cpp
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp
         sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
-        sim/Simulator.cpp
-        sim/SimulatorBuilder.cpp
+        sim/SimBuilder.cpp
+        sim/Sim.cpp
         sim/event/Id.cpp
-        sim/event/Payload.h
         sim/event/Subject.cpp
-        sim/python/StrideRunner.cpp
         #---
         util/Any.h
         util/ConfigInfo.cpp
@@ -99,7 +101,6 @@ set(LIB_SRC
         util/RNEngineType.cpp
         util/RNManager.cpp
         util/RunConfigManager.cpp
-        util/RunConfigString.cpp
         util/SegmentedVector.h
         util/Stopwatch.h
         util/StringUtils.h
@@ -111,12 +112,12 @@ set(LIB_SRC
         util/Exception.cpp
         #---
         viewers/AdoptedViewer.cpp
-        viewers/CasesViewer.cpp
         viewers/CliViewer.cpp
         viewers/PersonsViewer.cpp
         viewers/SummaryViewer.cpp
         viewers/MapViewer.cpp
         viewers/MapViewer.h
+        viewers/InfectedViewer.cpp
 		#---
         )
 
@@ -127,9 +128,6 @@ add_library(libstride ${LIB_SRC})
 target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-include(ProcessorCount)
-ProcessorCount(PROCCOUNT)
-target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================
@@ -152,6 +150,6 @@ add_subdirectory(visualizer)
 #============================================================================
 # Clean up.
 #============================================================================
-unset(MAIN_SRC)
+unset(LIB_SRC)
 
 #############################################################################

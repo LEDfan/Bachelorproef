@@ -14,7 +14,7 @@
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
 #include <spdlog/logger.h>
-
+#include <utility>
 namespace gengeopop {
 
 GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
@@ -23,7 +23,7 @@ GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger,
                                          std::string subMunicipalitiesFileName)
     : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr), m_population(nullptr),
       m_citiesReader(nullptr), m_commutesReader(nullptr), m_householdsReader(nullptr),
-      m_subMunicipalitiesReader(nullptr), m_logger(logger), m_citiesFileName(std::move(citiesFileName)),
+      m_subMunicipalitiesReader(nullptr), m_logger(std::move(logger)), m_citiesFileName(std::move(citiesFileName)),
       m_commutingFileName(std::move(commutingFileName)), m_householdsFileName(std::move(householdFileName)),
       m_subMunicipalitiesFileName(std::move(subMunicipalitiesFileName))
 {
