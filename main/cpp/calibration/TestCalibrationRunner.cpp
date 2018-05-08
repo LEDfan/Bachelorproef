@@ -25,11 +25,11 @@ void TestCalibrationRunner::Run(unsigned int count, bool single)
 
         if (single) {
                 singleResults = calibrator.RunSingle(configs);
-                calibrator.PrintResults(singleResults);
+                calibrator.PrintSingleResults(singleResults);
         }
         if (count > 0) {
                 multipleResults = calibrator.RunMultiple(count, configs);
-                calibrator.PrintResults(multipleResults);
+                calibrator.PrintMultipleResults(multipleResults);
         }
 }
 
@@ -38,9 +38,9 @@ void TestCalibrationRunner::WriteResults(std::string filename)
         if (singleResults.size() && multipleResults.size())
                 calibrator.WriteResults(singleResults, multipleResults, filename);
         else if (singleResults.size())
-                calibrator.WriteResults(singleResults, filename);
+                calibrator.WriteSingleResults(singleResults, filename);
         else if (multipleResults.size())
-                calibrator.WriteResults(multipleResults, filename);
+                calibrator.WriteMultipleResults(multipleResults, filename);
 }
 
 #ifdef QTCHARTS
@@ -58,7 +58,7 @@ void TestCalibrationRunner::DisplayBoxplots(unsigned int step)
         Boxplot                  boxplot;
         std::vector<BoxplotData> data = boxplot.Calculate(multipleResults, step);
         BoxplotGenerator         boxplotGenerator;
-        boxplotGenerator.WriteToFile(data);
+        boxplotGenerator.Display(data);
 }
 
 #endif

@@ -7,9 +7,8 @@
 
 namespace calibration {
 
-/**
- * A runner for the Calibration
- */
+// A runner for the Calibration
+
 class TestCalibrationRunner
 {
 public:

@@ -8,9 +8,8 @@
 
 namespace calibration {
 
-/**
- * A class used to compute the necessary information to generate boxplots
- */
+// A class used to compute the necessary information to generate boxplots
+
 class Boxplot
 {
 public:
@@ -32,7 +31,7 @@ private:
         double FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int> results)
             const; ///< Find the median of values between begin and end in the results[testcase]
 
-        std::shared_ptr<spdlog::logger> logger; ///< Logger to use for this class
+        std::shared_ptr<spdlog::logger> m_logger; ///< Logger to use for this class
 };
 
 } // namespace calibration

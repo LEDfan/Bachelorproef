@@ -19,7 +19,7 @@ Calibrator::Calibrator() : logger(stride::util::LogUtils::CreateCliLogger("calib
 }
 
 std::map<std::string, std::vector<unsigned int>> Calibrator::RunSingle(
-    std::vector<std::pair<boost::property_tree::ptree, std::string>> configs) const
+    const std::vector<std::pair<boost::property_tree::ptree, std::string>>& configs) const
 {
         std::map<std::string, std::vector<unsigned int>> results;
         logger->info("Starting to compute exact values for testcases");
@@ -38,7 +38,7 @@ std::map<std::string, std::vector<unsigned int>> Calibrator::RunSingle(
 }
 
 std::map<std::string, std::vector<std::vector<unsigned int>>> Calibrator::RunMultiple(
-    unsigned int count, std::vector<std::pair<boost::property_tree::ptree, std::string>> configs) const
+    unsigned int count, const std::vector<std::pair<boost::property_tree::ptree, std::string>>& configs) const
 {
         std::map<std::string, std::vector<std::vector<unsigned int>>> results;
 
@@ -80,7 +80,7 @@ std::map<std::string, std::vector<std::vector<unsigned int>>> Calibrator::RunMul
         return results;
 }
 
-void Calibrator::PrintStep(std::vector<unsigned int> results, std::string tag, unsigned int step) const
+void Calibrator::PrintStep(const std::vector<unsigned int>& results, std::string tag, unsigned int step) const
 {
         auto p = FindMeanStdev(results);
         logger->info("Found mean {} and standard deviation {} for testcase {} at step {}", p.first, p.second, tag,
@@ -100,8 +100,8 @@ std::pair<double, double> Calibrator::FindMeanStdev(std::vector<unsigned int> re
         return std::make_pair(mean, stdev);
 }
 
-void Calibrator::PrintResults(std::map<std::string, std::vector<std::vector<unsigned int>>> results,
-                              unsigned int                                                  step) const
+void Calibrator::PrintMultipleResultsAtStep(
+    const std::map<std::string, std::vector<std::vector<unsigned int>>>& results, unsigned int step) const
 {
         for (auto& result_pair : results) {
                 std::vector<unsigned int> data;
@@ -116,14 +116,15 @@ void Calibrator::PrintResults(std::map<std::string, std::vector<std::vector<unsi
         }
 }
 
-void Calibrator::PrintResults(std::map<std::string, std::vector<unsigned int>> results) const
+void Calibrator::PrintSingleResults(const std::map<std::string, std::vector<unsigned int>>& results) const
 {
         for (const auto& config : results) {
                 logger->info("Found exact value for testcase {}: {}", config.first, *config.second.rbegin());
         }
 }
 
-void Calibrator::PrintResults(std::map<std::string, std::vector<unsigned int>> results, unsigned int step) const
+void Calibrator::PrintSingleResultsAtStep(const std::map<std::string, std::vector<unsigned int>>& results,
+                                          unsigned int                                            step) const
 {
         for (const auto& config : results) {
                 logger->info("Found exact value for testcase {}: {} at step {}", config.first, config.second[step],
@@ -131,7 +132,8 @@ void Calibrator::PrintResults(std::map<std::string, std::vector<unsigned int>> r
         }
 }
 
-void Calibrator::PrintResults(std::map<std::string, std::vector<std::vector<unsigned int>>> results) const
+void Calibrator::PrintMultipleResults(
+    const std::map<std::string, std::vector<std::vector<unsigned int>>>& results) const
 {
         for (auto& result_pair : results) {
                 if (result_pair.second.empty())
@@ -145,9 +147,9 @@ void Calibrator::PrintResults(std::map<std::string, std::vector<std::vector<unsi
                 PrintStep(data, result_pair.first, result_pair.second[0].size() - 1);
         }
 }
-void Calibrator::WriteResults(std::map<std::string, std::vector<unsigned int>>              single,
-                              std::map<std::string, std::vector<std::vector<unsigned int>>> multiple,
-                              std::string                                                   filename) const
+void Calibrator::WriteResults(const std::map<std::string, std::vector<unsigned int>>&              single,
+                              const std::map<std::string, std::vector<std::vector<unsigned int>>>& multiple,
+                              std::string                                                          filename) const
 {
         boost::property_tree::ptree root;
         std::set<std::string>       tags;
@@ -160,17 +162,17 @@ void Calibrator::WriteResults(std::map<std::string, std::vector<unsigned int>>  
         for (const auto& tag : tags) {
                 boost::property_tree::ptree tags_root;
                 unsigned int                size;
-                if (multiple.count(tag) && !multiple[tag].empty())
-                        size = multiple[tag][0].size();
-                else if (single.count(tag) && !single[tag].empty())
-                        size = single[tag].size();
+                if (multiple.count(tag) && !multiple.at(tag).empty())
+                        size = multiple.at(tag)[0].size();
+                else if (single.count(tag) && !single.at(tag).empty())
+                        size = single.at(tag).size();
                 else
                         continue;
                 for (unsigned int step = 0; step < size; step++) {
                         boost::property_tree::ptree step_root;
                         if (multiple.count(tag)) {
                                 std::vector<unsigned int> data;
-                                for (const auto& vect : multiple[tag]) {
+                                for (const auto& vect : multiple.at(tag)) {
                                         if (vect.size() - 1 < step)
                                                 continue;
                                         data.push_back(vect[step]);
@@ -180,7 +182,7 @@ void Calibrator::WriteResults(std::map<std::string, std::vector<unsigned int>>  
                                 step_root.put("standard deviation", p.second);
                         }
                         if (single.count(tag)) {
-                                step_root.put("exact", single[tag][step]);
+                                step_root.put("exact", single.at(tag)[step]);
                         }
                         tags_root.add_child(std::to_string(step), step_root);
                 }
@@ -195,13 +197,14 @@ void Calibrator::WriteResults(std::map<std::string, std::vector<unsigned int>>  
         boost::property_tree::write_json(file, root);
 }
 
-void Calibrator::WriteResults(std::map<std::string, std::vector<std::vector<unsigned int>>> results,
-                              std::string                                                   filename) const
+void Calibrator::WriteMultipleResults(const std::map<std::string, std::vector<std::vector<unsigned int>>>& results,
+                                      std::string filename) const
 {
         WriteResults(std::map<std::string, std::vector<unsigned int>>(), results, filename);
 }
 
-void Calibrator::WriteResults(std::map<std::string, std::vector<unsigned int>> results, std::string filename) const
+void Calibrator::WriteSingleResults(const std::map<std::string, std::vector<unsigned int>>& results,
+                                    std::string                                             filename) const
 {
         WriteResults(results, std::map<std::string, std::vector<std::vector<unsigned int>>>(), filename);
 }

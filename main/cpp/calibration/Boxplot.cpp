@@ -8,7 +8,7 @@ namespace calibration {
  * Inspired by https://doc.qt.io/qt-5.10/qtcharts-boxplotchart-example.html
  * */
 
-Boxplot::Boxplot() : logger(stride::util::LogUtils::CreateCliLogger("boxplot_logger", "boxplot_log.txt")) {}
+Boxplot::Boxplot() : m_logger(stride::util::LogUtils::CreateCliLogger("boxplot_m_logger", "boxplot_log.txt")) {}
 
 double Boxplot::FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int> results) const
 {
@@ -30,7 +30,7 @@ std::vector<BoxplotData> Boxplot::Calculate(const std::map<std::string, std::vec
                 std::vector<unsigned int> results;
                 for (const auto& run : config.second) {
                         if (run.size() - 1 < step) {
-                                logger->error("No such step {} for {} in input.", step, config.first);
+                                m_logger->error("No such step {} for {} in input.", step, config.first);
                                 continue;
                         }
                         results.push_back(run[step]);
@@ -50,7 +50,7 @@ std::vector<BoxplotData> Boxplot::Calculate(
                         std::vector<unsigned int> results;
                         for (const auto& run : config.second) {
                                 if (run.size() - 1 < step) {
-                                        logger->error(
+                                        m_logger->error(
                                             "Inconstistent input data! Not all runs have the same number of steps.");
                                         continue;
                                 }
@@ -65,7 +65,7 @@ std::vector<BoxplotData> Boxplot::Calculate(
 BoxplotData Boxplot::Calculate(const std::vector<unsigned int>& data, std::string name) const
 {
         if (data.size() <= 1) {
-                logger->warn("Warning: Could not generate information: not enough data.");
+                m_logger->warn("Warning: Could not generate information: not enough data.");
         }
         unsigned int count = data.size();
         BoxplotData  boxplotData;

@@ -8,9 +8,7 @@
 
 namespace calibration {
 
-/**
- * A class used to generate QtCharts Boxplots
- */
+// A class used to generate QtCharts Boxplots
 class BoxplotGenerator
 {
 public:
@@ -24,9 +22,6 @@ public:
         void WriteToFile(std::vector<BoxplotData> data) const;
 
 private:
-        double FindMedian(
-            unsigned long begin, unsigned long end,
-            std::string testcase); ///< Find the median of values between begin and end in the results[testcase]
         void GeneratePlots(std::vector<BoxplotData> data,
                            bool write) const;   ///< Generate the actual plots. Write them to files if write is true,
                                                 ///< otherwise display them on screen.
