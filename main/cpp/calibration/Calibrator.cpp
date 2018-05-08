@@ -2,6 +2,7 @@
 #include "../../test/cpp/gtester/ScenarioData.h"
 #include <sim/Sim.h>
 #include <sim/SimRunner.h>
+#include <viewers/InfectedViewer.h>
 
 #include <boost/property_tree/json_parser.hpp>
 #include <fstream>
@@ -9,6 +10,7 @@
 #include <numeric>
 #include <omp.h>
 #include <random>
+#include <utility>
 
 namespace calibration {
 
@@ -24,10 +26,13 @@ std::map<std::string, std::vector<unsigned int>> Calibrator::RunSingle(
 #pragma omp parallel for
         for (unsigned int config = 0; config < configs.size(); config++) {
                 auto pop    = stride::Population::Create(configs[config].first);
-                auto runner = stride::SimRunner(configs[config].first, pop);
-                runner.Run();
-                const unsigned int res          = runner.GetSim()->GetPopulation()->GetInfectedCount();
-                results[configs[config].second] = {res}; // TODO rework to use infectionViewer
+                auto runner = std::make_shared<stride::SimRunner>(configs[config].first, pop);
+                std::shared_ptr<stride::viewers::InfectedViewer> infectedViewer =
+                    std::make_shared<stride::viewers::InfectedViewer>(runner, configs[config].second);
+                runner->Register(infectedViewer,
+                                 bind(&stride::viewers::InfectedViewer::Update, infectedViewer, std::placeholders::_1));
+                runner->Run();
+                results[configs[config].second] = infectedViewer->GetInfectionCounts();
         }
         return results;
 }
@@ -58,13 +63,18 @@ std::map<std::string, std::vector<std::vector<unsigned int>>> Calibrator::RunMul
                         config_pt.put("run.rng_seed", seed);
                         logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
                         auto pop    = stride::Population::Create(config_pt);
-                        auto runner = stride::SimRunner(config_pt, pop);
-                        runner.Run();
+                        auto runner = std::make_shared<stride::SimRunner>(config_pt, pop);
+                        std::shared_ptr<stride::viewers::InfectedViewer> infectedViewer =
+                            std::make_shared<stride::viewers::InfectedViewer>(runner, configs[config].second + "_" +
+                                                                                          std::to_string(seed));
+                        runner->Register(infectedViewer, bind(&stride::viewers::InfectedViewer::Update, infectedViewer,
+                                                              std::placeholders::_1));
+                        runner->Run();
 
                         // Get the infected count
-                        const unsigned int res = runner.GetSim()->GetPopulation()->GetInfectedCount();
+                        const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
                         logger->info("Finished running testcase {}, {} people were infected", tag, res);
-                        results[tag][i].push_back(res); // TODO rework to use infectionViewer
+                        results[tag][i] = infectedViewer->GetInfectionCounts();
                 }
         }
         return results;
@@ -72,7 +82,6 @@ std::map<std::string, std::vector<std::vector<unsigned int>>> Calibrator::RunMul
 
 void Calibrator::PrintStep(std::vector<unsigned int> results, std::string tag, unsigned int step) const
 {
-
         auto p = FindMeanStdev(results);
         logger->info("Found mean {} and standard deviation {} for testcase {} at step {}", p.first, p.second, tag,
                      step);
