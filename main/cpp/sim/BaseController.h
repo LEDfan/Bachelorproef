@@ -43,9 +43,9 @@ public:
         virtual void Control() = 0;
 
         template <typename T, typename... Targs>
-        void RegisterViewer(Targs... args)
+        void RegisterViewer(Targs&&... args)
         {
-                auto v = std::make_shared<T>(m_runner, args...);
+                auto v = std::make_shared<T>(m_runner, std::forward<Targs>(args)...);
                 m_runner->Register(v, bind(&T::Update, v, std::placeholders::_1));
         }
 
