@@ -148,6 +148,7 @@ install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 add_subdirectory(visualizer)
 add_subdirectory(guicontroller)
+add_subdirectory(guilauncher)
 
 #============================================================================
 # Clean up.
