@@ -6,6 +6,8 @@ set(SRC
     Calibrator.cpp
     Boxplot.cpp
     TestCalibrationRunner.cpp
+    ConfigFileCalibrationRunner.cpp
+    CalibrationRunner.cpp
     ../../../test/cpp/gtester/ScenarioData.cpp
 )
 include_directories(calibration SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)

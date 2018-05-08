@@ -11,11 +11,11 @@ namespace calibration {
 /**
  * A runner for the Calibration
  */
-class TestCalibrationRunner : public CalibrationRunner
+class ConfigFileCalibrationRunner : public CalibrationRunner
 {
 public:
         /// Setup
-        TestCalibrationRunner(std::vector<std::string> testcases);
+        ConfigFileCalibrationRunner(std::string configFile);
 };
 
 } // namespace calibration
