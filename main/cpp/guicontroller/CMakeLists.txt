@@ -19,8 +19,16 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 #============================================================================
-# Build and link the visualizer executable.
+# Build and link the guicontroller executable.
 #============================================================================
+
+add_library(libguicontroller ${GUICONTROLLER_SRC} ${QT_RESOURCES})
+target_link_libraries(libguicontroller
+    libgengeopop
+    Qt5::Widgets
+    Qt5::Qml
+    Qt5::Quick
+)
 
 add_executable(guicontroller ${GUICONTROLLER_SRC} ${QT_RESOURCES})
 target_link_libraries(guicontroller

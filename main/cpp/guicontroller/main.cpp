@@ -2,6 +2,7 @@
 
 int main(int, char* [])
 {
-        GuiController v;
+        boost::property_tree::ptree ptree; // TODO
+        stride::GuiController       v(ptree);
         v.Join();
 }

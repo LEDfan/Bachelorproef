@@ -4,11 +4,12 @@
 #include <QtQml/QtQml>
 #include <visualizer/backends/ContactCenterViewerBackend.h>
 
-GuiController::GuiController() : m_thread(nullptr)
-{
-        Q_INIT_RESOURCE(qml);
+namespace stride {
 
-        auto func = [this]() {
+GuiController::GuiController(const boost::property_tree::ptree& configPt) : BaseController(configPt), m_thread(nullptr)
+{
+
+        auto func = []() {
                 int             i = 0;
                 QGuiApplication app(i, nullptr);
 
@@ -18,13 +19,14 @@ GuiController::GuiController() : m_thread(nullptr)
                 if (engine.rootObjects().isEmpty())
                         return -1;
 
-
                 return app.exec();
         };
 
         m_thread = std::make_unique<std::thread>(func);
 }
 
-
-
 void GuiController::Join() { m_thread->join(); }
+
+void GuiController::Control() {} // TODO
+
+} // namespace stride

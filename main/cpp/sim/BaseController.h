@@ -14,6 +14,7 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
+#include "sim/SimRunner.h"
 #include "util/Stopwatch.h"
 
 #include <boost/filesystem/path.hpp>
@@ -41,15 +42,22 @@ public:
         /// Actual run of the simulator.
         virtual void Control() = 0;
 
+        template <typename T, typename... Targs>
+        void RegisterViewer(Targs... args)
+        {
+                auto v = std::make_shared<T>(m_runner, args...);
+                m_runner->Register(v, bind(&T::Update, v, std::placeholders::_1));
+        }
+
+        /// Returns the logger
+        virtual std::shared_ptr<spdlog::logger> GetLogger() const;
+
 protected:
         /// Empty controller: used as taget for delegation.
         explicit BaseController();
 
         /// Register the viewers of the SimRunner.
-        virtual void RegisterViewers(std::shared_ptr<SimRunner> runner) = 0;
-
-        /// Returns the logger
-        virtual std::shared_ptr<spdlog::logger> GetLogger() const;
+        virtual void RegisterViewers();
 
         /// Check install environment.
         virtual void CheckEnv();
@@ -75,6 +83,7 @@ protected:
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; /// Working dir or install dir mode.
+        std::shared_ptr<SimRunner>      m_runner;
 };
 
 } // namespace stride

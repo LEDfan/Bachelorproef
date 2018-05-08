@@ -86,7 +86,6 @@ set(LIB_SRC
         #---
         sim/CliController.cpp
         sim/BaseController.cpp
-        sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
         sim/SimBuilder.cpp
         sim/Sim.cpp
@@ -122,11 +121,15 @@ set(LIB_SRC
 		#---
         )
 
+add_subdirectory(visualizer)
+add_subdirectory(guicontroller)
+add_subdirectory(guilauncher)
+
 #============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
-target_link_libraries(libstride ${LIBS} libgengeopop)
+target_link_libraries(libstride ${LIBS} libgengeopop libguicontroller)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 set_target_properties(libstride PROPERTIES PREFIX "")
@@ -142,13 +145,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
 add_executable(stride sim/main.cpp)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
-target_link_libraries(stride ${LIBS} libstride libgengeopop)
+target_link_libraries(stride ${LIBS} libstride libgengeopop libguicontroller)
 target_link_libraries(stride libvis)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
-add_subdirectory(visualizer)
-add_subdirectory(guicontroller)
-add_subdirectory(guilauncher)
 
 #============================================================================
 # Clean up.

@@ -51,10 +51,8 @@ void CliController::Control()
         // -----------------------------------------------------------------------------------------
         // Build population, instantiate SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
-        auto pop    = Population::Create(m_config_pt);
-        auto runner = make_shared<SimRunner>(m_config_pt, pop);
-        RegisterViewers(runner);
-        runner->Run();
+        RegisterViewers(m_runner);
+        m_runner->Run();
         m_stride_logger->info("CliController shutting down.");
         spdlog::drop_all();
 }
