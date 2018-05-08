@@ -8,23 +8,24 @@
 
 namespace calibration {
 
-// A class used to compute the necessary information to generate boxplots
-
+/**
+ * A class used to compute the necessary information to generate boxplots
+ */
 class Boxplot
 {
 public:
-        // Setup
+        /// Setup
         Boxplot();
 
-        // Compute the information for each step in a list of testcase results
+        /// Compute the information for each step in a list of testcase results
         std::vector<BoxplotData> Calculate(
             const std::map<std::string, std::vector<std::vector<unsigned int>>>& data) const;
 
-        // Compute the information for a specific step in a list of testcase results
+        /// Compute the information for a specific step in a list of testcase results
         std::vector<BoxplotData> Calculate(const std::map<std::string, std::vector<std::vector<unsigned int>>>& data,
                                            unsigned int step) const;
 
-        // Compute the information for a single set of data
+        /// Compute the information for a single set of data
         BoxplotData Calculate(const std::vector<unsigned int>& data, std::string name) const;
 
 private:

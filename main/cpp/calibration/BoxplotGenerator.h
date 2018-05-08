@@ -8,17 +8,19 @@
 
 namespace calibration {
 
-// A class used to generate QtCharts Boxplots
+/**
+ * A class used to generate QtCharts Boxplots
+ */
 class BoxplotGenerator
 {
 public:
-        // Setup
+        /// Setup
         BoxplotGenerator();
 
-        // Display the boxplots
+        /// Display the boxplots
         void Display(std::vector<BoxplotData> data) const;
 
-        // Write the boxplots to files
+        /// Write the boxplots to files
         void WriteToFile(std::vector<BoxplotData> data) const;
 
 private:

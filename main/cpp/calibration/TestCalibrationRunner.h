@@ -7,24 +7,25 @@
 
 namespace calibration {
 
-// A runner for the Calibration
-
+/**
+ * A runner for the Calibration
+ */
 class TestCalibrationRunner
 {
 public:
-        // Setup
+        /// Setup
         TestCalibrationRunner(std::vector<std::string> testcases);
 
-        // Run the Calibrator
+        /// Run the Calibrator
         void Run(unsigned int count, bool single);
 
-        // Write the results to their respective files (based on testcase name)
+        /// Write the results to their respective files (based on testcase name)
         void WriteResults(std::string filename);
 
-        // Write the boxplots to their respective files (based on testcase name)
+        /// Write the boxplots to their respective files (based on testcase name)
         void WriteBoxplots();
 
-        // Display the generated boxplots for step 'step' in the simulation to the screen
+        /// Display the generated boxplots for step 'step' in the simulation to the screen
         void DisplayBoxplots(unsigned int step);
 
 private:
