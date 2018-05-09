@@ -8,6 +8,9 @@ using namespace TCLAP;
 
 int main(int argc, char* argv[])
 {
+        // -----------------------------------------------------------------------------------------
+        // Parse command line.
+        // -----------------------------------------------------------------------------------------
         CmdLine                cmd("calibration", ' ', "1.0");
         ValueArg<unsigned int> display("d", "display", "Display the boxplots for a specified step", false, 0, "step",
                                        cmd);
@@ -20,14 +23,24 @@ int main(int argc, char* argv[])
         MultiArg<std::string> testcases("t", "testcases", "The testcases to use for the calibration", false, "testcase",
                                         cmd);
         std::string           sc = "Specifies the run configuration parameters to be used. It may be either "
-                         "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
-                         "shortened to -c <file>.";
+                         "-c file=<file> or -c name=<name>. The first option can be shortened to -c <file>, the second "
+                         "option accepts 'TestsInfluenza', 'TestsMeasles' or 'BenchMeasles' as <name>.";
+
         MultiArg<std::string> configArg("c", "config", sc, false, "RUN CONFIGURATION", cmd);
         cmd.parse(argc, static_cast<const char* const*>(argv));
 
+        // -----------------------------------------------------------------------------------------
+        // Validate provided options & setup calibrationRunner.
+        // -----------------------------------------------------------------------------------------
         if (!count.isSet() && !single.isSet()) {
                 std::cerr << "Please run at least one simulation." << std::endl;
                 cmd.getOutput()->usage(cmd);
+                return 1;
+        }
+
+        if (count.getValue() <= 1 && (write.getValue() || display.isSet())) {
+                std::cerr << "Invalid parameters: cannot generate boxplots with count value " << count.getValue()
+                          << std::endl;
                 return 1;
         }
 
@@ -50,16 +63,20 @@ int main(int argc, char* argv[])
                 }
                 calibrationRunner = std::make_shared<TestCalibrationRunner>(tests);
         }
+
+        // -----------------------------------------------------------------------------------------
+        // Run simulations
+        // -----------------------------------------------------------------------------------------
         calibrationRunner->Run(count.getValue(), single.getValue());
+
+        // -----------------------------------------------------------------------------------------
+        // Output.
+        // -----------------------------------------------------------------------------------------
         if (output.isSet())
                 calibrationRunner->WriteResults(output.getValue());
 
-        if (count.getValue() <= 1 && (write.getValue() || display.isSet())) {
-                std::cerr << "Invalid parameters: cannot generate boxplots with count value " << count.getValue()
-                          << std::endl;
-        }
 #ifdef QTCHARTS
-        else if (display.isSet())
+        if (display.isSet())
                 calibrationRunner->DisplayBoxplots(display.getValue());
         else if (write.getValue())
                 calibrationRunner->WriteBoxplots();
