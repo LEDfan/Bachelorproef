@@ -23,7 +23,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
         boost::property_tree::ptree root;
         try {
                 boost::property_tree::read_json(*m_inputStream, root);
-        } catch (std::runtime_error) {
+        } catch (std::runtime_error&) {
                 throw stride::util::Exception(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
