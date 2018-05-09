@@ -14,15 +14,16 @@
 
 namespace calibration {
 
-Calibrator::Calibrator() : logger(stride::util::LogUtils::CreateCliLogger("calibration_logger", "calibration_log.txt"))
-{
-}
+Calibrator::Calibrator() : logger(stride::util::LogUtils::CreateCliLogger("stride_logger", "calibration_log.txt")) {}
 
 std::map<std::string, std::vector<unsigned int>> Calibrator::RunSingle(
     const std::vector<std::pair<boost::property_tree::ptree, std::string>>& configs) const
 {
         std::map<std::string, std::vector<unsigned int>> results;
         logger->info("Starting to compute exact values for testcases");
+
+        spdlog::register_logger(logger);
+
 #pragma omp parallel for
         for (unsigned int config = 0; config < configs.size(); config++) {
                 auto pop    = stride::Population::Create(configs[config].first);
