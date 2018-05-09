@@ -155,14 +155,17 @@ if (Qt5_FOUND)
         ${QtQml_DEFINITIONS}
         ${Qt5Widgets_DEFINITIONS}
     )
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
     set(QT_LIBRARIES
         ${Qt5Core_LIBRARIES}
         ${Qt5Gui_LIBRARIES}
         ${Qt5PrintSupport_LIBRARIES}
         ${QtQml_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
-        )
+    )
+    set(CMAKE_AUTOMOC ON)
+    set(CMAKE_AUTORCC ON)
+    set(CMAKE_AUTOUIC ON)
     if( CMAKE_BUILD_TYPE MATCHES "Release" )
         add_definitions( -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT )
     endif()
