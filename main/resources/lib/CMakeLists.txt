@@ -18,7 +18,7 @@
 #============================================================================
 # Add subdirs:
 #============================================================================
-add_subdirectory( protobuf )
+add_subdirectory(protobuf)
 add_subdirectory(sha1)
 add_subdirectory(trng-4.20)
 

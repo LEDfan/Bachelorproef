@@ -79,7 +79,6 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/io/proto)
 add_library(libgengeopop ${GENGEOPOP_LIB})
 target_link_libraries(libgengeopop ${LIBS} libprotobuf libproto libstride)
 target_compile_options(libgengeopop PUBLIC "-fPIC")
-set_target_properties(libgengeopop PROPERTIES PREFIX "")
 
 #============================================================================
 # Build and install the stride executable.

@@ -8,7 +8,7 @@ set(VISUALIZER_SRC
     Visualizer.cpp Visualizer.h
 )
 
-set (CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 14)
 
 qt5_add_resources(VISUALIZER_QT_RESOURCES qml.qrc)
 
@@ -16,12 +16,7 @@ qt5_add_resources(VISUALIZER_QT_RESOURCES qml.qrc)
 # Build and link the visualizer library.
 #============================================================================
 add_library(libvis ${VISUALIZER_SRC} ${VISUALIZER_QT_RESOURCES})
-target_link_libraries(libvis
-    libgengeopop
-    Qt5::Widgets
-    Qt5::Qml
-    Qt5::Quick
-)
+target_link_libraries(libvis libgengeopop ${QT_LIBRARIES})
 
 #============================================================================
 # Build and link the visualizer executable.

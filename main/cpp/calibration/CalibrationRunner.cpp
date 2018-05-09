@@ -1,6 +1,7 @@
 #include "CalibrationRunner.h"
 #include "../../test/cpp/gtester/ScenarioData.h"
 #include "Boxplot.h"
+#include "BoxplotGenerator.h"
 #include "Calibrator.h"
 
 #ifdef QTCHARTS
@@ -35,8 +36,7 @@ void CalibrationRunner::WriteResults(std::string filename)
                 calibrator.WriteMultipleResults(multipleResults, filename);
 }
 
-#ifdef QTCHARTS
-
+#if Qt5Charts_FOUND == true
 void CalibrationRunner::WriteBoxplots()
 {
         Boxplot                  boxplot;
