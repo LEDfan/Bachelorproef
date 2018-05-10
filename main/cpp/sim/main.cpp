@@ -124,6 +124,7 @@ int main(int argc, char** argv)
                         } else {
                                 controller = std::make_shared<GuiController>(configPt);
                         }
+                        controller->RegisterViewers();
                         controller->Control();
                 }
                 // -----------------------------------------------------------------------------------------

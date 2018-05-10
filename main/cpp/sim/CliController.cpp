@@ -51,46 +51,9 @@ void CliController::Control()
         // -----------------------------------------------------------------------------------------
         // Build population, instantiate SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
-        RegisterViewers(m_runner);
         m_runner->Run();
         m_stride_logger->info("CliController shutting down.");
         spdlog::drop_all();
-}
-
-// Command line viewer
-void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
-{
-        m_stride_logger->info("Registering CliViewer");
-        const auto cli_v = make_shared<viewers::CliViewer>(runner, m_stride_logger);
-        runner->Register(cli_v, bind(&viewers::CliViewer::Update, cli_v, placeholders::_1));
-
-        // Adopted viewer
-        if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_stride_logger->info("registering AdoptedViewer,");
-                const auto v = make_shared<viewers::AdoptedViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::AdoptedViewer::Update, v, placeholders::_1));
-        }
-
-        // Infection counts viewer
-        if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_stride_logger->info("Registering InfectedViewer");
-                const auto v = make_shared<viewers::InfectedViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::InfectedViewer::Update, v, placeholders::_1));
-        }
-
-        // Persons viewer
-        if (m_config_pt.get<bool>("run.output_persons", false)) {
-                m_stride_logger->info("registering PersonsViewer.");
-                const auto v = make_shared<viewers::PersonsViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::PersonsViewer::Update, v, placeholders::_1));
-        }
-
-        // Summary viewer
-        if (m_config_pt.get<bool>("run.output_summary", false)) {
-                m_stride_logger->info("Registering SummaryViewer");
-                const auto v = make_shared<viewers::SummaryViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::SummaryViewer::Update, v, placeholders::_1));
-        }
 }
 
 } // namespace stride

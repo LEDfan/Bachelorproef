@@ -47,8 +47,8 @@ namespace stride {
 BaseController::BaseController()
     : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(), m_runner()
 {
-        auto pop    = Population::Create(m_config_pt);
-        auto runner = make_shared<SimRunner>(m_config_pt, pop);
+        auto pop = Population::Create(m_config_pt);
+        m_runner = make_shared<SimRunner>(m_config_pt, pop);
 }
 
 BaseController::BaseController(const ptree& configPt)
@@ -64,8 +64,8 @@ BaseController::BaseController(const ptree& configPt)
         MakeLogger();
         LogSetup();
 
-        auto pop    = Population::Create(m_config_pt);
-        auto runner = make_shared<SimRunner>(m_config_pt, pop);
+        auto pop = Population::Create(m_config_pt);
+        m_runner = make_shared<SimRunner>(m_config_pt, pop);
 }
 
 void BaseController::CheckEnv()

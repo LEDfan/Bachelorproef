@@ -52,6 +52,9 @@ public:
                 m_runner->Register(v, bind(&T::Update, v, std::placeholders::_1));
         }
 
+        /// Register the viewers of the SimRunner.
+        virtual void RegisterViewers();
+
         /// Returns the logger
         virtual std::shared_ptr<spdlog::logger> GetLogger() const;
 
@@ -60,9 +63,6 @@ public:
 protected:
         /// Empty controller: used as taget for delegation.
         explicit BaseController();
-
-        /// Register the viewers of the SimRunner.
-        virtual void RegisterViewers();
 
         /// Check install environment.
         virtual void CheckEnv();

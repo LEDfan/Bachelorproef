@@ -59,10 +59,6 @@ public:
 
         /// Actual run of the simulator.
         void Control();
-
-protected:
-        /// Register the viewers of the SimRunner.
-        virtual void RegisterViewers(std::shared_ptr<SimRunner> runner);
 };
 
 } // namespace stride
