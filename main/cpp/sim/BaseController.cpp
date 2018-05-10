@@ -51,10 +51,12 @@ BaseController::BaseController()
         auto runner = make_shared<SimRunner>(m_config_pt, pop);
 }
 
-BaseController::BaseController(const ptree& configPt) : BaseController()
+BaseController::BaseController(const ptree& configPt) : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(), m_runner()
 {
+        auto pop    = Population::Create(m_config_pt);
+        auto runner = make_shared<SimRunner>(m_config_pt, pop);
+
         m_run_clock.Start();
-        m_config_pt        = configPt;
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 

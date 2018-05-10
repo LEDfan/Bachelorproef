@@ -19,7 +19,7 @@
 void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer, bool showPersonsViewer, bool showSummaryViewer) {
        int exitStatus = EXIT_SUCCESS;
 
-        try {
+//        try {
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
@@ -58,10 +58,10 @@ void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliVi
                 boost::property_tree::ptree configPt;
                 configPt = stride::util::FileSys::ReadPtreeFile(m_configPath);
                 if (configPt.get<std::string>("run.output_prefix", "").empty()) {
-                        configPt.put("run.output_prefix", stride::util::TimeStamp().ToTag().append("/"));
+                        configPt.put<std::string>("run.output_prefix", stride::util::TimeStamp().ToTag().append("/"));
                 }
                 configPt.sort();
-                    std::shared_ptr<stride::BaseController> controller = nullptr;
+                std::shared_ptr<stride::BaseController> controller = nullptr;
 
 //                     Check if we need the visualiser
 //                    if (m_showVisualizer) {
@@ -91,13 +91,13 @@ void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliVi
                     controller->Control();
 
 
-        } catch (std::exception& e) {
-                exitStatus = EXIT_FAILURE;
-                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
-        } catch (...) {
-                exitStatus = EXIT_FAILURE;
-                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
-        }
+//        } catch (std::exception& e) {
+//                exitStatus = EXIT_FAILURE;
+//                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
+//        } catch (...) {
+//                exitStatus = EXIT_FAILURE;
+//                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
+//        }
         std::cout << "Exited with code: " << exitStatus << std::endl;
 }
 
