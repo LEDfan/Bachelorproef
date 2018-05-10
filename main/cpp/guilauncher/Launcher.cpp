@@ -13,6 +13,7 @@
 #include <viewers/InfectedViewer.h>
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
+#include <util/TimeStamp.h>
 #include "Launcher.h"
 
 void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer, bool showPersonsViewer, bool showSummaryViewer) {
@@ -56,8 +57,10 @@ void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliVi
                 // -----------------------------------------------------------------------------------------
                 boost::property_tree::ptree configPt;
                 configPt = stride::util::FileSys::ReadPtreeFile(m_configPath);
-                    configPt.sort();
-
+                if (configPt.get<std::string>("run.output_prefix", "").empty()) {
+                        configPt.put("run.output_prefix", stride::util::TimeStamp().ToTag().append("/"));
+                }
+                configPt.sort();
                     std::shared_ptr<stride::BaseController> controller = nullptr;
 
 //                     Check if we need the visualiser
