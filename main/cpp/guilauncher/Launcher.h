@@ -15,16 +15,17 @@ class Launcher : public QObject{
     Q_OBJECT;
 
 public:
-    Launcher(): m_configPath() {}
+    Launcher(): m_configPath(), m_showVisualizer(false) {}
 
     Q_INVOKABLE
     void setConfigPath(QString string);
 
     Q_INVOKABLE
-    void launch();
+    void launch(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer, bool showPersonsViewer, bool showSummaryViewer);
 
 private:
     std::string m_configPath;
+    bool        m_showVisualizer;
 };
 
 

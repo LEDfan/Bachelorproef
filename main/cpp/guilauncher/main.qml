@@ -50,17 +50,55 @@ ApplicationWindow {
         RowLayout {
             CheckBox {
 
+                id: adoptedViewerCheckbox
             }
             Text {
-                text: "Visualizer 1"
+                text: "AdoptedViewer"
             }
         }
         RowLayout {
             CheckBox {
 
+                id: cliViewerCheckbox
             }
             Text {
-                text: "Visualizer 2"
+                text: "CliViewer"
+            }
+        }
+        RowLayout {
+            CheckBox {
+
+                id: infectedViewerCheckbox
+            }
+            Text {
+                text: "InfectedViewer"
+            }
+        }
+         RowLayout {
+            CheckBox {
+
+                id: mapViewerCheckbox
+            }
+            Text {
+                text: "MapViewer"
+            }
+        }
+         RowLayout {
+            CheckBox {
+
+                id: personsViewerCheckbox
+            }
+            Text {
+                text: "PersonsViewer"
+            }
+        }
+         RowLayout {
+            CheckBox {
+                id: summaryViewerCheckbox
+
+            }
+            Text {
+                text: "SummaryViewer"
             }
         }
 
@@ -68,7 +106,14 @@ ApplicationWindow {
             text:  "Launch!"
             onClicked: {
                 console.warn("Launching...")
-                launcher.launch()
+                launcher.launch(
+                    mapViewerCheckbox.checked,
+                    adoptedViewerCheckbox.checked,
+                    cliViewerCheckbox.checked,
+                    infectedViewerCheckbox.checked,
+                    personsViewerCheckbox.checked,
+                    summaryViewerCheckbox.checked
+                )
             }
 
         }

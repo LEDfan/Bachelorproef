@@ -7,9 +7,15 @@
 #include <sim/CliController.h>
 #include <util/FileSys.h>
 #include <QtCore/QUrl>
+#include <viewers/MapViewer.h>
+#include <viewers/AdoptedViewer.h>
+#include <viewers/CliViewer.h>
+#include <viewers/InfectedViewer.h>
+#include <viewers/PersonsViewer.h>
+#include <viewers/SummaryViewer.h>
 #include "Launcher.h"
 
-void Launcher::launch() {
+void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer, bool showPersonsViewer, bool showSummaryViewer) {
        int exitStatus = EXIT_SUCCESS;
 
         try {
@@ -50,37 +56,35 @@ void Launcher::launch() {
                 // -----------------------------------------------------------------------------------------
                 boost::property_tree::ptree configPt;
                 configPt = stride::util::FileSys::ReadPtreeFile(m_configPath);
-//                if (regex_search(config, regex("^name="))) {
-//                        config   = regex_replace(config, regex(string("^name=")), string(""));
-//                        configPt = RunConfigManager::Create(config);
-//                } else {
-//                        config = regex_replace(config, regex(string("^file=")), string(""));
-//                        const boost::filesystem::path configPath =
-//                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;
-//                        configPt = FileSys::ReadPtreeFile(configPath);
-//                }
-//
-//                for (const auto& p_assignment : overrideArg.getValue()) {
-//                        const auto v = util::Tokenize(p_assignment, "=");
-//                        configPt.put("run." + v[0], v[1]);
-//                }
-
-                // -----------------------------------------------------------------------------------------
-                // If run simulation in cli ...
-                // -----------------------------------------------------------------------------------------
-//                    if (configPt.get<string>("run.output_prefix", "").empty()) {
-//                            configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
-//                    }
                     configPt.sort();
 
                     std::shared_ptr<stride::BaseController> controller = nullptr;
 
-                    // Check if we need the visualiser
-//                    if (show_visualiser.getValue()) {
-//                            controller = std::make_shared<CliWithVisualizerController>(configPt);
+//                     Check if we need the visualiser
+//                    if (m_showVisualizer) {
+//                            controller = std::make_shared<stride::CliWithVisualizerController>(configPt);
 //                    } else {
                             controller = std::make_shared<stride::CliController>(configPt);
 //                    }
+
+                    if(showMapViewer){
+                        controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger());
+                    }
+                    if(showAdoptedViewer){
+                        controller->RegisterViewer<stride::viewers::AdoptedViewer>(controller->GetOutputPrefix());
+                    }
+                    if(showCliViewer){
+                        controller->RegisterViewer<stride::viewers::CliViewer>(controller->GetLogger());
+                    }
+                    if(showInfectedViewer){
+                        controller->RegisterViewer<stride::viewers::InfectedViewer>(controller->GetOutputPrefix());
+                    }
+                    if(showPersonsViewer){
+                        controller->RegisterViewer<stride::viewers::PersonsViewer>(controller->GetOutputPrefix());
+                    }
+                    if(showSummaryViewer){
+                        controller->RegisterViewer<stride::viewers::SummaryViewer>(controller->GetOutputPrefix());
+                    }
                     controller->Control();
 
 

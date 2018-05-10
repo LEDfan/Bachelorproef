@@ -152,4 +152,12 @@ void BaseController::LogSetup()
 
 std::shared_ptr<spdlog::logger> BaseController::GetLogger() const { return m_stride_logger; }
 
+std::shared_ptr<SimRunner> BaseController::GetSimRunner() {
+        return m_runner;
+}
+
+    std::string BaseController::GetOutputPrefix() {
+        return m_output_prefix;
+    }
+
 } // namespace stride

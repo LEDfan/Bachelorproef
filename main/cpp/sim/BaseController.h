@@ -42,6 +42,9 @@ public:
         /// Actual run of the simulator.
         virtual void Control() = 0;
 
+        /// Returns the SimRunner that is used
+        virtual std::shared_ptr<SimRunner> GetSimRunner();
+
         template <typename T, typename... Targs>
         void RegisterViewer(Targs&&... args)
         {
@@ -51,6 +54,9 @@ public:
 
         /// Returns the logger
         virtual std::shared_ptr<spdlog::logger> GetLogger() const;
+
+        virtual std::string GetOutputPrefix();
+
 
 protected:
         /// Empty controller: used as taget for delegation.
