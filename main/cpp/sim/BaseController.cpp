@@ -51,11 +51,10 @@ BaseController::BaseController()
         auto runner = make_shared<SimRunner>(m_config_pt, pop);
 }
 
-BaseController::BaseController(const ptree& configPt) : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(), m_runner()
+BaseController::BaseController(const ptree& configPt)
+    : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
+      m_runner()
 {
-        auto pop    = Population::Create(m_config_pt);
-        auto runner = make_shared<SimRunner>(m_config_pt, pop);
-
         m_run_clock.Start();
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
@@ -64,6 +63,9 @@ BaseController::BaseController(const ptree& configPt) : m_config_pt(configPt), m
         CheckOutputPrefix();
         MakeLogger();
         LogSetup();
+
+        auto pop    = Population::Create(m_config_pt);
+        auto runner = make_shared<SimRunner>(m_config_pt, pop);
 }
 
 void BaseController::CheckEnv()
@@ -154,12 +156,8 @@ void BaseController::LogSetup()
 
 std::shared_ptr<spdlog::logger> BaseController::GetLogger() const { return m_stride_logger; }
 
-std::shared_ptr<SimRunner> BaseController::GetSimRunner() {
-        return m_runner;
-}
+std::shared_ptr<SimRunner> BaseController::GetSimRunner() { return m_runner; }
 
-    std::string BaseController::GetOutputPrefix() {
-        return m_output_prefix;
-    }
+std::string BaseController::GetOutputPrefix() { return m_output_prefix; }
 
 } // namespace stride

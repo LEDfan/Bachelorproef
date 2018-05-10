@@ -15,7 +15,5 @@ public:
         void Join();
 
 private:
-        std::unique_ptr<std::thread> m_thread;          ///< The thread that the visualizer QT application is run on
+        std::unique_ptr<std::thread> m_thread; ///< The thread that the visualizer QT application is run on
 };
-
-

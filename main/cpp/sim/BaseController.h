@@ -57,7 +57,6 @@ public:
 
         virtual std::string GetOutputPrefix();
 
-
 protected:
         /// Empty controller: used as taget for delegation.
         explicit BaseController();
