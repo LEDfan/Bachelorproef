@@ -3,5 +3,5 @@
 int main(int, char* [])
 {
         GuiLauncher v;
-        v.Join();
+        v.StartSimulation();
 }

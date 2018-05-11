@@ -12,9 +12,6 @@ ApplicationWindow {
     id: window
     visible: true
     title: qsTr("GuiController")
-    Launcher {
-        id: launcher
-    }
 
     FileDialog {
         id: configSelector
@@ -158,7 +155,7 @@ ApplicationWindow {
 
             onClicked: {
                 console.warn("Launching...")
-                launcher.launch(
+                launcher.setConfig(
                     mapViewerCheckbox.checked,
                     adoptedViewerCheckbox.checked,
                     cliViewerCheckbox.checked,
@@ -166,6 +163,7 @@ ApplicationWindow {
                     personsViewerCheckbox.checked,
                     summaryViewerCheckbox.checked
                 )
+                window.close()
             }
         }
 

@@ -21,12 +21,20 @@ public:
         void setConfigPath(QString string);
 
         Q_INVOKABLE
-        void launch(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
-                    bool showPersonsViewer, bool showSummaryViewer);
+        void setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
+                       bool showPersonsViewer, bool showSummaryViewer);
+
+        void launch();
 
 private:
         std::string m_configPath;
         bool        m_showVisualizer;
+        bool        m_showMapViewer;
+        bool        m_showAdoptedViewer;
+        bool        m_showCliViewer;
+        bool        m_showInfectedViewer;
+        bool        m_showPersonsViewer;
+        bool        m_showSummaryViewer;
 };
 
 #endif // STRIDE_LAUNCHMODEL_H

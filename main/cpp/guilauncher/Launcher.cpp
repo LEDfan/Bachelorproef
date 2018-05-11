@@ -16,8 +16,7 @@
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
 
-void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
-                      bool showPersonsViewer, bool showSummaryViewer)
+void Launcher::launch()
 {
         int exitStatus = EXIT_SUCCESS;
 
@@ -81,22 +80,22 @@ void Launcher::launch(bool showMapViewer, bool showAdoptedViewer, bool showCliVi
         controller = std::make_shared<stride::CliController>(configPt);
         //                    }
 
-        if (showMapViewer) {
+        if (m_showMapViewer) {
                 controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger());
         }
-        if (showAdoptedViewer) {
+        if (m_showAdoptedViewer) {
                 controller->RegisterViewer<stride::viewers::AdoptedViewer>(controller->GetOutputPrefix());
         }
-        if (showCliViewer) {
+        if (m_showCliViewer) {
                 controller->RegisterViewer<stride::viewers::CliViewer>(controller->GetLogger());
         }
-        if (showInfectedViewer) {
+        if (m_showInfectedViewer) {
                 controller->RegisterViewer<stride::viewers::InfectedViewer>(controller->GetOutputPrefix());
         }
-        if (showPersonsViewer) {
+        if (m_showPersonsViewer) {
                 controller->RegisterViewer<stride::viewers::PersonsViewer>(controller->GetOutputPrefix());
         }
-        if (showSummaryViewer) {
+        if (m_showSummaryViewer) {
                 controller->RegisterViewer<stride::viewers::SummaryViewer>(controller->GetOutputPrefix());
         }
         controller->Control();
@@ -115,4 +114,15 @@ void Launcher::setConfigPath(QString file)
 {
         QUrl info(file);
         m_configPath = info.toLocalFile().toStdString();
+}
+
+void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
+                         bool showPersonsViewer, bool showSummaryViewer)
+{
+        m_showMapViewer      = showMapViewer;
+        m_showAdoptedViewer  = showAdoptedViewer;
+        m_showCliViewer      = showCliViewer;
+        m_showInfectedViewer = showInfectedViewer;
+        m_showPersonsViewer  = showPersonsViewer;
+        m_showSummaryViewer  = showSummaryViewer;
 }
