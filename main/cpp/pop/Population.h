@@ -80,6 +80,8 @@ public:
 
         std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 
+        void Finalize();
+
 private:
         Population() : m_belief_pt(), m_beliefs_container(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr){};
 

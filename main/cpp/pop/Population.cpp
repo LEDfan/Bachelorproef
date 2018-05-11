@@ -65,12 +65,15 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
         if (geopop_type == "import") {
-                return ImportPopBuilder(configPt, rnManager).Build(pop);
+                 ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (geopop_type == "generate") {
-                return GenPopBuilder(configPt, rnManager).Build(pop);
+               GenPopBuilder(configPt, rnManager).Build(pop);
         } else {
-                return DefaultPopBuilder(configPt, rnManager).Build(pop);
+              DefaultPopBuilder(configPt, rnManager).Build(pop);
         }
+
+        pop->Finalize();
+        return pop;
 }
 
 std::shared_ptr<Population> Population::Create(const string& configString)
@@ -154,6 +157,49 @@ void Population::NewPerson(unsigned int id, double age, unsigned int householdId
                                   health, riskAverseness, bp));
 
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
+}
+
+void Population::Finalize() {
+        using namespace ContactPoolType;
+//        auto& population = *pop;
+//        auto& poolSys    = population.GetContactPoolSys();
+
+        // --------------------------------------------------------------
+        // Determine maximum pool ids in population.
+        // --------------------------------------------------------------
+        IdSubscriptArray<unsigned int> max_ids{0U};
+        for (const auto& p : *this) {
+                for (Id typ : IdList) {
+                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
+                }
+        }
+        // --------------------------------------------------------------
+        // Initialize poolSys with empty ContactPools (even for Id=0).
+        // --------------------------------------------------------------
+        for (Id typ : IdList) {
+                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
+                        m_pool_sys[typ].emplace_back(ContactPool(i, typ));
+                }
+        }
+
+        // --------------------------------------------------------------
+        // Insert persons (pointers) in their contactpools. Having Id 0
+        // means "not belonging pool of that type" (e.g. school/ work -
+        // cannot belong to both, or e.g. out-of-work).
+        //
+        // Pools are uniquely identified by (typ, subscript) and a Person
+        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
+        // Defensive measure: we have a pool for Id 0 and leave it empty.
+        // --------------------------------------------------------------
+        for (auto& p : *this) {
+                for (Id typ : IdList) {
+                        const auto poolId = p.GetPoolId(typ);
+                        if (poolId > 0) {
+                                m_pool_sys[typ][poolId].AddMember(&p);
+                        }
+                }
+        }
+
 }
 
 } // namespace stride
