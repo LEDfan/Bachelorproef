@@ -19,6 +19,8 @@ public:
 
         void ForceUpdateMarkers();
 
+        bool IsReady() const;
+
         /**
          * Block until the visualizer is closed.
          */

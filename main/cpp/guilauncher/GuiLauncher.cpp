@@ -17,7 +17,7 @@ GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
                 QQmlApplicationEngine engine;
 
                 engine.rootContext()->setContextProperty("launcher", &m_launcher);
-                engine.load(QUrl(QStringLiteral("qrc:/vismain.qml")));
+                engine.load(QUrl(QStringLiteral("qrc:/launchermain.qml")));
                 if (engine.rootObjects().isEmpty())
                         return -1;
 

@@ -75,3 +75,5 @@ void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 }
 
 void Visualizer::Join() { m_thread->join(); }
+
+bool Visualizer::IsReady() const { return m_rootContext != nullptr; }
