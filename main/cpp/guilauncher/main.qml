@@ -27,11 +27,12 @@ ApplicationWindow {
 
     ColumnLayout {
         id: mainLayout
-        x: 21
-        y: 22
-        width: 421
-        height: 217
         Layout.fillWidth: true
+        Layout.fillHeight: false
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.margins: 5
+        anchors.rightMargin: 5
         // Select config
         RowLayout {
             Layout.fillHeight: false
@@ -56,7 +57,6 @@ ApplicationWindow {
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Button {
                     text: "Select config"
-                    anchors.left: parent.left
                     anchors.leftMargin: 20
                     checkable: true
                     Layout.fillWidth: false
@@ -67,10 +67,6 @@ ApplicationWindow {
 
         GroupBox {
             id: groupBox
-            x: 209
-            y: 50
-            width: 147
-            height: 210
             visible: true
             checkable: false
             checked: false
@@ -84,8 +80,6 @@ ApplicationWindow {
                 // Viewers
                 ColumnLayout {
                     Row {
-                        x: 10
-                        y: 10
                         spacing: 10
                         CheckBox {
 
@@ -98,8 +92,6 @@ ApplicationWindow {
                         }
                     }
                     Row {
-                        x: 10
-                        y: 38
                         spacing: 10
                         CheckBox {
 
@@ -111,8 +103,6 @@ ApplicationWindow {
                         }
                     }
                     Row {
-                        x: 10
-                        y: 66
                         spacing: 10
                         CheckBox {
 
@@ -124,8 +114,6 @@ ApplicationWindow {
                         }
                     }
                     Row {
-                        x: 10
-                        y: 94
                         spacing: 10
                         CheckBox {
 
@@ -137,8 +125,6 @@ ApplicationWindow {
                         }
                     }
                     Row {
-                        x: 10
-                        y: 122
                         spacing: 10
                         CheckBox {
 
@@ -150,8 +136,6 @@ ApplicationWindow {
                         }
                     }
                     Row {
-                        x: 10
-                        y: 150
                         spacing: 10
                         CheckBox {
                             id: summaryViewerCheckbox
@@ -168,11 +152,8 @@ ApplicationWindow {
 
         }
         Button {
-            y: 280
             text:  "Launch!"
             transformOrigin: Item.Center
-            Layout.fillWidth: true
-            anchors.top: groupBox.bottom
             anchors.topMargin: 20
 
             onClicked: {
@@ -186,6 +167,10 @@ ApplicationWindow {
                     summaryViewerCheckbox.checked
                 )
             }
+        }
+
+        Text {
+            text: " "
 
         }
     }
