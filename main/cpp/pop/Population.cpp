@@ -65,11 +65,11 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
         if (geopop_type == "import") {
-                 ImportPopBuilder(configPt, rnManager).Build(pop);
+                ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (geopop_type == "generate") {
-               GenPopBuilder(configPt, rnManager).Build(pop);
+                GenPopBuilder(configPt, rnManager).Build(pop);
         } else {
-              DefaultPopBuilder(configPt, rnManager).Build(pop);
+                DefaultPopBuilder(configPt, rnManager).Build(pop);
         }
 
         pop->Finalize();
@@ -159,10 +159,11 @@ void Population::NewPerson(unsigned int id, double age, unsigned int householdId
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 }
 
-void Population::Finalize() {
+void Population::Finalize()
+{
         using namespace ContactPoolType;
-//        auto& population = *pop;
-//        auto& poolSys    = population.GetContactPoolSys();
+        //        auto& population = *pop;
+        //        auto& poolSys    = population.GetContactPoolSys();
 
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.
@@ -199,7 +200,6 @@ void Population::Finalize() {
                         }
                 }
         }
-
 }
 
 } // namespace stride
