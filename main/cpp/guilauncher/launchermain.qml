@@ -163,6 +163,7 @@ ApplicationWindow {
                     personsViewerCheckbox.checked,
                     summaryViewerCheckbox.checked
                 )
+                launcher.setToLaunch()
                 window.close()
             }
         }

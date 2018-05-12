@@ -31,5 +31,5 @@ void GuiLauncher::StartSimulation()
         // Wait for the launcher to close
         m_thread->join();
         // Launch using the settings
-        m_launcher.launch();
+        m_launcher.launchIfSet();
 }

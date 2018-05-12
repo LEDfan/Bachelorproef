@@ -16,8 +16,12 @@
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
 
-void Launcher::launch()
+void Launcher::launchIfSet()
 {
+
+        if (!m_setToLaunch) {
+                return;
+        }
         int exitStatus = EXIT_SUCCESS;
 
         //        try {
@@ -126,3 +130,5 @@ void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCl
         m_showPersonsViewer  = showPersonsViewer;
         m_showSummaryViewer  = showSummaryViewer;
 }
+
+void Launcher::setToLaunch() { m_setToLaunch = true; }

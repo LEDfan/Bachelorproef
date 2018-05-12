@@ -24,7 +24,11 @@ public:
         void setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
                        bool showPersonsViewer, bool showSummaryViewer);
 
-        void launch();
+        Q_INVOKABLE
+        void setToLaunch();
+
+        // Launch if the gui set that we should launch after it closed
+        void launchIfSet();
 
 private:
         std::string m_configPath;
@@ -35,6 +39,8 @@ private:
         bool        m_showInfectedViewer;
         bool        m_showPersonsViewer;
         bool        m_showSummaryViewer;
+
+        bool m_setToLaunch; // Whether or not it is actually enabled to launch
 };
 
 #endif // STRIDE_LAUNCHMODEL_H

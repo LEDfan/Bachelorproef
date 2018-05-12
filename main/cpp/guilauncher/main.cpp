@@ -2,6 +2,14 @@
 
 int main(int, char* [])
 {
-        GuiLauncher v;
-        v.StartSimulation();
+        bool crashed = true;
+        while (crashed) {
+                crashed = false;
+                try {
+                        GuiLauncher v;
+                        v.StartSimulation();
+                } catch (...) {
+                        crashed = true;
+                }
+        }
 }
