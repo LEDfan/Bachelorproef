@@ -1,6 +1,7 @@
 set(GUICONTROLLER_SRC
         main.cpp
         GuiController.cpp
+        GuiControllerBackend.cpp
 )
 set (CMAKE_CXX_STANDARD 14)
 
@@ -30,7 +31,7 @@ target_link_libraries(libguicontroller
     Qt5::Quick
 )
 
-add_executable(guicontroller ${GUICONTROLLER_SRC} ${QT_RESOURCES})
+add_executable(guicontroller ${GUICONTROLLER_SRC} ${QT_RESOURCES} GuiControllerBackend.cpp GuiControllerBackend.h)
 target_link_libraries(guicontroller
     libgengeopop
     Qt5::Widgets

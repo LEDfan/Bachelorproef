@@ -10,44 +10,6 @@ ApplicationWindow {
     title: qsTr("GuiController")
 
 
-ColumnLayout {
-    ColumnLayout {
-        anchors.margins: 2
-        Layout.fillWidth: true
-        // Select config
-        RowLayout {
-            Layout.fillWidth: true
-            Text{
-                text: "Selected config: "
-            }
-            Text{
-                text: "None"
-            }
-            Button {
-                text: "Select config"
-            }
-        }
-
-
-        // Viewers
-        RowLayout {
-            CheckBox {
-
-            }
-            Text {
-                text: "Visualizer 1"
-            }
-        }
-        RowLayout {
-            CheckBox {
-
-            }
-            Text {
-                text: "Visualizer 2"
-            }
-        }
-    }
-
     ColumnLayout {
         RowLayout {
             CheckBox {
@@ -71,10 +33,7 @@ ColumnLayout {
         }
         Button {
             text: "Step day"
+            onClicked: backend.stepDay()
         }
     }
-
-}
-
-
 }

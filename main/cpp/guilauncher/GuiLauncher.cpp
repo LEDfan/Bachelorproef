@@ -4,11 +4,13 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 #include <visualizer/backends/ContactCenterViewerBackend.h>
+#include <guicontroller/GuiControllerBackend.h>
 
 GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
 {
         Q_INIT_RESOURCE(qml);
         Q_INIT_RESOURCE(launcherqml);
+        Q_INIT_RESOURCE(controllerqml);
 
         auto func = [this]() {
                 int             i = 0;
