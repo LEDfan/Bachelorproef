@@ -25,6 +25,13 @@ public:
                        bool showPersonsViewer, bool showSummaryViewer);
 
         Q_INVOKABLE
+        /**
+         * Sets the controller type we will use after launch
+         * @param index 0 = Cli, 1 = GUI
+         */
+        void setController(int index);
+
+        Q_INVOKABLE
         void setToLaunch();
 
         // Launch if the gui set that we should launch after it closed
@@ -40,7 +47,8 @@ private:
         bool        m_showPersonsViewer;
         bool        m_showSummaryViewer;
 
-        bool m_setToLaunch; // Whether or not it is actually enabled to launch
+        bool        m_setToLaunch = false; // Whether or not it is actually enabled to launch
+        int         m_controller = 0;           //< The controller type we use. 0 = Cli, 1 = gui
 };
 
 #endif // STRIDE_LAUNCHMODEL_H

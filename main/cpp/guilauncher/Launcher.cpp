@@ -15,6 +15,7 @@
 #include <viewers/MapViewer.h>
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
+#include <guicontroller/GuiController.h>
 
 void Launcher::launchIfSet()
 {
@@ -78,11 +79,11 @@ void Launcher::launchIfSet()
         std::shared_ptr<stride::BaseController> controller = nullptr;
 
         //                     Check if we need the visualiser
-        //                    if (m_showVisualizer) {
-        //                            controller = std::make_shared<stride::CliWithVisualizerController>(configPt);
-        //                    } else {
-        controller = std::make_shared<stride::CliController>(configPt);
-        //                    }
+        if (m_controller == 1) {
+                controller = std::make_shared<stride::GuiController>(configPt);
+        } else {
+                controller = std::make_shared<stride::CliController>(configPt);
+        }
 
         if (m_showMapViewer) {
                 controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger());
@@ -132,3 +133,8 @@ void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCl
 }
 
 void Launcher::setToLaunch() { m_setToLaunch = true; }
+
+void Launcher::setController(int index) {
+    m_controller = index;
+
+}

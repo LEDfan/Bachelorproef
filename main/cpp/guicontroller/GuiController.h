@@ -15,6 +15,8 @@ public:
         GuiController(const GuiController& b) = delete;
         GuiController& operator=(const GuiController& b) = delete;
 
+        ~GuiController();
+
         void Control() override;
 
         /**

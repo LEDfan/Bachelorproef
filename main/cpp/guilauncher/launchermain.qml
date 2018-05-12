@@ -148,6 +148,23 @@ ApplicationWindow {
             }
 
         }
+
+        RowLayout{
+            Text {
+                text: "Controller"
+            }
+            ComboBox {
+                width: 200
+                model: [ "CLI", "GUI"]
+                onActivated: {
+                    launcher.setController(index);
+                }
+            }
+
+        }
+
+
+
         Button {
             text:  "Launch!"
             transformOrigin: Item.Center

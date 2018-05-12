@@ -24,6 +24,7 @@ set(CMAKE_AUTOUIC ON)
 add_executable(guilauncher ${GUILAUNCHER_SRC} ${QT_RESOURCES})
 target_link_libraries(guilauncher
     libgengeopop
+    libguicontroller
     libvis
     Qt5::Widgets
     Qt5::Qml
