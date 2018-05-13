@@ -10,6 +10,7 @@ set(VISUALIZER_SRC
 
 set(CMAKE_CXX_STANDARD 14)
 
+if(Qt5_FOUND)
 qt5_add_resources(VISUALIZER_QT_RESOURCES qml.qrc)
 
 #============================================================================
@@ -28,3 +29,4 @@ install(TARGETS visualizer DESTINATION ${BIN_INSTALL_LOCATION})
 
 unset(VISUALIZER_SRC)
 unset(VISUALIZER_QT_RESOURCES)
+endif()

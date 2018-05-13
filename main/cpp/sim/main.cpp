@@ -115,7 +115,11 @@ int main(int argc, char** argv)
 
                         // Check if we need the visualiser
                         if (show_visualiser.getValue()) {
+#if Qt5_FOUND == true
                                 controller = std::make_shared<CliWithVisualizerController>(configPt);
+#else
+                                std::cerr << "Can't run with visualizer when Qt is not found" << std::endl;
+#endif
                         } else {
                                 controller = std::make_shared<CliController>(configPt);
                         }

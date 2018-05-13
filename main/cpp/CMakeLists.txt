@@ -86,7 +86,6 @@ set(LIB_SRC
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp
-        sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
         sim/SimBuilder.cpp
         sim/Sim.cpp
@@ -116,12 +115,18 @@ set(LIB_SRC
         viewers/CliViewer.cpp
         viewers/PersonsViewer.cpp
         viewers/SummaryViewer.cpp
-        viewers/MapViewer.cpp
-        viewers/MapViewer.h
         viewers/InfectedViewer.cpp
 		#---
         )
 
+if(Qt5_FOUND)
+set(LIB_SRC
+	${LIB_SRC}
+        viewers/MapViewer.cpp
+        viewers/MapViewer.h
+        sim/CliWithVisualizerController.cpp
+)
+endif()
 #============================================================================
 # Build the Stride library.
 #============================================================================
@@ -134,7 +139,11 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 # Build the Stride binary.
 #============================================================================
 add_executable(stride sim/main.cpp)
-target_link_libraries(stride ${LIBS} libstride libgengeopop libvis)
+if(Qt5_FOUND)
+	target_link_libraries(stride ${LIBS} libstride libgengeopop libvis)
+else()
+	target_link_libraries(stride ${LIBS} libstride libgengeopop)
+endif()
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================
