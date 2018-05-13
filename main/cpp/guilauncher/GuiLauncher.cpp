@@ -3,8 +3,8 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <visualizer/backends/ContactCenterViewerBackend.h>
 #include <guicontroller/GuiControllerBackend.h>
+#include <visualizer/backends/ContactCenterViewerBackend.h>
 
 GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
 {
@@ -13,10 +13,10 @@ GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
         Q_INIT_RESOURCE(controllerqml);
 
         auto func = [this]() {
-                int             i = 0;
-                QGuiApplication app(i, nullptr);
-                qmlRegisterType<Launcher>("io.bistromatics.launcher", 1, 0, "Launcher");
+                int                   i = 0;
+                QGuiApplication       app(i, nullptr);
                 QQmlApplicationEngine engine;
+                qmlRegisterType<Launcher>("io.bistromatics.launcher", 1, 0, "Launcher");
 
                 engine.rootContext()->setContextProperty("launcher", &m_launcher);
                 engine.load(QUrl(QStringLiteral("qrc:/launchermain.qml")));

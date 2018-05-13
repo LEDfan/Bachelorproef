@@ -14,9 +14,6 @@ void MapViewer::Update(const sim_event::Id /*id*/)
         }
 
         // CHeck if actually initialized
-        while (!m_vis->IsReady()) {
-                continue;
-        }
 
         if (m_first) {
                 m_first = false;

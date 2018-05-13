@@ -1,9 +1,12 @@
 #pragma once
 
+#include "GuiControllerBackend.h"
 #include <QtCore/QObject>
 #include <gengeopop/GeoGrid.h>
 #include <thread>
 
+#include <QtGui/QGuiApplication>
+#include <QtQml/QQmlApplicationEngine>
 #include <sim/BaseController.h>
 
 namespace stride {
@@ -19,12 +22,12 @@ public:
 
         void Control() override;
 
-        /**
-         * Block until the visualizer is closed.
-         */
-        void Join();
+        std::shared_ptr<QQmlApplicationEngine> getEngine();
 
 private:
-        std::unique_ptr<std::thread> m_thread; ///< The thread that the visualizer QT application is run on
+        std::shared_ptr<int>                   m_argc;
+        std::shared_ptr<QGuiApplication>       m_app;
+        std::shared_ptr<QQmlApplicationEngine> m_engine;
+        std::shared_ptr<GuiControllerBackend>  m_backend;
 };
 } // namespace stride

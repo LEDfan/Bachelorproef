@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sim/Sim.h>
 
-GuiControllerBackend::GuiControllerBackend(std::shared_ptr<stride::SimRunner> runner) : m_runner(runner) {}
+GuiControllerBackend::GuiControllerBackend(std::shared_ptr<stride::SimRunner> runner) : m_runner(runner), m_day(0) {}
 
 void GuiControllerBackend::stepDay()
 {

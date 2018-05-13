@@ -1,5 +1,4 @@
 #include "GuiController.h"
-#include "GuiControllerBackend.h"
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
@@ -7,35 +6,18 @@
 
 namespace stride {
 
-GuiController::GuiController(const boost::property_tree::ptree& configPt) : BaseController(configPt), m_thread(nullptr)
+GuiController::GuiController(const boost::property_tree::ptree& configPt)
+    : BaseController(configPt), m_argc(std::make_shared<int>(0)),
+      m_app(std::make_shared<QGuiApplication>(*m_argc, nullptr)), m_engine(std::make_shared<QQmlApplicationEngine>()),
+      m_backend(std::make_shared<GuiControllerBackend>(m_runner))
 {
-
-        auto func = [this]() {
-                int             i = 0;
-                QGuiApplication app(i, nullptr);
-
-                QQmlApplicationEngine engine;
-
-                GuiControllerBackend backend(m_runner);
-                engine.load(QUrl(QStringLiteral("qrc:/controllermain.qml")));
-                engine.rootContext()->setContextProperty("backend", &backend);
-                if (engine.rootObjects().isEmpty())
-                        return -1;
-
-                return app.exec();
-        };
-
-        m_thread = std::make_unique<std::thread>(func);
+        m_engine->load(QUrl(QStringLiteral("qrc:/controllermain.qml")));
+        m_engine->rootContext()->setContextProperty("backend", m_backend.get());
 }
 
-void GuiController::Join() { m_thread->join(); }
+void GuiController::Control() { m_app->exec(); }
 
-void GuiController::Control() {}
+GuiController::~GuiController() {}
 
-GuiController::~GuiController() {
-    Join();
-
-}
-    // TODO
-
+std::shared_ptr<QQmlApplicationEngine> GuiController::getEngine() { return m_engine; }
 } // namespace stride

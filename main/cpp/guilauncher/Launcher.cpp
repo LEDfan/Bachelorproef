@@ -3,7 +3,9 @@
 //
 
 #include "Launcher.h"
+#include "GuiLauncher.h"
 #include <QtCore/QUrl>
+#include <guicontroller/GuiController.h>
 #include <iostream>
 #include <sim/BaseController.h>
 #include <sim/CliController.h>
@@ -15,7 +17,12 @@
 #include <viewers/MapViewer.h>
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
-#include <guicontroller/GuiController.h>
+
+Launcher::Launcher()
+    : m_configPath(), m_showVisualizer(false), m_showMapViewer(false), m_showAdoptedViewer(false),
+      m_showCliViewer(false), m_showInfectedViewer(false), m_showPersonsViewer(false), m_showSummaryViewer(false)
+{
+}
 
 void Launcher::launchIfSet()
 {
@@ -77,16 +84,18 @@ void Launcher::launchIfSet()
 
         configPt.sort();
         std::shared_ptr<stride::BaseController> controller = nullptr;
+        std::shared_ptr<QQmlApplicationEngine>  engine     = nullptr;
 
         //                     Check if we need the visualiser
         if (m_controller == 1) {
-                controller = std::make_shared<stride::GuiController>(configPt);
+                auto guiController = std::make_shared<stride::GuiController>(configPt);
+                engine             = guiController->getEngine();
+                controller         = guiController;
         } else {
                 controller = std::make_shared<stride::CliController>(configPt);
         }
-
         if (m_showMapViewer) {
-                controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger());
+                controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine);
         }
         if (m_showAdoptedViewer) {
                 controller->RegisterViewer<stride::viewers::AdoptedViewer>(controller->GetOutputPrefix());
@@ -134,7 +143,4 @@ void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCl
 
 void Launcher::setToLaunch() { m_setToLaunch = true; }
 
-void Launcher::setController(int index) {
-    m_controller = index;
-
-}
+void Launcher::setController(int index) { m_controller = index; }

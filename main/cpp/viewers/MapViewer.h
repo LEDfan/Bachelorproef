@@ -10,8 +10,9 @@ class MapViewer
 {
 public:
         /// Instantiate cli viewer.
-        MapViewer(std::shared_ptr<SimRunner> runner, std::shared_ptr<spdlog::logger> logger)
-            : m_logger(logger), m_vis{std::make_unique<Visualizer>()}, m_runner(std::move(runner))
+        MapViewer(std::shared_ptr<SimRunner> runner, std::shared_ptr<spdlog::logger> logger,
+                  std::shared_ptr<QQmlApplicationEngine> engine = nullptr)
+            : m_logger(logger), m_vis{std::make_unique<Visualizer>(engine)}, m_runner(std::move(runner))
         {
         }
 

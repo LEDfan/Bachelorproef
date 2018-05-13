@@ -1,21 +1,17 @@
-//
-// Created by niels on 5/8/18.
-//
-
-#ifndef STRIDE_LAUNCHMODEL_H
-#define STRIDE_LAUNCHMODEL_H
+#pragma once
 
 #include <QtCore/QObject>
 
 /**
  * Represents the current set data for the launch. Config files etc.
  */
+
 class Launcher : public QObject
 {
-        Q_OBJECT;
+        Q_OBJECT
 
 public:
-        Launcher() : m_configPath(), m_showVisualizer(false) {}
+        Launcher();
 
         Q_INVOKABLE
         void setConfigPath(QString string);
@@ -46,9 +42,6 @@ private:
         bool        m_showInfectedViewer;
         bool        m_showPersonsViewer;
         bool        m_showSummaryViewer;
-
         bool        m_setToLaunch = false; // Whether or not it is actually enabled to launch
-        int         m_controller = 0;           //< The controller type we use. 0 = Cli, 1 = gui
+        int         m_controller  = 0;     //< The controller type we use. 0 = Cli, 1 = gui
 };
-
-#endif // STRIDE_LAUNCHMODEL_H
