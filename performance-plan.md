@@ -1,7 +1,7 @@
 Performance Analysis plan
 ===
 
-- Starting from the `run_default.xml` config file, we intend to generate variations on separate parameters to try and find a regression that could serve as an indication of the influence on the run time with respect to that parameter.
+- Starting from the `run_default.xml` config file, we intend to generate variations on separate parameters to try and find a regression that could serve as an indication of the influence on the run time with respect to that parameter. We can then create a formula based on these parameters and corresponding regressions, which will result in an estimated run time when calculated with their concrete values.
 
 - Split into parts and analyze influence indivually and combined:
 
