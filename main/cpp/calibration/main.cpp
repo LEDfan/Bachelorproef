@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
         if (output.isSet())
                 calibrationRunner->WriteResults(output.getValue());
 
-#if Qt5Charts_FOUND == true
+#if Qt5Charts_FOUND
         if (display.isSet())
                 calibrationRunner->DisplayBoxplots(display.getValue());
         else if (write.getValue())
