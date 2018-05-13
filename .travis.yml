@@ -92,6 +92,8 @@ install:
     fi
     #--------- All platforms
   - |
+    sudo pip install cmake
+    export PATH=/usr/local/bin:$PATH # use version installed using pip
     export BOOSTHOME=$HOME/deps/boost_1_66_0
     if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
       cd /tmp/

@@ -1,6 +1,5 @@
 set(VISUALIZER_SRC
     backend.cpp
-    main.cpp
     backends/LocationViewerBackend.cpp
     backends/ContactCenterViewerBackend.cpp
     models/ContactPoolListModel.cpp
@@ -9,43 +8,25 @@ set(VISUALIZER_SRC
     Visualizer.cpp Visualizer.h
 )
 
-set (CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 14)
 
+if(Qt5_FOUND)
+qt5_add_resources(VISUALIZER_QT_RESOURCES qml.qrc)
 
 #============================================================================
-# Find dependencies and correct flags.
+# Build and link the visualizer library.
 #============================================================================
-find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
-include_directories(SYSTEM ${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
-add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
-qt5_add_resources(QT_RESOURCES qml.qrc)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+add_library(libvis ${VISUALIZER_SRC} ${VISUALIZER_QT_RESOURCES})
+target_link_libraries(libvis libgengeopop ${QT_LIBRARIES})
 
 #============================================================================
 # Build and link the visualizer executable.
 #============================================================================
-add_executable(visualizer ${VISUALIZER_SRC} ${QT_RESOURCES})
-target_link_libraries(visualizer
-    libgengeopop
-    Qt5::Widgets
-    Qt5::Qml
-    Qt5::Quick
-)
+add_executable(visualizer main.cpp)
+target_link_libraries(visualizer libvis)
 
-# Create libary
-include_directories(${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
-add_library(libvis ${VISUALIZER_SRC} ${QT_RESOURCES})
-target_link_libraries(libvis
-    libgengeopop
-    Qt5::Widgets
-    Qt5::Qml
-    Qt5::Quick
-)
-
-install(TARGETS visualizer DESTINATION   ${BIN_INSTALL_LOCATION})
+install(TARGETS visualizer DESTINATION ${BIN_INSTALL_LOCATION})
 
 unset(VISUALIZER_SRC)
+unset(VISUALIZER_QT_RESOURCES)
+endif()

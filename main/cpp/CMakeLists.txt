@@ -26,6 +26,7 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf
 #============================================================================
 add_subdirectory(gengeopop)
 add_subdirectory(calibration)
+add_subdirectory(visualizer)
 
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
@@ -85,7 +86,6 @@ set(LIB_SRC
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp
-        sim/CliWithVisualizerController.cpp
         sim/SimRunner.cpp
         sim/SimBuilder.cpp
         sim/Sim.cpp
@@ -115,12 +115,18 @@ set(LIB_SRC
         viewers/CliViewer.cpp
         viewers/PersonsViewer.cpp
         viewers/SummaryViewer.cpp
-        viewers/MapViewer.cpp
-        viewers/MapViewer.h
         viewers/InfectedViewer.cpp
 		#---
         )
 
+if(Qt5_FOUND)
+set(LIB_SRC
+	${LIB_SRC}
+        viewers/MapViewer.cpp
+        viewers/MapViewer.h
+        sim/CliWithVisualizerController.cpp
+)
+endif()
 #============================================================================
 # Build the Stride library.
 #============================================================================
@@ -128,24 +134,17 @@ add_library(libstride ${LIB_SRC})
 target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================
-# Build and install the stride executable.
+# Build the Stride binary.
 #============================================================================
-# QT related
-find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
-include_directories(SYSTEM ${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
-add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
-
 add_executable(stride sim/main.cpp)
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
-target_link_libraries(stride ${LIBS} libstride libgengeopop)
-target_link_libraries(stride libvis)
+if(Qt5_FOUND)
+	target_link_libraries(stride ${LIBS} libstride libgengeopop libvis)
+else()
+	target_link_libraries(stride ${LIBS} libstride libgengeopop)
+endif()
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
-
-add_subdirectory(visualizer)
 
 #============================================================================
 # Clean up.

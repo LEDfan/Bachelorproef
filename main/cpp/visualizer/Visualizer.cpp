@@ -1,12 +1,12 @@
 #include "Visualizer.h"
 #include "backend.h"
 #include "backends/LocationViewerBackend.h"
+#include "models/CommutesListModel.h"
+#include "models/ContactCenterListModel.h"
+#include "models/ContactPoolListModel.h"
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <models/CommutesListModel.h>
-#include <models/ContactCenterListModel.h>
-#include <models/ContactPoolListModel.h>
 #include <visualizer/backends/ContactCenterViewerBackend.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
