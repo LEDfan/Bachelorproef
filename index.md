@@ -22,6 +22,7 @@ Tobia De Koninck
 - [Design](design)
 - [Test Plan](test-plan)
 - [Analysis of the stochastic spread of Stride simulation outcomes](/assets/src/paper-stochastisch/main.pdf)
+- [Performance plan](performance-plan)
 
 
 # Links
