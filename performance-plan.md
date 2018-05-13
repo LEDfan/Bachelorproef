@@ -28,7 +28,8 @@ Performance Analysis plan
     + Cache size
     + Number of cache levels
     + Number of threads
-    + Processor speed
+    + Hyper Threading
+    + Processor speed (making sure there is no thermal throttling)
     + File system cache
     + Swap
 
