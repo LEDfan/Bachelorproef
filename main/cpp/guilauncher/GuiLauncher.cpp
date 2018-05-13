@@ -34,4 +34,5 @@ void GuiLauncher::Start()
 {
         // Wait for the launcher to close
         m_thread->join();
+        m_launcher.Launch();
 }

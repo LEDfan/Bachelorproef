@@ -416,8 +416,8 @@ ApplicationWindow {
                         personsViewerCheckbox.checked,
                         summaryViewerCheckbox.checked
                     )
+                    launcher.UpdatePtree();
                     window.close()
-                    launcher.Launch();
                 }
             }
         }

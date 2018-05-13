@@ -21,7 +21,6 @@ Launcher::Launcher() : m_configPath(), m_configPt(), m_configEditor() {}
 
 void Launcher::Launch()
 {
-        UpdatePtree();
 
         // -----------------------------------------------------------------------------------------
         // Get configuration and path with overrides (if any).

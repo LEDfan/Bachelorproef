@@ -36,10 +36,11 @@ public:
 
         void SetRootObject(QObject* rootObject);
 
+        Q_INVOKABLE
+        void UpdatePtree();
+
 private:
         void UpdateConfigForm();
-
-        void UpdatePtree();
 
         void LoadComboBox(QObject* comboBox, const char* value);
 
