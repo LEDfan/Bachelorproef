@@ -162,8 +162,6 @@ void Population::NewPerson(unsigned int id, double age, unsigned int householdId
 void Population::Finalize()
 {
         using namespace ContactPoolType;
-        //        auto& population = *pop;
-        //        auto& poolSys    = population.GetContactPoolSys();
 
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.
