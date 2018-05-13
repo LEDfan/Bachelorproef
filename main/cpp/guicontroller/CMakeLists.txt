@@ -1,5 +1,4 @@
 set(GUICONTROLLER_SRC
-        main.cpp
         GuiController.cpp
         GuiControllerBackend.cpp
 )

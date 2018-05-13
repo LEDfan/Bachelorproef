@@ -10,11 +10,11 @@ public:
         GuiControllerBackend(std::shared_ptr<stride::SimRunner> runner);
 
         Q_INVOKABLE
-        void stepDay();
+        void StepDay();
         Q_INVOKABLE
-        unsigned int getInfectedCount();
+        unsigned int GetInfectedCount();
         Q_INVOKABLE
-        unsigned int getDay();
+        unsigned int GetDay();
 
 private:
         std::shared_ptr<stride::SimRunner> m_runner;

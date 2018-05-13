@@ -31,7 +31,7 @@ public:
         void Join();
 
 private:
-        void registerQML(bool usingExistingEngine = false);
+        void RegisterQML(bool usingExistingEngine = false);
 
         QObject*                                m_rootContext = nullptr; ///< The root context of the main QML file
         QObject*                                m_qmlBackend  = nullptr; ///< The root context of the main QML file

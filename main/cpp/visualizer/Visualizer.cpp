@@ -19,13 +19,13 @@ Visualizer::Visualizer(std::shared_ptr<QQmlApplicationEngine> engine)
       m_cpModel(nullptr), m_commutesModel(nullptr)
 {
         if (m_engine) {
-                registerQML(true);
+                RegisterQML(true);
         } else {
                 auto application = [this]() {
                         int             i = 0;
                         QGuiApplication app(i, nullptr);
                         m_engine = std::make_shared<QQmlApplicationEngine>();
-                        registerQML();
+                        RegisterQML();
                         if (m_engine->rootObjects().isEmpty())
                                 return -1;
 
@@ -35,7 +35,7 @@ Visualizer::Visualizer(std::shared_ptr<QQmlApplicationEngine> engine)
         }
 }
 
-void Visualizer::registerQML(bool usingExistingEngine)
+void Visualizer::RegisterQML(bool usingExistingEngine)
 {
         qmlRegisterType<Backend>("io.bistromatics.backend", 1, 0, "Backend");
         qmlRegisterType<LocationViewerBackend>("io.bistromatics.locationviewerbackend", 1, 0, "LocationViewerBackend");

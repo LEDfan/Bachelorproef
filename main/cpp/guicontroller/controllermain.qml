@@ -42,13 +42,13 @@ ApplicationWindow {
                 id: stepTimer
                 running: false
                 repeat: true
-                onTriggered: stepDay()
+                onTriggered: StepDay()
             }
         }
         RowLayout {
             Button {
                 text: "Step day"
-                onClicked: stepDay()
+                onClicked: StepDay()
             }
         }
 
@@ -72,9 +72,9 @@ ApplicationWindow {
         }
     }
 
-    function stepDay() {
-        backend.stepDay()
-        dayNr.text = backend.getDay()
-        infectedNr.text = backend.getInfectedCount()
+    function StepDay() {
+        backend.StepDay()
+        dayNr.text = backend.GetDay()
+        infectedNr.text = backend.GetInfectedCount()
     }
 }
