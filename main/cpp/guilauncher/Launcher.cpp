@@ -17,17 +17,10 @@
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
 
-Launcher::Launcher()
-    : m_configPath(), m_showVisualizer(false), m_showMapViewer(false), m_showAdoptedViewer(false),
-      m_showCliViewer(false), m_showInfectedViewer(false), m_showPersonsViewer(false), m_showSummaryViewer(false)
-{
-}
+Launcher::Launcher() : m_configPath(), m_configPt(), m_configEditor() {}
 
-void Launcher::launchIfSet()
+void Launcher::Launch()
 {
-        if (!m_setToLaunch) {
-                return;
-        }
         UpdatePtree();
 
         // -----------------------------------------------------------------------------------------
@@ -43,7 +36,7 @@ void Launcher::launchIfSet()
         std::shared_ptr<QQmlApplicationEngine>  engine     = nullptr;
 
         if (m_controller == 1) {
-                auto guiController = std::make_shared<stride::GuiController>(configPt);
+                auto guiController = std::make_shared<stride::GuiController>(m_configPt);
                 engine             = guiController->GetEngine();
                 controller         = guiController;
         } else {
@@ -70,7 +63,7 @@ void Launcher::launchIfSet()
         controller->Control();
 }
 
-void Launcher::setConfigPath(QString file)
+void Launcher::SetConfigPath(QString file)
 {
         QUrl info(file);
         m_configPath = info.toLocalFile().toStdString();
@@ -78,7 +71,7 @@ void Launcher::setConfigPath(QString file)
         UpdateConfigForm();
 }
 
-void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
+void Launcher::SetConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
                          bool showPersonsViewer, bool showSummaryViewer)
 {
         m_showMapViewer      = showMapViewer;
@@ -89,9 +82,7 @@ void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCl
         m_showSummaryViewer  = showSummaryViewer;
 }
 
-void Launcher::setToLaunch() { m_setToLaunch = true; }
-
-void Launcher::setController(int index) { m_controller = index; }
+void Launcher::SetController(int index) { m_controller = index; }
 
 void Launcher::UpdateConfigForm()
 {
@@ -230,68 +221,37 @@ void Launcher::UpdatePtree()
 
 void Launcher::SetRootObject(QObject* rootObject)
 {
-        m_configEditor.ageContactMatrixFile = rootObject->findChild<QObject*>("inputAgeContactMatrixFile");
-        ;
-        m_configEditor.behaviourPolicy = rootObject->findChild<QObject*>("inputBehaviourPolicy");
-        ;
-        m_configEditor.beliefPolicy = rootObject->findChild<QObject*>("inputBeliefPolicy");
-        ;
-        m_configEditor.contactLogLevel = rootObject->findChild<QObject*>("inputContactLogLevel");
-        ;
-        m_configEditor.diseaseConfigFile = rootObject->findChild<QObject*>("inputDiseaseConfigFile");
-        ;
-        m_configEditor.globalInformationPolicy = rootObject->findChild<QObject*>("inputGlobalInformationPolicy");
-        ;
-        m_configEditor.holidaysFile = rootObject->findChild<QObject*>("inputHolidaysFile");
-        ;
-        m_configEditor.immunityProfile = rootObject->findChild<QObject*>("inputImmunityProfile");
-        ;
-        m_configEditor.immunityRate = rootObject->findChild<QObject*>("inputImmunityRate");
-        ;
-        m_configEditor.localInformationPolicy = rootObject->findChild<QObject*>("inputLocalInformationPolicy");
-        ;
-        m_configEditor.numDays = rootObject->findChild<QObject*>("inputNumDays");
-        ;
+        m_configEditor.ageContactMatrixFile     = rootObject->findChild<QObject*>("inputAgeContactMatrixFile");
+        m_configEditor.behaviourPolicy          = rootObject->findChild<QObject*>("inputBehaviourPolicy");
+        m_configEditor.beliefPolicy             = rootObject->findChild<QObject*>("inputBeliefPolicy");
+        m_configEditor.contactLogLevel          = rootObject->findChild<QObject*>("inputContactLogLevel");
+        m_configEditor.diseaseConfigFile        = rootObject->findChild<QObject*>("inputDiseaseConfigFile");
+        m_configEditor.globalInformationPolicy  = rootObject->findChild<QObject*>("inputGlobalInformationPolicy");
+        m_configEditor.holidaysFile             = rootObject->findChild<QObject*>("inputHolidaysFile");
+        m_configEditor.immunityProfile          = rootObject->findChild<QObject*>("inputImmunityProfile");
+        m_configEditor.immunityRate             = rootObject->findChild<QObject*>("inputImmunityRate");
+        m_configEditor.localInformationPolicy   = rootObject->findChild<QObject*>("inputLocalInformationPolicy");
+        m_configEditor.numDays                  = rootObject->findChild<QObject*>("inputNumDays");
         m_configEditor.numberParticipantsSurvey = rootObject->findChild<QObject*>("inputNumberParticipantsSurvey");
-        ;
-        m_configEditor.outputAdopted = rootObject->findChild<QObject*>("inputOutputAdopted");
-        ;
-        m_configEditor.outputCases = rootObject->findChild<QObject*>("inputOutputCases");
-        ;
-        m_configEditor.outputPersons = rootObject->findChild<QObject*>("inputOutputPersons");
-        ;
-        m_configEditor.outputPrefix = rootObject->findChild<QObject*>("inputOutputPrefix");
-        ;
-        m_configEditor.outputPersons = rootObject->findChild<QObject*>("inputOutputPersons");
-        ;
-        m_configEditor.outputSummary = rootObject->findChild<QObject*>("inputOutputSummary");
-        ;
-        m_configEditor.numThreads = rootObject->findChild<QObject*>("inputNumThreads");
-        ;
-        m_configEditor.populationFile = rootObject->findChild<QObject*>("inputPopulationFile");
-        ;
-        m_configEditor.rngSeed = rootObject->findChild<QObject*>("inputRngSeed");
-        ;
-        m_configEditor.rngType = rootObject->findChild<QObject*>("inputRngType");
-        ;
-        m_configEditor.r0 = rootObject->findChild<QObject*>("inputR0");
-        ;
-        m_configEditor.seedingAgeMax = rootObject->findChild<QObject*>("inputSeedingAgeMax");
-        ;
-        m_configEditor.seedingAgeMin = rootObject->findChild<QObject*>("inputSeedingAgeMin");
-        ;
-        m_configEditor.startDate = rootObject->findChild<QObject*>("inputStartDate");
-        ;
-        m_configEditor.strideLogLevel = rootObject->findChild<QObject*>("inputStrideLogLevel");
-        ;
-        m_configEditor.trackIndexCase = rootObject->findChild<QObject*>("inputTrackIndexCase");
-        ;
-        m_configEditor.vaccineLinkProbability = rootObject->findChild<QObject*>("inputVaccineLinkProbability");
-        ;
-        m_configEditor.vaccineProfile = rootObject->findChild<QObject*>("inputVaccineProfile");
-        ;
-        m_configEditor.vaccineRate = rootObject->findChild<QObject*>("inputVaccineRate");
-        ;
+        m_configEditor.outputAdopted            = rootObject->findChild<QObject*>("inputOutputAdopted");
+        m_configEditor.outputCases              = rootObject->findChild<QObject*>("inputOutputCases");
+        m_configEditor.outputPersons            = rootObject->findChild<QObject*>("inputOutputPersons");
+        m_configEditor.outputPrefix             = rootObject->findChild<QObject*>("inputOutputPrefix");
+        m_configEditor.outputPersons            = rootObject->findChild<QObject*>("inputOutputPersons");
+        m_configEditor.outputSummary            = rootObject->findChild<QObject*>("inputOutputSummary");
+        m_configEditor.numThreads               = rootObject->findChild<QObject*>("inputNumThreads");
+        m_configEditor.populationFile           = rootObject->findChild<QObject*>("inputPopulationFile");
+        m_configEditor.rngSeed                  = rootObject->findChild<QObject*>("inputRngSeed");
+        m_configEditor.rngType                  = rootObject->findChild<QObject*>("inputRngType");
+        m_configEditor.r0                       = rootObject->findChild<QObject*>("inputR0");
+        m_configEditor.seedingAgeMax            = rootObject->findChild<QObject*>("inputSeedingAgeMax");
+        m_configEditor.seedingAgeMin            = rootObject->findChild<QObject*>("inputSeedingAgeMin");
+        m_configEditor.startDate                = rootObject->findChild<QObject*>("inputStartDate");
+        m_configEditor.strideLogLevel           = rootObject->findChild<QObject*>("inputStrideLogLevel");
+        m_configEditor.trackIndexCase           = rootObject->findChild<QObject*>("inputTrackIndexCase");
+        m_configEditor.vaccineLinkProbability   = rootObject->findChild<QObject*>("inputVaccineLinkProbability");
+        m_configEditor.vaccineProfile           = rootObject->findChild<QObject*>("inputVaccineProfile");
+        m_configEditor.vaccineRate              = rootObject->findChild<QObject*>("inputVaccineRate");
 }
 
 void Launcher::LoadComboBox(QObject* comboBox, const char* value)

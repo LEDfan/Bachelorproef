@@ -19,7 +19,7 @@ ApplicationWindow {
     FileDialog {
         id: configSelector
         onAccepted: {
-            launcher.setConfigPath(configSelector.fileUrl)
+            launcher.SetConfigPath(configSelector.fileUrl)
         }
     }
 
@@ -397,7 +397,7 @@ ApplicationWindow {
                 width: 200
                 model: [ "CLI", "GUI"]
                 onActivated: {
-                    launcher.setController(index);
+                    launcher.SetController(index);
                 }
             }
 
@@ -408,7 +408,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    launcher.setConfig(
+                    launcher.SetConfig(
                         mapViewerCheckbox.checked,
                         adoptedViewerCheckbox.checked,
                         cliViewerCheckbox.checked,
@@ -417,7 +417,7 @@ ApplicationWindow {
                         summaryViewerCheckbox.checked
                     )
                     window.close()
-                    launcher.launch();
+                    launcher.Launch();
                 }
             }
         }

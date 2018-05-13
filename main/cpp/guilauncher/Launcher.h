@@ -14,11 +14,14 @@ class Launcher : public QObject
 public:
         Launcher();
 
-        Q_INVOKABLE
-        void setConfigPath(QString string);
+        Launcher(const Launcher& b) = delete;
+        Launcher& operator=(const Launcher& b) = delete;
 
         Q_INVOKABLE
-        void setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
+        void SetConfigPath(QString string);
+
+        Q_INVOKABLE
+        void SetConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
                        bool showPersonsViewer, bool showSummaryViewer);
 
         Q_INVOKABLE
@@ -26,14 +29,20 @@ public:
          * Sets the controller type we will use after launch
          * @param index 0 = Cli, 1 = GUI
          */
-        void setController(int index);
+        void SetController(int index);
 
         Q_INVOKABLE
-        void launch();
+        void Launch();
 
         void SetRootObject(QObject* rootObject);
 
 private:
+        void UpdateConfigForm();
+
+        void UpdatePtree();
+
+        void LoadComboBox(QObject* comboBox, const char* value);
+
         std::string m_configPath;
         bool        m_showVisualizer     = false;
         bool        m_showMapViewer      = false;
@@ -43,8 +52,7 @@ private:
         bool        m_showPersonsViewer  = false;
         bool        m_showSummaryViewer  = false;
 
-        bool m_setToLaunch = false; // Whether or not it is actually enabled to launch
-        int  m_controller  = 0;     //< The controller type we use. 0 = Cli, 1 = gui
+        int m_controller = 0; //< The controller type we use. 0 = Cli, 1 = gui
 
         boost::property_tree::ptree m_configPt;
 
@@ -83,10 +91,4 @@ private:
                 QObject* vaccineProfile           = nullptr;
                 QObject* vaccineRate              = nullptr;
         } m_configEditor;
-
-        void UpdateConfigForm();
-
-        void UpdatePtree();
-
-        void LoadComboBox(QObject* comboBox, const char* value);
 };
