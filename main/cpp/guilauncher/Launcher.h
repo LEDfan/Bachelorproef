@@ -85,6 +85,7 @@ private:
                 QObject* r0                       = nullptr;
                 QObject* seedingAgeMax            = nullptr;
                 QObject* seedingAgeMin            = nullptr;
+                QObject* seedingRate              = nullptr;
                 QObject* startDate                = nullptr;
                 QObject* strideLogLevel           = nullptr;
                 QObject* trackIndexCase           = nullptr;

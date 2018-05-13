@@ -252,7 +252,7 @@ ApplicationWindow {
 
             Label { text: "Seeding rate" }
             SpinBox {
-                    objectName: "inputSeedingAgeMin"
+                    objectName: "inputSeedingRate"
                     minimumValue: 0
                     Layout.fillWidth: true
                     decimals: 3

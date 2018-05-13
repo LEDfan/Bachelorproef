@@ -122,9 +122,10 @@ void Launcher::UpdateConfigForm()
 
         LoadComboBox(m_configEditor.rngType, m_configPt.get<std::string>("run.rng_type").c_str());
 
-        m_configEditor.r0->setProperty("value", m_configPt.get<std::string>("run.r0").c_str());
-        m_configEditor.seedingAgeMax->setProperty("value", m_configPt.get<std::string>("run.seeding_age_max").c_str());
-        m_configEditor.seedingAgeMin->setProperty("value", m_configPt.get<std::string>("run.seeding_age_min").c_str());
+        m_configEditor.r0->setProperty("value", m_configPt.get<int>("run.r0"));
+        m_configEditor.seedingAgeMax->setProperty("value", m_configPt.get<int>("run.seeding_age_max"));
+        m_configEditor.seedingAgeMin->setProperty("value", m_configPt.get<int>("run.seeding_age_min"));
+        m_configEditor.seedingRate->setProperty("value", m_configPt.get<double>("run.seeding_rate"));
         m_configEditor.startDate->setProperty("text", m_configPt.get<std::string>("run.start_date").c_str());
 
         LoadComboBox(m_configEditor.strideLogLevel, m_configPt.get<std::string>("run.stride_log_level").c_str());
@@ -201,6 +202,8 @@ void Launcher::UpdatePtree()
 
         m_configPt.put("run.seeding_age_min", m_configEditor.seedingAgeMin->property("value").toString().toStdString());
 
+        m_configPt.put("run.seeding_rate", m_configEditor.seedingRate->property("value").toString().toStdString());
+
         m_configPt.put("run.start_date", m_configEditor.startDate->property("text").toString().toStdString());
 
         m_configPt.put("run.stride_log_level",
@@ -245,6 +248,7 @@ void Launcher::SetRootObject(QObject* rootObject)
         m_configEditor.r0                       = rootObject->findChild<QObject*>("inputR0");
         m_configEditor.seedingAgeMax            = rootObject->findChild<QObject*>("inputSeedingAgeMax");
         m_configEditor.seedingAgeMin            = rootObject->findChild<QObject*>("inputSeedingAgeMin");
+        m_configEditor.seedingRate              = rootObject->findChild<QObject*>("inputSeedingRate");
         m_configEditor.startDate                = rootObject->findChild<QObject*>("inputStartDate");
         m_configEditor.strideLogLevel           = rootObject->findChild<QObject*>("inputStrideLogLevel");
         m_configEditor.trackIndexCase           = rootObject->findChild<QObject*>("inputTrackIndexCase");
