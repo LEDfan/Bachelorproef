@@ -18,7 +18,7 @@ ApplicationWindow {
                 id: secondsPerDay
                 inputMethodHints: Qt.ImhDigitsOnly
                 width: 20
-                text: "1"
+                text: "2"
             }
 
             Text {
