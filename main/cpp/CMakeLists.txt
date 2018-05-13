@@ -27,6 +27,8 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf
 add_subdirectory(gengeopop)
 add_subdirectory(calibration)
 add_subdirectory(visualizer)
+add_subdirectory(guicontroller)
+add_subdirectory(guilauncher)
 
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
@@ -86,6 +88,7 @@ set(LIB_SRC
         pop/SurveySeeder.cpp
         #---
         sim/CliController.cpp
+        sim/BaseController.cpp
         sim/SimRunner.cpp
         sim/SimBuilder.cpp
         sim/Sim.cpp
@@ -119,19 +122,19 @@ set(LIB_SRC
 		#---
         )
 
+
 if(Qt5_FOUND)
 set(LIB_SRC
 	${LIB_SRC}
         viewers/MapViewer.cpp
         viewers/MapViewer.h
-        sim/CliWithVisualizerController.cpp
 )
 endif()
 #============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
-target_link_libraries(libstride ${LIBS} libgengeopop)
+target_link_libraries(libstride ${LIBS} libgengeopop libguicontroller)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 
@@ -139,8 +142,9 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 # Build the Stride binary.
 #============================================================================
 add_executable(stride sim/main.cpp)
+
 if(Qt5_FOUND)
-	target_link_libraries(stride ${LIBS} libstride libgengeopop libvis)
+	target_link_libraries(stride ${LIBS} libstride libgengeopop libvis libguicontroller)
 else()
 	target_link_libraries(stride ${LIBS} libstride libgengeopop)
 endif()

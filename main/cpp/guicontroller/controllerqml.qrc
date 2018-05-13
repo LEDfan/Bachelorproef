@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>controllermain.qml</file>
+    </qresource>
+</RCC>

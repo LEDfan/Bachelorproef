@@ -8,8 +8,6 @@ set(VISUALIZER_SRC
     Visualizer.cpp Visualizer.h
 )
 
-set(CMAKE_CXX_STANDARD 14)
-
 if(Qt5_FOUND)
 qt5_add_resources(VISUALIZER_QT_RESOURCES qml.qrc)
 

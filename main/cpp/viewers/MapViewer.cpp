@@ -13,11 +13,17 @@ void MapViewer::Update(const sim_event::Id /*id*/)
                 return;
         }
 
+        // CHeck if actually initialized
+        while (!m_vis->IsReady()) {
+                continue;
+        }
+
         if (m_first) {
                 m_first = false;
 
                 // Set the geogrid
                 m_vis->SetGeoGrid(m_runner->GetSim()->GetPopulation()->GetGeoGrid());
+                m_vis->ForceUpdateMarkers();
                 std::this_thread::sleep_for(std::chrono::seconds(5));
         } else {
                 // Update the markers
