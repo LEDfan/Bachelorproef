@@ -41,7 +41,9 @@ using namespace boost::property_tree;
 
 /// Main program of the stride simulator.
 int main(int argc, char** argv)
+
 {
+        Q_INIT_RESOURCE(controllerqml);
         int exitStatus = EXIT_SUCCESS;
 
         try {
