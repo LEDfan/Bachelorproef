@@ -125,7 +125,7 @@ int main(int argc, char** argv)
 
                         } else {
                                 std::shared_ptr<GuiController> temp = std::make_shared<GuiController>(configPt);
-                                engine                              = temp->getEngine();
+                                engine                              = temp->GetEngine();
                                 controller                          = temp;
                         }
 

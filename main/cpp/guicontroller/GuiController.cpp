@@ -19,5 +19,5 @@ void GuiController::Control() { m_app->exec(); }
 
 GuiController::~GuiController() {}
 
-std::shared_ptr<QQmlApplicationEngine> GuiController::getEngine() { return m_engine; }
+std::shared_ptr<QQmlApplicationEngine> GuiController::GetEngine() { return m_engine; }
 } // namespace stride

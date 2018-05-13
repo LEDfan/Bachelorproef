@@ -45,7 +45,7 @@ void Launcher::launchIfSet()
 
         if (m_controller == 1) {
                 auto guiController = std::make_shared<stride::GuiController>(configPt);
-                engine             = guiController->getEngine();
+                engine             = guiController->GetEngine();
                 controller         = guiController;
         } else {
                 controller = std::make_shared<stride::CliController>(configPt);

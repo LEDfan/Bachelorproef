@@ -22,7 +22,7 @@ public:
 
         void Control() override;
 
-        std::shared_ptr<QQmlApplicationEngine> getEngine();
+        std::shared_ptr<QQmlApplicationEngine> GetEngine();
 
 private:
         std::shared_ptr<int>                   m_argc;
