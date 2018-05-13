@@ -16,7 +16,7 @@ Visualizer::Visualizer(std::shared_ptr<QQmlApplicationEngine> engine)
       m_cpModel(nullptr), m_commutesModel(nullptr)
 {
         if (m_engine) {
-                registerQML();
+                registerQML(true);
         } else {
                 auto application = [this]() {
                         int             i = 0;
@@ -32,7 +32,7 @@ Visualizer::Visualizer(std::shared_ptr<QQmlApplicationEngine> engine)
         }
 }
 
-void Visualizer::registerQML()
+void Visualizer::registerQML(bool usingExistingEngine)
 {
         qmlRegisterType<Backend>("io.bistromatics.backend", 1, 0, "Backend");
         qmlRegisterType<LocationViewerBackend>("io.bistromatics.locationviewerbackend", 1, 0, "LocationViewerBackend");
@@ -55,7 +55,12 @@ void Visualizer::registerQML()
         m_engine->load(QUrl(QStringLiteral("qrc:/main.qml")));
 
         // Save the root context
-        m_rootContext = m_engine->rootObjects()[0];
+        int offset = 0;
+        if (usingExistingEngine) {
+                offset = 1;
+        }
+        m_rootContext = m_engine->rootObjects()[offset];
+        m_qmlBackend  = m_rootContext->findChild<QObject*>("backend");
 }
 
 void Visualizer::ForceUpdateMarkers()
@@ -69,9 +74,8 @@ void Visualizer::ForceUpdateMarkers()
 
 void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 {
-        QObject* backend = m_rootContext->findChild<QObject*>("backend");
-        if (backend != nullptr && grid != nullptr) {
-                Backend* backendClass = qobject_cast<Backend*>(backend);
+        if (m_qmlBackend != nullptr && grid != nullptr) {
+                Backend* backendClass = qobject_cast<Backend*>(m_qmlBackend);
                 backendClass->SetGeoGrid(grid);
                 m_setGrid = true;
         }
@@ -79,4 +83,4 @@ void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 
 void Visualizer::Join() {}
 
-bool Visualizer::IsReady() const { return m_rootContext != nullptr; }
+bool Visualizer::IsReady() const { return m_rootContext != nullptr && m_qmlBackend != nullptr; }

@@ -44,6 +44,7 @@ int main(int argc, char** argv)
 
 {
         Q_INIT_RESOURCE(controllerqml);
+        Q_INIT_RESOURCE(qml);
         int exitStatus = EXIT_SUCCESS;
 
         try {
@@ -118,13 +119,18 @@ int main(int argc, char** argv)
                         // TODO @Niels see new upstream switches
 
                         // Check if we need the visualiser
+                        std::shared_ptr<QQmlApplicationEngine> engine = nullptr;
                         if (execArg.getValue() == "sim") {
                                 controller = std::make_shared<CliController>(configPt);
-                                if (show_visualiser.getValue()) {
-                                        controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger());
-                                }
+
                         } else {
-                                controller = std::make_shared<GuiController>(configPt);
+                                std::shared_ptr<GuiController> temp = std::make_shared<GuiController>(configPt);
+                                engine                              = temp->getEngine();
+                                controller                          = temp;
+                        }
+
+                        if (show_visualiser.getValue()) {
+                                controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
                         }
                         controller->RegisterViewers();
                         controller->Control();

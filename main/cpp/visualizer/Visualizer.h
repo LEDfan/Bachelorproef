@@ -31,9 +31,10 @@ public:
         void Join();
 
 private:
-        void registerQML();
+        void registerQML(bool usingExistingEngine = false);
 
         QObject*                                m_rootContext = nullptr; ///< The root context of the main QML file
+        QObject*                                m_qmlBackend  = nullptr; ///< The root context of the main QML file
         std::unique_ptr<std::thread>            m_thread; ///< The thread that the visualizer QT application is run on
         bool                                    m_setGrid = false; ///< If the grid was set for the visualizer
         std::shared_ptr<QQmlApplicationEngine>  m_engine;

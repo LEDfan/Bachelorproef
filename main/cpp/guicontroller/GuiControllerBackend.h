@@ -18,5 +18,5 @@ public:
 
 private:
         std::shared_ptr<stride::SimRunner> m_runner;
-        unsigned int m_day;
+        unsigned int                       m_day;
 };
