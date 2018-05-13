@@ -1,6 +1,6 @@
 #pragma once
-
 #include <QtCore/QObject>
+#include <boost/property_tree/ptree.hpp>
 
 /**
  * Represents the current set data for the launch. Config files etc.
@@ -33,6 +33,8 @@ public:
         // Launch if the gui set that we should launch after it closed
         void launchIfSet();
 
+        void SetRootObject(QObject* rootObject);
+
 private:
         std::string m_configPath;
         bool        m_showVisualizer;
@@ -43,5 +45,16 @@ private:
         bool        m_showPersonsViewer;
         bool        m_showSummaryViewer;
         bool        m_setToLaunch = false; // Whether or not it is actually enabled to launch
-        int         m_controller  = 0;     //< The controller type we use. 0 = Cli, 1 = gui
+        int         m_controller = 0;           //< The controller type we use. 0 = Cli, 1 = gui
+
+        boost::property_tree::ptree m_configPt;
+
+        QObject* m_rootObject;
+
+        struct {
+                QObject* r0 = nullptr;
+        } m_configEditor;
+
+        void UpdateConfigForm();
 };
+

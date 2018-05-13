@@ -1,11 +1,9 @@
-//
-// Created by niels on 5/8/18.
-//
-
 #include "Launcher.h"
 #include "GuiLauncher.h"
 #include <QtCore/QUrl>
 #include <guicontroller/GuiController.h>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
 #include <iostream>
 #include <sim/BaseController.h>
 #include <sim/CliController.h>
@@ -33,13 +31,12 @@ void Launcher::launchIfSet()
         // -----------------------------------------------------------------------------------------
         // Get configuration and path with overrides (if any).
         // -----------------------------------------------------------------------------------------
-        boost::property_tree::ptree configPt;
-        configPt = stride::util::FileSys::ReadPtreeFile(m_configPath);
-        if (configPt.get<std::string>("run.output_prefix", "").empty()) {
-                configPt.put<std::string>("run.output_prefix", stride::util::TimeStamp().ToTag().append("/"));
+//        configPt = stride::util::FileSys::ReadPtreeFile(m_configPath);
+        if (m_configPt.get<std::string>("run.output_prefix", "").empty()) {
+                m_configPt.put<std::string>("run.output_prefix", stride::util::TimeStamp().ToTag().append("/"));
         }
 
-        configPt.sort();
+        m_configPt.sort();
         std::shared_ptr<stride::BaseController> controller = nullptr;
         std::shared_ptr<QQmlApplicationEngine>  engine     = nullptr;
 
@@ -48,7 +45,7 @@ void Launcher::launchIfSet()
                 engine             = guiController->GetEngine();
                 controller         = guiController;
         } else {
-                controller = std::make_shared<stride::CliController>(configPt);
+                controller = std::make_shared<stride::CliController>(m_configPt);
         }
         if (m_showMapViewer) {
                 controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine);
@@ -75,6 +72,8 @@ void Launcher::setConfigPath(QString file)
 {
         QUrl info(file);
         m_configPath = info.toLocalFile().toStdString();
+        m_configPt = stride::util::FileSys::ReadPtreeFile(m_configPath);
+        UpdateConfigForm();
 }
 
 void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
@@ -91,3 +90,12 @@ void Launcher::setConfig(bool showMapViewer, bool showAdoptedViewer, bool showCl
 void Launcher::setToLaunch() { m_setToLaunch = true; }
 
 void Launcher::setController(int index) { m_controller = index; }
+
+void Launcher::UpdateConfigForm() {
+        m_configEditor.r0->setProperty("value", 100000);
+}
+
+void Launcher::SetRootObject(QObject* rootObject) {
+        m_configEditor.r0 = rootObject->findChild<QObject*>("inputR0");
+
+}

@@ -23,12 +23,14 @@ GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
                 if (engine.rootObjects().isEmpty())
                         return -1;
 
+                m_launcher.SetRootObject(engine.rootObjects().first());
+
                 return app.exec();
         };
         m_thread = std::make_unique<std::thread>(func);
 }
 
-void GuiLauncher::StartSimulation()
+void GuiLauncher::Start()
 {
         // Wait for the launcher to close
         m_thread->join();
