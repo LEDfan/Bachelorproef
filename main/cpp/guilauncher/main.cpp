@@ -7,7 +7,7 @@ int main(int, char* [])
                 crashed = false;
                 try {
                         GuiLauncher v;
-                        v.StartSimulation();
+                        v.Start();
                 } catch (...) {
                         crashed = true;
                 }

@@ -19,7 +19,6 @@ ApplicationWindow {
     FileDialog {
         id: configSelector
         onAccepted: {
-            console.warn("selected file: ", configSelector.fileUrl)
             launcher.setConfigPath(configSelector.fileUrl)
         }
     }
@@ -79,7 +78,7 @@ ApplicationWindow {
             ComboBox {
                     objectName: "inputBeliefPolicy"
                     Layout.fillWidth: true
-                    model: ["NoBelief", "Imitation"]
+                    model: ["NoBelief"]
             }
 
             Label { text: "Contact log level" }
@@ -156,7 +155,7 @@ ApplicationWindow {
 
             Label { text: "Number of participants in survety" }
             SpinBox {
-                    objectName: "inputNumberParticipantsSuryvery"
+                    objectName: "inputNumberParticipantsSurvey"
                     minimumValue: 0
                     Layout.fillWidth: true
             }
@@ -192,7 +191,7 @@ ApplicationWindow {
 
             Label { text: "Output Summary" }
             CheckBox {
-                    objectName: "inputOutputPersons"
+                    objectName: "inputOutputSummary"
             }
 
             Label { text: "Number of threads" }
@@ -225,7 +224,7 @@ ApplicationWindow {
 
             Label { text: "RNG Type" }
             ComboBox {
-                    objectName: "inputLocalInformationPolicy"
+                    objectName: "inputRngType"
                     Layout.fillWidth: true
                     model: ["lcg64", "lcg64_shift", "mrg2", "mrg3", "yarn2", "yarn3", ]
             }
@@ -409,7 +408,6 @@ ApplicationWindow {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    console.warn("Launching...")
                     launcher.setConfig(
                         mapViewerCheckbox.checked,
                         adoptedViewerCheckbox.checked,
@@ -418,8 +416,8 @@ ApplicationWindow {
                         personsViewerCheckbox.checked,
                         summaryViewerCheckbox.checked
                     )
-                    launcher.setToLaunch()
                     window.close()
+                    launcher.launch();
                 }
             }
         }

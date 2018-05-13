@@ -34,6 +34,4 @@ void GuiLauncher::Start()
 {
         // Wait for the launcher to close
         m_thread->join();
-        // Launch using the settings
-        m_launcher.launchIfSet();
 }
