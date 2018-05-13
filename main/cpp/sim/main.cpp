@@ -118,11 +118,9 @@ int main(int argc, char** argv)
 
                         // TODO @Niels see new upstream switches
 
-                        // Check if we need the visualiser
                         std::shared_ptr<QQmlApplicationEngine> engine = nullptr;
                         if (execArg.getValue() == "sim") {
                                 controller = std::make_shared<CliController>(configPt);
-
                         } else {
                                 std::shared_ptr<GuiController> temp = std::make_shared<GuiController>(configPt);
                                 engine                              = temp->GetEngine();
@@ -130,7 +128,11 @@ int main(int argc, char** argv)
                         }
 
                         if (show_visualiser.getValue()) {
+#if Qt5_FOUND
                                 controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
+#else
+                                std::cerr << "Can't run with mapviewer when Qt is not found" << std::endl;
+#endif
                         }
                         controller->RegisterViewers();
                         controller->Control();

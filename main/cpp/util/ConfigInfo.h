@@ -44,6 +44,9 @@ public:
         static constexpr bool HaveQt5() { return Qt5_FOUND; }
 
         ///
+        static constexpr bool HaveQt5Charts() { return Qt5Charts_FOUND; }
+
+        ///
         static std::string GitRevision();
 
         ///

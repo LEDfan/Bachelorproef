@@ -31,15 +31,4 @@ target_link_libraries(libguicontroller
     Qt5::Quick
 )
 
-add_executable(guicontroller ${GUICONTROLLER_SRC} ${QT_RESOURCES} GuiControllerBackend.cpp GuiControllerBackend.h)
-target_link_libraries(guicontroller
-    libgengeopop
-    Qt5::Widgets
-    Qt5::Qml
-    Qt5::Quick
-)
-
-
-install(TARGETS guicontroller DESTINATION   ${BIN_INSTALL_LOCATION})
-
 unset(GUICONTROLLER_SRC)
