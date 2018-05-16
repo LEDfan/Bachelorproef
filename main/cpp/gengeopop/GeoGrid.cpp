@@ -84,13 +84,13 @@ void GeoGrid::remove(const std::shared_ptr<Location>& location)
 
 void GeoGrid::Finalize()
 {
-        std::vector<KdTree2DPoint> points;
+        std::vector<geogrid_detail::KdTree2DPoint> points;
         for (auto it = begin(); it != end(); ++it) {
-                points.emplace_back(KdTree2DPoint(*it));
+                points.emplace_back(geogrid_detail::KdTree2DPoint(*it));
         }
 
         m_finalized = true;
-        m_tree      = KdTree<KdTree2DPoint>::Build(points);
+        m_tree      = KdTree<geogrid_detail::KdTree2DPoint>::Build(points);
 }
 
 std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
@@ -100,7 +100,7 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
         std::set<std::shared_ptr<Location>> result;
 
         m_tree.Apply(
-            [&result](const KdTree2DPoint& pt) -> bool {
+            [&result](const geogrid_detail::KdTree2DPoint& pt) -> bool {
                     result.insert(pt.GetLocation());
                     return true;
             },
@@ -113,7 +113,7 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
 {
         CheckFinalized(__func__);
 
-        AABB<KdTree2DPoint> box{};
+        AABB<geogrid_detail::KdTree2DPoint> box{};
 
         // As of boost 1.66, there's seems no way to do this in Boost.Geometry
         constexpr double EARTH_RADIUS_KM = 6371.0;
@@ -124,15 +124,15 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
         double londiff  = RadianToDegree(scaled_radius / std::cos(DegreeToRadian(startlat)));
         double latdiff  = RadianToDegree(scaled_radius);
 
-        box.upper = KdTree2DPoint(startlon + londiff, startlat + latdiff);
-        box.lower = KdTree2DPoint(startlon - londiff, startlat - latdiff);
+        box.upper = geogrid_detail::KdTree2DPoint(startlon + londiff, startlat + latdiff);
+        box.lower = geogrid_detail::KdTree2DPoint(startlon - londiff, startlat - latdiff);
 
-        KdTree2DPoint startPt(start);
+        geogrid_detail::KdTree2DPoint startPt(start);
 
         std::vector<std::shared_ptr<Location>> result;
 
         m_tree.Apply(
-            [&startPt, &radius, &result](const KdTree2DPoint& pt) -> bool {
+            [&startPt, &radius, &result](const geogrid_detail::KdTree2DPoint& pt) -> bool {
                     if (pt.InRadius(startPt, radius)) {
                             result.push_back(pt.GetLocation());
                     }
@@ -140,6 +140,9 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
             },
             box);
 
+        // Example usage of GeoAggregator that would replace the body of this method
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(result), std::make_tuple(*start, radius));
+        agg();
         return result;
 }
 
