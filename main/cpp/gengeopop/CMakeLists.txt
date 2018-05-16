@@ -56,18 +56,16 @@ FIND_PACKAGE(Protobuf)
 if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
     file(GLOB proto_source "${CMAKE_CURRENT_SOURCE_DIR}/io/proto/*.proto")
     PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER ${proto_source})
-    add_library(libproto ${PROTO_HEADER} ${PROTO_SRC})
-    add_custom_target(proto DEPENDS libproto)
-    add_custom_command(
-        TARGET proto
+    add_custom_target(proto
         COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_HEADER} ${CMAKE_CURRENT_SOURCE_DIR}/io/proto/
         COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_SRC} ${CMAKE_CURRENT_SOURCE_DIR}/io/proto/
     )
-else()
-    file(GLOB PROTO_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/io/proto/*.pb.h")
-    file(GLOB PROTO_SRC "${CMAKE_CURRENT_SOURCE_DIR}/io/proto/*.pb.cc")
-    add_library(libproto ${PROTO_HEADER} ${PROTO_SRC})
 endif()
+file(GLOB PROTO_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/io/proto/*.pb.h")
+file(GLOB PROTO_SRC "${CMAKE_CURRENT_SOURCE_DIR}/io/proto/*.pb.cc")
+add_library(libproto ${PROTO_HEADER} ${PROTO_SRC})
+target_link_libraries(libproto libprotobuf)
+
 set_target_properties(libproto PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 set_property(TARGET libproto PROPERTY POSITION_INDEPENDENT_CODE ON)
 
