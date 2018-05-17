@@ -2,7 +2,7 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <visualizer/backends/ContactCenterViewerBackend.h>
+#include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 namespace stride {
 

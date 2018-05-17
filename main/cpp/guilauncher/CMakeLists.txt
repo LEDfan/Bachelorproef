@@ -18,14 +18,14 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 #============================================================================
-# Build and link the visualizer executable.
+# Build and link the GuiLauncher executable.
 #============================================================================
 
 add_executable(guilauncher ${GUILAUNCHER_SRC} ${QT_RESOURCES})
 target_link_libraries(guilauncher
     libgengeopop
     libguicontroller
-    libvis
+    libmapviewer
     Qt5::Widgets
     Qt5::Qml
     Qt5::Quick

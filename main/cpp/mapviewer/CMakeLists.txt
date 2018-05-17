@@ -1,30 +1,31 @@
-set(VISUALIZER_SRC
+set(MAPVIEWER_SRC
     backend.cpp
     backends/LocationViewerBackend.cpp
     backends/ContactCenterViewerBackend.cpp
     models/ContactPoolListModel.cpp
     models/CommutesListModel.cpp
     models/ContactCenterListModel.cpp
-    Visualizer.cpp Visualizer.h
+    Map.cpp
+    MapViewer.cpp
 )
 
 if(Qt5_FOUND)
-qt5_add_resources(VISUALIZER_QT_RESOURCES qml.qrc)
+    qt5_add_resources(MAPVIEWER_QT_RESOURCES qml.qrc)
 
 #============================================================================
-# Build and link the visualizer library.
+# Build and link the mapviewer library.
 #============================================================================
-add_library(libvis ${VISUALIZER_SRC} ${VISUALIZER_QT_RESOURCES})
-target_link_libraries(libvis libgengeopop ${QT_LIBRARIES})
+add_library(libmapviewer ${MAPVIEWER_SRC} ${MAPVIEWER_QT_RESOURCES})
+target_link_libraries(libmapviewer libgengeopop ${QT_LIBRARIES})
 
 #============================================================================
-# Build and link the visualizer executable.
+# Build and link the mapviewer executable.
 #============================================================================
-add_executable(visualizer main.cpp)
-target_link_libraries(visualizer libvis)
+add_executable(mapviewer main.cpp)
+target_link_libraries(mapviewer libmapviewer)
 
-install(TARGETS visualizer DESTINATION ${BIN_INSTALL_LOCATION})
+install(TARGETS mapviewer DESTINATION ${BIN_INSTALL_LOCATION})
 
-unset(VISUALIZER_SRC)
-unset(VISUALIZER_QT_RESOURCES)
+unset(MAPVIEWER_SRC)
+unset(MAPVIEWER_QT_RESOURCES)
 endif()

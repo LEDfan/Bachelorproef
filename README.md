@@ -36,11 +36,11 @@ By default the program will use the following files:
  - `flanders_cities.csv`
  - `flanders_commuting.csv`
  - `households_flanders.csv`
-The GeoGrid will be written into `gengeopop.json`, which can be opened using the Visualiser.
+The GeoGrid will be written into `gengeopop.json`, which can be opened using the MapViewer.
 
 
-## GenGeo visualiser
-The visualiser is compiled with the other binaries. It can run by `./cmake-build-release/installed/bin/visualizer`. You then have to load a geogrid file by clicking the load file button on the right hand side. The map on the left hand side shows all the locations in the geogrid. You can get more info by clicking on a marker. The middle column will then have the info about the location and the contact centers. You can click on one of the contact centers in that list, you will then get info about it in the right column.
+## GenGeo MapViewer
+The MapViewer is compiled with the other binaries. It can run by `./cmake-build-release/installed/bin/mapviewer`. You then have to load a geogrid file by clicking the load file button on the right hand side. The map on the left hand side shows all the locations in the geogrid. You can get more info by clicking on a marker. The middle column will then have the info about the location and the contact centers. You can click on one of the contact centers in that list, you will then get info about it in the right column.
 You can select multiple locations by using SHIFT.
 
 ## Calibration tool

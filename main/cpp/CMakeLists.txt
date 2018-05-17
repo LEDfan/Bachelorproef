@@ -26,7 +26,7 @@ include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf
 #============================================================================
 add_subdirectory(gengeopop)
 add_subdirectory(calibration)
-add_subdirectory(visualizer)
+add_subdirectory(mapviewer)
 add_subdirectory(guicontroller)
 add_subdirectory(guilauncher)
 
@@ -122,15 +122,7 @@ set(LIB_SRC
 		#---
         )
 
-
-if(Qt5_FOUND)
-set(LIB_SRC
-	${LIB_SRC}
-        viewers/MapViewer.cpp
-        viewers/MapViewer.h
-)
-endif()
-#============================================================================
+    #============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
@@ -144,7 +136,7 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 add_executable(stride sim/main.cpp)
 
 if(Qt5_FOUND)
-	target_link_libraries(stride ${LIBS} libstride libgengeopop libvis libguicontroller)
+	target_link_libraries(stride ${LIBS} libstride libgengeopop libmapviewer libguicontroller)
 else()
 	target_link_libraries(stride ${LIBS} libstride libgengeopop)
 endif()

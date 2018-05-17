@@ -4,7 +4,7 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 #include <guicontroller/GuiControllerBackend.h>
-#include <visualizer/backends/ContactCenterViewerBackend.h>
+#include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
 {

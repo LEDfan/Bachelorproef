@@ -6,6 +6,7 @@
 #include <QtCore/QVariant>
 #include <guicontroller/GuiController.h>
 #include <iostream>
+#include <mapviewer/MapViewer.h>
 #include <sim/BaseController.h>
 #include <sim/CliController.h>
 #include <util/FileSys.h>
@@ -13,7 +14,6 @@
 #include <viewers/AdoptedViewer.h>
 #include <viewers/CliViewer.h>
 #include <viewers/InfectedViewer.h>
-#include <viewers/MapViewer.h>
 #include <viewers/PersonsViewer.h>
 #include <viewers/SummaryViewer.h>
 

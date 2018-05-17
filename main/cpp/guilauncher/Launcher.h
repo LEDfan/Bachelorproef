@@ -45,7 +45,6 @@ private:
         void LoadComboBox(QObject* comboBox, const char* value);
 
         std::string m_configPath;
-        bool        m_showVisualizer     = false;
         bool        m_showMapViewer      = false;
         bool        m_showAdoptedViewer  = false;
         bool        m_showCliViewer      = false;

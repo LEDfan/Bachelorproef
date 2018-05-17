@@ -19,13 +19,13 @@
  */
 
 #include "guicontroller/GuiController.h"
+#include "mapviewer/MapViewer.h"
 #include "sim/BaseController.h"
 #include "sim/CliController.h"
 #include "util/FileSys.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
-#include "viewers/MapViewer.h"
 
 #include <tclap/CmdLine.h>
 #include <iostream>
@@ -79,8 +79,8 @@ int main(int argc, char** argv)
                             "stride install directories";
                 SwitchArg installedArg("i", "installed", si, cmd, true);
 
-                SwitchArg show_visualiser("v", "visualizer", "Open a visualizer window when the simulation runs.", cmd,
-                                          false);
+                SwitchArg show_mapviewer("v", "mapviewer", "Open a mapviewer window when the simulation runs.", cmd,
+                                         false);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -127,7 +127,7 @@ int main(int argc, char** argv)
                                 controller                          = temp;
                         }
 
-                        if (show_visualiser.getValue()) {
+                        if (show_mapviewer.getValue()) {
 #if Qt5_FOUND
                                 controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
 #else
