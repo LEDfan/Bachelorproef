@@ -192,13 +192,13 @@ namespace gengeopop {
 template <typename Policy, typename F>
 GeoAggregator<Policy, F> GeoGrid::BuildAggregator(F functor, typename Policy::Args&& args) const
 {
-        return GeoAggregator<Policy, F>(functor, std::forward<typename Policy::Args>(args));
+        return GeoAggregator<Policy, F>(m_tree, functor, std::forward<typename Policy::Args>(args));
 }
 
 template <typename Policy>
 GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args&& args) const
 {
-        return GeoAggregator<Policy>(std::forward<typename Policy::Args>(args));
+        return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
 }
 
 } // namespace gengeopop

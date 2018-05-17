@@ -5,12 +5,6 @@
 #include <util/Exception.h>
 #include <utility>
 
-namespace {
-double RadianToDegree(double rad) { return rad / M_PI * 180.0; }
-
-double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
-} // namespace
-
 namespace gengeopop {
 
 GeoGrid::GeoGrid()
@@ -113,35 +107,10 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
 {
         CheckFinalized(__func__);
 
-        AABB<geogrid_detail::KdTree2DPoint> box{};
-
-        // As of boost 1.66, there's seems no way to do this in Boost.Geometry
-        constexpr double EARTH_RADIUS_KM = 6371.0;
-        double           scaled_radius   = radius / EARTH_RADIUS_KM;
-
-        double startlon = start->GetCoordinate().longitude;
-        double startlat = start->GetCoordinate().latitude;
-        double londiff  = RadianToDegree(scaled_radius / std::cos(DegreeToRadian(startlat)));
-        double latdiff  = RadianToDegree(scaled_radius);
-
-        box.upper = geogrid_detail::KdTree2DPoint(startlon + londiff, startlat + latdiff);
-        box.lower = geogrid_detail::KdTree2DPoint(startlon - londiff, startlat - latdiff);
-
         geogrid_detail::KdTree2DPoint startPt(start);
 
         std::vector<std::shared_ptr<Location>> result;
-
-        m_tree.Apply(
-            [&startPt, &radius, &result](const geogrid_detail::KdTree2DPoint& pt) -> bool {
-                    if (pt.InRadius(startPt, radius)) {
-                            result.push_back(pt.GetLocation());
-                    }
-                    return true;
-            },
-            box);
-
-        // Example usage of GeoAggregator that would replace the body of this method
-        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(result), std::make_tuple(*start, radius));
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(result), std::make_tuple(std::move(startPt), radius));
         agg();
         return result;
 }
