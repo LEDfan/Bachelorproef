@@ -87,4 +87,8 @@ void Map::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 
 bool Map::IsReady() const { return m_rootContext != nullptr && m_qmlBackend != nullptr; }
 
-Map::~Map() { m_thread->join(); }
+Map::~Map()
+{
+        if (m_thread)
+                m_thread->join();
+}
