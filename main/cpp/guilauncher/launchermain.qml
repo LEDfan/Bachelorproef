@@ -417,6 +417,7 @@ ApplicationWindow {
                         summaryViewerCheckbox.checked
                     )
                     launcher.UpdatePtree();
+                    launcher.setToLaunch();
                     window.close()
                 }
             }

@@ -37,6 +37,9 @@ public:
         void SetRootObject(QObject* rootObject);
 
         Q_INVOKABLE
+        void setToLaunch();
+
+        Q_INVOKABLE
         void UpdatePtree();
 
 private:
@@ -58,6 +61,7 @@ private:
 
         QObject* m_rootObject = nullptr;
 
+        bool m_setToLaunch = false;
         struct
         {
                 QObject* ageContactMatrixFile     = nullptr;

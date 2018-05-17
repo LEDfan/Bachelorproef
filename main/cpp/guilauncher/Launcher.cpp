@@ -21,6 +21,11 @@ Launcher::Launcher() : m_configPath(), m_configPt(), m_configEditor() {}
 
 void Launcher::Launch()
 {
+        // Only launch if we have set it to.
+        if(!m_setToLaunch){
+            return;
+        }
+
         // -----------------------------------------------------------------------------------------
         // Get configuration and path with overrides (if any).
         // -----------------------------------------------------------------------------------------
@@ -264,4 +269,9 @@ void Launcher::LoadComboBox(QObject* comboBox, const char* value)
                                   Q_ARG(QVariant, value));
 
         comboBox->setProperty("currentIndex", retVal);
+}
+
+void Launcher::setToLaunch() {
+    m_setToLaunch = true;
+
 }
