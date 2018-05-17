@@ -21,6 +21,7 @@ Map::Map(std::shared_ptr<QQmlApplicationEngine> engine)
         if (m_engine) {
                 RegisterQML(true);
         } else {
+                Q_INIT_RESOURCE(qml);
                 auto application = [this]() {
                         int             i = 0;
                         QGuiApplication app(i, nullptr);
@@ -85,3 +86,5 @@ void Map::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 }
 
 bool Map::IsReady() const { return m_rootContext != nullptr && m_qmlBackend != nullptr; }
+
+Map::~Map() { m_thread->join(); }

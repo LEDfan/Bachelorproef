@@ -14,6 +14,7 @@ public:
         Map(std::shared_ptr<QQmlApplicationEngine> engine = nullptr);
         Map(const Map& b) = delete;
         Map& operator=(const Map& b) = delete;
+        ~Map();
 
         /**
          * Shows the given geogrid in the mapviewer. Places the markers.
