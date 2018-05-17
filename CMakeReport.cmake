@@ -119,6 +119,8 @@ if ( STRIDE_INCLUDE_DOC )
 	endif()
 endif()
 #
+message( STATUS "------> Include directories          : ${INCLUDE_DIRECTORIES} " )
+#
 message( STATUS "------> Generate Coverage            : ${GENERATE_COVERAGE} " )
 #
 message( STATUS "" )

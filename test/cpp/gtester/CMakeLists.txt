@@ -60,13 +60,8 @@ if (OPENMP_FOUND)
         set(SRC ${SRC} ParallelRuns.cpp)
 endif ()
 
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
-#if (OPENMP_FOUND)
-#        set(SRC ${SRC} ParallelRuns.cpp)
-#endif ()
-
 add_executable(${EXEC}   ${SRC} )
-target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
+target_link_libraries(${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
