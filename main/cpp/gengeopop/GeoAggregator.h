@@ -17,23 +17,22 @@ namespace gengeopop {
 
 /// A functor that aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the
 /// Collector
-template <typename T>
+template <typename InsertIter, typename T>
 class Collector
 {
 public:
-        Collector() : m_vec() {}
-        Collector(std::vector<T>& vec) : m_vec(vec) {}
+        Collector(const InsertIter& ins) : m_ins(ins) {}
 
-        void operator()(T elem) { m_vec.emplace_back(std::move(elem)); }
+        void operator()(T elem) { *m_ins = std::move(elem); }
 
 private:
-        std::vector<T>& m_vec;
+        InsertIter m_ins;
 };
 
-template <typename T>
-Collector<T> MakeCollector(std::vector<T>& vec)
+template <typename InsertIter, typename T = typename InsertIter::container_type::value_type>
+Collector<InsertIter, T> MakeCollector(const InsertIter& ins)
 {
-        return Collector<T>(vec);
+        return Collector<InsertIter, T>(ins);
 }
 
 /// A GeoAggregator can either be instanciated with a functor, or be called with one every time
@@ -116,15 +115,31 @@ public:
                 return box;
         }
 
-        bool Contains(const geogrid_detail::KdTree2DPoint& pt) const
-        {
-                return pt.InRadius(m_center, m_radius);
-                ;
-        }
+        bool Contains(const geogrid_detail::KdTree2DPoint& pt) const { return pt.InRadius(m_center, m_radius); }
 
 private:
         geogrid_detail::KdTree2DPoint m_center;
         double                        m_radius;
+};
+
+/// A GeoAggregator Policy that aggregates over an axis aligned bounding box
+class BoxPolicy
+{
+public:
+        using Args = std::tuple<double, double, double, double>; ///< lon1, lat1, lon2, lat2
+
+        BoxPolicy(Args args) : m_args(std::move(args)) {}
+
+        AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
+        {
+                using std::get;
+                return {{get<0>(m_args), get<1>(m_args)}, {get<2>(m_args), get<3>(m_args)}};
+        }
+
+        bool Contains(const geogrid_detail::KdTree2DPoint&) const { return true; }
+
+private:
+        Args m_args;
 };
 
 } // namespace gengeopop

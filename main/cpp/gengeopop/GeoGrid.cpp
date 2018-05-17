@@ -92,13 +92,9 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
         CheckFinalized(__func__);
 
         std::set<std::shared_ptr<Location>> result;
-
-        m_tree.Apply(
-            [&result](const geogrid_detail::KdTree2DPoint& pt) -> bool {
-                    result.insert(pt.GetLocation());
-                    return true;
-            },
-            {{std::min(long1, long2), std::min(lat1, lat2)}, {std::max(long1, long2), std::max(lat1, lat2)}});
+        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(std::inserter(result, result.begin())),
+                                              std::make_tuple(long1, lat1, long2, lat2));
+        agg();
         return result;
 }
 
@@ -110,7 +106,8 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
         geogrid_detail::KdTree2DPoint startPt(start);
 
         std::vector<std::shared_ptr<Location>> result;
-        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(result), std::make_tuple(std::move(startPt), radius));
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(std::back_inserter(result)),
+                                                 std::make_tuple(std::move(startPt), radius));
         agg();
         return result;
 }
