@@ -72,8 +72,6 @@ target_link_libraries(libproto libprotobuf_insrc)
 set_target_properties(libproto PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 set_property(TARGET libproto PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/io/proto)
-
 #============================================================================
 # Build the GenGeoPop library.
 #============================================================================
@@ -87,7 +85,6 @@ set_property(TARGET libgengeopop PROPERTY POSITION_INDEPENDENT_CODE ON)
 add_executable(gengeopop main.cpp)
 target_link_libraries(gengeopop ${LIBS} libprotobuf_insrc libproto libstride libgengeopop)
 install(TARGETS gengeopop DESTINATION ${BIN_INSTALL_LOCATION})
-
 
 #============================================================================
 # Clean up.

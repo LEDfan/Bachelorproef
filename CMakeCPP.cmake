@@ -83,6 +83,12 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
+# ProtoBuf
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+
+#----------------------------------------------------------------------------
 # SHA1 hash code.
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)
@@ -216,5 +222,11 @@ else()
 		set(HDF5_FOUND FALSE)
 	endif()
 endif()
+
+#----------------------------------------------------------------------------
+# Remove "/usr/local/include" from INCLUDE_DIRECTORIES
+#----------------------------------------------------------------------------
+get_property(INCLUDE_DIRECTORIES DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+string(REPLACE "/usr/local/include" "" INCLUDE_DIRECTORIES "${INCLUDE_DIRECTORIES}")
 
 #############################################################################
