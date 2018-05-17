@@ -113,6 +113,8 @@ set(LIB_SRC
         util/TimeToString.h
         util/ExcAssert.h
         util/Exception.cpp
+		util/PartitionedSegmentedVector.h
+		util/PSVIterator.h
         #---
         viewers/AdoptedViewer.cpp
         viewers/CliViewer.cpp
