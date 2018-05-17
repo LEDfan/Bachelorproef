@@ -1,7 +1,8 @@
-#include "GuiController.h"
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
+
+#include "GuiController.h"
 #include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 namespace stride {

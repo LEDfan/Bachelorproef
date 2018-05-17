@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Launcher.h"
+
 #include <thread>
 
 class GuiLauncher

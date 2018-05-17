@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtCore/QObject>
+
 #include <sim/SimRunner.h>
 
 class GuiControllerBackend : public QObject

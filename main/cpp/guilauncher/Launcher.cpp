@@ -1,11 +1,12 @@
-#include "Launcher.h"
-#include "GuiLauncher.h"
 #include <QtCore/QDebug>
 #include <QtCore/QString>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
-#include <guicontroller/GuiController.h>
 #include <iostream>
+
+#include "GuiLauncher.h"
+#include "Launcher.h"
+#include <guicontroller/GuiController.h>
 #include <mapviewer/MapViewer.h>
 #include <sim/BaseController.h>
 #include <sim/CliController.h>
@@ -22,8 +23,8 @@ Launcher::Launcher() : m_configPath(), m_configPt(), m_configEditor() {}
 void Launcher::Launch()
 {
         // Only launch if we have set it to.
-        if(!m_setToLaunch){
-            return;
+        if (!m_setToLaunch) {
+                return;
         }
 
         // -----------------------------------------------------------------------------------------
@@ -271,7 +272,4 @@ void Launcher::LoadComboBox(QObject* comboBox, const char* value)
         comboBox->setProperty("currentIndex", retVal);
 }
 
-void Launcher::setToLaunch() {
-    m_setToLaunch = true;
-
-}
+void Launcher::setToLaunch() { m_setToLaunch = true; }

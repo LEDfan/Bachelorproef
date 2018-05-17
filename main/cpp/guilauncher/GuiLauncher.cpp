@@ -1,10 +1,11 @@
 #include "GuiLauncher.h"
 #include "Launcher.h"
+#include <guicontroller/GuiControllerBackend.h>
+#include <mapviewer/backends/ContactCenterViewerBackend.h>
+
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <guicontroller/GuiControllerBackend.h>
-#include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 GuiLauncher::GuiLauncher() : m_thread(nullptr), m_launcher()
 {

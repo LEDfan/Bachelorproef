@@ -1,13 +1,13 @@
 #pragma once
 
 #include "GuiControllerBackend.h"
-#include <QtCore/QObject>
 #include <gengeopop/GeoGrid.h>
-#include <thread>
+#include <sim/BaseController.h>
 
+#include <QtCore/QObject>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
-#include <sim/BaseController.h>
+#include <thread>
 
 namespace stride {
 
