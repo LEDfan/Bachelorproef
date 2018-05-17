@@ -29,19 +29,31 @@ class Collector
 public:
         Collector(const InsertIter& ins) : m_ins(ins) {}
 
+        /// Collect a new element
         void operator()(T elem) { *m_ins = std::move(elem); }
 
 private:
-        InsertIter m_ins;
+        InsertIter m_ins; ///< The (back_)insert_iterator that receives new elements
 };
 
+/// Build a Collector, useful for type inference
 template <typename InsertIter, typename T = typename InsertIter::container_type::value_type>
 Collector<InsertIter, T> MakeCollector(const InsertIter& ins)
 {
         return Collector<InsertIter, T>(ins);
 }
 
-/// A GeoAggregator can either be instanciated with a functor, or be called with one every time
+/**
+ * A GeoAggregator can either be instanciated with a functor, or be called with one every time
+ *
+ * A policy should have the following:
+ *  - an embedded type Args: the type of argument it should receive at construction
+ *  - a constructor that takes Args
+ *  - AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
+ *      Get the bounding box for the policy region
+ *  - bool Contains(const geogrid_detail::KdTree2DPoint& pt) const
+ *      Does the point fall withing the policy region?
+ */
 template <typename Policy, typename... F>
 class GeoAggregator
 {
@@ -58,6 +70,7 @@ public:
         {
         }
 
+        /// Aggregate over the area specified by the policy with the functor `f`
         template <typename F>
         void operator()(F f)
         {
@@ -86,6 +99,7 @@ public:
         {
         }
 
+        /// Aggregate over the policy with the functor specified at construction time
         void operator()() { GeoAggregator<Policy>::operator()(m_functor); }
 
 private:
