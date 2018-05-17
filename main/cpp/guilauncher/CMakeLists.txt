@@ -1,37 +1,23 @@
-set(GUILAUNCHER_SRC
+if(Qt5_FOUND)
+    set(GUILAUNCHER_SRC
         main.cpp
-        GuiLauncher.cpp GuiLauncher.h Launcher.cpp Launcher.h)
-set (CMAKE_CXX_STANDARD 14)
+        GuiLauncher.cpp
+        GuiLauncher.h
+        Launcher.cpp
+        Launcher.h
+    )
 
+    qt5_add_resources(GUILAUNCHER_QT_RESOURCES launcherqml.qrc)
 
-#============================================================================
-# Find dependencies and correct flags.
-#============================================================================
-find_package(Qt5 COMPONENTS Widgets Qml Quick QuickTest REQUIRED)
-include_directories(SYSTEM ${Qt5Widgets_INCLUDE_DIRS} ${QtQml_INCLUDE_DIRS})
-add_definitions(${Qt5Widgets_DEFINITIONS} ${QtQml_DEFINITIONS} ${${Qt5Quick_DEFINITIONS}})
-qt5_add_resources(QT_RESOURCES launcherqml.qrc)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+    #============================================================================
+    # Build and link the guilauncher executable.
+    #============================================================================
+    add_executable(guilauncher ${GUILAUNCHER_SRC} ${GUILAUNCHER_QT_RESOURCES})
+    target_link_libraries(guilauncher libgengeopop libmapviewer ${QT_LIBRARIES})
 
-#============================================================================
-# Build and link the GuiLauncher executable.
-#============================================================================
+    install(TARGETS guilauncher DESTINATION ${BIN_INSTALL_LOCATION})
 
-add_executable(guilauncher ${GUILAUNCHER_SRC} ${QT_RESOURCES})
-target_link_libraries(guilauncher
-    libgengeopop
-    libguicontroller
-    libmapviewer
-    Qt5::Widgets
-    Qt5::Qml
-    Qt5::Quick
-)
+    unset(GUILAUNCHER_QT_RESOURCES)
+    unset(GUILAUNCHER_SRC)
+endif()
 
-
-install(TARGETS guilauncher DESTINATION   ${BIN_INSTALL_LOCATION})
-
-unset(GUICONTROLLER_SRC)
