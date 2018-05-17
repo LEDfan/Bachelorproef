@@ -6,6 +6,12 @@
 #include "KdTree.h"
 #include "Location.h"
 
+#include <boost/geometry/geometries/box.hpp>
+#include <boost/geometry/geometries/polygon.hpp>
+#include <boost/geometry/geometries/register/box.hpp>
+
+BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABB, lower, upper)
+
 namespace geoaggregator_detail {
 inline double RadianToDegree(double rad) { return rad / M_PI * 180.0; }
 
@@ -140,6 +146,33 @@ public:
 
 private:
         Args m_args;
+};
+
+/// A GeoAggregator Policy that aggregates over a (clockwise) polygon
+class PolygonPolicy
+{
+public:
+        using Args = boost::geometry::model::polygon<geogrid_detail::BoostPoint, true>;
+
+        PolygonPolicy(Args args) : m_poly(std::move(args)) {}
+
+        AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
+        {
+                namespace geo = boost::geometry;
+                AABB<geogrid_detail::BoostPoint> boostbox;
+                geo::envelope(m_poly, boostbox);
+                AABB<geogrid_detail::KdTree2DPoint> box{{geo::get<0>(boostbox.lower), geo::get<1>(boostbox.lower)},
+                                                        {geo::get<0>(boostbox.upper), geo::get<1>(boostbox.upper)}};
+                return box;
+        }
+
+        bool Contains(const geogrid_detail::KdTree2DPoint& pt) const
+        {
+                return boost::geometry::within(pt.AsBoostPoint(), m_poly);
+        }
+
+private:
+        Args m_poly;
 };
 
 } // namespace gengeopop
