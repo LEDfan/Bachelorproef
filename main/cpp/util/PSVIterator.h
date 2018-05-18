@@ -46,7 +46,7 @@ class SegmentedVector;
  * 	is_const_iterator	to make it a const_iterator
  */
 template <typename T, std::size_t N, typename P = const T*, typename R = const T&, bool is_const_iterator = true>
-class PSVIterator : public std::iterator<std::random_access_iterator_tag, T, std::ptrdiff_t, P, R>
+class PSVIterator : public std::iterator<std::bidirectional_iterator_tag, T, std::ptrdiff_t, P, R>
 {
 public:
         // ==================================================================
@@ -61,10 +61,11 @@ public:
         // Construction / Copy / Move / Destruction
         // ==================================================================
         /// Default constructor
-        explicit PSVIterator(outerIterator_type outerIterator, outerIterator_type outerEnd)
-            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(outerIterator), m_outerEnd(outerEnd)
+        explicit PSVIterator(outerIterator_type outerBegin, outerIterator_type outerEnd)
+            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(outerBegin), m_outerEnd(outerEnd),
+              m_outerBegin(outerBegin)
         {
-                if (outerIterator != outerEnd) {
+                if (outerBegin != outerEnd) {
                         // only initialize inner when outer is not at the end
                         m_innerIterator = m_outerIterator->begin();
                         m_innerIsValid  = true;
@@ -84,10 +85,10 @@ public:
         /// Pre-increment (returns position after increment)
         self_type& operator++()
         {
-                m_innerIterator++;
+                ++m_innerIterator;
                 if (m_innerIterator == m_outerIterator->end()) {
                         // When the innerIterator reaches the end, go to the next partition
-                        m_outerIterator++;
+                        ++m_outerIterator;
                         if (m_outerIterator != m_outerEnd) {
                                 // The outerIterator is not at the end
                                 // Set the innerIterator to the begin of the current partition
@@ -110,19 +111,43 @@ public:
                 return tmp;
         }
 
-        //        /// Pre-decrement (returns position after decrement)
-        //        self_type& operator--()
-        //        {
-        //                return *this;
-        //        }
+        /// Pre-decrement (returns position after decrement)
+        self_type& operator--()
+        {
+                if (m_outerIterator == m_outerEnd) {
+                        // When the iterator is at the end and will be decreased for the first time
+                        --m_outerIterator;
+                        m_innerIterator = --m_outerIterator->end();
+                        m_innerIsValid  = true;
+                } else {
+                        if (m_innerIterator == m_outerIterator->begin()) {
+                                // When the innerIterator reaches the begin, go to the previous partition
+                                if (m_outerIterator == m_outerBegin) {
+                                        // Reached before the begin of the first partition
+                                        // Reset the outerIterator to m_outerBegin
+                                        // Reset the innerIterator to the begin of the first partition
+                                        m_outerIterator = m_outerBegin;
+                                        m_innerIterator = m_outerIterator->begin();
+                                } else {
+                                        // The outerIterator is not at the end
+                                        // Set the innerIterator to the last element of the previous partition
+                                        --m_outerIterator;
+                                        m_innerIterator = --m_outerIterator->end();
+                                }
+                        } else {
+                                --m_innerIterator;
+                        }
+                }
+                return *this;
+        }
 
-        //        /// Pre-increment (returns position after decrement)
-        //        const self_type operator--(int)
-        //        {
-        //                self_type tmp(*this);
-        //                          operator--();
-        //                return tmp;
-        //        }
+        /// Pre-increment (returns position after decrement)
+        const self_type operator--(int)
+        {
+                self_type tmp(*this);
+                          operator--();
+                return tmp;
+        }
 
         /// Iterator equality.
         bool operator==(const self_type& other) const
@@ -140,54 +165,13 @@ public:
                        (m_innerIsValid && m_innerIterator != other.m_innerIterator);
         }
 
-        // ==================================================================
-        // Random-Access iterator methods
-        // ==================================================================
-
-        //        /// Direct access to n-th element
-        //        R operator[](std::size_t n) const
-        //        {
-        //        }
-
-        //        /// Set iterator to n-th next element.
-        //        self_type& operator+=(std::ptrdiff_t n)
-        //        {
-        //                return *this;
-        //        }
-
-        //        /// Set iterator to n-th previous element.
-        //        self_type& operator-=(std::ptrdiff_t n)
-        //        {
-        //                return *this;
-        //        }
-
-        //        /// Return iterator pointing to n-th next element.
-        //        self_type operator+(std::ptrdiff_t n) { }
-
-        //        /// Return iterator pointing to n-th previous element.
-        //        //  self_type operator-(std::ptrdiff_t);
-
-        //        /// Return distance between iterators.
-        //        long int operator-(const self_type& other) const { return m_p - other.m_p; }
-
-        //        /// Returns whether iterator is before other.
-        //        bool operator<(const self_type& other) const { return m_p < other.m_p; }
-
-        //        /// Returns whether iterator is not after other.
-        //        bool operator<=(const self_type& other) const { return m_p <= other.m_p; }
-
-        //        /// Returns whether iterator is after other.
-        //        bool operator>(const self_type& other) const { return m_p > other.m_p; }
-
-        //        /// Returns whether iterator is not after other.
-        //        bool operator>=(const self_type& other) const { return m_p >= other.m_p; }
-
 private:
         bool                            m_innerIsValid;
         SVIterator<T, N, T*, T&, false> m_innerIterator;
 
         outerIterator_type m_outerIterator;
         outerIterator_type m_outerEnd;
+        outerIterator_type m_outerBegin;
 };
 
 } // namespace util

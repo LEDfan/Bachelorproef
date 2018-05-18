@@ -35,6 +35,35 @@ TEST(PartitionedSegmentedVector, BasicLoopTest)
         EXPECT_EQ(partitionedSegmentedVector.end(), it);
 }
 
+TEST(PartitionedSegmentedVector, BasicReverseLoopTest)
+{
+
+        PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
+        partitionedSegmentedVector.push_back(0, 0);
+        partitionedSegmentedVector.push_back(0, 1);
+        partitionedSegmentedVector.push_back(0, 2);
+        partitionedSegmentedVector.push_back(0, 3);
+        partitionedSegmentedVector.push_back(1, 4);
+        partitionedSegmentedVector.push_back(1, 5);
+        partitionedSegmentedVector.push_back(1, 6);
+        partitionedSegmentedVector.push_back(1, 7);
+
+        int i = 7;
+        for (auto it = --partitionedSegmentedVector.end(); it != partitionedSegmentedVector.begin(); --it) {
+                EXPECT_EQ(i, *it);
+                --i;
+        }
+
+        EXPECT_TRUE(partitionedSegmentedVector.end() == partitionedSegmentedVector.end());
+        EXPECT_TRUE(partitionedSegmentedVector.end()++ == partitionedSegmentedVector.end());
+
+        auto it = partitionedSegmentedVector.begin();
+        for (std::size_t i = 0; i < 10; i++) {
+                it++;
+        }
+        EXPECT_EQ(partitionedSegmentedVector.end(), it);
+}
+
 TEST(PartitionedSegmentedVector, RandomAccess)
 {
         PartitionedSegmentedVector<int> partitionedSegmentedVector(6);
