@@ -54,15 +54,21 @@ public:
         // base class (i.e. value_type, difference_type, pointer, reference,
         // iterator_category).
         // ==================================================================
-        using self_type = PSVIterator<T, N, P, R, is_const_iterator>;
+        using self_type          = PSVIterator<T, N, P, R, is_const_iterator>;
+        using outerIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
         // ==================================================================
         /// Default constructor
-        explicit PSVIterator(typename std::vector<SegmentedVector<T, N>>::iterator outerIterator)
-            : m_innerIterator(m_outerIterator->begin()), m_outerIterator(outerIterator)
+        explicit PSVIterator(outerIterator_type outerIterator, outerIterator_type outerEnd)
+            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(outerIterator), m_outerEnd(outerEnd)
         {
+                if (outerIterator != outerEnd) {
+                        // only initialize inner when outer is not at the end
+                        m_innerIterator = m_outerIterator->begin();
+                        m_innerIsValid  = true;
+                }
         }
 
         // ==================================================================
@@ -80,8 +86,18 @@ public:
         {
                 m_innerIterator++;
                 if (m_innerIterator == m_outerIterator->end()) {
+                        // When the innerIterator reaches the end, go to the next partition
                         m_outerIterator++;
-                        m_innerIterator = m_outerIterator->begin();
+                        if (m_outerIterator != m_outerEnd) {
+                                // The outerIterator is not at the end
+                                // Set the innerIterator to the begin of the current partition
+                                m_innerIterator = m_outerIterator->begin();
+                        } else {
+                                // Reached the end of the last partition
+                                // The outerIterator is currently at the end of the partitions vector
+                                // The innerIterator is invalid -> mark it as such so we don't dereference it
+                                m_innerIsValid = false;
+                        }
                 }
                 return *this;
         }
@@ -111,13 +127,17 @@ public:
         /// Iterator equality.
         bool operator==(const self_type& other) const
         {
-                return m_outerIterator == other.m_outerIterator && m_innerIterator == other.m_innerIterator;
+                // Only check the inner if it's currently valid
+                return m_outerIterator == other.m_outerIterator &&
+                       (!m_innerIsValid || m_innerIterator == other.m_innerIterator);
         }
 
         /// Iterator inequality.
         bool operator!=(const self_type& other) const
         {
-                return m_outerIterator != other.m_outerIterator || m_innerIterator != other.m_innerIterator;
+                // Only check the inner if it's currently valid
+                return m_outerIterator != other.m_outerIterator ||
+                       (m_innerIsValid && m_innerIterator != other.m_innerIterator);
         }
 
         // ==================================================================
@@ -163,9 +183,11 @@ public:
         //        bool operator>=(const self_type& other) const { return m_p >= other.m_p; }
 
 private:
+        bool                            m_innerIsValid;
         SVIterator<T, N, T*, T&, false> m_innerIterator;
 
-        typename std::vector<SegmentedVector<T, N>>::iterator m_outerIterator;
+        outerIterator_type m_outerIterator;
+        outerIterator_type m_outerEnd;
 };
 
 } // namespace util
