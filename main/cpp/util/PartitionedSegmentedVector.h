@@ -110,11 +110,10 @@ public:
                 }
         }
 
-        segmentedVector_type& GetPartition(std::size_t partitionIndex) {
-                return m_partitions[partitionIndex];
-        }
+        segmentedVector_type& GetPartition(std::size_t partitionIndex) { return m_partitions[partitionIndex]; }
 
-        const segmentedVector_type& GetPartition(std::size_t partitionIndex) const {
+        const segmentedVector_type& GetPartition(std::size_t partitionIndex) const
+        {
                 return m_partitions[partitionIndex];
         }
 

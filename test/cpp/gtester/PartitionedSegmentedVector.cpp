@@ -78,14 +78,15 @@ TEST(PartitionedSegmentedVector, Finalizing)
         EXPECT_EQ(10, partitionedSegmentedVector.at(0).a);
 }
 
-TEST(PartitionedSegmentedVector, GetPartition) {
+TEST(PartitionedSegmentedVector, GetPartition)
+{
 
-        std::vector<int> exp {10, 24, 15, 0, 42};
+        std::vector<int> exp{10, 24, 15, 0, 42};
 
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
-//        partitionedSegmentedVector.push_back(0, 0);
-//        partitionedSegmentedVector.push_back(1, 1);
-//        partitionedSegmentedVector.Finalize();
+        //        partitionedSegmentedVector.push_back(0, 0);
+        //        partitionedSegmentedVector.push_back(1, 1);
+        //        partitionedSegmentedVector.Finalize();
 
         PartitionedSegmentedVector<int>::segmentedVector_type& partition0 = partitionedSegmentedVector.GetPartition(0);
         PartitionedSegmentedVector<int>::segmentedVector_type& partition1 = partitionedSegmentedVector.GetPartition(1);
@@ -104,5 +105,6 @@ TEST(PartitionedSegmentedVector, GetPartition) {
 
         EXPECT_THROW(partition1.emplace_back(100), Exception);
 
-//        EXPECT_TRUE(std::equal(partitionedSegmentedVector.begin(), partitionedSegmentedVector.end(), exp.begin(), exp.end()));
+        //        EXPECT_TRUE(std::equal(partitionedSegmentedVector.begin(), partitionedSegmentedVector.end(),
+        //        exp.begin(), exp.end()));
 }

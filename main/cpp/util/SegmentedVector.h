@@ -18,8 +18,8 @@
  * Interface and implementation for SegmentedVector class
  */
 
-#include "SVIterator.h"
 #include "Exception.h"
+#include "SVIterator.h"
 
 #include <array>
 #include <cassert>
@@ -101,7 +101,7 @@ public:
         {
                 if (this != &other) {
                         clear();
-                        m_blocks = std::move(other.m_blocks);
+                        m_blocks    = std::move(other.m_blocks);
                         m_finalized = other.m_finalized;
                         std::swap(m_size, other.m_size);
                 }
@@ -270,9 +270,7 @@ public:
                 return new (memory) T(std::move(obj)); // move-construct new object
         }
 
-        void Finalize() {
-                m_finalized = true;
-        }
+        void Finalize() { m_finalized = true; }
 
 private:
         /// POD type with same alignment requirement as for T's.
