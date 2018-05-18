@@ -19,6 +19,7 @@ public:
         using segmentedVector_type   = SegmentedVector<T, N>;
         using partitionIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
         using partItIndex            = std::tuple<partitionIterator_type, std::size_t, std::size_t>;
+        using iterator               = PSVIterator<T, partitionIterator_type, SVIterator<T, N, T*, T&, false>>;
 
         //// Construct
         explicit PartitionedSegmentedVector(std::size_t partitionsCount)
@@ -26,9 +27,9 @@ public:
         {
         }
 
-        PSVIterator<T, N> begin() { return PSVIterator<T, N>(m_partitions.begin(), m_partitions.end()); };
+        iterator begin() { return iterator(m_partitions.begin(), m_partitions.end()); };
 
-        PSVIterator<T, N> end() { return PSVIterator<T, N>(m_partitions.end(), m_partitions.end()); };
+        iterator end() { return iterator(m_partitions.end(), m_partitions.end()); };
 
         /// Copy constructor
 

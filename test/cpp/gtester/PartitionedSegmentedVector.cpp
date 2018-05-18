@@ -137,3 +137,40 @@ TEST(PartitionedSegmentedVector, GetPartition)
         //        EXPECT_TRUE(std::equal(partitionedSegmentedVector.begin(), partitionedSegmentedVector.end(),
         //        exp.begin(), exp.end()));
 }
+
+class DoubleVector
+{
+public:
+        using iterator =
+            PSVIterator<int, typename std::vector<std::vector<int>>::iterator, typename std::vector<int>::iterator>;
+
+        iterator begin() { return iterator(m_data.begin(), m_data.end()); }
+
+        iterator end() { return iterator(m_data.end(), m_data.end()); }
+
+        std::vector<std::vector<int>> m_data;
+};
+
+TEST(PartitionedSegmentedVector, TripleIterator)
+{
+
+        std::vector<DoubleVector> tripleVector;
+
+        tripleVector.emplace_back();
+        tripleVector[0].m_data.emplace_back(std::vector<int>({0, 1, 2, 3}));
+        tripleVector[0].m_data.emplace_back(std::vector<int>({4, 5, 6, 7}));
+        tripleVector.emplace_back();
+        tripleVector[1].m_data.emplace_back(std::vector<int>({8, 9}));
+        tripleVector[1].m_data.emplace_back(std::vector<int>({10, 11}));
+
+        PSVIterator<int, typename std::vector<DoubleVector>::iterator, DoubleVector::iterator> it(tripleVector.begin(),
+                                                                                                  tripleVector.end());
+        PSVIterator<int, typename std::vector<DoubleVector>::iterator, DoubleVector::iterator> end(tripleVector.end(),
+                                                                                                   tripleVector.end());
+
+        int i = 0;
+        for (; it != end; ++it) {
+                EXPECT_EQ(i, *it);
+                ++i;
+        }
+}

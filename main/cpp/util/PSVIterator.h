@@ -45,7 +45,8 @@ class SegmentedVector;
  * 	R	reference-to-T type (can be const qualified).
  * 	is_const_iterator	to make it a const_iterator
  */
-template <typename T, std::size_t N, typename P = const T*, typename R = const T&, bool is_const_iterator = true>
+template <typename T, typename OutItType, typename InnerItType, typename P = const T*, typename R = const T&,
+          bool is_const_iterator = true>
 class PSVIterator : public std::iterator<std::bidirectional_iterator_tag, T, std::ptrdiff_t, P, R>
 {
 public:
@@ -54,17 +55,19 @@ public:
         // base class (i.e. value_type, difference_type, pointer, reference,
         // iterator_category).
         // ==================================================================
-        using self_type          = PSVIterator<T, N, P, R, is_const_iterator>;
-        using outerIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
+        using self_type = PSVIterator<T, OutItType, InnerItType, P, R, is_const_iterator>;
+        //        using outerIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
+        PSVIterator() {}
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
         // ==================================================================
         /// Default constructor
-        explicit PSVIterator(outerIterator_type outerBegin, outerIterator_type outerEnd)
-            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(outerBegin), m_outerEnd(outerEnd),
-              m_outerBegin(outerBegin)
+        explicit PSVIterator(OutItType outerBegin, OutItType outerEnd) : m_innerIsValid(false)
         {
+                m_outerIterator = outerBegin;
+                m_outerBegin    = outerBegin;
+                m_outerEnd      = outerEnd;
                 if (outerBegin != outerEnd) {
                         // only initialize inner when outer is not at the end
                         m_innerIterator = m_outerIterator->begin();
@@ -166,12 +169,12 @@ public:
         }
 
 private:
-        bool                            m_innerIsValid;
-        SVIterator<T, N, T*, T&, false> m_innerIterator;
+        bool        m_innerIsValid;
+        InnerItType m_innerIterator;
 
-        outerIterator_type m_outerIterator;
-        outerIterator_type m_outerEnd;
-        outerIterator_type m_outerBegin;
+        OutItType m_outerIterator;
+        OutItType m_outerEnd;
+        OutItType m_outerBegin;
 };
 
 } // namespace util
