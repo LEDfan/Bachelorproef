@@ -110,6 +110,14 @@ public:
                 }
         }
 
+        segmentedVector_type& GetPartition(std::size_t partitionIndex) {
+                return m_partitions[partitionIndex];
+        }
+
+        const segmentedVector_type& GetPartition(std::size_t partitionIndex) const {
+                return m_partitions[partitionIndex];
+        }
+
         /// Calculates the Indexes for the partitions and prevents partitions from being added or growing
         void Finalize()
         {
@@ -117,13 +125,14 @@ public:
                 for (auto it = m_partitions.begin(); it != m_partitions.end(); ++it) {
                         std::size_t sum = searchIndex + it->size();
                         m_prefixSums.emplace_back(it, sum, searchIndex);
+                        it->Finalize();
                         searchIndex = sum;
                 }
                 m_finalized = true;
         }
 
         /// Whether the partitions may grow or partitions may be added
-        bool isFinalized() const { return m_finalized; }
+        bool IsFinalized() const { return m_finalized; }
 
 private:
         std::vector<segmentedVector_type> m_partitions;

@@ -50,9 +50,9 @@ TEST(PartitionedSegmentedVector, RandomAccess)
         partitionedSegmentedVector.push_back(4, 9);
         partitionedSegmentedVector.push_back(5, 10);
         EXPECT_EQ(11, partitionedSegmentedVector.size());
-        EXPECT_FALSE(partitionedSegmentedVector.isFinalized());
+        EXPECT_FALSE(partitionedSegmentedVector.IsFinalized());
         partitionedSegmentedVector.Finalize();
-        EXPECT_TRUE(partitionedSegmentedVector.isFinalized());
+        EXPECT_TRUE(partitionedSegmentedVector.IsFinalized());
         EXPECT_EQ(11, partitionedSegmentedVector.size());
 
         for (std::size_t i = 0; i < partitionedSegmentedVector.size(); ++i) {
@@ -67,8 +67,7 @@ struct storage
 
 TEST(PartitionedSegmentedVector, Finalizing)
 {
-
-        PartitionedSegmentedVector<storage> partitionedSegmentedVector(6);
+        PartitionedSegmentedVector<storage> partitionedSegmentedVector(1);
         partitionedSegmentedVector.push_back(0, storage{0});
         partitionedSegmentedVector.Finalize();
 
@@ -77,4 +76,33 @@ TEST(PartitionedSegmentedVector, Finalizing)
         firstElement.a = 10;
 
         EXPECT_EQ(10, partitionedSegmentedVector.at(0).a);
+}
+
+TEST(PartitionedSegmentedVector, GetPartition) {
+
+        std::vector<int> exp {10, 24, 15, 0, 42};
+
+        PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
+//        partitionedSegmentedVector.push_back(0, 0);
+//        partitionedSegmentedVector.push_back(1, 1);
+//        partitionedSegmentedVector.Finalize();
+
+        PartitionedSegmentedVector<int>::segmentedVector_type& partition0 = partitionedSegmentedVector.GetPartition(0);
+        PartitionedSegmentedVector<int>::segmentedVector_type& partition1 = partitionedSegmentedVector.GetPartition(1);
+
+        partition1.emplace_back(0);
+        partition0.emplace_back(10);
+        partition1.emplace_back(42);
+        partition0.emplace_back(24);
+        partition0.emplace_back(15);
+
+        partitionedSegmentedVector.Finalize();
+
+        for (std::size_t i = 0; i < exp.size(); ++i) {
+                EXPECT_EQ(exp[i], partitionedSegmentedVector.at(i));
+        }
+
+        EXPECT_THROW(partition1.emplace_back(100), Exception);
+
+//        EXPECT_TRUE(std::equal(partitionedSegmentedVector.begin(), partitionedSegmentedVector.end(), exp.begin(), exp.end()));
 }

@@ -19,6 +19,7 @@
  */
 
 #include "SVIterator.h"
+#include "Exception.h"
 
 #include <array>
 #include <cassert>
@@ -59,10 +60,10 @@ public:
         // ==================================================================
 
         /// Construct
-        SegmentedVector() : m_blocks(), m_size(0) {}
+        SegmentedVector() : m_blocks(), m_size(0), m_finalized(false) {}
 
         /// Copy constructor
-        SegmentedVector(const SegmentedVector<T, N>& other) : m_blocks(), m_size(0)
+        SegmentedVector(const SegmentedVector<T, N>& other) : m_blocks(), m_size(0), m_finalized(other.m_finalized)
         {
                 m_blocks.reserve(other.m_blocks.size());
                 for (const auto& elem : other) {
@@ -74,7 +75,7 @@ public:
 
         /// Move constructor
         SegmentedVector(SegmentedVector<T, N>&& other) noexcept
-            : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+            : m_blocks(std::move(other.m_blocks)), m_size(other.m_size), m_finalized(other.m_finalized)
         {
                 other.m_size = 0;
         }
@@ -85,6 +86,7 @@ public:
                 if (this != &other) {
                         clear();
                         m_blocks.reserve(other.m_blocks.size());
+                        m_finalized = other.m_finalized;
                         for (const auto& elem : other) {
                                 push_back(elem);
                         }
@@ -100,6 +102,7 @@ public:
                 if (this != &other) {
                         clear();
                         m_blocks = std::move(other.m_blocks);
+                        m_finalized = other.m_finalized;
                         std::swap(m_size, other.m_size);
                 }
                 return *this;
@@ -217,6 +220,9 @@ public:
         template <class... Args>
         T* emplace_back(Args&&... args)
         {
+                if (m_finalized) {
+                        throw Exception("Must no be finalized");
+                }
                 T* memory = this->get_chunk();
                 return new (memory) T(std::forward<Args>(args)...); // construct new object
         }
@@ -224,6 +230,9 @@ public:
         /// Removes the last element.
         void pop_back()
         {
+                if (m_finalized) {
+                        throw Exception("Must no be finalized");
+                }
                 // No pop on empty container.
                 if (m_size <= 0) {
                         throw std::logic_error("CompactStorage::pop_back called on empty object.");
@@ -244,6 +253,9 @@ public:
         /// Adds element to end.
         T* push_back(const T& obj)
         {
+                if (m_finalized) {
+                        throw Exception("Must no be finalized");
+                }
                 T* memory = get_chunk();
                 return new (memory) T(obj); // copy-construct new object
         }
@@ -251,8 +263,15 @@ public:
         /// Adds element to end.
         T* push_back(T&& obj)
         {
+                if (m_finalized) {
+                        throw Exception("Must no be finalized");
+                }
                 T* memory = get_chunk();
                 return new (memory) T(std::move(obj)); // move-construct new object
+        }
+
+        void Finalize() {
+                m_finalized = true;
         }
 
 private:
@@ -281,6 +300,7 @@ private:
 private:
         std::vector<Chunk*> m_blocks; ///< Vector registers pointers to blocks of chunks.
         size_t              m_size;   ///< Index of first free chunk when indexed contiguously.
+        bool                m_finalized;
 };
 
 } // namespace util
