@@ -167,7 +167,6 @@ private:
         unsigned int m_id;             ///< The id.
         double       m_age;            ///< The age.
         char         m_gender;         ///< The gender.
-        Belief*      m_belief;         ///< Health beliefs related data (raw pointer intentional).
         Health       m_health;         ///< Health info for this person.
         bool         m_is_participant; ///< Is participating in the social contact study
 
@@ -177,6 +176,8 @@ private:
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;
+
+        Belief* m_belief; ///< Health beliefs related data (raw pointer intentional).
 };
 
 } // namespace stride
