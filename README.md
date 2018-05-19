@@ -11,7 +11,6 @@ The Stride acronym stands for **S**imulate **tr**ansmission of **i**nfectious **
 The project is hosted in a GitHub [code repository](https://github.com/broeckho/stride.git) and has a continous integration  
  cycle [build & test](https://travis-ci.org/broeckho/stride) at Travis CI. The online [reference documentation](https://broeckho.github.io/stride) is automatically  
  generated with each new commit of the code.
->>>>>>> 87aba0acf828e42edbd918240fefc68a250d1b02
 
 The current status of the project build is : [![Build Status](https://travis-ci.org/broeckho/stride.svg?branch=master)](https://travis-ci.org/broeckho/stride)
 
@@ -55,9 +54,6 @@ You can select multiple locations by using SHIFT.
 ## Calibration tool
 The calibration tool can be run by `./cmake-build-release/installed/bin/calibration`.
 This will first compute the exact values for the scenario tests, then compute the mean and standard deviation for each testcase by running it multiple times using different seeds, and finally show a boxplot of the results using QtCharts.
-
-The current status of the project build is : ![Build Status](https://travis-ci.com/LEDfan/Bachelorproef.svg?token=AhWiySeGEDkQfLDToshu&branch=master)
-
 
 ## Integration
 
