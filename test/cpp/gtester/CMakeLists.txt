@@ -30,6 +30,7 @@ set(SRC
         CSVTest.cpp
         ScenarioData.cpp
         UnitSegmentedVector.cpp
+        PartitionedSegmentedVector.cpp
         createlogger.h
         gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/CollegeGeneratorTest.cpp
