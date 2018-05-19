@@ -62,17 +62,7 @@ public:
         /// Gets element at index with range check
         T& at(std::size_t pos)
         {
-                if (!m_finalized) {
-                        throw Exception("Must be finalized");
-                }
-
-                // Search which partition is needed in O(log(partitionsCount))
-                auto lower = std_::lower_bound(m_prefixSums.begin(), m_prefixSums.end(), pos,
-                                               [](const partItIndex& current, std::size_t value) {
-                                                       // - 1 because we are searching for index and prefixSum contains
-                                                       // the size
-                                                       return std::get<1>(current) - 1 < value;
-                                               });
+                auto lower = FindPartition(pos);
 
                 // If no partition found
                 if (lower == m_prefixSums.end()) {
@@ -86,17 +76,7 @@ public:
         /// Gets const element at index with range check
         const T& at(std::size_t pos) const
         {
-                if (!m_finalized) {
-                        throw Exception("Must be finalized");
-                }
-
-                // Search which partition is needed in O(log(partitionsCount))
-                auto lower = std_::lower_bound(m_prefixSums.begin(), m_prefixSums.end(), pos,
-                                               [](const partItIndex& current, std::size_t value) {
-                                                       // - 1 because we are searching for index and prefixSum contains
-                                                       // the size
-                                                       return std::get<1>(current) - 1 < value;
-                                               });
+                auto lower = FindPartition(pos);
 
                 // If no partition found
                 if (lower == m_prefixSums.end()) {
@@ -104,6 +84,18 @@ public:
                 }
 
                 // The segmented vector will do a range check
+                return std::get<0>(*lower)->at(pos - std::get<2>(*lower));
+        }
+
+        T& operator[](std::size_t pos)
+        {
+                auto lower = FindPartition(pos);
+                return std::get<0>(*lower)->at(pos - std::get<2>(*lower));
+        }
+
+        const T& operator[](std::size_t pos) const
+        {
+                auto lower = FindPartition(pos);
                 return std::get<0>(*lower)->at(pos - std::get<2>(*lower));
         }
 
@@ -144,9 +136,24 @@ public:
         bool IsFinalized() const { return m_finalized; }
 
 private:
-        std::vector<segmentedVector_type> m_partitions;
-        std::vector<partItIndex>          m_prefixSums;
-        bool                              m_finalized;
+        /// Find in which partition pos lies
+        typename std::vector<partItIndex>::iterator FindPartition(std::size_t pos)
+        {
+                if (!m_finalized) {
+                        throw Exception("Must be finalized");
+                }
+                return std_::lower_bound(m_prefixSums.begin(), m_prefixSums.end(), pos,
+                                         [](const partItIndex& current, std::size_t value) {
+                                                 // - 1 because we are searching for index and prefixSum contains
+                                                 // the size
+                                                 return std::get<1>(current) - 1 < value;
+                                         });
+        }
+
+        std::vector<segmentedVector_type> m_partitions; ///< Partitions
+        std::vector<partItIndex>
+             m_prefixSums; ///< Metadata with iterator, prefix sum and prefix sum without current size
+        bool m_finalized;  ///< whether the partitions may grow or partitions may be added
 };
 
 } // namespace util
