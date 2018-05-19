@@ -23,26 +23,26 @@ template <typename OutItType, typename InnerItType, bool is_const_iterator>
 class Helper
 {
 public:
-        InnerItType outBegin(OutItType out);
-        InnerItType outEnd(OutItType out);
+        InnerItType OutBegin(OutItType out);
+        InnerItType OutEnd(OutItType out);
 };
 
 template <typename OutItType, typename InnerItType>
 class Helper<OutItType, InnerItType, false>
 {
 public:
-        InnerItType outBegin(OutItType out) { return out->begin(); }
+        InnerItType OutBegin(OutItType out) { return out->begin(); }
 
-        InnerItType outEnd(OutItType out) { return out->end(); }
+        InnerItType OutEnd(OutItType out) { return out->end(); }
 };
 
 template <typename OutItType, typename InnerItType>
 class Helper<OutItType, InnerItType, true>
 {
 public:
-        InnerItType outBegin(OutItType out) { return out->cbegin(); }
+        InnerItType OutBegin(OutItType out) { return out->cbegin(); }
 
-        InnerItType outEnd(OutItType out) { return out->cend(); }
+        InnerItType OutEnd(OutItType out) { return out->cend(); }
 };
 } // namespace
 
@@ -85,7 +85,7 @@ public:
         {
                 if (m_outerIterator != outerEnd) {
                         // only initialize inner when outer is not at the end
-                        m_innerIterator = m_helper.outBegin(m_outerIterator);
+                        m_innerIterator = m_helper.OutBegin(m_outerIterator);
                         m_innerIsValid  = true;
                 }
         }
@@ -112,13 +112,13 @@ public:
         self_type& operator++()
         {
                 ++m_innerIterator;
-                if (m_innerIterator == m_helper.outEnd(m_outerIterator)) {
+                if (m_innerIterator == m_helper.OutEnd(m_outerIterator)) {
                         // When the innerIterator reaches the end, go to the next partition
                         ++m_outerIterator;
                         if (m_outerIterator != m_outerEnd) {
                                 // The outerIterator is not at the end
                                 // Set the innerIterator to the begin of the current partition
-                                m_innerIterator = m_helper.outBegin(m_outerIterator);
+                                m_innerIterator = m_helper.OutBegin(m_outerIterator);
                         } else {
                                 // Reached the end of the last partition
                                 // The outerIterator is currently at the end of the partitions vector
@@ -147,16 +147,16 @@ public:
                         }
                         // When the iterator is at the end and will be decreased for the first time
                         --m_outerIterator;
-                        m_innerIterator = --m_helper.outEnd(m_outerIterator);
+                        m_innerIterator = --m_helper.OutEnd(m_outerIterator);
                         m_innerIsValid  = true;
                 } else {
-                        if (m_innerIterator == m_helper.outBegin(m_outerIterator)) {
+                        if (m_innerIterator == m_helper.OutBegin(m_outerIterator)) {
                                 // When the innerIterator reaches the begin, go to the previous partition
                                 if (m_outerIterator != m_outerBegin) {
                                         // The outerIterator is not at the end
                                         // Set the innerIterator to the last element of the previous partition
                                         --m_outerIterator;
-                                        m_innerIterator = --m_helper.outEnd(m_outerIterator);
+                                        m_innerIterator = --m_helper.OutEnd(m_outerIterator);
                                 }
                         } else {
                                 --m_innerIterator;
