@@ -156,15 +156,24 @@ TEST(PartitionedSegmentedVector, ConstIterators)
                 --i;
         }
 }
+
 template <typename Nesting, typename T>
 class Nester : public std::vector<Nesting>
 {
 public:
         using iterator = NestedIterator<T, typename std::vector<Nesting>::iterator, typename Nesting::iterator>;
 
-        iterator begin() { return iterator(std::vector<Nesting>::begin(), std::vector<Nesting>::end()); }
+        iterator begin()
+        {
+                return iterator(std::vector<Nesting>::begin(), std::vector<Nesting>::begin(),
+                                std::vector<Nesting>::end());
+        }
 
-        iterator end() { return iterator(std::vector<Nesting>::end(), std::vector<Nesting>::end()); }
+        iterator end()
+        {
+                return iterator(std::vector<Nesting>::end(), std::vector<Nesting>::begin(),
+                                std::vector<Nesting>::end());
+        }
 };
 
 TEST(PartitionedSegmentedVector, TripleIterator)

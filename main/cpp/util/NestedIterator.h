@@ -79,11 +79,11 @@ public:
         }
 
         /// Constructor
-        NestedIterator(OutItType outerBegin, OutItType outerEnd)
-            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(outerBegin), m_outerEnd(outerEnd),
+        NestedIterator(OutItType rangeBegin, OutItType outerBegin, OutItType outerEnd)
+            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(rangeBegin), m_outerEnd(outerEnd),
               m_outerBegin(outerBegin), m_helper()
         {
-                if (outerBegin != outerEnd) {
+                if (m_outerIterator != outerEnd) {
                         // only initialize inner when outer is not at the end
                         m_innerIterator = m_helper.outBegin(m_outerIterator);
                         m_innerIsValid  = true;
@@ -141,6 +141,10 @@ public:
         self_type& operator--()
         {
                 if (m_outerIterator == m_outerEnd) {
+                        if (m_outerIterator == m_outerBegin) {
+                                // begin() can't be decreased
+                                return *this;
+                        }
                         // When the iterator is at the end and will be decreased for the first time
                         --m_outerIterator;
                         m_innerIterator = --m_helper.outEnd(m_outerIterator);
@@ -148,13 +152,7 @@ public:
                 } else {
                         if (m_innerIterator == m_helper.outBegin(m_outerIterator)) {
                                 // When the innerIterator reaches the begin, go to the previous partition
-                                if (m_outerIterator == m_outerBegin) {
-                                        // Reached before the begin of the first partition
-                                        // Reset the outerIterator to m_outerBegin
-                                        // Reset the innerIterator to the begin of the first partition
-                                        m_outerIterator = m_outerBegin;
-                                        m_innerIterator = m_helper.outBegin(m_outerIterator);
-                                } else {
+                                if (m_outerIterator != m_outerBegin) {
                                         // The outerIterator is not at the end
                                         // Set the innerIterator to the last element of the previous partition
                                         --m_outerIterator;

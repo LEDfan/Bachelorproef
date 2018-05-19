@@ -43,12 +43,15 @@ public:
 
         ~PartitionedSegmentedVector() = default;
 
-        iterator begin() { return iterator(m_partitions.begin(), m_partitions.end()); };
+        iterator begin() { return iterator(m_partitions.begin(), m_partitions.begin(), m_partitions.end()); };
 
-        iterator end() { return iterator(m_partitions.end(), m_partitions.end()); };
+        iterator end() { return iterator(m_partitions.end(), m_partitions.begin(), m_partitions.end()); };
 
-        const_iterator cbegin() { return const_iterator(m_partitions.begin(), m_partitions.end()); };
-        const_iterator cend() { return const_iterator(m_partitions.end(), m_partitions.end()); };
+        const_iterator cbegin()
+        {
+                return const_iterator(m_partitions.begin(), m_partitions.begin(), m_partitions.end());
+        };
+        const_iterator cend() { return const_iterator(m_partitions.end(), m_partitions.begin(), m_partitions.end()); };
 
         /// Adds element to end.
         T* push_back(std::size_t partition, const T& obj)
@@ -90,13 +93,13 @@ public:
         T& operator[](std::size_t pos)
         {
                 auto lower = FindPartition(pos);
-                return std::get<0>(*lower)->at(pos - std::get<2>(*lower));
+                return std::get<0>(*lower)[pos - std::get<2>(*lower)];
         }
 
         const T& operator[](std::size_t pos) const
         {
                 auto lower = FindPartition(pos);
-                return std::get<0>(*lower)->at(pos - std::get<2>(*lower));
+                return std::get<0>(*lower)[pos - std::get<2>(*lower)];
         }
 
         /// Calculates the size when not finalized else returns the size
