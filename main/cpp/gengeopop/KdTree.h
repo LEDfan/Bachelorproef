@@ -33,6 +33,8 @@ std::size_t Median(const std::vector<P>& points);
 template <typename P>
 struct AABB
 {
+        AABB() : lower(), upper(){};
+        AABB(P l, P u) : lower(l), upper(u){};
         P lower; ///< The lower bound for every dimension
         P upper; ///< The upper bound for every dimension
 };
