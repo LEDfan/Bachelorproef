@@ -90,7 +90,4 @@ class LogParser():
         p.close()
         c.close()
         t.close()
-<<<<<<< HEAD
         '''
-=======
->>>>>>> master

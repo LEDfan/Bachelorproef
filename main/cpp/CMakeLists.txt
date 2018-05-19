@@ -16,12 +16,6 @@
 #############################################################################
 
 #============================================================================
-# Proto.
-#============================================================================
-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/gengeopop/io/proto)
-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/../resources/lib/protobuf)
-
-#============================================================================
 # Subdirectories.
 #============================================================================
 add_subdirectory(gengeopop)
@@ -35,6 +29,7 @@ add_subdirectory(guilauncher)
 #============================================================================
 set(LIB_SRC
         #---
+        behaviour/BeliefSeeder.cpp
         behaviour/behaviour_policies/NoBehaviour.h
         behaviour/behaviour_policies/Vaccination.h
         behaviour/belief_policies/Belief.h
@@ -60,7 +55,6 @@ set(LIB_SRC
         contact/Infector.cpp
         contact/InfectorExec.h
         contact/InfectorMap.h
-        contact/LogPolicy.h
         contact/TransmissionProfile.cpp
         #---
         disease/DiseaseSeeder.cpp

@@ -40,6 +40,8 @@ include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
+#
+include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
 set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
@@ -64,8 +66,6 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
 endif()
-#
-include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
 #----------------------------------------------------------------------------
 # Standard math lib
@@ -81,6 +81,12 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 # TCLAP
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
+
+#----------------------------------------------------------------------------
+# ProtoBuf
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 
 #----------------------------------------------------------------------------
 # SHA1 hash code.
@@ -216,5 +222,11 @@ else()
 		set(HDF5_FOUND FALSE)
 	endif()
 endif()
+
+#----------------------------------------------------------------------------
+# Remove "/usr/local/include" from INCLUDE_DIRECTORIES
+#----------------------------------------------------------------------------
+get_property(INCLUDE_DIRECTORIES DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+string(REPLACE "/usr/local/include" "" INCLUDE_DIRECTORIES "${INCLUDE_DIRECTORIES}")
 
 #############################################################################
