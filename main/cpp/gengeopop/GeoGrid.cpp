@@ -5,12 +5,6 @@
 #include <util/Exception.h>
 #include <utility>
 
-namespace {
-double RadianToDegree(double rad) { return rad / M_PI * 180.0; }
-
-double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
-} // namespace
-
 namespace gengeopop {
 
 GeoGrid::GeoGrid()
@@ -84,13 +78,13 @@ void GeoGrid::remove(const std::shared_ptr<Location>& location)
 
 void GeoGrid::Finalize()
 {
-        std::vector<KdTree2DPoint> points;
+        std::vector<geogrid_detail::KdTree2DPoint> points;
         for (auto it = begin(); it != end(); ++it) {
-                points.emplace_back(KdTree2DPoint(*it));
+                points.emplace_back(geogrid_detail::KdTree2DPoint(*it));
         }
 
         m_finalized = true;
-        m_tree      = KdTree<KdTree2DPoint>::Build(points);
+        m_tree      = KdTree<geogrid_detail::KdTree2DPoint>::Build(points);
 }
 
 std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
@@ -98,13 +92,9 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
         CheckFinalized(__func__);
 
         std::set<std::shared_ptr<Location>> result;
-
-        m_tree.Apply(
-            [&result](const KdTree2DPoint& pt) -> bool {
-                    result.insert(pt.GetLocation());
-                    return true;
-            },
-            {{std::min(long1, long2), std::min(lat1, lat2)}, {std::max(long1, long2), std::max(lat1, lat2)}});
+        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(std::inserter(result, result.begin())),
+                                              std::make_tuple(long1, lat1, long2, lat2));
+        agg();
         return result;
 }
 
@@ -113,33 +103,12 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
 {
         CheckFinalized(__func__);
 
-        AABB<KdTree2DPoint> box{};
-
-        // As of boost 1.66, there's seems no way to do this in Boost.Geometry
-        constexpr double EARTH_RADIUS_KM = 6371.0;
-        double           scaled_radius   = radius / EARTH_RADIUS_KM;
-
-        double startlon = start->GetCoordinate().longitude;
-        double startlat = start->GetCoordinate().latitude;
-        double londiff  = RadianToDegree(scaled_radius / std::cos(DegreeToRadian(startlat)));
-        double latdiff  = RadianToDegree(scaled_radius);
-
-        box.upper = KdTree2DPoint(startlon + londiff, startlat + latdiff);
-        box.lower = KdTree2DPoint(startlon - londiff, startlat - latdiff);
-
-        KdTree2DPoint startPt(start);
+        geogrid_detail::KdTree2DPoint startPt(start);
 
         std::vector<std::shared_ptr<Location>> result;
-
-        m_tree.Apply(
-            [&startPt, &radius, &result](const KdTree2DPoint& pt) -> bool {
-                    if (pt.InRadius(startPt, radius)) {
-                            result.push_back(pt.GetLocation());
-                    }
-                    return true;
-            },
-            box);
-
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(std::back_inserter(result)),
+                                                 std::make_tuple(std::move(startPt), radius));
+        agg();
         return result;
 }
 

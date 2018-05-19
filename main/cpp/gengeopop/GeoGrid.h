@@ -20,6 +20,65 @@
 #include <boost/geometry/strategies/geographic/distance.hpp>
 
 namespace gengeopop {
+template <typename Policy, typename... F>
+class GeoAggregator;
+
+namespace geogrid_detail {
+using BoostPoint = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
+class KdTree2DPoint
+{
+public:
+        explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
+            : m_pt(location->GetCoordinate().longitude, location->GetCoordinate().latitude), m_location(location)
+        {
+        }
+
+        KdTree2DPoint() : m_pt(), m_location(nullptr){};
+
+        KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}
+
+        constexpr static std::size_t dim = 2;
+
+        template <std::size_t D>
+        double Get() const
+        {
+                static_assert(0 <= D && D <= 1, "Dimension should be in range");
+                return boost::geometry::get<D>(m_pt);
+        }
+
+        bool InBox(const AABB<KdTree2DPoint>& box) const
+        {
+                return boost::geometry::within(m_pt,
+                                               boost::geometry::model::box<BoostPoint>{box.lower.m_pt, box.upper.m_pt});
+        }
+
+        /// Does the point lie within `radius` km from `start`?
+        bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
+
+        std::shared_ptr<Location> GetLocation() const { return m_location; }
+
+        template <std::size_t D>
+        struct dimension_type
+        {
+                using type = double;
+        };
+
+        BoostPoint AsBoostPoint() const { return m_pt; }
+
+private:
+        BoostPoint                m_pt;
+        std::shared_ptr<Location> m_location;
+
+        /// Distance in kilometers, following great circle distance on a speroid earth
+        double Distance(const KdTree2DPoint& other) const
+        {
+                return boost::geometry::distance(m_pt, other.m_pt,
+                                                 boost::geometry::strategy::distance::geographic<>{}) /
+                       1000.0;
+        }
+};
+
+} // namespace geogrid_detail
 
 class GeoGrid
 {
@@ -104,6 +163,12 @@ public:
         /// Get the population of this GeoGrid
         std::shared_ptr<stride::Population> GetPopulation();
 
+        template <typename Policy, typename F>
+        GeoAggregator<Policy, F> BuildAggregator(F functor, typename Policy::Args&& args) const;
+
+        template <typename Policy>
+        GeoAggregator<Policy> BuildAggregator(typename Policy::Args&& args) const;
+
 private:
         void CheckFinalized(const std::string& functionName)
             const; ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
@@ -115,61 +180,25 @@ private:
 
         bool m_finalized;
 
-        using BoostPoint =
-            boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
-        class KdTree2DPoint
-        {
-        public:
-                explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
-                    : m_pt(location->GetCoordinate().longitude, location->GetCoordinate().latitude),
-                      m_location(location)
-                {
-                }
-
-                KdTree2DPoint() : m_pt(), m_location(nullptr){};
-
-                KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}
-
-                constexpr static std::size_t dim = 2;
-
-                template <std::size_t D>
-                double Get() const
-                {
-                        static_assert(0 <= D && D <= 1, "Dimension should be in range");
-                        return boost::geometry::get<D>(m_pt);
-                }
-
-                bool InBox(const AABB<KdTree2DPoint>& box) const
-                {
-                        return boost::geometry::within(
-                            m_pt, boost::geometry::model::box<BoostPoint>{box.lower.m_pt, box.upper.m_pt});
-                }
-
-                /// Does the point lie within `radius` km from `start`?
-                bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
-
-                std::shared_ptr<Location> GetLocation() const { return m_location; }
-
-                template <std::size_t D>
-                struct dimension_type
-                {
-                        using type = double;
-                };
-
-        private:
-                BoostPoint                m_pt;
-                std::shared_ptr<Location> m_location;
-
-                /// Distance in kilometers, following great circle distance on a speroid earth
-                double Distance(const KdTree2DPoint& other) const
-                {
-                        return boost::geometry::distance(m_pt, other.m_pt,
-                                                         boost::geometry::strategy::distance::geographic<>{}) /
-                               1000.0;
-                }
-        };
-
-        KdTree<KdTree2DPoint> m_tree;
+        KdTree<geogrid_detail::KdTree2DPoint> m_tree;
 };
+
+} // namespace gengeopop
+
+#include "GeoAggregator.h" // Prevent cyclic include dependency
+
+namespace gengeopop {
+
+template <typename Policy, typename F>
+GeoAggregator<Policy, F> GeoGrid::BuildAggregator(F functor, typename Policy::Args&& args) const
+{
+        return GeoAggregator<Policy, F>(m_tree, functor, std::forward<typename Policy::Args>(args));
+}
+
+template <typename Policy>
+GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args&& args) const
+{
+        return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
+}
 
 } // namespace gengeopop
