@@ -113,9 +113,6 @@ TEST(PartitionedSegmentedVector, GetPartition)
         std::vector<int> exp{10, 24, 15, 0, 42};
 
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
-        //        partitionedSegmentedVector.push_back(0, 0);
-        //        partitionedSegmentedVector.push_back(1, 1);
-        //        partitionedSegmentedVector.Finalize();
 
         PartitionedSegmentedVector<int>::segmentedVector_type& partition0 = partitionedSegmentedVector.GetPartition(0);
         PartitionedSegmentedVector<int>::segmentedVector_type& partition1 = partitionedSegmentedVector.GetPartition(1);
@@ -133,44 +130,47 @@ TEST(PartitionedSegmentedVector, GetPartition)
         }
 
         EXPECT_THROW(partition1.emplace_back(100), Exception);
-
-        //        EXPECT_TRUE(std::equal(partitionedSegmentedVector.begin(), partitionedSegmentedVector.end(),
-        //        exp.begin(), exp.end()));
 }
 
-class DoubleVector
+template <typename Nesting, typename T>
+class Nester : public std::vector<Nesting>
 {
 public:
-        using iterator =
-            PSVIterator<int, typename std::vector<std::vector<int>>::iterator, typename std::vector<int>::iterator>;
+        using iterator = PSVIterator<T, typename std::vector<Nesting>::iterator, typename Nesting::iterator>;
 
-        iterator begin() { return iterator(m_data.begin(), m_data.end()); }
+        iterator begin() { return iterator(std::vector<Nesting>::begin(), std::vector<Nesting>::end()); }
 
-        iterator end() { return iterator(m_data.end(), m_data.end()); }
-
-        std::vector<std::vector<int>> m_data;
+        iterator end() { return iterator(std::vector<Nesting>::end(), std::vector<Nesting>::end()); }
 };
 
 TEST(PartitionedSegmentedVector, TripleIterator)
 {
 
-        std::vector<DoubleVector> tripleVector;
-
+        Nester<Nester<Nester<Nester<std::vector<int>, int>, int>, int>, int> tripleVector;
         tripleVector.emplace_back();
-        tripleVector[0].m_data.emplace_back(std::vector<int>({0, 1, 2, 3}));
-        tripleVector[0].m_data.emplace_back(std::vector<int>({4, 5, 6, 7}));
+        tripleVector[0].emplace_back();
+        tripleVector[0][0].emplace_back();
+        tripleVector[0][0][0].emplace_back(std::vector<int>({0, 1, 2, 3}));
+        tripleVector[0][0][0].emplace_back(std::vector<int>({4, 5, 6, 7}));
+        tripleVector[0].emplace_back();
+        tripleVector[0][1].emplace_back();
+        tripleVector[0][1][0].emplace_back(std::vector<int>({8, 9, 10, 11}));
         tripleVector.emplace_back();
-        tripleVector[1].m_data.emplace_back(std::vector<int>({8, 9}));
-        tripleVector[1].m_data.emplace_back(std::vector<int>({10, 11}));
-
-        PSVIterator<int, typename std::vector<DoubleVector>::iterator, DoubleVector::iterator> it(tripleVector.begin(),
-                                                                                                  tripleVector.end());
-        PSVIterator<int, typename std::vector<DoubleVector>::iterator, DoubleVector::iterator> end(tripleVector.end(),
-                                                                                                   tripleVector.end());
+        tripleVector[1].emplace_back();
+        tripleVector[1][0].emplace_back();
+        tripleVector[1][0][0].emplace_back(std::vector<int>({12, 13, 14, 15}));
 
         int i = 0;
-        for (; it != end; ++it) {
-                EXPECT_EQ(i, *it);
+        for (int x : tripleVector) {
+                EXPECT_EQ(i, x);
                 ++i;
         }
+        EXPECT_EQ(i, 16);
+
+        i = 0;
+        for (int x : tripleVector[0][0][0]) {
+                EXPECT_EQ(i, x);
+                ++i;
+        }
+        EXPECT_EQ(i, 8);
 }

@@ -46,7 +46,7 @@ class SegmentedVector;
  * 	is_const_iterator	to make it a const_iterator
  */
 template <typename T, typename OutItType, typename InnerItType, typename P = const T*, typename R = const T&,
-          bool is_const_iterator = true>
+          bool is_const_iterator = false>
 class PSVIterator : public std::iterator<std::bidirectional_iterator_tag, T, std::ptrdiff_t, P, R>
 {
 public:
