@@ -1,7 +1,7 @@
 #pragma once
 /**
  * @file
- * Interface/Implementation for PSVIterator.
+ * Interface/Implementation for NestedIterator.
  */
 
 #include <cassert>
@@ -12,42 +12,53 @@
 #include <type_traits>
 #include <vector>
 
-#include "SVIterator.h"
-//#include "SegmentedVector.h"
-
 namespace stride {
 namespace util {
 
-template <typename T, size_t N>
-class PartitionedSegmentedVector;
+namespace {
 
-template <typename T, size_t N>
-class SegmentedVector;
+/// Helper class to split out calls to outerIterator begin and end methods
+/// so that cbegin or cend is called when the iterator is const.
+template <typename OutItType, typename InnerItType, bool is_const_iterator>
+class Helper
+{
+public:
+        InnerItType outBegin(OutItType out);
+        InnerItType outEnd(OutItType out);
+};
+
+template <typename OutItType, typename InnerItType>
+class Helper<OutItType, InnerItType, false>
+{
+public:
+        InnerItType outBegin(OutItType out) { return out->begin(); }
+
+        InnerItType outEnd(OutItType out) { return out->end(); }
+};
+
+template <typename OutItType, typename InnerItType>
+class Helper<OutItType, InnerItType, true>
+{
+public:
+        InnerItType outBegin(OutItType out) { return out->cbegin(); }
+
+        InnerItType outEnd(OutItType out) { return out->cend(); }
+};
+} // namespace
 
 /**
- * Implementation of iterator for SegmentedVector. It will provide
- * both const and non-const iterators.
- *
- * Possible states for the iterator are:
- * (a) Default constructed: m_c == nullptr && m_p == m_end. This is
- * the singular state in which the iterator can be assigned, but not
- * incremented or compared.
- * (b) Past-the-end: m_c != nullptr && m_p == m_end. The iterator
- * cannot be dereferenced.
- * (c) Dereferencable: m_c != nullptr && m_p < mc->size(). Notice that
- * m_p is of type size_t and hence always non-negative. Thus the above
- * reuires !m_c->empty().
+ * Implementation of iterator for looping over the inner elements of a nested data structure.
+ * For example, looping over the int's in std::vector<std::vector<int>>.
+ * Provides both const and non-const iterators.
  *
  * Template parameters:
- * 	T	value type of iterator and of its container.
- * 	N       block size of its container
- * 	P	pointer-to-T type (can be const qualified).
- * 	R	reference-to-T type (can be const qualified).
- * 	is_const_iterator	to make it a const_iterator
+ * 	T         	  value type of inner iterator. This is the value which will be returned when the iterator is
+ * dereferenced. OutItType         type of the outer iterator, this iterator will loop over the storage InnerItType
+ * type of the inner iterator is_const_iterator to make it a const_iterator
  */
 template <typename T, typename OutItType, typename InnerItType, typename P = const T*, typename R = const T&,
           bool is_const_iterator = false>
-class PSVIterator : public std::iterator<std::bidirectional_iterator_tag, T, std::ptrdiff_t, P, R>
+class NestedIterator : public std::iterator<std::bidirectional_iterator_tag, T, std::ptrdiff_t, P, R>
 {
 public:
         // ==================================================================
@@ -55,24 +66,36 @@ public:
         // base class (i.e. value_type, difference_type, pointer, reference,
         // iterator_category).
         // ==================================================================
-        using self_type = PSVIterator<T, OutItType, InnerItType, P, R, is_const_iterator>;
-        //        using outerIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
-        PSVIterator() {}
+        using self_type = NestedIterator<T, OutItType, InnerItType, P, R, is_const_iterator>;
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
         // ==================================================================
+
         /// Default constructor
-        explicit PSVIterator(OutItType outerBegin, OutItType outerEnd) : m_innerIsValid(false)
+        NestedIterator()
+            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(), m_outerEnd(), m_outerBegin(), m_helper()
         {
-                m_outerIterator = outerBegin;
-                m_outerBegin    = outerBegin;
-                m_outerEnd      = outerEnd;
+        }
+
+        /// Constructor
+        NestedIterator(OutItType outerBegin, OutItType outerEnd)
+            : m_innerIsValid(false), m_innerIterator(), m_outerIterator(outerBegin), m_outerEnd(outerEnd),
+              m_outerBegin(outerBegin), m_helper()
+        {
                 if (outerBegin != outerEnd) {
                         // only initialize inner when outer is not at the end
-                        m_innerIterator = m_outerIterator->begin();
+                        m_innerIterator = m_helper.outBegin(m_outerIterator);
                         m_innerIsValid  = true;
                 }
+        }
+
+        /// Copy constructor
+        NestedIterator(const NestedIterator& other)
+            : m_innerIsValid(other.m_innerIsValid), m_innerIterator(other.m_innerIterator),
+              m_outerIterator(other.m_outerIterator), m_outerEnd(other.m_outerEnd), m_outerBegin(other.m_outerBegin),
+              m_helper()
+        {
         }
 
         // ==================================================================
@@ -89,13 +112,13 @@ public:
         self_type& operator++()
         {
                 ++m_innerIterator;
-                if (m_innerIterator == m_outerIterator->end()) {
+                if (m_innerIterator == m_helper.outEnd(m_outerIterator)) {
                         // When the innerIterator reaches the end, go to the next partition
                         ++m_outerIterator;
                         if (m_outerIterator != m_outerEnd) {
                                 // The outerIterator is not at the end
                                 // Set the innerIterator to the begin of the current partition
-                                m_innerIterator = m_outerIterator->begin();
+                                m_innerIterator = m_helper.outBegin(m_outerIterator);
                         } else {
                                 // Reached the end of the last partition
                                 // The outerIterator is currently at the end of the partitions vector
@@ -120,22 +143,22 @@ public:
                 if (m_outerIterator == m_outerEnd) {
                         // When the iterator is at the end and will be decreased for the first time
                         --m_outerIterator;
-                        m_innerIterator = --m_outerIterator->end();
+                        m_innerIterator = --m_helper.outEnd(m_outerIterator);
                         m_innerIsValid  = true;
                 } else {
-                        if (m_innerIterator == m_outerIterator->begin()) {
+                        if (m_innerIterator == m_helper.outBegin(m_outerIterator)) {
                                 // When the innerIterator reaches the begin, go to the previous partition
                                 if (m_outerIterator == m_outerBegin) {
                                         // Reached before the begin of the first partition
                                         // Reset the outerIterator to m_outerBegin
                                         // Reset the innerIterator to the begin of the first partition
                                         m_outerIterator = m_outerBegin;
-                                        m_innerIterator = m_outerIterator->begin();
+                                        m_innerIterator = m_helper.outBegin(m_outerIterator);
                                 } else {
                                         // The outerIterator is not at the end
                                         // Set the innerIterator to the last element of the previous partition
                                         --m_outerIterator;
-                                        m_innerIterator = --m_outerIterator->end();
+                                        m_innerIterator = --m_helper.outEnd(m_outerIterator);
                                 }
                         } else {
                                 --m_innerIterator;
@@ -169,12 +192,14 @@ public:
         }
 
 private:
-        bool        m_innerIsValid;
-        InnerItType m_innerIterator;
+        bool        m_innerIsValid;  ///< Whether the m_innerIterator pointer is valid
+        InnerItType m_innerIterator; ///< Iterator to the current inner value
 
-        OutItType m_outerIterator;
-        OutItType m_outerEnd;
-        OutItType m_outerBegin;
+        OutItType m_outerIterator; ///< Iterator to the current outer value
+        OutItType m_outerEnd;      ///< End of the outer "storage"
+        OutItType m_outerBegin;    ////< Begin of the outer "storage"
+
+        Helper<OutItType, InnerItType, is_const_iterator> m_helper;
 };
 
 } // namespace util

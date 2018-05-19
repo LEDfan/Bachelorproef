@@ -114,8 +114,8 @@ set(LIB_SRC
         util/ExcAssert.h
         util/Exception.cpp
 		util/PartitionedSegmentedVector.h
-		util/PSVIterator.h
-    util/lower_bound.h
+        util/NestedIterator.h
+        util/lower_bound.h
         #---
         viewers/AdoptedViewer.cpp
         viewers/CliViewer.cpp

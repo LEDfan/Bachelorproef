@@ -279,6 +279,7 @@ private:
 private:
         friend class SVIterator<T, N>;
         friend class SVIterator<T, N, T*, T&, false>;
+        friend class SVIterator<T, N, T*, T&, true>;
 
 private:
         /// Get next available chunk for element construction with placement new.

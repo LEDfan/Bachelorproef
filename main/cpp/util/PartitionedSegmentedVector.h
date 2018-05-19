@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Exception.h"
-#include "PSVIterator.h"
+#include "NestedIterator.h"
 #include "SegmentedVector.h"
 #include "lower_bound.h"
 
@@ -19,7 +19,9 @@ public:
         using segmentedVector_type   = SegmentedVector<T, N>;
         using partitionIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
         using partItIndex            = std::tuple<partitionIterator_type, std::size_t, std::size_t>;
-        using iterator               = PSVIterator<T, partitionIterator_type, SVIterator<T, N, T*, T&, false>>;
+        using iterator               = NestedIterator<T, partitionIterator_type, SVIterator<T, N, T*, T&, false>>;
+        using const_iterator = NestedIterator<T, partitionIterator_type, SVIterator<T, N, const T*, const T&, true>,
+                                              const T*, const T&, true>;
 
         //// Construct
         explicit PartitionedSegmentedVector(std::size_t partitionsCount)
@@ -27,19 +29,26 @@ public:
         {
         }
 
+        /// Copy constructor
+        PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&) = delete;
+
+        /// Move constructor
+        PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&&) = delete;
+
+        /// Copy assignment
+        PartitionedSegmentedVector& operator=(const PartitionedSegmentedVector<T, N>& other) = delete;
+
+        /// Move assignment
+        PartitionedSegmentedVector& operator=(PartitionedSegmentedVector<T, N>&& other) noexcept = delete;
+
+        ~PartitionedSegmentedVector() = default;
+
         iterator begin() { return iterator(m_partitions.begin(), m_partitions.end()); };
 
         iterator end() { return iterator(m_partitions.end(), m_partitions.end()); };
 
-        /// Copy constructor
-
-        /// Move constructor
-
-        /// Copy assignment
-
-        /// Move assignment
-
-        ~PartitionedSegmentedVector() = default;
+        const_iterator cbegin() { return const_iterator(m_partitions.begin(), m_partitions.end()); };
+        const_iterator cend() { return const_iterator(m_partitions.end(), m_partitions.end()); };
 
         /// Adds element to end.
         T* push_back(std::size_t partition, const T& obj)

@@ -109,7 +109,6 @@ TEST(PartitionedSegmentedVector, Finalizing)
 
 TEST(PartitionedSegmentedVector, GetPartition)
 {
-
         std::vector<int> exp{10, 24, 15, 0, 42};
 
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
@@ -132,11 +131,38 @@ TEST(PartitionedSegmentedVector, GetPartition)
         EXPECT_THROW(partition1.emplace_back(100), Exception);
 }
 
+TEST(PartitionedSegmentedVector, ConstIterators)
+{
+        PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
+
+        PartitionedSegmentedVector<int>::segmentedVector_type& partition0 = partitionedSegmentedVector.GetPartition(0);
+        PartitionedSegmentedVector<int>::segmentedVector_type& partition1 = partitionedSegmentedVector.GetPartition(1);
+
+        partition0.emplace_back(10);
+        partition0.emplace_back(24);
+        partition0.emplace_back(15);
+        partition1.emplace_back(0);
+        partition1.emplace_back(42);
+
+        partitionedSegmentedVector.Finalize();
+
+        int i = 0;
+        for (auto it = partitionedSegmentedVector.cbegin(); it != partitionedSegmentedVector.cend(); ++it) {
+                EXPECT_EQ(partitionedSegmentedVector.at(i), *it);
+                ++i;
+        }
+
+        i = 4;
+        for (auto it = --partitionedSegmentedVector.cend(); it != partitionedSegmentedVector.cbegin(); --it) {
+                EXPECT_EQ(partitionedSegmentedVector.at(i), *it);
+                --i;
+        }
+}
 template <typename Nesting, typename T>
 class Nester : public std::vector<Nesting>
 {
 public:
-        using iterator = PSVIterator<T, typename std::vector<Nesting>::iterator, typename Nesting::iterator>;
+        using iterator = NestedIterator<T, typename std::vector<Nesting>::iterator, typename Nesting::iterator>;
 
         iterator begin() { return iterator(std::vector<Nesting>::begin(), std::vector<Nesting>::end()); }
 
