@@ -8,7 +8,6 @@ using namespace stride::util;
 
 TEST(PartitionedSegmentedVector, BasicLoopTest)
 {
-
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
         partitionedSegmentedVector.push_back(0, 0);
         partitionedSegmentedVector.push_back(0, 1);
@@ -37,7 +36,6 @@ TEST(PartitionedSegmentedVector, BasicLoopTest)
 
 TEST(PartitionedSegmentedVector, BasicReverseLoopTest)
 {
-
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
         partitionedSegmentedVector.push_back(0, 0);
         partitionedSegmentedVector.push_back(0, 1);
@@ -171,7 +169,6 @@ public:
 
 TEST(PartitionedSegmentedVector, TripleIterator)
 {
-
         Nester<Nester<Nester<Nester<std::vector<int>, int>, int>, int>, int> tripleVector;
         tripleVector.emplace_back();
         tripleVector[0].emplace_back();
