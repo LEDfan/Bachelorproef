@@ -44,14 +44,9 @@ public:
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
-<<<<<<< HEAD
                unsigned int primaryCommunityId, unsigned int secondaryCommunityId, Health health = Health(),
                double /*risk_averseness*/ = 0, Belief* bp = nullptr)
             : m_id(id), m_age(age), m_gender('M'), m_health(health),
-=======
-               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
-            : m_age(age), m_belief(nullptr), m_gender('M'), m_health(), m_id(id),
->>>>>>> 87aba0acf828e42edbd918240fefc68a250d1b02
               m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
                                                   secondaryCommunityId},
               m_in_pools(true), m_belief(bp)
@@ -169,12 +164,10 @@ public:
         bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
 private:
-        unsigned int m_id;     ///< The id.
-        double       m_age;    ///< The age.
-        char         m_gender; ///< The gender.
-        double       m_age;    ///< The age.
-        Belief*      m_belief; ///< Health beliefs related data (raw pointer intentional).
-        char         m_gender;
+        unsigned int m_id;             ///< The id.
+        double       m_age;            ///< The age.
+        char         m_gender;         ///< The gender.
+        Belief*      m_belief;         ///< Health beliefs related data (raw pointer intentional).
         Health       m_health;         ///< Health info for this person.
         bool         m_is_participant; ///< Is participating in the social contact study
 
@@ -184,8 +177,6 @@ private:
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;
-
-        Belief* m_belief; ///< Health beliefs related data (raw pointer intentional).
 };
 
 } // namespace stride
