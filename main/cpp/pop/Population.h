@@ -32,6 +32,7 @@
 #include <exception>
 #include <functional>
 #include <memory>
+#include <mutex>
 #include <spdlog/spdlog.h>
 #include <typeinfo>
 #include <vector>
@@ -73,26 +74,39 @@ public:
         /// The ContactPoolSys of the simulator.
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
-        /// New Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                          unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                          Health health = Health(), double risk_averseness = 0);
-
         std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 
 private:
         Population() : m_belief_pt(), m_beliefs_container(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr){};
 
-        /// New Person in the population.
+        /// Create Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
-        ///
+        /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
+        /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
+        /// locking did not work in OpenMP parallel for's on Mac OSX.
         template <typename BeliefPolicy>
-        void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                       unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                       Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+        void InitBeliefPolicy()
+        {
+                if (!m_beliefs) {
+                        m_beliefs.emplace<util::SegmentedVector<BeliefPolicy>>(this->size());
+                } else {
+                        throw std::runtime_error("_func_ : Error, already initialized!");
+                }
+        }
+
+        /// Assign the belief policy.
+        /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
+        /// \param belief        belief object that wille be associated with the person
+        /// \param i             subscript to person associated with this belief object
+        // Cannot follow my preference for declaration of required explicit specializations, because SWIG
+        // does not like that. Hence include of the template method definition in the header file.
+        template <typename BeliefPolicy>
+        void SetBeliefPolicy(std::size_t i, const BeliefPolicy& belief = BeliefPolicy())
+        {
+                (*this)[i].SetBelief(m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->emplace(i, belief));
+        }
 
         friend class DefaultPopBuilder;
         friend class GenPopBuilder;

@@ -137,10 +137,8 @@ int main(int argc, char** argv)
                 // If clean/dump ...
                 // -----------------------------------------------------------------------------------------
                 else if (execArg.getValue() == "clean" || execArg.getValue() == "dump") {
-
                         RunConfigManager::CleanConfigFile(configPt);
                 }
-
         } catch (exception& e) {
                 exitStatus = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

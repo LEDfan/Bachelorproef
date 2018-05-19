@@ -1,4 +1,4 @@
-# Stride project
+# Stride project 
 
 |CodeFactor|Travis|Clang 5|GCC 6| GCC 7|
 |--|--|--|--|--|
@@ -6,10 +6,19 @@
 
 Stride is an Open Source project to simulate transmission of infectious diseases.
 
-The project is hosted in a GitHub [code repository](https://github.com/broeckho/stride.git) and it has a continous integration cycle [build & test](https://travis-ci.org/broeckho/stride) at Travis CI.
+The Stride acronym stands for **S**imulate **tr**ansmission of **i**nfectious **d**is**e**ases.
+ 
+The project is hosted in a GitHub [code repository](https://github.com/broeckho/stride.git) and has a continous integration  
+ cycle [build & test](https://travis-ci.org/broeckho/stride) at Travis CI. The online [reference documentation](https://broeckho.github.io/stride) is automatically  
+ generated with each new commit of the code.
+>>>>>>> 87aba0acf828e42edbd918240fefc68a250d1b02
 
-Information on layout, installation, dependencies of the project, and platforms that are supported, can be found in the files INSTALL.txt, DEPENDENCIES.txt and PLATFORMS.txt respectively.
-For license info, see LICENSE.txt.
+The current status of the project build is : [![Build Status](https://travis-ci.org/broeckho/stride.svg?branch=master)](https://travis-ci.org/broeckho/stride)
+
+Information on layout, installation, dependencies of the project, and platforms that  
+are supported, can be found in the files INSTALL.txt, DEPENDENCIES.txt and  
+PLATFORMS.txt respectively.
+For license info, see LICENSE.txt.  
 
 Current contributors are (in alphabetical order):
 
@@ -26,7 +35,7 @@ Contact Person:
 
 Upstream:
 * Jan Broeckhove (jan.broeckhove@uantwerpen.be)
-* Elise Kuylen (elise.kuylen@student.uantwerpen.be)
+* Elise Kuylen (elise.kuylen@uantwerpen.be)
 * Lander Willem (lander.willem@uantwerpen.be)
 
 ## GenGeo

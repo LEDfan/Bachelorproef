@@ -32,6 +32,7 @@ add_subdirectory(calibration)
 #============================================================================
 set(LIB_SRC
         #---
+        behaviour/BeliefSeeder.cpp
         behaviour/behaviour_policies/NoBehaviour.h
         behaviour/behaviour_policies/Vaccination.h
         behaviour/belief_policies/Belief.h
@@ -57,7 +58,6 @@ set(LIB_SRC
         contact/Infector.cpp
         contact/InfectorExec.h
         contact/InfectorMap.h
-        contact/LogPolicy.h
         contact/TransmissionProfile.cpp
         #---
         disease/DiseaseSeeder.cpp

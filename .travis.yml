@@ -1,7 +1,3 @@
-# This .travis.yml on:
-# https://github.com/loot/loot/blob/dev/.travis.yml
-# https://genbattle.bitbucket.io/blog/2016/01/17/c++-travis-ci/?
-
 language: cpp
 dist: trusty
 
@@ -21,6 +17,7 @@ cache:
 
 addons:
   apt:
+    update: true
     sources: &default_sources
       - ubuntu-toolchain-r-test
     packages: &default_packages
@@ -55,7 +52,7 @@ matrix:
       env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE BUILD_NAME="osx-9.2-apple-clang"
 
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9.3
       compiler: clang
       env: CXX_COMPILER_NAME='clang++' CXX_COMPILER_ID=LLVM BUILD_NAME="osx-8.3-llvm-clang"
 
@@ -63,12 +60,12 @@ before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
   - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "clang++" ]]; then
       brew install --with-clang llvm@6
       brew link --force --overwrite llvm@6
     fi
   # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
-  - export CXX="$CXX_COMPILER_NAME"
+  - export CXX="$CXX_NAME"
 
 install:
     #--------- Linux
@@ -84,30 +81,32 @@ install:
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       brew upgrade python cmake
-      brew install ccache swig qt;
-      brew link --force qt;
-      sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins;
-      sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs;
-      export CMAKE_PREFIX_PATH=/usr/local/Cellar/qt5/5.10.1/;
+      brew install ccache swig qt && brew link --force qt
+      sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins
+      sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs
+      export CMAKE_PREFIX_PATH=/usr/local/opt/qt5:$CMAKE_PREFIX_PATH
+      export LD_LIBRARY_PATH=/usr/local/opt/qt5/lib/
     fi
     #--------- All platforms
   - |
-    export BOOSTHOME=$HOME/deps/boost_1_66_0
-    if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
+    #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
+    #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
+    export BOOST_ROOT=$HOME/deps/boost_1_66_0
+    export BOOST_NO_SYSTEM_PATHS=ON
+    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
       cd /tmp/
-      wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
+      wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       cd boost_1_66_0/
-      # Configure & build  --prefix: install dir for boost  --with-libraries: only build libraries that we actually need
-      ./bootstrap.sh --prefix=$BOOSTHOME --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
       ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
       cd $TRAVIS_BUILD_DIR;
     else
       echo "Already have boost cache"
     fi
-    export LD_LIBRARY_PATH=$BOOSTHOME/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
     sudo rm -f /usr/local/lib/libboost*.dylib*
-    sudo ln -s $BOOSTHOME/lib/*.{so,dylib}* /usr/local/lib
+    sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
 
 script:
   # Build stride and run tests
@@ -149,4 +148,3 @@ after_script:
     git commit -m "Publish test results @ $LINK"
     git push origin-pages gh-pages
     echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
-  # Arbitrarily chosen one platform for Debug build.

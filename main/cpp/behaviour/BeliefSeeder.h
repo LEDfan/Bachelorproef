@@ -11,22 +11,40 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
- * @file Header for NoLocalInformation policy
+ * @file
+ * Header file for the HealthSeeder.
  */
+
+#include "behaviour/belief_policies/Imitation.h"
+#include "behaviour/belief_policies/NoBelief.h"
+#include "util/RNManager.h"
+
+#include <boost/property_tree/ptree.hpp>
+#include <functional>
+#include <memory>
 
 namespace stride {
 
+class Population;
+
 /**
- * No information about beliefs or health status is exchanged upon contact.
+ * Seeds the population with Health data.
  */
-class NoLocalInformation
+class BeliefSeeder
 {
 public:
-        static void Update(Person* /*p1*/, Person* /*p2*/) {}
+        /// Constructor requires diease data and random number manager.
+        BeliefSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+
+        /// Seeds the population with Health data.
+        void Seed(std::shared_ptr<Population> pop);
+
+private:
+        boost::property_tree::ptree m_config_pt;
 };
 
 } // namespace stride
