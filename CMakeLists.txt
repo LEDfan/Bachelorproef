@@ -18,7 +18,7 @@
 #  CMake config.
 #
 #############################################################################
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 include(CMakeConfig.cmake)
 include(CMakeLocal.cmake OPTIONAL)
 if(CMAKE_VERSION VERSION_LESS 3.8)

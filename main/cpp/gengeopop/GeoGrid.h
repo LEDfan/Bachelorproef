@@ -12,11 +12,14 @@
 #include "KdTree.h"
 #include "Location.h"
 
+// Trying to include specific headers to lower compilation times
+#include <boost/geometry/algorithms/distance.hpp>
+#include <boost/geometry/algorithms/within.hpp>
+#include <boost/geometry/geometries/box.hpp>
+#include <boost/geometry/geometries/point.hpp>
+#include <boost/geometry/strategies/geographic/distance.hpp>
+
 namespace gengeopop {
-
-inline double DegreeToRadian(double degree) { return (degree * M_PI) / 180.0; }
-
-inline double RadianToDegree(double radian) { return (180 * radian) / M_PI; }
 
 class GeoGrid
 {
@@ -112,47 +115,37 @@ private:
 
         bool m_finalized;
 
+        using BoostPoint =
+            boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
         class KdTree2DPoint
         {
         public:
                 explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
-                    : m_location(location), m_longitude(location->GetCoordinate().longitude),
-                      m_latitude(location->GetCoordinate().latitude)
+                    : m_pt(location->GetCoordinate().longitude, location->GetCoordinate().latitude),
+                      m_location(location)
                 {
                 }
 
-                KdTree2DPoint() : m_location(nullptr), m_longitude(), m_latitude(){};
+                KdTree2DPoint() : m_pt(), m_location(nullptr){};
 
-                KdTree2DPoint(double longt, double lat) : m_location(nullptr), m_longitude(longt), m_latitude(lat) {}
+                KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}
 
                 constexpr static std::size_t dim = 2;
-
-                bool operator==(const KdTree2DPoint& o) const
-                {
-                        return o.m_longitude == m_longitude && o.m_latitude == m_latitude;
-                }
-                bool operator<(const KdTree2DPoint& o) const
-                {
-                        return std::make_pair(m_longitude, m_latitude) < std::make_pair(o.m_longitude, o.m_latitude);
-                }
 
                 template <std::size_t D>
                 double Get() const
                 {
                         static_assert(0 <= D && D <= 1, "Dimension should be in range");
-                        if (D == 0) {
-                                return m_longitude;
-                        } else {
-                                return m_latitude;
-                        }
+                        return boost::geometry::get<D>(m_pt);
                 }
 
                 bool InBox(const AABB<KdTree2DPoint>& box) const
                 {
-                        return box.lower.m_longitude <= m_longitude && m_longitude <= box.upper.m_longitude &&
-                               box.lower.m_latitude <= m_latitude && m_latitude <= box.upper.m_latitude;
+                        return boost::geometry::within(
+                            m_pt, boost::geometry::model::box<BoostPoint>{box.lower.m_pt, box.upper.m_pt});
                 }
 
+                /// Does the point lie within `radius` km from `start`?
                 bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
 
                 std::shared_ptr<Location> GetLocation() const { return m_location; }
@@ -164,19 +157,15 @@ private:
                 };
 
         private:
+                BoostPoint                m_pt;
                 std::shared_ptr<Location> m_location;
-                double                    m_longitude;
-                double                    m_latitude;
 
+                /// Distance in kilometers, following great circle distance on a speroid earth
                 double Distance(const KdTree2DPoint& other) const
                 {
-                        double lat1 = DegreeToRadian(m_latitude);
-                        double lon1 = DegreeToRadian(m_longitude);
-                        double lat2 = DegreeToRadian(other.m_latitude);
-                        double lon2 = DegreeToRadian(other.m_longitude);
-
-                        return 6371.0 * std::acos(std::sin(lat1) * std::sin(lat2) +
-                                                  std::cos(lat1) * std::cos(lat2) * std::cos(lon1 - lon2));
+                        return boost::geometry::distance(m_pt, other.m_pt,
+                                                         boost::geometry::strategy::distance::geographic<>{}) /
+                               1000.0;
                 }
         };
 

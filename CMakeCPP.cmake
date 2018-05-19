@@ -38,14 +38,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #
 include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
+set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas")
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
-set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
+set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas")
+set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
+set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
+set(CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g"   )
+# Prevents (static) libraries having a double "lib" prefix (when they are named libxxx).
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
@@ -79,6 +81,12 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 # TCLAP
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
+
+#----------------------------------------------------------------------------
+# ProtoBuf
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 
 #----------------------------------------------------------------------------
 # SHA1 hash code.
@@ -137,14 +145,15 @@ endif()
 #----------------------------------------------------------------------------
 # Qt : not a definitive list of components yet; these are placeholders
 #----------------------------------------------------------------------------
-find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml QUIET)
+find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml Quick QUIET)
 if (Qt5_FOUND)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=true")
     set(QT_INCLUDES
         ${Qt5Core_INCLUDE_DIRS}
         ${Qt5Gui_INCLUDE_DIRS}
         ${Qt5PrintSupport_INCLUDE_DIRS}
-        ${QtQml_INCLUDE_DIRS}
+        ${Qt5Qml_INCLUDE_DIRS}
+        ${Qt5Quick_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
         )
 	include_directories(SYSTEM ${QT_INCLUDES})
@@ -152,17 +161,22 @@ if (Qt5_FOUND)
         ${Qt5Core_DEFINITIONS}
         ${Qt5Gui_DEFINITIONS}
         ${Qt5PrintSupport_DEFINITIONS}
-        ${QtQml_DEFINITIONS}
+        ${Qt5Qml_DEFINITIONS}
+        ${Qt5Quick_DEFINITIONS}
         ${Qt5Widgets_DEFINITIONS}
     )
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
     set(QT_LIBRARIES
         ${Qt5Core_LIBRARIES}
         ${Qt5Gui_LIBRARIES}
         ${Qt5PrintSupport_LIBRARIES}
-        ${QtQml_LIBRARIES}
+        ${Qt5Qml_LIBRARIES}
+        ${Qt5Quick_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
-        )
+    )
+    set(CMAKE_AUTOMOC ON)
+    set(CMAKE_AUTORCC ON)
+    set(CMAKE_AUTOUIC ON)
     if( CMAKE_BUILD_TYPE MATCHES "Release" )
         add_definitions( -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT )
     endif()
@@ -171,6 +185,17 @@ if (Qt5_FOUND)
     endif()
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=false")
+endif()
+
+#----------------------------------------------------------------------------
+# Qt Charts
+#----------------------------------------------------------------------------
+find_package(Qt5Charts)
+if(Qt5Charts_FOUND)
+    add_definitions(-DQt5Charts_FOUND=true)
+    set(QT_LIBRARIES ${QT_LIBRARIES} ${Qt5Charts_LIBRARIES})
+else()
+    add_definitions(-DQt5Charts_FOUND=false)
 endif()
 
 #----------------------------------------------------------------------------
@@ -197,5 +222,11 @@ else()
 		set(HDF5_FOUND FALSE)
 	endif()
 endif()
+
+#----------------------------------------------------------------------------
+# Remove "/usr/local/include" from INCLUDE_DIRECTORIES
+#----------------------------------------------------------------------------
+get_property(INCLUDE_DIRECTORIES DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+string(REPLACE "/usr/local/include" "" INCLUDE_DIRECTORIES "${INCLUDE_DIRECTORIES}")
 
 #############################################################################

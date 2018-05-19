@@ -20,6 +20,7 @@
 
 #include "RNManager.h"
 
+#include <spdlog/spdlog.h>
 #include <sstream>
 
 using namespace std;
@@ -96,6 +97,10 @@ void RNManager::Initialize(const Info& info)
         m_seed         = info.m_seed;
         m_stream_count = info.m_stream_count;
         m_type_id      = ToType(info.m_type);
+
+        if (auto logger = spdlog::get("stride_logger")) {
+                logger->info("Initialized RNManager with seed {}.", m_seed);
+        }
 
         if (info.m_state.empty()) {
                 switch (m_type_id) {

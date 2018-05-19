@@ -18,12 +18,14 @@
  * Main program: command line handling.
  */
 
-#include "CliWithVisualizerController.h"
+#include "guicontroller/GuiController.h"
+#include "sim/BaseController.h"
 #include "sim/CliController.h"
 #include "util/FileSys.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
+#include "viewers/MapViewer.h"
 
 #include <tclap/CmdLine.h>
 #include <iostream>
@@ -39,7 +41,10 @@ using namespace boost::property_tree;
 
 /// Main program of the stride simulator.
 int main(int argc, char** argv)
+
 {
+        Q_INIT_RESOURCE(controllerqml);
+        Q_INIT_RESOURCE(qml);
         int exitStatus = EXIT_SUCCESS;
 
         try {
@@ -101,31 +106,36 @@ int main(int argc, char** argv)
                 }
 
                 // -----------------------------------------------------------------------------------------
-                // If run simulation in cli ...
+                // If run simulation in cli or gui ...
                 // -----------------------------------------------------------------------------------------
-                if (execArg.getValue() == "sim") {
+                if (execArg.getValue() == "sim" || execArg.getValue() == "simgui") {
                         if (configPt.get<string>("run.output_prefix", "").empty()) {
                                 configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
                         configPt.sort();
 
-                        std::shared_ptr<CliController> controller = nullptr;
+                        std::shared_ptr<BaseController> controller = nullptr;
 
                         // TODO @Niels see new upstream switches
 
-                        // Check if we need the visualiser
-                        if (show_visualiser.getValue()) {
-                                controller = std::make_shared<CliWithVisualizerController>(configPt);
-                        } else {
+                        std::shared_ptr<QQmlApplicationEngine> engine = nullptr;
+                        if (execArg.getValue() == "sim") {
                                 controller = std::make_shared<CliController>(configPt);
+                        } else {
+                                std::shared_ptr<GuiController> temp = std::make_shared<GuiController>(configPt);
+                                engine                              = temp->GetEngine();
+                                controller                          = temp;
                         }
+
+                        if (show_visualiser.getValue()) {
+#if Qt5_FOUND
+                                controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
+#else
+                                std::cerr << "Can't run with mapviewer when Qt is not found" << std::endl;
+#endif
+                        }
+                        controller->RegisterViewers();
                         controller->Control();
-                }
-                // -----------------------------------------------------------------------------------------
-                // If run simulation in gui ...
-                // -----------------------------------------------------------------------------------------
-                else if (execArg.getValue() == "simgui") {
-                        cout << "Not implented here yet ..." << endl;
                 }
                 // -----------------------------------------------------------------------------------------
                 // If geopop ...

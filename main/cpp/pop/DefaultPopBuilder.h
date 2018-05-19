@@ -47,9 +47,6 @@ public:
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
 
 private:
-        /// Fills up pop's contact pool system and return pop.
-        std::shared_ptr<Population> MakePoolSys(std::shared_ptr<Population> pop);
-
         /// Generates pop's individuals and return pop.
         std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
 };

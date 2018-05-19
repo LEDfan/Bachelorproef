@@ -77,6 +77,9 @@ public:
         std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 
         /// Create Person in the population.
+        void Finalize();
+
+        /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
                           unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 

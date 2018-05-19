@@ -90,11 +90,10 @@ install:
     fi
     #--------- All platforms
   - |
-    #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
-    #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-    export BOOST_ROOT=$HOME/deps/boost_1_66_0
-    export BOOST_NO_SYSTEM_PATHS=ON
-    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
+    sudo pip install cmake
+    export PATH=/usr/local/bin:$PATH # use version installed using pip
+    export BOOSTHOME=$HOME/deps/boost_1_66_0
+    if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
       cd /tmp/
       wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1

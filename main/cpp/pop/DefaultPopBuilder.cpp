@@ -34,51 +34,6 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-shared_ptr<Population> DefaultPopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
-{
-        using namespace ContactPoolType;
-        auto& population = *pop;
-        auto& poolSys    = population.GetContactPoolSys();
-
-        // --------------------------------------------------------------
-        // Determine maximum pool ids in population.
-        // --------------------------------------------------------------
-        IdSubscriptArray<unsigned int> max_ids{0U};
-        for (const auto& p : population) {
-                for (Id typ : IdList) {
-                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
-                }
-        }
-        // --------------------------------------------------------------
-        // Initialize poolSys with empty ContactPools (even for Id=0).
-        // --------------------------------------------------------------
-        for (Id typ : IdList) {
-                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
-                        poolSys[typ].emplace_back(ContactPool(i, typ));
-                }
-        }
-
-        // --------------------------------------------------------------
-        // Insert persons (pointers) in their contactpools. Having Id 0
-        // means "not belonging pool of that type" (e.g. school/ work -
-        // cannot belong to both, or e.g. out-of-work).
-        //
-        // Pools are uniquely identified by (typ, subscript) and a Person
-        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
-        // Defensive measure: we have a pool for Id 0 and leave it empty.
-        // --------------------------------------------------------------
-        for (auto& p : population) {
-                for (Id typ : IdList) {
-                        const auto poolId = p.GetPoolId(typ);
-                        if (poolId > 0) {
-                                poolSys[typ][poolId].AddMember(&p);
-                        }
-                }
-        }
-
-        return pop;
-}
-
 shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
@@ -132,7 +87,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop)
         //------------------------------------------------
         // Add persons & fill pools & surveyseeding.
         //------------------------------------------------
-        SurveySeeder(m_config_pt, m_rn_manager).Seed(MakePoolSys(MakePersons(pop)));
+        SurveySeeder(m_config_pt, m_rn_manager).Seed(MakePersons(pop));
         return pop;
 }
 
