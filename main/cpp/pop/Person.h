@@ -93,6 +93,9 @@ public:
         /// Participate in social contact study and log person details
         void ParticipateInSurvey() { m_is_participant = true; }
 
+        /// Set the beliefs. Pointer into Population's beliefcontainer.
+        void SetBelief(Belief* belief) { m_belief = belief; };
+
         /// Update the health status and presence in contactpools.
         void Update(bool isWorkOff, bool isSchoolOff);
 

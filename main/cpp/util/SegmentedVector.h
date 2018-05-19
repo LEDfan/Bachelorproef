@@ -33,14 +33,14 @@ namespace stride {
 namespace util {
 
 /**
- * Container that stores objects "almost contiguously" and guarantees that
- * pointers/iterators are not invalidated when the container grows.
- * It combines vector properties (high data locality) with queue properties
- * (can increase capacity without pointer/iterator invalidation). Actually,
- * its implementation is much like a queue but with a limited interface
- * e.g. no insertions. The reason for the SegmentedVector is that one cannot
- * control the block size for std:queue (where it is small) and we need that
- * control to make the block size flexible and rather large.
+ * Container that stores objects "almost contiguously" (in a chain of blocks)
+ * and guarantees that pointers/iterators are not invalidated when the container
+ * grows. Elements are assigned to the container either sequentially through
+ * push_back and emplace_back or through direct adressing with emplace, at or
+ * the subscript operator.
+ * It supports most familiar operators except reserve (no need for advance
+ * reservation of capacity to avoid re-allocation that invalidates pointers as
+ * in std::vector) and insertion/deletion.
  *
  * Template parameters:
  * 	T   type of elements stored in the container
@@ -53,18 +53,22 @@ public:
         // ==================================================================
         // Member types
         // ==================================================================
+        using value_type     = T;
+        using size_type      = std::size_t;
+        using self_type      = SegmentedVector<T, N>;
+        using iterator       = SVIterator<T, N, T*, T&, false>;
+        using const_iterator = SVIterator<T, N>;
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
         // ==================================================================
 
-        /// Construct
-        SegmentedVector() : m_blocks(), m_size(0) {}
+        /// Construct with given number of elements but DO NOT INITIALIZE them.
+        explicit SegmentedVector(size_type i = 0) : m_blocks(), m_size(0) { resize(i); }
 
-        /// Copy constructor
-        SegmentedVector(const SegmentedVector<T, N>& other) : m_blocks(), m_size(0)
+        /// Copy constructor.
+        SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
         {
-                m_blocks.reserve(other.m_blocks.size());
                 for (const auto& elem : other) {
                         push_back(elem);
                 }
@@ -72,30 +76,29 @@ public:
                 assert(m_blocks.size() == other.m_blocks.size());
         }
 
-        /// Move constructor
-        SegmentedVector(SegmentedVector<T, N>&& other) noexcept
-            : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        /// Move constructor.
+        SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
 
-        /// Copy assignment
-        SegmentedVector& operator=(const SegmentedVector<T, N>& other)
+        /// Copy assignment.
+        SegmentedVector& operator=(const self_type& other)
         {
                 if (this != &other) {
                         clear();
-                        m_blocks.reserve(other.m_blocks.size());
                         for (const auto& elem : other) {
                                 push_back(elem);
                         }
                         assert(m_size == other.m_size);
                         assert(m_blocks.size() == other.m_blocks.size());
+                        assert(this->capacity() == other.capacity());
                 }
                 return *this;
         }
 
-        /// Move assignment
-        SegmentedVector& operator=(SegmentedVector<T, N>&& other) noexcept
+        /// Move assignment.
+        SegmentedVector& operator=(self_type&& other) noexcept
         {
                 if (this != &other) {
                         clear();
@@ -156,33 +159,30 @@ public:
         // Iterators
         // ==================================================================
 
-        /// Returns an SVIterator<T, N, T*, T&, false> to the beginning of the container.
-        SVIterator<T, N, T*, T&, false> begin()
-        {
-                return (m_size == 0) ? end() : SVIterator<T, N, T*, T&, false>(0, this);
-        }
+        /// Returns an iterator to the beginning of the container.
+        iterator begin() { return (m_size == 0) ? end() : iterator(0, this); }
 
-        /// Returns a SVIterator<T, N>; to the beginning of the container.
-        SVIterator<T, N> begin() const { return (m_size == 0) ? end() : SVIterator<T, N>(0, this); }
+        /// Returns a const_iterator to the beginning of the container.
+        const_iterator begin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
 
-        /// Returns a SVIterator<T, N>; to the beginning of the container.
-        SVIterator<T, N> cbegin() const { return (m_size == 0) ? end() : SVIterator<T, N>(0, this); }
+        /// Returns a const_iterator to the beginning of the container.
+        const_iterator cbegin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
 
-        /// Returns an SVIterator<T, N, T*, T&, false> to the end of the container.
-        SVIterator<T, N, T*, T&, false> end()
-        {
-                return SVIterator<T, N, T*, T&, false>(SVIterator<T, N, T*, T&, false>::m_end, this);
-        }
+        /// Returns an iterator to the end of the container.
+        iterator end() { return iterator(iterator::m_end, this); }
 
-        /// Returns a SVIterator<T, N>; to the end of the container.
-        SVIterator<T, N> end() const { return SVIterator<T, N>(SVIterator<T, N>::m_end, this); }
+        /// Returns a const_iterator to the end of the container.
+        const_iterator end() const { return const_iterator(const_iterator::m_end, this); }
 
-        /// Returns a SVIterator<T, N>; to the end.
-        SVIterator<T, N> cend() const { return SVIterator<T, N>(SVIterator<T, N>::m_end, this); }
+        /// Returns a const_iterator to the end.
+        const_iterator cend() const { return const_iterator(const_iterator::m_end, this); }
 
         // ==================================================================
         // Capacity
         // ==================================================================
+
+        /// Returns number of elements that can be stored without allocating additional blocks.
+        std::size_t capacity() const { return N * m_blocks.size(); }
 
         /// Checks whether container is empty.
         bool empty() const { return m_size == 0; }
@@ -200,6 +200,24 @@ public:
         // Modifiers
         // ==================================================================
 
+        /// Increases the number of elements (but DOES NOT INITIALIZE the additional
+        /// elements) or pops elements (and DOES RUN those element's destructor).
+        void resize(size_type new_size)
+        {
+                if (new_size < size()) {
+                        for (size_type i = m_size - 1; new_size - 1 < i; --i) {
+                                pop_back();
+                        }
+                } else if (new_size > size()) {
+                        // Allocates aditional blocks to achieve required capacity.
+                        while (new_size > capacity()) {
+                                m_blocks.push_back(new Chunk[N]);
+                        }
+                        m_size = new_size;
+                        assert((size() <= capacity()) && "SegmentedVector::Resize error.");
+                }
+        }
+
         /// Clears the content.
         void clear()
         {
@@ -211,6 +229,14 @@ public:
                 }
                 m_blocks.clear();
                 m_size = 0;
+        }
+
+        /// Constructs element in-place at position pos.
+        template <class... Args>
+        T* emplace(size_type pos, Args&&... args)
+        {
+                T* memory = static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
+                return new (memory) T(std::forward<Args>(args)...); // construct new object
         }
 
         /// Constructs element in-place at the end.

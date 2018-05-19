@@ -24,8 +24,8 @@ INSTALL(FILES
 		experimenter_r0.py
 		interactive_maps.py
 		log2csv.py
+		LogParser.py
 		plot_maps.py
-		runManualConfig.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 )

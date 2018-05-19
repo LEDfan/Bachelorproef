@@ -12,33 +12,30 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2016, 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 #============================================================================
 # api_doc
 #============================================================================
-find_package( Doxygen )
+find_package(Doxygen)
 
 if( DOXYGEN_FOUND )	
 
 	#=== dot tool ===
-	if( DOXYGEN_DOT_FOUND )
-		set( DOXY_HAVE_DOT YES )
+	if(DOXYGEN_DOT_FOUND)
+		set(DOXY_HAVE_DOT YES)
 	else()
-		set( DOXY_HAVE_DOT NO )
+		set(DOXY_HAVE_DOT NO)
 	endif()
 	
 	#=== setup ===			
-	set( DOXY_HTML_DIR 	"reference_doc_html" )
+	set(DOXY_HTML_DIR 	"html")
 	configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake.in 
 					${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )	
 
 	#=== target ===
-	add_custom_target( api_doc ALL	${DOXYGEN_EXECUTABLE} Doxyfile )
-	add_custom_target( images ALL
-		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/images
-			 ${CMAKE_CURRENT_BINARY_DIR}/${DOXY_HTML_DIR} )
+	add_custom_target(api_doc ALL	${DOXYGEN_EXECUTABLE} Doxyfile)
 			 
 	#=== install ===
 	install(DIRECTORY		${CMAKE_CURRENT_BINARY_DIR}/${DOXY_HTML_DIR}

@@ -34,7 +34,8 @@ class Sim;
 class Population;
 
 /**
- * The simulation runner:
+ * The simulation runner drive simulator throufgh time steps.
+ * It's functions are:
  * \li invokes the simulator builder (@see SimulatorBuilder)
  * \li manages elapsed time clock
  * \li manages time steps
@@ -48,7 +49,7 @@ public:
         explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop);
 
         /// Destructor
-        virtual ~SimRunner() = default;
+        ~SimRunner() override = default;
 
         /// Return the run & sim configuration.
         const util::Stopwatch<>& GetClock() const { return m_clock; }
