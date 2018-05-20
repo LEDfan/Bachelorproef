@@ -47,6 +47,7 @@
         </region>
         <region>
             <name>Vlaanderen3</name>
+            <geopop_type>generate</geopop_type>
             <geopop_gen>
                 <population_size>600000</population_size>
                 <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
