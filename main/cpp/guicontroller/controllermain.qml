@@ -3,11 +3,29 @@ import QtQuick 2.5
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.2
 import QtQuick.Window 2.0
+import io.bistromatics.backend 1.0
 
 ApplicationWindow {
     id: window
     visible: true
     title: qsTr("GuiController")
+
+    Backend {
+        id: backend
+        objectName: 'backend'
+        Component.onCompleted: {
+            backend.Stepped.connect(stepped)
+        }
+
+        function stepped(infectedCount, day) {
+            console.warn(infectedCount)
+            console.warn(day)
+            stepButton.enabled = true
+            infectedNr.text = infectedCount
+            dayNr.text = day
+        }
+
+    }
 
     ColumnLayout {
         RowLayout {
@@ -47,6 +65,7 @@ ApplicationWindow {
         }
         RowLayout {
             Button {
+                id: stepButton
                 text: "Step day"
                 onClicked: stepDay()
             }
@@ -73,8 +92,7 @@ ApplicationWindow {
     }
 
     function stepDay() {
+        stepButton.enabled = false
         backend.StepDay()
-        dayNr.text = backend.GetDay()
-        infectedNr.text = backend.GetInfectedCount()
     }
 }

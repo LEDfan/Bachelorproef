@@ -2,6 +2,7 @@ if(Qt5_FOUND)
     set(GUICONTROLLER_SRC
             GuiController.cpp
             GuiControllerBackend.cpp
+            SimWorker.cpp
     )
 
     qt5_add_resources(GUICONTROLLER_QT_RESOURCES controllerqml.qrc)

@@ -28,6 +28,6 @@ private:
         std::shared_ptr<int>                   m_argc;
         std::shared_ptr<QGuiApplication>       m_app;
         std::shared_ptr<QQmlApplicationEngine> m_engine;
-        std::shared_ptr<GuiControllerBackend>  m_backend;
+        GuiControllerBackend*                  m_backend;
 };
 } // namespace stride

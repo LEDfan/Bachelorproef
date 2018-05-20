@@ -8,7 +8,10 @@ class GuiControllerBackend : public QObject
 {
         Q_OBJECT
 public:
-        GuiControllerBackend(std::shared_ptr<stride::SimRunner> runner);
+        GuiControllerBackend();
+        ~GuiControllerBackend();
+
+        void SetRunner(std::shared_ptr<stride::SimRunner> runner);
 
         Q_INVOKABLE
         void StepDay();
@@ -17,7 +20,14 @@ public:
         Q_INVOKABLE
         unsigned int GetDay();
 
+private slots:
+        void UpdateViews(unsigned int infectedCount);
+
+signals:
+        void Stepped(unsigned int infectedCount, unsigned int day);
+
 private:
         std::shared_ptr<stride::SimRunner> m_runner;
+        std::shared_ptr<QThread>           m_thread;
         unsigned int                       m_day;
 };
