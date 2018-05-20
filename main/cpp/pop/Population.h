@@ -47,7 +47,7 @@ namespace stride {
 /**
  * Container for persons in population.
  */
-class Population : public util::SegmentedVector<Person>
+class Population : public util::PartitionedSegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.

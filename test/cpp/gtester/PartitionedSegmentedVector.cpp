@@ -10,13 +10,13 @@ TEST(PartitionedSegmentedVector, BasicLoopTest)
 {
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
         partitionedSegmentedVector.push_back(0, 0);
-        partitionedSegmentedVector.push_back(0, 1);
-        partitionedSegmentedVector.push_back(0, 2);
-        partitionedSegmentedVector.push_back(0, 3);
-        partitionedSegmentedVector.push_back(1, 4);
-        partitionedSegmentedVector.push_back(1, 5);
-        partitionedSegmentedVector.push_back(1, 6);
-        partitionedSegmentedVector.push_back(1, 7);
+        partitionedSegmentedVector.push_back(1, 0);
+        partitionedSegmentedVector.push_back(2, 0);
+        partitionedSegmentedVector.push_back(3, 0);
+        partitionedSegmentedVector.push_back(4, 1);
+        partitionedSegmentedVector.push_back(5, 1);
+        partitionedSegmentedVector.push_back(6, 1);
+        partitionedSegmentedVector.push_back(7, 1);
 
         int i = 0;
         for (int x : partitionedSegmentedVector) {
@@ -38,13 +38,13 @@ TEST(PartitionedSegmentedVector, BasicReverseLoopTest)
 {
         PartitionedSegmentedVector<int> partitionedSegmentedVector(2);
         partitionedSegmentedVector.push_back(0, 0);
-        partitionedSegmentedVector.push_back(0, 1);
-        partitionedSegmentedVector.push_back(0, 2);
-        partitionedSegmentedVector.push_back(0, 3);
-        partitionedSegmentedVector.push_back(1, 4);
-        partitionedSegmentedVector.push_back(1, 5);
-        partitionedSegmentedVector.push_back(1, 6);
-        partitionedSegmentedVector.push_back(1, 7);
+        partitionedSegmentedVector.push_back(1, 0);
+        partitionedSegmentedVector.push_back(2, 0);
+        partitionedSegmentedVector.push_back(3, 0);
+        partitionedSegmentedVector.push_back(4, 1);
+        partitionedSegmentedVector.push_back(5, 1);
+        partitionedSegmentedVector.push_back(6, 1);
+        partitionedSegmentedVector.push_back(7, 1);
 
         int i = 7;
         for (auto it = --partitionedSegmentedVector.end(); it != partitionedSegmentedVector.begin(); --it) {
@@ -66,16 +66,16 @@ TEST(PartitionedSegmentedVector, RandomAccess)
 {
         PartitionedSegmentedVector<int> partitionedSegmentedVector(6);
         partitionedSegmentedVector.push_back(0, 0);
-        partitionedSegmentedVector.push_back(0, 1);
-        partitionedSegmentedVector.push_back(0, 2);
-        partitionedSegmentedVector.push_back(0, 3);
-        partitionedSegmentedVector.push_back(1, 4);
-        partitionedSegmentedVector.push_back(2, 5);
-        partitionedSegmentedVector.push_back(3, 6);
-        partitionedSegmentedVector.push_back(4, 7);
-        partitionedSegmentedVector.push_back(4, 8);
-        partitionedSegmentedVector.push_back(4, 9);
-        partitionedSegmentedVector.push_back(5, 10);
+        partitionedSegmentedVector.push_back(1, 0);
+        partitionedSegmentedVector.push_back(2, 0);
+        partitionedSegmentedVector.push_back(3, 0);
+        partitionedSegmentedVector.push_back(4, 1);
+        partitionedSegmentedVector.push_back(5, 2);
+        partitionedSegmentedVector.push_back(6, 3);
+        partitionedSegmentedVector.push_back(7, 4);
+        partitionedSegmentedVector.push_back(8, 4);
+        partitionedSegmentedVector.push_back(9, 4);
+        partitionedSegmentedVector.push_back(10, 5);
         EXPECT_EQ(11, partitionedSegmentedVector.size());
         EXPECT_FALSE(partitionedSegmentedVector.IsFinalized());
         partitionedSegmentedVector.Finalize();
@@ -95,7 +95,7 @@ struct storage
 TEST(PartitionedSegmentedVector, Finalizing)
 {
         PartitionedSegmentedVector<storage> partitionedSegmentedVector(1);
-        partitionedSegmentedVector.push_back(0, storage{0});
+        partitionedSegmentedVector.push_back(storage{0}, 0);
         partitionedSegmentedVector.Finalize();
 
         storage& firstElement = partitionedSegmentedVector.at(0);

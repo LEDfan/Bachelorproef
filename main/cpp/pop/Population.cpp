@@ -123,6 +123,7 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
 
 void Population::Finalize()
 {
+        util::PartitionedSegmentedVector<Person>::Finalize();
         using namespace ContactPoolType;
 
         // --------------------------------------------------------------
