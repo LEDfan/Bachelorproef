@@ -66,7 +66,7 @@ before_install:
       brew link --force --overwrite llvm@6
     fi
   # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
-  - export CXX="$CXX_NAME"
+  - export CXX="$CXX_COMPILER_NAME"
 
 install:
     #--------- Linux
