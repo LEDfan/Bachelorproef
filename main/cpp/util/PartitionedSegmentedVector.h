@@ -1,9 +1,7 @@
 #pragma once
 
 #include "Exception.h"
-#include "NestedIterator.h"
-#include "SegmentedVector.h"
-#include "lower_bound.h"
+#include "util/pchheader.h"
 
 #include <numeric>
 #include <tuple>
@@ -16,13 +14,13 @@ template <typename T, std::size_t N = 512>
 class PartitionedSegmentedVector
 {
 public:
-        using segmentedVector_type   = SegmentedVector<T, N>;
-        using partitionIterator_type = typename std::vector<SegmentedVector<T, N>>::iterator;
-        using partItIndex            = std::tuple<partitionIterator_type, std::size_t, std::size_t>;
-        using iterator               = NestedIterator<T, partitionIterator_type, SVIterator<T, N, T*, T&, false>>;
+        using segmentedVector_type         = SegmentedVector<T, N>;
+        using partitionIterator_type       = typename std::vector<SegmentedVector<T, N>>::iterator;
+        using partItIndex                  = std::tuple<partitionIterator_type, std::size_t, std::size_t>;
+        using iterator                     = NestedIterator<T, partitionIterator_type, SVIterator<T, N, T*, T&, false>>;
         using const_partitionIterator_type = typename std::vector<SegmentedVector<T, N>>::const_iterator;
-        using const_iterator = NestedIterator<T, const_partitionIterator_type, SVIterator<T, N, const T*, const T&, true>,
-                                              const T*, const T&, true>;
+        using const_iterator               = NestedIterator<T, const_partitionIterator_type,
+                                              SVIterator<T, N, const T*, const T&, true>, const T*, const T&, true>;
 
         //// Construct
         explicit PartitionedSegmentedVector(std::size_t partitionsCount)
@@ -31,9 +29,7 @@ public:
         }
 
         //// Construct
-        PartitionedSegmentedVector() : m_partitions(1), m_prefixSums(), m_finalized(false)
-        {
-        }
+        PartitionedSegmentedVector() : m_partitions(1), m_prefixSums(), m_finalized(false) {}
 
         /// Copy constructor
         PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&) = delete;
@@ -61,7 +57,10 @@ public:
         {
                 return const_iterator(m_partitions.begin(), m_partitions.begin(), m_partitions.end());
         };
-        const_iterator cend() const { return const_iterator(m_partitions.end(), m_partitions.begin(), m_partitions.end()); };
+        const_iterator cend() const
+        {
+                return const_iterator(m_partitions.end(), m_partitions.begin(), m_partitions.end());
+        };
 
         /// Adds element to end.
         T* push_back(const T& obj, std::size_t partition = 0)
@@ -123,14 +122,14 @@ public:
         /// Gets const element at index without range check
         T& operator[](std::size_t pos)
         {
-                auto lower = FindPartition(pos);
+                auto                        lower = FindPartition(pos);
                 return std::get<0>(*lower)->operator[](pos - std::get<2>(*lower));
         }
 
         /// Gets const element at index without range check
         const T& operator[](std::size_t pos) const
         {
-                auto lower = FindPartition(pos);
+                auto                        lower = FindPartition(pos);
                 return std::get<0>(*lower)->operator[](pos - std::get<2>(*lower));
         }
 
@@ -138,10 +137,7 @@ public:
         T& back() { return m_partitions.back().back(); }
 
         /// Access the last element.
-        const T& back() const
-        {
-                return m_partitions.back().back();
-        }
+        const T& back() const { return m_partitions.back().back(); }
 
         /// Calculates the size when not finalized else returns the size
         std::size_t size() const
