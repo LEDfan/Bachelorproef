@@ -72,16 +72,8 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 pop->CreatePartitions(1);
 
                 std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
-                if (geopop_type == "import") {
-                        stride_logger->info("Creating region \"Default\" with imported pop.");
-                        ImportPopBuilder(configPt, configPt.get_child("run"), rnManager).Build(pop, 0);
-                } else if (geopop_type == "generate") {
-                        stride_logger->info("Creating region \"Default\" with generated pop.");
-                        GenPopBuilder(configPt, configPt.get_child("run"), rnManager).Build(pop, 0);
-                } else {
-                        stride_logger->info("Creating region \"Default\" with Default pop.");
-                        DefaultPopBuilder(configPt, configPt.get_child("run"), rnManager).Build(pop, 0);
-                }
+
+                CreateRegion(geopop_type, configPt, configPt.get_child("run"), pop, "Default", rnManager);
         } else {
                 std::size_t currentId = 0;
                 for (const auto& region : configPt.get_child("run.regions")) {
@@ -94,16 +86,8 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 for (const auto& region : configPt.get_child("run.regions")) {
                         std::string name        = region.second.get<std::string>("name");
                         std::string geopop_type = region.second.get<std::string>("geopop_type", "default");
-                        if (geopop_type == "import") {
-                                stride_logger->info("Creating region \"{}\" with imported pop.", name);
-                                ImportPopBuilder(configPt, region.second, rnManager).Build(pop, pop->m_regions[name]);
-                        } else if (geopop_type == "generate") {
-                                stride_logger->info("Creating region \"{}\" with generated pop.", name);
-                                GenPopBuilder(configPt, region.second, rnManager).Build(pop, pop->m_regions[name]);
-                        } else {
-                                stride_logger->info("Creating region \"{}\" with Default pop.", name);
-                                DefaultPopBuilder(configPt, region.second, rnManager).Build(pop, pop->m_regions[name]);
-                        }
+
+                        CreateRegion(geopop_type, configPt, region.second, pop, name, rnManager);
                 }
         }
 

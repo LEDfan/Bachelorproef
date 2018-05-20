@@ -22,10 +22,13 @@
 #include "AbstractPopBuilder.h"
 #include "ImportPopBuilder.h"
 #include "pool/ContactPoolSys.h"
+#include "pop/DefaultPopBuilder.h"
+#include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
 #include "util/Any.h"
 #include "util/pchheader.h"
 
+#include "util/RNManager.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
@@ -114,6 +117,27 @@ private:
         void SetBeliefPolicy(std::size_t i, const BeliefPolicy& belief = BeliefPolicy())
         {
                 (*this)[i].SetBelief(m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->emplace(i, belief));
+        }
+
+        static void CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
+                                 const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
+                                 const std::string& name, stride::util::RNManager& rnManager)
+        {
+                auto stride_logger = spdlog::get("stride_logger");
+
+                if (geopop_type == "import") {
+                        if (stride_logger)
+                                stride_logger->info("Creating region \"{}\" with imported pop.", name);
+                        ImportPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                } else if (geopop_type == "generate") {
+                        if (stride_logger)
+                                stride_logger->info("Creating region \"{}\" with generated pop.", name);
+                        GenPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                } else {
+                        if (stride_logger)
+                                stride_logger->info("Creating region \"{}\" with Default pop.", name);
+                        DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                }
         }
 
         friend class DefaultPopBuilder;
