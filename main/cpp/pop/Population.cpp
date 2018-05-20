@@ -144,7 +144,7 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
         if (m_lastRegionId != regionId) {
                 assert(regionId > m_lastRegionId);
                 /**
-                 * From now on (sine for now we don't use parallelism to generate the different regions) we will
+                 * From now on (since for now we don't use parallelism to generate the different regions) we will
                  * insert persons for the next region. To prevent the ContactPools id's to overlap we will calculate
                  * the previous max ContactPool's ids.
                  */
