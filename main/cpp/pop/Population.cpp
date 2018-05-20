@@ -224,4 +224,24 @@ const util::SegmentedVector<Person>& Population::GetRegion(const std::size_t& re
         return GetPartition(region);
 }
 
+static void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
+                         const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
+                         const std::string& name, stride::util::RNManager& rnManager)
+{
+        auto stride_logger = spdlog::get("stride_logger");
+
+        if (geopop_type == "import") {
+                if (stride_logger)
+                        stride_logger->info("Creating region \"{}\" with imported pop.", name);
+                ImportPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+        } else if (geopop_type == "generate") {
+                if (stride_logger)
+                        stride_logger->info("Creating region \"{}\" with generated pop.", name);
+                GenPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+        } else {
+                if (stride_logger)
+                        stride_logger->info("Creating region \"{}\" with Default pop.", name);
+                DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+        }
+}
 } // namespace stride
