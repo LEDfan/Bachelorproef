@@ -19,6 +19,7 @@
  */
 
 #include "Population.h"
+#include <pool/ContactPoolType.h>
 
 #include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
@@ -140,6 +141,34 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
                               unsigned int secondaryCommunityId)
 {
+        if (m_lastRegionId != regionId) {
+                assert(regionId > m_lastRegionId);
+                /**
+                 * From now on (sine for now we don't use parallelism to generate the different regions) we will
+                 * insert persons for the next region. To prevent the ContactPools id's to overlap we will calculate
+                 * the previous max ContactPool's ids.
+                 */
+                m_previousRegionMaxId = m_currentRegionMaxId;
+                m_lastRegionId        = regionId;
+        }
+
+        // Add the maximum ContactPool's id from the previous region
+        householdId += m_previousRegionMaxId[ContactPoolType::Id::Household];
+        schoolId += m_previousRegionMaxId[ContactPoolType::Id::School];
+        workId += m_previousRegionMaxId[ContactPoolType::Id::Work];
+        primaryCommunityId += m_previousRegionMaxId[ContactPoolType::Id::PrimaryCommunity];
+        secondaryCommunityId += m_previousRegionMaxId[ContactPoolType::Id::SecondaryCommunity];
+
+        m_currentRegionMaxId[ContactPoolType::Id::Household] =
+            max(m_currentRegionMaxId[ContactPoolType::Id::Household], householdId);
+        m_currentRegionMaxId[ContactPoolType::Id::School] =
+            max(m_currentRegionMaxId[ContactPoolType::Id::School], schoolId);
+        m_currentRegionMaxId[ContactPoolType::Id::Work] = max(m_currentRegionMaxId[ContactPoolType::Id::Work], workId);
+        m_currentRegionMaxId[ContactPoolType::Id::PrimaryCommunity] =
+            max(m_currentRegionMaxId[ContactPoolType::Id::PrimaryCommunity], primaryCommunityId);
+        m_currentRegionMaxId[ContactPoolType::Id::SecondaryCommunity] =
+            max(m_currentRegionMaxId[ContactPoolType::Id::SecondaryCommunity], secondaryCommunityId);
+
         emplace_back(regionId, id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
 }
 
