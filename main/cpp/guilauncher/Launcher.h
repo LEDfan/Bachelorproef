@@ -40,7 +40,7 @@ public:
         void SetRootObject(QObject* rootObject);
 
         Q_INVOKABLE
-        void setToLaunch();
+        void SetToLaunch();
 
         Q_INVOKABLE
         void UpdatePtree();
@@ -67,36 +67,47 @@ private:
         bool m_setToLaunch = false;
         struct
         {
-                QObject* ageContactMatrixFile     = nullptr;
-                QObject* behaviourPolicy          = nullptr;
-                QObject* beliefPolicy             = nullptr;
-                QObject* contactLogLevel          = nullptr;
-                QObject* diseaseConfigFile        = nullptr;
-                QObject* globalInformationPolicy  = nullptr;
-                QObject* holidaysFile             = nullptr;
-                QObject* immunityProfile          = nullptr;
-                QObject* immunityRate             = nullptr;
-                QObject* localInformationPolicy   = nullptr;
-                QObject* numDays                  = nullptr;
-                QObject* numberParticipantsSurvey = nullptr;
-                QObject* outputAdopted            = nullptr;
-                QObject* outputCases              = nullptr;
-                QObject* outputPersons            = nullptr;
-                QObject* outputPrefix             = nullptr;
-                QObject* outputSummary            = nullptr;
-                QObject* numThreads               = nullptr;
-                QObject* populationFile           = nullptr;
-                QObject* rngSeed                  = nullptr;
-                QObject* rngType                  = nullptr;
-                QObject* r0                       = nullptr;
-                QObject* seedingAgeMax            = nullptr;
-                QObject* seedingAgeMin            = nullptr;
-                QObject* seedingRate              = nullptr;
-                QObject* startDate                = nullptr;
-                QObject* strideLogLevel           = nullptr;
-                QObject* trackIndexCase           = nullptr;
-                QObject* vaccineLinkProbability   = nullptr;
-                QObject* vaccineProfile           = nullptr;
-                QObject* vaccineRate              = nullptr;
+                QObject* ageContactMatrixFile          = nullptr;
+                QObject* behaviourPolicy               = nullptr;
+                QObject* beliefPolicy                  = nullptr;
+                QObject* contactLogLevel               = nullptr;
+                QObject* diseaseConfigFile             = nullptr;
+                QObject* globalInformationPolicy       = nullptr;
+                QObject* holidaysFile                  = nullptr;
+                QObject* immunityProfile               = nullptr;
+                QObject* immunityRate                  = nullptr;
+                QObject* localInformationPolicy        = nullptr;
+                QObject* numDays                       = nullptr;
+                QObject* numberParticipantsSurvey      = nullptr;
+                QObject* outputAdopted                 = nullptr;
+                QObject* outputCases                   = nullptr;
+                QObject* outputPersons                 = nullptr;
+                QObject* outputPrefix                  = nullptr;
+                QObject* outputSummary                 = nullptr;
+                QObject* numThreads                    = nullptr;
+                QObject* populationFile                = nullptr;
+                QObject* rngSeed                       = nullptr;
+                QObject* rngType                       = nullptr;
+                QObject* r0                            = nullptr;
+                QObject* seedingAgeMax                 = nullptr;
+                QObject* seedingAgeMin                 = nullptr;
+                QObject* seedingRate                   = nullptr;
+                QObject* startDate                     = nullptr;
+                QObject* strideLogLevel                = nullptr;
+                QObject* trackIndexCase                = nullptr;
+                QObject* vaccineLinkProbability        = nullptr;
+                QObject* vaccineProfile                = nullptr;
+                QObject* vaccineRate                   = nullptr;
+                QObject* geopopType                    = nullptr;
+                QObject* geopopFile                    = nullptr;
+                QObject* geopopPopulationSize          = nullptr;
+                QObject* geopopFraction1826Students    = nullptr;
+                QObject* geopopFractionActiveCommuting = nullptr;
+                QObject* geopopFactionStudentCommuting = nullptr;
+                QObject* geopopFraction1865YearsActive = nullptr;
+                QObject* geopopCities                  = nullptr;
+                QObject* geopopCommuting               = nullptr;
+                QObject* geopopHousehold               = nullptr;
+                QObject* geopopSubmunicipalities       = nullptr;
         } m_configEditor;
 };
