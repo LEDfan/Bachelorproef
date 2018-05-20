@@ -1,21 +1,32 @@
 #pragma once
 
-
-#include <string>
-#include <pool/ContactPoolType.h>
+#include "Population.h"
 #include <gengeopop/ContactPool.h>
+#include <pool/ContactPoolType.h>
+#include <string>
+#include <util/NestedIterator.h>
 
-class RegioSlicer {
+class RegioSlicer
+{
 public:
-    RegioSlicer& operator[](std::string regioName);
-    RegioSlicer& operator[](stride::ContactPoolType::Id);
+        RegioSlicer(std::shared_ptr<stride::Population> pop);
 
-    gengeopop::ContactPool::iterator begin();
-    gengeopop::ContactPool::iterator end();
+        RegioSlicer& operator[](std::string regioName);
+        RegioSlicer& operator[](stride::ContactPoolType::Id);
 
-    gengeopop::ContactPool::iterator beginPools();
-    gengeopop::ContactPool::iterator endPools();
+        typename stride::util::NestedIterator<
+            stride::Person*, std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator,
+            std::vector<stride::Person*>::iterator>
+        begin();
+        typename stride::util::NestedIterator<
+            stride::Person*, std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator,
+            std::vector<stride::Person*>::iterator>
+        end();
+
+        std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator beginPools();
+        std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator endPools();
 
 private:
-
+        std::vector<stride::ContactPool>    m_pools;
+        std::shared_ptr<stride::Population> m_pop;
 };
