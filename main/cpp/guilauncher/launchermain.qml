@@ -22,6 +22,13 @@ ApplicationWindow {
             launcher.SetConfigPath(configSelector.fileUrl)
         }
     }
+    FileDialog {
+        id: saveSelector
+        selectExisting: false
+        onAccepted: {
+            launcher.SaveConfig(saveSelector.fileUrl)
+        }
+    }
 
     ColumnLayout {
         id: mainLayout
@@ -302,6 +309,13 @@ ApplicationWindow {
                     objectName: "inputVaccineRate"
                     minimumValue: 0
                     Layout.fillWidth: true
+            }
+            Button {
+                text: "Save changes"
+                anchors.leftMargin: 20
+                Layout.fillWidth: true
+                Layout.columnSpan: 4
+                onClicked: saveSelector.open()
             }
 
             Text {

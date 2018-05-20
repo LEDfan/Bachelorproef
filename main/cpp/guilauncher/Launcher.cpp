@@ -1,3 +1,4 @@
+#include <boost/property_tree/xml_parser.hpp>
 #include <QtCore/QDebug>
 #include <QtCore/QString>
 #include <QtCore/QUrl>
@@ -270,6 +271,19 @@ void Launcher::LoadComboBox(QObject* comboBox, const char* value)
                                   Q_ARG(QVariant, value));
 
         comboBox->setProperty("currentIndex", retVal);
+}
+
+void Launcher::SaveConfig(QString string)
+{
+        UpdatePtree();
+        if (string.length() < 7)
+                return;
+        std::string   filename = string.toStdString().substr(7, string.length());
+        std::ofstream file;
+        file.open(filename);
+        if (file.good())
+                boost::property_tree::write_xml(file, m_configPt);
+        file.close();
 }
 
 void Launcher::setToLaunch() { m_setToLaunch = true; }

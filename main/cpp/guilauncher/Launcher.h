@@ -21,6 +21,9 @@ public:
         void SetConfigPath(QString string);
 
         Q_INVOKABLE
+        void SaveConfig(QString string);
+
+        Q_INVOKABLE
         void SetConfig(bool showMapViewer, bool showAdoptedViewer, bool showCliViewer, bool showInfectedViewer,
                        bool showPersonsViewer, bool showSummaryViewer);
 
