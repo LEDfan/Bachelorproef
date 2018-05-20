@@ -79,11 +79,17 @@ public:
         void Finalize();
 
         /// New Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
+        void CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
+                          unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
+                          unsigned int secondaryCommunityId);
+
+        const std::unordered_map<std::string, std::size_t> GetRegionIdentifiers() const;
+
+        const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
+        const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
 
 private:
-        Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr){};
+        Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(){};
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
         /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
@@ -115,11 +121,13 @@ private:
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
-        boost::property_tree::ptree         m_belief_pt;
-        util::Any                           m_beliefs;        ///< Holds belief data for the persons.
-        ContactPoolSys                      m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger>     m_contact_logger; ///< Logger for contact/transmission.
-        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;        ///< Associated geoGrid may be nullptr
+        boost::property_tree::ptree                  m_belief_pt;
+        util::Any                                    m_beliefs;  ///< Holds belief data for the persons.
+        ContactPoolSys                               m_pool_sys; ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
+        std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
+        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
+        std::size_t                                  m_currentRegionId = 0;
 };
 
 } // namespace stride

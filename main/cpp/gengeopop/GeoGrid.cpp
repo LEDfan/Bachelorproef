@@ -8,12 +8,14 @@
 namespace gengeopop {
 
 GeoGrid::GeoGrid()
-    : m_locations(), m_locationsToIdIndex(), m_population(stride::Population::Create()), m_finalized(false), m_tree()
+    : m_locations(), m_locationsToIdIndex(), m_population(stride::Population::Create()), m_finalized(false), m_tree(),
+      m_regionId(0)
 {
 }
 
-GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population)
-    : m_locations(), m_locationsToIdIndex(), m_population(std::move(population)), m_finalized(false), m_tree()
+GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId)
+    : m_locations(), m_locationsToIdIndex(), m_population(std::move(population)), m_finalized(false), m_tree(),
+      m_regionId(regionId)
 
 {
 }

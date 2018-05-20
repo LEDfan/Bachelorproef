@@ -60,16 +60,51 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                                             configPt.get<unsigned long>("pop.rng_seed", 101UL), "",
                                             configPt.get<unsigned int>("run.num_threads")});
 
+        auto stride_logger = spdlog::get("stride_logger");
+
+        boost::optional<const ptree&> regions = configPt.get_child_optional("run.regions");
+
         // -----------------------------------------------------------------------------------------
-        // Build population (at later date multiple builder or build instances ...).
+        // Build population for each region
         // -----------------------------------------------------------------------------------------
-        std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
-        if (geopop_type == "import") {
-                ImportPopBuilder(configPt, rnManager).Build(pop);
-        } else if (geopop_type == "generate") {
-                GenPopBuilder(configPt, rnManager).Build(pop);
+        if (!regions) {
+                pop->m_regions["Default"] = 0;
+                pop->CreatePartitions(1);
+
+                std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
+                if (geopop_type == "import") {
+                        stride_logger->info("Creating region \"Default\" with imported pop.");
+                        ImportPopBuilder(configPt, configPt.get_child("run"), rnManager).Build(pop, 0);
+                } else if (geopop_type == "generate") {
+                        stride_logger->info("Creating region \"Default\" with generated pop.");
+                        GenPopBuilder(configPt, configPt.get_child("run"), rnManager).Build(pop, 0);
+                } else {
+                        stride_logger->info("Creating region \"Default\" with Default pop.");
+                        DefaultPopBuilder(configPt, configPt.get_child("run"), rnManager).Build(pop, 0);
+                }
         } else {
-                DefaultPopBuilder(configPt, rnManager).Build(pop);
+                std::size_t currentId = 0;
+                for (const auto& region : configPt.get_child("run.regions")) {
+                        std::string name     = region.second.get<std::string>("name");
+                        pop->m_regions[name] = currentId;
+                        currentId++;
+                }
+                pop->CreatePartitions(currentId);
+
+                for (const auto& region : configPt.get_child("run.regions")) {
+                        std::string name        = region.second.get<std::string>("name");
+                        std::string geopop_type = region.second.get<std::string>("geopop_type", "default");
+                        if (geopop_type == "import") {
+                                stride_logger->info("Creating region \"{}\" with imported pop.", name);
+                                ImportPopBuilder(configPt, region.second, rnManager).Build(pop, pop->m_regions[name]);
+                        } else if (geopop_type == "generate") {
+                                stride_logger->info("Creating region \"{}\" with generated pop.", name);
+                                GenPopBuilder(configPt, region.second, rnManager).Build(pop, pop->m_regions[name]);
+                        } else {
+                                stride_logger->info("Creating region \"{}\" with Default pop.", name);
+                                DefaultPopBuilder(configPt, region.second, rnManager).Build(pop, pop->m_regions[name]);
+                        }
+                }
         }
 
         pop->Finalize();
@@ -115,10 +150,11 @@ unsigned int Population::GetInfectedCount() const
         return total;
 }
 
-void Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                              unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
+void Population::CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
+                              unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
+                              unsigned int secondaryCommunityId)
 {
-        this->emplace_back(Person(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId));
+        emplace_back(regionId, id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
 }
 
 void Population::Finalize()
@@ -161,6 +197,16 @@ void Population::Finalize()
                         }
                 }
         }
+}
+
+const std::unordered_map<std::string, std::size_t> Population::GetRegionIdentifiers() const { return m_regions; }
+const util::SegmentedVector<Person>&               Population::GetRegion(const std::string& region) const
+{
+        return GetRegion(m_regions.at(region));
+}
+const util::SegmentedVector<Person>& Population::GetRegion(const std::size_t& region) const
+{
+        return GetPartition(region);
 }
 
 } // namespace stride

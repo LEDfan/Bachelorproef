@@ -65,7 +65,7 @@ shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Population
                 const auto primary_community_id   = FromString<unsigned int>(values[4]);
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
-                pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
+                pop->CreatePerson(m_regionId, person_id, age, household_id, school_id, work_id, primary_community_id,
                                   secondary_community_id);
                 ++person_id;
         }
@@ -74,8 +74,9 @@ shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Population
         return pop;
 }
 
-shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
 {
+        m_regionId = regionId;
         //------------------------------------------------
         // Check validity of input data.
         //------------------------------------------------

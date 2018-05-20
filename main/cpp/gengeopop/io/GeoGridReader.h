@@ -13,7 +13,11 @@ public:
         virtual ~GeoGridReader()                = default;
         virtual std::shared_ptr<GeoGrid> Read() = 0;
 
-        void UsePopulation(const std::shared_ptr<stride::Population>& pop) { m_population = pop; }
+        void UsePopulation(const std::shared_ptr<stride::Population>& pop, std::size_t regionId)
+        {
+                m_population = pop;
+                m_regionId   = regionId;
+        }
 
 protected:
         void AddSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid);
@@ -22,6 +26,7 @@ protected:
         std::map<unsigned int, stride::Person*>                     m_people;
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount
         std::vector<std::pair<unsigned int, unsigned int>>          m_subMunicipalities; //// first has submun second
+        std::size_t                                                 m_regionId;
 
         std::unique_ptr<std::istream> m_inputStream; ///< file to read
 

@@ -28,6 +28,8 @@ public:
         {
         }
 
+        void CreatePartitions(std::size_t count) { m_partitions = std::vector<segmentedVector_type>(count); }
+
         //// Construct
         PartitionedSegmentedVector() : m_partitions(1), m_prefixSums(), m_finalized(false) {}
 
@@ -138,6 +140,12 @@ public:
 
         /// Access the last element.
         const T& back() const { return m_partitions.back().back(); }
+
+        /// Access the last element.
+        T& back(std::size_t partitionId) { return m_partitions[partitionId].back(); }
+
+        /// Access the last element.
+        const T& back(std::size_t partitionId) const { return m_partitions[partitionId].back(); }
 
         /// Calculates the size when not finalized else returns the size
         std::size_t size() const
