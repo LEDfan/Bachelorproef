@@ -41,33 +41,31 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
 {
         auto stride_logger = spdlog::get("stride_logger");
-
-        pop->m_belief_pt = m_config_pt.get_child("run.belief_policy");
 
         // --------------------------------------------------------------
         // Configure.
         // --------------------------------------------------------------
         GeoGridConfig geoGridConfig{};
-        geoGridConfig.input.populationSize = m_config_pt.get<unsigned int>("run.geopop_gen.population_size");
+        geoGridConfig.input.populationSize = m_region_pt.get<unsigned int>("geopop_gen.population_size");
         geoGridConfig.input.fraction_1826_years_WhichAreStudents =
-            m_config_pt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
+            m_region_pt.get<double>("geopop_gen.fraction_1826_years_which_are_students");
         geoGridConfig.input.fraction_active_commutingPeople =
-            m_config_pt.get<double>("run.geopop_gen.fraction_active_commuting_people");
+            m_region_pt.get<double>("geopop_gen.fraction_active_commuting_people");
         geoGridConfig.input.fraction_student_commutingPeople =
-            m_config_pt.get<double>("run.geopop_gen.fraction_student_commuting_people");
+            m_region_pt.get<double>("geopop_gen.fraction_student_commuting_people");
         geoGridConfig.input.fraction_1865_years_active =
-            m_config_pt.get<double>("run.geopop_gen.fraction_1865_years_active");
+            m_region_pt.get<double>("geopop_gen.fraction_1865_years_active");
 
         GenGeoPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager,
-                                                m_config_pt.get<std::string>("run.geopop_gen.cities_file"),
-                                                m_config_pt.get<std::string>("run.geopop_gen.commuting_file"),
-                                                m_config_pt.get<std::string>("run.geopop_gen.household_file"),
-                                                m_config_pt.get<std::string>("run.geopop_gen.submunicipalities_file"));
+                                                m_region_pt.get<std::string>("geopop_gen.cities_file"),
+                                                m_region_pt.get<std::string>("geopop_gen.commuting_file"),
+                                                m_region_pt.get<std::string>("geopop_gen.household_file"),
+                                                m_region_pt.get<std::string>("geopop_gen.submunicipalities_file"));
 
-        genGeoPopController.UsePopulation(pop);
+        genGeoPopController.UsePopulation(pop, regionId);
 
         // --------------------------------------------------------------
         // Read input files.

@@ -86,7 +86,7 @@ public:
         using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
 
-        GeoGrid(std::shared_ptr<stride::Population> population);
+        GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId);
 
         GeoGrid();
 
@@ -156,8 +156,8 @@ public:
         template <typename... Args>
         stride::Person* CreatePerson(Args&&... args)
         {
-                m_population->CreatePerson(args...);
-                return &m_population->back();
+                m_population->CreatePerson(m_regionId, args...);
+                return &m_population->back(m_regionId);
         }
 
         /// Get the population of this GeoGrid
@@ -181,6 +181,8 @@ private:
         bool m_finalized;
 
         KdTree<geogrid_detail::KdTree2DPoint> m_tree;
+
+        std::size_t m_regionId; ///< RegionId, used to create persons
 };
 
 } // namespace gengeopop

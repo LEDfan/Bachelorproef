@@ -123,8 +123,8 @@ configure:
 all: cores configure
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all
 
-install: all
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
+install:
+	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all install
 
 clean: cores
 	 if [ -d $(BUILD_DIR) ]; then $(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean; fi

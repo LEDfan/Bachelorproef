@@ -32,7 +32,7 @@ public:
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
         /// Use the given Population storage during generation
-        void UsePopulation(std::shared_ptr<stride::Population> pop);
+        void UsePopulation(std::shared_ptr<stride::Population> pop, std::size_t regionId);
 
 private:
         GeoGridConfig& m_geoGridConfig; ///< The GeoGridConfig used to generate
@@ -53,7 +53,8 @@ private:
         std::string m_commutingFileName;  ///< Filename of the file which stores information about the commutes
         std::string m_householdsFileName; ///< Filename of the file which stores information about the households
         std::string
-            m_subMunicipalitiesFileName; ///< Filename of the file which stores information about the submunicipalities
+                    m_subMunicipalitiesFileName; ///< Filename of the file which stores information about the submunicipalities
+        std::size_t m_regionId;                  ///< RegionId, used to create persons
 };
 
 } // namespace gengeopop

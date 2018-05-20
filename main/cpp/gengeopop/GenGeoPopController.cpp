@@ -25,14 +25,14 @@ GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger,
       m_citiesReader(nullptr), m_commutesReader(nullptr), m_householdsReader(nullptr),
       m_subMunicipalitiesReader(nullptr), m_logger(std::move(logger)), m_citiesFileName(std::move(citiesFileName)),
       m_commutingFileName(std::move(commutingFileName)), m_householdsFileName(std::move(householdFileName)),
-      m_subMunicipalitiesFileName(std::move(subMunicipalitiesFileName))
+      m_subMunicipalitiesFileName(std::move(subMunicipalitiesFileName)), m_regionId(0)
 {
 }
 
 void GenGeoPopController::ReadDataFiles()
 {
         if (m_population) {
-                m_geoGrid = std::make_shared<GeoGrid>(m_population);
+                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
         } else {
                 m_geoGrid = std::make_shared<GeoGrid>();
         }
@@ -94,6 +94,10 @@ void GenGeoPopController::GenPop()
 
 std::shared_ptr<GeoGrid> GenGeoPopController::GetGeoGrid() { return m_geoGrid; }
 
-void GenGeoPopController::UsePopulation(std::shared_ptr<stride::Population> pop) { m_population = std::move(pop); }
+void GenGeoPopController::UsePopulation(std::shared_ptr<stride::Population> pop, std::size_t regionId)
+{
+        m_population = std::move(pop);
+        m_regionId   = regionId;
+}
 
 } // namespace gengeopop
