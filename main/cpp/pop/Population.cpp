@@ -224,9 +224,9 @@ const util::SegmentedVector<Person>& Population::GetRegion(const std::size_t& re
         return GetPartition(region);
 }
 
-static void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
-                         const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
-                         const std::string& name, stride::util::RNManager& rnManager)
+void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
+                              const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
+                              const std::string& name, stride::util::RNManager& rnManager)
 {
         auto stride_logger = spdlog::get("stride_logger");
 

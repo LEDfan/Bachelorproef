@@ -182,7 +182,7 @@ private:
 
         KdTree<geogrid_detail::KdTree2DPoint> m_tree;
 
-        std::size_t m_regionId;
+        std::size_t m_regionId; ///< RegionId, used to create persons
 };
 
 } // namespace gengeopop

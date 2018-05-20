@@ -54,7 +54,7 @@ private:
         std::string m_householdsFileName; ///< Filename of the file which stores information about the households
         std::string
                     m_subMunicipalitiesFileName; ///< Filename of the file which stores information about the submunicipalities
-        std::size_t m_regionId;
+        std::size_t m_regionId;                  ///< RegionId, used to create persons
 };
 
 } // namespace gengeopop

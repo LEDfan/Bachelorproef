@@ -26,7 +26,7 @@ protected:
         std::map<unsigned int, stride::Person*>                     m_people;
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount
         std::vector<std::pair<unsigned int, unsigned int>>          m_subMunicipalities; //// first has submun second
-        std::size_t                                                 m_regionId;
+        std::size_t                                                 m_regionId; ///< RegionId, used to create persons
 
         std::unique_ptr<std::istream> m_inputStream; ///< file to read
 

@@ -49,7 +49,7 @@ public:
 private:
         /// Generates pop's individuals and return pop.
         std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
-        std::size_t                 m_regionId = 0;
+        std::size_t                 m_regionId = 0; ///< RegionId, used to create persons
 };
 
 } // namespace stride
