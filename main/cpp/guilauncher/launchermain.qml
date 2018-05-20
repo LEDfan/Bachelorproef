@@ -315,8 +315,6 @@ ApplicationWindow {
             GroupBox {
                 id: groupBox
                 visible: true
-                checkable: false
-                checked: false
                 title: "​"
                 flat: false
                 Layout.columnSpan: 2
@@ -329,6 +327,7 @@ ApplicationWindow {
                         Row {
                             spacing: 10
                             CheckBox {
+                                checked: true
                                 id: adoptedViewerCheckbox
                             }
                             Text {
@@ -340,6 +339,7 @@ ApplicationWindow {
                         Row {
                             spacing: 10
                             CheckBox {
+                                checked: true
                                 id: cliViewerCheckbox
                             }
                             Text {
@@ -350,6 +350,7 @@ ApplicationWindow {
                         Row {
                             spacing: 10
                             CheckBox {
+                                checked: true
                                 id: infectedViewerCheckbox
                             }
                             Text {
@@ -360,6 +361,7 @@ ApplicationWindow {
                         Row {
                             spacing: 10
                             CheckBox {
+                                checked: true
                                 id: mapViewerCheckbox
                             }
                             Text {
@@ -370,6 +372,7 @@ ApplicationWindow {
                         Row {
                             spacing: 10
                             CheckBox {
+                                checked: true
                                 id: personsViewerCheckbox
                             }
                             Text {
@@ -380,6 +383,7 @@ ApplicationWindow {
                         Row {
                             spacing: 10
                             CheckBox {
+                                checked: true
                                 id: summaryViewerCheckbox
                             }
                             Text {
@@ -395,7 +399,7 @@ ApplicationWindow {
             }
             ComboBox {
                 width: 200
-                model: [ "CLI", "GUI"]
+                model: [ "GUI", "CLI"]
                 onActivated: {
                     launcher.SetController(index);
                 }

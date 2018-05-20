@@ -39,7 +39,7 @@ void Launcher::Launch()
         std::shared_ptr<stride::BaseController> controller = nullptr;
         std::shared_ptr<QQmlApplicationEngine>  engine     = nullptr;
 
-        if (m_controller == 1) {
+        if (m_controller == 0) {
                 auto guiController = std::make_shared<stride::GuiController>(m_configPt);
                 engine             = guiController->GetEngine();
                 controller         = guiController;
