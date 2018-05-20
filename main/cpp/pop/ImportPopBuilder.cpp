@@ -53,8 +53,6 @@ shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, 
 
         stride_logger->debug("Importing population from " + importFile);
 
-        // TODO multi region, next line will cause problems
-        pop->m_belief_pt = m_config_pt.get_child("run.belief_policy");
         reader->UsePopulation(pop, regionId);
 
         pop->m_geoGrid = reader->Read();

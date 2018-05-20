@@ -53,6 +53,8 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
         }
 
+        pop->m_belief_pt = configPt.get_child("run.belief_policy");
+
         // ------------------------------------------------
         // Setup RNManager.
         // ------------------------------------------------

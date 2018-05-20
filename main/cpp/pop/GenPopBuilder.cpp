@@ -45,9 +45,6 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
 {
         auto stride_logger = spdlog::get("stride_logger");
 
-        // TODO ...
-        pop->m_belief_pt = m_config_pt.get_child("run.belief_policy");
-
         // --------------------------------------------------------------
         // Configure.
         // --------------------------------------------------------------
