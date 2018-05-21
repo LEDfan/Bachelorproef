@@ -27,6 +27,14 @@ public:
         std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator endPools();
 
 private:
+        void updatePools();
+
         std::vector<stride::ContactPool>    m_pools;
         std::shared_ptr<stride::Population> m_pop;
+
+        bool m_filteredOnRegion = false;
+        std::string m_regionName;
+
+        stride::ContactPoolType::Id m_poolType;
+        bool m_filteredOnPoolType = false;
 };

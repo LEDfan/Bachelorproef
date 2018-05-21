@@ -3,7 +3,9 @@
 
 RegioSlicer& RegioSlicer::operator[](std::string regioName)
 {
-        // TODO make regionslicer refer to this region only
+        m_filteredOnRegion = true;
+        m_regionName = regioName;
+        updatePools();
         return *this;
 }
 
@@ -32,8 +34,9 @@ RegioSlicer& RegioSlicer::operator[](stride::ContactPoolType::Id id)
         // Slicer must be constrained to all contactPools of this type
         stride::ContactPoolSys t = m_pop->GetContactPoolSys();
 
-        m_pools = t[id];
-        std::cout << "Set pools: " << m_pools.size() << std::endl;
+        m_poolType = id;
+        m_filteredOnPoolType = true;
+        updatePools();
 
         return *this;
 }
@@ -48,4 +51,8 @@ std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator 
 std::vector<stride::ContactPool, std::allocator<stride::ContactPool>>::iterator RegioSlicer::endPools()
 {
         return m_pools.begin();
+}
+
+void RegioSlicer::updatePools() {
+        // TODO
 }

@@ -60,7 +60,7 @@ public:
         static std::shared_ptr<Population> Create(const std::string& configString);
 
         /// Create an empty Population with NoBelief policy, used in gengeopop
-        static std::shared_ptr<Population> Create();
+        static std::shared_ptr<Population> Create(unsigned int amountOfRegions = 1);
 
         ///
         unsigned int GetAdoptedCount() const;
