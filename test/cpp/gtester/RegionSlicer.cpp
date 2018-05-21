@@ -14,6 +14,8 @@
  */
 
 #include <gtest/gtest.h>
+#include <pop/Population.h>
+#include <pop/RegioSlicer.h>
 
 /**
  * This is a basic test file. It has a simple usage of the most frequent needed features.
@@ -38,16 +40,21 @@ protected:
         int i;
 };
 
-TEST(Basic, Zero)
+TEST(RegionSlicer, Basic)
 {
-        EXPECT_EQ(1, 1);
-        EXPECT_LT(1, 2);
-}
+        std::shared_ptr<stride::Population> pop = stride::Population::Create();
+        pop->CreatePerson(0, 10, 0, 0, 0, 0, 0);
+        pop->CreatePerson(1, 11, 1, 1, 1, 1, 1);
+        pop->Finalize();
 
-TEST_F(AFixture, basicFixtureTest)
-{
-        // You can use the fixture here
-        EXPECT_EQ(i, 3);
+        ASSERT_EQ(pop->begin()->GetAge(), 10);
+
+        RegioSlicer slicer(pop);
+        std::cerr << "BEFORE SLICE" << std::endl;
+        slicer[stride::ContactPoolType::Id::Household];
+        for (auto it = slicer.begin(); it != slicer.end(); it++) {
+                ASSERT_EQ(10, (*it)->GetAge());
+        }
 }
 
 } // namespace
