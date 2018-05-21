@@ -18,8 +18,6 @@ ApplicationWindow {
         }
 
         function stepped(infectedCount, day) {
-            console.warn(infectedCount)
-            console.warn(day)
             stepButton.enabled = true
             infectedNr.text = infectedCount
             dayNr.text = day
@@ -32,11 +30,12 @@ ApplicationWindow {
             Text {
                 text: "Autostep: "
             }
-            TextInput {
+            SpinBox {
                 id: secondsPerDay
-                inputMethodHints: Qt.ImhDigitsOnly
-                width: 20
-                text: "2"
+                decimals: 3
+                maximumValue: 1000 //ULL max
+                minimumValue: 0
+                value: 2
             }
 
             Text {
@@ -46,7 +45,7 @@ ApplicationWindow {
                 text: "Start"
                 onClicked: {
                     if (text == "Start") {
-                        stepTimer.interval = secondsPerDay.text * 1000
+                        stepTimer.interval = secondsPerDay.value * 1000
                         stepTimer.start()
                         text = "Stop"
                     } else {
