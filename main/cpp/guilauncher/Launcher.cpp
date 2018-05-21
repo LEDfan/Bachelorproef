@@ -356,12 +356,8 @@ void Launcher::SaveConfig(QString string)
         UpdatePtree();
         if (string.length() < 7)
                 return;
-        std::string   filename = string.toStdString().substr(7, static_cast<int>(string.length()));
-        std::ofstream file;
-        file.open(filename);
-        if (file.good())
-                boost::property_tree::write_xml(file, m_configPt);
-        file.close();
+        std::string filename = string.toStdString().substr(7, static_cast<int>(string.length()));
+        stride::util::FileSys::WritePtreeFile(filename, m_configPt);
 }
 
 void Launcher::SetToLaunch() { m_setToLaunch = true; }
