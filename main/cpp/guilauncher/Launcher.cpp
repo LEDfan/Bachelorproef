@@ -152,7 +152,6 @@ void Launcher::UpdateConfigForm()
                 m_configEditor.geopopFile->setProperty("text",
                                                        m_configPt.get<std::string>("run.geopop_import_file").c_str());
         } else if (gengeopop_type == "generate") {
-
                 m_configEditor.geopopPopulationSize->setProperty(
                     "value", m_configPt.get<std::string>("run.geopop_gen.population_size").c_str());
                 m_configEditor.geopopFraction1826Students->setProperty(
@@ -357,7 +356,7 @@ void Launcher::SaveConfig(QString string)
         UpdatePtree();
         if (string.length() < 7)
                 return;
-        std::string   filename = string.toStdString().substr(7, string.length());
+        std::string   filename = string.toStdString().substr(7, static_cast<int>(string.length()));
         std::ofstream file;
         file.open(filename);
         if (file.good())

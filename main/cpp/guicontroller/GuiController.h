@@ -11,23 +11,31 @@
 
 namespace stride {
 
+/**
+ * A controller for the simulation that uses Qt to give the user the ability of controlling the steps.
+ */
 class GuiController : public BaseController
 {
 public:
-        GuiController(const boost::property_tree::ptree& configPt);
+        /// Construct the controller with a ptree containing the configuration, this contains the information needed to
+        /// construct the BaseController
+        explicit GuiController(const boost::property_tree::ptree& configPt);
         GuiController(const GuiController& b) = delete;
         GuiController& operator=(const GuiController& b) = delete;
 
         ~GuiController();
 
+        /// Start the Gui
         void Control() override;
 
+        /// Returns the QQmlApplicationEngine used to construct the Gui, so other Gui components can register themselves
+        /// on the same engine.
         std::shared_ptr<QQmlApplicationEngine> GetEngine();
 
 private:
-        std::shared_ptr<int>                   m_argc;
-        std::shared_ptr<QGuiApplication>       m_app;
-        std::shared_ptr<QQmlApplicationEngine> m_engine;
-        GuiControllerBackend*                  m_backend;
+        std::shared_ptr<int>                   m_argc;   ///< Used for initializing m_app, is always 0.
+        std::shared_ptr<QGuiApplication>       m_app;    ///< The main application that is used for the event loop.
+        std::shared_ptr<QQmlApplicationEngine> m_engine; ///< The engine used to register QML files
+        GuiControllerBackend* m_backend; ///< The backend used in the QML to control the behaviour of the simulation
 };
 } // namespace stride
