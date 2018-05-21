@@ -43,17 +43,18 @@ protected:
 TEST(RegionSlicer, Basic)
 {
         std::shared_ptr<stride::Population> pop = stride::Population::Create();
-        pop->CreatePerson(0, 10, 0, 0, 0, 0, 0);
-        pop->CreatePerson(1, 11, 1, 1, 1, 1, 1);
+        pop->CreatePerson(0, 0, 10, 1, 1, 1, 1, 1);
+        pop->CreatePerson(0, 1, 11, 2, 2, 2, 2, 2);
+
+        ASSERT_EQ((*(pop->begin())).GetAge(), 10);
+
         pop->Finalize();
-
-        ASSERT_EQ(pop->begin()->GetAge(), 10);
-
         RegioSlicer slicer(pop);
-        std::cerr << "BEFORE SLICE" << std::endl;
         slicer[stride::ContactPoolType::Id::Household];
+        int i = 10;
         for (auto it = slicer.begin(); it != slicer.end(); it++) {
-                ASSERT_EQ(10, (*it)->GetAge());
+                ASSERT_EQ(i, (*it)->GetAge());
+                i++;
         }
 }
 

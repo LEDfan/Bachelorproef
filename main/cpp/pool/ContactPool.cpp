@@ -75,12 +75,8 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
         return std::make_tuple(infectious_cases, num_cases);
 }
 
-    std::vector<Person *>::iterator ContactPool::begin() {
-        return m_members.begin();
-    }
+std::vector<Person*>::iterator ContactPool::begin() { return m_members.begin(); }
 
-    std::vector<Person *>::iterator ContactPool::end() {
-        return m_members.end();
-    }
+std::vector<Person*>::iterator ContactPool::end() { return m_members.end(); }
 
 } // namespace stride

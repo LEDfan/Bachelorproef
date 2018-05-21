@@ -111,7 +111,9 @@ std::shared_ptr<Population> Population::Create()
         struct make_shared_enabler : public Population
         {
         };
-        auto r = make_shared<make_shared_enabler>();
+        auto r                  = make_shared<make_shared_enabler>();
+        r->m_regions["Default"] = 0;
+        r->CreatePartitions(1);
         r->m_belief_pt.add("name", "NoBelief");
         return r;
 }

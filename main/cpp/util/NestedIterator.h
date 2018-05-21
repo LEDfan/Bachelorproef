@@ -83,11 +83,7 @@ public:
             : m_innerIsValid(false), m_innerIterator(), m_outerIterator(rangeBegin), m_outerEnd(outerEnd),
               m_outerBegin(outerBegin), m_helper()
         {
-                if (m_outerIterator != outerEnd) {
-                        // only initialize inner when outer is not at the end
-                        m_innerIterator = m_helper.OutBegin(m_outerIterator);
-                        m_innerIsValid  = true;
-                }
+                setNextInnerIterator();
         }
 
         /// Copy constructor
@@ -96,6 +92,20 @@ public:
               m_outerIterator(other.m_outerIterator), m_outerEnd(other.m_outerEnd), m_outerBegin(other.m_outerBegin),
               m_helper()
         {
+        }
+
+        void setNextInnerIterator()
+        {
+                m_innerIsValid = false;
+                // Skip empty vectors etc at the beginning
+                while (m_outerIterator != m_outerEnd && m_outerIterator->begin() == m_outerIterator->end()) {
+                        m_outerIterator++;
+                }
+                // only initialize inner when outer is not at the end
+                if (m_outerIterator != m_outerEnd) {
+                        m_innerIterator = m_helper.OutBegin(m_outerIterator);
+                        m_innerIsValid  = true;
+                }
         }
 
         // ==================================================================
@@ -115,16 +125,7 @@ public:
                 if (m_innerIterator == m_helper.OutEnd(m_outerIterator)) {
                         // When the innerIterator reaches the end, go to the next partition
                         ++m_outerIterator;
-                        if (m_outerIterator != m_outerEnd) {
-                                // The outerIterator is not at the end
-                                // Set the innerIterator to the begin of the current partition
-                                m_innerIterator = m_helper.OutBegin(m_outerIterator);
-                        } else {
-                                // Reached the end of the last partition
-                                // The outerIterator is currently at the end of the partitions vector
-                                // The innerIterator is invalid -> mark it as such so we don't dereference it
-                                m_innerIsValid = false;
-                        }
+                        setNextInnerIterator();
                 }
                 return *this;
         }
