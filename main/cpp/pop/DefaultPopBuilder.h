@@ -44,11 +44,12 @@ public:
         /// - Read persons from file and instatiate them.
         /// - Fill up the various type of contactpools.
         /// - Seed the population with contact survey participants.
-        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
+        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId);
 
 private:
         /// Generates pop's individuals and return pop.
         std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
+        std::size_t                 m_regionId = 0; ///< RegionId, used to create persons
 };
 
 } // namespace stride

@@ -39,15 +39,17 @@ public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
         /// \param rnManager   Random number manager for pop build process.
-        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+        AbstractPopBuilder(const boost::property_tree::ptree& configPt, const boost::property_tree::ptree& regionPt,
+                           util::RNManager& rnManager);
 
         /// Build Population and return it afterwards.
-        virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
+        virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId) = 0;
 
         virtual ~AbstractPopBuilder(){};
 
 protected:
         const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree.
+        const boost::property_tree::ptree& m_region_pt;  ///< Configuration property tree of the region.
         util::RNManager&                   m_rn_manager; ///< Random number generation management.
 };
 

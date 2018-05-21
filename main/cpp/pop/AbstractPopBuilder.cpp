@@ -34,8 +34,9 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-AbstractPopBuilder::AbstractPopBuilder(const ptree& configPt, RNManager& rnManager)
-    : m_config_pt(configPt), m_rn_manager(rnManager)
+AbstractPopBuilder::AbstractPopBuilder(const ptree& configPt, const boost::property_tree::ptree& regionPt,
+                                       RNManager& rnManager)
+    : m_config_pt(configPt), m_region_pt(regionPt), m_rn_manager(rnManager)
 {
 }
 

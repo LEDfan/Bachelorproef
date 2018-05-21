@@ -42,19 +42,18 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
-        std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
+        std::string importFile = m_region_pt.get<std::string>("geopop_import_file");
 
         GeoGridReaderFactory                  geoGridReaderFactory;
         const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile);
 
         stride_logger->debug("Importing population from " + importFile);
 
-        pop->m_belief_pt = m_config_pt.get_child("run.belief_policy");
-        reader->UsePopulation(pop);
+        reader->UsePopulation(pop, regionId);
 
         pop->m_geoGrid = reader->Read();
         pop->m_geoGrid->Finalize();

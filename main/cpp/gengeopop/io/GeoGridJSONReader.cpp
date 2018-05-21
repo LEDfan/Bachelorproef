@@ -27,8 +27,13 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                 throw stride::util::Exception(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
-        auto geoGrid = std::make_shared<GeoGrid>();
-        auto people  = root.get_child("persons");
+        std::shared_ptr<GeoGrid> geoGrid;
+        if (m_population) {
+                geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
+        } else {
+                geoGrid = std::make_shared<GeoGrid>();
+        }
+        auto people = root.get_child("persons");
 #pragma omp parallel
 #pragma omp single
         {

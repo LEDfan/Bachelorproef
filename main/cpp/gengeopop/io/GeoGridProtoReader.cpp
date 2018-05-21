@@ -28,7 +28,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         }
         std::shared_ptr<GeoGrid> geoGrid;
         if (m_population) {
-                geoGrid = std::make_shared<GeoGrid>(m_population);
+                geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
         } else {
                 geoGrid = std::make_shared<GeoGrid>();
         }
