@@ -2,14 +2,14 @@
 
 int main(int, char* [])
 {
-        bool crashed = true;
-        while (crashed) {
-                crashed = false;
+        int crashed = 0;
+        while (crashed >= 0 && crashed < 5) {
                 try {
                         GuiLauncher v;
                         v.Start();
+                        crashed = -1;
                 } catch (...) {
-                        crashed = true;
+                        crashed++;
                 }
         }
 }

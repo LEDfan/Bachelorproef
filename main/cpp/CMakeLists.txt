@@ -20,7 +20,7 @@
 #============================================================================
 add_subdirectory(gengeopop)
 add_subdirectory(calibration)
-add_subdirectory(visualizer)
+add_subdirectory(mapviewer)
 add_subdirectory(guicontroller)
 add_subdirectory(guilauncher)
 
@@ -116,14 +116,6 @@ set(LIB_SRC
 		#---
         )
 
-
-if(Qt5_FOUND)
-set(LIB_SRC
-	${LIB_SRC}
-        viewers/MapViewer.cpp
-        viewers/MapViewer.h
-)
-endif()
 #============================================================================
 # Build the Stride library.
 #============================================================================
@@ -142,7 +134,7 @@ add_precompiled_header(libstride util/pchheader.h FORCEINCLUDE)
 add_executable(stride sim/main.cpp)
 
 if(Qt5_FOUND)
-	target_link_libraries(stride ${LIBS} libstride libgengeopop libvis libguicontroller)
+	target_link_libraries(stride ${LIBS} libstride libgengeopop libmapviewer libguicontroller)
 else()
 	target_link_libraries(stride ${LIBS} libstride libgengeopop)
 endif()

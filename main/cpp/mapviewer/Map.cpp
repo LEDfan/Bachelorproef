@@ -1,4 +1,4 @@
-#include "Visualizer.h"
+#include "Map.h"
 #include "backend.h"
 #include "backends/LocationViewerBackend.h"
 #include "models/CommutesListModel.h"
@@ -7,20 +7,21 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <visualizer/backends/ContactCenterViewerBackend.h>
+#include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::GeoGrid>)
 Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
-Visualizer::Visualizer(std::shared_ptr<QQmlApplicationEngine> engine)
+Map::Map(std::shared_ptr<QQmlApplicationEngine> engine)
     : m_rootContext(nullptr), m_thread(nullptr), m_setGrid(false), m_engine(engine), m_ccModel(nullptr),
       m_cpModel(nullptr), m_commutesModel(nullptr)
 {
         if (m_engine) {
                 RegisterQML(true);
         } else {
+                Q_INIT_RESOURCE(qml);
                 auto application = [this]() {
                         int             i = 0;
                         QGuiApplication app(i, nullptr);
@@ -35,7 +36,7 @@ Visualizer::Visualizer(std::shared_ptr<QQmlApplicationEngine> engine)
         }
 }
 
-void Visualizer::RegisterQML(bool usingExistingEngine)
+void Map::RegisterQML(bool usingExistingEngine)
 {
         qmlRegisterType<Backend>("io.bistromatics.backend", 1, 0, "Backend");
         qmlRegisterType<LocationViewerBackend>("io.bistromatics.locationviewerbackend", 1, 0, "LocationViewerBackend");
@@ -66,7 +67,7 @@ void Visualizer::RegisterQML(bool usingExistingEngine)
         m_qmlBackend  = m_rootContext->findChild<QObject*>("backend");
 }
 
-void Visualizer::ForceUpdateMarkers()
+void Map::ForceUpdateMarkers()
 {
         QObject* backend = m_rootContext->findChild<QObject*>("backend");
         if (backend != nullptr && m_setGrid) {
@@ -75,7 +76,7 @@ void Visualizer::ForceUpdateMarkers()
         }
 }
 
-void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
+void Map::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
 {
         if (m_qmlBackend != nullptr && grid != nullptr) {
                 Backend* backendClass = qobject_cast<Backend*>(m_qmlBackend);
@@ -84,6 +85,10 @@ void Visualizer::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
         }
 }
 
-void Visualizer::Join() {}
+bool Map::IsReady() const { return m_rootContext != nullptr && m_qmlBackend != nullptr; }
 
-bool Visualizer::IsReady() const { return m_rootContext != nullptr && m_qmlBackend != nullptr; }
+Map::~Map()
+{
+        if (m_thread)
+                m_thread->join();
+}

@@ -8,7 +8,7 @@ namespace viewers {
 
 void MapViewer::Update(const sim_event::Id /*id*/)
 {
-        m_logger->info("Visualizer updated");
+        m_logger->info("MapViewer updated");
         if (m_runner->GetSim() == nullptr) {
                 return;
         }
@@ -32,6 +32,6 @@ void MapViewer::Update(const sim_event::Id /*id*/)
         }
 }
 
-MapViewer::~MapViewer() { m_vis->Join(); }
+MapViewer::~MapViewer() {}
 } // namespace viewers
 } // namespace stride

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <QObject>
-#include <QString>
+#include <QtCore/QObject>
+#include <QtCore/QString>
 #include <gengeopop/GeoGrid.h>
 #include <set>
 #include <unordered_map>
