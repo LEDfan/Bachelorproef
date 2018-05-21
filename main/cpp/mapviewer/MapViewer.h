@@ -22,10 +22,10 @@ public:
         void Update(const sim_event::Id id);
 
 private:
-        std::shared_ptr<spdlog::logger> m_logger;
-        bool                            m_first = true;
-        std::unique_ptr<Map>            m_vis;
-        std::shared_ptr<SimRunner>      m_runner;
+        std::shared_ptr<spdlog::logger> m_logger; ///< The logger used for notifying that the MapViewer was updated
+        bool m_first = true; ///< A variable used to see if it was the first time the "Update" method was called
+        std::unique_ptr<Map>       m_vis;    ///< The Map to display
+        std::shared_ptr<SimRunner> m_runner; ///< The runner for the current simulation
 };
 } // namespace viewers
 } // namespace stride
