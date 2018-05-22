@@ -205,3 +205,22 @@ TEST(PartitionedSegmentedVector, TripleIterator)
         }
         EXPECT_EQ(i, 8);
 }
+
+TEST(PartitionedSegmentedVector, ConcatenatedVector)
+{
+        std::vector<int> vec1 = {0, 1, 2, 3, 4, 5, 6};
+        std::vector<int> vec2 = {7, 8, 9, 10, 11, 12, 13};
+
+        ConcatenatedIterators<int, std::vector<int>::iterator> concatenatedVector;
+
+        concatenatedVector.AddIterator(vec1.begin() + 2, vec1.begin() + 4);
+        concatenatedVector.AddIterator(vec2.begin() + 2, vec2.begin() + 4);
+
+        std::vector<int> expected = {2, 3, 9, 10};
+
+        std::size_t i = 0;
+        for (int x : concatenatedVector) {
+                EXPECT_EQ(expected[i], x);
+                ++i;
+        }
+}
