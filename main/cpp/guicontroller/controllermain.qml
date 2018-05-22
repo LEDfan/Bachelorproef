@@ -66,7 +66,6 @@ ApplicationWindow {
             SpinBox {
                 id: stepsPerClick
                 decimals: 0
-                maximumValue: 1000 //ULL max
                 minimumValue: 0
                 value: 1
             }
