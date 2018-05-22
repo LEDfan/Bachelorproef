@@ -92,6 +92,18 @@ public:
         const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
         const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
 
+        //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
+        //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
+        //                util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
+        //                ContactPoolType::IdSubscriptArray> res; for (ContactPoolType::Id typ :
+        //                ContactPoolType::IdList) {
+        //                        res[typ] =
+        //                        util::IteratorPair<util::SegmentedVector<ContactPool>::iterator>(m_pool_sys[typ].GetPartition(region).begin(),
+        //                        m_pool_sys[typ].GetPartition(region).end());
+        //                }
+        //                return res;
+        //        };
+
 private:
         Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(){};
 
