@@ -63,10 +63,18 @@ ApplicationWindow {
             }
         }
         RowLayout {
+            SpinBox {
+                id: stepsPerClick
+                decimals: 0
+                maximumValue: 1000 //ULL max
+                minimumValue: 0
+                value: 1
+            }
+
             Button {
                 id: stepButton
                 text: "Step day"
-                onClicked: stepDay()
+                onClicked: stepDay(stepsPerClick.value)
             }
         }
 
@@ -90,8 +98,10 @@ ApplicationWindow {
         }
     }
 
-    function stepDay() {
-        stepButton.enabled = false
-        backend.StepDay()
+    function stepDay(amtOfDays) {
+        for(var i=0; i<amtOfDays; i++){
+            stepButton.enabled = false
+            backend.StepDay()
+        }
     }
 }
