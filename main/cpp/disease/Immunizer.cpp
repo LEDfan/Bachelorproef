@@ -32,8 +32,8 @@ using namespace util;
 
 Immunizer::Immunizer(stride::util::RNManager& rnManager) : m_rn_manager(rnManager) {}
 
-void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double>& immunityDistribution,
-                       double immunityLinkProbability)
+void Immunizer::Random(const util::PartitionedSegmentedVector<ContactPool>& pools,
+                       std::vector<double>& immunityDistribution, double immunityLinkProbability)
 {
         // Initialize a vector to count the population per age class [0-100].
         std::vector<double> populationBrackets(100, 0.0);
@@ -91,8 +91,8 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
         }
 }
 
-void Immunizer::Cocoon(const std::vector<ContactPool>& /*pools*/, std::vector<double>& /*immunity_distribution*/,
-                       double /*immunity_link_probability*/)
+void Immunizer::Cocoon(const util::PartitionedSegmentedVector<ContactPool>& /*pools*/,
+                       std::vector<double>& /*immunity_distribution*/, double /*immunity_link_probability*/)
 {
         /*
          * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double

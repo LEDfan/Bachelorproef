@@ -195,6 +195,10 @@ void Population::Finalize()
                 }
         }
 
+        for (auto& contactPools : m_pool_sys) {
+                contactPools.Finalize();
+        }
+
         // --------------------------------------------------------------
         // Insert persons (pointers) in their contactpools. Having Id 0
         // means "not belonging pool of that type" (e.g. school/ work -
