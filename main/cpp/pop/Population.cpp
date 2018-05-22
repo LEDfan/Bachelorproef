@@ -150,6 +150,7 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                  */
                 m_previousRegionMaxId = m_currentRegionMaxId;
                 m_lastRegionId        = regionId;
+                // TODO finalize previous segmentedVector?
         }
 
         // Add the maximum ContactPool's id from the previous region

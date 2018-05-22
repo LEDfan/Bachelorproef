@@ -35,6 +35,8 @@ public:
 
         /// Copy constructor
         PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>& other)
+            : m_partitions(std::move(other.m_partitions)), m_prefixSums(std::move(other.m_prefixSums)),
+              m_finalized(other.m_finalized)
         {
                 m_partitions = other.m_partitions;
                 m_prefixSums = other.m_prefixSums;
@@ -43,26 +45,29 @@ public:
 
         /// Move constructor
         PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&& other)
-        {
-                m_partitions = std::move(other.m_partitions);
-                m_prefixSums = std::move(other.m_prefixSums);
-                m_finalized  = other.m_finalized;
-        };
+            : m_partitions(std::move(other.m_partitions)), m_prefixSums(std::move(other.m_prefixSums)),
+              m_finalized(other.m_finalized){};
 
         /// Copy assignment
         PartitionedSegmentedVector& operator=(const PartitionedSegmentedVector<T, N>& other)
         {
-                m_partitions = other.m_partitions;
-                m_prefixSums = other.m_prefixSums;
-                m_finalized  = other.m_finalized;
+                if (this != &other) {
+                        m_partitions = other.m_partitions;
+                        m_prefixSums = other.m_prefixSums;
+                        m_finalized  = other.m_finalized;
+                }
+                return *this;
         };
 
         /// Move assignment
         PartitionedSegmentedVector& operator=(PartitionedSegmentedVector<T, N>&& other) noexcept
         {
-                m_partitions = other.m_partitions;
-                m_prefixSums = other.m_prefixSums;
-                m_finalized  = other.m_finalized;
+                if (this != &other) {
+                        m_partitions = other.m_partitions;
+                        m_prefixSums = other.m_prefixSums;
+                        m_finalized  = other.m_finalized;
+                }
+                return *this;
         };
 
         virtual ~PartitionedSegmentedVector() = default;
