@@ -8,6 +8,7 @@ class IteratorPair
 {
 public:
         IteratorPair(IteratorType begin, IteratorType end) : m_begin(begin), m_end(end) {}
+        IteratorPair() : m_begin(), m_end() {}
 
         IteratorType begin() { return m_begin; }
 
