@@ -33,7 +33,7 @@ ApplicationWindow {
             SpinBox {
                 id: secondsPerDay
                 decimals: 3
-                maximumValue: 1000 //ULL max
+                maximumValue: 1000
                 minimumValue: 0
                 value: 2
             }
@@ -59,7 +59,7 @@ ApplicationWindow {
                 id: stepTimer
                 running: false
                 repeat: true
-                onTriggered: stepDay()
+                onTriggered: stepDay(1)
             }
         }
         RowLayout {
