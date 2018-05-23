@@ -47,7 +47,7 @@ ApplicationWindow {
                     if (text == "Start") {
                         stepTimer.interval = secondsPerDay.value * 1000
                         stepTimer.start()
-                        text = "Stop"
+                        text = "Pause"
                     } else {
                         stepTimer.stop()
                         text = "Start"
