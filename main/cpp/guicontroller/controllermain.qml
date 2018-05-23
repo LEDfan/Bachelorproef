@@ -72,8 +72,13 @@ ApplicationWindow {
 
             Button {
                 id: stepButton
-                text: "Step day"
+                text: "Multi-Step"
                 onClicked: stepDay(stepsPerClick.value)
+            }
+            Button {
+                id: stepButtonOneDay
+                text: "Step"
+                onClicked: stepDay(1)
             }
         }
 
