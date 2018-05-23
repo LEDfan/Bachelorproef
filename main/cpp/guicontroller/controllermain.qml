@@ -19,6 +19,7 @@ ApplicationWindow {
 
         function stepped(infectedCount, day) {
             stepButton.enabled = true
+            stepButtonOneDay.enabled = true
             infectedNr.text = infectedCount
             dayNr.text = day
         }
@@ -105,6 +106,7 @@ ApplicationWindow {
     function stepDay(amtOfDays) {
         for(var i=0; i<amtOfDays; i++){
             stepButton.enabled = false
+            stepButtonOneDay.enabled = false
             backend.StepDay()
         }
     }
