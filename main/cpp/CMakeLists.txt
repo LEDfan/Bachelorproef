@@ -80,7 +80,7 @@ set(LIB_SRC
         pop/ImportPopBuilder.cpp
         pop/GenPopBuilder.cpp
         pop/SurveySeeder.cpp
-		pop/RegioSlicer.cpp
+        pop/RegionSlicer.cpp
         #---
         sim/CliController.cpp
         sim/BaseController.cpp

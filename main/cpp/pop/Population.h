@@ -21,14 +21,16 @@
 
 #include "AbstractPopBuilder.h"
 #include "ImportPopBuilder.h"
+#include "RegionSlicer.h"
 #include "pool/ContactPoolSys.h"
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
 #include "util/Any.h"
+#include "util/RNManager.h"
 #include "util/pchheader.h"
 
-#include "util/RNManager.h"
+#include "RegionSlicer.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
@@ -103,6 +105,8 @@ public:
         //                }
         //                return res;
         //        };
+
+        RegionSlicer GetRegionSlicer() { return RegionSlicer(this); }
 
 private:
         Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(){};

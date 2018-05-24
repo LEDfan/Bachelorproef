@@ -192,7 +192,7 @@ void Population::Finalize()
                         }
                 }
         }
-        for (auto& contactPools : m_pool_sys.) {
+        for (auto& contactPools : m_pool_sys) {
                 contactPools.Finalize();
         }
 }
