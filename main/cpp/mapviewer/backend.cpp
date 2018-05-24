@@ -220,6 +220,14 @@ void Backend::SelectArea(double slat, double slong, double elat, double elong)
         try {
                 m_unselection.clear();
                 std::set<std::shared_ptr<gengeopop::Location>> previousSelection = m_selection;
+
+                if(slong > elong){
+                    std::swap(slong, elong);
+                }
+
+                if(slat > elat){
+                        std::swap(slat, elat);
+                }
                 m_selection = m_grid->InBox(slong, slat, elong, elat);
                 std::set_difference(previousSelection.begin(), previousSelection.end(), m_selection.begin(),
                                     m_selection.end(), std::inserter(m_unselection, m_unselection.end()));
