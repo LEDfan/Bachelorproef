@@ -66,6 +66,9 @@ public:
         /// Run simulator for numSteps steps/days.
         void Run(unsigned int numSteps);
 
+        /// Returns if all days of the simulation are ran.
+        bool IsAtEndOfSim();
+
 private:
         util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
         boost::property_tree::ptree m_config_pt;     ///< Ptree with configuration.

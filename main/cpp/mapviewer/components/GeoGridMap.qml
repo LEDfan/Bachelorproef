@@ -40,6 +40,7 @@ ColumnLayout {
         center: QtPositioning.coordinate(0,0)
         Layout.fillHeight: true
         Layout.fillWidth: true
+        maximumTilt: 0
 
         Component.onCompleted: {
             backend.SetObjects(map)

@@ -19,6 +19,7 @@ ApplicationWindow {
 
         function stepped(infectedCount, day) {
             stepButton.enabled = true
+            stepButtonOneDay.enabled = true
             infectedNr.text = infectedCount
             dayNr.text = day
         }
@@ -33,7 +34,7 @@ ApplicationWindow {
             SpinBox {
                 id: secondsPerDay
                 decimals: 3
-                maximumValue: 1000 //ULL max
+                maximumValue: 1000
                 minimumValue: 0
                 value: 2
             }
@@ -47,7 +48,7 @@ ApplicationWindow {
                     if (text == "Start") {
                         stepTimer.interval = secondsPerDay.value * 1000
                         stepTimer.start()
-                        text = "Stop"
+                        text = "Pause"
                     } else {
                         stepTimer.stop()
                         text = "Start"
@@ -59,14 +60,26 @@ ApplicationWindow {
                 id: stepTimer
                 running: false
                 repeat: true
-                onTriggered: stepDay()
+                onTriggered: stepDay(1)
             }
         }
         RowLayout {
+            SpinBox {
+                id: stepsPerClick
+                decimals: 0
+                minimumValue: 0
+                value: 1
+            }
+
             Button {
                 id: stepButton
-                text: "Step day"
-                onClicked: stepDay()
+                text: "Multi-Step"
+                onClicked: stepDay(stepsPerClick.value)
+            }
+            Button {
+                id: stepButtonOneDay
+                text: "Step"
+                onClicked: stepDay(1)
             }
         }
 
@@ -90,8 +103,11 @@ ApplicationWindow {
         }
     }
 
-    function stepDay() {
-        stepButton.enabled = false
-        backend.StepDay()
+    function stepDay(amtOfDays) {
+        for(var i=0; i<amtOfDays; i++){
+            stepButton.enabled = false
+            stepButtonOneDay.enabled = false
+            backend.StepDay()
+        }
     }
 }
