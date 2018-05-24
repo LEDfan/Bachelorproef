@@ -82,7 +82,7 @@ void SimRunner::Run() { Run(m_config_pt.get<unsigned int>("run.num_days")); }
 
 bool SimRunner::IsAtEndOfSim()
 {
-        return m_sim->GetCalendar()->GetSimulationDay() > m_config_pt.get<int>("run.num_days") - 1;
+        return m_sim->GetCalendar()->GetSimulationDay() >= m_config_pt.get<int>("run.num_days");
 }
 
 } // namespace stride
