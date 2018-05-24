@@ -22,17 +22,11 @@ Map::Map(std::shared_ptr<QQmlApplicationEngine> engine)
                 RegisterQML(true);
         } else {
                 Q_INIT_RESOURCE(qml);
-                auto application = [this]() {
-                        int             i = 0;
-                        QGuiApplication app(i, nullptr);
-                        m_engine = std::make_shared<QQmlApplicationEngine>();
-                        RegisterQML();
-                        if (m_engine->rootObjects().isEmpty())
-                                return -1;
-
-                        return app.exec();
-                };
-                m_thread = std::make_unique<std::thread>(application);
+                int             i = 0;
+                QGuiApplication app(i, nullptr);
+                m_engine = std::make_shared<QQmlApplicationEngine>();
+                RegisterQML();
+                app.exec();
         }
 }
 

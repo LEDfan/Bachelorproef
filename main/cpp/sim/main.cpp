@@ -127,6 +127,12 @@ int main(int argc, char** argv)
                                 controller                          = temp;
                         }
 
+                        auto run = [&controller]() { ;
+                                controller->RegisterViewers();
+                                controller->Control();
+                        };
+                        std::thread thread(run);
+
                         if (show_mapviewer.getValue()) {
 #if Qt5_FOUND
                                 controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
@@ -134,8 +140,7 @@ int main(int argc, char** argv)
                                 std::cerr << "Can't run with mapviewer when Qt is not found" << std::endl;
 #endif
                         }
-                        controller->RegisterViewers();
-                        controller->Control();
+                        thread.join();
                 }
                 // -----------------------------------------------------------------------------------------
                 // If geopop ...
