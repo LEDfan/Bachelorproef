@@ -52,6 +52,9 @@ public:
         /// Get size (number of members).
         std::size_t GetSize() const { return m_members.size(); }
 
+        std::vector<Person*>::iterator begin();
+        std::vector<Person*>::iterator end();
+
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, size_t> SortMembers();

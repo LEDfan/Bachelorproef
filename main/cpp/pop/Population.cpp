@@ -103,7 +103,7 @@ std::shared_ptr<Population> Population::Create(const string& configString)
         return Create(RunConfigManager::FromString(configString));
 }
 
-std::shared_ptr<Population> Population::Create()
+std::shared_ptr<Population> Population::Create(unsigned int amountOfRegions)
 {
         // --------------------------------------------------------------
         // Create (empty) population and return it
@@ -111,7 +111,12 @@ std::shared_ptr<Population> Population::Create()
         struct make_shared_enabler : public Population
         {
         };
-        auto r = make_shared<make_shared_enabler>();
+        auto r                  = make_shared<make_shared_enabler>();
+        r->m_regions["Default"] = 0;
+        for (unsigned int j = 1; j < amountOfRegions; j++) {
+                r->m_regions[std::to_string(j)] = j;
+        }
+        r->CreatePartitions(amountOfRegions);
         r->m_belief_pt.add("name", "NoBelief");
         return r;
 }

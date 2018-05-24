@@ -54,6 +54,7 @@ set(SRC
         gengeopop/io/ReaderFactoryTest.cpp
         gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
         gengeopop/kdtree.cpp
+        RegionSlicer.cpp
         main.cpp
 )
 
