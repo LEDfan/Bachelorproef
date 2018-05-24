@@ -95,7 +95,8 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
 
         std::set<std::shared_ptr<Location>> result;
         auto agg = BuildAggregator<BoxPolicy>(MakeCollector(std::inserter(result, result.begin())),
-                                              std::make_tuple(std::min(long1, long2), std::min(lat1, lat2), std::max(long1, long2), std::max(lat1, lat2)));
+                                              std::make_tuple(std::min(long1, long2), std::min(lat1, lat2),
+                                                              std::max(long1, long2), std::max(lat1, lat2)));
         agg();
         return result;
 }
