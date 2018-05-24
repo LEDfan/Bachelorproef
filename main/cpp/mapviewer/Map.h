@@ -13,7 +13,7 @@ class Map
 public:
         /// Construct the Map
         /// @param engine An optional engine to use for the QML. If it is not provided, a new one will be created
-        Map(std::shared_ptr<QQmlApplicationEngine> engine = nullptr);
+        Map(std::shared_ptr<QQmlApplicationEngine> engine);
         Map(const Map& b) = delete;
         Map& operator=(const Map& b) = delete;
         ~Map();
@@ -32,7 +32,7 @@ public:
         bool IsReady() const;
 
 private:
-        void RegisterQML(bool usingExistingEngine = false);
+        void RegisterQML();
 
         QObject*                                m_rootContext = nullptr; ///< The root context of the main QML file
         QObject*                                m_qmlBackend  = nullptr; ///< The root context of the main QML file

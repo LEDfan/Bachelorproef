@@ -118,13 +118,12 @@ int main(int argc, char** argv)
 
                         // TODO @Niels see new upstream switches
 
-                        std::shared_ptr<QQmlApplicationEngine> engine = nullptr;
                         if (execArg.getValue() == "sim") {
                                 controller = std::make_shared<CliController>(configPt);
                         } else {
                                 std::shared_ptr<GuiController> temp = std::make_shared<GuiController>(configPt);
-                                engine                              = temp->GetEngine();
-                                controller                          = temp;
+//                                engine                              = temp->GetEngine();
+//                                controller                          = temp;
                         }
 
                         auto run = [&controller]() { ;
@@ -135,11 +134,17 @@ int main(int argc, char** argv)
 
                         if (show_mapviewer.getValue()) {
 #if Qt5_FOUND
+                                Q_INIT_RESOURCE(qml);
+                                int             i = 0;
+                                QGuiApplication app(i, nullptr);
+                                std::shared_ptr<QQmlApplicationEngine> engine = std::make_shared<QQmlApplicationEngine>();
                                 controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
+                                app.exec();
 #else
                                 std::cerr << "Can't run with mapviewer when Qt is not found" << std::endl;
 #endif
                         }
+
                         thread.join();
                 }
                 // -----------------------------------------------------------------------------------------

@@ -7,6 +7,7 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
+#include <utility>
 #include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
@@ -15,22 +16,13 @@ Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
 Map::Map(std::shared_ptr<QQmlApplicationEngine> engine)
-    : m_rootContext(nullptr), m_thread(nullptr), m_setGrid(false), m_engine(engine), m_ccModel(nullptr),
+    : m_rootContext(nullptr), m_thread(nullptr), m_setGrid(false), m_engine(std::move(engine)), m_ccModel(nullptr),
       m_cpModel(nullptr), m_commutesModel(nullptr)
 {
-        if (m_engine) {
-                RegisterQML(true);
-        } else {
-                Q_INIT_RESOURCE(qml);
-                int             i = 0;
-                QGuiApplication app(i, nullptr);
-                m_engine = std::make_shared<QQmlApplicationEngine>();
-                RegisterQML();
-                app.exec();
-        }
+        RegisterQML();
 }
 
-void Map::RegisterQML(bool usingExistingEngine)
+void Map::RegisterQML()
 {
         qmlRegisterType<Backend>("io.bistromatics.backend", 1, 0, "Backend");
         qmlRegisterType<LocationViewerBackend>("io.bistromatics.locationviewerbackend", 1, 0, "LocationViewerBackend");
@@ -53,10 +45,7 @@ void Map::RegisterQML(bool usingExistingEngine)
         m_engine->load(QUrl(QStringLiteral("qrc:/main.qml")));
 
         // Save the root context
-        int offset = 0;
-        if (usingExistingEngine) {
-                offset = 1;
-        }
+        int offset = m_engine->rootObjects().size() - 1;
         m_rootContext = m_engine->rootObjects()[offset];
         m_qmlBackend  = m_rootContext->findChild<QObject*>("backend");
 }
