@@ -5,8 +5,7 @@ int main(int, char* [])
         int crashed = 0;
         while (crashed >= 0 && crashed < 5) {
                 try {
-                        GuiLauncher v;
-                        v.Start();
+                        GuiLauncher::Start();
                         crashed = -1;
                 } catch (...) {
                         crashed++;
