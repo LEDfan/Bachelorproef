@@ -42,7 +42,7 @@ set(SRC
         gengeopop/populators/createGeogrid.cpp
         gengeopop/populators/HouseholdPopulatorTest.cpp
         gengeopop/populators/CommunityPopulatorTests.cpp
-    gengeopop/populators/K12SchoolPopulatorTest.cpp
+        gengeopop/populators/K12SchoolPopulatorTest.cpp
         gengeopop/populators/HighSchoolPopulatorTest.cpp
         gengeopop/populators/WorkplacePopulatorTest.cpp
         gengeopop/io/GeoGridIOUtils.cpp

@@ -141,35 +141,6 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
                               unsigned int secondaryCommunityId)
 {
-        if (m_lastRegionId != regionId) {
-                assert(regionId > m_lastRegionId);
-                /**
-                 * From now on (since for now we don't use parallelism to generate the different regions) we will
-                 * insert persons for the next region. To prevent the ContactPools id's to overlap we will calculate
-                 * the previous max ContactPool's ids.
-                 */
-                m_previousRegionMaxId = m_currentRegionMaxId;
-                m_lastRegionId        = regionId;
-                // TODO finalize previous segmentedVector?
-        }
-
-        // Add the maximum ContactPool's id from the previous region
-        householdId += m_previousRegionMaxId[ContactPoolType::Id::Household];
-        schoolId += m_previousRegionMaxId[ContactPoolType::Id::School];
-        workId += m_previousRegionMaxId[ContactPoolType::Id::Work];
-        primaryCommunityId += m_previousRegionMaxId[ContactPoolType::Id::PrimaryCommunity];
-        secondaryCommunityId += m_previousRegionMaxId[ContactPoolType::Id::SecondaryCommunity];
-
-        m_currentRegionMaxId[ContactPoolType::Id::Household] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::Household], householdId);
-        m_currentRegionMaxId[ContactPoolType::Id::School] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::School], schoolId);
-        m_currentRegionMaxId[ContactPoolType::Id::Work] = max(m_currentRegionMaxId[ContactPoolType::Id::Work], workId);
-        m_currentRegionMaxId[ContactPoolType::Id::PrimaryCommunity] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::PrimaryCommunity], primaryCommunityId);
-        m_currentRegionMaxId[ContactPoolType::Id::SecondaryCommunity] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::SecondaryCommunity], secondaryCommunityId);
-
         emplace_back(regionId, id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
 }
 
@@ -178,44 +149,46 @@ void Population::Finalize()
         util::PartitionedSegmentedVector<Person>::Finalize();
         using namespace ContactPoolType;
 
-        // --------------------------------------------------------------
-        // Determine maximum pool ids in population.
-        // --------------------------------------------------------------
-        IdSubscriptArray<unsigned int> max_ids{0U};
-        for (const auto& p : *this) {
-                for (Id typ : IdList) {
-                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
-                }
-        }
-        // --------------------------------------------------------------
-        // Initialize poolSys with empty ContactPools (even for Id=0).
-        // --------------------------------------------------------------
-        for (Id typ : IdList) {
-                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
-                        m_pool_sys[typ].emplace_back(ContactPool(i, typ));
-                }
-        }
+        for (std::size_t regionId = 0; regionId < PartitionCount(); regionId++) {
 
-        for (auto& contactPools : m_pool_sys) {
-                contactPools.Finalize();
-        }
-
-        // --------------------------------------------------------------
-        // Insert persons (pointers) in their contactpools. Having Id 0
-        // means "not belonging pool of that type" (e.g. school/ work -
-        // cannot belong to both, or e.g. out-of-work).
-        //
-        // Pools are uniquely identified by (typ, subscript) and a Person
-        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
-        // Defensive measure: we have a pool for Id 0 and leave it empty.
-        // --------------------------------------------------------------
-        for (auto& p : *this) {
-                for (Id typ : IdList) {
-                        const auto poolId = p.GetPoolId(typ);
-                        if (poolId > 0) {
-                                m_pool_sys[typ][poolId].AddMember(&p);
+                // --------------------------------------------------------------
+                // Determine maximum pool ids in population.
+                // --------------------------------------------------------------
+                IdSubscriptArray<unsigned int> max_ids{0U};
+                for (const auto& p : GetPartition(regionId)) {
+                        for (Id typ : IdList) {
+                                max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
                         }
                 }
+                // --------------------------------------------------------------
+                // Initialize poolSys with empty ContactPools (even for Id=0).
+                // --------------------------------------------------------------
+                for (Id typ : IdList) {
+                        for (size_t i = 0; i < max_ids[typ] + 1; i++) {
+                                m_pool_sys[typ].GetPartition(regionId).emplace_back(ContactPool(i, typ));
+                        }
+                }
+
+                // --------------------------------------------------------------
+                // Insert persons (pointers) in their contactpools. Having Id 0
+                // means "not belonging pool of that type" (e.g. school/ work -
+                // cannot belong to both, or e.g. out-of-work).
+                //
+                // Pools are uniquely identified by (typ, subscript) and a Person
+                // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
+                // Defensive measure: we have a pool for Id 0 and leave it empty.
+                // --------------------------------------------------------------
+                for (const auto& p : GetPartition(regionId)) {
+                        for (Id typ : IdList) {
+                                const auto poolId = p.GetPoolId(typ);
+                                if (poolId > 0) {
+                                        m_pool_sys[typ].GetPartition(regionId)[poolId].AddMember(&p);
+                                }
+                        }
+                }
+        }
+        for (auto& contactPools : m_pool_sys.) {
+                contactPools.Finalize();
         }
 }
 
@@ -249,4 +222,5 @@ void Population::CreateRegion(const std::string& geopop_type, const boost::prope
                 DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
         }
 }
+
 } // namespace stride

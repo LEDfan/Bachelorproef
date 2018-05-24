@@ -192,6 +192,8 @@ public:
                 return m_partitions[partitionIndex];
         }
 
+        std::size_t PartitionCount() const { return m_partitions.size(); }
+
         /// Calculates the Indexes for the partitions and prevents partitions from being added or growing
         virtual void Finalize()
         {

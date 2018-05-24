@@ -147,12 +147,7 @@ private:
         ContactPoolSys                               m_pool_sys; ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
         std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
-        std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
-        ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
-        ContactPoolType::IdSubscriptArray<unsigned int> m_currentRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
+        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regions
 };
 
 } // namespace stride
