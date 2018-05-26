@@ -84,10 +84,10 @@ protected:
         void ReadConfigFile();
 
         boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
-        std::string                     m_output_prefix;    /// Prefix to output (name prefix or prefix dir)
+        std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
-        bool                            m_use_install_dirs; /// Working dir or install dir mode.
+        bool                            m_use_install_dirs; ///< Working dir or install dir mode.
         std::shared_ptr<SimRunner>      m_runner;
 };
 

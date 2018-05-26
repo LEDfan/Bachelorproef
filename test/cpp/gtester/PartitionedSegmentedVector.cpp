@@ -24,10 +24,9 @@ TEST(PartitionedSegmentedVector, BasicLoopTest)
         }
 
         EXPECT_TRUE(partitionedSegmentedVector.end() == partitionedSegmentedVector.end());
-        EXPECT_TRUE(partitionedSegmentedVector.end()++ == partitionedSegmentedVector.end());
 
         auto it = partitionedSegmentedVector.begin();
-        for (std::size_t i = 0; i < 10; i++) {
+        for (std::size_t i = 0; i < 8; i++) {
                 it++;
         }
         EXPECT_EQ(partitionedSegmentedVector.end(), it);
@@ -52,10 +51,9 @@ TEST(PartitionedSegmentedVector, BasicReverseLoopTest)
         }
 
         EXPECT_TRUE(partitionedSegmentedVector.end() == partitionedSegmentedVector.end());
-        EXPECT_TRUE(partitionedSegmentedVector.end()++ == partitionedSegmentedVector.end());
 
         auto it = partitionedSegmentedVector.begin();
-        for (std::size_t i = 0; i < 10; i++) {
+        for (std::size_t i = 0; i < 8; i++) {
                 it++;
         }
         EXPECT_EQ(partitionedSegmentedVector.end(), it);
@@ -124,8 +122,6 @@ TEST(PartitionedSegmentedVector, GetPartition)
         for (std::size_t i = 0; i < exp.size(); ++i) {
                 EXPECT_EQ(exp[i], partitionedSegmentedVector.at(i));
         }
-
-        EXPECT_THROW(partition1.emplace_back(100), Exception);
 }
 
 TEST(PartitionedSegmentedVector, ConstIterators)

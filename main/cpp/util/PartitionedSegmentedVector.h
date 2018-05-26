@@ -14,13 +14,14 @@ template <typename T, std::size_t N = 512>
 class PartitionedSegmentedVector
 {
 public:
-        using segmentedVector_type         = SegmentedVector<T, N>;
-        using partitionIterator_type       = typename std::vector<SegmentedVector<T, N>>::iterator;
-        using partItIndex                  = std::tuple<partitionIterator_type, std::size_t, std::size_t>;
-        using iterator                     = NestedIterator<T, partitionIterator_type, SVIterator<T, N, T*, T&, false>>;
-        using const_partitionIterator_type = typename std::vector<SegmentedVector<T, N>>::const_iterator;
-        using const_iterator               = NestedIterator<T, const_partitionIterator_type,
-                                              SVIterator<T, N, const T*, const T&, true>, const T*, const T&, true>;
+        using segmentedVector_type   = SegmentedVector<T, N, true>;
+        using partitionIterator_type = typename std::vector<SegmentedVector<T, N, true>>::iterator;
+        using partItIndex            = std::tuple<partitionIterator_type, std::size_t, std::size_t>;
+        using iterator               = NestedIterator<T, partitionIterator_type, SVIterator<T, N, true, T*, T&, false>>;
+        using const_partitionIterator_type = typename std::vector<SegmentedVector<T, N, true>>::const_iterator;
+        using const_iterator =
+            NestedIterator<T, const_partitionIterator_type, SVIterator<T, N, true, const T*, const T&, true>, const T*,
+                           const T&, true>;
 
         //// Construct
         explicit PartitionedSegmentedVector(std::size_t partitionsCount)
@@ -199,7 +200,7 @@ public:
                 for (auto it = m_partitions.begin(); it != m_partitions.end(); ++it) {
                         std::size_t sum = searchIndex + it->size();
                         m_prefixSums.emplace_back(it, sum, searchIndex);
-                        it->Finalize();
+                        //                        it->Finalize();
                         searchIndex = sum;
                 }
                 m_finalized = true;
