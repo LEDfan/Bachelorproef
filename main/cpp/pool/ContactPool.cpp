@@ -75,4 +75,22 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
         return std::make_tuple(infectious_cases, num_cases);
 }
 
+std::size_t ContactPool::GetId() const { return m_pool_id; }
+
+std::size_t ContactPool::GetCapacity() const { return m_capacity; }
+
+std::size_t ContactPool::GetUsedCapacity() const { return m_members.size(); }
+
+std::pair<std::size_t, std::size_t> ContactPool::GetPopulationAndInfectedCount() const
+{
+        unsigned int infected = 0;
+
+        for (stride::Person* person : m_members) {
+                if (person->GetHealth().IsInfected()) {
+                        infected++;
+                }
+        }
+        return {m_members.size(), infected};
+};
+
 } // namespace stride

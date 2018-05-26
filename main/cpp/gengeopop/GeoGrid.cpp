@@ -125,4 +125,10 @@ void GeoGrid::CheckFinalized(const std::string& functionName) const
         }
 }
 
+stride::ContactPool* GeoGrid::CreateContactPool(std::size_t size, stride::ContactPoolType::Id type)
+{
+
+        throw stride::util::Exception("Not implemented");
+}
+
 } // namespace gengeopop

@@ -14,10 +14,10 @@
 std::map<int, stride::Person*> persons_found;
 using namespace gengeopop;
 
-void CompareContactPool(std::shared_ptr<ContactPool>                             contactPool,
+void CompareContactPool(stride::ContactPool*                                     contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool)
 {
-        EXPECT_EQ(contactPool->GetID(), protoContactPool.id());
+        EXPECT_EQ(contactPool->GetId(), protoContactPool.id());
         ASSERT_EQ(protoContactPool.people_size(), (contactPool->end() - contactPool->begin()));
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto            personId = protoContactPool.people(idx);
@@ -42,12 +42,12 @@ void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCe
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
         EXPECT_EQ(types[contactCenter->GetType()], protoContactCenter.type());
         ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->GetPools().size());
-        std::map<int, std::shared_ptr<ContactPool>>                      idToPool;
+        std::map<int, stride::ContactPool*>                              idToPool;
         std::map<int, proto::GeoGrid_Location_ContactCenter_ContactPool> idToProtoPool;
         for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
                 auto protoContactPool                = protoContactCenter.pools(idx);
                 auto contactPool                     = contactCenter->GetPools()[idx];
-                idToPool[contactPool->GetID()]       = contactPool;
+                idToPool[contactPool->GetId()]       = contactPool;
                 idToProtoPool[protoContactPool.id()] = std::move(protoContactPool);
         }
         for (auto& contactPoolPair : idToPool) {
@@ -166,32 +166,32 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
 
         auto school = std::make_shared<K12School>(0);
         location->AddContactCenter(school);
-        auto schoolPool = std::make_shared<ContactPool>(2, school->GetPoolSize());
+        auto schoolPool = new stride::ContactPool(2, stride::ContactPoolType::Id::School);
         school->AddPool(schoolPool);
 
         auto community = std::make_shared<PrimaryCommunity>(1);
         location->AddContactCenter(community);
-        auto communityPool = std::make_shared<ContactPool>(3, community->GetPoolSize());
+        auto communityPool = new stride::ContactPool(3, stride::ContactPoolType::Id::PrimaryCommunity);
         community->AddPool(communityPool);
 
         auto secondaryCommunity = std::make_shared<SecondaryCommunity>(2);
         location->AddContactCenter(secondaryCommunity);
-        auto secondaryCommunityPool = std::make_shared<ContactPool>(7, secondaryCommunity->GetPoolSize());
+        auto secondaryCommunityPool = new stride::ContactPool(7, stride::ContactPoolType::Id::SecondaryCommunity);
         secondaryCommunity->AddPool(secondaryCommunityPool);
 
         auto college = std::make_shared<College>(3);
         location->AddContactCenter(college);
-        auto collegePool = std::make_shared<ContactPool>(4, college->GetPoolSize());
+        auto collegePool = new stride::ContactPool(4, stride::ContactPoolType::Id::School);
         college->AddPool(collegePool);
 
         auto household = std::make_shared<Household>(4);
         location->AddContactCenter(household);
-        auto householdPool = std::make_shared<ContactPool>(5, household->GetPoolSize());
+        auto householdPool = new stride::ContactPool(5, stride::ContactPoolType::Id::Household);
         household->AddPool(householdPool);
 
         auto workplace = std::make_shared<Workplace>(5);
         location->AddContactCenter(workplace);
-        auto workplacePool = std::make_shared<ContactPool>(6, workplace->GetPoolSize());
+        auto workplacePool = new stride::ContactPool(6, stride::ContactPoolType::Id::Work);
         workplace->AddPool(workplacePool);
 
         geoGrid->AddLocation(location);

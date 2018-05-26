@@ -40,7 +40,7 @@ TEST(GeoGridProtoWriterTest, contactCentersTest)
         auto geoGrid  = GetGeoGrid();
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<K12School>(0));
-        location->AddContactCenter(std::make_shared<Community>(1));
+        location->AddContactCenter(std::make_shared<PrimaryCommunity>(1));
         location->AddContactCenter(std::make_shared<College>(2));
         location->AddContactCenter(std::make_shared<Household>(3));
         location->AddContactCenter(std::make_shared<Workplace>(4));

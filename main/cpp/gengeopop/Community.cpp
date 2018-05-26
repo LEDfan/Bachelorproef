@@ -1,6 +1,9 @@
 #include "Community.h"
 #include "GeoGridConfig.h"
 #include <util/Exception.h>
+
+using namespace stride::ContactPoolType;
+
 namespace gengeopop {
 
 Community::Community(unsigned int id) : ContactCenter(id) {}
@@ -8,13 +11,6 @@ Community::Community(unsigned int id) : ContactCenter(id) {}
 std::string  Community::GetType() const { return "Community"; }
 unsigned int Community::GetPoolSize() const { return 2000; }
 unsigned int Community::GetMaxPools() const { return 1; }
-void         Community::Fill(GeoGridConfig& geoGridConfig)
-{
-        if (m_pools.empty()) {
-                m_pools.push_back(
-                    std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, this->GetPoolSize()));
-        }
-}
 
 void Community::AddHouseHold(std::shared_ptr<Household> household)
 {

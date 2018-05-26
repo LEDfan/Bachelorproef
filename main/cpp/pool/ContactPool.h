@@ -37,8 +37,13 @@ class Person;
 class ContactPool
 {
 public:
+        using iterator       = std::vector<stride::Person*>::iterator;
+        using const_iterator = std::vector<stride::Person*>::const_iterator;
+
         /// Initializing constructor.
         ContactPool(std::size_t pool_id, ContactPoolType::Id type);
+
+        ContactPool() = default;
 
         /// Add the given Person.
         void AddMember(const Person* p);
@@ -51,6 +56,36 @@ public:
 
         /// Get size (number of members).
         std::size_t GetSize() const { return m_members.size(); }
+
+        /// Get the pool id
+        std::size_t GetId() const;
+
+        /// Get the pool capacity
+        std::size_t GetCapacity() const;
+
+        /// Get the pool used capacity, i.e. amount of members
+        std::size_t GetUsedCapacity() const;
+
+        /// Returns the amount of perons and amount of infected perons in this pol
+        std::pair<std::size_t, std::size_t> GetPopulationAndInfectedCount() const;
+
+        /// Iterator to first person
+        iterator begin() { return m_members.begin(); }
+
+        /// Iterator to end of persons
+        iterator end() { return m_members.end(); }
+
+        /// Iterator to first person
+        const_iterator begin() const { return cbegin(); }
+
+        /// Iterator to end of persons
+        const_iterator end() const { return cend(); }
+
+        /// Iterator to first person
+        const_iterator cbegin() const { return m_members.cbegin(); }
+
+        /// Iterator to end of persons
+        const_iterator cend() const { return m_members.cend(); }
 
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
@@ -65,6 +100,7 @@ private:
         ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
+        std::size_t          m_capacity;
 };
 
 } // namespace stride

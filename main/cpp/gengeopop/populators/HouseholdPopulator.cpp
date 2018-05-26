@@ -22,9 +22,9 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 const std::vector<std::shared_ptr<ContactCenter>>& households =
                     loc->GetContactCentersOfType<Household>();
                 for (const auto& household : households) {
-                        std::shared_ptr<ContactPool> contactPool     = household->GetPools()[0];
-                        auto                         householdTypeId = static_cast<unsigned int>(household_dist());
-                        std::shared_ptr<ContactPool> householdType =
+                        stride::ContactPool* contactPool     = household->GetPools()[0];
+                        auto                 householdTypeId = static_cast<unsigned int>(household_dist());
+                        stride::ContactPool* householdType =
                             geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
                         for (stride::Person* personType : *householdType) {
                                 auto person = geoGrid->CreatePerson(

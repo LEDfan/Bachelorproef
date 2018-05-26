@@ -1,6 +1,8 @@
 #include "Workplace.h"
 #include "GeoGridConfig.h"
 
+using namespace stride::ContactPoolType;
+
 namespace gengeopop {
 
 Workplace::Workplace(unsigned int id) : ContactCenter(id) {}
@@ -11,9 +13,9 @@ unsigned int Workplace::GetPoolSize() const { return 20; }
 
 unsigned int Workplace::GetMaxPools() const { return 1; }
 
-void Workplace::Fill(GeoGridConfig& geoGridConfig)
+void Workplace::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {
-        AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));
+        AddPool(geoGrid->CreateContactPool(GetPoolSize(), Id::Work));
 }
 
 } // namespace gengeopop

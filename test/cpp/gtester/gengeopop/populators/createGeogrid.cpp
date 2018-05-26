@@ -32,7 +32,7 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCo
                 for (int schI = 0; schI < k12SchoolCount; schI++) {
                         auto k12School =
                             std::make_shared<K12School>(std::stoi(std::to_string(locI) + std::to_string(schI)));
-                        k12School->Fill(geoGridConfig);
+                        k12School->Fill(geoGrid);
                         loc->AddContactCenter(k12School);
                 }
 
@@ -40,7 +40,7 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCo
                         auto household =
                             std::make_shared<Household>(std::stoi(std::to_string(locI) + std::to_string(hI)));
 
-                        household->Fill(geoGridConfig);
+                        household->Fill(geoGrid);
 
                         auto contactPool = household->GetPools()[0];
 

@@ -15,7 +15,7 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
 
         m_logger->info("Starting to populate Secondary Communities");
 
-        std::set<std::shared_ptr<ContactPool>> found;
+        std::set<stride::ContactPool*> found;
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 if (loc->GetPopulation() == 0) {
@@ -29,8 +29,8 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                     0, static_cast<trng::uniform_int_dist::result_type>(community_pools.size())));
 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
-                        const auto                          pool        = dist();
+                        stride::ContactPool* contactPool = household->GetPools()[0];
+                        const auto           pool        = dist();
                         for (stride::Person* person : *contactPool) {
                                 found.insert(community_pools[pool]);
                                 community_pools[pool]->AddMember(person);

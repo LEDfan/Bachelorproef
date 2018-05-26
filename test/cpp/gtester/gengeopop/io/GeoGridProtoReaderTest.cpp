@@ -61,7 +61,7 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         auto           location = geoGrid.add_locations();
         fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
         fillContactCenter(std::make_shared<K12School>(0), location->add_contactcenters());
-        fillContactCenter(std::make_shared<Community>(1), location->add_contactcenters());
+        fillContactCenter(std::make_shared<PrimaryCommunity>(1), location->add_contactcenters());
         fillContactCenter(std::make_shared<College>(2), location->add_contactcenters());
         fillContactCenter(std::make_shared<Household>(3), location->add_contactcenters());
         fillContactCenter(std::make_shared<Workplace>(4), location->add_contactcenters());

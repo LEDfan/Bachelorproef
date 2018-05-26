@@ -132,18 +132,34 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         proto::GeoGrid_Location_ContactCenter_Type type = protoContactCenter.type();
         std::shared_ptr<ContactCenter>             result;
         auto                                       id = protoContactCenter.id();
+        stride::ContactPoolType::Id                typeId;
+
         switch (type) {
-        case proto::GeoGrid_Location_ContactCenter_Type_K12School: result = std::make_shared<K12School>(id); break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Community: result = std::make_shared<Community>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_K12School:
+                result = std::make_shared<K12School>(id);
+                typeId = stride::ContactPoolType::Id::School;
+                break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 result = std::make_shared<PrimaryCommunity>(id);
+                typeId = stride::ContactPoolType::Id::PrimaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
                 result = std::make_shared<SecondaryCommunity>(id);
+                typeId = stride::ContactPoolType::Id::SecondaryCommunity;
                 break;
-        case proto::GeoGrid_Location_ContactCenter_Type_College: result = std::make_shared<College>(id); break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Household: result = std::make_shared<Household>(id); break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Workplace: result = std::make_shared<Workplace>(id); break;
+        case proto::GeoGrid_Location_ContactCenter_Type_College:
+                result = std::make_shared<College>(id);
+                typeId = stride::ContactPoolType::Id::School;
+                break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Household:
+                result = std::make_shared<Household>(id);
+                typeId = stride::ContactPoolType::Id::Household;
+                break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
+                result = std::make_shared<Workplace>(id);
+                typeId = stride::ContactPoolType::Id::Work;
+                break;
+                break;
         default: throw stride::util::Exception("No such ContactCenter type");
         }
 
@@ -152,13 +168,13 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 #pragma omp single
         {
                 for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
-                        std::shared_ptr<ContactPool>                             pool;
+                        stride::ContactPool*                                     pool;
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
                             protoContactCenter.pools(idx);
 #pragma omp task firstprivate(protoContactPool, pool)
                         {
-                                e->Run([&protoContactPool, &pool, this, &result] {
-                                        pool = ParseContactPool(protoContactPool, result->GetPoolSize());
+                                e->Run([&protoContactPool, &pool, this, &result, &typeId] {
+                                        pool = ParseContactPool(protoContactPool, result->GetPoolSize(), typeId);
                                 });
                                 if (!e->HasError())
 #pragma omp critical
@@ -171,11 +187,12 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         return result;
 } // namespace gengeopop
 
-std::shared_ptr<ContactPool> GeoGridProtoReader::ParseContactPool(
-    const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize)
+stride::ContactPool* GeoGridProtoReader::ParseContactPool(
+    const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize,
+    stride::ContactPoolType::Id type)
 {
-        auto id     = static_cast<unsigned int>(protoContactPool.id());
-        auto result = std::make_shared<ContactPool>(id, poolSize);
+        auto                 id     = static_cast<unsigned int>(protoContactPool.id());
+        stride::ContactPool* result = new stride::ContactPool(id, type); // TODO onwerhsip
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);

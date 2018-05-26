@@ -8,7 +8,7 @@
 
 using namespace gengeopop;
 
-void CompareContactPool(std::shared_ptr<ContactPool>                             contactPool,
+void CompareContactPool(stride::ContactPool*                                     contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool);
 
 void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCenter,

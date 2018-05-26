@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <memory>
 
+#include <gengeopop/ContactCenter.h>
 #include <gengeopop/io/GeoGridJSONReader.h>
 #include <util/Exception.h>
 #include <util/FileSys.h>
@@ -165,7 +166,7 @@ void runPeopleTest(std::string filename)
         for (const auto& center : contactCenters) {
                 auto pool   = center->GetPools()[0];
                 auto person = *(pool->begin());
-                EXPECT_EQ(types[pool->GetID()], center->GetType());
+                EXPECT_EQ(types[pool->GetId()], center->GetType());
                 EXPECT_EQ(ids[center->GetId()], center->GetType());
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);

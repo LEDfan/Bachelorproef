@@ -1,4 +1,6 @@
 #include "K12SchoolPopulator.h"
+#include "../../pool/ContactPool.h"
+#include "gengeopop/ContactPool.h"
 #include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
@@ -15,8 +17,8 @@ void K12SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
         m_logger->info("Starting to populate Schools");
 
-        std::set<std::shared_ptr<ContactPool>> found;
-        unsigned int                           pupils = 0;
+        std::set<stride::ContactPool*> found;
+        unsigned int                   pupils = 0;
 
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
@@ -25,7 +27,7 @@ void K12SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const std::vector<std::shared_ptr<ContactPool>>& classes =
+                const std::vector<stride::ContactPool*>& classes =
                     GetContactPoolInIncreasingRadius<K12School>(geoGrid, loc);
 
                 auto dist = m_rnManager.GetGenerator(
@@ -33,13 +35,13 @@ void K12SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 
                 // 2. for every student assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
+                        stride::ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (stride::Person* person : *contactPool) {
                                 if (person->IsStudentCandidate()) {
                                         auto id = dist();
                                         classes[id]->AddMember(person);
-                                        person->SetK12SchoolId(classes[id]->GetID());
+                                        person->SetK12SchoolId(classes[id]->GetId());
                                         pupils++;
                                 }
                         }

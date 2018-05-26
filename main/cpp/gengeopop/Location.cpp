@@ -1,4 +1,5 @@
 #include "Location.h"
+#include "ContactCenter.h"
 #include <cmath>
 #include <util/Exception.h>
 

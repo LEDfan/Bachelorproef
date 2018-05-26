@@ -1,5 +1,6 @@
 #include "GeoGridProtoWriter.h"
 #include "proto/geogrid.pb.h"
+#include <gengeopop/ContactCenter.h>
 #include <iostream>
 #include <omp.h>
 #include <util/Exception.h>
@@ -76,15 +77,15 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
 
         protoContactCenter->set_id(contactCenter->GetId());
         protoContactCenter->set_type(types[contactCenter->GetType()]);
-        for (const auto& pool : *contactCenter) {
+        for (stride::ContactPool* pool : *contactCenter) {
                 WriteContactPool(pool, protoContactCenter->add_pools());
         }
 }
 
-void GeoGridProtoWriter::WriteContactPool(std::shared_ptr<ContactPool>                       contactPool,
+void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                               contactPool,
                                           proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool)
 {
-        protoContactPool->set_id(contactPool->GetID());
+        protoContactPool->set_id(contactPool->GetId());
         for (const auto& person : *contactPool) {
                 protoContactPool->add_people(person->GetId());
                 m_persons_found.insert(person);

@@ -31,7 +31,7 @@ protected:
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 {
         auto householdType = std::make_shared<Household>();
-        auto poolType      = std::make_shared<ContactPool>();
+        auto poolType      = new stride::ContactPool();
         auto personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
         poolType->AddMember(personType.get());
@@ -41,7 +41,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
         auto geoGrid   = std::make_shared<GeoGrid>();
         auto loc1      = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
         auto household = std::make_shared<Household>();
-        household->AddPool(std::make_shared<ContactPool>());
+        household->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household);
         geoGrid->AddLocation(loc1);
 
@@ -62,7 +62,7 @@ TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
         auto householdType = std::make_shared<Household>();
-        auto poolType      = std::make_shared<ContactPool>();
+        auto poolType      = new stride::ContactPool();
         auto personType    = std::make_shared<stride::Person>();
         personType->SetAge(18);
         poolType->AddMember(personType.get());
@@ -73,19 +73,19 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
 
         auto household1 = std::make_shared<Household>();
-        household1->AddPool(std::make_shared<ContactPool>());
+        household1->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household1);
         auto household2 = std::make_shared<Household>();
-        household2->AddPool(std::make_shared<ContactPool>());
+        household2->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household2);
         auto household3 = std::make_shared<Household>();
-        household3->AddPool(std::make_shared<ContactPool>());
+        household3->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household3);
         auto household4 = std::make_shared<Household>();
-        household4->AddPool(std::make_shared<ContactPool>());
+        household4->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household4);
         auto household5 = std::make_shared<Household>();
-        household5->AddPool(std::make_shared<ContactPool>());
+        household5->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household5);
 
         geoGrid->AddLocation(loc1);
@@ -106,7 +106,7 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 
         {
                 auto householdType = std::make_shared<Household>();
-                auto poolType      = std::make_shared<ContactPool>();
+                auto poolType      = new stride::ContactPool();
                 personType1        = std::make_shared<stride::Person>();
                 personType1->SetAge(18);
                 poolType->AddMember(personType1.get());
@@ -115,7 +115,7 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         }
         {
                 auto householdType = std::make_shared<Household>();
-                auto poolType      = std::make_shared<ContactPool>();
+                auto poolType      = new stride::ContactPool();
                 personType2        = std::make_shared<stride::Person>();
                 personType2->SetAge(12);
                 poolType->AddMember(personType2.get());
@@ -129,15 +129,15 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         auto geoGrid   = std::make_shared<GeoGrid>();
         auto loc1      = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
         auto household = std::make_shared<Household>();
-        household->AddPool(std::make_shared<ContactPool>());
+        household->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household);
         geoGrid->AddLocation(loc1);
         auto household2 = std::make_shared<Household>();
-        household2->AddPool(std::make_shared<ContactPool>());
+        household2->AddPool(new stride::ContactPool());
         loc1->AddContactCenter(household2);
         householdPopulator->Apply(geoGrid, config);
 
-        std::map<int, std::vector<std::shared_ptr<ContactPool>>> pools_map;
+        std::map<int, std::vector<stride::ContactPool*>> pools_map;
         pools_map[household->GetPools()[0]->GetUsedCapacity()]  = household->GetPools();
         pools_map[household2->GetPools()[0]->GetUsedCapacity()] = household2->GetPools();
         {

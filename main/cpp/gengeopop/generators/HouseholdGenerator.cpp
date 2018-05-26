@@ -25,7 +25,7 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 int                       locationId = loc_dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 auto household = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
-                household->Fill(geoGridConfig);
+                household->Fill(geoGrid);
                 loc->AddContactCenter(household);
         }
 }

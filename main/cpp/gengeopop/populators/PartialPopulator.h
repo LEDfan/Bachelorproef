@@ -22,12 +22,12 @@ protected:
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 
         template <typename T>
-        std::vector<std::shared_ptr<ContactPool>> GetContactPoolInIncreasingRadius(
-            const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start,
-            double startRadius = 10) const
+        std::vector<stride::ContactPool*> GetContactPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
+                                                                           const std::shared_ptr<Location>& start,
+                                                                           double startRadius = 10) const
         {
-                double                                    currentRadius = startRadius;
-                std::vector<std::shared_ptr<ContactPool>> pools;
+                double                            currentRadius = startRadius;
+                std::vector<stride::ContactPool*> pools;
 
                 while (pools.empty()) {
                         for (const std::shared_ptr<Location>& nearLoc :

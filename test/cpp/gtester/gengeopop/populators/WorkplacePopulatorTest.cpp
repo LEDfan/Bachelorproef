@@ -90,33 +90,33 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
 
         auto workBra1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workBra1->Fill(config);
+        workBra1->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra1);
 
         auto workBra2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workBra2->Fill(config);
+        workBra2->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra2);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
 
         auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workScho1->Fill(config);
+        workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
 
         auto workScho2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workScho2->Fill(config);
+        workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
 
         auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workKor1->Fill(config);
+        workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
 
         auto workKor2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workKor2->Fill(config);
+        workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
         geoGrid->Finalize();
@@ -188,22 +188,22 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
 
         auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workScho1->Fill(config);
+        workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
 
         auto workScho2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workScho2->Fill(config);
+        workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
 
         auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workKor1->Fill(config);
+        workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
 
         auto workKor2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workKor2->Fill(config);
+        workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
         schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
@@ -265,33 +265,33 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
 
         auto workBra1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workBra1->Fill(config);
+        workBra1->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra1);
 
         auto workBra2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workBra2->Fill(config);
+        workBra2->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra2);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
 
         auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workScho1->Fill(config);
+        workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
 
         auto workScho2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workScho2->Fill(config);
+        workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
 
         auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workKor1->Fill(config);
+        workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
 
         auto workKor2 = std::make_shared<Workplace>(config.generated.contactCenters++);
-        workKor2->Fill(config);
+        workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat

@@ -25,5 +25,5 @@ private:
                 UsedCapacity
         };
 
-        std::vector<std::shared_ptr<gengeopop::ContactPool>> m_pools;
+        std::vector<stride::ContactPool*> m_pools;
 };

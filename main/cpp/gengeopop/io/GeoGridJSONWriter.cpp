@@ -1,4 +1,5 @@
 #include "GeoGridJSONWriter.h"
+#include <gengeopop/ContactCenter.h>
 #include <iostream>
 #include <omp.h>
 
@@ -130,10 +131,10 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactCenter(std::shared_pt
         return contactCenter_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(std::shared_ptr<ContactPool> contactPool)
+boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(stride::ContactPool* contactPool)
 {
         boost::property_tree::ptree contactPool_root;
-        contactPool_root.put("id", contactPool->GetID());
+        contactPool_root.put("id", contactPool->GetId());
         boost::property_tree::ptree people;
         for (stride::Person* person : *contactPool) {
                 boost::property_tree::ptree person_root;
