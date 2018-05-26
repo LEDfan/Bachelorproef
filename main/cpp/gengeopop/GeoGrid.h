@@ -157,7 +157,7 @@ public:
         stride::Person* CreatePerson(Args&&... args)
         {
                 m_population->CreatePerson(m_regionId, args...);
-                return &m_population->back(m_regionId);
+                return &m_population->back();
         }
 
         /// Get the population of this GeoGrid

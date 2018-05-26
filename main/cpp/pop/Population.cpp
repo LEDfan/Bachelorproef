@@ -72,7 +72,6 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         if (!regions) {
                 pop->m_regions["Default"] = 0;
-                pop->CreatePartitions(1);
 
                 std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
 
@@ -84,8 +83,6 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                         pop->m_regions[name] = currentId;
                         currentId++;
                 }
-                pop->CreatePartitions(currentId);
-
                 for (const auto& region : configPt.get_child("run.regions")) {
                         std::string name        = region.second.get<std::string>("name");
                         std::string geopop_type = region.second.get<std::string>("geopop_type", "default");
@@ -141,41 +138,18 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
                               unsigned int secondaryCommunityId)
 {
-        if (m_lastRegionId != regionId) {
-                assert(regionId > m_lastRegionId);
-                /**
-                 * From now on (since for now we don't use parallelism to generate the different regions) we will
-                 * insert persons for the next region. To prevent the ContactPools id's to overlap we will calculate
-                 * the previous max ContactPool's ids.
-                 */
-                m_previousRegionMaxId = m_currentRegionMaxId;
-                m_lastRegionId        = regionId;
-                // TODO finalize previous segmentedVector?
+        if (m_currentRegionId != regionId) {
+                assert(regionId > m_currentRegionId);
+                m_regionRanges.SetRange(m_currentStart, regionId);
+                m_currentRegionId = regionId;
+                m_currentStart    = size() - 1;
         }
 
-        // Add the maximum ContactPool's id from the previous region
-        householdId += m_previousRegionMaxId[ContactPoolType::Id::Household];
-        schoolId += m_previousRegionMaxId[ContactPoolType::Id::School];
-        workId += m_previousRegionMaxId[ContactPoolType::Id::Work];
-        primaryCommunityId += m_previousRegionMaxId[ContactPoolType::Id::PrimaryCommunity];
-        secondaryCommunityId += m_previousRegionMaxId[ContactPoolType::Id::SecondaryCommunity];
-
-        m_currentRegionMaxId[ContactPoolType::Id::Household] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::Household], householdId);
-        m_currentRegionMaxId[ContactPoolType::Id::School] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::School], schoolId);
-        m_currentRegionMaxId[ContactPoolType::Id::Work] = max(m_currentRegionMaxId[ContactPoolType::Id::Work], workId);
-        m_currentRegionMaxId[ContactPoolType::Id::PrimaryCommunity] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::PrimaryCommunity], primaryCommunityId);
-        m_currentRegionMaxId[ContactPoolType::Id::SecondaryCommunity] =
-            max(m_currentRegionMaxId[ContactPoolType::Id::SecondaryCommunity], secondaryCommunityId);
-
-        emplace_back(regionId, id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
+        emplace_back(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
 }
 
 void Population::Finalize()
 {
-        util::PartitionedSegmentedVector<Person>::Finalize();
         using namespace ContactPoolType;
 
         // --------------------------------------------------------------
@@ -219,15 +193,15 @@ void Population::Finalize()
         }
 }
 
-const std::unordered_map<std::string, std::size_t> Population::GetRegionIdentifiers() const { return m_regions; }
-const util::SegmentedVector<Person>&               Population::GetRegion(const std::string& region) const
-{
-        return GetRegion(m_regions.at(region));
-}
-const util::SegmentedVector<Person>& Population::GetRegion(const std::size_t& region) const
-{
-        return GetPartition(region);
-}
+// const std::unordered_map<std::string, std::size_t> Population::GetRegionIdentifiers() const { return m_regions; }
+// const util::SegmentedVector<Person>&               Population::GetRegion(const std::string& region) const
+//{
+//        return GetRegion(m_regions.at(region));
+//}
+// const util::SegmentedVector<Person>& Population::GetRegion(const std::size_t& region) const
+//{
+//        return GetPartition(region);
+//}
 
 void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
                               const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,

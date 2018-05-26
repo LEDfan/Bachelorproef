@@ -65,6 +65,19 @@ public:
                 return m_ranges.back();
         }
 
+        /// Set a range, where the end is the end of the container.
+        range_type& SetRange(std::size_t ibegin, const std::size_t& id)
+        {
+                //                if (m_map.find(name) != m_map.end()) {
+                //                        throw std::range_error("RangeIndexer::SetRange> Name is a duplicate: " +
+                //                        name);
+                //                } else {
+                m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.end()));
+                //                        m_map[name] = m_ranges.size() - 1;
+                //                }
+                return m_ranges.back();
+        }
+
         /// Retrieve reference to a range by its subscipt in the indexer.
         range_type& GetRange(std::size_t i) { return m_ranges.at(i); }
 

@@ -39,6 +39,7 @@
 #include <pool/IdSubscriptArray.h>
 #include <spdlog/spdlog.h>
 #include <typeinfo>
+#include <util/RangeIndexer.h>
 #include <vector>
 
 namespace gengeopop {
@@ -50,7 +51,7 @@ namespace stride {
 /**
  * Container for persons in population.
  */
-class Population : public util::PartitionedSegmentedVector<Person>
+class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
@@ -87,10 +88,10 @@ public:
                           unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
                           unsigned int secondaryCommunityId);
 
-        const std::unordered_map<std::string, std::size_t> GetRegionIdentifiers() const;
-
-        const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
-        const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
+        //        const std::unordered_map<std::string, std::size_t> GetRegionIdentifiers() const;
+        //
+        //        const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
+        //        const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
 
         //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
         //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
@@ -105,7 +106,9 @@ public:
         //        };
 
 private:
-        Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(){};
+        Population()
+            : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(),
+              m_regionRanges(*this){};
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
         /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
@@ -148,11 +151,10 @@ private:
         std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
         std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
         std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
-        std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
-        ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
-        ContactPoolType::IdSubscriptArray<unsigned int> m_currentRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
+        util::RangeIndexer<util::SegmentedVector<Person>> m_regionRanges;
+
+        std::size_t m_currentRegionId = 0;
+        std::size_t m_currentStart    = 0;
 };
 
 } // namespace stride
