@@ -26,34 +26,25 @@ class CityNLSpider(scrapy.Spider):
          print("coord")
          yield item
 
-
-    def parseArrondissement(self, response):
-        name = response.css("#firstHeading::text").extract_first()
-        name = name.split(' ')[2]
-        item = response.meta['item']
-
-        prefecture = response.css('tr.mergedrow:nth-child(7) > td:nth-child(2) > a:nth-child(1)::attr(href)').extract_first()
-        item['arrondisement']= name
-        req = scrapy.Request(response.urljoin(prefecture), callback=self.parse_prefecture)
-        req.meta['item'] = item
-        yield req
-
-    def parseDepartment(self, response):
-        name = response.css('#firstHeading::text').extract_first().split(' ')[3]
-        for item in response.css(".mw-parser-output > ol:nth-child(2) > li"):
-            print("\t CHeckin dept")
-            data = {}
-            data["department"] = name
-            url = item.css("a:nth-child(1)::text").extract_first()
-            req = scrapy.Request(response.urljoin(url), callback=self.parseArrondissement)
-            req.meta['item'] = data
-            yield req
-
-
     def parse(self, response):
         print("Parsing")
-        for city in response.css('table.wikitable:nth-child(8) tr'):
-            print("\tcity")
-            url =  city.css('td:nth-child(3) > a::attr(href)').extract_first()
-            req = scrapy.Request(response.urljoin(url), callback=self.parseDepartment)
+        for city in response.css('.wikitable:nth-child(6) tr'):
+            arrondisement = city.css('td:nth-child(3) a::text').extract_first()
+            if arrondisement is not None:
+                arrondisement = str(arrondisement.encode("ascii", 'ignore'))[2:-1]
+            pop = city.css('td:nth-child(4)::text').extract_first()
+            if pop is not None:
+                pop = pop.replace(',', "")
+            chieftown = city.css('td:nth-child(2) a::text').extract_first()
+            url =  city.css('td:nth-child(2) a::attr(href)').extract_first()
+            dep =  city.css('td:nth-child(1) a::text').extract_first()
+            print('url', url)
+            item = {
+                        "chieftown": chieftown,
+                        "population": pop,
+                        "name": arrondisement,
+                        "province": dep
+                    }
+            req = scrapy.Request(response.urljoin(url), callback=self.parse_prefecture)
+            req.meta["item"] = item
             yield req
