@@ -7,8 +7,8 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <utility>
 #include <mapviewer/backends/ContactCenterViewerBackend.h>
+#include <utility>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::GeoGrid>)
@@ -45,7 +45,7 @@ void Map::RegisterQML()
         m_engine->load(QUrl(QStringLiteral("qrc:/main.qml")));
 
         // Save the root context
-        int offset = m_engine->rootObjects().size() - 1;
+        int offset    = m_engine->rootObjects().size() - 1;
         m_rootContext = m_engine->rootObjects()[offset];
         m_qmlBackend  = m_rootContext->findChild<QObject*>("backend");
 }
