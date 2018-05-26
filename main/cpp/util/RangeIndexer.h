@@ -30,8 +30,9 @@ namespace util {
 /**
  * Datastructure to index a container that supports RandomAccessIterators with subranges.
  * @tparam T    Type of the container in whom the subranges are indexed
+ * @tparam Key  Type of the key to access the subranges
  */
-template <typename T>
+template <typename T, typename Key = std::string>
 class RangeIndexer
 {
 public:
@@ -39,10 +40,10 @@ public:
 
 public:
         /// RangeIndexer holds a reference to the conatiner that it indexes.
-        explicit RangeIndexer(T& t) : m_t(t) {}
+        explicit RangeIndexer(T& t) : m_map(), m_ranges(), m_t(t) {}
 
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
-        range_type& SetRange(std::size_t ibegin, std::size_t iend, const std::string& name)
+        range_type& SetRange(std::size_t ibegin, std::size_t iend, const Key& name)
         {
                 if (m_map.find(name) != m_map.end()) {
                         throw std::range_error("RangeIndexer::SetRange> Name is a duplicate: " + name);
@@ -54,7 +55,7 @@ public:
         }
 
         /// Set a range, where the end is the end of the container.
-        range_type& SetRange(std::size_t ibegin, const std::string& name)
+        range_type& SetRange(std::size_t ibegin, const Key& name)
         {
                 if (m_map.find(name) != m_map.end()) {
                         throw std::range_error("RangeIndexer::SetRange> Name is a duplicate: " + name);
@@ -65,33 +66,63 @@ public:
                 return m_ranges.back();
         }
 
-        /// Set a range, where the end is the end of the container.
-        range_type& SetRange(std::size_t ibegin, const std::size_t& id)
-        {
-                //                if (m_map.find(name) != m_map.end()) {
-                //                        throw std::range_error("RangeIndexer::SetRange> Name is a duplicate: " +
-                //                        name);
-                //                } else {
-                m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.end()));
-                //                        m_map[name] = m_ranges.size() - 1;
-                //                }
-                return m_ranges.back();
-        }
-
         /// Retrieve reference to a range by its subscipt in the indexer.
         range_type& GetRange(std::size_t i) { return m_ranges.at(i); }
 
         /// Retrieve reference to a range by its name.
-        range_type& GetRange(const std::string& s)
+        range_type& GetRange(const Key& s)
         {
                 auto i = m_map.at(s);
                 return m_ranges.at(i);
         }
 
 private:
-        std::map<std::string, std::size_t> m_map;    ///< maps names to subscript values.
-        std::vector<range_type>            m_ranges; ///< Holds the ranges.
-        T&                                 m_t;      ///< refers to container in which ranges are defined.
+        std::map<Key, std::size_t> m_map;    ///< maps names to subscript values.
+        std::vector<range_type>    m_ranges; ///< Holds the ranges.
+        T&                         m_t;      ///< refers to container in which ranges are defined.
+};
+
+/**
+ * Datastructure to index a container that supports RandomAccessIterators with subranges.
+ * @tparam T    Type of the container in whom the subranges are indexed
+ * @tparam Key  Type of the key to access the subranges
+ */
+template <typename T>
+class RangeIndexer<T, std::size_t>
+{
+public:
+        using range_type = boost::sub_range<T>;
+
+public:
+        /// RangeIndexer holds a reference to the conatiner that it indexes.
+        explicit RangeIndexer(T& t) : m_ranges(), m_t(t) {}
+
+        /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
+        range_type& SetRange(std::size_t ibegin, std::size_t iend, const std::size_t& id)
+        {
+                if (m_ranges.size() > 0 && id != m_ranges.size()) {
+                        throw std::range_error("Can only append when using std::size_t as key " + id);
+                }
+                m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.begin() + iend));
+                return m_ranges.back();
+        }
+
+        /// Set a range, where the end is the end of the container.
+        range_type& SetRange(std::size_t ibegin, const std::size_t& id)
+        {
+                if (m_ranges.size() > 0 && id != m_ranges.size()) {
+                        throw std::range_error("Can only append when using std::size_t as key " + id);
+                }
+                m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.end()));
+                return m_ranges.back();
+        }
+
+        /// Retrieve reference to a range by its subscipt in the indexer.
+        range_type& GetRange(std::size_t i) { return m_ranges.at(i); }
+
+private:
+        std::vector<range_type> m_ranges; ///< Holds the ranges.
+        T&                      m_t;      ///< refers to container in which ranges are defined.
 };
 
 //-----------------------

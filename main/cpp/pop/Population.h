@@ -151,7 +151,7 @@ private:
         std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
         std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
         std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
-        util::RangeIndexer<util::SegmentedVector<Person>> m_regionRanges;
+        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
 
         std::size_t m_currentRegionId = 0;
         std::size_t m_currentStart    = 0;
