@@ -53,6 +53,14 @@ void CalibrationRunner::DisplayBoxplots(unsigned int step)
         boxplotGenerator.Display(data);
 }
 
+void CalibrationRunner::DisplayBoxplots()
+{
+        Boxplot                  boxplot;
+        std::vector<BoxplotData> data = boxplot.CalculateLastStep(multipleResults);
+        BoxplotGenerator         boxplotGenerator;
+        boxplotGenerator.Display(data);
+}
+
 #endif
 
 } // namespace calibration

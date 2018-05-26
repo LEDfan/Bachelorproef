@@ -25,11 +25,15 @@ public:
         std::vector<BoxplotData> Calculate(const std::map<std::string, std::vector<std::vector<unsigned int>>>& data,
                                            unsigned int step) const;
 
+        /// Compute the information for the last step in a list of testcase results
+        std::vector<BoxplotData> CalculateLastStep(
+            const std::map<std::string, std::vector<std::vector<unsigned int>>>& data) const;
+
         /// Compute the information for a single set of data
-        BoxplotData Calculate(const std::vector<unsigned int>& data, std::string name) const;
+        BoxplotData Calculate(std::vector<unsigned int> data, std::string name) const;
 
 private:
-        double FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int> results)
+        double FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int>& results)
             const; ///< Find the median of values between begin and end in the results[testcase]
 
         std::shared_ptr<spdlog::logger> m_logger; ///< Logger to use for this class

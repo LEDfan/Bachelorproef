@@ -12,10 +12,13 @@ int main(int argc, char* argv[])
         // Parse command line.
         // -----------------------------------------------------------------------------------------
         CmdLine                cmd("calibration", ' ', "1.0");
-        ValueArg<unsigned int> display("d", "display", "Display the boxplots for a specified step", false, 0, "step",
-                                       cmd);
-        SwitchArg              write("w", "write", "Write boxplots to files in the current directory", cmd);
-        ValueArg<std::string>  output("o", "output", "Write the results of the calibration to files", false,
+        ValueArg<unsigned int> displayStep("D", "displayStep", "Display the boxplots for a specified step", false, 0,
+                                           "step", cmd);
+
+        SwitchArg display("d", "display", "Display the boxplots for the last step", cmd);
+
+        SwitchArg             write("w", "write", "Write boxplots to files in the current directory", cmd);
+        ValueArg<std::string> output("o", "output", "Write the results of the calibration to files", false,
                                      "results.txt", "filename", cmd);
         SwitchArg single("s", "single", "Run the simulations with the given seeds to determine the exact values", cmd);
         ValueArg<unsigned int> count("m", "multiple", "The amount of simulations to run for each testcase", false, 0,
@@ -43,7 +46,10 @@ int main(int argc, char* argv[])
                           << std::endl;
                 return 1;
         }
-
+        if (displayStep.isSet() && display.isSet()) {
+                std::cerr << "Please only select one of -d/--display and -D/--displayStep" << std::endl;
+                return 1;
+        }
         std::shared_ptr<CalibrationRunner> calibrationRunner;
         if (configArg.isSet()) {
                 if (testcases.isSet()) {
@@ -76,9 +82,12 @@ int main(int argc, char* argv[])
                 calibrationRunner->WriteResults(output.getValue());
 
 #if Qt5Charts_FOUND
-        if (display.isSet())
+        if (displayStep.isSet()) {
                 calibrationRunner->DisplayBoxplots(display.getValue());
-        else if (write.getValue())
+        } else if (display.isSet()) {
+                calibrationRunner->DisplayBoxplots();
+        }
+        if (write.getValue())
                 calibrationRunner->WriteBoxplots();
 #else
         if (display.isSet() || write.getValue())

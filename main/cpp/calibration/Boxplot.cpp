@@ -10,9 +10,8 @@ namespace calibration {
 
 Boxplot::Boxplot() : m_logger(stride::util::LogUtils::CreateCliLogger("boxplot_m_logger", "boxplot_log.txt")) {}
 
-double Boxplot::FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int> results) const
+double Boxplot::FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int>& results) const
 {
-        std::sort(results.begin(), results.end());
         unsigned long count = end - begin;
         if (count % 2) {
                 return results.at(count / 2 + begin);
@@ -39,6 +38,20 @@ std::vector<BoxplotData> Boxplot::Calculate(const std::map<std::string, std::vec
         }
         return boxplots;
 }
+std::vector<BoxplotData> Boxplot::CalculateLastStep(
+    const std::map<std::string, std::vector<std::vector<unsigned int>>>& data) const
+{
+        std::vector<BoxplotData> boxplots;
+        for (const auto& config : data) {
+                std::vector<unsigned int> results;
+                for (const auto& run : config.second) {
+                        results.push_back(run[run.size() - 1]);
+                }
+                boxplots.push_back(Calculate(results, config.first));
+        }
+        return boxplots;
+}
+
 std::vector<BoxplotData> Boxplot::Calculate(
     const std::map<std::string, std::vector<std::vector<unsigned int>>>& data) const
 {
@@ -62,8 +75,9 @@ std::vector<BoxplotData> Boxplot::Calculate(
         return boxplots;
 }
 
-BoxplotData Boxplot::Calculate(const std::vector<unsigned int>& data, std::string name) const
+BoxplotData Boxplot::Calculate(std::vector<unsigned int> data, std::string name) const
 {
+        std::sort(data.begin(), data.end());
         if (data.size() <= 1) {
                 m_logger->warn("Warning: Could not generate information: not enough data.");
         }

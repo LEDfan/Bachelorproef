@@ -28,6 +28,9 @@ public:
         /// Display the generated boxplots for step 'step' in the simulation to the screen
         void DisplayBoxplots(unsigned int step);
 
+        /// Display the generated boxplots for the last step in the simulation to the screen
+        void DisplayBoxplots();
+
 protected:
         std::vector<std::pair<boost::property_tree::ptree, std::string>> configs; ///< The configs for the testcases
         std::map<std::string, std::vector<std::vector<unsigned int>>>    multipleResults; ///< Results from RunMultiple
