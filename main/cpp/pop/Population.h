@@ -21,14 +21,16 @@
 
 #include "AbstractPopBuilder.h"
 #include "ImportPopBuilder.h"
+#include "RegionSlicer.h"
 #include "pool/ContactPoolSys.h"
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
 #include "util/Any.h"
+#include "util/RNManager.h"
 #include "util/pchheader.h"
 
-#include "util/RNManager.h"
+#include "RegionSlicer.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
@@ -60,7 +62,7 @@ public:
         static std::shared_ptr<Population> Create(const std::string& configString);
 
         /// Create an empty Population with NoBelief policy, used in gengeopop
-        static std::shared_ptr<Population> Create();
+        static std::shared_ptr<Population> Create(unsigned int amountOfRegions = 1);
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -91,6 +93,20 @@ public:
 
         const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
         const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
+
+        //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
+        //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
+        //                util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
+        //                ContactPoolType::IdSubscriptArray> res; for (ContactPoolType::Id typ :
+        //                ContactPoolType::IdList) {
+        //                        res[typ] =
+        //                        util::IteratorPair<util::SegmentedVector<ContactPool>::iterator>(m_pool_sys[typ].GetPartition(region).begin(),
+        //                        m_pool_sys[typ].GetPartition(region).end());
+        //                }
+        //                return res;
+        //        };
+
+        RegionSlicer GetRegionSlicer() { return RegionSlicer(this); }
 
 private:
         Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(){};
@@ -135,12 +151,7 @@ private:
         ContactPoolSys                               m_pool_sys; ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
         std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
-        std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
-        ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
-        ContactPoolType::IdSubscriptArray<unsigned int> m_currentRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
+        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regions
 };
 
 } // namespace stride

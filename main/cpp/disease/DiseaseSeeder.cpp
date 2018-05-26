@@ -77,7 +77,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 }
 
 void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                              std::vector<ContactPool>& immunityPools)
+                              util::PartitionedSegmentedVector<ContactPool>& immunityPools)
 {
         std::vector<double> immunityDistribution;
         const double        linkProbability = 0;

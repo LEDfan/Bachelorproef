@@ -34,16 +34,41 @@ public:
         PartitionedSegmentedVector() : m_partitions(1), m_prefixSums(), m_finalized(false) {}
 
         /// Copy constructor
-        PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&) = delete;
+        PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>& other)
+            : m_partitions(std::move(other.m_partitions)), m_prefixSums(std::move(other.m_prefixSums)),
+              m_finalized(other.m_finalized)
+        {
+                m_partitions = other.m_partitions;
+                m_prefixSums = other.m_prefixSums;
+                m_finalized  = other.m_finalized;
+        };
 
         /// Move constructor
-        PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&&) = delete;
+        PartitionedSegmentedVector(const PartitionedSegmentedVector<T, N>&& other)
+            : m_partitions(std::move(other.m_partitions)), m_prefixSums(std::move(other.m_prefixSums)),
+              m_finalized(other.m_finalized){};
 
         /// Copy assignment
-        PartitionedSegmentedVector& operator=(const PartitionedSegmentedVector<T, N>& other) = delete;
+        PartitionedSegmentedVector& operator=(const PartitionedSegmentedVector<T, N>& other)
+        {
+                if (this != &other) {
+                        m_partitions = other.m_partitions;
+                        m_prefixSums = other.m_prefixSums;
+                        m_finalized  = other.m_finalized;
+                }
+                return *this;
+        };
 
         /// Move assignment
-        PartitionedSegmentedVector& operator=(PartitionedSegmentedVector<T, N>&& other) noexcept = delete;
+        PartitionedSegmentedVector& operator=(PartitionedSegmentedVector<T, N>&& other) noexcept
+        {
+                if (this != &other) {
+                        m_partitions = other.m_partitions;
+                        m_prefixSums = other.m_prefixSums;
+                        m_finalized  = other.m_finalized;
+                }
+                return *this;
+        };
 
         virtual ~PartitionedSegmentedVector() = default;
 
@@ -167,6 +192,8 @@ public:
                 return m_partitions[partitionIndex];
         }
 
+        std::size_t PartitionCount() const { return m_partitions.size(); }
+
         /// Calculates the Indexes for the partitions and prevents partitions from being added or growing
         virtual void Finalize()
         {
@@ -191,6 +218,20 @@ private:
                         throw Exception("Must be finalized");
                 }
                 return std_::lower_bound(m_prefixSums.begin(), m_prefixSums.end(), pos,
+                                         [](const partItIndex& current, std::size_t value) {
+                                                 // - 1 because we are searching for index and prefixSum contains
+                                                 // the size
+                                                 return std::get<1>(current) - 1 < value;
+                                         });
+        }
+
+        /// Find in which partition pos lies
+        typename std::vector<partItIndex>::const_iterator FindPartition(std::size_t pos) const
+        {
+                if (!m_finalized) {
+                        throw Exception("Must be finalized");
+                }
+                return std_::lower_bound(m_prefixSums.cbegin(), m_prefixSums.cend(), pos,
                                          [](const partItIndex& current, std::size_t value) {
                                                  // - 1 because we are searching for index and prefixSum contains
                                                  // the size
