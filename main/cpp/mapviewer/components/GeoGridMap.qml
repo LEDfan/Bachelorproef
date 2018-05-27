@@ -123,7 +123,7 @@ ColumnLayout {
             }
         }
 
-        function addMarker(lat, lon, markerID, size, selected, specialmarker) {
+        function addMarker(lat, lon, region, markerID, size, selected, specialmarker) {
             var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
             var marker = markerComp.createObject()
             marker.sourceItem.width =  size
@@ -137,15 +137,14 @@ ColumnLayout {
             marker.clicked.connect(markerClicked)
             marker.hovered.connect(markerHovered)
             marker.hoveredOff.connect(markerHoveredOff)
-            marker.setID(markerID)
+            marker.setID(region, markerID)
             marker.coordinate.latitude = lat
             marker.coordinate.longitude = lon
             if(selected){
                 marker.sourceItem.color = 'blue'
             }
             map.addMapItem(marker)
-            backend.SaveMarker(markerID, marker)
-//            return marker;
+            backend.SaveMarker(region, markerID, marker)
         }
 
         function addCommute(latFrom, longFrom, latTo, longTo){
@@ -163,20 +162,20 @@ ColumnLayout {
 
         }
 
-        function markerClicked(id, event) {
+        function markerClicked(region, id, event) {
             if(event.modifiers & Qt.ControlModifier){
-                backend.OnExtraMarkerClicked(id)
+                backend.OnExtraMarkerClicked(region, id)
             } else {
-                backend.OnMarkerClicked(id)
+                backend.OnMarkerClicked(region, id)
             }
         }
 
-        function markerHovered(id) {
-            backend.OnMarkerHovered(id)
+        function markerHovered(region, id) {
+            backend.OnMarkerHovered(region, id)
         }
 
-        function markerHoveredOff(id) {
-            backend.OnMarkerHoveredOff(id)
+        function markerHoveredOff(region, id) {
+            backend.OnMarkerHoveredOff(region, id)
         }
 
         function mapClicked(event) {

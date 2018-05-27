@@ -49,7 +49,9 @@ void GenGeoPopController::ReadDataFiles()
 
 #pragma omp section
                 {
+                    if(m_commutingFileName != "") {
                         m_commutesReader = readerFactory.CreateCommutesReader(m_commutingFileName);
+                    }
                 }
 
 #pragma omp section
@@ -58,11 +60,16 @@ void GenGeoPopController::ReadDataFiles()
                 }
         }
 
-        m_subMunicipalitiesReader = readerFactory.CreateSubMunicipalitiesReader(m_subMunicipalitiesFileName);
 
         m_citiesReader->FillGeoGrid(m_geoGrid);
-        m_commutesReader->FillGeoGrid(m_geoGrid);
-        m_subMunicipalitiesReader->FillGeoGrid(m_geoGrid);
+        if(m_commutingFileName != ""){
+                m_commutesReader->FillGeoGrid(m_geoGrid);
+        }
+
+        if(m_subMunicipalitiesFileName != ""){
+                m_subMunicipalitiesReader = readerFactory.CreateSubMunicipalitiesReader(m_subMunicipalitiesFileName);
+                m_subMunicipalitiesReader->FillGeoGrid(m_geoGrid);
+        }
 
         m_geoGridConfig.Calculate(m_geoGrid, m_householdsReader);
 

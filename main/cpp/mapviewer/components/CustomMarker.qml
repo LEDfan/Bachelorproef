@@ -10,9 +10,11 @@ MapQuickItem {
     opacity: 0.6
     zoomLevel: 0.0
     property var markerID: ''
+    property var regionID: ''
     property var prevColor: '#00000000'
 
-    function setID(newID) {
+    function setID(region, newID) {
+        regionID = region
         markerID = newID
     }
 
@@ -24,22 +26,23 @@ MapQuickItem {
         rect.border.color = color
     }
 
-    signal clicked(string id, var mouse)
-    signal hovered(string id)
-    signal hoveredOff(string id)
+    signal clicked(var region, string id, var mouse)
+    signal hovered(var region, string id)
+    signal hoveredOff(var region, string id)
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
         hoverEnabled: true
         onClicked: {
-            parent.clicked(markerID, mouse)
+            console.warn("Clicked", regionID, markerID, mouse)
+            parent.clicked(regionID, markerID, mouse)
             mouse.accepted = true
         }
         onEntered: {
-            parent.hovered(markerID)
+            parent.hovered(regionID, markerID)
         }
         onExited: {
-            parent.hoveredOff(markerID)
+            parent.hoveredOff(regionID, markerID)
         }
     }
 

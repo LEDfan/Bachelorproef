@@ -77,7 +77,7 @@ public:
         /// The ContactPoolSys of the simulator.
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
-        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>> GetGeoGrids() const { return m_geoGrids; }
 
         /// Create Person in the population.
         void Finalize();
@@ -93,7 +93,7 @@ public:
         const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
 
 private:
-        Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(){};
+        Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(){};
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
         /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
@@ -134,7 +134,7 @@ private:
         util::Any                                    m_beliefs;  ///< Holds belief data for the persons.
         ContactPoolSys                               m_pool_sys; ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
-        std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>>          m_geoGrids;        ///< Associated geoGrid may be nullptr
         std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
         std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
         ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
