@@ -59,11 +59,21 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
         geoGridConfig.input.fraction_1865_years_active =
             m_region_pt.get<double>("geopop_gen.fraction_1865_years_active");
 
-        GenGeoPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager,
-                                                m_region_pt.get<std::string>("geopop_gen.cities_file"),
-                                                m_region_pt.get<std::string>("geopop_gen.commuting_file"),
-                                                m_region_pt.get<std::string>("geopop_gen.household_file"),
-                                                m_region_pt.get<std::string>("geopop_gen.submunicipalities_file"));
+        std::string commutesFile;
+        // Check if given
+        if (m_region_pt.count("geopop_gen.commuting_file")) {
+                commutesFile = m_region_pt.get<std::string>("geopop_gen.commuting_file");
+        }
+
+        std::string submunicipalitiesFile;
+        // Check if given
+        if (m_region_pt.count("geopop_gen.submunicipalities_file")) {
+                submunicipalitiesFile = m_region_pt.get<std::string>("geopop_gen.submunicipalities_file");
+        }
+
+        GenGeoPopController genGeoPopController(
+            stride_logger, geoGridConfig, m_rn_manager, m_region_pt.get<std::string>("geopop_gen.cities_file"),
+            commutesFile, m_region_pt.get<std::string>("geopop_gen.household_file"), submunicipalitiesFile);
 
         genGeoPopController.UsePopulation(pop, regionId);
 
@@ -90,7 +100,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
         genGeoPopController.GenPop();
         stride_logger->info("Finished Gen-Pop");
 
-        pop->m_geoGrid = genGeoPopController.GetGeoGrid();
+        pop->m_geoGrids.push_back(genGeoPopController.GetGeoGrid());
 
         return pop;
 }

@@ -1,8 +1,6 @@
 if(Qt5_FOUND)
     set(GUILAUNCHER_SRC
         main.cpp
-        GuiLauncher.cpp
-        GuiLauncher.h
         Launcher.cpp
         Launcher.h
     )

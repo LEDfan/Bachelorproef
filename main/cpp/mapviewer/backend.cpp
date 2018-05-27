@@ -22,20 +22,15 @@
 #include <util/Stopwatch.h>
 
 Backend::Backend(QObject* parent)
-    : QObject(parent), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_commutes(), m_selection(),
-      m_unselection()
+    : QObject(parent), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection()
 {
 }
 
-Backend::Backend(const Backend&)
-    : QObject(), m_grid(std::make_shared<gengeopop::GeoGrid>()), m_markers(), m_commutes(), m_selection(),
-      m_unselection()
-{
-}
+Backend::Backend(const Backend&) : QObject(), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection() {}
 
 Backend& Backend::operator=(const Backend& b)
 {
-        m_grid      = b.m_grid;
+        m_grids     = b.m_grids;
         m_selection = b.m_selection;
         return *this;
 }
@@ -47,17 +42,19 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
         gengeopop::GeoGridReaderFactory           factory;
         std::shared_ptr<gengeopop::GeoGridReader> reader = factory.CreateReader(filename);
         try {
-                SetGeoGrid(reader->Read());
+                SetGeoGrids({reader->Read()});
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
         }
 }
 
-void Backend::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
+void Backend::SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids)
 {
-        m_grid = grid;
-        m_grid->Finalize();
+        m_grids = grids;
+        for (auto grid : m_grids) {
+                grid->Finalize();
+        }
         m_selection.clear();
         m_unselection.clear();
         m_commutes.clear();
@@ -77,8 +74,8 @@ void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
                             geoGridReaderFactory.CreateReader(path.c_str());
 
                         try {
-                                m_grid = reader->Read();
-                                m_grid->Finalize();
+                                m_grids.push_back(reader->Read());
+                                m_grids[0]->Finalize();
                         } catch (const std::exception& e) {
                                 qWarning() << QString("Error: ") + e.what();
                         }
@@ -96,7 +93,8 @@ void Backend::PlaceMarkers()
 
         // Place the commutes of the selection
         if (m_showCommutes) {
-                for (const auto& loc : m_selection) {
+                for (const auto& locID : m_selection) {
+                        auto loc = GetLocationInRegion(locID);
                         for (auto commute : loc->GetIncomingCommuningCities()) {
                                 auto otherCity = commute.first;
                                 AddCommuteLine(otherCity->GetCoordinate(), loc->GetCoordinate(), commute.second);
@@ -105,23 +103,32 @@ void Backend::PlaceMarkers()
         }
 
         // Place the new markers
-        for (const std::shared_ptr<gengeopop::Location>& loc : *m_grid) {
-                bool         selected   = m_selection.find(loc) != m_selection.end();
-                bool         special    = !loc->GetSubMunicipalities().empty();
-                unsigned int population = special ? loc->GetPopulationOfSubmunicipalities() : loc->GetPopulation();
-                PlaceMarker(loc->GetCoordinate(), std::to_string(loc->GetID()), population, selected, special);
+        int i = 0;
+        for (auto grid : m_grids) {
+                for (const std::shared_ptr<gengeopop::Location>& loc : *grid) {
+                        bool         selected = m_selection.find({i, loc->GetID()}) != m_selection.end();
+                        bool         special  = !loc->GetSubMunicipalities().empty();
+                        unsigned int population =
+                            special ? loc->GetPopulationOfSubmunicipalities() : loc->GetPopulation();
+                        PlaceMarker(loc->GetCoordinate(), i, loc->GetID(), population, selected, special);
+                }
+                i++;
         }
 }
 
-void Backend::OnMarkerClicked(unsigned int idOfClicked)
+void Backend::OnMarkerClicked(int region, unsigned int idOfClicked)
 {
-        auto loc = m_grid->GetById(idOfClicked);
+        // TODO
+        try {
+                auto loc = m_grids[region]->GetById(idOfClicked);
 
-        ClearSelection();
-        ToggleSelectionOfLocation(loc);
+                ClearSelection();
+                ToggleSelectionOfLocation(region, loc);
 
-        EmitLocations();
-        UpdateColorOfMarkers();
+                EmitLocations();
+                UpdateColorOfMarkers();
+        } catch (...) {
+        }
 }
 
 void Backend::SetObjects(QObject* map)
@@ -130,15 +137,15 @@ void Backend::SetObjects(QObject* map)
         PlaceMarkers();
 }
 
-void Backend::PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected,
+void Backend::PlaceMarker(Coordinate coordinate, int region, int id, unsigned int population, bool selected,
                           bool specialmarker)
 {
         QVariant returnVal;
         double   size = std::min(50.0, 10 + population * 0.0015);
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, coordinate.latitude),
-                                  Q_ARG(QVariant, coordinate.longitude), Q_ARG(QVariant, QString(id.c_str())),
+                                  Q_ARG(QVariant, coordinate.longitude), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
                                   Q_ARG(QVariant, size), Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
-        m_markers[id] = qvariant_cast<QObject*>(returnVal);
+        m_markers[{region, id}] = qvariant_cast<QObject*>(returnVal);
 }
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
@@ -149,7 +156,7 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
         gengeopop::GeoGridWriterFactory           geoGridWriterFactory;
         std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.CreateWriter(filename);
         try {
-                writer->Write(m_grid, outputFile);
+                //                writer->Write(m_grid, outputFile); // TODO
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
@@ -168,12 +175,12 @@ void Backend::ClearSelection()
 
 void Backend::ClearSelectionAndRender()
 {
-        for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())];
+        for (std::pair<int, int> locIDs : m_selection) {
+                auto* marker = m_markers[locIDs];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
         }
-        for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())];
+        for (const auto& locIDs : m_unselection) {
+                auto* marker = m_markers[locIDs];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
         }
         m_selection.clear();
@@ -183,49 +190,69 @@ void Backend::ClearSelectionAndRender()
         UpdateColorOfMarkers();
 }
 
-void Backend::EmitLocations() { emit LocationsSelected(m_selection); }
-
-void Backend::OnExtraMarkerClicked(unsigned int idOfClicked)
+void Backend::EmitLocations()
 {
-        const auto& loc = m_grid->GetById(idOfClicked);
-        ToggleSelectionOfLocation(loc);
+        std::set<std::shared_ptr<gengeopop::Location>> m_TempSelection;
+        for (auto s : m_selection) {
+                m_TempSelection.insert(GetLocationInRegion(s));
+        }
+        emit LocationsSelected(m_TempSelection);
+}
 
+void Backend::OnExtraMarkerClicked(int region, unsigned int idOfClicked)
+{
+        try {
+                const auto& loc = m_grids[region]->GetById(idOfClicked);
+                ToggleSelectionOfLocation(region, loc);
+
+        } catch (...) {
+        }
         EmitLocations();
         UpdateColorOfMarkers();
 }
 
-void Backend::ToggleSelectionOfLocation(std::shared_ptr<gengeopop::Location> loc)
+void Backend::ToggleSelectionOfLocation(int region, std::shared_ptr<gengeopop::Location> loc)
 {
         const auto& subMun = loc->GetSubMunicipalities();
-        if (m_selection.find(loc) == m_selection.end()) {
-                m_selection.emplace(std::move(loc));
+        if (m_selection.find(std::pair<int, int>(region, loc->GetID())) == m_selection.end()) {
+                m_selection.emplace(region, loc->GetID());
                 // Add subminicipalities
                 for (const auto& mun : subMun) {
-                        m_selection.insert(mun);
+                        m_selection.insert({region, mun->GetID()});
                 }
-                m_unselection.erase(loc);
+                m_unselection.erase({region, loc->GetID()});
         } else {
-                m_selection.erase(loc);
+                m_selection.erase({region, loc->GetID()});
                 // Add subminicipalities
                 for (const auto& mun : subMun) {
-                        m_selection.erase(mun);
-                        m_unselection.emplace(mun);
+                        m_selection.erase({region, mun->GetID()});
+                        m_unselection.emplace(region, mun->GetID());
                 }
-                m_unselection.emplace(std::move(loc));
+                m_unselection.emplace(region, loc->GetID());
         }
 }
 
 void Backend::SelectArea(double slat, double slong, double elat, double elong)
 {
+        m_unselection.clear();
+        auto previousSelection = m_selection;
         try {
-                m_unselection.clear();
-                std::set<std::shared_ptr<gengeopop::Location>> previousSelection = m_selection;
-                m_selection = m_grid->InBox(slong, slat, elong, elat);
+                int i = 0;
+                for (auto grid : m_grids) {
+                        std::set<std::shared_ptr<gengeopop::Location>> m_gridSselectionOriginal =
+                            grid->InBox(slong, slat, elong, elat);
+                        std::set<std::pair<int, int>> m_gridSelection;
+                        for (auto e : m_gridSselectionOriginal) {
+                                m_gridSelection.insert(std::pair<int, int>{i, e->GetID()});
+                        }
+                        std::set_union(m_gridSelection.begin(), m_gridSelection.end(), m_selection.begin(),
+                                       m_selection.end(), std::inserter(m_selection, m_selection.end()));
+                        i++;
+                }
                 std::set_difference(previousSelection.begin(), previousSelection.end(), m_selection.begin(),
                                     m_selection.end(), std::inserter(m_unselection, m_unselection.end()));
-        } catch (std::exception& e) {
+        } catch (...) {
                 // Can happen when geogrid is not yet loaded
-                std::cout << e.what() << std::endl;
                 return;
         }
 
@@ -235,29 +262,30 @@ void Backend::SelectArea(double slat, double slong, double elat, double elong)
 
 void Backend::UpdateColorOfMarkers()
 {
-        for (const std::shared_ptr<gengeopop::Location>& loc : m_unselection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())];
+        for (const auto& locID : m_unselection) {
+                auto* marker = m_markers[locID];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
                 // Hide all connections between unselection and unselection, and selection and unselection
                 if (m_showCommutes) {
-                        for (const auto& otherLoc : *m_grid) {
-                                HideCommuteBetween(loc, otherLoc);
-                        }
+                        //                        for (const auto& otherLoc : *m_grid) {
+                        //                                HideCommuteBetween(loc, otherLoc);
+                        //                        }
                 }
         }
         m_unselection.clear();
-        for (const std::shared_ptr<gengeopop::Location>& loc : m_selection) {
-                auto* marker = m_markers[std::to_string(loc->GetID())];
+        for (const auto& locID : m_selection) {
+                auto* marker = m_markers[locID];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
                 // Show the commutes
-                if (m_showCommutes) {
-                        for (const auto& commute : loc->GetOutgoingCommuningCities()) {
-                                // If the other city is also selected
-                                if (m_selection.find(commute.first) != m_selection.end()) {
-                                        ShowCommute(loc, commute.first);
-                                }
-                        }
-                }
+                //                if (m_showCommutes) {
+                //                        auto loc = GetLocationInRegion(locID);
+                //                        for (const auto& commute : loc->GetOutgoingCommuningCities()) {
+                //                                // If the other city is also selected
+                //                                if (m_selection.find(commute.first) != m_selection.end()) {
+                //                                        ShowCommute(loc, commute.first);
+                //                                }
+                //                        }
+                //                }
         }
 }
 
@@ -272,8 +300,12 @@ QObject* Backend::AddCommuteLine(Coordinate from, Coordinate to, double /* amoun
 
 void Backend::SelectAll()
 {
-        for (const auto& it : *m_grid) {
-                m_selection.emplace(it);
+        int i = 0;
+        for (auto grid : m_grids) {
+                for (const auto& it : *grid) {
+                        m_selection.emplace(i, it->GetID());
+                }
+                i++;
         }
 
         EmitLocations();
@@ -326,18 +358,22 @@ void Backend::ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1,
         }
 }
 
-void Backend::SaveMarker(QString id, QObject* marker) { m_markers[id.toStdString()] = marker; }
+void Backend::SaveMarker(int region, int id, QObject* marker) { m_markers[{region, id}] = marker; }
 
 void Backend::UpdateAllHealthColors()
 {
-        for (auto loc : *m_grid) {
-                SetHealthColorOf(loc);
+        int i = 0;
+        for (auto grid : m_grids) {
+                for (auto loc : *grid) {
+                        SetHealthColorOf(i, loc);
+                }
+                i++;
         }
 }
 
-void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
+void Backend::SetHealthColorOf(int region, const std::shared_ptr<gengeopop::Location>& loc)
 {
-        auto*  marker        = m_markers[std::to_string(loc->GetID())];
+        auto*  marker        = m_markers[{region, loc->GetID()}];
         double infectedRatio = loc->GetInfectedRatio();
 
         // Check if it is a submuncipality
@@ -362,46 +398,60 @@ void Backend::SetHealthColorOf(const std::shared_ptr<gengeopop::Location>& loc)
                                   Q_ARG(QVariant, QString::fromStdString(color)));
 }
 
-void Backend::OnMarkerHovered(unsigned int idOfHover)
+void Backend::OnMarkerHovered(int region, unsigned int idOfHover)
 {
-        auto loc = m_grid->GetById(idOfHover);
-        // Check if not in selection
+        try {
+                auto loc = m_grids[region]->GetById(idOfHover);
 
-        if (m_selection.find(loc) == m_selection.end()) {
-                QObject* marker = m_markers[std::to_string(loc->GetID())];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "blue"));
+                // Check if not in selection
 
-                // Change colors of submunicipalities
-                const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
-                for (const auto& mun : sub) {
-                        QObject* markerMun = m_markers[std::to_string(mun->GetID())];
-                        QMetaObject::invokeMethod(markerMun, "setBorder", Qt::DirectConnection,
-                                                  Q_ARG(QVariant, "blue"));
+                if (m_selection.find({region, idOfHover}) == m_selection.end()) {
+                        QObject* marker = m_markers[{region, loc->GetID()}];
+                        QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "blue"));
+
+                        // Change colors of submunicipalities
+                        const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
+                        for (const auto& mun : sub) {
+                                QObject* markerMun = m_markers[{region, mun->GetID()}];
+                                QMetaObject::invokeMethod(markerMun, "setBorder", Qt::DirectConnection,
+                                                          Q_ARG(QVariant, "blue"));
+                        }
                 }
+        } catch (...) {
         }
 }
 
-void Backend::OnMarkerHoveredOff(unsigned int idOfHover)
+void Backend::OnMarkerHoveredOff(int region, unsigned int idOfHover)
 {
-        auto loc = m_grid->GetById(idOfHover);
-        // Check if not in selection
-        if (m_selection.find(loc) == m_selection.end()) {
-                QObject* locMarker = m_markers[std::to_string(loc->GetID())];
-                QMetaObject::invokeMethod(locMarker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
+        try {
+                auto loc = m_grids[region]->GetById(idOfHover);
+                // Check if not in selection
+                if (m_selection.find({region, idOfHover}) == m_selection.end()) {
+                        QObject* locMarker = m_markers[{region, loc->GetID()}];
+                        QMetaObject::invokeMethod(locMarker, "setBorder", Qt::DirectConnection,
+                                                  Q_ARG(QVariant, "black"));
 
-                // Change colors of submunicipalities
-                const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
-                for (const auto& mun : sub) {
-                        // Save the old color
-                        QObject* marker = m_markers[std::to_string(mun->GetID())];
-                        if (m_selection.find(mun) == m_selection.end()) {
-                                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
-                                                          Q_ARG(QVariant, "black"));
-                        } else {
-                                // Back to selection color
-                                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
-                                                          Q_ARG(QVariant, "purple"));
+                        // Change colors of submunicipalities
+                        const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
+                        for (const auto& mun : sub) {
+                                // Save the old color
+                                QObject* marker = m_markers[{region, loc->GetID()}];
+                                if (m_selection.find({region, mun->GetID()}) == m_selection.end()) {
+                                        QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
+                                                                  Q_ARG(QVariant, "black"));
+                                } else {
+                                        // Back to selection color
+                                        QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
+                                                                  Q_ARG(QVariant, "purple"));
+                                }
                         }
                 }
+        } catch (std::exception e) {
+                std::cout << e.what() << std::endl;
         }
+}
+
+std::shared_ptr<gengeopop::Location> Backend::GetLocationInRegion(std::pair<int, int> ids)
+{
+        return m_grids[ids.first]->GetById(ids.second);
 }

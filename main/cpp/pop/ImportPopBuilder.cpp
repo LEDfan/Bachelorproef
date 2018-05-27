@@ -55,8 +55,10 @@ shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, 
 
         reader->UsePopulation(pop, regionId);
 
-        pop->m_geoGrid = reader->Read();
-        pop->m_geoGrid->Finalize();
+        pop->m_geoGrids.push_back(reader->Read());
+        for (auto grid : pop->m_geoGrids) {
+                grid->Finalize();
+        }
 
         return pop;
 }

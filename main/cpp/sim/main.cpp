@@ -114,28 +114,45 @@ int main(int argc, char** argv)
                         }
                         configPt.sort();
 
-                        std::shared_ptr<BaseController> controller = nullptr;
+                        std::unique_ptr<BaseController> controller = nullptr;
+                        QQmlApplicationEngine*          engine     = nullptr;
 
-                        // TODO @Niels see new upstream switches
-
-                        std::shared_ptr<QQmlApplicationEngine> engine = nullptr;
                         if (execArg.getValue() == "sim") {
-                                controller = std::make_shared<CliController>(configPt);
+                                controller = std::make_unique<CliController>(configPt);
                         } else {
-                                std::shared_ptr<GuiController> temp = std::make_shared<GuiController>(configPt);
-                                engine                              = temp->GetEngine();
-                                controller                          = temp;
+                                auto temp  = std::make_unique<GuiController>(configPt);
+                                engine     = temp->GetEngine();
+                                controller = std::move(temp);
+                        }
+                        controller->RegisterViewers();
+
+                        std::unique_ptr<std::thread> thread = nullptr;
+                        if (execArg.getValue() == "sim") {
+                                thread = std::make_unique<std::thread>([&controller]() { controller->Control(); });
                         }
 
                         if (show_mapviewer.getValue()) {
 #if Qt5_FOUND
-                                controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
+                                if (!engine) {
+                                        Q_INIT_RESOURCE(qml);
+                                        int             i = 0;
+                                        QGuiApplication app(i, nullptr);
+                                        auto            engine = std::make_unique<QQmlApplicationEngine>();
+                                        controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(),
+                                                                                       engine.get());
+                                        app.exec();
+                                } else {
+                                        controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
+                                }
 #else
                                 std::cerr << "Can't run with mapviewer when Qt is not found" << std::endl;
 #endif
                         }
-                        controller->RegisterViewers();
-                        controller->Control();
+                        if (execArg.getValue() == "sim") {
+                                thread->join();
+                        } else {
+                                controller->Control();
+                        }
                 }
                 // -----------------------------------------------------------------------------------------
                 // If geopop ...
