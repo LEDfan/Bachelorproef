@@ -191,7 +191,12 @@ void Backend::ClearSelectionAndRender()
 }
 
 void Backend::EmitLocations()
-{ /*emit LocationsSelected(m_selection);*/
+{
+        std::set<std::shared_ptr<gengeopop::Location> > m_TempSelection;
+        for (auto s : m_selection){
+                m_TempSelection.insert(GetLocationInRegion(s));
+        }
+        emit LocationsSelected(m_TempSelection);
 }
 
 void Backend::OnExtraMarkerClicked(int region, unsigned int idOfClicked)
@@ -360,8 +365,9 @@ void Backend::UpdateAllHealthColors()
         int i = 0;
         for (auto grid : m_grids) {
                 for (auto loc : *grid) {
-                        SetHealthColorOf(i++, loc);
+                        SetHealthColorOf(i, loc);
                 }
+                i++;
         }
 }
 
