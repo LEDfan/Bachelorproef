@@ -27,7 +27,7 @@ public:
          * Changes the geogrid to the given one. Redraws the markers on the map.
          * @param grid The grid we want to change to.
          */
-        void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
+        void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid> > grids);
 
         Q_INVOKABLE
         void SaveMarker(QString id, QObject* marker);
@@ -51,27 +51,27 @@ public:
          * that correspons to the clicked marker.
          * @param idOfClicked The id of the marker that was clicked.
          */
-        void OnMarkerClicked(unsigned int idOfClicked);
+        void OnMarkerClicked(int region, unsigned int idOfClicked);
 
         Q_INVOKABLE
         /**
          * Adds the location of the marker to the selection
          * @param idOfClicked
          */
-        void OnExtraMarkerClicked(unsigned int idOfClicked);
+        void OnExtraMarkerClicked(int region, unsigned int idOfClicked);
 
         Q_INVOKABLE
         /**
          * Handles the action that is needed when a marker is hovered over.
          * @param idOfHover id of marker we hover over
          */
-        void OnMarkerHovered(unsigned int idOfHover);
+        void OnMarkerHovered(int region, unsigned int idOfHover);
         Q_INVOKABLE
         /**
          * Handles the action that is needed when a marker is no longer hovered over.
          * @param idOfHover id of marker we hovered over
          */
-        void OnMarkerHoveredOff(unsigned int idOfHover);
+        void OnMarkerHoveredOff(int region, unsigned int idOfHover);
 
         Q_INVOKABLE
         /**
@@ -121,7 +121,7 @@ signals:
 private:
         double   m_colorExponent = 0.15;    ///< We use this exponent to make the color change not linear
         QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
-        std::shared_ptr<gengeopop::GeoGrid> m_grid;
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_grids;
         std::map<std::string, QObject*>     m_markers; ///< Reference to the markers so we do not need to search
         std::map<std::tuple<unsigned int, unsigned int>, QObject*>
                                                        m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
@@ -134,7 +134,7 @@ private:
          * Places a marker at the given coordinate
          * @Param specialmarker Whether or not to display a special marker
          */
-        void PlaceMarker(Coordinate coordinate, std::string id, unsigned int population, bool selected,
+        void PlaceMarker(Coordinate coordinate, int region, std::string id, unsigned int population, bool selected,
                          bool specialmarker);
 
         /**

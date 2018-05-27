@@ -22,7 +22,7 @@ public:
          * Shows the given geogrid in the mapviewer. Places the markers.
          * @param grid The grid we want to show
          */
-        void SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid);
+        void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grid);
 
         /// Force the markers on the map to be updated
         void ForceUpdateMarkers();

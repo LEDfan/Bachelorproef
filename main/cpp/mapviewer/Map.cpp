@@ -76,11 +76,11 @@ void Map::ForceUpdateMarkers()
         }
 }
 
-void Map::SetGeoGrid(std::shared_ptr<gengeopop::GeoGrid> grid)
+void Map::SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids)
 {
-        if (m_qmlBackend != nullptr && grid != nullptr) {
+        if (m_qmlBackend != nullptr) {
                 Backend* backendClass = qobject_cast<Backend*>(m_qmlBackend);
-                backendClass->SetGeoGrid(grid);
+                backendClass->SetGeoGrids(grids);
                 m_setGrid = true;
         }
 }
