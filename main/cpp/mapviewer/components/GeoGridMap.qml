@@ -145,7 +145,6 @@ ColumnLayout {
             }
             map.addMapItem(marker)
             backend.SaveMarker(region, markerID, marker)
-//            return marker;
         }
 
         function addCommute(latFrom, longFrom, latTo, longTo){
