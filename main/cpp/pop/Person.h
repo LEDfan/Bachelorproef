@@ -22,12 +22,15 @@
 #include "disease/Health.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
+#include "pool/TravellerProfile.h"
 
 #include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 
 class Belief;
+
+class Population;
 
 /**
  * Store and handle person data.
@@ -37,18 +40,18 @@ class Person
 public:
         /// Default construction (for population vector).
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0, 0, 0, 0, 0, 0},
-              m_in_pools(false), m_belief(nullptr)
+            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false),
+              m_region(0), m_pool_ids{0, 0, 0, 0, 0, 0}, m_in_pools(false), m_belief(nullptr)
         {
         }
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
                unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-               Health health = Health(), double /*risk_averseness*/ = 0, Belief* bp = nullptr)
-            : m_id(id), m_age(age), m_gender('M'), m_health(health),
-              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
-                                                  workId,      primaryCommunityId, secondaryCommunityId},
+               std::size_t region, Health health = Health(), double /*risk_averseness*/ = 0, Belief* bp = nullptr)
+            : m_id(id), m_age(age), m_gender('M'), m_health(health), m_is_participant(false),
+              m_region(region), m_pool_ids{householdId, k12SchoolId,        collegeId,
+                                           workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true), m_belief(bp)
         {
                 // TODO m_in_pools: shouldn't this check if every id is not 0?
@@ -97,7 +100,8 @@ public:
         void SetBelief(Belief* belief) { m_belief = belief; };
 
         /// Update the health status and presence in contactpools.
-        void Update(bool isWorkOff, bool isSchoolOff);
+        void Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerProfile> travellerProfile,
+                    std::shared_ptr<Population> population);
 
         ///
         void Update(Person* p);
@@ -169,6 +173,7 @@ private:
         char         m_gender;         ///< The gender.
         Health       m_health;         ///< Health info for this person.
         bool         m_is_participant; ///< Is participating in the social contact study
+        std::size_t  m_region;         ///< The region
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
         ///< pool of that type (e.g. school and work are mutually exclusive.
@@ -177,7 +182,10 @@ private:
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;
 
-        Belief* m_belief; ///< Health beliefs related data (raw pointer intentional).
+        Belief*      m_belief;                      ///< Health beliefs related data (raw pointer intentional).
+        bool         m_isTravelling        = false; ///< Whether this person is travelling
+        unsigned int m_travelDaysRemaining = 0;     ///< How many days of the travel left
+        ContactPool* m_visitingContactPool = nullptr;
 };
 
 } // namespace stride

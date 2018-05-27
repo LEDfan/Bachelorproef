@@ -90,6 +90,8 @@ public:
         /// Iterator to end of persons
         const_iterator cend() const { return m_members.cend(); }
 
+        void removeMember(Person* pPerson);
+
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, size_t> SortMembers();

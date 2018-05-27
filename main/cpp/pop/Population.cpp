@@ -109,6 +109,7 @@ std::shared_ptr<Population> Population::Create()
         };
         auto r = make_shared<make_shared_enabler>();
         r->m_belief_pt.add("name", "NoBelief");
+        r->m_regions["Default"] = 0;
         return r;
 }
 
@@ -138,16 +139,18 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
         if (m_currentRegionId != regionId) {
+                // TODO this is only executed for the not latest regions
                 assert(regionId > m_currentRegionId);
-                m_regionRanges.SetRange(m_currentStart, regionId);
+                m_regionRanges.SetRange(m_currentStart, m_currentRegionId);
                 m_currentRegionId = regionId;
                 m_currentStart    = size() - 1;
         }
 
-        emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId, secondaryCommunityId);
+        emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId, secondaryCommunityId,
+                     regionId);
 }
 
-// const std::unordered_map<std::string, std::size_t> Population::GetRegionIdentifiers() const { return m_regions; }
+const std::unordered_map<std::string, std::size_t>& Population::GetRegionIdentifiers() const { return m_regions; }
 // const util::SegmentedVector<Person>&               Population::GetRegion(const std::string& region) const
 //{
 //        return GetRegion(m_regions.at(region));
@@ -162,7 +165,16 @@ ContactPool* Population::CreateContactPool(std::size_t regionId, ContactPoolType
         assert(regionId >= m_currentRegionId);
 
         m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
-        return &m_pool_sys[typeId].back();
+
+        auto r = &m_pool_sys[typeId].back();
+
+        if (typeId == ContactPoolType::Id::Work) {
+                m_work[regionId] = r;
+        } else if (typeId == ContactPoolType::Id::PrimaryCommunity) {
+                m_primaryCommunities[regionId] = r;
+        }
+
+        return r;
 }
 
 void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,

@@ -40,7 +40,7 @@ using namespace ContactLogMode;
 Sim::Sim()
     : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
       m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(),
-      m_transmission_profile()
+      m_transmission_profile(), m_travellerProfile(nullptr)
 {
 }
 
@@ -80,7 +80,7 @@ void Sim::TimeStep()
         // depending on health status, work/school day.
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
-                        population[i].Update(isWorkOff, isSchoolOff);
+                        population[i].Update(isWorkOff, isSchoolOff, m_travellerProfile, m_population);
                 }
 
                 // Infector updates individuals for contacts & transmission within each pool.

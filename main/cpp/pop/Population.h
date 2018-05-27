@@ -87,27 +87,26 @@ public:
 
         ContactPool* CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId);
 
-        //        const std::unordered_map<std::string, std::size_t> GetRegionIdentifiers() const;
-        //
-        //        const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
-        //        const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
+        const std::unordered_map<std::string, std::size_t>& GetRegionIdentifiers() const;
 
-        //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
-        //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
-        //                util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
-        //                ContactPoolType::IdSubscriptArray> res; for (ContactPoolType::Id typ :
-        //                ContactPoolType::IdList) {
-        //                        res[typ] =
-        //                        util::IteratorPair<util::SegmentedVector<ContactPool>::iterator>(m_pool_sys[typ].GetPartition(region).begin(),
-        //                        m_pool_sys[typ].GetPartition(region).end());
-        //                }
-        //                return res;
-        //        };
+        /// TODO replace me by more efficient system
+        ContactPool* GetWorkInRegion(std::size_t regionId)
+        {
+                // ugly hack to get a contactpool fast
+                return m_work[regionId];
+        }
+
+        /// TODO replace me by more efficient system
+        ContactPool* GetPrimaryCommunityInRegion(std::size_t regionId)
+        {
+                // ugly hack to get a contactpool fast
+                return m_primaryCommunities[regionId];
+        }
 
 private:
         Population()
             : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrid(nullptr), m_regions(),
-              m_regionRanges(*this){};
+              m_regionRanges(*this), m_work(), m_primaryCommunities(){};
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
         /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
@@ -151,6 +150,9 @@ private:
         std::shared_ptr<gengeopop::GeoGrid>          m_geoGrid;        ///< Associated geoGrid may be nullptr
         std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
+        // tmp
+        std::map<std::size_t, ContactPool*> m_work;
+        std::map<std::size_t, ContactPool*> m_primaryCommunities;
 
         std::size_t m_currentRegionId      = 0;
         std::size_t m_currentStart         = 0;
