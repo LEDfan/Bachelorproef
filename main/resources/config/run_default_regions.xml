@@ -13,7 +13,7 @@
     <immunity_profile>None</immunity_profile>
     <immunity_rate>0.8</immunity_rate>
     <local_information_policy>NoLocalInformation</local_information_policy>
-    <num_days>50</num_days>
+    <num_days>10</num_days>
     <num_participants_survey>10</num_participants_survey>
     <num_threads>1</num_threads>
     <output_adopted>false</output_adopted>
@@ -36,6 +36,19 @@
     <vaccine_profile>Random</vaccine_profile>
     <vaccine_rate>0.8</vaccine_rate>
     <regions>
+        <region>
+            <name>WAAL</name>
+            <geopop_type>generate</geopop_type>
+            <geopop_gen>
+                <population_size>666000</population_size>
+                <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+                <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+                <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+                <fraction_1865_years_active>0.75</fraction_1865_years_active>
+                <cities_file>wallonia_cities.csv</cities_file>
+                <household_file>households_flanders.csv</household_file>
+            </geopop_gen>
+        </region>
         <region>
             <name>NL</name>
             <geopop_type>generate</geopop_type>
