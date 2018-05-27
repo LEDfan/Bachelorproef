@@ -11,7 +11,7 @@ std::string SecondaryCommunity::GetType() const { return "Secondary Community"; 
 void SecondaryCommunity::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {
         if (m_pools.empty()) {
-                AddPool(geoGrid->CreateContactPool(GetPoolSize(), Id::PrimaryCommunity));
+                AddPool(geoGrid->CreateContactPool(Id::PrimaryCommunity));
         }
 }
 

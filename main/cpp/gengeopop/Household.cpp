@@ -15,8 +15,5 @@ unsigned int Household::GetPoolSize() const { return 15; }
 
 std::string Household::GetType() const { return "Household"; }
 
-void Household::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
-{
-        AddPool(geoGrid->CreateContactPool(GetPoolSize(), Id::Household));
-}
+void Household::Fill(const std::shared_ptr<GeoGrid>& geoGrid) { AddPool(geoGrid->CreateContactPool(Id::Household)); }
 } // namespace gengeopop

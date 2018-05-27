@@ -19,7 +19,6 @@
  * Header for the Vaccinator class.
  */
 
-#include "core/ContactPool.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>

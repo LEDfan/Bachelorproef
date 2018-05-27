@@ -91,7 +91,6 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 }
         }
 
-        pop->Finalize();
         return pop;
 }
 
@@ -148,51 +147,6 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
         emplace_back(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
 }
 
-void Population::Finalize()
-{
-        using namespace ContactPoolType;
-
-        // --------------------------------------------------------------
-        // Determine maximum pool ids in population.
-        // --------------------------------------------------------------
-        IdSubscriptArray<unsigned int> max_ids{0U};
-        for (const auto& p : *this) {
-                for (Id typ : IdList) {
-                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
-                }
-        }
-        // --------------------------------------------------------------
-        // Initialize poolSys with empty ContactPools (even for Id=0).
-        // --------------------------------------------------------------
-        for (Id typ : IdList) {
-                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
-                        m_pool_sys[typ].emplace_back(ContactPool(i, typ));
-                }
-        }
-
-        for (auto& contactPools : m_pool_sys) {
-                contactPools.Finalize();
-        }
-
-        // --------------------------------------------------------------
-        // Insert persons (pointers) in their contactpools. Having Id 0
-        // means "not belonging pool of that type" (e.g. school/ work -
-        // cannot belong to both, or e.g. out-of-work).
-        //
-        // Pools are uniquely identified by (typ, subscript) and a Person
-        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
-        // Defensive measure: we have a pool for Id 0 and leave it empty.
-        // --------------------------------------------------------------
-        for (auto& p : *this) {
-                for (Id typ : IdList) {
-                        const auto poolId = p.GetPoolId(typ);
-                        if (poolId > 0) {
-                                m_pool_sys[typ][poolId].AddMember(&p);
-                        }
-                }
-        }
-}
-
 // const std::unordered_map<std::string, std::size_t> Population::GetRegionIdentifiers() const { return m_regions; }
 // const util::SegmentedVector<Person>&               Population::GetRegion(const std::string& region) const
 //{
@@ -202,6 +156,14 @@ void Population::Finalize()
 //{
 //        return GetPartition(region);
 //}
+
+ContactPool* Population::CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId)
+{
+        assert(regionId >= m_currentRegionId);
+
+        m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
+        return &m_pool_sys[typeId].back();
+}
 
 void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
                               const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,

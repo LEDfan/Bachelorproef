@@ -1,8 +1,8 @@
 #pragma once
 
 #include <QtCore/QAbstractListModel>
-#include <gengeopop/ContactPool.h>
 #include <gengeopop/Location.h>
+#include <pool/ContactPool.h>
 
 class ContactPoolListModel : public QAbstractListModel
 {

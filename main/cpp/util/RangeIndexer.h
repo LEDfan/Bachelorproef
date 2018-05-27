@@ -101,7 +101,7 @@ public:
         range_type& SetRange(std::size_t ibegin, std::size_t iend, const std::size_t& id)
         {
                 if (m_ranges.size() > 0 && id != m_ranges.size()) {
-                        throw std::range_error("Can only append when using std::size_t as key " + id);
+                        throw std::range_error("Can only append when using std::size_t as key " + std::to_string(id));
                 }
                 m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.begin() + iend));
                 return m_ranges.back();
@@ -111,7 +111,7 @@ public:
         range_type& SetRange(std::size_t ibegin, const std::size_t& id)
         {
                 if (m_ranges.size() > 0 && id != m_ranges.size()) {
-                        throw std::range_error("Can only append when using std::size_t as key " + id);
+                        throw std::range_error("Can only append when using std::size_t as key " + std::to_string(id));
                 }
                 m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.end()));
                 return m_ranges.back();

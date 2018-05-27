@@ -1,6 +1,4 @@
 #include "K12SchoolPopulator.h"
-#include "../../pool/ContactPool.h"
-#include "gengeopop/ContactPool.h"
 #include "gengeopop/K12School.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>

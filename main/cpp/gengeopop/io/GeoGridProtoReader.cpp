@@ -26,11 +26,10 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw stride::util::Exception("Failed to parse Proto file");
         }
-        std::shared_ptr<GeoGrid> geoGrid;
         if (m_population) {
-                geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
+                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
         } else {
-                geoGrid = std::make_shared<GeoGrid>();
+                m_geoGrid = std::make_shared<GeoGrid>();
         }
 #pragma omp parallel
 #pragma omp single
@@ -42,7 +41,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
                         {
 #pragma omp critical
                                 {
-                                        person                    = ParsePerson(geoGrid, protoPerson);
+                                        person                    = ParsePerson(protoPerson);
                                         m_people[person->GetId()] = person;
                                 }
                         }
@@ -61,18 +60,18 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
                                 e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        geoGrid->AddLocation(std::move(loc));
+                                        m_geoGrid->AddLocation(std::move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        AddCommutes(geoGrid);
-        AddSubMunicipalities(geoGrid);
+        AddCommutes(m_geoGrid);
+        AddSubMunicipalities(m_geoGrid);
         m_people.clear();
         m_commutes.clear();
         m_subMunicipalities.clear();
-        return geoGrid;
+        return m_geoGrid;
 } // namespace gengeopop
 
 std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
@@ -185,14 +184,17 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         }
         e->Rethrow();
         return result;
-} // namespace gengeopop
+}
 
 stride::ContactPool* GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize,
     stride::ContactPoolType::Id type)
 {
-        auto                 id     = static_cast<unsigned int>(protoContactPool.id());
-        stride::ContactPool* result = new stride::ContactPool(id, type); // TODO onwerhsip
+        // Don't use the id of the ContactPool but the let the Population create an id
+        stride::ContactPool* result;
+
+#pragma omp critical
+        result = m_geoGrid->CreateContactPool(type);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto person_id = protoContactPool.people(idx);
@@ -203,8 +205,7 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
         return result;
 }
 
-stride::Person* GeoGridProtoReader::ParsePerson(const std::shared_ptr<GeoGrid>& geoGrid,
-                                                const proto::GeoGrid_Person&    protoPerson)
+stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
         auto id                   = protoPerson.id();
         auto age                  = protoPerson.age();
@@ -214,8 +215,8 @@ stride::Person* GeoGridProtoReader::ParsePerson(const std::shared_ptr<GeoGrid>& 
         auto primaryCommunityId   = protoPerson.primarycommunity();
         auto secondaryCommunityId = protoPerson.secondarycommunity();
 
-        return geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
-                                     secondaryCommunityId);
+        return m_geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
+                                       secondaryCommunityId);
 }
 
 } // namespace gengeopop

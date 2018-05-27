@@ -1,6 +1,5 @@
 #include "CollegePopulator.h"
 #include "gengeopop/College.h"
-#include "gengeopop/ContactPool.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>

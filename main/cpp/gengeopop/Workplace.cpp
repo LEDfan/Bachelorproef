@@ -13,9 +13,6 @@ unsigned int Workplace::GetPoolSize() const { return 20; }
 
 unsigned int Workplace::GetMaxPools() const { return 1; }
 
-void Workplace::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
-{
-        AddPool(geoGrid->CreateContactPool(GetPoolSize(), Id::Work));
-}
+void Workplace::Fill(const std::shared_ptr<GeoGrid>& geoGrid) { AddPool(geoGrid->CreateContactPool(Id::Work)); }
 
 } // namespace gengeopop

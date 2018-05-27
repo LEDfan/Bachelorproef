@@ -7,7 +7,6 @@ set(GENGEOPOP_LIB
         PrimaryCommunity.cpp
         SecondaryCommunity.cpp
         ContactCenter.cpp
-        ContactPool.cpp
         GeoGrid.cpp
         College.cpp
         Household.cpp

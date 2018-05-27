@@ -1,7 +1,6 @@
 #pragma once
 
 #include <gengeopop/ContactCenter.h>
-#include <gengeopop/ContactPool.h>
 #include <gengeopop/Coordinate.h>
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/io/proto/geogrid.pb.h>

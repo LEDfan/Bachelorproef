@@ -27,11 +27,10 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                 throw stride::util::Exception(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
-        std::shared_ptr<GeoGrid> geoGrid;
         if (m_population) {
-                geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
+                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
         } else {
-                geoGrid = std::make_shared<GeoGrid>();
+                m_geoGrid = std::make_shared<GeoGrid>();
         }
         auto people = root.get_child("persons");
 #pragma omp parallel
@@ -43,7 +42,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                         {
 #pragma omp critical
                                 {
-                                        person                    = ParsePerson(it->second.get_child(""), geoGrid);
+                                        person                    = ParsePerson(it->second.get_child(""));
                                         m_people[person->GetId()] = person;
                                 }
                         }
@@ -62,18 +61,18 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                                 e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        geoGrid->AddLocation(std::move(loc));
+                                        m_geoGrid->AddLocation(std::move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        AddSubMunicipalities(geoGrid);
-        AddCommutes(geoGrid);
+        AddSubMunicipalities(m_geoGrid);
+        AddCommutes(m_geoGrid);
         m_commutes.clear();
         m_people.clear();
         m_subMunicipalities.clear();
-        return geoGrid;
+        return m_geoGrid;
 } // namespace gengeopop
 
 std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptree& location)
@@ -190,9 +189,9 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 stride::ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool,
                                                          unsigned int poolSize, stride::ContactPoolType::Id typeId)
 {
-        auto                 id     = boost::lexical_cast<unsigned int>(contactPool.get<std::string>("id"));
-        stride::ContactPool* result = new stride::ContactPool(id, typeId);
-        auto                 people = contactPool.get_child("people");
+        // Don't use the id of the ContactPool but the let the Population create an id
+        auto result = m_geoGrid->CreateContactPool(typeId);
+        auto people = contactPool.get_child("people");
 
         for (auto it = people.begin(); it != people.end(); it++) {
                 auto person_id = boost::lexical_cast<unsigned int>(it->second.get<std::string>(""));
@@ -206,8 +205,7 @@ stride::ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::p
         return result;
 }
 
-stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree&    person,
-                                               const std::shared_ptr<GeoGrid>& geoGrid)
+stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& person)
 {
         auto        id                 = boost::lexical_cast<unsigned int>(person.get<std::string>("id"));
         auto        age                = boost::lexical_cast<unsigned int>(person.get<std::string>("age"));
@@ -218,8 +216,8 @@ stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree&    p
         auto        primaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("PrimaryCommunity"));
         auto secondaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("SecondaryCommunity"));
 
-        return geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
-                                     secondaryCommunityId);
+        return m_geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
+                                       secondaryCommunityId);
 }
 
 } // namespace gengeopop

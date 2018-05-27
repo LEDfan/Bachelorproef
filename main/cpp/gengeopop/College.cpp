@@ -17,7 +17,7 @@ void College::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {
         for (std::size_t i = 0; i < GetMaxPools(); ++i) {
 
-                AddPool(geoGrid->CreateContactPool(GetPoolSize(), Id::School));
+                AddPool(geoGrid->CreateContactPool(Id::School));
                 // TODO College
         }
 }

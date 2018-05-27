@@ -57,7 +57,7 @@ public:
         // ==================================================================
         using value_type     = T;
         using size_type      = std::size_t;
-        using self_type      = SegmentedVector<T, N>;
+        using self_type      = SegmentedVector<T, N, Safe>;
         using iterator       = SVIterator<T, N, Safe, T*, T&, false>;
         using const_iterator = SVIterator<T, N, Safe>;
 

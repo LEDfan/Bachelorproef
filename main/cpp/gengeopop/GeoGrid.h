@@ -8,7 +8,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "ContactPool.h"
+#include "../pool/ContactPool.h"
 #include "KdTree.h"
 #include "Location.h"
 
@@ -160,7 +160,8 @@ public:
                 return &m_population->back();
         }
 
-        stride::ContactPool* CreateContactPool(std::size_t pool_id, stride::ContactPoolType::Id type);
+        /// Create a ContactPool of the given type and return a non-owning pointer
+        stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
 
         /// Get the population of this GeoGrid
         std::shared_ptr<stride::Population> GetPopulation();

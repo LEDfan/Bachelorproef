@@ -22,6 +22,7 @@
 #include "AbstractPopBuilder.h"
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
+#include <pool/ContactPoolType.h>
 
 namespace stride {
 

@@ -30,6 +30,6 @@ namespace stride {
 /// a util::PartitionedSegmentedVector with for each region a util::SegmentedVector with all contactpools.
 /// The ContactPoolSys container is an std::array extended to be subscriptable
 /// with the enum class of the pool types.
-using ContactPoolSys = ContactPoolType::IdSubscriptArray<util::PartitionedSegmentedVector<ContactPool>>;
+using ContactPoolSys = ContactPoolType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
 
 } // namespace stride

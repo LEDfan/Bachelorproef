@@ -51,10 +51,17 @@ public:
         /// What we 'll use most often and where we can have a default and
         /// initialize all array elements to the same value.
         /// e.g.    IdSubscriptArray<unsigned int> m(1U);
-        explicit IdSubscriptArray(T t = T())
+        explicit IdSubscriptArray(T t)
         {
                 for (auto typ : IdList) {
                         this->operator[](typ) = t;
+                }
+        }
+
+        explicit IdSubscriptArray()
+        {
+                for (auto typ : IdList) {
+                        this->operator[](typ) = T();
                 }
         }
 

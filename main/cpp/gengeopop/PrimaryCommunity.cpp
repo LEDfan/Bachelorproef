@@ -10,7 +10,7 @@ std::string PrimaryCommunity::GetType() const { return "Primary Community"; }
 void PrimaryCommunity::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {
         if (m_pools.empty()) {
-                AddPool(geoGrid->CreateContactPool(GetPoolSize(), Id::PrimaryCommunity));
+                AddPool(geoGrid->CreateContactPool(Id::PrimaryCommunity));
         }
 }
 

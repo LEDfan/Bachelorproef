@@ -20,6 +20,7 @@ private:
             const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
         stride::ContactPool* ParseContactPool(const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool,
                                               unsigned int poolSize, stride::ContactPoolType::Id typeId);
-        stride::Person* ParsePerson(const std::shared_ptr<GeoGrid>& protoPerson, const proto::GeoGrid_Person& person);
+        stride::Person*      ParsePerson(const proto::GeoGrid_Person& person);
+        std::shared_ptr<GeoGrid> m_geoGrid;
 };
 } // namespace gengeopop

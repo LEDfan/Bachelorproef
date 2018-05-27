@@ -80,13 +80,12 @@ public:
 
         std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 
-        /// Create Person in the population.
-        void Finalize();
-
         /// New Person in the population.
         void CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
                           unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
                           unsigned int secondaryCommunityId);
+
+        ContactPool* CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId);
 
         //        const std::unordered_map<std::string, std::size_t> GetRegionIdentifiers() const;
         //
@@ -153,8 +152,9 @@ private:
         std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
 
-        std::size_t m_currentRegionId = 0;
-        std::size_t m_currentStart    = 0;
+        std::size_t m_currentRegionId      = 0;
+        std::size_t m_currentStart         = 0;
+        std::size_t m_currentContactPoolId = 0;
 };
 
 } // namespace stride
