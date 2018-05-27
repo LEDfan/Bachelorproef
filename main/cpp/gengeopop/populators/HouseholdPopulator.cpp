@@ -9,8 +9,6 @@
 
 namespace gengeopop {
 
-// HouseholdPopulator::HouseholdPopulator(stride::util::RNManager& rn_manager) : PartialPopulator(rn_manager) {}
-
 void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         m_logger->info("Starting to populate Households");
@@ -27,10 +25,8 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         stride::ContactPool* householdType =
                             geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
                         for (stride::Person* personType : *householdType) {
-                                auto person = geoGrid->CreatePerson(
-                                    current_person_id++, personType->GetAge(), household->GetId(),
-                                    personType->GetK12SchoolId(), personType->GetCollegeId(), personType->GetWorkId(),
-                                    personType->GetPrimaryCommunityId(), personType->GetSecondaryCommunityId());
+                                auto person = geoGrid->CreatePerson(current_person_id++, personType->GetAge(),
+                                                                    contactPool->GetId(), 0, 0, 0, 0, 0);
                                 contactPool->AddMember(person);
                         }
                 }

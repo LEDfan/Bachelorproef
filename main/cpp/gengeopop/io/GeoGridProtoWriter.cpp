@@ -77,7 +77,6 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
 
         protoContactCenter->set_id(contactCenter->GetId());
         protoContactCenter->set_type(types[contactCenter->GetType()]);
-        std::cout << "ContactCenter: type " << contactCenter->GetType() << std::endl;
         for (stride::ContactPool* pool : *contactCenter) {
                 WriteContactPool(pool, protoContactCenter->add_pools());
         }
@@ -86,11 +85,9 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
 void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                               contactPool,
                                           proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool)
 {
-        std::cout << "ContactCenter: id" << contactPool->GetId() << std::endl;
         protoContactPool->set_id(contactPool->GetId());
         for (const auto& person : *contactPool) {
                 protoContactPool->add_people(person->GetId());
-                std::cout << "Person " << person->GetId() << " in contactpool " << contactPool->GetId() << std::endl;
                 m_persons_found.insert(person);
         }
 }
