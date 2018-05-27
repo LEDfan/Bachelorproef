@@ -264,12 +264,13 @@ void Backend::UpdateColorOfMarkers()
 {
         for (const auto& locID : m_unselection) {
                 auto* marker = m_markers[locID];
+                auto loc = GetLocationInRegion(locID);
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
                 // Hide all connections between unselection and unselection, and selection and unselection
                 if (m_showCommutes) {
-                        //                        for (const auto& otherLoc : *m_grid) {
-                        //                                HideCommuteBetween(loc, otherLoc);
-                        //                        }
+                    for (const auto& otherLoc : *(m_grids[locID.first])) {
+                            HideCommuteBetween(locID.first, loc, otherLoc);
+                    }
                 }
         }
         m_unselection.clear();
@@ -277,15 +278,15 @@ void Backend::UpdateColorOfMarkers()
                 auto* marker = m_markers[locID];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
                 // Show the commutes
-                //                if (m_showCommutes) {
-                //                        auto loc = GetLocationInRegion(locID);
-                //                        for (const auto& commute : loc->GetOutgoingCommuningCities()) {
-                //                                // If the other city is also selected
-                //                                if (m_selection.find(commute.first) != m_selection.end()) {
-                //                                        ShowCommute(loc, commute.first);
-                //                                }
-                //                        }
-                //                }
+                if (m_showCommutes) {
+                        auto loc = GetLocationInRegion(locID);
+                        for (const auto& commute : loc->GetOutgoingCommuningCities()) {
+                                // If the other city is also selected
+                                if (m_selection.find({locID.first, commute.first->GetID()}) != m_selection.end()) {
+                                        ShowCommute(locID.first, loc, commute.first);
+                                }
+                        }
+                }
         }
 }
 
@@ -326,28 +327,30 @@ void Backend::SetShowCommutes(bool value)
         PlaceMarkers();
 }
 
-void Backend::HideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+void Backend::HideCommuteBetween(int region,
+                                 const std::shared_ptr<gengeopop::Location>& loc1,
                                  const std::shared_ptr<gengeopop::Location>& loc2)
 {
-        std::tuple<unsigned int, unsigned int> key(loc1->GetID(), loc2->GetID());
+        std::tuple<int, unsigned int, unsigned int> key(region, loc1->GetID(), loc2->GetID());
         if (m_commutes.find(key) != m_commutes.end()) {
                 QObject* commuteLine = m_commutes.find(key)->second;
                 HideCommuteLine(commuteLine);
         }
 
-        std::tuple<unsigned int, unsigned int> keyReversed(loc2->GetID(), loc1->GetID());
+        std::tuple<int, unsigned int, unsigned int> keyReversed(region, loc2->GetID(), loc1->GetID());
         if (m_commutes.find(keyReversed) != m_commutes.end()) {
                 QObject* commuteLine = m_commutes.find(keyReversed)->second;
                 HideCommuteLine(commuteLine);
         }
 }
 
-void Backend::ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1,
+void Backend::ShowCommute(int region,
+                          const std::shared_ptr<gengeopop::Location>& loc1,
                           const std::shared_ptr<gengeopop::Location>& loc2)
 {
         QVariant                               retVal;
         QObject*                               commuteLine = nullptr;
-        std::tuple<unsigned int, unsigned int> key(loc1->GetID(), loc2->GetID());
+        std::tuple<int, unsigned int, unsigned int> key(region, loc1->GetID(), loc2->GetID());
         if (m_commutes.find(key) != m_commutes.end()) {
                 commuteLine = m_commutes.find(key)->second;
                 QMetaObject::invokeMethod(commuteLine, "show", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal));
