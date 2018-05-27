@@ -10,20 +10,22 @@
 #include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridProtoWriter.h>
 #include <gtest/gtest.h>
+#include <pool/ContactPoolType.h>
 
-std::map<int, stride::Person*> persons_found;
+std::map<int, stride::Person*>                             persons_found;
+std::map<std::pair<int, stride::ContactPoolType::Id>, int> persons_pools;
 using namespace gengeopop;
 
-void CompareContactPool(std::shared_ptr<ContactPool>                             contactPool,
+void CompareContactPool(stride::ContactPool*                                     contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool)
 {
-        EXPECT_EQ(contactPool->GetID(), protoContactPool.id());
         ASSERT_EQ(protoContactPool.people_size(), (contactPool->end() - contactPool->begin()));
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 auto            personId = protoContactPool.people(idx);
                 stride::Person* person   = contactPool->begin()[idx];
                 EXPECT_EQ(person->GetId(), personId);
-                persons_found[personId] = person;
+                persons_found[personId]                                         = person;
+                persons_pools[std::make_pair(personId, contactPool->GetType())] = contactPool->GetId();
         }
 }
 
@@ -33,8 +35,8 @@ void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCe
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
-            {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {"Secondary Community", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
             {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
@@ -42,16 +44,12 @@ void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCe
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
         EXPECT_EQ(types[contactCenter->GetType()], protoContactCenter.type());
         ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->GetPools().size());
-        std::map<int, std::shared_ptr<ContactPool>>                      idToPool;
-        std::map<int, proto::GeoGrid_Location_ContactCenter_ContactPool> idToProtoPool;
-        for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
-                auto protoContactPool                = protoContactCenter.pools(idx);
-                auto contactPool                     = contactCenter->GetPools()[idx];
-                idToPool[contactPool->GetID()]       = contactPool;
-                idToProtoPool[protoContactPool.id()] = std::move(protoContactPool);
-        }
-        for (auto& contactPoolPair : idToPool) {
-                CompareContactPool(contactPoolPair.second, idToProtoPool[contactPoolPair.first]);
+
+        // Currently no tests with more than one contactpool
+        if (contactCenter->GetPools().size() == 1) {
+                auto protoContactPool = protoContactCenter.pools(0);
+                auto contactPool      = contactCenter->GetPools()[0];
+                CompareContactPool(contactPool, protoContactPool);
         }
 }
 
@@ -105,11 +103,18 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(std::string(1, person->GetGender()), protoPerson.gender());
-        EXPECT_EQ(person->GetK12SchoolId(), protoPerson.school());
-        EXPECT_EQ(person->GetHouseholdId(), protoPerson.household());
-        EXPECT_EQ(person->GetWorkId(), protoPerson.workplace());
-        EXPECT_EQ(person->GetPrimaryCommunityId(), protoPerson.primarycommunity());
-        EXPECT_EQ(person->GetSecondaryCommunityId(), protoPerson.secondarycommunity());
+        EXPECT_EQ(persons_pools[std::make_pair(protoPerson.id(), stride::ContactPoolType::Id::College)],
+                  person->GetCollegeId());
+        EXPECT_EQ(persons_pools[std::make_pair(protoPerson.id(), stride::ContactPoolType::Id::K12School)],
+                  person->GetK12SchoolId());
+        EXPECT_EQ(persons_pools[std::make_pair(protoPerson.id(), stride::ContactPoolType::Id::Household)],
+                  person->GetHouseholdId());
+        EXPECT_EQ(persons_pools[std::make_pair(protoPerson.id(), stride::ContactPoolType::Id::Work)],
+                  person->GetWorkId());
+        EXPECT_EQ(persons_pools[std::make_pair(protoPerson.id(), stride::ContactPoolType::Id::PrimaryCommunity)],
+                  person->GetPrimaryCommunityId());
+        EXPECT_EQ(persons_pools[std::make_pair(protoPerson.id(), stride::ContactPoolType::Id::SecondaryCommunity)],
+                  person->GetSecondaryCommunityId());
 }
 
 void compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, proto::GeoGrid& protoGrid)
@@ -126,6 +131,7 @@ void compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, proto::GeoGrid& protoGrid)
                 ComparePerson(protoPerson);
         }
         persons_found.clear();
+        persons_pools.clear();
 }
 
 void CompareGeoGrid(std::shared_ptr<GeoGrid> geoGrid)
@@ -166,36 +172,36 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
 
         auto school = std::make_shared<K12School>(0);
         location->AddContactCenter(school);
-        auto schoolPool = std::make_shared<ContactPool>(2, school->GetPoolSize());
+        auto schoolPool = new stride::ContactPool(2, stride::ContactPoolType::Id::K12School);
         school->AddPool(schoolPool);
 
         auto community = std::make_shared<PrimaryCommunity>(1);
         location->AddContactCenter(community);
-        auto communityPool = std::make_shared<ContactPool>(3, community->GetPoolSize());
+        auto communityPool = new stride::ContactPool(3, stride::ContactPoolType::Id::PrimaryCommunity);
         community->AddPool(communityPool);
 
         auto secondaryCommunity = std::make_shared<SecondaryCommunity>(2);
         location->AddContactCenter(secondaryCommunity);
-        auto secondaryCommunityPool = std::make_shared<ContactPool>(7, secondaryCommunity->GetPoolSize());
+        auto secondaryCommunityPool = new stride::ContactPool(7, stride::ContactPoolType::Id::SecondaryCommunity);
         secondaryCommunity->AddPool(secondaryCommunityPool);
 
         auto college = std::make_shared<College>(3);
         location->AddContactCenter(college);
-        auto collegePool = std::make_shared<ContactPool>(4, college->GetPoolSize());
+        auto collegePool = new stride::ContactPool(4, stride::ContactPoolType::Id::College);
         college->AddPool(collegePool);
 
         auto household = std::make_shared<Household>(4);
         location->AddContactCenter(household);
-        auto householdPool = std::make_shared<ContactPool>(5, household->GetPoolSize());
+        auto householdPool = new stride::ContactPool(5, stride::ContactPoolType::Id::Household);
         household->AddPool(householdPool);
 
         auto workplace = std::make_shared<Workplace>(5);
         location->AddContactCenter(workplace);
-        auto workplacePool = std::make_shared<ContactPool>(6, workplace->GetPoolSize());
+        auto workplacePool = new stride::ContactPool(6, stride::ContactPoolType::Id::Work);
         workplace->AddPool(workplacePool);
 
         geoGrid->AddLocation(location);
-        stride::Person* person = geoGrid->CreatePerson(1, 18, 4, 2, 6, 3, 7);
+        stride::Person* person = geoGrid->CreatePerson(1, 18, 5, 2, 4, 6, 3, 7);
         communityPool->AddMember(person);
         schoolPool->AddMember(person);
         secondaryCommunityPool->AddMember(person);

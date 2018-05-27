@@ -61,21 +61,19 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
 
         std::string commutesFile;
         // Check if given
-        if(m_region_pt.count("geopop_gen.commuting_file")){
+        if (m_region_pt.count("geopop_gen.commuting_file")) {
                 commutesFile = m_region_pt.get<std::string>("geopop_gen.commuting_file");
         }
 
         std::string submunicipalitiesFile;
         // Check if given
-        if(m_region_pt.count("geopop_gen.submunicipalities_file")){
+        if (m_region_pt.count("geopop_gen.submunicipalities_file")) {
                 submunicipalitiesFile = m_region_pt.get<std::string>("geopop_gen.submunicipalities_file");
         }
 
-        GenGeoPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager,
-                                                m_region_pt.get<std::string>("geopop_gen.cities_file"),
-                                                commutesFile,
-                                                m_region_pt.get<std::string>("geopop_gen.household_file"),
-                                                submunicipalitiesFile);
+        GenGeoPopController genGeoPopController(
+            stride_logger, geoGridConfig, m_rn_manager, m_region_pt.get<std::string>("geopop_gen.cities_file"),
+            commutesFile, m_region_pt.get<std::string>("geopop_gen.household_file"), submunicipalitiesFile);
 
         genGeoPopController.UsePopulation(pop, regionId);
 

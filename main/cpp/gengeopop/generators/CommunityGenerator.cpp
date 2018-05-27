@@ -42,11 +42,11 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 if (communityId < amountOfCommunities) {
                         auto community = std::make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
-                        community->Fill(geoGridConfig);
+                        community->Fill(geoGrid);
                         loc->AddContactCenter(community);
                 } else {
                         auto community = std::make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
-                        community->Fill(geoGridConfig);
+                        community->Fill(geoGrid);
                         loc->AddContactCenter(community);
                 }
         }

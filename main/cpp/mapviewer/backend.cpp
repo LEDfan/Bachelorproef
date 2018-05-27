@@ -192,8 +192,8 @@ void Backend::ClearSelectionAndRender()
 
 void Backend::EmitLocations()
 {
-        std::set<std::shared_ptr<gengeopop::Location> > m_TempSelection;
-        for (auto s : m_selection){
+        std::set<std::shared_ptr<gengeopop::Location>> m_TempSelection;
+        for (auto s : m_selection) {
                 m_TempSelection.insert(GetLocationInRegion(s));
         }
         emit LocationsSelected(m_TempSelection);

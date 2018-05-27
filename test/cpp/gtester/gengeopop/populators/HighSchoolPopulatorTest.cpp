@@ -42,7 +42,7 @@ TEST(CollegePopulatorTest, NoStudents)
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 0;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         auto location = *geoGrid->begin();
 
@@ -52,19 +52,19 @@ TEST(CollegePopulatorTest, NoStudents)
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
         auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
-        collegeBra->Fill(config);
+        collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
         auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
-        collegeScho->Fill(config);
+        collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
         auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
-        collegeKort->Fill(config);
+        collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
         geoGrid->Finalize();
@@ -87,7 +87,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         auto location = *geoGrid->begin();
 
@@ -97,19 +97,19 @@ TEST(CollegePopulatorTest, NotCommuting)
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
         auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
-        collegeBra->Fill(config);
+        collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
         auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
-        collegeScho->Fill(config);
+        collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
         auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
-        collegeKort->Fill(config);
+        collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
         geoGrid->Finalize();
@@ -205,7 +205,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3, config);
+        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3);
 
         auto location = *geoGrid->begin();
 
@@ -213,13 +213,13 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
         auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
-        collegeScho->Fill(config);
+        collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
         auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
-        collegeKort->Fill(config);
+        collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
         schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
@@ -265,24 +265,24 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
         auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
-        collegeBra->Fill(config);
+        collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
         auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
-        collegeScho->Fill(config);
+        collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
         auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
-        collegeKort->Fill(config);
+        collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat

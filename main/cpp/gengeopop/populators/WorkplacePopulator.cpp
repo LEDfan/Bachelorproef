@@ -1,4 +1,5 @@
 #include "WorkplacePopulator.h"
+#include "../../pool/ContactPool.h"
 #include "../Workplace.h"
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
@@ -51,7 +52,7 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
                 // 2. for every worker assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        const std::shared_ptr<ContactPool>& contactPool = household->GetPools()[0];
+                        stride::ContactPool* contactPool = household->GetPools()[0];
                         for (stride::Person* person : *contactPool) {
                                 if (person->IsWorkableCandidate()) {
                                         bool isStudent =
@@ -86,8 +87,8 @@ void WorkplacePopulator::CalculateFractionCommutingStudents()
 void WorkplacePopulator::CalculateWorkplacesInCity()
 {
         for (const std::shared_ptr<Location>& loc : *m_geoGrid) {
-                const auto&                               Workplaces = loc->GetContactCentersOfType<Workplace>();
-                std::vector<std::shared_ptr<ContactPool>> contactPools;
+                const auto&                       Workplaces = loc->GetContactCentersOfType<Workplace>();
+                std::vector<stride::ContactPool*> contactPools;
 
                 for (const auto& Workplace : Workplaces) {
                         contactPools.insert(contactPools.end(), Workplace->begin(), Workplace->end());
@@ -112,12 +113,12 @@ void WorkplacePopulator::AssignActive(stride::Person* person)
                 auto        id         = info.second();
 
                 info.first[id]->AddMember(person);
-                person->SetWorkId(info.first[id]->GetID());
+                person->SetWorkId(info.first[id]->GetId());
                 m_assignedCommuting++;
         } else {
                 auto id = m_distNonCommuting();
                 m_nearByWorkplaces[id]->AddMember(person);
-                person->SetWorkId(m_nearByWorkplaces[id]->GetID());
+                person->SetWorkId(m_nearByWorkplaces[id]->GetId());
                 m_assignedNotCommuting++;
         }
 }

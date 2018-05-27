@@ -27,7 +27,7 @@ protected:
                 logger->set_level(spdlog::level::off);
 
                 auto household   = std::make_shared<Household>(2);
-                auto contactPool = std::make_shared<ContactPool>();
+                auto contactPool = new stride::ContactPool();
                 person           = std::make_shared<stride::Person>();
                 person->SetId(42);
                 contactPool->AddMember(person.get());
@@ -38,7 +38,7 @@ protected:
                 geoGrid->AddLocation(location);
 
                 community = std::make_shared<CommunityType>(1);
-                auto pool = std::make_shared<ContactPool>();
+                auto pool = new stride::ContactPool();
                 community->AddPool(pool);
         }
 
@@ -79,7 +79,7 @@ protected:
                 auto location2 = std::make_shared<Location>(2, 5, 1500, Coordinate(1, 1, 1, 1), "Brussel");
 
                 auto community2 = std::make_shared<PrimaryCommunity>(1);
-                auto pool       = std::make_shared<ContactPool>();
+                auto pool       = new stride::ContactPool();
                 community2->AddPool(pool);
                 location2->AddContactCenter(community2);
 
@@ -128,7 +128,7 @@ protected:
                 auto community2 = std::make_shared<CommunityType>(2);
 
                 {
-                        auto pool = std::make_shared<ContactPool>();
+                        auto pool = new stride::ContactPool();
                         community2->AddPool(pool);
                         location->AddContactCenter(community2);
                 }

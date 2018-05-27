@@ -1,6 +1,7 @@
 #include "ContactCenterViewerBackend.h"
 #include <QTableView>
 #include <QtCore/QVariant>
+#include <gengeopop/ContactCenter.h>
 #include <iostream>
 
 void ContactCenterViewerBackend::ShowContactCenter(std::shared_ptr<gengeopop::ContactCenter> center)

@@ -39,6 +39,7 @@
 #include <pool/IdSubscriptArray.h>
 #include <spdlog/spdlog.h>
 #include <typeinfo>
+#include <util/RangeIndexer.h>
 #include <vector>
 
 namespace gengeopop {
@@ -50,7 +51,7 @@ namespace stride {
 /**
  * Container for persons in population.
  */
-class Population : public util::PartitionedSegmentedVector<Person>
+class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
@@ -79,21 +80,45 @@ public:
 
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> GetGeoGrids() const { return m_geoGrids; }
 
-        /// Create Person in the population.
-        void Finalize();
-
         /// New Person in the population.
         void CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
-                          unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
-                          unsigned int secondaryCommunityId);
+                          unsigned int k12SchoolId, unsigned int college, unsigned int workId,
+                          unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
-        const std::unordered_map<std::string, std::size_t> GetRegionIdentifiers() const;
+        ContactPool* CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId);
 
-        const util::SegmentedVector<Person>& GetRegion(const std::string& region) const;
-        const util::SegmentedVector<Person>& GetRegion(const std::size_t& region) const;
+        const std::unordered_map<std::string, std::size_t>& GetRegionIdentifiers() const;
+
+        /// TODO replace me by more efficient system
+        ContactPool* GetWorkInRegion(std::size_t regionId)
+        {
+                // ugly hack to get a contactpool fast
+                return m_work[regionId];
+        }
+
+        /// TODO replace me by more efficient system
+        ContactPool* GetPrimaryCommunityInRegion(std::size_t regionId)
+        {
+                // ugly hack to get a contactpool fast
+                return m_primaryCommunities[regionId];
+        }
+
+        //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
+        //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
+        //                util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
+        //                ContactPoolType::IdSubscriptArray> res; for (ContactPoolType::Id typ :
+        //                ContactPoolType::IdList) {
+        //                        res[typ] =
+        //                        util::IteratorPair<util::SegmentedVector<ContactPool>::iterator>(m_pool_sys[typ].GetPartition(region).begin(),
+        //                        m_pool_sys[typ].GetPartition(region).end());
+        //                }
+        //                return res;
+        //        };
 
 private:
-        Population() : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(){};
+        Population()
+            : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(),
+              m_regionRanges(*this), m_work(), m_primaryCommunities(){};
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
         /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
@@ -130,17 +155,20 @@ private:
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
-        boost::property_tree::ptree                  m_belief_pt;
-        util::Any                                    m_beliefs;  ///< Holds belief data for the persons.
-        ContactPoolSys                               m_pool_sys; ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
-        std::vector<std::shared_ptr<gengeopop::GeoGrid>>          m_geoGrids;        ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
-        std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
-        ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
-        ContactPoolType::IdSubscriptArray<unsigned int> m_currentRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
+        boost::property_tree::ptree     m_belief_pt;
+        util::Any                       m_beliefs;        ///< Holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids; ///< Associated geoGrid may be nullptr
+        std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
+        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
+        // tmp
+        std::map<std::size_t, ContactPool*> m_work;
+        std::map<std::size_t, ContactPool*> m_primaryCommunities;
+
+        std::size_t m_currentRegionId      = 0;
+        std::size_t m_currentStart         = 0;
+        std::size_t m_currentContactPoolId = 1;
 };
 
 } // namespace stride

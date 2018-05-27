@@ -125,4 +125,9 @@ void GeoGrid::CheckFinalized(const std::string& functionName) const
         }
 }
 
+stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type)
+{
+        return m_population->CreateContactPool(m_regionId, type);
+}
+
 } // namespace gengeopop

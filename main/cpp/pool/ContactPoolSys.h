@@ -22,13 +22,14 @@
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
+#include <util/pchheader.h>
 
 namespace stride {
 
 /// ContactPoolSys contains for each of the type of pools (household, school, ...)
-/// a vector of with all of the contcatpools of the type.
+/// a util::PartitionedSegmentedVector with for each region a util::SegmentedVector with all contactpools.
 /// The ContactPoolSys container is an std::array extended to be subscriptable
 /// with the enum class of the pool types.
-using ContactPoolSys = ContactPoolType::IdSubscriptArray<std::vector<ContactPool>>;
+using ContactPoolSys = ContactPoolType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
 
 } // namespace stride

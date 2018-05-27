@@ -18,10 +18,6 @@
  * Implementation of Infector algorithms.
  */
 
-#include "Infector.h"
-
-#include "core/ContactPool.h"
-
 #include <spdlog/spdlog.h>
 
 namespace stride {

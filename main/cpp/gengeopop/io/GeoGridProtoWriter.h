@@ -18,7 +18,7 @@ private:
         void WriteCoordinate(const Coordinate& coordinate, proto::GeoGrid_Location_Coordinate* protoCoordinate);
         void WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
                                 proto::GeoGrid_Location_ContactCenter* protoContactCenter);
-        void WriteContactPool(std::shared_ptr<ContactPool>                       contactPool,
+        void WriteContactPool(stride::ContactPool*                               contactPool,
                               proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool);
         void WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson);
 

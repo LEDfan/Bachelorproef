@@ -1,14 +1,14 @@
 #pragma once
 
+#include <cmath>
 #include <iostream>
 #include <map>
+#include <pop/Population.h>
 #include <set>
 #include <unordered_map>
 #include <vector>
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include <pop/Population.h>
 
+#include "../pool/ContactPool.h"
 #include "KdTree.h"
 #include "Location.h"
 
@@ -157,8 +157,11 @@ public:
         stride::Person* CreatePerson(Args&&... args)
         {
                 m_population->CreatePerson(m_regionId, args...);
-                return &m_population->back(m_regionId);
+                return &m_population->back();
         }
+
+        /// Create a ContactPool of the given type and return a non-owning pointer
+        stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
 
         /// Get the population of this GeoGrid
         std::shared_ptr<stride::Population> GetPopulation();

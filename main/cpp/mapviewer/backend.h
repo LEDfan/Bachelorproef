@@ -27,7 +27,7 @@ public:
          * Changes the geogrid to the given one. Redraws the markers on the map.
          * @param grid The grid we want to change to.
          */
-        void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid> > grids);
+        void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids);
 
         Q_INVOKABLE
         void SaveMarker(int region, int id, QObject* marker);
@@ -122,13 +122,13 @@ private:
         double   m_colorExponent = 0.15;    ///< We use this exponent to make the color change not linear
         QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_grids;
-        std::map<std::tuple<int, int>, QObject*>     m_markers; ///< Reference to the markers so we do not need to search
+        std::map<std::tuple<int, int>, QObject*> m_markers; ///< Reference to the markers so we do not need to search
         /// The first entry of the tuple is the region, second entry is the id of the location
         /// The corresponding marker is the marker of that location if it is currently on the map
 
         std::map<std::tuple<unsigned int, unsigned int>, QObject*>
-                                                       m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
-        bool                                           m_showCommutes = false;
+                                      m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
+        bool                          m_showCommutes = false;
         std::set<std::pair<int, int>> m_selection; ///< The currently selected locations (id of region, id of location)
         std::set<std::pair<int, int>>
             m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
@@ -203,5 +203,5 @@ private:
          * Return the requested location
          * @param ids (region id, location id)
          */
-        std::shared_ptr<gengeopop::Location> GetLocationInRegion(std::pair<int,int> ids);
+        std::shared_ptr<gengeopop::Location> GetLocationInRegion(std::pair<int, int> ids);
 };

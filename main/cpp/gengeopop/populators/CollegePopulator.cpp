@@ -16,9 +16,9 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
 {
         m_logger->info("Starting to populate Colleges");
 
-        std::set<std::shared_ptr<ContactPool>> found;
-        unsigned int                           students  = 0;
-        unsigned int                           commuting = 0;
+        std::set<stride::ContactPool*> found;
+        unsigned int                   students  = 0;
+        unsigned int                   commuting = 0;
 
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
@@ -26,7 +26,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const std::vector<std::shared_ptr<ContactPool>>& nearByHighSchools =
+                const std::vector<stride::ContactPool*>& nearByHighSchools =
                     GetContactPoolInIncreasingRadius<College>(geoGrid, loc);
 
                 ExcAssert(!nearByHighSchools.empty(),
@@ -55,7 +55,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
 
                 // 2. for every student assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        const std::shared_ptr<ContactPool> contactPool = household->GetPools()[0];
+                        stride::ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (stride::Person* person : *contactPool) {
                                 if (person->IsCollegeStudentCandidate() &&
@@ -74,7 +74,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                                                 const auto& highSchools = commutingHighSchools[locationId]
                                                                               ->GetContactCentersOfType<College>();
 
-                                                std::vector<std::shared_ptr<ContactPool>> contactPools;
+                                                std::vector<stride::ContactPool*> contactPools;
                                                 for (const auto& highSchool : highSchools) {
                                                         contactPools.insert(contactPools.end(), highSchool->begin(),
                                                                             highSchool->end());
@@ -86,11 +86,11 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(person);
-                                                person->SetCollegeId(contactPools[id]->GetID());
+                                                person->SetCollegeId(contactPools[id]->GetId());
                                         } else {
                                                 auto id = distNonCommuting();
                                                 nearByHighSchools[id]->AddMember(person);
-                                                person->SetCollegeId(nearByHighSchools[id]->GetID());
+                                                person->SetCollegeId(nearByHighSchools[id]->GetId());
                                         }
                                 }
                         }

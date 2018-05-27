@@ -1,8 +1,8 @@
 #pragma once
 
 #include <QtCore/QAbstractListModel>
-#include <gengeopop/ContactPool.h>
 #include <gengeopop/Location.h>
+#include <pool/ContactPool.h>
 
 class ContactPoolListModel : public QAbstractListModel
 {
@@ -25,5 +25,5 @@ private:
                 UsedCapacity
         };
 
-        std::vector<std::shared_ptr<gengeopop::ContactPool>> m_pools;
+        std::vector<stride::ContactPool*> m_pools;
 };

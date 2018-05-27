@@ -28,23 +28,20 @@ set(EXEC gtester)
 set(SRC
         BatchRuns.cpp
         CSVTest.cpp
-        ScenarioData.cpp
-        UnitSegmentedVector.cpp
         PartitionedSegmentedVector.cpp
+        ScenarioData.cpp
+        UnitRange.cpp
+        UnitSVIterator.cpp
+        UnitSegmentedVector.cpp
+        UnitSlice.cpp
         createlogger.h
-        gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/CollegeGeneratorTest.cpp
+        gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp
         gengeopop/generators/SchoolGeneratorTest.cpp
         gengeopop/generators/WorkplaceGeneratorTest.cpp
         gengeopop/io/CitiesCSVReaderTest.cpp
         gengeopop/io/CommutesCSVReaderTest.cpp
-        gengeopop/populators/createGeogrid.cpp
-        gengeopop/populators/HouseholdPopulatorTest.cpp
-        gengeopop/populators/CommunityPopulatorTests.cpp
-    gengeopop/populators/K12SchoolPopulatorTest.cpp
-        gengeopop/populators/HighSchoolPopulatorTest.cpp
-        gengeopop/populators/WorkplacePopulatorTest.cpp
         gengeopop/io/GeoGridIOUtils.cpp
         gengeopop/io/GeoGridJSONReaderTest.cpp
         gengeopop/io/GeoGridJSONWriterTest.cpp
@@ -54,6 +51,12 @@ set(SRC
         gengeopop/io/ReaderFactoryTest.cpp
         gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
         gengeopop/kdtree.cpp
+        gengeopop/populators/CommunityPopulatorTests.cpp
+        gengeopop/populators/HighSchoolPopulatorTest.cpp
+        gengeopop/populators/HouseholdPopulatorTest.cpp
+        gengeopop/populators/K12SchoolPopulatorTest.cpp
+        gengeopop/populators/WorkplacePopulatorTest.cpp
+        gengeopop/populators/createGeogrid.cpp
         main.cpp
 )
 

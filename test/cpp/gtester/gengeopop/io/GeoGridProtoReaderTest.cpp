@@ -37,8 +37,8 @@ void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
-            {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {"Secondary Community", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
             {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
@@ -61,7 +61,7 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         auto           location = geoGrid.add_locations();
         fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
         fillContactCenter(std::make_shared<K12School>(0), location->add_contactcenters());
-        fillContactCenter(std::make_shared<Community>(1), location->add_contactcenters());
+        fillContactCenter(std::make_shared<PrimaryCommunity>(1), location->add_contactcenters());
         fillContactCenter(std::make_shared<College>(2), location->add_contactcenters());
         fillContactCenter(std::make_shared<Household>(3), location->add_contactcenters());
         fillContactCenter(std::make_shared<Workplace>(4), location->add_contactcenters());
@@ -130,11 +130,12 @@ TEST(GeoGridProtoReaderTest, peopleTest)
         person->set_id(1);
         person->set_age(18);
         person->set_gender("M");
-        person->set_school(0);
+        person->set_k12school(0);
         person->set_household(4);
         person->set_workplace(5);
         person->set_primarycommunity(1);
         person->set_secondarycommunity(1);
+        person->set_college(0);
 
         CompareGeoGrid(geoGrid);
 }

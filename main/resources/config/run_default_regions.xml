@@ -35,6 +35,8 @@
     <vaccine_link_probability>0</vaccine_link_probability>
     <vaccine_profile>Random</vaccine_profile>
     <vaccine_rate>0.8</vaccine_rate>
+    <traveller_data_work>flanders_travelling_work.csv</traveller_data_work>
+    <traveller_data_recreation>flanders_travelling.csv</traveller_data_recreation>
     <regions>
         <region>
             <name>WAAL</name>

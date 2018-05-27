@@ -4,7 +4,7 @@
 using namespace gengeopop;
 
 std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, int houseHoldCount,
-                                       int personCount, GeoGridConfig& geoGridConfig)
+                                       int personCount)
 {
         std::vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
@@ -32,7 +32,7 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCo
                 for (int schI = 0; schI < k12SchoolCount; schI++) {
                         auto k12School =
                             std::make_shared<K12School>(std::stoi(std::to_string(locI) + std::to_string(schI)));
-                        k12School->Fill(geoGridConfig);
+                        k12School->Fill(geoGrid);
                         loc->AddContactCenter(k12School);
                 }
 
@@ -40,13 +40,13 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCo
                         auto household =
                             std::make_shared<Household>(std::stoi(std::to_string(locI) + std::to_string(hI)));
 
-                        household->Fill(geoGridConfig);
+                        household->Fill(geoGrid);
 
                         auto contactPool = household->GetPools()[0];
 
                         for (int pI = 0; pI < personCount; pI++) {
                                 stride::Person* person = geoGrid->CreatePerson(
-                                    personId, populationSample[populationSampleId], household->GetId(), 0, 0, 0, 0);
+                                    personId, populationSample[populationSampleId], household->GetId(), 0, 0, 0, 0, 0);
 
                                 contactPool->AddMember(person);
                                 populationSampleId++;

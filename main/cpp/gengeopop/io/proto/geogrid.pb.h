@@ -1005,38 +1005,45 @@ class GeoGrid_Person : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::int64 age() const;
   void set_age(::google::protobuf::int64 value);
 
-  // required int64 School = 4;
-  bool has_school() const;
-  void clear_school();
-  static const int kSchoolFieldNumber = 4;
-  ::google::protobuf::int64 school() const;
-  void set_school(::google::protobuf::int64 value);
+  // required int64 K12School = 4;
+  bool has_k12school() const;
+  void clear_k12school();
+  static const int kK12SchoolFieldNumber = 4;
+  ::google::protobuf::int64 k12school() const;
+  void set_k12school(::google::protobuf::int64 value);
 
-  // required int64 Household = 5;
+  // required int64 College = 5;
+  bool has_college() const;
+  void clear_college();
+  static const int kCollegeFieldNumber = 5;
+  ::google::protobuf::int64 college() const;
+  void set_college(::google::protobuf::int64 value);
+
+  // required int64 Household = 6;
   bool has_household() const;
   void clear_household();
-  static const int kHouseholdFieldNumber = 5;
+  static const int kHouseholdFieldNumber = 6;
   ::google::protobuf::int64 household() const;
   void set_household(::google::protobuf::int64 value);
 
-  // required int64 Workplace = 6;
+  // required int64 Workplace = 7;
   bool has_workplace() const;
   void clear_workplace();
-  static const int kWorkplaceFieldNumber = 6;
+  static const int kWorkplaceFieldNumber = 7;
   ::google::protobuf::int64 workplace() const;
   void set_workplace(::google::protobuf::int64 value);
 
-  // required int64 PrimaryCommunity = 7;
+  // required int64 PrimaryCommunity = 8;
   bool has_primarycommunity() const;
   void clear_primarycommunity();
-  static const int kPrimaryCommunityFieldNumber = 7;
+  static const int kPrimaryCommunityFieldNumber = 8;
   ::google::protobuf::int64 primarycommunity() const;
   void set_primarycommunity(::google::protobuf::int64 value);
 
-  // required int64 SecondaryCommunity = 8;
+  // required int64 SecondaryCommunity = 9;
   bool has_secondarycommunity() const;
   void clear_secondarycommunity();
-  static const int kSecondaryCommunityFieldNumber = 8;
+  static const int kSecondaryCommunityFieldNumber = 9;
   ::google::protobuf::int64 secondarycommunity() const;
   void set_secondarycommunity(::google::protobuf::int64 value);
 
@@ -1048,8 +1055,10 @@ class GeoGrid_Person : public ::google::protobuf::Message /* @@protoc_insertion_
   void clear_has_age();
   void set_has_gender();
   void clear_has_gender();
-  void set_has_school();
-  void clear_has_school();
+  void set_has_k12school();
+  void clear_has_k12school();
+  void set_has_college();
+  void clear_has_college();
   void set_has_household();
   void clear_has_household();
   void set_has_workplace();
@@ -1068,7 +1077,8 @@ class GeoGrid_Person : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::internal::ArenaStringPtr gender_;
   ::google::protobuf::int64 id_;
   ::google::protobuf::int64 age_;
-  ::google::protobuf::int64 school_;
+  ::google::protobuf::int64 k12school_;
+  ::google::protobuf::int64 college_;
   ::google::protobuf::int64 household_;
   ::google::protobuf::int64 workplace_;
   ::google::protobuf::int64 primarycommunity_;
@@ -1903,39 +1913,63 @@ inline void GeoGrid_Person::set_allocated_gender(::std::string* gender) {
   // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Person.gender)
 }
 
-// required int64 School = 4;
-inline bool GeoGrid_Person::has_school() const {
+// required int64 K12School = 4;
+inline bool GeoGrid_Person::has_k12school() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void GeoGrid_Person::set_has_school() {
+inline void GeoGrid_Person::set_has_k12school() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void GeoGrid_Person::clear_has_school() {
+inline void GeoGrid_Person::clear_has_k12school() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void GeoGrid_Person::clear_school() {
-  school_ = GOOGLE_LONGLONG(0);
-  clear_has_school();
+inline void GeoGrid_Person::clear_k12school() {
+  k12school_ = GOOGLE_LONGLONG(0);
+  clear_has_k12school();
 }
-inline ::google::protobuf::int64 GeoGrid_Person::school() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.School)
-  return school_;
+inline ::google::protobuf::int64 GeoGrid_Person::k12school() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.K12School)
+  return k12school_;
 }
-inline void GeoGrid_Person::set_school(::google::protobuf::int64 value) {
-  set_has_school();
-  school_ = value;
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.School)
+inline void GeoGrid_Person::set_k12school(::google::protobuf::int64 value) {
+  set_has_k12school();
+  k12school_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.K12School)
 }
 
-// required int64 Household = 5;
-inline bool GeoGrid_Person::has_household() const {
+// required int64 College = 5;
+inline bool GeoGrid_Person::has_college() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void GeoGrid_Person::set_has_household() {
+inline void GeoGrid_Person::set_has_college() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void GeoGrid_Person::clear_has_household() {
+inline void GeoGrid_Person::clear_has_college() {
   _has_bits_[0] &= ~0x00000010u;
+}
+inline void GeoGrid_Person::clear_college() {
+  college_ = GOOGLE_LONGLONG(0);
+  clear_has_college();
+}
+inline ::google::protobuf::int64 GeoGrid_Person::college() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.College)
+  return college_;
+}
+inline void GeoGrid_Person::set_college(::google::protobuf::int64 value) {
+  set_has_college();
+  college_ = value;
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.College)
+}
+
+// required int64 Household = 6;
+inline bool GeoGrid_Person::has_household() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GeoGrid_Person::set_has_household() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GeoGrid_Person::clear_has_household() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void GeoGrid_Person::clear_household() {
   household_ = GOOGLE_LONGLONG(0);
@@ -1951,15 +1985,15 @@ inline void GeoGrid_Person::set_household(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.Household)
 }
 
-// required int64 Workplace = 6;
+// required int64 Workplace = 7;
 inline bool GeoGrid_Person::has_workplace() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void GeoGrid_Person::set_has_workplace() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void GeoGrid_Person::clear_has_workplace() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void GeoGrid_Person::clear_workplace() {
   workplace_ = GOOGLE_LONGLONG(0);
@@ -1975,15 +2009,15 @@ inline void GeoGrid_Person::set_workplace(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.Workplace)
 }
 
-// required int64 PrimaryCommunity = 7;
+// required int64 PrimaryCommunity = 8;
 inline bool GeoGrid_Person::has_primarycommunity() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void GeoGrid_Person::set_has_primarycommunity() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void GeoGrid_Person::clear_has_primarycommunity() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void GeoGrid_Person::clear_primarycommunity() {
   primarycommunity_ = GOOGLE_LONGLONG(0);
@@ -1999,15 +2033,15 @@ inline void GeoGrid_Person::set_primarycommunity(::google::protobuf::int64 value
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.PrimaryCommunity)
 }
 
-// required int64 SecondaryCommunity = 8;
+// required int64 SecondaryCommunity = 9;
 inline bool GeoGrid_Person::has_secondarycommunity() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void GeoGrid_Person::set_has_secondarycommunity() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void GeoGrid_Person::clear_has_secondarycommunity() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void GeoGrid_Person::clear_secondarycommunity() {
   secondarycommunity_ = GOOGLE_LONGLONG(0);
