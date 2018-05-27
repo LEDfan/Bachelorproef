@@ -16,7 +16,7 @@
 namespace gengeopop {
 
 GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream)
-    : GeoGridReader(std::move(inputStream))
+    : GeoGridReader(std::move(inputStream)), m_geoGrid()
 {
 }
 
@@ -172,8 +172,8 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                             protoContactCenter.pools(idx);
 #pragma omp task firstprivate(protoContactPool, pool, typeId)
                         {
-                                e->Run([&protoContactPool, &pool, this, &result, &typeId] {
-                                        pool = ParseContactPool(protoContactPool, result->GetPoolSize(), typeId);
+                                e->Run([&protoContactPool, &pool, this, &typeId] {
+                                        pool = ParseContactPool(protoContactPool, typeId);
                                 });
                                 if (!e->HasError())
 #pragma omp critical
@@ -187,8 +187,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 }
 
 stride::ContactPool* GeoGridProtoReader::ParseContactPool(
-    const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize,
-    stride::ContactPoolType::Id type)
+    const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, stride::ContactPoolType::Id type)
 {
         // Don't use the id of the ContactPool but the let the Population create an id
         stride::ContactPool* result;

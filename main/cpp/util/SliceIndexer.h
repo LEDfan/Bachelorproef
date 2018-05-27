@@ -39,7 +39,7 @@ public:
 
 public:
         /// SliceIndexer holds a reference to the conatiner that it indexes.
-        explicit SliceIndexer(T& t) : m_t(t) {}
+        explicit SliceIndexer(T& t) : m_map(), m_ranges(), m_t(t) {}
 
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& SetSlice(std::size_t ibegin, std::size_t iend, const std::string& name)

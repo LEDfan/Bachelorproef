@@ -19,7 +19,7 @@ private:
         std::shared_ptr<ContactCenter> ParseContactCenter(
             const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
         stride::ContactPool* ParseContactPool(const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool,
-                                              unsigned int poolSize, stride::ContactPoolType::Id typeId);
+                                              stride::ContactPoolType::Id                              typeId);
         stride::Person*      ParsePerson(const proto::GeoGrid_Person& person);
         std::shared_ptr<GeoGrid> m_geoGrid;
 };

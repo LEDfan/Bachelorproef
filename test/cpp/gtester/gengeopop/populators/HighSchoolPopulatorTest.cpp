@@ -42,7 +42,7 @@ TEST(CollegePopulatorTest, NoStudents)
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 0;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         auto location = *geoGrid->begin();
 
@@ -87,7 +87,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         auto location = *geoGrid->begin();
 
@@ -205,7 +205,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3, config);
+        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3);
 
         auto location = *geoGrid->begin();
 
@@ -265,7 +265,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));

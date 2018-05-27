@@ -43,7 +43,7 @@ public:
         /// Initializing constructor.
         ContactPool(std::size_t pool_id, ContactPoolType::Id type);
 
-        ContactPool() = default;
+        ContactPool();
 
         /// Add the given Person.
         void AddMember(const Person* p);

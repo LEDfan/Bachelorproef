@@ -30,9 +30,11 @@ namespace stride {
 using namespace std;
 
 ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members()
+    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity()
 {
 }
+
+ContactPool::ContactPool() : m_pool_id(), m_pool_type(), m_index_immune(0), m_members(), m_capacity() {}
 
 void ContactPool::AddMember(const Person* p)
 {
@@ -91,6 +93,6 @@ std::pair<std::size_t, std::size_t> ContactPool::GetPopulationAndInfectedCount()
                 }
         }
         return {m_members.size(), infected};
-};
+}
 
 } // namespace stride

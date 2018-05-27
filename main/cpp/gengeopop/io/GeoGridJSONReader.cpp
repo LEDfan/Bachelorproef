@@ -14,7 +14,8 @@
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream) : GeoGridReader(std::move(inputStream))
+GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream)
+    : GeoGridReader(std::move(inputStream)), m_geoGrid(nullptr)
 {
 }
 
@@ -172,8 +173,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 #pragma omp task firstprivate(it, pool)
                         {
                                 e->Run([&it, &pool, this, &result, typeId] {
-                                        pool =
-                                            ParseContactPool(it->second.get_child(""), result->GetPoolSize(), typeId);
+                                        pool = ParseContactPool(it->second.get_child(""), typeId);
                                 });
                                 if (!e->HasError())
 #pragma omp critical
@@ -187,7 +187,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
 }
 
 stride::ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool,
-                                                         unsigned int poolSize, stride::ContactPoolType::Id typeId)
+                                                         stride::ContactPoolType::Id  typeId)
 {
         // Don't use the id of the ContactPool but the let the Population create an id
         auto result = m_geoGrid->CreateContactPool(typeId);

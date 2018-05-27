@@ -39,7 +39,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
         K12SchoolPopulator k12SchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig      config{};
 
-        auto geoGrid = CreateGeoGrid(1, 300, 5, 100, 3, config);
+        auto geoGrid = CreateGeoGrid(1, 300, 5, 100, 3);
         geoGrid->Finalize();
 
         k12SchoolPopulator.Apply(geoGrid, config);
@@ -126,7 +126,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         K12SchoolPopulator k12SchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig      config{};
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, config);
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
 
         // Brasschaat and Schoten are close to each oter and will both have students from both
         // Kortrijk will only have students going to Kortrijk
