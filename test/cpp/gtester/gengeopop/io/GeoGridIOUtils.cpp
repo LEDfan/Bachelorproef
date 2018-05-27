@@ -105,7 +105,7 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(std::string(1, person->GetGender()), protoPerson.gender());
-        EXPECT_EQ(person->GetK12SchoolId(), protoPerson.school());
+        EXPECT_EQ(person->GetK12SchoolId(), protoPerson.k12school());
         EXPECT_EQ(person->GetHouseholdId(), protoPerson.household());
         EXPECT_EQ(person->GetWorkId(), protoPerson.workplace());
         EXPECT_EQ(person->GetPrimaryCommunityId(), protoPerson.primarycommunity());
@@ -166,7 +166,7 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
 
         auto school = std::make_shared<K12School>(0);
         location->AddContactCenter(school);
-        auto schoolPool = new stride::ContactPool(2, stride::ContactPoolType::Id::School);
+        auto schoolPool = new stride::ContactPool(2, stride::ContactPoolType::Id::K12School);
         school->AddPool(schoolPool);
 
         auto community = std::make_shared<PrimaryCommunity>(1);
@@ -181,7 +181,7 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
 
         auto college = std::make_shared<College>(3);
         location->AddContactCenter(college);
-        auto collegePool = new stride::ContactPool(4, stride::ContactPoolType::Id::School);
+        auto collegePool = new stride::ContactPool(4, stride::ContactPoolType::Id::K12School);
         college->AddPool(collegePool);
 
         auto household = std::make_shared<Household>(4);
@@ -195,7 +195,7 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
         workplace->AddPool(workplacePool);
 
         geoGrid->AddLocation(location);
-        stride::Person* person = geoGrid->CreatePerson(1, 18, 4, 2, 6, 3, 7);
+        stride::Person* person = geoGrid->CreatePerson(1, 18, 4, 2, 0, 6, 3, 7);
         communityPool->AddMember(person);
         schoolPool->AddMember(person);
         secondaryCommunityPool->AddMember(person);

@@ -29,7 +29,7 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                         for (stride::Person* personType : *householdType) {
                                 auto person = geoGrid->CreatePerson(
                                     current_person_id++, personType->GetAge(), household->GetId(),
-                                    personType->GetK12SchoolId(), personType->GetWorkId(),
+                                    personType->GetK12SchoolId(), personType->GetCollegeId(), personType->GetWorkId(),
                                     personType->GetPrimaryCommunityId(), personType->GetSecondaryCommunityId());
                                 contactPool->AddMember(person);
                         }

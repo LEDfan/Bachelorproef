@@ -132,8 +132,11 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         auto                        geoGrid        = getGeoGridForFile("test1.json");
         auto                        location       = geoGrid->Get(0);
         auto                        contactCenters = location->GetContactCenters();
-        std::map<std::string, bool> found          = {
-            {"K12School", false}, {"Community", false}, {"College", false}, {"Household", false}, {"Workplace", false}};
+        std::map<std::string, bool> found          = {{"K12School", false},
+                                             {"Primary Community", false},
+                                             {"College", false},
+                                             {"Household", false},
+                                             {"Workplace", false}};
 
         for (unsigned int i = 0; i < 5; i++) {
                 EXPECT_FALSE(found[contactCenters[i]->GetType()]);

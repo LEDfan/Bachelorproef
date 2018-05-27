@@ -130,7 +130,7 @@ TEST(GeoGridProtoReaderTest, peopleTest)
         person->set_id(1);
         person->set_age(18);
         person->set_gender("M");
-        person->set_school(0);
+        person->set_k12school(0);
         person->set_household(4);
         person->set_workplace(5);
         person->set_primarycommunity(1);

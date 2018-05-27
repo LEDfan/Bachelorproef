@@ -37,18 +37,18 @@ class Person
 public:
         /// Default construction (for population vector).
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0, 0, 0, 0, 0},
+            : m_id(0), m_age(0.0), m_gender(' '), m_health(), m_is_participant(false), m_pool_ids{0, 0, 0, 0, 0, 0},
               m_in_pools(false), m_belief(nullptr)
         {
         }
 
         /// Constructor: set the person data.
-        Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
-               unsigned int primaryCommunityId, unsigned int secondaryCommunityId, Health health = Health(),
-               double /*risk_averseness*/ = 0, Belief* bp = nullptr)
+        Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
+               unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+               Health health = Health(), double /*risk_averseness*/ = 0, Belief* bp = nullptr)
             : m_id(id), m_age(age), m_gender('M'), m_health(health),
-              m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
-                                                  secondaryCommunityId},
+              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
+                                                  workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true), m_belief(bp)
         {
                 // TODO m_in_pools: shouldn't this check if every id is not 0?
@@ -112,25 +112,25 @@ public:
         unsigned int GetK12SchoolId() const
         {
                 // TODO highschool vs not highschool
-                return GetPoolId(ContactPoolType::Id::School);
+                return GetPoolId(ContactPoolType::Id::K12School);
         }
 
         void SetK12SchoolId(unsigned int school_id)
         {
                 // TODO highschool vs not highschool
-                SetPoolId(ContactPoolType::Id::School, school_id);
+                SetPoolId(ContactPoolType::Id::K12School, school_id);
         }
 
         unsigned int GetCollegeId() const
         {
                 // TODO highschool vs not highschool
-                return GetPoolId(ContactPoolType::Id::School);
+                return GetPoolId(ContactPoolType::Id::College);
         }
 
         void SetCollegeId(unsigned int highschool_id)
         {
                 // TODO highschool vs not highschool
-                SetPoolId(ContactPoolType::Id::School, highschool_id);
+                SetPoolId(ContactPoolType::Id::College, highschool_id);
         }
 
         unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }

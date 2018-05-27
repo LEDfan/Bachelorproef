@@ -46,7 +46,7 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCo
 
                         for (int pI = 0; pI < personCount; pI++) {
                                 stride::Person* person = geoGrid->CreatePerson(
-                                    personId, populationSample[populationSampleId], household->GetId(), 0, 0, 0, 0);
+                                    personId, populationSample[populationSampleId], household->GetId(), 0, 0, 0, 0, 0);
 
                                 contactPool->AddMember(person);
                                 populationSampleId++;

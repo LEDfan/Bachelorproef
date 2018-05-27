@@ -136,7 +136,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
                 result = std::make_shared<K12School>(id);
-                typeId = stride::ContactPoolType::Id::School;
+                typeId = stride::ContactPoolType::Id::K12School;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 result = std::make_shared<PrimaryCommunity>(id);
@@ -148,7 +148,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_College:
                 result = std::make_shared<College>(id);
-                typeId = stride::ContactPoolType::Id::School;
+                typeId = stride::ContactPoolType::Id::College;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household:
                 result = std::make_shared<Household>(id);
@@ -170,7 +170,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                         stride::ContactPool*                                     pool;
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
                             protoContactCenter.pools(idx);
-#pragma omp task firstprivate(protoContactPool, pool)
+#pragma omp task firstprivate(protoContactPool, pool, typeId)
                         {
                                 e->Run([&protoContactPool, &pool, this, &result, &typeId] {
                                         pool = ParseContactPool(protoContactPool, result->GetPoolSize(), typeId);
@@ -186,6 +186,19 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         return result;
 }
 
+std::string _ToString(stride::ContactPoolType::Id c)
+{
+        static std::map<stride::ContactPoolType::Id, std::string> names{
+            std::make_pair(stride::ContactPoolType::Id::Household, "household"),
+            std::make_pair(stride::ContactPoolType::Id::K12School, "school"),
+            std::make_pair(stride::ContactPoolType::Id::College, "school"),
+            std::make_pair(stride::ContactPoolType::Id::Work, "work"),
+            std::make_pair(stride::ContactPoolType::Id::PrimaryCommunity, "primary_community"),
+            std::make_pair(stride::ContactPoolType::Id::SecondaryCommunity, "secondary_community"),
+        };
+        return (names.count(c) == 1) ? names[c] : "null";
+}
+
 stride::ContactPool* GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, unsigned int poolSize,
     stride::ContactPoolType::Id type)
@@ -194,12 +207,23 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
         stride::ContactPool* result;
 
 #pragma omp critical
-        result = m_geoGrid->CreateContactPool(type);
+        {
+                //                result = m_geoGrid->CreateContactPool(type);
+                std::cout << "ContactPool" << protoContactPool.id() << ", type:" << _ToString(type) << std::endl;
+                //        }
 
-        for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
-                auto person_id = protoContactPool.people(idx);
-#pragma omp critical
-                result->AddMember(m_people.at(static_cast<const unsigned int&>(person_id)));
+                for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
+                        auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
+                        //                auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
+                        auto person = m_people.at(person_id);
+                        //#pragma omp critical
+                        //                {
+                        std::cout << "Person " << person->GetId() << " == " << person_id << " in contactpool "
+                                  << person->GetPoolId(type) << std::endl;
+                        //                        result->AddMember(person);
+                        // Update original pool id with new pool id used in the population
+                        //                        person->SetPoolId(type, result->GetId());
+                }
         }
 
         return result;
@@ -209,13 +233,18 @@ stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& pro
 {
         auto id                   = protoPerson.id();
         auto age                  = protoPerson.age();
-        auto schoolId             = protoPerson.school();
+        auto k12SchoolId          = protoPerson.k12school();
+        auto collegeId            = protoPerson.college();
         auto householdId          = protoPerson.household();
         auto workplaceId          = protoPerson.workplace();
         auto primaryCommunityId   = protoPerson.primarycommunity();
         auto secondaryCommunityId = protoPerson.secondarycommunity();
 
-        return m_geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
+        std::cout << "Found person with id " << id << ", age: " << age << " k12id: " << k12SchoolId
+                  << " college: " << collegeId << " hh: " << householdId << " work" << workplaceId << " prim "
+                  << primaryCommunityId << " secon " << secondaryCommunityId << std::endl;
+
+        return m_geoGrid->CreatePerson(id, age, householdId, k12SchoolId, collegeId, workplaceId, primaryCommunityId,
                                        secondaryCommunityId);
 }
 

@@ -141,10 +141,10 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
         stride::ContactPoolType::Id    typeId;
         if (type == "K12School") {
                 result = std::make_shared<K12School>(id);
-                typeId = stride::ContactPoolType::Id::School;
+                typeId = stride::ContactPoolType::Id::K12School;
         } else if (type == "College") {
                 result = std::make_shared<College>(id);
-                typeId = stride::ContactPoolType::Id::School; // TODO
+                typeId = stride::ContactPoolType::Id::College; // TODO
         } else if (type == "Household") {
                 result = std::make_shared<Household>(id);
                 typeId = stride::ContactPoolType::Id::Household;
@@ -211,12 +211,13 @@ stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& pers
         auto        age                = boost::lexical_cast<unsigned int>(person.get<std::string>("age"));
         std::string gender             = person.get<std::string>("gender");
         auto        schoolId           = boost::lexical_cast<unsigned int>(person.get<std::string>("K12School"));
+        auto        collegeId          = boost::lexical_cast<unsigned int>(person.get<std::string>("College"));
         auto        householdId        = boost::lexical_cast<unsigned int>(person.get<std::string>("Household"));
         auto        workplaceId        = boost::lexical_cast<unsigned int>(person.get<std::string>("Workplace"));
         auto        primaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("PrimaryCommunity"));
         auto secondaryCommunityId = boost::lexical_cast<unsigned int>(person.get<std::string>("SecondaryCommunity"));
 
-        return m_geoGrid->CreatePerson(id, age, householdId, schoolId, workplaceId, primaryCommunityId,
+        return m_geoGrid->CreatePerson(id, age, householdId, schoolId, collegeId, workplaceId, primaryCommunityId,
                                        secondaryCommunityId);
 }
 

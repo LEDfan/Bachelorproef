@@ -82,8 +82,8 @@ public:
 
         /// New Person in the population.
         void CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
-                          unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
-                          unsigned int secondaryCommunityId);
+                          unsigned int k12SchoolId, unsigned int college, unsigned int workId,
+                          unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
         ContactPool* CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId);
 
@@ -154,7 +154,7 @@ private:
 
         std::size_t m_currentRegionId      = 0;
         std::size_t m_currentStart         = 0;
-        std::size_t m_currentContactPoolId = 0;
+        std::size_t m_currentContactPoolId = 1;
 };
 
 } // namespace stride

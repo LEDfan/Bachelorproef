@@ -134,8 +134,8 @@ unsigned int Population::GetInfectedCount() const
 }
 
 void Population::CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
-                              unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId,
-                              unsigned int secondaryCommunityId)
+                              unsigned int k12SchoolId, unsigned int college, unsigned int workId,
+                              unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
         if (m_currentRegionId != regionId) {
                 assert(regionId > m_currentRegionId);
@@ -144,7 +144,7 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                 m_currentStart    = size() - 1;
         }
 
-        emplace_back(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId);
+        emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId, secondaryCommunityId);
 }
 
 // const std::unordered_map<std::string, std::size_t> Population::GetRegionIdentifiers() const { return m_regions; }
