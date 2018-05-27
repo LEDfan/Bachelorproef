@@ -200,7 +200,6 @@ public:
                 for (auto it = m_partitions.begin(); it != m_partitions.end(); ++it) {
                         std::size_t sum = searchIndex + it->size();
                         m_prefixSums.emplace_back(it, sum, searchIndex);
-                        //                        it->Finalize();
                         searchIndex = sum;
                 }
                 m_finalized = true;

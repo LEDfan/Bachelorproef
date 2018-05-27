@@ -4,9 +4,10 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <pop/Population.h>
+#include <util/CSV.h>
 #include <util/FileSys.h>
 #include <util/RNManager.h>
-#include <utility> #include <util/CSV.h>
+#include <utility>
 
 namespace stride {
 

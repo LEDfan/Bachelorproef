@@ -24,7 +24,6 @@ protected:
         void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
 
         std::map<unsigned int, stride::Person*>                     m_people;
-        std::map<std::size_t, stride::ContactPool*>                 m_contactPools;      // original id to contactpoolid
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount
         std::vector<std::pair<unsigned int, unsigned int>>          m_subMunicipalities; //// first has submun second
         std::size_t                                                 m_regionId; ///< RegionId, used to create persons

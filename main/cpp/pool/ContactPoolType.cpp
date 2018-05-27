@@ -60,6 +60,7 @@ string ToString(Id c)
 Id ToType(const string& s)
 {
         static map<string, Id> ids{
+            make_pair("HOUSEHOLD", Id::Household),
             make_pair("SCHOOL", Id::K12School),
             make_pair("SCHOOL", Id::College),
             make_pair("WORK", Id::Work),

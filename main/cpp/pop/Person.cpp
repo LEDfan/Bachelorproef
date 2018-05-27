@@ -49,8 +49,8 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerP
                 m_in_pools[Id::PrimaryCommunity]   = true;
                 m_in_pools[Id::SecondaryCommunity] = false;
         } else {
-                m_in_pools[Id::K12School]          = false;
-                m_in_pools[Id::College]            = false;
+                m_in_pools[Id::K12School]          = true;
+                m_in_pools[Id::College]            = true;
                 m_in_pools[Id::Work]               = true;
                 m_in_pools[Id::PrimaryCommunity]   = false;
                 m_in_pools[Id::SecondaryCommunity] = true;
@@ -74,7 +74,7 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerP
                         m_in_pools[Id::College]            = false;
                         m_in_pools[Id::Work]               = false;
                         m_in_pools[Id::PrimaryCommunity]   = false;
-                        m_in_pools[Id::SecondaryCommunity] = true;
+                        m_in_pools[Id::SecondaryCommunity] = false;
                         if (std::get<1>(travelData)) {
                                 // work
                                 m_visitingContactPool = population->GetWorkInRegion(std::get<2>(travelData));

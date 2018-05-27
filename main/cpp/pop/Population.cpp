@@ -151,14 +151,6 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
 }
 
 const std::unordered_map<std::string, std::size_t>& Population::GetRegionIdentifiers() const { return m_regions; }
-// const util::SegmentedVector<Person>&               Population::GetRegion(const std::string& region) const
-//{
-//        return GetRegion(m_regions.at(region));
-//}
-// const util::SegmentedVector<Person>& Population::GetRegion(const std::size_t& region) const
-//{
-//        return GetPartition(region);
-//}
 
 ContactPool* Population::CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId)
 {
