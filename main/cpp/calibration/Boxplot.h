@@ -33,8 +33,8 @@ public:
         BoxplotData Calculate(std::vector<unsigned int> data, std::string name) const;
 
 private:
-        double FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int>& results)
-            const; ///< Find the median of values between begin and end in the results[testcase]
+        /// Find the median of values between begin and end in the results. This vector needs to be sorted.
+        double FindMedian(unsigned long begin, unsigned long end, std::vector<unsigned int>& results) const;
 
         std::shared_ptr<spdlog::logger> m_logger; ///< Logger to use for this class
 };

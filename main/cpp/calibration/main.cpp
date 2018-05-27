@@ -11,7 +11,17 @@ int main(int argc, char* argv[])
         // -----------------------------------------------------------------------------------------
         // Parse command line.
         // -----------------------------------------------------------------------------------------
-        CmdLine                cmd("calibration", ' ', "1.0");
+        std::string examples_message = "Examples:\n"
+                                       "To find the exact values for the testcases and write these to a file:\n"
+                                       "\tcalibration -s -o out.json\n"
+                                       "To run a configuration file 10 times with a random seed and display the "
+                                       "generated boxplot for the last step in the simulation:\n"
+                                       "\tcalibration -c run_default.xml -m 10 -d\n"
+                                       "To run the testcase `influenza_a` 10 times, write the results to a file and "
+                                       "for each step in the simulation write a boxplot to a file:\n"
+                                       "\tcalibration -t influenza_a -m 10 -w -o out.json\n";
+
+        CmdLine                cmd(examples_message, ' ', "1.0");
         ValueArg<unsigned int> displayStep("D", "displayStep", "Display the boxplots for a specified step", false, 0,
                                            "step", cmd);
 
