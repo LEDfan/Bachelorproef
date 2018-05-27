@@ -4,10 +4,11 @@
 #include "models/CommutesListModel.h"
 #include "models/ContactCenterListModel.h"
 #include "models/ContactPoolListModel.h"
+#include <mapviewer/backends/ContactCenterViewerBackend.h>
+
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
-#include <mapviewer/backends/ContactCenterViewerBackend.h>
 #include <utility>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)
@@ -15,7 +16,7 @@ Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::GeoGrid>)
 Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
-Map::Map(std::shared_ptr<QQmlApplicationEngine> engine)
+Map::Map(QQmlApplicationEngine* engine)
     : m_rootContext(nullptr), m_thread(nullptr), m_setGrid(false), m_engine(std::move(engine)), m_ccModel(nullptr),
       m_cpModel(nullptr), m_commutesModel(nullptr)
 {

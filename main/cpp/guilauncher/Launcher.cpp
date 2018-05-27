@@ -5,7 +5,6 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
-#include "GuiLauncher.h"
 #include "Launcher.h"
 #include <guicontroller/GuiController.h>
 #include <mapviewer/MapViewer.h>
@@ -37,15 +36,15 @@ void Launcher::Launch()
         }
 
         m_configPt.sort();
-        std::shared_ptr<stride::BaseController> controller = nullptr;
-        std::shared_ptr<QQmlApplicationEngine>  engine     = nullptr;
+        std::unique_ptr<stride::BaseController> controller = nullptr;
+        QQmlApplicationEngine*                  engine     = nullptr;
 
         if (m_controller == 0) {
-                auto guiController = std::make_shared<stride::GuiController>(m_configPt);
+                auto guiController = std::make_unique<stride::GuiController>(m_configPt);
                 engine             = guiController->GetEngine();
-                controller         = guiController;
+                controller         = std::move(guiController);
         } else {
-                controller = std::make_shared<stride::CliController>(m_configPt);
+                controller = std::make_unique<stride::CliController>(m_configPt);
         }
         if (m_showMapViewer) {
                 controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine);
