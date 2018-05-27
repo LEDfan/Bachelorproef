@@ -151,8 +151,6 @@ void runPeopleTest(std::string filename)
 {
         auto                       geoGrid  = getGeoGridForFile(filename);
         auto                       location = geoGrid->Get(0);
-        std::map<int, std::string> types    = {{2, "K12School"}, {3, "Primary Community"}, {7, "Secondary Community"},
-                                            {4, "College"},   {5, "Household"},         {6, "Workplace"}};
         std::map<int, std::string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
                                           {3, "College"},   {4, "Household"},         {5, "Workplace"}};
 
@@ -169,13 +167,13 @@ void runPeopleTest(std::string filename)
         for (const auto& center : contactCenters) {
                 auto pool   = center->GetPools()[0];
                 auto person = *(pool->begin());
-                EXPECT_EQ(types[pool->GetId()], center->GetType());
                 EXPECT_EQ(ids[center->GetId()], center->GetType());
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');
                 EXPECT_EQ(person->GetK12SchoolId(), 2);
-                EXPECT_EQ(person->GetHouseholdId(), 4);
+                EXPECT_EQ(person->GetHouseholdId(), 5);
+                EXPECT_EQ(person->GetCollegeId(), 4);
                 EXPECT_EQ(person->GetWorkId(), 6);
                 EXPECT_EQ(person->GetPrimaryCommunityId(), 3);
                 EXPECT_EQ(person->GetSecondaryCommunityId(), 7);

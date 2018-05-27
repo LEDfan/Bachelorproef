@@ -94,10 +94,11 @@
             "age": 18,
             "gender": "M",
             "K12School": 2,
-            "Household": 4,
+            "Household": 5,
             "Workplace": 6,
             "PrimaryCommunity": 3,
-            "SecondaryCommunity": 7
+            "SecondaryCommunity": 7,
+            "College": 4
         }
     ]
 }

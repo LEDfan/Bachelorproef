@@ -154,6 +154,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(stride::Person* perso
         person_root.put("age", person->GetAge());
         person_root.put("gender", person->GetGender());
         person_root.put("K12School", person->GetK12SchoolId());
+        person_root.put("College", person->GetCollegeId());
         person_root.put("Household", person->GetHouseholdId());
         person_root.put("Workplace", person->GetWorkId());
         person_root.put("PrimaryCommunity", person->GetPrimaryCommunityId());
