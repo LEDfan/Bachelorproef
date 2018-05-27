@@ -144,7 +144,7 @@ ColumnLayout {
                 marker.sourceItem.color = 'blue'
             }
             map.addMapItem(marker)
-            backend.SaveMarker(markerID, marker)
+            backend.SaveMarker(region, markerID, marker)
 //            return marker;
         }
 
@@ -172,7 +172,6 @@ ColumnLayout {
         }
 
         function markerHovered(region, id) {
-            console.warn("Hovered", region, id)
             backend.OnMarkerHovered(region, id)
         }
 
