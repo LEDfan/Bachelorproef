@@ -102,7 +102,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
         genGeoPopController.GenPop();
         stride_logger->info("Finished Gen-Pop");
 
-        pop->m_geoGrid = genGeoPopController.GetGeoGrid();
+        pop->m_geoGrids.push_back(genGeoPopController.GetGeoGrid());
 
         return pop;
 }

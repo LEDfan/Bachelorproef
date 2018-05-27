@@ -49,7 +49,7 @@ void GenGeoPopController::ReadDataFiles()
 
 #pragma omp section
                 {
-                    if(m_commutingFileName != ""){
+                    if(m_commutingFileName != "") {
                         m_commutesReader = readerFactory.CreateCommutesReader(m_commutingFileName);
                     }
                 }
