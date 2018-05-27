@@ -213,17 +213,10 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
 
 stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        auto id                   = protoPerson.id();
-        auto age                  = protoPerson.age();
-        auto k12SchoolId          = protoPerson.k12school();
-        auto collegeId            = protoPerson.college();
-        auto householdId          = protoPerson.household();
-        auto workplaceId          = protoPerson.workplace();
-        auto primaryCommunityId   = protoPerson.primarycommunity();
-        auto secondaryCommunityId = protoPerson.secondarycommunity();
+        auto id  = protoPerson.id();
+        auto age = protoPerson.age();
 
-        return m_geoGrid->CreatePerson(id, age, householdId, k12SchoolId, collegeId, workplaceId, primaryCommunityId,
-                                       secondaryCommunityId);
+        return m_geoGrid->CreatePerson(id, age, 0, 0, 0, 0, 0, 0);
 }
 
 } // namespace gengeopop

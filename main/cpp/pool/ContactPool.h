@@ -66,6 +66,9 @@ public:
         /// Get the pool used capacity, i.e. amount of members
         std::size_t GetUsedCapacity() const;
 
+        /// Get the type of ContactPool, used for logging and tests
+        ContactPoolType::Id GetType() const { return m_pool_type; }
+
         /// Returns the amount of perons and amount of infected perons in this pol
         std::pair<std::size_t, std::size_t> GetPopulationAndInfectedCount() const;
 
