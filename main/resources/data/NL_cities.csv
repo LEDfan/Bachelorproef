@@ -1,4 +1,4 @@
-id,province,population,x_coord,y_coord,latitude,longitude
+id,province,population,x_coord,y_coord,latitude,longitude,name
 0,0,201703,0,0,52.366667,5.216667,Almere
 0,1,20005,0,0,51.866667,4.666667,Alblasserdam
 0,2,13061,0,0,51.753889,5.131389,Aalburg
@@ -208,7 +208,7 @@ id,province,population,x_coord,y_coord,latitude,longitude
 0,0,77095,0,0,52.5,5.466667,Lelystad
 0,6,35848,0,0,51.25,5.9,Leudal
 0,1,123924,0,0,52.15,4.483333,Leiden
-0,10,,0,0,53.25,5.783333,Leeuwarderadeel
+0,10,0,0,0,53.25,5.783333,Leeuwarderadeel
 0,10,108768,0,0,53.2,5.783333,Leeuwarden
 0,1,74669,0,0,52.083333,4.4,Leidschendam-Voorburg
 0,1,27143,0,0,52.15,4.533333,Leiderdorp
