@@ -64,7 +64,7 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerP
                 if (m_travelDaysRemaining == 0) {
                         m_isTravelling = false;
                         if (m_visitingContactPool) {
-                                m_visitingContactPool->removeMember(this);
+                                m_visitingContactPool->RemoveMember(this);
                         }
                 }
         } else {
