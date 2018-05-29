@@ -5,17 +5,15 @@
 namespace stride {
 
 TravellerProfile::TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork,
-
                                    util::RNManager& rnManager, unsigned int maxDays)
     : m_data_recreation(amountOfRegions), m_data_work(amountOfRegions), m_amountOfTravel(amountOfTravel),
       m_fractionWork(fractionWork), m_rnManager(rnManager), m_maxDays(maxDays)
 {
-
         for (std::size_t i = 0; i < amountOfRegions; ++i) {
                 m_data_recreation[i] = std::vector<double>(amountOfRegions);
                 m_data_work[i]       = std::vector<double>(amountOfRegions);
         }
-};
+}
 
 void TravellerProfile::AddTravelRecreation(std::size_t from, std::size_t to, double relativePopulation)
 {
