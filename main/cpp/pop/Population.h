@@ -130,12 +130,12 @@ private:
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
-        boost::property_tree::ptree                  m_belief_pt;
-        util::Any                                    m_beliefs;  ///< Holds belief data for the persons.
-        ContactPoolSys                               m_pool_sys; ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger>              m_contact_logger; ///< Logger for contact/transmission.
-        std::vector<std::shared_ptr<gengeopop::GeoGrid>>          m_geoGrids;        ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t> m_regions;        ///< Regios
+        boost::property_tree::ptree     m_belief_pt;
+        util::Any                       m_beliefs;        ///< Holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids; ///< Associated geoGrid may be nullptr
+        std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
         std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
         ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
             0U}; ///< Used to enforce unique ContactPool id's
