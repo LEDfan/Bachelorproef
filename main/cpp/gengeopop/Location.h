@@ -1,8 +1,8 @@
 #pragma once
 
-#include "ContactCenter.h"
 #include "Coordinate.h"
 #include <iostream>
+#include <memory>
 #include <set>
 #include <string>
 #include <typeindex>
@@ -11,6 +11,9 @@
 #include <vector>
 
 namespace gengeopop {
+
+class ContactCenter;
+
 class Location
 {
 public:

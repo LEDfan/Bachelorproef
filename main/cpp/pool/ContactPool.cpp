@@ -30,9 +30,11 @@ namespace stride {
 using namespace std;
 
 ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members()
+    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity()
 {
 }
+
+ContactPool::ContactPool() : m_pool_id(), m_pool_type(), m_index_immune(0), m_members(), m_capacity() {}
 
 void ContactPool::AddMember(const Person* p)
 {
@@ -73,6 +75,29 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                 }
         }
         return std::make_tuple(infectious_cases, num_cases);
+}
+
+unsigned int ContactPool::GetId() const { return m_pool_id; }
+
+std::size_t ContactPool::GetCapacity() const { return m_capacity; }
+
+std::size_t ContactPool::GetUsedCapacity() const { return m_members.size(); }
+
+std::pair<std::size_t, std::size_t> ContactPool::GetPopulationAndInfectedCount() const
+{
+        unsigned int infected = 0;
+
+        for (stride::Person* person : m_members) {
+                if (person->GetHealth().IsInfected()) {
+                        infected++;
+                }
+        }
+        return {m_members.size(), infected};
+}
+
+void ContactPool::removeMember(Person* person)
+{
+        m_members.erase(std::remove(m_members.begin(), m_members.end(), person), m_members.end());
 }
 
 } // namespace stride

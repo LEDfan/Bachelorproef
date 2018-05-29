@@ -1,5 +1,6 @@
 #include "GeoGridProtoWriter.h"
 #include "proto/geogrid.pb.h"
+#include <gengeopop/ContactCenter.h>
 #include <iostream>
 #include <omp.h>
 #include <util/Exception.h>
@@ -68,23 +69,23 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
-            {"PrimaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {"SecondaryCommunity", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {"Secondary Community", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
             {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
             {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
             {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         protoContactCenter->set_id(contactCenter->GetId());
         protoContactCenter->set_type(types[contactCenter->GetType()]);
-        for (const auto& pool : *contactCenter) {
+        for (stride::ContactPool* pool : *contactCenter) {
                 WriteContactPool(pool, protoContactCenter->add_pools());
         }
 }
 
-void GeoGridProtoWriter::WriteContactPool(std::shared_ptr<ContactPool>                       contactPool,
+void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                               contactPool,
                                           proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool)
 {
-        protoContactPool->set_id(contactPool->GetID());
+        protoContactPool->set_id(contactPool->GetId());
         for (const auto& person : *contactPool) {
                 protoContactPool->add_people(person->GetId());
                 m_persons_found.insert(person);
@@ -96,7 +97,8 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
         protoPerson->set_gender(std::string(1, person->GetGender()));
-        protoPerson->set_school(person->GetK12SchoolId());
+        protoPerson->set_k12school(person->GetK12SchoolId());
+        protoPerson->set_college(person->GetCollegeId());
         protoPerson->set_household(person->GetHouseholdId());
         protoPerson->set_workplace(person->GetWorkId());
         protoPerson->set_primarycommunity(person->GetPrimaryCommunityId());

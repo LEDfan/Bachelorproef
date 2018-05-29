@@ -23,7 +23,7 @@ namespace {
 
 std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
 {
-        auto cp = std::make_shared<ContactPool>();
+        auto cp = new stride::ContactPool();
         for (unsigned int age : ages) {
                 //                auto p = std::make_shared<stride::Person>();
                 stride::Person* p = new stride::Person();

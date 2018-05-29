@@ -44,11 +44,12 @@ message GeoGrid {
         required int64 id = 1;
         required int64 age = 2;
         required string gender = 3;
-        required int64 School = 4;
-        required int64 Household = 5;
-        required int64 Workplace = 6;
-        required int64 PrimaryCommunity = 7;
-        required int64 SecondaryCommunity = 8;
+        required int64 K12School = 4;
+        required int64 College = 5;
+        required int64 Household = 6;
+        required int64 Workplace = 7;
+        required int64 PrimaryCommunity = 8;
+        required int64 SecondaryCommunity = 9;
     }
     repeated Location locations = 1;
     repeated Person persons = 2;

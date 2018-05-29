@@ -9,7 +9,7 @@ namespace stride {
 
 GuiController::GuiController(const boost::property_tree::ptree& configPt)
     : BaseController(configPt), m_argc(std::make_shared<int>(0)),
-      m_app(std::make_shared<QGuiApplication>(*m_argc, nullptr)), m_engine(std::make_shared<QQmlApplicationEngine>()),
+      m_app(std::make_unique<QGuiApplication>(*m_argc, nullptr)), m_engine(std::make_unique<QQmlApplicationEngine>()),
       m_backend(nullptr)
 {
         qmlRegisterType<GuiControllerBackend>("io.bistromatics.backend", 1, 0, "Backend");
@@ -26,5 +26,5 @@ void GuiController::Control() { m_app->exec(); }
 
 GuiController::~GuiController() {}
 
-std::shared_ptr<QQmlApplicationEngine> GuiController::GetEngine() { return m_engine; }
+QQmlApplicationEngine* GuiController::GetEngine() { return m_engine.get(); }
 } // namespace stride

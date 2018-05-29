@@ -30,12 +30,12 @@ public:
 
         /// Returns the QQmlApplicationEngine used to construct the Gui, so other Gui components can register themselves
         /// on the same engine.
-        std::shared_ptr<QQmlApplicationEngine> GetEngine();
+        QQmlApplicationEngine* GetEngine();
 
 private:
         std::shared_ptr<int>                   m_argc;   ///< Used for initializing m_app, is always 0.
-        std::shared_ptr<QGuiApplication>       m_app;    ///< The main application that is used for the event loop.
-        std::shared_ptr<QQmlApplicationEngine> m_engine; ///< The engine used to register QML files
+        std::unique_ptr<QGuiApplication>       m_app;    ///< The main application that is used for the event loop.
+        std::unique_ptr<QQmlApplicationEngine> m_engine; ///< The engine used to register QML files
         GuiControllerBackend* m_backend; ///< The backend used in the QML to control the behaviour of the simulation
 };
 } // namespace stride

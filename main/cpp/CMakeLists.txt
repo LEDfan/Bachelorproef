@@ -71,6 +71,8 @@ set(LIB_SRC
         pool/ContactPoolSys.h
         pool/ContactPoolType.cpp
         pool/IdSubscriptArray.h
+        pool/TravellerProfile.cpp
+        pool/TravellerProfileBuilder.cpp
         #---
         pop/Age.h
         pop/Person.cpp
@@ -95,6 +97,7 @@ set(LIB_SRC
         util/CSVRow.cpp
         util/FileSys.cpp
         util/LogUtils.cpp
+        util/RangeIndexer.h
         util/RNEngineType.cpp
         util/RNManager.cpp
         util/RunConfigManager.cpp
@@ -103,6 +106,7 @@ set(LIB_SRC
         util/Stopwatch.h
         util/StringUtils.h
         util/Subject.h
+        util/SliceIndexer.h
         util/TimeStamp.h
         util/TimeToString.h
         util/ExcAssert.h
@@ -120,6 +124,7 @@ set(LIB_SRC
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
+set_source_files_properties(BeliefSeeder.cpp PROPERTIES COMPILE_FLAGS "-Wno-unused-variable")
 target_link_libraries(libstride ${LIBS} libgengeopop libguicontroller)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")

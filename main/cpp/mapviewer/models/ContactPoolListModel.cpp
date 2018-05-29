@@ -1,4 +1,5 @@
 #include "ContactPoolListModel.h"
+#include <gengeopop/ContactCenter.h>
 #include <iostream>
 
 int ContactPoolListModel::rowCount(const QModelIndex& /*parent*/) const { return m_pools.size(); }
@@ -7,7 +8,7 @@ QVariant ContactPoolListModel::data(const QModelIndex& index, int role) const
 {
         auto pool = m_pools[index.row()];
         switch (role) {
-        case Roles::IDRole: return QString::number(pool->GetID());
+        case Roles::IDRole: return QString::number(pool->GetId());
         case Roles::Capacity: return QString::number(pool->GetCapacity());
         case Roles::UsedCapacity: return QString::number(pool->GetUsedCapacity());
         default: break;

@@ -33,14 +33,15 @@ namespace ContactPoolType {
 enum class Id : std::size_t
 {
         Household,
-        School,
+        K12School,
+        College,
         Work,
         PrimaryCommunity,
         SecondaryCommunity,
 };
 
 /// Number of ContactPool types.
-inline constexpr unsigned int NumOfTypes() { return 5U; }
+inline constexpr unsigned int NumOfTypes() { return 6U; }
 
 /// Check whether string is name of a ContactPoolType::Id.
 bool IsType(const std::string& s);
@@ -55,8 +56,8 @@ std::string ToString(Id w);
 Id ToType(const std::string& s);
 
 /// To allow iteration over the type ids.
-constexpr std::initializer_list<Id> IdList{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,
-                                           Id::SecondaryCommunity};
+constexpr std::initializer_list<Id> IdList{Id::Household, Id::K12School,        Id::College,
+                                           Id::Work,      Id::PrimaryCommunity, Id::SecondaryCommunity};
 
 } // namespace ContactPoolType
 } // namespace stride

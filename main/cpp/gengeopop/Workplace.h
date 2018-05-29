@@ -1,5 +1,6 @@
 #pragma once
 #include "ContactCenter.h"
+#include "GeoGrid.h"
 
 namespace gengeopop {
 
@@ -10,6 +11,6 @@ public:
         unsigned int GetPoolSize() const override;
         unsigned int GetMaxPools() const override;
         std::string  GetType() const override;
-        void         Fill(GeoGridConfig& geoGridConfig) override;
+        void         Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
 };
 } // namespace gengeopop

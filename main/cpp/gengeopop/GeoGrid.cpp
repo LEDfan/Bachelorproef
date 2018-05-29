@@ -95,7 +95,8 @@ std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, do
 
         std::set<std::shared_ptr<Location>> result;
         auto agg = BuildAggregator<BoxPolicy>(MakeCollector(std::inserter(result, result.begin())),
-                                              std::make_tuple(long1, lat1, long2, lat2));
+                                              std::make_tuple(std::min(long1, long2), std::min(lat1, lat2),
+                                                              std::max(long1, long2), std::max(lat1, lat2)));
         agg();
         return result;
 }
@@ -122,6 +123,11 @@ void GeoGrid::CheckFinalized(const std::string& functionName) const
                 throw stride::util::Exception("Calling \"" + functionName +
                                               "\" while GeoGrid is not finalized is not supported!");
         }
+}
+
+stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type)
+{
+        return m_population->CreateContactPool(m_regionId, type);
 }
 
 } // namespace gengeopop

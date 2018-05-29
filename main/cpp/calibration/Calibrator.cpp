@@ -172,15 +172,20 @@ void Calibrator::WriteResults(const std::map<std::string, std::vector<unsigned i
                 for (unsigned int step = 0; step < size; step++) {
                         boost::property_tree::ptree step_root;
                         if (multiple.count(tag)) {
-                                std::vector<unsigned int> data;
+                                std::vector<unsigned int>   data;
+                                boost::property_tree::ptree results;
                                 for (const auto& vect : multiple.at(tag)) {
                                         if (vect.size() - 1 < step)
                                                 continue;
                                         data.push_back(vect[step]);
+                                        boost::property_tree::ptree result;
+                                        result.put("", vect[step]);
+                                        results.push_back(std::make_pair("", result));
                                 }
                                 auto p = FindMeanStdev(data);
                                 step_root.put("mean", p.first);
                                 step_root.put("standard deviation", p.second);
+                                step_root.add_child("data", results);
                         }
                         if (single.count(tag)) {
                                 step_root.put("exact", single.at(tag)[step]);

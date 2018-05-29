@@ -44,7 +44,7 @@ void CollegeGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = cities[locationId];
                 auto highschool = std::make_shared<College>(geoGridConfig.generated.contactCenters++);
-                highschool->Fill(geoGridConfig);
+                highschool->Fill(geoGrid);
                 loc->AddContactCenter(highschool);
         }
 }

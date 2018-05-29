@@ -1,6 +1,8 @@
 #include "Household.h"
 #include "GeoGridConfig.h"
 
+using namespace stride::ContactPoolType;
+
 namespace gengeopop {
 
 Household::Household() : ContactCenter(0) {}
@@ -13,8 +15,5 @@ unsigned int Household::GetPoolSize() const { return 15; }
 
 std::string Household::GetType() const { return "Household"; }
 
-void Household::Fill(GeoGridConfig& geoGridConfig)
-{
-        AddPool(std::make_shared<ContactPool>(geoGridConfig.generated.contactPools++, GetPoolSize()));
-}
+void Household::Fill(const std::shared_ptr<GeoGrid>& geoGrid) { AddPool(geoGrid->CreateContactPool(Id::Household)); }
 } // namespace gengeopop

@@ -22,8 +22,7 @@ private:
         std::shared_ptr<GeoGrid> m_geoGrid;
         GeoGridConfig            m_geoGridConfig;
 
-        std::unordered_map<std::shared_ptr<Location>,
-                           std::pair<std::vector<std::shared_ptr<ContactPool>>, discreteDist>>
+        std::unordered_map<std::shared_ptr<Location>, std::pair<std::vector<stride::ContactPool*>, discreteDist>>
             m_workplacesInCity;
 
         void CalculateWorkplacesInCity();
@@ -31,8 +30,8 @@ private:
         double m_fractionCommutingStudents;
         void   CalculateFractionCommutingStudents();
 
-        std::vector<std::shared_ptr<ContactPool>> m_nearByWorkplaces;
-        discreteDist                              m_distNonCommuting;
+        std::vector<stride::ContactPool*> m_nearByWorkplaces;
+        discreteDist                      m_distNonCommuting;
 
         void CalculateCommutingLocations();
 
