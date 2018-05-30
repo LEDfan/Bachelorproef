@@ -95,7 +95,7 @@ std::pair<std::size_t, std::size_t> ContactPool::GetPopulationAndInfectedCount()
         return {m_members.size(), infected};
 }
 
-void ContactPool::removeMember(Person* person)
+void ContactPool::RemoveMember(Person* person)
 {
         m_members.erase(std::remove(m_members.begin(), m_members.end(), person), m_members.end());
 }

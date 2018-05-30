@@ -15,9 +15,7 @@ public:
         /// AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel
         /// fractionWork indicates the amount of work travel
         TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork,
-                         util::RNManager& rnManager, unsigned int maxDays)
-            : m_data_recreation(amountOfRegions), m_data_work(amountOfRegions), m_amountOfTravel(amountOfTravel),
-              m_fractionWork(fractionWork), m_rnManager(rnManager), m_maxDays(maxDays){};
+                         util::RNManager& rnManager, unsigned int maxDays);
 
         explicit TravellerProfile(util::RNManager& rnManager)
             : m_data_recreation(), m_data_work(), m_amountOfTravel(), m_fractionWork(), m_rnManager(rnManager),

@@ -91,7 +91,7 @@
             </geopop_gen>
         </region>
         <region>
-            <name>Vlaanderen3</name>
+            <name>VL</name>
             <geopop_type>generate</geopop_type>
             <geopop_gen>
                 <population_size>600000</population_size>

@@ -51,6 +51,9 @@ public:
         /// Get member at index.
         Person* GetMember(unsigned int index) const { return m_members[index]; }
 
+        /// Remove a member from the contactpool
+        void RemoveMember(Person* pPerson);
+
         /// Get the entire pool of members.
         const std::vector<Person*>& GetPool() const { return m_members; }
 
@@ -89,8 +92,6 @@ public:
 
         /// Iterator to end of persons
         const_iterator cend() const { return m_members.cend(); }
-
-        void removeMember(Person* pPerson);
 
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
