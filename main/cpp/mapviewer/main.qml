@@ -122,7 +122,9 @@ ApplicationWindow {
         id: saveFileSelector
         selectExisting: false
         title: "Select a save location"
+        selectFolder: true
         onAccepted: {
+            console.warn("Accepted")
             backend.SaveGeoGridToFile(fileUrl, errorDialogBox)
         }
     }

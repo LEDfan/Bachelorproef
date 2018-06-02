@@ -146,18 +146,22 @@ void Backend::PlaceMarker(Coordinate coordinate, int region, int id, unsigned in
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 {
-        QUrl                                      info(fileLoc);
-        std::string                               filename = info.toLocalFile().toStdString();
-        std::ofstream                             outputFile(filename);
-        gengeopop::GeoGridWriterFactory           geoGridWriterFactory;
-        std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.CreateWriter(filename);
         try {
-                //                writer->Write(m_grid, outputFile); // TODO
+            QUrl                                      info(fileLoc);
+            std::string                               filename = info.toLocalFile().toStdString();
+            gengeopop::GeoGridWriterFactory           geoGridWriterFactory;
+            int i = 0;
+            for(auto grid : m_grids){
+                std::string thisFileName = filename + std::string("/grid_region_") + std::to_string(i++) + std::string(".proto");
+                std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.CreateWriter(thisFileName);
+                std::ofstream                             outputFile(thisFileName);
+                writer->Write(grid, outputFile);
+                outputFile.close();
+            }
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
         }
-        outputFile.close();
 }
 
 void Backend::ClearSelection()
