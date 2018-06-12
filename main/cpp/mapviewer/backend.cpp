@@ -152,9 +152,10 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
             gengeopop::GeoGridWriterFactory           geoGridWriterFactory;
             int i = 0;
             for(auto grid : m_grids){
-                std::string thisFileName = filename + std::string("/grid_region_") + std::to_string(i++) + std::string(".proto");
-                std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.CreateWriter(thisFileName);
-                std::ofstream                             outputFile(thisFileName);
+                boost::filesystem::path filePath = filename;
+                filePath /= boost::filesystem::path(std::string("grid_region_") + std::to_string(i++) + std::string(".proto"));
+                std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.CreateWriter(filePath.string());
+                std::ofstream                             outputFile(filePath.string());
                 writer->Write(grid, outputFile);
                 outputFile.close();
             }
