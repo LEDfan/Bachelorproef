@@ -147,18 +147,20 @@ void Backend::PlaceMarker(Coordinate coordinate, int region, int id, unsigned in
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 {
         try {
-            QUrl                                      info(fileLoc);
-            std::string                               filename = info.toLocalFile().toStdString();
-            gengeopop::GeoGridWriterFactory           geoGridWriterFactory;
-            int i = 0;
-            for(auto grid : m_grids){
-                boost::filesystem::path filePath = filename;
-                filePath /= boost::filesystem::path(std::string("grid_region_") + std::to_string(i++) + std::string(".proto"));
-                std::shared_ptr<gengeopop::GeoGridWriter> writer = geoGridWriterFactory.CreateWriter(filePath.string());
-                std::ofstream                             outputFile(filePath.string());
-                writer->Write(grid, outputFile);
-                outputFile.close();
-            }
+                QUrl                            info(fileLoc);
+                std::string                     filename = info.toLocalFile().toStdString();
+                gengeopop::GeoGridWriterFactory geoGridWriterFactory;
+                int                             i = 0;
+                for (auto grid : m_grids) {
+                        boost::filesystem::path filePath = filename;
+                        filePath /= boost::filesystem::path(std::string("grid_region_") + std::to_string(i++) +
+                                                            std::string(".proto"));
+                        std::shared_ptr<gengeopop::GeoGridWriter> writer =
+                            geoGridWriterFactory.CreateWriter(filePath.string());
+                        std::ofstream outputFile(filePath.string());
+                        writer->Write(grid, outputFile);
+                        outputFile.close();
+                }
         } catch (const std::exception& e) {
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
