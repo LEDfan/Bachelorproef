@@ -39,6 +39,11 @@ ApplicationWindow {
                         onTriggered: saveFileSelector.open()
                         shortcut: "Ctrl+s"
                       }
+            MenuItem {
+                        text: "&Export to PNG"
+                        onTriggered: savePNGSelector.open()
+                        shortcut: "Shift+Ctrl+E"
+                      }
         }
 
         Menu {
@@ -121,6 +126,17 @@ ApplicationWindow {
     Shortcut {
             sequence: "Ctrl+A"
             onActivated: backend.SelectAll()
+    }
+
+    FileDialog {
+        id: savePNGSelector
+        selectExisting: false
+        title: "Select a save location"
+        onAccepted: {
+            geogridmap.grabToImage(function(result) {
+                result.saveToFile(savePNGSelector.fileUrl.toString().substring(7));
+            })
+        }
     }
 
     FileDialog {
