@@ -281,7 +281,6 @@ void Backend::UpdateColorOfMarkers()
                 // Show the commutes
                 auto loc = GetLocationInRegion(locID);
                 if (m_showCommutes) {
-
                         for (const auto& commute : loc->GetOutgoingCommuningCities()) {
                                 // If the other city is also selected
                                 if (m_selection.find({locID.first, commute.first->GetID()}) != m_selection.end()) {
