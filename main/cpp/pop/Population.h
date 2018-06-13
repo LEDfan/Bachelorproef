@@ -166,8 +166,7 @@ private:
         std::map<std::size_t, ContactPool*> m_work;
         std::map<std::size_t, ContactPool*> m_primaryCommunities;
 
-        std::size_t m_currentRegionId      = 0;
-        std::size_t m_currentStart         = 0;
+        std::size_t m_currentRegionId      = -1;
         std::size_t m_currentContactPoolId = 1;
 };
 

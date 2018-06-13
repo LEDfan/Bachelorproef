@@ -139,15 +139,14 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
         if (m_currentRegionId != regionId) {
-                // TODO this is only executed for the not latest regions
-                assert(regionId > m_currentRegionId);
-                m_regionRanges.SetRange(m_currentStart, m_currentRegionId);
+                assert(regionId == m_currentRegionId + 1); // TODO: what about empty regions?
+                m_regionRanges.SetRange(size(), regionId);
                 m_currentRegionId = regionId;
-                m_currentStart    = size() - 1;
         }
 
         emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId, secondaryCommunityId,
                      regionId);
+        m_regionRanges.ExtendLast(1);
 }
 
 const std::unordered_map<std::string, std::size_t>& Population::GetRegionIdentifiers() const { return m_regions; }
