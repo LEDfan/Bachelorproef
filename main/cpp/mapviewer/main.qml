@@ -17,6 +17,11 @@ ApplicationWindow {
     height: 480
     title: qsTr("MapViewer")
 
+
+    Component.onCompleted: {
+        window.showMaximized()
+    }
+
     HelpDialog{
         id: helpDialog
     }
