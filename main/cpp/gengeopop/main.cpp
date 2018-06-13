@@ -73,6 +73,17 @@ int main(int argc, char* argv[])
                 ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
                                                             "submunicipalities.csv", "OUTPUT FILE", cmd);
 
+                ValueArg<unsigned long> rng_seed("", "seed", "The seed to be used for the random engine", false, 0,
+                                                 "SEED", cmd);
+
+                ValueArg<std::string> rng_type("", "rng_type", "The type of random engine to use", false, "mrg2",
+                                               "RNG TYPE", cmd);
+
+                ValueArg<std::string> rng_state(
+                    "", "state",
+                    "The state to be used for initializing the random engine. This can be used to continue with the "
+                    "same state when generating multiple regions.",
+                    false, "mrg2", "RNG TYPE", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // --------------------------------------------------------------
@@ -94,7 +105,12 @@ int main(int argc, char* argv[])
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
                 stride::util::RNManager::Info info;
-                stride::util::RNManager       rnManager(info);
+                info.m_seed = rng_seed.getValue();
+                info.m_type = rng_type.getValue();
+                if (rng_state.isSet()) {
+                        info.m_state = rng_state.getValue();
+                }
+                stride::util::RNManager rnManager(info);
 
                 GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
                                                         commutingFile.getValue(), houseHoldFile.getValue(),
@@ -105,6 +121,12 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 genGeoPopController.ReadDataFiles();
                 logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
+                logger->info("The random engine is initialized with the following values:");
+                logger->info("Seed:\t{}", info.m_seed);
+                if (rng_state.isSet()) {
+                        logger->info("State:\t{}", info.m_state);
+                }
+                logger->info("Type:\t{}\n", info.m_type);
 
                 // --------------------------------------------------------------
                 // Generate Geo
@@ -134,6 +156,8 @@ int main(int argc, char* argv[])
                 outputFileStream.close();
 
                 logger->info("Done writing to file...");
+                info = rnManager.GetInfo();
+                logger->info("The current state of the random engine: {}", info.m_state);
         } catch (std::exception& e) {
                 exit_status = EXIT_FAILURE;
                 std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
