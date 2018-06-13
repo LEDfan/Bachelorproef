@@ -178,15 +178,15 @@ void Population::CreateRegion(const std::string& geopop_type, const boost::prope
         if (geopop_type == "import") {
                 if (stride_logger)
                         stride_logger->info("Creating region \"{}\" with imported pop.", name);
-                ImportPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                ImportPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         } else if (geopop_type == "generate") {
                 if (stride_logger)
                         stride_logger->info("Creating region \"{}\" with generated pop.", name);
-                GenPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                GenPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         } else {
                 if (stride_logger)
                         stride_logger->info("Creating region \"{}\" with Default pop.", name);
-                DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         }
 }
 } // namespace stride

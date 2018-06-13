@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
 
                 GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
                                                         commutingFile.getValue(), houseHoldFile.getValue(),
-                                                        subMunicipalitiesFile.getValue());
+                                                        subMunicipalitiesFile.getValue(), "Default");
 
                 // --------------------------------------------------------------
                 // Read input files.

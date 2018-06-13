@@ -163,10 +163,6 @@ private:
         std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
         std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
 
-        ContactPoolType::IdSubscriptArray<unsigned int> m_previousRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
-        ContactPoolType::IdSubscriptArray<unsigned int> m_currentRegionMaxId{
-            0U}; ///< Used to enforce unique ContactPool id's
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
 
         // tmp

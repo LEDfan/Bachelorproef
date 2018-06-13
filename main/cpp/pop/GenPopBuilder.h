@@ -39,7 +39,8 @@ public:
         using AbstractPopBuilder::AbstractPopBuilder;
 
         /// Creates a population by generating it
-        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId);
+        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                          std::string regionName);
 };
 
 } // namespace stride

@@ -27,7 +27,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
                 throw stride::util::Exception("Failed to parse Proto file");
         }
         if (m_population) {
-                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
+                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
         } else {
                 m_geoGrid = std::make_shared<GeoGrid>();
         }

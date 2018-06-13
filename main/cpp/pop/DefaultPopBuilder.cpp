@@ -79,7 +79,8 @@ shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Population
         return pop;
 }
 
-shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
+shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                                std::string regionName)
 {
         m_regionId = regionId;
         //------------------------------------------------

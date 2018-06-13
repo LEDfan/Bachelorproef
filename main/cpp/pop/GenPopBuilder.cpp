@@ -41,7 +41,8 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
+shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                            std::string regionName)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
@@ -74,7 +75,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
 
         GenGeoPopController genGeoPopController(
             stride_logger, geoGridConfig, m_rn_manager, m_region_pt.get<std::string>("geopop_gen.cities_file"),
-            commutesFile, m_region_pt.get<std::string>("geopop_gen.household_file"), submunicipalitiesFile);
+            commutesFile, m_region_pt.get<std::string>("geopop_gen.household_file"), submunicipalitiesFile, regionName);
 
         genGeoPopController.UsePopulation(pop, regionId);
 
