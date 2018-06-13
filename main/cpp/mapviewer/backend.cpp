@@ -237,11 +237,17 @@ void Backend::ToggleSelectionOfLocation(int region, std::shared_ptr<gengeopop::L
 
 void Backend::SelectArea(double slat, double slong, double elat, double elong)
 {
+        ClearSelection();
+        SelectExtraInArea(slat, slong, elat, elong);
+}
+
+void Backend::SelectExtraInArea(double slat, double slong, double elat, double elong)
+{
         m_unselection.clear();
         auto previousSelection = m_selection;
         try {
                 int i = 0;
-                for (auto grid : m_grids) {
+                for (auto & grid : m_grids) {
                         std::set<std::shared_ptr<gengeopop::Location>> m_gridSselectionOriginal =
                             grid->InBox(slong, slat, elong, elat);
                         std::set<std::pair<int, int>> m_gridSelection;

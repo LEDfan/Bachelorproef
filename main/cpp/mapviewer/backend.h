@@ -95,6 +95,10 @@ public:
          */
         void SelectArea(double slat, double slong, double elat, double elong);
 
+        /// The Same as SelectArea but does not clear selection first.
+        Q_INVOKABLE
+        void SelectExtraInArea(double slat, double slong, double elat, double elong);
+
         Q_INVOKABLE
         void SelectAll();
 
