@@ -247,7 +247,7 @@ void Backend::SelectExtraInArea(double slat, double slong, double elat, double e
         auto previousSelection = m_selection;
         try {
                 int i = 0;
-                for (auto & grid : m_grids) {
+                for (auto& grid : m_grids) {
                         std::set<std::shared_ptr<gengeopop::Location>> m_gridSselectionOriginal =
                             grid->InBox(slong, slat, elong, elat);
                         std::set<std::pair<int, int>> m_gridSelection;
