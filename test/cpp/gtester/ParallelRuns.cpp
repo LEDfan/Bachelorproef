@@ -85,11 +85,13 @@ TEST_P(ParallelRuns, Run)
         // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
         for (const auto n : numThreads) {
+                configPt.put("run.num_threads", n);
+
                 stride::util::RNManager rn_manager;
                 rn_manager.Initialize(stride::util::RNManager::Info{
                     configPt.get<std::string>("run.rng_type", "mrg2"), configPt.get<unsigned long>("run.rng_seed", 1UL),
                     configPt.get<std::string>("run.rng_state", ""), configPt.get<unsigned int>("run.num_threads")});
-                configPt.put("run.num_threads", n);
+
                 auto pop    = Population::Create(configPt, rn_manager);
                 auto runner = make_shared<SimRunner>(configPt, pop, rn_manager);
                 runner->Run();

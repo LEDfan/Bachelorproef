@@ -78,8 +78,8 @@ void Sim::TimeStep()
 
 #pragma omp parallel num_threads(m_num_threads)
         {
-                // Update health status and presence/absence in pools
-                // depending on health status, work/school day.
+        // Update health status and presence/absence in pools
+        // depending on health status, work/school day.
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
                         population[i].Update(isWorkOff, isSchoolOff, m_travellerProfile, m_population);
