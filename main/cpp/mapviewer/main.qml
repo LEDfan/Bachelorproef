@@ -150,7 +150,6 @@ ApplicationWindow {
 
     FileDialog {
         id: savePNGSelector
-        defaultSuffix: "png"
         selectExisting: false
         nameFilters: ["Image files (*.jpg *.png)"]
         title: "Select a save location"
