@@ -95,7 +95,12 @@ ColumnLayout {
                 if(rectSelectStarted) {
                     // Get the end coordinate of the selection
                     var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
-                    backend.SelectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+
+                    if(mouse.modifiers & Qt.ShiftModifier){
+                        backend.SelectExtraInArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                    } else {
+                        backend.SelectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                    }
                     // Fix order
                     var tstart = start;
                     var tend = end;

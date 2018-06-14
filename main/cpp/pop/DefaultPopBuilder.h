@@ -44,7 +44,8 @@ public:
         /// - Read persons from file and instatiate them.
         /// - Fill up the various type of contactpools.
         /// - Seed the population with contact survey participants.
-        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId);
+        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                          std::string regionName);
 
 private:
         /// Generates pop's individuals and return pop.

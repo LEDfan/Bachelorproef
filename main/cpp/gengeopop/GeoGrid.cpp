@@ -9,13 +9,13 @@ namespace gengeopop {
 
 GeoGrid::GeoGrid()
     : m_locations(), m_locationsToIdIndex(), m_population(stride::Population::Create()), m_finalized(false), m_tree(),
-      m_regionId(0)
+      m_regionId(0), m_regionName("Default")
 {
 }
 
-GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId)
+GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId, std::string regionName)
     : m_locations(), m_locationsToIdIndex(), m_population(std::move(population)), m_finalized(false), m_tree(),
-      m_regionId(regionId)
+      m_regionId(regionId), m_regionName(std::move(regionName))
 
 {
 }
@@ -129,5 +129,7 @@ stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type
 {
         return m_population->CreateContactPool(m_regionId, type);
 }
+
+std::string GeoGrid::GetRegionName() const { return m_regionName; }
 
 } // namespace gengeopop

@@ -161,7 +161,10 @@ private:
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids; ///< Associated geoGrid may be nullptr
         std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
+        std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
+
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
+
         // tmp
         std::map<std::size_t, ContactPool*> m_work;
         std::map<std::size_t, ContactPool*> m_primaryCommunities;

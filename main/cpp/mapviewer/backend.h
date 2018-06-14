@@ -95,6 +95,10 @@ public:
          */
         void SelectArea(double slat, double slong, double elat, double elong);
 
+        /// The Same as SelectArea but does not clear selection first.
+        Q_INVOKABLE
+        void SelectExtraInArea(double slat, double slong, double elat, double elong);
+
         Q_INVOKABLE
         void SelectAll();
 
@@ -126,7 +130,7 @@ private:
         /// The first entry of the tuple is the region, second entry is the id of the location
         /// The corresponding marker is the marker of that location if it is currently on the map
 
-        std::map<std::tuple<unsigned int, unsigned int>, QObject*>
+        std::map<std::tuple<int, unsigned int, unsigned int>, QObject*>
                                       m_commutes; ///< The commute lines that are shown on the map, KEY is the id of the city the commutes go to
         bool                          m_showCommutes = false;
         std::set<std::pair<int, int>> m_selection; ///< The currently selected locations (id of region, id of location)
@@ -183,14 +187,15 @@ private:
          * @param loc1
          * @param loc2
          */
-        void HideCommuteBetween(const std::shared_ptr<gengeopop::Location>& loc1,
+        void HideCommuteBetween(int region, const std::shared_ptr<gengeopop::Location>& loc1,
                                 const std::shared_ptr<gengeopop::Location>& loc2);
 
         /**
          * Shows the commute from loc1 to loc2 on the map.
          * @param loc1
          */
-        void ShowCommute(const std::shared_ptr<gengeopop::Location>& loc1, const std::shared_ptr<gengeopop::Location>&);
+        void ShowCommute(int region, const std::shared_ptr<gengeopop::Location>& loc1,
+                         const std::shared_ptr<gengeopop::Location>&);
 
         /**
          * Updates the health color of the location on the map so it represents the current situation.
