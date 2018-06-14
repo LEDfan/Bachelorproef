@@ -385,17 +385,12 @@ void Backend::SetHealthColorOf(int region, const std::shared_ptr<gengeopop::Loca
         colorRatio        = std::max(0.0, colorRatio);
         colorRatio        = std::min(1.0, colorRatio);
 
-        std::string color = (boost::format("#%02x%02x00") % static_cast<int>(colorRatio * 255) %
-                             static_cast<int>((1 - colorRatio) * 255))
-                                .str();
-
-        if (color.length() != 7) {
-                std::cout << "Wrong color " << color << std::endl;
-                return;
-        }
+        double startHue = 128; // Green
+        double endHue = 0;
+        double hue = (startHue - 128.0 * colorRatio)/360.0;
 
         QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
-                                  Q_ARG(QVariant, QString::fromStdString(color)));
+                                  Q_ARG(QVariant, hue));
 }
 
 void Backend::OnMarkerHovered(int region, unsigned int idOfHover)
