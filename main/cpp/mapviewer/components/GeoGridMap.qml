@@ -20,11 +20,9 @@ ColumnLayout {
         PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
         PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
         PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
-        /*PluginParameter { name: "osm.mapping.copyright"; value: "" }*/
-        /*PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }*/
     }
 
-    property variant mapCenter: QtPositioning.coordinate(50, 4)
+    property variant mapCenter: QtPositioning.coordinate(50.84667, 4.35472)
 
     Map {
         id: map
@@ -37,7 +35,6 @@ ColumnLayout {
         maximumTilt: 0
 
         Component.onCompleted: {
-            console.warn(map.maximumZoomLevel);
             backend.SetObjects(map)
             for( var i_type in supportedMapTypes  ) {
                 if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
