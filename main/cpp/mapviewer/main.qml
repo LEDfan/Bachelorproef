@@ -17,7 +17,28 @@ ApplicationWindow {
     height: 480
     title: qsTr("MapViewer")
 
-
+    statusBar: StatusBar {
+        Layout.fillWidth: true
+        RowLayout {
+            Label {
+                id: statusLabel
+                text: ""
+            }
+        }
+    }
+    Timer {
+        id: statusTimer
+        repeat: false
+        interval: 0
+        onTriggered: {
+            statusLabel.text = ""
+        }
+    }
+    function displayStatusText(text, duration) {
+        statusLabel.text = text
+        statusTimer.interval = duration
+        statusTimer.start()
+    }
     Component.onCompleted: {
         window.showMaximized()
     }
@@ -38,6 +59,11 @@ ApplicationWindow {
                         text: "&Save"
                         onTriggered: saveFileSelector.open()
                         shortcut: "Ctrl+s"
+                      }
+            MenuItem {
+                        text: "&Export to PNG"
+                        onTriggered: savePNGSelector.open()
+                        shortcut: "Shift+Ctrl+E"
                       }
         }
 
@@ -71,6 +97,7 @@ ApplicationWindow {
             id: geogridmap
         }
 
+
         ColumnLayout {
             Layout.maximumWidth: 320
 
@@ -100,7 +127,6 @@ ApplicationWindow {
             objectName: 'errorDialog'
         }
     }
-
     Backend {
         id: backend
         objectName: 'backend'
@@ -117,10 +143,27 @@ ApplicationWindow {
         }
 
     }
-
     Shortcut {
             sequence: "Ctrl+A"
             onActivated: backend.SelectAll()
+    }
+
+    FileDialog {
+        id: savePNGSelector
+        defaultSuffix: "png"
+        selectExisting: false
+        nameFilters: ["Image files (*.jpg *.png)"]
+        title: "Select a save location"
+        onAccepted: {
+            geogridmap.grabToImage(function(result) {
+                var filename = savePNGSelector.fileUrl.toString().substring(7)
+                if (!result.saveToFile(filename)) {
+                    filename += ".png"
+                    result.saveToFile(filename);
+                }
+                displayStatusText("Image exported to " + filename, 5000)
+            })
+        }
     }
 
     FileDialog {
@@ -130,6 +173,7 @@ ApplicationWindow {
         selectFolder: true
         onAccepted: {
             backend.SaveGeoGridToFile(fileUrl, errorDialogBox)
+            displayStatusText("GeoGrid saved to " + fileUrl.toString().substring(7), 5000)
         }
     }
 
@@ -138,6 +182,7 @@ ApplicationWindow {
         title: "Please choose a file"
         onAccepted: {
             backend.LoadGeoGridFromFile(fileSelector.fileUrl, errorDialogBox)
+            displayStatusText("Finished loading file " + fileSelector.fileUrl.toString().substring(7), 5000)
         }
     }
 }
