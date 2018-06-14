@@ -61,11 +61,12 @@ struct IDPack
         constexpr static std::initializer_list<Id> AsInitializerList = {ids...};
 };
 
-constexpr IDPack<Id::Household, Id::K12School, Id::College, Id::Work, Id::PrimaryCommunity, Id::SecondaryCommunity>
-    IdPack;
+using IdPack_t =
+    IDPack<Id::Household, Id::K12School, Id::College, Id::Work, Id::PrimaryCommunity, Id::SecondaryCommunity>;
+constexpr IdPack_t IdPack;
 
 /// To allow iteration over the type ids.
-constexpr std::initializer_list<Id> IdList = decltype(IdPack)::AsInitializerList;
+constexpr std::initializer_list<Id> IdList = IdPack_t::AsInitializerList;
 
 } // namespace ContactPoolType
 } // namespace stride
