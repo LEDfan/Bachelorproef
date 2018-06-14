@@ -138,8 +138,9 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int k12SchoolId, unsigned int college, unsigned int workId,
                               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
-        if (m_currentRegionId != regionId) {
-                assert(regionId == m_currentRegionId + 1); // TODO: what about empty regions?
+        if (m_currentRegionId != regionId || (m_currentRegionId == 0 && empty())) {
+                assert(regionId == m_currentRegionId + 1 ||
+                       (m_currentRegionId == 0 && regionId == 0 && empty())); // TODO: what about empty regions?
                 m_regionRanges.SetRange(size(), regionId);
                 m_currentRegionId = regionId;
         }

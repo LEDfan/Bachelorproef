@@ -166,7 +166,8 @@ private:
         std::map<std::size_t, ContactPool*> m_work;
         std::map<std::size_t, ContactPool*> m_primaryCommunities;
 
-        std::size_t m_currentRegionId      = -1;
+        // Cannot make negative because size_t is unsigned, special check needed in the Create methods
+        std::size_t m_currentRegionId      = 0;
         std::size_t m_currentContactPoolId = 1;
 };
 
