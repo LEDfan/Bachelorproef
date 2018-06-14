@@ -106,6 +106,7 @@ ApplicationWindow {
         objectName: 'backend'
         Component.onCompleted: {
             backend.LocationsSelected.connect(clickSignal)
+            backend.UpdateInfected.connect(updateInfectedOfLocation)
             if (Qt.application.arguments.length > 1) {
                 backend.LoadGeoGridFromCommandLine(Qt.application.arguments);
             }
@@ -114,6 +115,10 @@ ApplicationWindow {
         function clickSignal (arg) {
             locViewer.showLocations(arg)
             commutesViewer.showCommutes(arg)
+        }
+
+        function updateInfectedOfLocation(){
+            locViewer.updateInfected()
         }
 
     }

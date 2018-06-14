@@ -55,6 +55,9 @@ public:
         /// Gets the ratio of infected persons in all contactPools of this location
         double GetInfectedRatio() const;
 
+        /// Gets the amount of people infected in the contactpools of this location
+        double GetInfectedCount() const;
+
         /// Gets the ratio of infected persons in all contactPools of this location's subMunicipalities
         double GetInfectedRatioOfSubmunicipalities() const;
 

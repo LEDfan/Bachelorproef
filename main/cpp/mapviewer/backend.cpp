@@ -262,6 +262,7 @@ void Backend::SelectArea(double slat, double slong, double elat, double elong)
 
 void Backend::UpdateColorOfMarkers()
 {
+
         for (const auto& locID : m_unselection) {
                 auto* marker = m_markers[locID];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
@@ -362,7 +363,8 @@ void Backend::SaveMarker(int region, int id, QObject* marker) { m_markers[{regio
 
 void Backend::UpdateAllHealthColors()
 {
-        int i = 0;
+        emit UpdateInfected();
+        int  i = 0;
         for (auto grid : m_grids) {
                 for (auto loc : *grid) {
                         SetHealthColorOf(i, loc);
@@ -386,11 +388,10 @@ void Backend::SetHealthColorOf(int region, const std::shared_ptr<gengeopop::Loca
         colorRatio        = std::min(1.0, colorRatio);
 
         double startHue = 132; // Green
-        double endHue = 0;
-        double hue = (startHue - 132.0 * colorRatio)/360.0;
+        double endHue   = 0;
+        double hue      = (startHue - 132.0 * colorRatio) / 360.0;
 
-        QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
-                                  Q_ARG(QVariant, hue));
+        QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection, Q_ARG(QVariant, hue));
 }
 
 void Backend::OnMarkerHovered(int region, unsigned int idOfHover)
