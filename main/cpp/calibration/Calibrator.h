@@ -2,6 +2,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <map>
 #include <util/LogUtils.h>
+#include <util/RNManager.h>
 #include <vector>
 
 namespace calibration {
@@ -56,6 +57,7 @@ private:
         /// Compute the mean and standard deviation of the given numbers and return (mean, stdev).
         std::pair<double, double>       FindMeanStdev(std::vector<unsigned int> results) const;
         std::shared_ptr<spdlog::logger> logger; ///< Logger to use for this class
+        stride::util::RNManager         createRNManager(const boost::property_tree::ptree& config) const;
 };
 
 } // namespace calibration

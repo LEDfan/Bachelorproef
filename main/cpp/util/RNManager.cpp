@@ -20,6 +20,7 @@
 
 #include "RNManager.h"
 
+#include <iostream>
 #include <spdlog/spdlog.h>
 #include <sstream>
 

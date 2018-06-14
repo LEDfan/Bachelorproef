@@ -46,7 +46,8 @@ class SimRunner : public util::Subject<stride::sim_event::Id>
 public:
         /// Initialization with property tree.
         /// \param configPt config info for run and for config of simulator
-        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop);
+        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                           util::RNManager& rnManager);
 
         /// Destructor
         ~SimRunner() override = default;

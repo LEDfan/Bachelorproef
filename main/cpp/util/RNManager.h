@@ -63,8 +63,12 @@ public:
         /// No copying.
         RNManager(const RNManager&) = delete;
 
+        RNManager(RNManager&&) = default;
+
         /// No copy assignement.
         RNManager& operator=(const RNManager&) = delete;
+
+        RNManager& operator=(RNManager&&) = default;
 
         /// Return the state of the random engine.
         Info GetInfo() const;
