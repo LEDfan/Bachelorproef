@@ -26,7 +26,7 @@ std::map<std::string, std::vector<unsigned int>> Calibrator::RunSingle(
 
 #pragma omp parallel for
         for (unsigned int config = 0; config < configs.size(); config++) {
-                auto rn_manager = createRNManager(configs[config].first);
+                auto rn_manager = CreateRNManager(configs[config].first);
                 auto pop        = stride::Population::Create(configs[config].first, rn_manager);
                 auto runner     = std::make_shared<stride::SimRunner>(configs[config].first, pop, rn_manager);
                 std::shared_ptr<stride::viewers::InfectedViewer> infectedViewer =
@@ -64,7 +64,7 @@ std::map<std::string, std::vector<std::vector<unsigned int>>> Calibrator::RunMul
 
                         config_pt.put("run.rng_seed", seed);
                         logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
-                        auto rn_manager = createRNManager(config_pt);
+                        auto rn_manager = CreateRNManager(config_pt);
                         auto pop        = stride::Population::Create(config_pt, rn_manager);
                         auto runner     = std::make_shared<stride::SimRunner>(config_pt, pop, rn_manager);
                         std::shared_ptr<stride::viewers::InfectedViewer> infectedViewer =
@@ -217,7 +217,7 @@ void Calibrator::WriteSingleResults(const std::map<std::string, std::vector<unsi
         WriteResults(results, std::map<std::string, std::vector<std::vector<unsigned int>>>(), filename);
 }
 
-stride::util::RNManager Calibrator::createRNManager(const boost::property_tree::ptree& config) const
+stride::util::RNManager Calibrator::CreateRNManager(const boost::property_tree::ptree& config) const
 {
         stride::util::RNManager rn_manager;
         rn_manager.Initialize(stride::util::RNManager::Info{
