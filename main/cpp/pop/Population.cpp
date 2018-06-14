@@ -36,6 +36,27 @@ using namespace stride::util;
 
 namespace stride {
 
+namespace {
+
+template <ContactPoolType::Id... ids>
+struct PoolSysRegionsBuilder
+{
+        static auto&& Build(ContactPoolSys& sys)
+        {
+                return std::move(
+                    std::array<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>, sizeof...(ids)>{
+                        util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>(sys[ids])...});
+        }
+};
+
+template <ContactPoolType::Id... ids>
+auto MkPoolSysRegionsBuilder(ContactPoolType::IDPack<ids...>)
+{
+        return PoolSysRegionsBuilder<ids...>{};
+}
+
+} // namespace
+
 std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt)
 {
         // --------------------------------------------------------------
@@ -138,33 +159,47 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
                               unsigned int k12SchoolId, unsigned int college, unsigned int workId,
                               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
-        if (m_currentRegionId != regionId || (m_currentRegionId == 0 && empty())) {
-                assert(regionId == m_currentRegionId + 1 ||
-                       (m_currentRegionId == 0 && regionId == 0 && empty())); // TODO: what about empty regions?
-                m_regionRanges.SetRange(size(), regionId);
-                m_currentRegionId = regionId;
-        }
+        assert(regionId >= m_currentRegionId);
+        UpdateRegion(regionId);
 
         emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId, secondaryCommunityId,
                      regionId);
         m_regionRanges.ExtendLast(1);
 }
 
+void Population::UpdateRegion(std::size_t regionId)
+{
+        if (m_currentRegionId != regionId || (m_currentRegionId == 0 && empty())) {
+                assert(regionId == m_currentRegionId + 1 ||
+                       (m_currentRegionId == 0 && regionId == 0 && empty())); // TODO: what about empty regions?
+                m_regionRanges.SetRange(size(), regionId);
+                for (auto id : ContactPoolType::IdList) {
+                        m_pool_sys_regions[id].SetRange(m_pool_sys[id].size(), regionId);
+                }
+                m_currentRegionId = regionId;
+        }
+}
+
 const std::unordered_map<std::string, std::size_t>& Population::GetRegionIdentifiers() const { return m_regions; }
+
+RegionSlicer Population::SliceOnRegion(std::size_t region_id) { return RegionSlicer{region_id, m_pool_sys_regions}; }
+
+Population::Population()
+    : m_belief_pt(), m_beliefs(), m_pool_sys(),
+      m_pool_sys_regions(decltype(MkPoolSysRegionsBuilder(ContactPoolType::IdPack))::Build(m_pool_sys)),
+      m_contact_logger(), m_geoGrids(), m_regions(), m_regionRanges(*this), m_work(), m_primaryCommunities()
+{
+}
 
 ContactPool* Population::CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId)
 {
         assert(regionId >= m_currentRegionId);
+        UpdateRegion(regionId);
 
         m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
+        m_pool_sys_regions[typeId].ExtendLast(1);
 
         auto r = &m_pool_sys[typeId].back();
-
-        if (typeId == ContactPoolType::Id::Work) {
-                m_work[regionId] = r;
-        } else if (typeId == ContactPoolType::Id::PrimaryCommunity) {
-                m_primaryCommunities[regionId] = r;
-        }
 
         return r;
 }

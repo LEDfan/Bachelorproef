@@ -55,9 +55,17 @@ std::string ToString(Id w);
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
 
+template <Id... ids>
+struct IDPack
+{
+        constexpr static std::initializer_list<Id> AsInitializerList = {ids...};
+};
+
+constexpr IDPack<Id::Household, Id::K12School, Id::College, Id::Work, Id::PrimaryCommunity, Id::SecondaryCommunity>
+    IdPack;
+
 /// To allow iteration over the type ids.
-constexpr std::initializer_list<Id> IdList{Id::Household, Id::K12School,        Id::College,
-                                           Id::Work,      Id::PrimaryCommunity, Id::SecondaryCommunity};
+constexpr std::initializer_list<Id> IdList = decltype(IdPack)::AsInitializerList;
 
 } // namespace ContactPoolType
 } // namespace stride

@@ -71,6 +71,7 @@ set(LIB_SRC
         pool/ContactPoolSys.h
         pool/ContactPoolType.cpp
         pool/IdSubscriptArray.h
+        pool/RegionSlicer.cpp
         pool/TravellerProfile.cpp
         pool/TravellerProfileBuilder.cpp
         #---

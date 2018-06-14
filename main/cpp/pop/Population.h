@@ -22,6 +22,7 @@
 #include "AbstractPopBuilder.h"
 #include "ImportPopBuilder.h"
 #include "pool/ContactPoolSys.h"
+#include "pool/RegionSlicer.h"
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
@@ -89,19 +90,7 @@ public:
 
         const std::unordered_map<std::string, std::size_t>& GetRegionIdentifiers() const;
 
-        /// TODO replace me by more efficient system
-        ContactPool* GetWorkInRegion(std::size_t regionId)
-        {
-                // ugly hack to get a contactpool fast
-                return m_work[regionId];
-        }
-
-        /// TODO replace me by more efficient system
-        ContactPool* GetPrimaryCommunityInRegion(std::size_t regionId)
-        {
-                // ugly hack to get a contactpool fast
-                return m_primaryCommunities[regionId];
-        }
+        RegionSlicer SliceOnRegion(std::size_t region_id);
 
         //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
         //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
@@ -116,9 +105,7 @@ public:
         //        };
 
 private:
-        Population()
-            : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(),
-              m_regionRanges(*this), m_work(), m_primaryCommunities(){};
+        Population();
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
         /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
@@ -150,17 +137,23 @@ private:
                                  const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
                                  const std::string& name, stride::util::RNManager& rnManager);
 
+        void UpdateRegion(std::size_t region_id);
+
         friend class DefaultPopBuilder;
         friend class GenPopBuilder;
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
-        boost::property_tree::ptree     m_belief_pt;
-        util::Any                       m_beliefs;        ///< Holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids; ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
+        using ContactPoolSysRanges =
+            ContactPoolType::IdSubscriptArray<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
+
+        boost::property_tree::ptree m_belief_pt;
+        util::Any                   m_beliefs;          ///< Holds belief data for the persons.
+        ContactPoolSys              m_pool_sys;         ///< Holds vector of ContactPools of different types.
+        ContactPoolSysRanges        m_pool_sys_regions; ///< Holds sub_ranges for region indexin, by contactpool type
+        std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
+        std::unordered_map<std::string, std::size_t>     m_regions;        ///< Regios
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
         // tmp
         std::map<std::size_t, ContactPool*> m_work;

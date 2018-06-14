@@ -75,13 +75,14 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerP
                         m_in_pools[Id::Work]               = false;
                         m_in_pools[Id::PrimaryCommunity]   = false;
                         m_in_pools[Id::SecondaryCommunity] = false;
+                        // TODO @LEDfan: update with new RegionSlicer
                         if (std::get<1>(travelData)) {
                                 // work
-                                m_visitingContactPool = population->GetWorkInRegion(std::get<2>(travelData));
+                                // m_visitingContactPool = population->GetWorkInRegion(std::get<2>(travelData));
                         } else {
                                 // not work
-                                m_visitingContactPool =
-                                    population->GetPrimaryCommunityInRegion(std::get<2>(travelData));
+                                // m_visitingContactPool =
+                                // population->GetPrimaryCommunityInRegion(std::get<2>(travelData));
                         }
                         m_isTravelling        = true;
                         m_travelDaysRemaining = std::get<3>(travelData);
