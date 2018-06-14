@@ -114,6 +114,10 @@ public:
          */
         void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
 
+        Q_INVOKABLE
+        /// Fit viewport to map items
+        void FitViewport();
+
 signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
