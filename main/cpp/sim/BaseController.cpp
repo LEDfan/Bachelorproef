@@ -48,7 +48,6 @@ BaseController::BaseController()
     : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
       m_runner(), m_rn_manager()
 {
-
         m_rn_manager.Initialize(RNManager::Info{
             m_config_pt.get<string>("run.rng_type", "mrg2"), m_config_pt.get<unsigned long>("run.rng_seed", 1UL),
             m_config_pt.get<string>("run.rng_state", ""), m_config_pt.get<unsigned int>("run.num_threads")});
