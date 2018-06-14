@@ -132,15 +132,14 @@ ApplicationWindow {
         id: savePNGSelector
         defaultSuffix: "png"
         selectExisting: false
-        nameFilters: ["Image files (*.png)"]
+        nameFilters: ["Image files (*.jpg *.png)"]
         title: "Select a save location"
         onAccepted: {
             geogridmap.grabToImage(function(result) {
                 var filename = savePNGSelector.fileUrl.toString().substring(7)
-                if (!(/.png$/.test(filename))) {
-                    filename = filename + ".png"
+                if (!result.saveToFile(filename)) {
+                    result.saveToFile(filename + ".png");
                 }
-                result.saveToFile(filename);
             })
         }
     }
