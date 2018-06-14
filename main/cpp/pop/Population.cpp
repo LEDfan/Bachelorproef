@@ -36,7 +36,7 @@ using namespace stride::util;
 
 namespace stride {
 
-std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt)
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RNManager& rnManager)
 {
         // --------------------------------------------------------------
         // Create (empty) population & and give it a ContactLogger.
@@ -55,13 +55,6 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         }
 
         pop->m_belief_pt = configPt.get_child("run.belief_policy");
-
-        // ------------------------------------------------
-        // Setup RNManager.
-        // ------------------------------------------------
-        RNManager rnManager(RNManager::Info{configPt.get<string>("pop.rng_type", "lcg64"),
-                                            configPt.get<unsigned long>("pop.rng_seed", 101UL), "",
-                                            configPt.get<unsigned int>("run.num_threads")});
 
         auto stride_logger = spdlog::get("stride_logger");
 
@@ -94,9 +87,9 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         return pop;
 }
 
-std::shared_ptr<Population> Population::Create(const string& configString)
+std::shared_ptr<Population> Population::Create(const string& configString, util::RNManager& rnManager)
 {
-        return Create(RunConfigManager::FromString(configString));
+        return Create(RunConfigManager::FromString(configString), rnManager);
 }
 
 std::shared_ptr<Population> Population::Create()

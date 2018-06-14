@@ -29,11 +29,11 @@ class PyRunner(Subject):
     def getSimulator(self):
         return self.simulator
 
-    def setup(self, run_config, population):
+    def setup(self, run_config, population, rn_manager):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
         self.runConfig = run_config
-        self.simulator = Sim.Create(self.runConfig.toString(), population)
+        self.simulator = Sim.Create(self.runConfig.toString(), population, rn_manager)
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
 
