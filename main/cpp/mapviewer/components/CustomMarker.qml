@@ -19,7 +19,7 @@ MapQuickItem {
     }
 
     function setColor(color){
-        rect.color = Qt.hsla(color, 0.8, 0.6)
+        rect.color = Qt.hsla(color, 1.0, 0.5)
     }
 
     function setBorder(color){
