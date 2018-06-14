@@ -130,11 +130,17 @@ ApplicationWindow {
 
     FileDialog {
         id: savePNGSelector
+        defaultSuffix: "png"
         selectExisting: false
+        nameFilters: ["Image files (*.png)"]
         title: "Select a save location"
         onAccepted: {
             geogridmap.grabToImage(function(result) {
-                result.saveToFile(savePNGSelector.fileUrl.toString().substring(7));
+                var filename = savePNGSelector.fileUrl.toString().substring(7)
+                if (!(/.png$/.test(filename))) {
+                    filename = filename + ".png"
+                }
+                result.saveToFile(filename);
             })
         }
     }
