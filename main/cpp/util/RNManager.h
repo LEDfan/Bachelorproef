@@ -114,6 +114,9 @@ public:
         /// Initalize with data in Info.
         void Initialize(const Info& info = Info());
 
+        /// Wrapper method that creates an Info object, used because SWIG can't handle nested structs
+        void Initialize(std::string type, unsigned long seed, std::string state, unsigned int stream_count);
+
 private:
         unsigned long    m_seed;         ///< Actual seed used with random engine.
         unsigned int     m_stream_count; ///< Number of streams set up with the engine.

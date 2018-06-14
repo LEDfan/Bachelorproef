@@ -1,7 +1,7 @@
 import os
 import time
 
-from pystride.stride.stride import Population
+from pystride.stride.stride import Population, RNManager
 
 import pystride
 from .Config import Config
@@ -74,9 +74,17 @@ class PyController:
         os.makedirs(self.getOutputDirectory(), exist_ok=True)
         self.runConfig.toFile(os.path.join(self.getOutputDirectory(), self.getOutputPrefix() + ".xml"))
 
+        # Create a random engine
+        rng_type = self.runConfig.getParameter("run.rng_type", "mrg2")
+        rng_seed = self.runConfig.getParameter("run.rng_seed", 1)
+        rng_state = self.runConfig.getParameter("run.rng_state", "")
+        rng_threads = self.runConfig.getParameter("run.rng_threads", 1)
+        rn_manager = RNManager()
+        rn_manager.Initialize(rng_type, rng_seed, rng_state, rng_threads)
+
         # Build population and simulator
-        population = Population.Create(self.runConfig.toString())
-        self.runner.setup(self.runConfig, population)
+        population = Population.Create(self.runConfig.toString(), rn_manager)
+        self.runner.setup(self.runConfig, population, rn_manager)
         self.observer.setSimulator(self.runner.getSimulator())
         self.runner.run()
         print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
