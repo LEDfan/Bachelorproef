@@ -158,7 +158,8 @@ ApplicationWindow {
             geogridmap.grabToImage(function(result) {
                 var filename = savePNGSelector.fileUrl.toString().substring(7)
                 if (!result.saveToFile(filename)) {
-                    result.saveToFile(filename + ".png");
+                    filename += ".png"
+                    result.saveToFile(filename);
                 }
                 displayStatusText("Image exported to " + filename, 5000)
             })
