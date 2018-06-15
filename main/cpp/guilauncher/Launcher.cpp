@@ -145,7 +145,12 @@ void Launcher::UpdateConfigForm()
         m_configEditor.vaccineRate->setProperty("value", m_configPt.get<std::string>("run.vaccine_rate").c_str());
 
         // GeoPop
-        std::string gengeopop_type = m_configPt.get<std::string>("run.geopop_type");
+        std::string gengeopop_type;
+        if (m_configPt.get_child("run").count("geopop_type")) {
+                gengeopop_type = m_configPt.get<std::string>("run.geopop_type");
+        } else {
+                gengeopop_type = "multi-region";
+        }
         LoadComboBox(m_configEditor.geopopType, gengeopop_type.c_str());
         if (gengeopop_type == "import") {
                 m_configEditor.geopopFile->setProperty("text",
@@ -261,8 +266,13 @@ void Launcher::UpdatePtree()
                 m_configPt.get_child("run").erase("geopop_gen");
         }
 
-        std::string gengeopop_type = m_configEditor.geopopType->property("currentText").toString().toStdString();
-        m_configPt.put("run.geopop_type", gengeopop_type);
+        std::string gengeopop_type;
+        if (m_configPt.get_child("run").count("geopop_type")) {
+                gengeopop_type = m_configPt.get<std::string>("run.geopop_type");
+                m_configPt.put("run.geopop_type", gengeopop_type);
+        } else {
+                std::string gengeopop_type = "multi-region";
+        }
         if (gengeopop_type == "import") {
                 m_configPt.put("run.geopop_import_file",
                                m_configEditor.geopopFile->property("text").toString().toStdString());
