@@ -151,7 +151,7 @@ after_script:
     git commit -m "Publish test results @ $LINK"
     if [ "$TRAVIS_BRANCH" -eq "master" ]; then
         rm -rf doxygen
-        mv cmake-build-debug/doc doxygen
+        mv cmake-build-debug/doc/doxygen/html doxygen
         git add doxygen
         git commit -m "Update doxygen for $TRAVIS_COMMIT"
     fi
