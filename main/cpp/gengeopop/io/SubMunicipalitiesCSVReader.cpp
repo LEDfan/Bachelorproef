@@ -6,14 +6,13 @@
 namespace gengeopop {
 
 SubMunicipalitiesCSVReader::SubMunicipalitiesCSVReader(std::unique_ptr<std::istream> inputStream)
-    : SubMunicipalitiesReader(std::move(inputStream))
+    : SubMunicipalitiesReader(std::move(inputStream)), m_reader(*(m_inputStream.get()))
 {
 }
 
 void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // columns: parent_id,id,parent_is_sub,population_rel_to_parent,latitude,longitude,name
-        stride::util::CSV reader(*(m_inputStream.get()));
 
         // first build a list of relative population sizes of each Location
         std::map<unsigned int, double> populationSizesMapping;
@@ -22,7 +21,7 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
                 populationSizesMapping[loc->GetID()] = loc->GetRelativePopulationSize();
         }
 
-        for (const stride::util::CSVRow& row : reader) {
+        for (const stride::util::CSVRow& row : m_reader) {
                 auto parentId = row.GetValue<unsigned int>(0);
                 auto id       = row.GetValue<unsigned int>(1);
                 auto parent   = geoGrid->GetById(parentId);

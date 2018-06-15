@@ -4,18 +4,20 @@
 
 namespace gengeopop {
 
-CitiesCSVReader::CitiesCSVReader(std::unique_ptr<std::istream> inputStream) : CitiesReader(std::move(inputStream)) {}
+CitiesCSVReader::CitiesCSVReader(std::unique_ptr<std::istream> inputStream)
+    : CitiesReader(std::move(inputStream)), m_reader(*(m_inputStream.get()))
+{
+}
 
 void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude
         // name
-        stride::util::CSV                                      reader(*(m_inputStream.get()));
         std::vector<std::pair<std::shared_ptr<Location>, int>> addedLocations;
 
         unsigned int totalPopulation = 0;
 
-        for (const stride::util::CSVRow& row : reader) {
+        for (const stride::util::CSVRow& row : m_reader) {
                 auto id       = row.GetValue<int>(0);
                 auto location = std::make_shared<Location>(id,                                 // id
                                                            row.GetValue<int>(1),               // province

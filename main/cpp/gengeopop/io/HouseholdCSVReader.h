@@ -4,9 +4,14 @@
 #include <pop/Population.h>
 
 namespace gengeopop {
+
+/**
+ * Create a Reader that retrieves the different Household profiles from a given CSV file
+ */
 class HouseholdCSVReader : public HouseholdReader
 {
 public:
+        /// Construct the HouseholdCSVReader with an istream containing the CSV data
         explicit HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
 
 private:
