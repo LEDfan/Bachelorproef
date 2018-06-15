@@ -50,9 +50,9 @@ struct PoolSysRegionsBuilder
 };
 
 template <ContactPoolType::Id... ids>
-auto MkPoolSysRegionsBuilder(ContactPoolType::IDPack<ids...>)
+auto BuildPoolSysRegions(ContactPoolType::IDPack<ids...>, ContactPoolSys& sys)
 {
-        return PoolSysRegionsBuilder<ids...>{};
+        return PoolSysRegionsBuilder<ids...>::Build(sys);
 }
 
 } // namespace
@@ -186,8 +186,8 @@ RegionSlicer Population::SliceOnRegion(std::size_t region_id) { return RegionSli
 
 Population::Population()
     : m_belief_pt(), m_beliefs(), m_pool_sys(),
-      m_pool_sys_regions(decltype(MkPoolSysRegionsBuilder(ContactPoolType::IdPack))::Build(m_pool_sys)),
-      m_contact_logger(), m_geoGrids(), m_regions(), m_regionRanges(*this), m_work(), m_primaryCommunities()
+      m_pool_sys_regions(BuildPoolSysRegions(ContactPoolType::IdPack, m_pool_sys)), m_contact_logger(), m_geoGrids(),
+      m_regions(), m_regionRanges(*this), m_work(), m_primaryCommunities()
 {
 }
 
