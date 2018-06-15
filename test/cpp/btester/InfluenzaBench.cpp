@@ -39,7 +39,12 @@ void InfluenzaBench()
                 return [s, configPt]() {
                         return Test([s, configPt]() {
                                 configPt->put("run.contact_log_level", s);
-                                SimRunner(*configPt, Population::Create(*configPt)).Run();
+                                RNManager rn_manager;
+                                rn_manager.Initialize(RNManager::Info(configPt->get<string>("run.rng_type", "mrg2"),
+                                                                      configPt->get<unsigned long>("run.rng_seed", 1UL),
+                                                                      configPt->get<string>("run.rng_state", ""),
+                                                                      configPt->get<unsigned int>("run.num_threads")));
+                                SimRunner(*configPt, Population::Create(*configPt, rn_manager), rn_manager).Run();
                         });
                 };
         };

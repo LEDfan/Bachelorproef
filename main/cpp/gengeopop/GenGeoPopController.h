@@ -17,7 +17,7 @@ public:
         GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
                             stride::util::RNManager& rnManager, std::string citiesFileName,
                             std::string commutingFileName, std::string householdFileName,
-                            std::string subMunicipalitiesFileName);
+                            std::string subMunicipalitiesFileName, std::string regionName);
 
         /// Reads the data files
         void ReadDataFiles();
@@ -55,6 +55,7 @@ private:
         std::string
                     m_subMunicipalitiesFileName; ///< Filename of the file which stores information about the submunicipalities
         std::size_t m_regionId;                  ///< RegionId, used to create persons
+        std::string m_regionName;                ///< RegionName
 };
 
 } // namespace gengeopop

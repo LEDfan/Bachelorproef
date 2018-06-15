@@ -57,7 +57,7 @@ auto BuildPoolSysRegions(ContactPoolType::IDPack<ids...>, ContactPoolSys& sys)
 
 } // namespace
 
-std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt)
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RNManager& rnManager)
 {
         // --------------------------------------------------------------
         // Create (empty) population & and give it a ContactLogger.
@@ -76,13 +76,6 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         }
 
         pop->m_belief_pt = configPt.get_child("run.belief_policy");
-
-        // ------------------------------------------------
-        // Setup RNManager.
-        // ------------------------------------------------
-        RNManager rnManager(RNManager::Info{configPt.get<string>("pop.rng_type", "lcg64"),
-                                            configPt.get<unsigned long>("pop.rng_seed", 101UL), "",
-                                            configPt.get<unsigned int>("run.num_threads")});
 
         auto stride_logger = spdlog::get("stride_logger");
 
@@ -115,9 +108,9 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         return pop;
 }
 
-std::shared_ptr<Population> Population::Create(const string& configString)
+std::shared_ptr<Population> Population::Create(const string& configString, util::RNManager& rnManager)
 {
-        return Create(RunConfigManager::FromString(configString));
+        return Create(RunConfigManager::FromString(configString), rnManager);
 }
 
 std::shared_ptr<Population> Population::Create()
@@ -214,15 +207,15 @@ void Population::CreateRegion(const std::string& geopop_type, const boost::prope
         if (geopop_type == "import") {
                 if (stride_logger)
                         stride_logger->info("Creating region \"{}\" with imported pop.", name);
-                ImportPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                ImportPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         } else if (geopop_type == "generate") {
                 if (stride_logger)
                         stride_logger->info("Creating region \"{}\" with generated pop.", name);
-                GenPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                GenPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         } else {
                 if (stride_logger)
                         stride_logger->info("Creating region \"{}\" with Default pop.", name);
-                DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name]);
+                DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         }
 }
 } // namespace stride

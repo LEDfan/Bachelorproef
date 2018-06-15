@@ -56,10 +56,11 @@ class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
-        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt);
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt,
+                                                  util::RNManager&                   rnManager);
 
         /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Population> Create(const std::string& configString);
+        static std::shared_ptr<Population> Create(const std::string& configString, util::RNManager& rnManager);
 
         /// Create an empty Population with NoBelief policy, used in gengeopop
         static std::shared_ptr<Population> Create();
@@ -164,6 +165,7 @@ private:
         std::unordered_map<std::string, std::size_t>     m_regions;        ///< Regios
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
             m_regionRanges; ///< Ranges over the people in different regions
+
         // tmp
         std::map<std::size_t, ContactPool*> m_work;
         std::map<std::size_t, ContactPool*> m_primaryCommunities;

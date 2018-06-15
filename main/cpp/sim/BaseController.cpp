@@ -45,15 +45,20 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 BaseController::BaseController()
-    : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(), m_runner()
+    : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
+      m_runner(), m_rn_manager()
 {
-        auto pop = Population::Create(m_config_pt);
-        m_runner = make_shared<SimRunner>(m_config_pt, pop);
+        m_rn_manager.Initialize(RNManager::Info{
+            m_config_pt.get<string>("run.rng_type", "mrg2"), m_config_pt.get<unsigned long>("run.rng_seed", 1UL),
+            m_config_pt.get<string>("run.rng_state", ""), m_config_pt.get<unsigned int>("run.num_threads")});
+
+        auto pop = Population::Create(m_config_pt, m_rn_manager);
+        m_runner = make_shared<SimRunner>(m_config_pt, pop, m_rn_manager);
 }
 
 BaseController::BaseController(const ptree& configPt)
     : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
-      m_runner()
+      m_runner(), m_rn_manager()
 {
         m_run_clock.Start();
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
@@ -64,8 +69,12 @@ BaseController::BaseController(const ptree& configPt)
         MakeLogger();
         LogSetup();
 
-        auto pop = Population::Create(m_config_pt);
-        m_runner = make_shared<SimRunner>(m_config_pt, pop);
+        m_rn_manager.Initialize(RNManager::Info{
+            m_config_pt.get<string>("run.rng_type", "mrg2"), m_config_pt.get<unsigned long>("run.rng_seed", 1UL),
+            m_config_pt.get<string>("run.rng_state", ""), m_config_pt.get<unsigned int>("run.num_threads")});
+
+        auto pop = Population::Create(m_config_pt, m_rn_manager);
+        m_runner = make_shared<SimRunner>(m_config_pt, pop, m_rn_manager);
 }
 
 void BaseController::CheckEnv()

@@ -89,6 +89,7 @@ protected:
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; ///< Working dir or install dir mode.
         std::shared_ptr<SimRunner>      m_runner;
+        util::RNManager                 m_rn_manager;
 };
 
 } // namespace stride

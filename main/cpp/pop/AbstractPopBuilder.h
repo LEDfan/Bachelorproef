@@ -43,7 +43,8 @@ public:
                            util::RNManager& rnManager);
 
         /// Build Population and return it afterwards.
-        virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId) = 0;
+        virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                                  std::string regionName) = 0;
 
         virtual ~AbstractPopBuilder(){};
 

@@ -20,6 +20,7 @@
 
 #include "RNManager.h"
 
+#include <iostream>
 #include <spdlog/spdlog.h>
 #include <sstream>
 
@@ -121,6 +122,11 @@ void RNManager::Initialize(const Info& info)
                 case Id::yarn3: para_seed(m_yarn3, m_stream_count, info.m_state); break;
                 }
         }
+}
+
+void RNManager::Initialize(std::string type, unsigned long seed, std::string state, unsigned int stream_count)
+{
+        Initialize(Info(type, seed, state, stream_count));
 }
 
 } // namespace util

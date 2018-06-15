@@ -42,7 +42,8 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
+shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                               std::string regionName)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
@@ -53,10 +54,10 @@ shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, 
 
         stride_logger->debug("Importing population from " + importFile);
 
-        reader->UsePopulation(pop, regionId);
+        reader->UsePopulation(pop, regionId, regionName);
 
         pop->m_geoGrids.push_back(reader->Read());
-        for (auto grid : pop->m_geoGrids) {
+        for (const auto& grid : pop->m_geoGrids) {
                 grid->Finalize();
         }
 

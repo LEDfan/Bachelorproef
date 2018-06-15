@@ -63,8 +63,12 @@ public:
         /// No copying.
         RNManager(const RNManager&) = delete;
 
+        RNManager(RNManager&&) = default;
+
         /// No copy assignement.
         RNManager& operator=(const RNManager&) = delete;
+
+        RNManager& operator=(RNManager&&) = default;
 
         /// Return the state of the random engine.
         Info GetInfo() const;
@@ -109,6 +113,9 @@ public:
 
         /// Initalize with data in Info.
         void Initialize(const Info& info = Info());
+
+        /// Wrapper method that creates an Info object, used because SWIG can't handle nested structs
+        void Initialize(std::string type, unsigned long seed, std::string state, unsigned int stream_count);
 
 private:
         unsigned long    m_seed;         ///< Actual seed used with random engine.

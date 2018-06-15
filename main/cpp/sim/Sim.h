@@ -43,11 +43,12 @@ class Sim
 {
 public:
         /// Create Sim initialized by the configuration in property tree and population.
-        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt,
-                                           std::shared_ptr<Population>        pop);
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                                           util::RNManager& rnManager);
 
         /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop);
+        static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop,
+                                           util::RNManager& rnManager);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
@@ -66,8 +67,8 @@ public:
         void TimeStep();
 
 private:
-        /// Default constructor for empty Simulator.
-        Sim();
+        /// Constructor for empty Simulator.
+        Sim(util::RNManager&);
 
         /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;
@@ -84,7 +85,7 @@ private:
         std::vector<ContactHandler>       m_handlers;         ///< Contact handlers (rng & rates).
         InfectorExec*                     m_infector;         ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population>       m_population;       ///< Pointer to the Population.
-        util::RNManager                   m_rn_manager;       ///< Random numbere generation management.
+        util::RNManager&                  m_rn_manager;       ///< Random numbere generation management.
         TransmissionProfile               m_transmission_profile; ///< Profile of disease.
         std::shared_ptr<TravellerProfile> m_travellerProfile;
 };

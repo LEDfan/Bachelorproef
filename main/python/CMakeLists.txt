@@ -29,6 +29,7 @@ set(SWIG_IFACE
 	swig/population.i
 	swig/sim.i
 	swig/stride.i
+	swig/rnmanager.i
 )
 
 
