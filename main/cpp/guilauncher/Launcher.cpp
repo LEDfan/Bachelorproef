@@ -82,7 +82,6 @@ void Launcher::Launch()
         } else {
                 controller->Control();
         }
-        controller->Control();
 }
 
 void Launcher::SetConfigPath(QString file)
