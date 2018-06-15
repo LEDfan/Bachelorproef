@@ -147,3 +147,4 @@ after_script:
     git commit -m "Publish test results @ $LINK"
     git push origin-pages gh-pages
     echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
+    fi
