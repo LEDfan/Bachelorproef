@@ -23,7 +23,7 @@ public:
         /// Constructor, with region id and a Ranges (where to index)
         /// Make sure that `pool_sys_regions` is still alive as long as you want to index this object
         /// \see Population::SliceOnRegion
-        RegionSlicer(std::size_t region_id, const Ranges& pool_sys_regions);
+        RegionSlicer(std::size_t region_id, Ranges& pool_sys_regions);
 
         /// Index on contact pool type, the region id is given in the constructor
         /// Returns a range with all ContactPools of that type in that region
@@ -31,7 +31,7 @@ public:
 
 private:
         const std::size_t m_region_id;        ///< Keep track of the region until the final index
-        const Ranges&     m_pool_sys_regions; ///< What to index on, should be still alive
+        Ranges&     m_pool_sys_regions; ///< What to index on, should be still alive
 };
 
 } // namespace stride

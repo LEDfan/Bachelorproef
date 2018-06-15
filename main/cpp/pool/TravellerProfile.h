@@ -1,10 +1,13 @@
 #pragma once
 
+#include "ContactPool.h"
 #include <trng/discrete_dist.hpp>
 #include <util/RNManager.h>
 #include <vector>
 
 namespace stride {
+
+class Population;
 
 /**
  * Holds the information about travels
@@ -28,7 +31,8 @@ public:
         void AddTravelWork(std::size_t from, std::size_t to, double relativePopulation);
 
         /// Based on the profile determines if a person will travel
-        std::tuple<bool, bool, std::size_t, unsigned int> PersonWillTravel(std::size_t currentRegion);
+        std::tuple<bool, bool, ContactPool*, unsigned int> PersonWillTravel(size_t                      currentRegion,
+                                                                            std::shared_ptr<Population> ptr);
 
 private:
         /// From region, to region, relative amount of people

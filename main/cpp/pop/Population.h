@@ -98,18 +98,6 @@ public:
         /// Create a new RegionSlicer for the given region id
         RegionSlicer SliceOnRegion(std::size_t region_id);
 
-        //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
-        //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
-        //                util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
-        //                ContactPoolType::IdSubscriptArray> res; for (ContactPoolType::Id typ :
-        //                ContactPoolType::IdList) {
-        //                        res[typ] =
-        //                        util::IteratorPair<util::SegmentedVector<ContactPool>::iterator>(m_pool_sys[typ].GetPartition(region).begin(),
-        //                        m_pool_sys[typ].GetPartition(region).end());
-        //                }
-        //                return res;
-        //        };
-
 private:
         /// Constructor, to be called by create
         Population();

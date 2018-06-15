@@ -1,6 +1,8 @@
 #include "TravellerProfile.h"
+#include "ContactPoolType.h"
 #include <trng/uniform_int_dist.hpp>
 #include <iostream>
+#include <pop/Population.h>
 
 namespace stride {
 
@@ -25,19 +27,29 @@ void TravellerProfile::AddTravelWork(std::size_t from, std::size_t to, double re
         m_data_work.at(from).at(to) = relativePopulation;
 }
 
-std::tuple<bool, bool, std::size_t, unsigned int> TravellerProfile::PersonWillTravel(std::size_t currentRegion)
+std::tuple<bool, bool, ContactPool*, unsigned int> TravellerProfile::PersonWillTravel(
+    size_t currentRegion, std::shared_ptr<stride::Population> population)
 {
         if (m_data_work.size() > 1 && m_data_recreation.size() > 1 && MakeChoice(m_amountOfTravel)) {
-                std::size_t destination = 0;
-                bool        work;
+                std::size_t  destinationRegion = 0;
+                ContactPool* destinationCp;
+                bool         work;
                 if (MakeChoice(m_fractionWork)) {
                         // Work travel
                         work = true;
 
-                        auto dist = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                        auto distRegion = m_rnManager.GetGenerator(trng::uniform_int_dist(
                             0, static_cast<trng::uniform_int_dist::result_type>(m_data_work[currentRegion].size())));
 
-                        destination = static_cast<size_t>(dist());
+                        destinationRegion = static_cast<size_t>(distRegion());
+
+                        auto pools = population->SliceOnRegion(destinationRegion)[ContactPoolType::Id::Work];
+
+                        auto distLocation = m_rnManager.GetGenerator(
+                            trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
+
+                        destinationCp = &pools[distLocation()];
+
                 } else {
                         // Recreation travel
                         work = false;
@@ -46,13 +58,21 @@ std::tuple<bool, bool, std::size_t, unsigned int> TravellerProfile::PersonWillTr
                             0,
                             static_cast<trng::uniform_int_dist::result_type>(m_data_recreation[currentRegion].size())));
 
-                        destination = static_cast<size_t>(dist());
+                        destinationRegion = static_cast<size_t>(dist());
+
+                        auto pools =
+                            population->SliceOnRegion(destinationRegion)[ContactPoolType::Id::PrimaryCommunity];
+
+                        auto distLocation = m_rnManager.GetGenerator(
+                            trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
+
+                        destinationCp = &pools[distLocation()];
                 }
 
                 auto durationDist = m_rnManager.GetGenerator(trng::uniform_int_dist(0, m_maxDays));
                 auto duration     = static_cast<unsigned int>(durationDist());
 
-                return {true, work, destination, duration};
+                return {true, work, destinationCp, duration};
         }
         return {false, false, 0, 0};
 }

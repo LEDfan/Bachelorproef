@@ -2,7 +2,7 @@
 
 namespace stride {
 
-RegionSlicer::RegionSlicer(std::size_t region_id, const RegionSlicer::Ranges& pool_sys_regions)
+RegionSlicer::RegionSlicer(std::size_t region_id, RegionSlicer::Ranges& pool_sys_regions)
     : m_region_id(region_id), m_pool_sys_regions(pool_sys_regions)
 {
 }
