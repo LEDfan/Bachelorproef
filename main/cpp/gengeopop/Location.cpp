@@ -58,6 +58,18 @@ double Location::GetInfectedCount() const
         return infected;
 }
 
+unsigned int Location::GetSimulationPopulation() const
+{
+        unsigned int population = 0;
+
+        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
+                auto r = cc->GetPopulationAndInfectedCount();
+                population += r.first;
+        }
+
+        return population;
+}
+
 double Location::GetInfectedRatioOfSubmunicipalities() const
 {
         unsigned int infected   = 0;

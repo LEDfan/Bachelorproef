@@ -50,7 +50,7 @@ void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Lo
         unsigned int totalPopulation = 0;
         unsigned int totalInfected   = 0;
         for (const auto& location : locations) {
-                totalPopulation += location->GetPopulation();
+                totalPopulation += location->GetSimulationPopulation();
                 totalInfected += location->GetInfectedCount();
         }
         populationString += QString::number(totalPopulation);

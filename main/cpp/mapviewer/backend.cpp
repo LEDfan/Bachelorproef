@@ -386,7 +386,7 @@ void Backend::SetHealthColorOf(int region, const std::shared_ptr<gengeopop::Loca
         colorRatio        = std::max(0.0, colorRatio);
         colorRatio        = std::min(1.0, colorRatio);
 
-        double startHue = 132; // Green
+        double startHue = 250; // Green
         double endHue   = 0;
         double hue      = (startHue - (startHue - endHue) * colorRatio) / 360.0;
 

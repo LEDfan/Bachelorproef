@@ -122,7 +122,7 @@ signals:
         void UpdateInfected();
 
 private:
-        double   m_colorExponent = 0.20;    ///< We use this exponent to make the color change not linear
+        double   m_colorExponent = 0.1;     ///< We use this exponent to make the color change not linear
         QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_grids;
         std::map<std::tuple<int, int>, QObject*> m_markers; ///< Reference to the markers so we do not need to search
