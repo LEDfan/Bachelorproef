@@ -46,9 +46,9 @@ void Launcher::Launch()
         } else {
                 controller = std::make_unique<stride::CliController>(m_configPt);
         }
-        if (m_showMapViewer) {
-                controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine);
-        }
+
+        std::unique_ptr<std::thread> thread = nullptr;
+
         if (m_showAdoptedViewer) {
                 controller->RegisterViewer<stride::viewers::AdoptedViewer>(controller->GetOutputPrefix());
         }
@@ -64,7 +64,24 @@ void Launcher::Launch()
         if (m_showSummaryViewer) {
                 controller->RegisterViewer<stride::viewers::SummaryViewer>(controller->GetOutputPrefix());
         }
-        controller->Control();
+        if (m_showMapViewer) {
+                if (!engine) {
+                        Q_INIT_RESOURCE(qml);
+                        int             i = 0;
+                        QGuiApplication app(i, nullptr);
+                        auto            engine = std::make_unique<QQmlApplicationEngine>();
+                        controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine.get());
+                        thread = std::make_unique<std::thread>([&controller]() { controller->Control(); });
+                        app.exec();
+                } else {
+                        controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine);
+                }
+        }
+        if (thread) {
+                thread->join();
+        } else {
+                controller->Control();
+        }
 }
 
 void Launcher::SetConfigPath(QString file)

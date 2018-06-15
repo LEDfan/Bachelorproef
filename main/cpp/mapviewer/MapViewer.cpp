@@ -8,7 +8,6 @@ namespace viewers {
 
 void MapViewer::Update(const sim_event::Id /*id*/)
 {
-        m_logger->info("MapViewer updated");
         if (m_runner->GetSim() == nullptr) {
                 return;
         }
@@ -24,12 +23,11 @@ void MapViewer::Update(const sim_event::Id /*id*/)
                 // Set the geogrid
                 m_vis->SetGeoGrids(m_runner->GetSim()->GetPopulation()->GetGeoGrids());
                 m_vis->ForceUpdateMarkers();
-                std::this_thread::sleep_for(std::chrono::seconds(5));
         } else {
                 // Update the markers
                 m_vis->ForceUpdateMarkers();
-                std::this_thread::sleep_for(std::chrono::seconds(1));
         }
+        m_logger->info("MapViewer updated");
 }
 
 MapViewer::~MapViewer() {}
