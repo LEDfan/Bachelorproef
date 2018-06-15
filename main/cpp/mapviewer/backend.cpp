@@ -262,7 +262,6 @@ void Backend::SelectArea(double slat, double slong, double elat, double elong)
 
 void Backend::UpdateColorOfMarkers()
 {
-
         for (const auto& locID : m_unselection) {
                 auto* marker = m_markers[locID];
                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "black"));
@@ -389,7 +388,7 @@ void Backend::SetHealthColorOf(int region, const std::shared_ptr<gengeopop::Loca
 
         double startHue = 132; // Green
         double endHue   = 0;
-        double hue      = (startHue - 132.0 * colorRatio) / 360.0;
+        double hue      = (startHue - (startHue - endHue) * colorRatio) / 360.0;
 
         QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection, Q_ARG(QVariant, hue));
 }
