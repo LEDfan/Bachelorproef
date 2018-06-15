@@ -41,7 +41,7 @@ namespace {
 template <ContactPoolType::Id... ids>
 struct PoolSysRegionsBuilder
 {
-        static auto&& Build(ContactPoolSys& sys)
+        static auto Build(ContactPoolSys& sys)
         {
                 return std::move(
                     std::array<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>, sizeof...(ids)>{
@@ -169,14 +169,15 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
 
 void Population::UpdateRegion(std::size_t regionId)
 {
-        if (m_currentRegionId != regionId || (m_currentRegionId == 0 && empty())) {
-                assert(regionId == m_currentRegionId + 1 ||
-                       (m_currentRegionId == 0 && regionId == 0 && empty())); // TODO: what about empty regions?
+        if (m_currentRegionId != regionId || (!m_have_inserted && m_currentRegionId == 0)) {
+                assert(regionId == m_currentRegionId + 1 || (!m_have_inserted && m_currentRegionId == 0 &&
+                                                             regionId == 0)); // TODO: what about empty regions?
                 m_regionRanges.SetRange(size(), regionId);
                 for (auto id : ContactPoolType::IdList) {
                         m_pool_sys_regions[id].SetRange(m_pool_sys[id].size(), regionId);
                 }
                 m_currentRegionId = regionId;
+                m_have_inserted   = true;
         }
 }
 

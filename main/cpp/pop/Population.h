@@ -161,6 +161,7 @@ private:
 
         // Cannot make negative because size_t is unsigned, special check needed in the Create methods
         std::size_t m_currentRegionId      = 0;
+        bool        m_have_inserted        = false; ///< Keep track whether the first Region was created yet
         std::size_t m_currentContactPoolId = 1;
 };
 
