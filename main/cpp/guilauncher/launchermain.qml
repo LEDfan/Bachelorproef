@@ -378,9 +378,14 @@ ApplicationWindow {
                             if (currentIndex == 0 || currentIndex == 3) {
                                 window.width = 820
                                 setGenGeopPopFileVisibility(false)
-                                mapViewerCheckbox.enabled = false
-                                mapViewerCheckbox.checked = false
                                 setGenGeopPopGenerateVisibility(false)
+                                if (currentIndex == 0) {
+                                    mapViewerCheckbox.enabled = false
+                                    mapViewerCheckbox.checked = false
+                                } else {
+                                    mapViewerCheckbox.enabled = true
+                                    mapViewerCheckbox.checked = true
+                                }
                             } else if (currentIndex == 1) {
                                 mapViewerCheckbox.checked = true
                                 mapViewerCheckbox.enabled = true
