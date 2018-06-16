@@ -21,6 +21,9 @@ public:
         void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
 
 private:
+        /// Find the relative total populution in the submunicipalities
+        double MunicipalityTotal(std::shared_ptr<Location> loc) const;
+
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
 } // namespace gengeopop
