@@ -52,6 +52,7 @@ private:
         /// Maximum amount of days to travel
         std::size_t m_maxDays;
 
+        /// Helper function to make a random choice based on a fraction
         bool MakeChoice(double fraction)
         {
                 std::vector<double> weights;

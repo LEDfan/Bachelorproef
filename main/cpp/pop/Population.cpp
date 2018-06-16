@@ -83,11 +83,8 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 spdlog::register_logger(LogUtils::CreateNullLogger("travel_logger"));
         }
 
-<<<<<<< HEAD
-        pop->m_belief_pt   = configPt.get_child("run.belief_policy");
+        pop->m_belief_pt = configPt.get_child("run.belief_policy");
 
-=======
->>>>>>> master
         auto stride_logger = spdlog::get("stride_logger");
 
         boost::optional<const ptree&> regions = configPt.get_child_optional("run.regions");

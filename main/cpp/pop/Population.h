@@ -164,8 +164,6 @@ private:
         std::size_t m_currentRegionId      = 0;     ///< Keep track of the last seen region id
         bool        m_have_inserted        = false; ///< Keep track whether the first Region was created yet
         std::size_t m_currentContactPoolId = 1;     ///< The current contact pool id, assigns in increasing order
-
-        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
 };
 
 } // namespace stride
