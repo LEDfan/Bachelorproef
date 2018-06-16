@@ -2523,6 +2523,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/fix-commutes-selection/895.4-osx-8.3-apple-clang.html",
       "name": "osx-8.3-apple-clang",
       "build_id": "895.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/fix-commutes-selection/895.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "895.5"
     }
   ]
 }
