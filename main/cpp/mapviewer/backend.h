@@ -30,7 +30,7 @@ public:
         void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids);
 
         Q_INVOKABLE
-        /*
+        /**
          * Save the marker of the location in a region so we can edit it later.
          * @param region The region of the location marker we are saving
          * @param id the location id
