@@ -457,5 +457,3 @@ std::shared_ptr<gengeopop::Location> Backend::GetLocationInRegion(std::pair<int,
 {
         return m_grids[ids.first]->GetById(ids.second);
 }
-
-void Backend::FitViewport() { QMetaObject::invokeMethod(m_map, "fitViewportToVisibleMapItems"); }

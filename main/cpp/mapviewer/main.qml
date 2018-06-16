@@ -52,7 +52,7 @@ ApplicationWindow {
                      }
             MenuItem {
                          text: "&Fit viewport"
-                         onTriggered: backend.FitViewport()
+                         onTriggered: geogridmap.fitViewport()
                          checkable: false
                          shortcut: "Ctrl+f"
                      }

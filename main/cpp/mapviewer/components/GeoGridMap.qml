@@ -24,6 +24,10 @@ ColumnLayout {
 
     property variant mapCenter: QtPositioning.coordinate(50.84667, 4.35472)
 
+    function fitViewport() {
+        map.fitViewportToVisibleMapItems()
+    }
+
     Map {
         id: map
         anchors.fill: parent
