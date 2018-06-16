@@ -81,15 +81,20 @@ public:
 
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> GetGeoGrids() const { return m_geoGrids; }
 
-        /// New Person in the population.
+        /// New Person in the population, the region should be at least the previous region (starting at 0) and at most
+        /// 1 larger.
         void CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
                           unsigned int k12SchoolId, unsigned int college, unsigned int workId,
                           unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
+        /// Add a new contact pool of a given type in in the given region, the same constraints on the region apply as
+        /// for CreatePerson
         ContactPool* CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId);
 
+        /// Get the region identifiers: name -> id
         const std::unordered_map<std::string, std::size_t>& GetRegionIdentifiers() const;
 
+        /// Create a new RegionSlicer for the given region id
         RegionSlicer SliceOnRegion(std::size_t region_id);
 
         //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
@@ -105,6 +110,7 @@ public:
         //        };
 
 private:
+        /// Constructor, to be called by create
         Population();
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
@@ -137,6 +143,7 @@ private:
                                  const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
                                  const std::string& name, stride::util::RNManager& rnManager);
 
+        /// Update m_currentRegionId and create new ranges in m_pool_sys_regions and m_regionRanges
         void UpdateRegion(std::size_t region_id);
 
         friend class DefaultPopBuilder;
@@ -144,25 +151,27 @@ private:
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
+        // Placed separately to avoid overly long declarations
         using ContactPoolSysRanges =
             ContactPoolType::IdSubscriptArray<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
 
-        boost::property_tree::ptree m_belief_pt;
+        boost::property_tree::ptree m_belief_pt;        ///< Belief configuration
         util::Any                   m_beliefs;          ///< Holds belief data for the persons.
         ContactPoolSys              m_pool_sys;         ///< Holds vector of ContactPools of different types.
         ContactPoolSysRanges        m_pool_sys_regions; ///< Holds sub_ranges for region indexin, by contactpool type
         std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
         std::unordered_map<std::string, std::size_t>     m_regions;        ///< Regios
-        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
+        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
+            m_regionRanges; ///< Ranges over the people in different regions
         // tmp
         std::map<std::size_t, ContactPool*> m_work;
         std::map<std::size_t, ContactPool*> m_primaryCommunities;
 
         // Cannot make negative because size_t is unsigned, special check needed in the Create methods
-        std::size_t m_currentRegionId      = 0;
+        std::size_t m_currentRegionId      = 0;     ///< Keep track of the last seen region id
         bool        m_have_inserted        = false; ///< Keep track whether the first Region was created yet
-        std::size_t m_currentContactPoolId = 1;
+        std::size_t m_currentContactPoolId = 1;     ///< The current contact pool id, assigns in increasing order
 };
 
 } // namespace stride

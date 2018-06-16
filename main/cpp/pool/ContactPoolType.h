@@ -55,14 +55,19 @@ std::string ToString(Id w);
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
 
+/// Keeps all available Ids in a template pack and exposes it as a std::initialize_list
+/// Useful when initializing a IdSubscriptArray with a type that is not default constructible
 template <Id... ids>
 struct IDPack
 {
-        constexpr static std::initializer_list<Id> AsInitializerList = {ids...};
+        constexpr static std::initializer_list<Id> AsInitializerList = {ids...}; ///< Exposed as std::initializer_list
 };
 
+/// Placed separately to please swig and avoid syntax errors there
 using IdPack_t =
     IDPack<Id::Household, Id::K12School, Id::College, Id::Work, Id::PrimaryCommunity, Id::SecondaryCommunity>;
+
+/// A constexpr global variable that gives access to the available Ids
 constexpr IdPack_t IdPack;
 
 /// To allow iteration over the type ids.
