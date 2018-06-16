@@ -19,7 +19,7 @@ Dialog {
 
                 Color coding:
                 Blue = No infected people at this location.
-                The color changes over green and blue and ultimately red when the infected rate at a location increases.
+                When the infected rate goes up it will first start turning green then yellow and finally red.
                 "
         anchors.centerIn: parent
     }
