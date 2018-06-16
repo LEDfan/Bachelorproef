@@ -15,7 +15,12 @@ Dialog {
                 Select All: Ctrl + A
 
                 Show commutes: Click checkbox 'View > Show Commutes' then select cities.
-                The commutes between them will be shown"
+                The commutes between them will be shown
+
+                Color coding:
+                Blue = No infected people at this location.
+                The color changes over green and blue and ultimately red when the infected rate at a location increases.
+                "
         anchors.centerIn: parent
     }
 }

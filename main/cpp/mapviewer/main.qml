@@ -55,7 +55,7 @@ ApplicationWindow {
         Menu {
             title: "Help"
             MenuItem {
-                         text: "Shortcuts"
+                         text: "Help"
                          onTriggered: helpDialog.open()
                      }
         }
