@@ -29,8 +29,12 @@ void CommutesCSVReader::AddCommute(std::shared_ptr<Location> from, std::shared_p
 void CommutesCSVReader::AddCommuteFrom(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
                                        double proportion) const
 {
-        for (auto& subMunicipalityFrom : from->GetSubMunicipalities()) {
-                AddCommuteTo(subMunicipalityFrom, to, proportion);
+        if (from->GetSubMunicipalities().size()) {
+                for (auto& subMunicipalityFrom : from->GetSubMunicipalities()) {
+                        AddCommuteTo(subMunicipalityFrom, to, proportion);
+                }
+        } else {
+                AddCommuteTo(from, to, proportion);
         }
 }
 void CommutesCSVReader::AddCommuteTo(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
