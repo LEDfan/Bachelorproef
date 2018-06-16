@@ -1157,6 +1157,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/doxygen_pages/872.4-osx-8.3-apple-clang.html",
       "name": "osx-8.3-apple-clang",
       "build_id": "872.4"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/doxygen_pages/872.5-osx-9.2-apple-clang.html",
+      "name": "osx-9.2-apple-clang",
+      "build_id": "872.5"
     }
   ],
   "calibration_improvements": [
