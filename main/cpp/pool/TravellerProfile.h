@@ -18,7 +18,7 @@ public:
         /// AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel
         /// fractionWork indicates the amount of work travel
         TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork,
-                         util::RNManager& rnManager, unsigned int maxDays);
+                         util::RNManager& rnManager, std::size_t maxDays);
 
         explicit TravellerProfile(util::RNManager& rnManager)
             : m_data_recreation(), m_data_work(), m_amountOfTravel(), m_fractionWork(), m_rnManager(rnManager),
@@ -30,9 +30,9 @@ public:
         /// Add a travel record to the work profile
         void AddTravelWork(std::size_t from, std::size_t to, double relativePopulation);
 
-        /// Based on the profile determines if a person will travel
-        std::tuple<bool, bool, ContactPool*, unsigned int> PersonWillTravel(size_t                      currentRegion,
-                                                                            std::shared_ptr<Population> ptr);
+        /// Based on the profile determines if a person will travel and handle when it effectively travels
+        bool PersonWillTravel(size_t currentRegion, std::shared_ptr<Population> ptr, Person* person,
+                              std::size_t currentDay);
 
 private:
         /// From region, to region, relative amount of people
@@ -50,7 +50,7 @@ private:
         util::RNManager& m_rnManager;
 
         /// Maximum amount of days to travel
-        unsigned int m_maxDays;
+        std::size_t m_maxDays;
 
         bool MakeChoice(double fraction)
         {

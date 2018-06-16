@@ -75,6 +75,14 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
         }
 
+        if (configPt.get<bool>("run.travel_output_file", true)) {
+                const auto prefix = configPt.get<string>("run.output_prefix");
+                spdlog::register_logger(
+                    LogUtils::CreateFileLogger("travel_logger", FileSys::BuildPath(prefix, "travel_log.txt").string()));
+        } else {
+                spdlog::register_logger(LogUtils::CreateNullLogger("travel_logger"));
+        }
+
         pop->m_belief_pt = configPt.get_child("run.belief_policy");
 
         auto stride_logger = spdlog::get("stride_logger");
@@ -86,6 +94,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         if (!regions) {
                 pop->m_regions["Default"] = 0;
+                pop->m_regionTravellerIndex.emplace_back();
 
                 std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
 
@@ -95,6 +104,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 for (const auto& region : configPt.get_child("run.regions")) {
                         std::string name     = region.second.get<std::string>("name");
                         pop->m_regions[name] = currentId;
+                        pop->m_regionTravellerIndex.emplace_back();
                         currentId++;
                 }
                 for (const auto& region : configPt.get_child("run.regions")) {
@@ -124,6 +134,7 @@ std::shared_ptr<Population> Population::Create()
         auto r = make_shared<make_shared_enabler>();
         r->m_belief_pt.add("name", "NoBelief");
         r->m_regions["Default"] = 0;
+        r->m_regionTravellerIndex.emplace_back();
         return r;
 }
 
@@ -181,7 +192,7 @@ RegionSlicer Population::SliceOnRegion(std::size_t region_id) { return RegionSli
 Population::Population()
     : m_belief_pt(), m_beliefs(), m_pool_sys(),
       m_pool_sys_regions(BuildPoolSysRegions(ContactPoolType::IdPack, m_pool_sys)), m_contact_logger(), m_geoGrids(),
-      m_regions(), m_regionRanges(*this), m_work(), m_primaryCommunities()
+      m_regions(), m_regionRanges(*this)
 {
 }
 
@@ -218,4 +229,14 @@ void Population::CreateRegion(const std::string& geopop_type, const boost::prope
                 DefaultPopBuilder(configPt, regionPt, rnManager).Build(pop, pop->m_regions[name], name);
         }
 }
+
+TravellerIndex& Population::GetTravellerIndex(std::size_t regionId) { return m_regionTravellerIndex[regionId]; }
+
+void Population::ReturnTravellers(std::size_t currentDay)
+{
+        for (auto& travellerIndex : m_regionTravellerIndex) {
+                travellerIndex.ReturnTravelers(currentDay);
+        }
+}
+
 } // namespace stride

@@ -73,6 +73,7 @@ set(LIB_SRC
         pool/IdSubscriptArray.h
         pool/RegionSlicer.cpp
         pool/TravellerProfile.cpp
+        pool/TravellerIndex.cpp
         pool/TravellerProfileBuilder.cpp
         #---
         pop/Age.h

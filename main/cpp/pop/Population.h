@@ -23,6 +23,7 @@
 #include "ImportPopBuilder.h"
 #include "pool/ContactPoolSys.h"
 #include "pool/RegionSlicer.h"
+#include "pool/TravellerIndex.h"
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
@@ -98,6 +99,10 @@ public:
         /// Create a new RegionSlicer for the given region id
         RegionSlicer SliceOnRegion(std::size_t region_id);
 
+        TravellerIndex& GetTravellerIndex(std::size_t regionId);
+
+        void ReturnTravellers(std::size_t currentDay);
+
 private:
         /// Constructor, to be called by create
         Population();
@@ -150,13 +155,11 @@ private:
         ContactPoolSysRanges        m_pool_sys_regions; ///< Holds sub_ranges for region indexin, by contactpool type
         std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t>     m_regions;        ///< Regios
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
             m_regionRanges; ///< Ranges over the people in different regions
+        std::vector<TravellerIndex>                      m_regionTravellerIndex;
+        std::unordered_map<std::string, std::size_t>     m_regions; ///< Regios
 
-        // tmp
-        std::map<std::size_t, ContactPool*> m_work;
-        std::map<std::size_t, ContactPool*> m_primaryCommunities;
 
         // Cannot make negative because size_t is unsigned, special check needed in the Create methods
         std::size_t m_currentRegionId      = 0;     ///< Keep track of the last seen region id

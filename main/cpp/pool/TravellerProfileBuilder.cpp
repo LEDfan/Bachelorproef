@@ -5,6 +5,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <pop/Population.h>
 #include <util/CSV.h>
+#include <util/Exception.h>
 #include <util/FileSys.h>
 #include <util/RNManager.h>
 #include <utility>
@@ -21,7 +22,16 @@ std::shared_ptr<TravellerProfile> TravellerProfileBuilder::Build()
 {
         std::unordered_map<std::string, std::size_t> regions = m_pop->GetRegionIdentifiers();
 
-        auto travellerProfile = std::make_shared<TravellerProfile>(regions.size(), 0.0001, 0.5, m_rnManager, 21);
+        double      amountOfTravel = m_configPt.get<double>("run.traveller_amount", 0.00001);
+        double      fractionWork   = m_configPt.get<double>("run.traveller_fraction_work_travel", 0.5);
+        std::size_t maxDuration    = m_configPt.get<std::size_t>("run.traveller_max_duration", 21);
+
+        if (maxDuration < 1) {
+                throw util::Exception("Min duration for travel is one day");
+        }
+
+        auto travellerProfile =
+            std::make_shared<TravellerProfile>(regions.size(), amountOfTravel, fractionWork, m_rnManager, maxDuration);
 
         {
                 boost::optional<std::string> name =
@@ -49,7 +59,7 @@ std::shared_ptr<TravellerProfile> TravellerProfileBuilder::Build()
                         const boost::filesystem::path path = util::FileSys::GetDataDir() /= name.value();
 
                         if (!boost::filesystem::is_regular_file(path)) {
-                                throw std::runtime_error(std::string(__func__) + "Traveller data recreation not found");
+                                throw std::runtime_error(std::string(__func__) + "Traveller data work not found");
                         }
 
                         stride::util::CSV reader(path);
