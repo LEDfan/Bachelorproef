@@ -520,3 +520,4 @@ Test results
 # fix-commutes-selection
  - [895.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix-commutes-selection/895.4-osx-8.3-apple-clang.html)
  - [895.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix-commutes-selection/895.5-osx-9.2-apple-clang.html)
+ - [895.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/fix-commutes-selection/895.6-osx-8.3-llvm-clang.html)
