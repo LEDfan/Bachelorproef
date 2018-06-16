@@ -21,8 +21,11 @@ public:
         void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
 
 private:
-        /// Find the relative total populution in the submunicipalities
+        /// Find the relative total populution in the submunicipalities. If it doesn't have any, it will return 0.
         double MunicipalityTotal(std::shared_ptr<Location> loc) const;
+
+        /// Add the provided commute symmetrically to the locations
+        void AddCommute(std::shared_ptr<Location> from, std::shared_ptr<Location> to, double proportion) const;
 
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
