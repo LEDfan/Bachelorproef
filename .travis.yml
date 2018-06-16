@@ -149,7 +149,7 @@ after_script:
     ./generate.py render > test-results.md
     git add test_results/* test-results.md test_results.json
     git commit -m "Publish test results @ $LINK"
-    if [ "$TRAVIS_BRANCH" -eq "master" ]; then
+    if [ "$TRAVIS_BRANCH" = "master" ]; then
         rm -rf doxygen
         mv cmake-build-debug/doc/doxygen/html doxygen
         git add doxygen
