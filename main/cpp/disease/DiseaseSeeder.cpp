@@ -43,41 +43,65 @@ DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RNManager& rnManager)
 {
 }
 
-void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
-{
-        // --------------------------------------------------------------
-        // Population immunity (natural immunity & vaccination).
-        // --------------------------------------------------------------
-        const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunityProfile, pop->GetContactPoolSys()[Id::Household]);
+void DiseaseSeeder::Seed(std::shared_ptr<Population> pop) {
+        boost::optional<const ptree &> regionsToSeed = m_config_pt.get_child_optional("run.regions_to_seed");
+        if (regionsToSeed) {
+                for (const auto &region : m_config_pt.get_child("run.regions_to_seed")) {
+                        std::size_t regionId = pop->GetRegionIdentifiers().at(region.second.data());
 
-        const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccinationProfile, pop->GetContactPoolSys()[Id::Household]);
+                        auto cps = pop->SliceOnRegion(regionId)[Id::Household];
+                        // --------------------------------------------------------------
+                        // Population immunity (natural immunity & vaccination).
+                        // --------------------------------------------------------------
+                        const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
+                        Vaccinate("immunity", immunityProfile, cps);
 
+                        const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
+                        Vaccinate("vaccine", vaccinationProfile, cps);
+
+                        SeedPop(pop->GetPersonInRegion(regionId), pop->GetContactLogger());
+                }
+        } else {
+                // --------------------------------------------------------------
+                // Population immunity (natural immunity & vaccination).
+                // --------------------------------------------------------------
+                const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
+                Vaccinate("immunity", immunityProfile, pop->GetContactPoolSys()[Id::Household]);
+
+                const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
+                Vaccinate("vaccine", vaccinationProfile, pop->GetContactPoolSys()[Id::Household]);
+
+                SeedPop(*pop, pop->GetContactLogger());
+        }
+}
+template<typename T>
+void DiseaseSeeder::SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogger) {
         // --------------------------------------------------------------
         // Seed infected persons.
         // --------------------------------------------------------------
-        const auto sRate       = m_config_pt.get<double>("run.seeding_rate");
-        const auto sAgeMin     = m_config_pt.get<double>("run.seeding_age_min", 1);
-        const auto sAgeMax     = m_config_pt.get<double>("run.seeding_age_max", 99);
-        const auto popSize     = pop->size();
+        const auto sRate = m_config_pt.get<double>("run.seeding_rate");
+        const auto sAgeMin = m_config_pt.get<double>("run.seeding_age_min", 1);
+        const auto sAgeMax = m_config_pt.get<double>("run.seeding_age_max", 99);
+
+        const auto popSize     = pop.size();
         const auto maxPopIndex = static_cast<unsigned int>(popSize - 1);
         auto       generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, maxPopIndex));
-        auto&      logger      = pop->GetContactLogger();
+//        auto&      logger      = pop.GetContactLogger();
 
         auto numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * sRate));
         while (numInfected > 0) {
-                Person& p = pop->at(static_cast<size_t>(generator()));
+                Person& p = pop[static_cast<size_t>(generator())];
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= sAgeMin) && (p.GetAge() <= sAgeMax)) {
                         p.GetHealth().StartInfection();
                         numInfected--;
-                        logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        contactLogger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
 }
 
+template<typename T>
 void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                              util::SegmentedVector<ContactPool>& immunityPools)
+                              T& immunityPools)
 {
         std::vector<double> immunityDistribution;
         const double        linkProbability = 0;

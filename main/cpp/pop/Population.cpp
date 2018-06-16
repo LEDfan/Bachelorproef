@@ -239,4 +239,8 @@ void Population::ReturnTravellers(std::size_t currentDay)
         }
 }
 
+boost::sub_range<util::SegmentedVector<Person>>& Population::GetPersonInRegion(std::size_t regionId) {
+        return m_regionRanges.GetRange(regionId);
+}
+
 } // namespace stride

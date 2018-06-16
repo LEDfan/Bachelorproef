@@ -45,8 +45,12 @@ public:
 
 private:
         /// Seed for vaccination/natural immunity.
+        template<typename T>
         void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                       util::SegmentedVector<ContactPool>& immunityPools);
+                       T& immunityPools);
+
+        template<typename T>
+        void SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogger);
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Run config.
