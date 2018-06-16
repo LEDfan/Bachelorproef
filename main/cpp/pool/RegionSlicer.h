@@ -31,7 +31,7 @@ public:
 
 private:
         const std::size_t m_region_id;        ///< Keep track of the region until the final index
-        Ranges&     m_pool_sys_regions; ///< What to index on, should be still alive
+        Ranges&           m_pool_sys_regions; ///< What to index on, should be still alive
 };
 
 } // namespace stride
