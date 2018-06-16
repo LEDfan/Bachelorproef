@@ -19,7 +19,8 @@ double CommutesCSVReader::MunicipalityTotal(std::shared_ptr<Location> loc) const
         return total;
 }
 
-void CommutesCSVReader::AddCommute(std::shared_ptr<Location> from, std::shared_ptr<Location> to, double proportion)
+void CommutesCSVReader::AddCommute(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
+                                   double proportion) const
 {
         from->AddOutgoingCommutingLocation(to, proportion);
         to->AddIncomingCommutingLocation(from, proportion);
@@ -93,8 +94,7 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                                                           total_population);
                                                         AddCommute(locFrom, subMunicipality, prop);
                                                 }
-                                        } else {
-
+                                        } else if (subMunicipalities_to.empty()) {
                                                 AddCommute(locFrom, locTo, proportion);
                                         }
                                 }
