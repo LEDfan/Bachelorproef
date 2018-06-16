@@ -75,12 +75,14 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
         }
 
-        if (configPt.get<bool>("run.travel_output_file", true)) {
-                const auto prefix = configPt.get<string>("run.output_prefix");
-                spdlog::register_logger(
-                    LogUtils::CreateFileLogger("travel_logger", FileSys::BuildPath(prefix, "travel_log.txt").string()));
-        } else {
-                spdlog::register_logger(LogUtils::CreateNullLogger("travel_logger"));
+        if (spdlog::get("travel_logger") == nullptr) {
+                if (configPt.get<bool>("run.travel_output_file", true)) {
+                        const auto prefix = configPt.get<string>("run.output_prefix");
+                        spdlog::register_logger(LogUtils::CreateFileLogger(
+                            "travel_logger", FileSys::BuildPath(prefix, "travel_log.txt").string()));
+                } else {
+                        spdlog::register_logger(LogUtils::CreateNullLogger("travel_logger"));
+                }
         }
 
         pop->m_belief_pt = configPt.get_child("run.belief_policy");

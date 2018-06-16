@@ -8,7 +8,7 @@
 namespace stride {
 
 /**
- * Stores the information about travells. One TravellerIndex stores information for a specific region. (i.e. all persons
+ * Stores the information about travels. One TravellerIndex stores information for a specific region. (i.e. all persons
  * stored are from the same region).
  * To have the code which handles the start and return of a person in the same location this class also handles that.
  */
@@ -44,13 +44,9 @@ private:
 
         std::shared_ptr<spdlog::logger> m_travelLogger; ///< Logger to which the travel information will be logged
 
-        std::priority_queue<TravellerInfo, std::vector<TravellerInfo>, std::greater<>> m_data; ///< min-heap to
-                                                                                               ///< efficiently store
-                                                                                               ///< the persons which
-                                                                                               ///< are travelling.
-                                                                                               ///< Indexed by the day
-                                                                                               ///< they return (lowest
-                                                                                               ///< first).
+        /// min-heap to efficiently store the persons which are travelling. Indexed by the day they return (lowest
+        /// first).
+        std::priority_queue<TravellerInfo, std::vector<TravellerInfo>, std::greater<>> m_data;
 };
 
 } // namespace stride

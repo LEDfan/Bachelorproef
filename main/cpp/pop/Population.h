@@ -99,8 +99,10 @@ public:
         /// Create a new RegionSlicer for the given region id
         RegionSlicer SliceOnRegion(std::size_t region_id);
 
+        //// Get the TravellerIndex for the given region
         TravellerIndex& GetTravellerIndex(std::size_t regionId);
 
+        /// Let the travelling persons return to home
         void ReturnTravellers(std::size_t currentDay);
 
 private:
