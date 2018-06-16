@@ -330,9 +330,15 @@ void Backend::HideCommuteLine(QObject* line)
 void Backend::SetShowCommutes(bool value)
 {
         m_showCommutes = value;
-        // Re render
-        ClearSelectionAndRender();
-        PlaceMarkers();
+        // If we hide the commutes delete the current ones
+        if (!value) {
+                for (auto& commuteLine : m_commutes) {
+                        // Hide and delete
+                        HideCommuteLine(commuteLine.second);
+                }
+                m_commutes.clear();
+        }
+        ClearSelection();
 }
 
 void Backend::HideCommuteBetween(int region, const std::shared_ptr<gengeopop::Location>& loc1,
