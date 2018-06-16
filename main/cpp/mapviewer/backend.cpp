@@ -317,8 +317,8 @@ void Backend::SelectAll()
                 i++;
         }
 
+        UpdateColorOfMarkers();
         EmitLocations();
-        PlaceMarkers();
 }
 
 void Backend::HideCommuteLine(QObject* line)
@@ -330,7 +330,6 @@ void Backend::HideCommuteLine(QObject* line)
 void Backend::SetShowCommutes(bool value)
 {
         m_showCommutes = value;
-        // If we hide the commutes delete the current ones
         if (!value) {
                 for (auto& commuteLine : m_commutes) {
                         // Hide and delete
