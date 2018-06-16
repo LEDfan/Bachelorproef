@@ -517,3 +517,5 @@ Test results
 # gui_issues_fixes
  - [887.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/gui_issues_fixes/887.5-osx-9.2-apple-clang.html)
  - [887.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/gui_issues_fixes/887.6-osx-8.3-llvm-clang.html)
+# fix-commutes-selection
+ - [895.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix-commutes-selection/895.4-osx-8.3-apple-clang.html)
