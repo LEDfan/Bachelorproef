@@ -113,7 +113,11 @@ script:
   # Build stride and run tests
   #         CMAKE_BUILD_TYPE: enable assertions
   #         STRIDE_GENERATE_COVERAGE: enable coverage -- set in `matrix`
-  - CMAKE_BUILD_TYPE=Debug make all
+  - |
+      if [ "$TRAVIS_BRANCH" -eq "master" ]; then
+        export STRIDE_INCLUDE_DOC=YES
+      fi
+      CMAKE_BUILD_TYPE=Debug make all
   - CMAKE_BUILD_TYPE=Debug make test
 
 after_success:
@@ -145,6 +149,12 @@ after_script:
     ./generate.py render > test-results.md
     git add test_results/* test-results.md test_results.json
     git commit -m "Publish test results @ $LINK"
+    if [ "$TRAVIS_BRANCH" -eq "master" ]; then
+        rm -rf doxygen
+        mv cmake-build-debug/doc/doxygen/html doxygen
+        git add doxygen
+        git commit -m "Update doxygen for $TRAVIS_COMMIT"
+    fi
     git push origin-pages gh-pages
     echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
     fi
