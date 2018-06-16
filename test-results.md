@@ -2,6 +2,7 @@ Test results
 ===
 # master
  - [889.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/889.4-osx-8.3-apple-clang.html)
+ - [889.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/889.5-osx-9.2-apple-clang.html)
  - [878.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/master/878.1-linux-gcc-6.html)
  - [878.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/master/878.2-linux-gcc-7.html)
  - [878.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/master/878.3-linux-clang-5.html)
