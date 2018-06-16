@@ -75,7 +75,7 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                         double total_population = MunicipalityTotal(locTo);
                                         if (total_population > 0) {
                                                 for (auto& subMunicipality : subMunicipalities_to) {
-                                                        unsigned int prop =
+                                                        double prop =
                                                             proportion * (subMunicipality->GetRelativePopulationSize() /
                                                                           total_population);
                                                         locFrom->AddOutgoingCommutingLocation(subMunicipality, prop);
@@ -87,7 +87,7 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                                 double total_population = MunicipalityTotal(locTo);
                                                 if (total_population > 0) {
                                                         for (auto& subMunicipalityTo : subMunicipalities_to) {
-                                                                unsigned int prop =
+                                                                double prop =
                                                                     proportion *
                                                                     (subMunicipalityTo->GetRelativePopulationSize() /
                                                                      total_population);
