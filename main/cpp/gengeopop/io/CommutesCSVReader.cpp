@@ -32,27 +32,23 @@ void CommutesCSVReader::AddCommuteFrom(std::shared_ptr<Location> from, std::shar
         for (auto& subMunicipalityFrom : from->GetSubMunicipalities()) {
                 AddCommuteTo(subMunicipalityFrom, to, proportion);
         }
-        if (from->GetSubMunicipalities().empty()) {
-                AddCommuteTo(from, to, proportion);
-        }
 }
 void CommutesCSVReader::AddCommuteTo(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
                                      double proportion) const
 {
         double total_population = MunicipalityTotal(to);
-        double total_added      = 0;
-        if (total_population > 0) {
-                for (auto& subMunicipalityTo : to->GetSubMunicipalities()) {
-                        double prop = proportion * (subMunicipalityTo->GetRelativePopulationSize() / total_population);
-                        total_added += prop;
-                        AddCommute(from, subMunicipalityTo, prop);
+        if (to->GetSubMunicipalities().size()) {
+                if (total_population > 0) {
+                        double total_added = 0;
+                        for (auto& subMunicipalityTo : to->GetSubMunicipalities()) {
+                                double prop =
+                                    proportion * (subMunicipalityTo->GetRelativePopulationSize() / total_population);
+                                total_added += prop;
+                                AddCommute(from, subMunicipalityTo, prop);
+                        }
+                        assert(std::abs(total_added - proportion) < 0.01);
                 }
-        }
-        if (std::abs(total_added - proportion) > 0.01) {
-                throw std::runtime_error("The sum of the commutes to the submunicipalities does not equal the total "
-                                         "commute to the municipality.");
-        }
-        if (to->GetSubMunicipalities().empty()) {
+        } else {
                 AddCommute(from, to, proportion);
         }
 }
