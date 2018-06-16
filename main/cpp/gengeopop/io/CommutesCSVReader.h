@@ -27,6 +27,13 @@ private:
         /// Add the provided commute symmetrically to the locations
         void AddCommute(std::shared_ptr<Location> from, std::shared_ptr<Location> to, double proportion) const;
 
+        /// Add commutes by splitting the 'from' into submunicipalities if necessary.
+        // This will call AddCommuteTo with the submunicipality and the provided 'to'.
+        void AddCommuteFrom(std::shared_ptr<Location> from, std::shared_ptr<Location> to, double proportion) const;
+
+        /// Add commutes by splitting the 'to' into submunicipalities if necessary.
+        void AddCommuteTo(std::shared_ptr<Location> from, std::shared_ptr<Location> to, double proportion) const;
+
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
 } // namespace gengeopop

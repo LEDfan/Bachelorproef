@@ -25,6 +25,37 @@ void CommutesCSVReader::AddCommute(std::shared_ptr<Location> from, std::shared_p
         from->AddOutgoingCommutingLocation(to, proportion);
         to->AddIncomingCommutingLocation(from, proportion);
 }
+
+void CommutesCSVReader::AddCommuteFrom(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
+                                       double proportion) const
+{
+        for (auto& subMunicipalityFrom : from->GetSubMunicipalities()) {
+                AddCommuteTo(subMunicipalityFrom, to, proportion);
+        }
+        if (from->GetSubMunicipalities().empty()) {
+                AddCommuteTo(from, to, proportion);
+        }
+}
+void CommutesCSVReader::AddCommuteTo(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
+                                     double proportion) const
+{
+        double total_population = MunicipalityTotal(to);
+        double total_added      = 0;
+        if (total_population > 0) {
+                for (auto& subMunicipalityTo : to->GetSubMunicipalities()) {
+                        double prop = proportion * (subMunicipalityTo->GetRelativePopulationSize() / total_population);
+                        total_added += prop;
+                        AddCommute(from, subMunicipalityTo, prop);
+                }
+        }
+        if (std::abs(total_added - proportion) > 0.01) {
+                throw std::runtime_error("The sum of the commutes to the submunicipalities does not equal the total "
+                                         "commute to the municipality.");
+        }
+        if (to->GetSubMunicipalities().empty()) {
+                AddCommute(from, to, proportion);
+        }
+}
 void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols:
@@ -68,36 +99,7 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                             "Proportion of commutes from " + std::to_string(locFrom->GetID()) + " to " +
                                             std::to_string(locTo->GetID()) + " is invalid (0 <= proportion <= 1)");
                                 }
-
-                                const auto& subMunicipalities_from = locFrom->GetSubMunicipalities();
-                                const auto& subMunicipalities_to   = locTo->GetSubMunicipalities();
-
-                                for (auto& subMunicipalityFrom : subMunicipalities_from) {
-                                        double total_population = MunicipalityTotal(locTo);
-                                        if (total_population > 0) {
-                                                for (auto& subMunicipalityTo : subMunicipalities_to) {
-                                                        double prop = proportion *
-                                                                      (subMunicipalityTo->GetRelativePopulationSize() /
-                                                                       total_population);
-                                                        AddCommute(subMunicipalityFrom, subMunicipalityTo, prop);
-                                                }
-                                        } else if (subMunicipalities_to.empty()) {
-                                                AddCommute(subMunicipalityFrom, locTo, proportion);
-                                        }
-                                }
-                                if (subMunicipalities_from.empty()) {
-                                        double total_population = MunicipalityTotal(locTo);
-                                        if (total_population > 0) {
-                                                for (auto& subMunicipality : subMunicipalities_to) {
-                                                        double prop =
-                                                            proportion * (subMunicipality->GetRelativePopulationSize() /
-                                                                          total_population);
-                                                        AddCommute(locFrom, subMunicipality, prop);
-                                                }
-                                        } else if (subMunicipalities_to.empty()) {
-                                                AddCommute(locFrom, locTo, proportion);
-                                        }
-                                }
+                                AddCommuteFrom(locFrom, locTo, proportion);
                         }
                 }
                 rowIndex++;
