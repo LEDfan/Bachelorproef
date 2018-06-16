@@ -69,8 +69,9 @@ void Launcher::Launch()
                         Q_INIT_RESOURCE(qml);
                         int             i = 0;
                         QGuiApplication app(i, nullptr);
-                        auto            engine = std::make_unique<QQmlApplicationEngine>();
-                        controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(), engine.get());
+                        auto            localEngine = std::make_unique<QQmlApplicationEngine>();
+                        controller->RegisterViewer<stride::viewers::MapViewer>(controller->GetLogger(),
+                                                                               localEngine.get());
                         thread = std::make_unique<std::thread>([&controller]() { controller->Control(); });
                         app.exec();
                 } else {
