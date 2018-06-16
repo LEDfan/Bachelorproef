@@ -120,9 +120,13 @@ void Backend::OnMarkerClicked(int region, unsigned int idOfClicked)
 {
         auto loc = m_grids[region]->GetById(idOfClicked);
 
+        // When a marker is clicked the current selection needs to be cleared.
         ClearSelection();
+
+        // Select the location
         ToggleSelectionOfLocation(region, loc);
 
+        // Notify the viewer
         EmitLocations();
         UpdateColorOfMarkers();
 }
@@ -141,7 +145,8 @@ void Backend::PlaceMarker(Coordinate coordinate, int region, int id, unsigned in
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, coordinate.latitude),
                                   Q_ARG(QVariant, coordinate.longitude), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
                                   Q_ARG(QVariant, size), Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
-        m_markers[{region, id}] = qvariant_cast<QObject*>(returnVal);
+        // Save the marker so we can edit it's color etc later
+        SaveMarker(region, id, qvariant_cast<QObject*>(returnVal));
 }
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
@@ -150,6 +155,7 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
                 QUrl                            info(fileLoc);
                 std::string                     filename = info.toLocalFile().toStdString();
                 gengeopop::GeoGridWriterFactory geoGridWriterFactory;
+                // We possibly have multiple grids, so we save them in their respective files.
                 for (const auto& grid : m_grids) {
                         boost::filesystem::path filePath = filename;
                         filePath /= boost::filesystem::path(std::string("grid_region_") + grid->GetRegionName() +
@@ -161,6 +167,7 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
                         outputFile.close();
                 }
         } catch (const std::exception& e) {
+                // Open the error dialog with the exception
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
         }
@@ -169,8 +176,10 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 void Backend::ClearSelection()
 {
         m_unselection.clear();
+        // The currently selected items need to be deselected (Change bordor color etc.)
         m_unselection.insert(m_selection.begin(), m_selection.end());
         m_selection.clear();
+        // Update the collor according to the deselection
         UpdateColorOfMarkers();
         m_unselection.clear();
 }
