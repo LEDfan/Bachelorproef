@@ -236,6 +236,7 @@ Test results
  - [872.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/doxygen_pages/872.3-linux-clang-5.html)
  - [872.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/doxygen_pages/872.4-osx-8.3-apple-clang.html)
  - [872.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/doxygen_pages/872.5-osx-9.2-apple-clang.html)
+ - [872.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/doxygen_pages/872.6-osx-8.3-llvm-clang.html)
 # calibration_improvements
  - [548.1 linux-gcc-6](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/548.1-linux-gcc-6.html)
  - [548.2 linux-gcc-7](https://ledfan.github.io/Bachelorproef/test_results/calibration_improvements/548.2-linux-gcc-7.html)
