@@ -3,6 +3,9 @@
 #include <QtCore/QAbstractListModel>
 #include <gengeopop/Location.h>
 
+/**
+ * A list model that implements data fetching and setting to display a list of commutes.
+ */
 class CommutesListModel : public QAbstractListModel
 {
         Q_OBJECT

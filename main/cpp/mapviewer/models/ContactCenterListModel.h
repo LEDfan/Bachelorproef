@@ -5,6 +5,10 @@
 #include <gengeopop/Location.h>
 #include <set>
 
+/**
+ * A concrete implementation of the QAbstractListModel that implements data setting and fetching to show a list of
+ * ContactCenters.
+ */
 class ContactCenterListModel : public QAbstractListModel
 {
         Q_OBJECT

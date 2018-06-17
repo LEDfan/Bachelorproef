@@ -4,6 +4,9 @@
 #include <gengeopop/Location.h>
 #include <pool/ContactPool.h>
 
+/*
+ * A Qt list model that implements data fetching and -setting to display a list of contactpools.
+ */
 class ContactPoolListModel : public QAbstractListModel
 {
         Q_OBJECT
