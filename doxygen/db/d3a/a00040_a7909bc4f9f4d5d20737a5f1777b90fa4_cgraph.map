@@ -1,0 +1,6 @@
+<map id="gengeopop::GeoGridProtoWriter::WriteCoordinate" name="gengeopop::GeoGridProtoWriter::WriteCoordinate">
+<area shape="rect" id="node2" href="$da/d2a/a00086.html#a676dbe40aedbf5a4e3ea42a86a6878e3" title="proto::GeoGrid_Location\l_Coordinate::set_latitude" alt="" coords="267,5,434,46"/>
+<area shape="rect" id="node4" href="$da/d2a/a00086.html#a41462bd58d029d61dcb0fb40238b0285" title="proto::GeoGrid_Location\l_Coordinate::set_longitude" alt="" coords="262,70,439,111"/>
+<area shape="rect" id="node3" href="$da/d2a/a00086.html#acca38f5f6287ab32ce4101ec7a9ceb43" title="proto::GeoGrid_Location\l_Coordinate::set_has_latitude" alt="" coords="493,5,688,46"/>
+<area shape="rect" id="node5" href="$da/d2a/a00086.html#abc74541cc879e27256db7d1f1cb21440" title="proto::GeoGrid_Location\l_Coordinate::set_has_longitude" alt="" coords="488,70,693,111"/>
+</map>

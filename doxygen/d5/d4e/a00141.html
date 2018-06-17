@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::SimBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::SimRunner Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,60 +112,105 @@ $(document).ready(function(){initNavTree('d5/d4e/a00141.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/d1d/a00633.html">List of all members</a>  </div>
+<a href="../../d3/d42/a01275.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SimBuilder Class Reference</div>  </div>
+<div class="title">stride::SimRunner Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds a simulator based a configuration property tree.  
+<p>The simulation runner drive simulator throufgh time steps.  
  <a href="../../d5/d4e/a00141.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d8/d91/a00410_source.html">SimBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for stride::SimRunner:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/d37/a01276.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::SimRunner:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d10/a01278.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada7d6656e97857b9bacd2285f7784021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ada7d6656e97857b9bacd2285f7784021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../d5/d4e/a00141.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>.  <a href="#ada7d6656e97857b9bacd2285f7784021">More...</a><br/></td></tr>
-<tr class="separator:ada7d6656e97857b9bacd2285f7784021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94ce5fb3cae915f0bdb261498f31c444"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/db1/a00140.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d5/db1/a00140.html">Sim</a> &gt; sim, std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a94ce5fb3cae915f0bdb261498f31c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator and return it afterwards.  <a href="#a94ce5fb3cae915f0bdb261498f31c444">More...</a><br/></td></tr>
-<tr class="separator:a94ce5fb3cae915f0bdb261498f31c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ad551b02c507948570f07af10d85d29ce"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a> ()</td></tr>
-<tr class="memdesc:ad551b02c507948570f07af10d85d29ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contact configuration data.  <a href="#ad551b02c507948570f07af10d85d29ce">More...</a><br/></td></tr>
-<tr class="separator:ad551b02c507948570f07af10d85d29ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adffa42c6b8b171616fcdfb4805260c92"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a> ()</td></tr>
-<tr class="memdesc:adffa42c6b8b171616fcdfb4805260c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease configuration data.  <a href="#adffa42c6b8b171616fcdfb4805260c92">More...</a><br/></td></tr>
-<tr class="separator:adffa42c6b8b171616fcdfb4805260c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fad2909fa48a98d658908a0f147bb2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a3fad2909fa48a98d658908a0f147bb2e">SimRunner</a> (const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt; pop, <a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager)</td></tr>
+<tr class="memdesc:a3fad2909fa48a98d658908a0f147bb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization with property tree.  <a href="#a3fad2909fa48a98d658908a0f147bb2e">More...</a><br/></td></tr>
+<tr class="separator:a3fad2909fa48a98d658908a0f147bb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#ad59e65dfe839b8a589b1c6ffa805ba2f">~SimRunner</a> () override=default</td></tr>
+<tr class="memdesc:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ad59e65dfe839b8a589b1c6ffa805ba2f">More...</a><br/></td></tr>
+<tr class="separator:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d0/d48/a00165.html">util::Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#aceb24930d50702acfa88bdfe5cb13a1b">GetClock</a> () const </td></tr>
+<tr class="memdesc:aceb24930d50702acfa88bdfe5cb13a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#aceb24930d50702acfa88bdfe5cb13a1b">More...</a><br/></td></tr>
+<tr class="separator:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eeaa63450413a62f31bcee07df29fa3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a9eeaa63450413a62f31bcee07df29fa3">GetConfig</a> () const </td></tr>
+<tr class="memdesc:a9eeaa63450413a62f31bcee07df29fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#a9eeaa63450413a62f31bcee07df29fa3">More...</a><br/></td></tr>
+<tr class="separator:a9eeaa63450413a62f31bcee07df29fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99014dd891a3422214c2a088dd38cde9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d14/a00139.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a99014dd891a3422214c2a088dd38cde9">GetSim</a> () const </td></tr>
+<tr class="memdesc:a99014dd891a3422214c2a088dd38cde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Simulator.  <a href="#a99014dd891a3422214c2a088dd38cde9">More...</a><br/></td></tr>
+<tr class="separator:a99014dd891a3422214c2a088dd38cde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81720a1766d513eb248cb443d948567f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a81720a1766d513eb248cb443d948567f">Run</a> ()</td></tr>
+<tr class="memdesc:a81720a1766d513eb248cb443d948567f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for as many steps/days as indicated in config.  <a href="#a81720a1766d513eb248cb443d948567f">More...</a><br/></td></tr>
+<tr class="separator:a81720a1766d513eb248cb443d948567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233f76f6af0cef8c5971112b6d2235d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a233f76f6af0cef8c5971112b6d2235d0">Run</a> (unsigned int numSteps)</td></tr>
+<tr class="memdesc:a233f76f6af0cef8c5971112b6d2235d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for numSteps steps/days.  <a href="#a233f76f6af0cef8c5971112b6d2235d0">More...</a><br/></td></tr>
+<tr class="separator:a233f76f6af0cef8c5971112b6d2235d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a411073b34164e8b5aaadf79886bfc12a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a411073b34164e8b5aaadf79886bfc12a">IsAtEndOfSim</a> ()</td></tr>
+<tr class="memdesc:a411073b34164e8b5aaadf79886bfc12a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if all days of the simulation are ran.  <a href="#a411073b34164e8b5aaadf79886bfc12a">More...</a><br/></td></tr>
+<tr class="separator:a411073b34164e8b5aaadf79886bfc12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00166"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00166')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/d38/a00166.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
+<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd inherit pub_methods_a00166"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
+<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd inherit pub_methods_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00166"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
+<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../d9/d38/a00166.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
+<tr class="separator:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
+<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
+<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;e)</td></tr>
+<tr class="separator:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24875cf5b77b860f11ed1327d71dce5f"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a24875cf5b77b860f11ed1327d71dce5f">m_config_pt</a></td></tr>
-<tr class="memdesc:a24875cf5b77b860f11ed1327d71dce5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config in ptree.  <a href="#a24875cf5b77b860f11ed1327d71dce5f">More...</a><br/></td></tr>
-<tr class="separator:a24875cf5b77b860f11ed1327d71dce5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2de72162f806fe5b7008e81854bdc2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d48/a00165.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a></td></tr>
+<tr class="memdesc:ae2de72162f806fe5b7008e81854bdc2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#ae2de72162f806fe5b7008e81854bdc2d">More...</a><br/></td></tr>
+<tr class="separator:ae2de72162f806fe5b7008e81854bdc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4778adb0be5161932d107c2a84d477"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a></td></tr>
+<tr class="memdesc:a1c4778adb0be5161932d107c2a84d477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ptree with configuration.  <a href="#a1c4778adb0be5161932d107c2a84d477">More...</a><br/></td></tr>
+<tr class="separator:a1c4778adb0be5161932d107c2a84d477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78babbce6074c1f0d612c67febfb388e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a></td></tr>
+<tr class="memdesc:a78babbce6074c1f0d612c67febfb388e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix for output data files.  <a href="#a78babbce6074c1f0d612c67febfb388e">More...</a><br/></td></tr>
+<tr class="separator:a78babbce6074c1f0d612c67febfb388e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff961d97649b68ef661d38c098baaf0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d14/a00139.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a></td></tr>
+<tr class="memdesc:a4ff961d97649b68ef661d38c098baaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator object.  <a href="#a4ff961d97649b68ef661d38c098baaf0">More...</a><br/></td></tr>
+<tr class="separator:a4ff961d97649b68ef661d38c098baaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_a00166"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00166')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../d9/d38/a00166.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
+<tr class="memitem:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00166"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = <a class="el" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></td></tr>
+<tr class="separator:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00166"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d38/a00166.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;)&gt;</td></tr>
+<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds a simulator based a configuration property tree. </p>
-<p>It </p>
+<div class="textblock"><p>The simulation runner drive simulator throufgh time steps. </p>
+<p>It's functions are: </p>
 <ul>
-<li>reads any additional configuration files (disease, contact, ...) </li>
-<li>initializes calendar and random number manager for the simulator </li>
-<li>builds a population and contact pool system (<dl class="section see"><dt>See Also</dt><dd>PopulationBuilder) </dd></dl>
+<li>invokes the simulator builder (<dl class="section see"><dt>See Also</dt><dd>SimulatorBuilder) </dd></dl>
 </li>
-<li>deals with health and immunity (<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d2/da3/a00115.html" title="Seeds the population with Health data. ">HealthSeeder</a>, </dd>
-<dd>
-DiseaseBuilder) </dd></dl>
+<li>manages elapsed time clock </li>
+<li>manages time steps  viewers of its events (<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836" title="Enumerates the event. ">sim_event::Id</a>) </dd></dl>
 </li>
 </ul>
 
-<p>Definition at line <a class="el" href="../../d8/d91/a00410_source.html#l00038">38</a> of file <a class="el" href="../../d8/d91/a00410_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00044">44</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada7d6656e97857b9bacd2285f7784021"></a>
+<a class="anchor" id="a3fad2909fa48a98d658908a0f147bb2e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -173,11 +218,27 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimBuilder::SimBuilder </td>
+          <td class="memname">stride::SimRunner::SimRunner </td>
           <td>(</td>
           <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"><em>configPt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -187,46 +248,54 @@ DiseaseBuilder) </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Initializing <a class="el" href="../../d5/d4e/a00141.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>. </p>
+<p>Initialization with property tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configPt</td><td>config info for run and for config of simulator </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00042">42</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dea/a00408_source.html#l00033">33</a> of file <a class="el" href="../../dd/dea/a00408_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/d14/a00139.html#a5631d8dd270e27d496028cede8e799b9">stride::Sim::Create()</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00074">m_clock</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00075">m_config_pt</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00076">m_output_prefix</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00077">m_sim</a>, <a class="el" href="../../de/df7/a00418_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../da/d9c/a00413_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../da/d9c/a00413_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d4e/a00141_a3fad2909fa48a98d658908a0f147bb2e_cgraph.svg" width="344" height="247"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad59e65dfe839b8a589b1c6ffa805ba2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::SimRunner::~SimRunner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a94ce5fb3cae915f0bdb261498f31c444"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d5/db1/a00140.html">Sim</a> &gt; stride::SimBuilder::Build </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/db1/a00140.html">Sim</a> &gt;&#160;</td>
-          <td class="paramname"><em>sim</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build the simulator and return it afterwards. </p>
-
-<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00044">44</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc4/a00443_source.html#l00020">stride::TravellerProfileBuilder::Build()</a>, <a class="el" href="../../d3/d1a/a00251_source.html#l00059">stride::ContactPoolType::IdList</a>, <a class="el" href="../../d8/d91/a00410_source.html#l00055">m_config_pt</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00105">ReadAgeContactPtree()</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00112">ReadDiseasePtree()</a>, <a class="el" href="../../dc/d57/a00194_source.html#l00040">stride::BeliefSeeder::Seed()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00046">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../d5/d0f/a00308_source.html#l00074">stride::HealthSeeder::Seed()</a>, and <a class="el" href="../../d6/d82/a00243_source.html#l00039">stride::ContactLogMode::ToMode()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad551b02c507948570f07af10d85d29ce"></a>
+<a class="anchor" id="aceb24930d50702acfa88bdfe5cb13a1b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -234,30 +303,28 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadAgeContactPtree </td>
+          <td class="memname">const <a class="el" href="../../d0/d48/a00165.html">util::Stopwatch</a>&amp; stride::SimRunner::GetClock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the contact configuration data. </p>
+<p>Return the run &amp; sim configuration. </p>
 
-<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00105">105</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00056">56</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
 
-<p>References <a class="el" href="../../dd/d86/a00271_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d8/d91/a00410_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00200">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00044">Build()</a>.</p>
+<p>References <a class="el" href="../../de/d3d/a00409_source.html#l00074">m_clock</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adffa42c6b8b171616fcdfb4805260c92"></a>
+<a class="anchor" id="a9eeaa63450413a62f31bcee07df29fa3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -265,31 +332,129 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadDiseasePtree </td>
+          <td class="memname">const boost::property_tree::ptree&amp; stride::SimRunner::GetConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the run &amp; sim configuration. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00059">59</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d3d/a00409_source.html#l00075">m_config_pt</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99014dd891a3422214c2a088dd38cde9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../de/d14/a00139.html">Sim</a>&gt; stride::SimRunner::GetSim </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the Simulator. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00062">62</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d3d/a00409_source.html#l00077">m_sim</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a81720a1766d513eb248cb443d948567f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimRunner::Run </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Get the disease configuration data. </p>
+<p>Run simulator for as many steps/days as indicated in config. </p>
 
-<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00112">112</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dea/a00408_source.html#l00081">81</a> of file <a class="el" href="../../dd/dea/a00408_source.html">SimRunner.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d86/a00271_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d8/d91/a00410_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00200">stride::util::FileSys::ReadPtreeFile()</a>.</p>
+<p>References <a class="el" href="../../de/d3d/a00409_source.html#l00075">m_config_pt</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00044">Build()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a233f76f6af0cef8c5971112b6d2235d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimRunner::Run </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>numSteps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run simulator for numSteps steps/days. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dea/a00408_source.html#l00046">46</a> of file <a class="el" href="../../dd/dea/a00408_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/d3d/a00409_source.html#l00074">m_clock</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00075">m_config_pt</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00077">m_sim</a>, <a class="el" href="../../de/df7/a00418_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../da/d9c/a00413_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../da/d9c/a00413_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d4e/a00141_a233f76f6af0cef8c5971112b6d2235d0_cgraph.svg" width="368" height="196"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a411073b34164e8b5aaadf79886bfc12a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::SimRunner::IsAtEndOfSim </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns if all days of the simulation are ran. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dea/a00408_source.html#l00083">83</a> of file <a class="el" href="../../dd/dea/a00408_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/d3d/a00409_source.html#l00075">m_config_pt</a>, and <a class="el" href="../../de/d3d/a00409_source.html#l00077">m_sim</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a24875cf5b77b860f11ed1327d71dce5f"></a>
+<a class="anchor" id="ae2de72162f806fe5b7008e81854bdc2d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -297,7 +462,7 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::SimBuilder::m_config_pt</td>
+          <td class="memname"><a class="el" href="../../d0/d48/a00165.html">util::Stopwatch</a> stride::SimRunner::m_clock</td>
         </tr>
       </table>
   </td>
@@ -307,25 +472,103 @@ DiseaseBuilder) </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Run config in ptree. </p>
+<p>Stopwatch for timing the computation. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d91/a00410_source.html#l00055">55</a> of file <a class="el" href="../../d8/d91/a00410_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00074">74</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00044">Build()</a>, <a class="el" href="../../de/d3d/a00409_source.html#l00105">ReadAgeContactPtree()</a>, and <a class="el" href="../../de/d3d/a00409_source.html#l00112">ReadDiseasePtree()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00056">GetClock()</a>, <a class="el" href="../../dd/dea/a00408_source.html#l00046">Run()</a>, and <a class="el" href="../../dd/dea/a00408_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c4778adb0be5161932d107c2a84d477"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree stride::SimRunner::m_config_pt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ptree with configuration. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00075">75</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00059">GetConfig()</a>, <a class="el" href="../../dd/dea/a00408_source.html#l00083">IsAtEndOfSim()</a>, <a class="el" href="../../dd/dea/a00408_source.html#l00046">Run()</a>, and <a class="el" href="../../dd/dea/a00408_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78babbce6074c1f0d612c67febfb388e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::SimRunner::m_output_prefix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prefix for output data files. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00076">76</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dea/a00408_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ff961d97649b68ef661d38c098baaf0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../de/d14/a00139.html">Sim</a>&gt; stride::SimRunner::m_sim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Simulator object. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00077">77</a> of file <a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00062">GetSim()</a>, <a class="el" href="../../dd/dea/a00408_source.html#l00083">IsAtEndOfSim()</a>, <a class="el" href="../../dd/dea/a00408_source.html#l00046">Run()</a>, and <a class="el" href="../../dd/dea/a00408_source.html#l00033">SimRunner()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d8/d91/a00410_source.html">SimBuilder.h</a></li>
-<li><a class="el" href="../../de/d3d/a00409_source.html">SimBuilder.cpp</a></li>
+<li><a class="el" href="../../de/d3d/a00409_source.html">SimRunner.h</a></li>
+<li><a class="el" href="../../dd/dea/a00408_source.html">SimRunner.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">SimBuilder</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">SimRunner</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

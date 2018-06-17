@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::BaseController Class Reference</title>
+<title>Stride Reference Manual: stride::Belief Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,104 +112,42 @@ $(document).ready(function(){initNavTree('d9/df8/a00096.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../dc/d66/a00630.html">List of all members</a>  </div>
+<a href="../../da/d20/a01160.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::BaseController Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stride::Belief Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>&gt;</code></p>
+<p>Base class for all belief policies.  
+ <a href="../../d9/df8/a00096.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dd/da2/a00192_source.html">Belief.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::BaseController:</div>
+Inheritance diagram for stride::Belief:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d9/df8/a00096.png" usemap="#stride::BaseController_map" alt=""/>
-  <map id="stride::BaseController_map" name="stride::BaseController_map">
-<area href="../../d0/d61/a00100.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="stride::CliController" shape="rect" coords="0,56,133,80"/>
-<area href="../../db/d57/a00112.html" title="A controller for the simulation that uses Qt to give the user the ability of controlling the steps..." alt="stride::GuiController" shape="rect" coords="143,56,276,80"/>
-</map>
- </div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/d81/a01161.svg" width="100%" height="548"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::Belief:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d13/a01162.svg" width="126" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aced90d12fa58af5a489032f4d8124239"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aced90d12fa58af5a489032f4d8124239">BaseController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:aced90d12fa58af5a489032f4d8124239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#aced90d12fa58af5a489032f4d8124239">More...</a><br/></td></tr>
-<tr class="separator:aced90d12fa58af5a489032f4d8124239"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a402d80b213280b46fdda6713c5734389"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a402d80b213280b46fdda6713c5734389">~BaseController</a> ()=default</td></tr>
-<tr class="memdesc:a402d80b213280b46fdda6713c5734389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual desctructor for overloading.  <a href="#a402d80b213280b46fdda6713c5734389">More...</a><br/></td></tr>
-<tr class="separator:a402d80b213280b46fdda6713c5734389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f449954b557b6418f36996253034a0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a69f449954b557b6418f36996253034a0">Control</a> ()=0</td></tr>
-<tr class="memdesc:a69f449954b557b6418f36996253034a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual run of the simulator.  <a href="#a69f449954b557b6418f36996253034a0">More...</a><br/></td></tr>
-<tr class="separator:a69f449954b557b6418f36996253034a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c522f31ad7520a8d8da979a453ed921"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="../../d2/d82/a00142.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a5c522f31ad7520a8d8da979a453ed921">GetSimRunner</a> ()</td></tr>
-<tr class="memdesc:a5c522f31ad7520a8d8da979a453ed921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d2/d82/a00142.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a> that is used.  <a href="#a5c522f31ad7520a8d8da979a453ed921">More...</a><br/></td></tr>
-<tr class="separator:a5c522f31ad7520a8d8da979a453ed921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a904f58a60d934c8726f100a820c5322b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Targs&gt; </td></tr>
-<tr class="memitem:a904f58a60d934c8726f100a820c5322b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a904f58a60d934c8726f100a820c5322b">RegisterViewer</a> (Targs &amp;&amp;...args)</td></tr>
-<tr class="separator:a904f58a60d934c8726f100a820c5322b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbdf31ef7f947010a3c1cba494aa7fd0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#acbdf31ef7f947010a3c1cba494aa7fd0">RegisterViewers</a> ()</td></tr>
-<tr class="memdesc:acbdf31ef7f947010a3c1cba494aa7fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../d2/d82/a00142.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#acbdf31ef7f947010a3c1cba494aa7fd0">More...</a><br/></td></tr>
-<tr class="separator:acbdf31ef7f947010a3c1cba494aa7fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb79289441333395c55b949a8c775dd"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aeeb79289441333395c55b949a8c775dd">GetLogger</a> () const </td></tr>
-<tr class="memdesc:aeeb79289441333395c55b949a8c775dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the logger.  <a href="#aeeb79289441333395c55b949a8c775dd">More...</a><br/></td></tr>
-<tr class="separator:aeeb79289441333395c55b949a8c775dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ad5a418fa38c9e42fa93f88c522860"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ad6ad5a418fa38c9e42fa93f88c522860">GetOutputPrefix</a> ()</td></tr>
-<tr class="separator:ad6ad5a418fa38c9e42fa93f88c522860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9837dd9796e5b2a40c37984537c1375f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a9837dd9796e5b2a40c37984537c1375f">BaseController</a> ()</td></tr>
-<tr class="memdesc:a9837dd9796e5b2a40c37984537c1375f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as taget for delegation.  <a href="#a9837dd9796e5b2a40c37984537c1375f">More...</a><br/></td></tr>
-<tr class="separator:a9837dd9796e5b2a40c37984537c1375f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab018c0bad76fb740e98203ca2d432a26"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ab018c0bad76fb740e98203ca2d432a26">CheckEnv</a> ()</td></tr>
-<tr class="memdesc:ab018c0bad76fb740e98203ca2d432a26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#ab018c0bad76fb740e98203ca2d432a26">More...</a><br/></td></tr>
-<tr class="separator:ab018c0bad76fb740e98203ca2d432a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0837ea00e86c16aa6e7e7fa6d31d5a57"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a0837ea00e86c16aa6e7e7fa6d31d5a57">CheckOutputPrefix</a> ()</td></tr>
-<tr class="separator:a0837ea00e86c16aa6e7e7fa6d31d5a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e11456e1c2d064aa7307045761ca04"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ad3e11456e1c2d064aa7307045761ca04">LogSetup</a> ()</td></tr>
-<tr class="memdesc:ad3e11456e1c2d064aa7307045761ca04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#ad3e11456e1c2d064aa7307045761ca04">More...</a><br/></td></tr>
-<tr class="separator:ad3e11456e1c2d064aa7307045761ca04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d12c22b23e4f38dc6ce483e0edcee84"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a2d12c22b23e4f38dc6ce483e0edcee84">MakeLogger</a> ()</td></tr>
-<tr class="memdesc:a2d12c22b23e4f38dc6ce483e0edcee84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a2d12c22b23e4f38dc6ce483e0edcee84">More...</a><br/></td></tr>
-<tr class="separator:a2d12c22b23e4f38dc6ce483e0edcee84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939613d6334e50ba91e96f92bd013204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a939613d6334e50ba91e96f92bd013204">PatchConfig</a> ()</td></tr>
-<tr class="memdesc:a939613d6334e50ba91e96f92bd013204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Patch run configuration with cli overrides and defaults.  <a href="#a939613d6334e50ba91e96f92bd013204">More...</a><br/></td></tr>
-<tr class="separator:a939613d6334e50ba91e96f92bd013204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb3cf705a4906867e3e63d2c430a7f52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aeb3cf705a4906867e3e63d2c430a7f52">ReadConfigFile</a> ()</td></tr>
-<tr class="memdesc:aeb3cf705a4906867e3e63d2c430a7f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read configuration file.  <a href="#aeb3cf705a4906867e3e63d2c430a7f52">More...</a><br/></td></tr>
-<tr class="separator:aeb3cf705a4906867e3e63d2c430a7f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a168454c784330f99397bac8249d7c1f4"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a168454c784330f99397bac8249d7c1f4">m_config_pt</a></td></tr>
-<tr class="memdesc:a168454c784330f99397bac8249d7c1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#a168454c784330f99397bac8249d7c1f4">More...</a><br/></td></tr>
-<tr class="separator:a168454c784330f99397bac8249d7c1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a353127db697307bd1851455813269695"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a353127db697307bd1851455813269695">m_output_prefix</a></td></tr>
-<tr class="memdesc:a353127db697307bd1851455813269695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#a353127db697307bd1851455813269695">More...</a><br/></td></tr>
-<tr class="separator:a353127db697307bd1851455813269695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02262faead2ab4d3f9c65616d6a6e0e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d38/a00166.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a02262faead2ab4d3f9c65616d6a6e0e1">m_run_clock</a></td></tr>
-<tr class="memdesc:a02262faead2ab4d3f9c65616d6a6e0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#a02262faead2ab4d3f9c65616d6a6e0e1">More...</a><br/></td></tr>
-<tr class="separator:a02262faead2ab4d3f9c65616d6a6e0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cdffe733cbad2794e23eb82606c8b5c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a7cdffe733cbad2794e23eb82606c8b5c">m_stride_logger</a></td></tr>
-<tr class="memdesc:a7cdffe733cbad2794e23eb82606c8b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#a7cdffe733cbad2794e23eb82606c8b5c">More...</a><br/></td></tr>
-<tr class="separator:a7cdffe733cbad2794e23eb82606c8b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae430f32baafa359df7630e93466cb595"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ae430f32baafa359df7630e93466cb595">m_use_install_dirs</a></td></tr>
-<tr class="memdesc:ae430f32baafa359df7630e93466cb595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working dir or install dir mode.  <a href="#ae430f32baafa359df7630e93466cb595">More...</a><br/></td></tr>
-<tr class="separator:ae430f32baafa359df7630e93466cb595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab18dbcda248fedfaeae623a2503ec1ab"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/d82/a00142.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ab18dbcda248fedfaeae623a2503ec1ab">m_runner</a></td></tr>
-<tr class="separator:ab18dbcda248fedfaeae623a2503ec1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb4597d6e5cd9192060281895542847d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#abb4597d6e5cd9192060281895542847d">m_rn_manager</a></td></tr>
-<tr class="separator:abb4597d6e5cd9192060281895542847d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c6ab9b7c9f11aa7651337c30aa50dc8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a4c6ab9b7c9f11aa7651337c30aa50dc8">Belief</a> ()=default</td></tr>
+<tr class="separator:a4c6ab9b7c9f11aa7651337c30aa50dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ced869d4ea27db2c4120a068750248"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a48ced869d4ea27db2c4120a068750248">~Belief</a> ()=default</td></tr>
+<tr class="separator:a48ced869d4ea27db2c4120a068750248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e01f1bfbad7923d1dff35558e47887f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a4e01f1bfbad7923d1dff35558e47887f">HasAdopted</a> () const </td></tr>
+<tr class="separator:a4e01f1bfbad7923d1dff35558e47887f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00033">33</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
+<div class="textblock"><p>Base class for all belief policies. </p>
+
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00027">27</a> of file <a class="el" href="../../dd/da2/a00192_source.html">Belief.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aced90d12fa58af5a489032f4d8124239"></a>
+<a class="anchor" id="a4c6ab9b7c9f11aa7651337c30aa50dc8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -217,25 +155,22 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::BaseController::BaseController </td>
+          <td class="memname">stride::Belief::Belief </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Straight initialization. </p>
-
 </div>
 </div>
-<a class="anchor" id="a402d80b213280b46fdda6713c5734389"></a>
+<a class="anchor" id="a48ced869d4ea27db2c4120a068750248"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -243,7 +178,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stride::BaseController::~BaseController </td>
+          <td class="memname">virtual stride::Belief::~Belief </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -256,41 +191,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual desctructor for overloading. </p>
-
-</div>
-</div>
-<a class="anchor" id="a9837dd9796e5b2a40c37984537c1375f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::BaseController::BaseController </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Empty controller: used as taget for delegation. </p>
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00047">47</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/df5/a00386_source.html#l00095">stride::Population::Create()</a>, <a class="el" href="../../d9/dd1/a00398_source.html#l00096">stride::util::RNManager::Initialize()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00086">m_config_pt</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00092">m_rn_manager</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00091">m_runner</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a69f449954b557b6418f36996253034a0"></a>
+<a class="anchor" id="a4e01f1bfbad7923d1dff35558e47887f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -298,128 +202,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void stride::BaseController::Control </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Actual run of the simulator. </p>
-
-<p>Implemented in <a class="el" href="../../d0/d61/a00100.html#a126fe70ea36234d7db97a53db9912338">stride::CliController</a>, and <a class="el" href="../../db/d57/a00112.html#af99fbfe3cc3bcb48d94aafa00c2cb164">stride::GuiController</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/daf/a00346_source.html#l00023">Launcher::Launch()</a>, and <a class="el" href="../../d7/ddb/a00361_source.html#l00043">main()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5c522f31ad7520a8d8da979a453ed921"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d2/d82/a00142.html">SimRunner</a> &gt; stride::BaseController::GetSimRunner </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the <a class="el" href="../../d2/d82/a00142.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a> that is used. </p>
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00168">168</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/da2/a00192_source.html#l00091">m_runner</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a904f58a60d934c8726f100a820c5322b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename... Targs&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::RegisterViewer </td>
-          <td>(</td>
-          <td class="paramtype">Targs &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00049">49</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-<p>References <a class="el" href="../../dd/da2/a00192_source.html#l00091">m_runner</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/daf/a00346_source.html#l00023">Launcher::Launch()</a>, and <a class="el" href="../../d7/ddb/a00361_source.html#l00043">main()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acbdf31ef7f947010a3c1cba494aa7fd0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::RegisterViewers </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Register the viewers of the <a class="el" href="../../d2/d82/a00142.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00112">112</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/da2/a00192_source.html#l00086">m_config_pt</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00087">m_output_prefix</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00091">m_runner</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00089">m_stride_logger</a>, and <a class="el" href="../../d1/de1/a00213_source.html#l00039">stride::viewers::CliViewer::Update()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/ddb/a00361_source.html#l00043">main()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aeeb79289441333395c55b949a8c775dd"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::BaseController::GetLogger </td>
+          <td class="memname">virtual bool stride::Belief::HasAdopted </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -427,400 +210,27 @@ template&lt;typename T , typename... Targs&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the logger. </p>
+<p>Reimplemented in <a class="el" href="../../d2/da3/a00115.html#a53716b9bed3d3352c60ef758e3b25d6b">stride::Imitation</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00166">166</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/da2/a00192_source.html#l00089">m_stride_logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/daf/a00346_source.html#l00023">Launcher::Launch()</a>, and <a class="el" href="../../d7/ddb/a00361_source.html#l00043">main()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00036">36</a> of file <a class="el" href="../../dd/da2/a00192_source.html">Belief.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad6ad5a418fa38c9e42fa93f88c522860"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::BaseController::GetOutputPrefix </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00170">170</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/da2/a00192_source.html#l00087">m_output_prefix</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/daf/a00346_source.html#l00023">Launcher::Launch()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab018c0bad76fb740e98203ca2d432a26"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::CheckEnv </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check install environment. </p>
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00080">80</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d2a/a00270_source.html#l00064">stride::util::FileSys::CheckInstallEnv()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0837ea00e86c16aa6e7e7fa6d31d5a57"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::CheckOutputPrefix </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00090">90</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d2a/a00270_source.html#l00194">stride::util::FileSys::IsDirectoryString()</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00087">m_output_prefix</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad3e11456e1c2d064aa7307045761ca04"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::LogSetup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Logs info on setup for cli environment to stride_logger. </p>
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00144">144</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/d86/a00271_source.html#l00074">stride::util::FileSys::GetConfigDir()</a>, <a class="el" href="../../dd/d86/a00271_source.html#l00058">stride::util::FileSys::GetCurrentDir()</a>, <a class="el" href="../../dd/d86/a00271_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../dd/d86/a00271_source.html#l00061">stride::util::FileSys::GetExecPath()</a>, <a class="el" href="../../dd/d86/a00271_source.html#l00080">stride::util::FileSys::GetRootDir()</a>, <a class="el" href="../../da/d31/a00234_source.html#l00033">stride::util::ConfigInfo::GitRevision()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00034">stride::util::ConfigInfo::HaveOpenMP()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00086">m_config_pt</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00087">m_output_prefix</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00089">m_stride_logger</a>, <a class="el" href="../../da/d31/a00234_source.html#l00042">stride::util::ConfigInfo::NumberAvailableThreads()</a>, and <a class="el" href="../../d6/d82/a00243_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2d12c22b23e4f38dc6ce483e0edcee84"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::MakeLogger </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Make the appropriate logger for cli environment and register as stride_logger. </p>
-
-<p>Definition at line <a class="el" href="../../d9/dd0/a00191_source.html#l00102">102</a> of file <a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d2a/a00270_source.html#l00051">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d0/dc3/a00354_source.html#l00032">stride::util::LogUtils::CreateCliLogger()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00086">m_config_pt</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00087">m_output_prefix</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00089">m_stride_logger</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a939613d6334e50ba91e96f92bd013204"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::PatchConfig </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Patch run configuration with cli overrides and defaults. </p>
-
-</div>
-</div>
-<a class="anchor" id="aeb3cf705a4906867e3e63d2c430a7f52"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BaseController::ReadConfigFile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Read configuration file. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a168454c784330f99397bac8249d7c1f4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::property_tree::ptree stride::BaseController::m_config_pt</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Main configuration for run and sim. </p>
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00086">86</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dd0/a00191_source.html#l00047">BaseController()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00144">LogSetup()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00102">MakeLogger()</a>, and <a class="el" href="../../d9/dd0/a00191_source.html#l00112">RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a353127db697307bd1851455813269695"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::BaseController::m_output_prefix</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Prefix to output (name prefix or prefix dir) </p>
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00087">87</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dd0/a00191_source.html#l00090">CheckOutputPrefix()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00170">GetOutputPrefix()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00144">LogSetup()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00102">MakeLogger()</a>, and <a class="el" href="../../d9/dd0/a00191_source.html#l00112">RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a02262faead2ab4d3f9c65616d6a6e0e1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/d38/a00166.html">util::Stopwatch</a> stride::BaseController::m_run_clock</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stopwatch for timing the computation. </p>
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00088">88</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7cdffe733cbad2794e23eb82606c8b5c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::BaseController::m_stride_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>General logger. </p>
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00089">89</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/ded/a00211_source.html#l00048">stride::CliController::Control()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00166">GetLogger()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00144">LogSetup()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00102">MakeLogger()</a>, and <a class="el" href="../../d9/dd0/a00191_source.html#l00112">RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae430f32baafa359df7630e93466cb595"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::BaseController::m_use_install_dirs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Working dir or install dir mode. </p>
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00090">90</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab18dbcda248fedfaeae623a2503ec1ab"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d2/d82/a00142.html">SimRunner</a>&gt; stride::BaseController::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00091">91</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dd0/a00191_source.html#l00047">BaseController()</a>, <a class="el" href="../../dd/ded/a00211_source.html#l00048">stride::CliController::Control()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00168">GetSimRunner()</a>, <a class="el" href="../../da/d50/a00301_source.html#l00010">stride::GuiController::GuiController()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00049">RegisterViewer()</a>, and <a class="el" href="../../d9/dd0/a00191_source.html#l00112">RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abb4597d6e5cd9192060281895542847d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a> stride::BaseController::m_rn_manager</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00092">92</a> of file <a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dd0/a00191_source.html#l00047">BaseController()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dd/da2/a00192_source.html">BaseController.h</a></li>
-<li><a class="el" href="../../d9/dd0/a00191_source.html">BaseController.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/da2/a00192_source.html">Belief.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/df8/a00096.html">BaseController</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/df8/a00096.html">Belief</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

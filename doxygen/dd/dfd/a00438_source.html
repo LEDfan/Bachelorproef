@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TimeToString.h Source File</title>
+<title>Stride Reference Manual: TravellerProfile.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,147 +109,90 @@ $(document).ready(function(){initNavTree('dd/dfd/a00438_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TimeToString.h</div>  </div>
+<div class="title">TravellerProfile.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/dfd/a00438.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Utilities to tag clocks and reformat clock readout to string.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * Utilities to tag clocks and to reformat number of ticks to a string.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html">   35</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../d5/dcb/a00170.html">TimeToString</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        /// Produce string in hh:mm:ss format.</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html#ad6dcc9ca1dfee4746a739175240585ce">   38</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::string <a class="code" href="../../d5/dcb/a00170.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a>(std::chrono::minutes d)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                ostringstream oss;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                hours         hh = duration_cast&lt;hours&gt;(d);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                minutes       mm = duration_cast&lt;minutes&gt;(d % hours(1));</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                oss &lt;&lt; right &lt;&lt; setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; setw(2) &lt;&lt; hh.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2) &lt;&lt; mm.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    &lt;&lt; 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">return</span> oss.str();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">        /// Produce string in hh:mm:ss format.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html#a4289b5e11499452e2d8257c7c4bf1393">   53</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::string <a class="code" href="../../d5/dcb/a00170.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a>(std::chrono::seconds d)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                ostringstream oss;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                hours         hh = duration_cast&lt;hours&gt;(d);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                minutes       mm = duration_cast&lt;minutes&gt;(d % hours(1));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                seconds       ss = duration_cast&lt;seconds&gt;(d % minutes(1));</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                oss &lt;&lt; right &lt;&lt; setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; setw(2) &lt;&lt; hh.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2) &lt;&lt; mm.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    &lt;&lt; ss.count();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> oss.str();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">        /// Produce string in hh:mm:ss:mus format</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html#a75cf053eac30cd061369b1b3bc8320e2">   69</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::string <a class="code" href="../../d5/dcb/a00170.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a>(std::chrono::milliseconds d)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                ostringstream oss;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                hours         hh    = duration_cast&lt;hours&gt;(d);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                minutes       mm    = duration_cast&lt;minutes&gt;(d % hours(1));</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                seconds       ss    = duration_cast&lt;seconds&gt;(d % minutes(1));</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                milliseconds  milli = duration_cast&lt;milliseconds&gt;(d % seconds(1));</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                oss &lt;&lt; right &lt;&lt; setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; setw(2) &lt;&lt; hh.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2) &lt;&lt; mm.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    &lt;&lt; ss.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(3) &lt;&lt; milli.count();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">return</span> oss.str();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">        /// Produce string in hh:mm:ss:ms:mus format.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html#a3257445eaf8975e71bd08d8ed6d8dad8">   86</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::string <a class="code" href="../../d5/dcb/a00170.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a>(std::chrono::microseconds d)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                ostringstream oss;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                hours         hh    = duration_cast&lt;hours&gt;(d);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                minutes       mm    = duration_cast&lt;minutes&gt;(d % hours(1));</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                seconds       ss    = duration_cast&lt;seconds&gt;(d % minutes(1));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                milliseconds  milli = duration_cast&lt;milliseconds&gt;(d % seconds(1));</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                microseconds  micro = duration_cast&lt;microseconds&gt;(d % milliseconds(1));</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                oss &lt;&lt; right &lt;&lt; setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; setw(2) &lt;&lt; hh.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2) &lt;&lt; mm.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    &lt;&lt; ss.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(3) &lt;&lt; milli.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(3) &lt;&lt; micro.count();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">return</span> oss.str();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">        /// Produce string in hh:mm:ss:ms:mus:ns format.</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html#a7bc634d3b69e570aa22d04aab7c94823">  104</a></span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::string <a class="code" href="../../d5/dcb/a00170.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a>(std::chrono::nanoseconds d)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                ostringstream oss;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                hours         hh    = duration_cast&lt;hours&gt;(d);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                minutes       mm    = duration_cast&lt;minutes&gt;(d % hours(1));</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                seconds       ss    = duration_cast&lt;seconds&gt;(d % minutes(1));</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                milliseconds  milli = duration_cast&lt;milliseconds&gt;(d % seconds(1));</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                microseconds  micro = duration_cast&lt;microseconds&gt;(d % milliseconds(1));</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                nanoseconds   nano  = duration_cast&lt;nanoseconds&gt;(d % microseconds(1));</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                oss &lt;&lt; right &lt;&lt; setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; setw(2) &lt;&lt; hh.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2) &lt;&lt; mm.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(2)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    &lt;&lt; ss.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(3) &lt;&lt; milli.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; setw(3) &lt;&lt; micro.count() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    &lt;&lt; setw(3) &lt;&lt; nano.count() &lt;&lt; endl;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">return</span> oss.str();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00170_html_a3257445eaf8975e71bd08d8ed6d8dad8"><div class="ttname"><a href="../../d5/dcb/a00170.html#a3257445eaf8975e71bd08d8ed6d8dad8">stride::util::TimeToString::ToColonString</a></div><div class="ttdeci">static std::string ToColonString(std::chrono::microseconds d)</div><div class="ttdoc">Produce string in hh:mm:ss:ms:mus format. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00086">TimeToString.h:86</a></div></div>
-<div class="ttc" id="a00170_html"><div class="ttname"><a href="../../d5/dcb/a00170.html">stride::util::TimeToString</a></div><div class="ttdoc">Utilities to tag clocks and to reformat number of ticks to a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00035">TimeToString.h:35</a></div></div>
-<div class="ttc" id="a00170_html_a7bc634d3b69e570aa22d04aab7c94823"><div class="ttname"><a href="../../d5/dcb/a00170.html#a7bc634d3b69e570aa22d04aab7c94823">stride::util::TimeToString::ToColonString</a></div><div class="ttdeci">static std::string ToColonString(std::chrono::nanoseconds d)</div><div class="ttdoc">Produce string in hh:mm:ss:ms:mus:ns format. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00104">TimeToString.h:104</a></div></div>
-<div class="ttc" id="a00170_html_a4289b5e11499452e2d8257c7c4bf1393"><div class="ttname"><a href="../../d5/dcb/a00170.html#a4289b5e11499452e2d8257c7c4bf1393">stride::util::TimeToString::ToColonString</a></div><div class="ttdeci">static std::string ToColonString(std::chrono::seconds d)</div><div class="ttdoc">Produce string in hh:mm:ss format. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00053">TimeToString.h:53</a></div></div>
-<div class="ttc" id="a00170_html_a75cf053eac30cd061369b1b3bc8320e2"><div class="ttname"><a href="../../d5/dcb/a00170.html#a75cf053eac30cd061369b1b3bc8320e2">stride::util::TimeToString::ToColonString</a></div><div class="ttdeci">static std::string ToColonString(std::chrono::milliseconds d)</div><div class="ttdoc">Produce string in hh:mm:ss:mus format. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00069">TimeToString.h:69</a></div></div>
-<div class="ttc" id="a00170_html_ad6dcc9ca1dfee4746a739175240585ce"><div class="ttname"><a href="../../d5/dcb/a00170.html#ad6dcc9ca1dfee4746a739175240585ce">stride::util::TimeToString::ToColonString</a></div><div class="ttdeci">static std::string ToColonString(std::chrono::minutes d)</div><div class="ttdoc">Produce string in hh:mm:ss format. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00038">TimeToString.h:38</a></div></div>
+<a href="../../dd/dfd/a00438.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d3a/a00439.html">TravellerProfile.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;trng/uniform_int_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d9/db6/a00146.html#a79f89bdd08206854e9dba02bf39d5f58">    7</a></span>&#160;<a class="code" href="../../d9/db6/a00146.html#a79f89bdd08206854e9dba02bf39d5f58">TravellerProfile::TravellerProfile</a>(std::size_t amountOfRegions, <span class="keywordtype">double</span> amountOfTravel, <span class="keywordtype">double</span> fractionWork,</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                   <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; rnManager, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> maxDays)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : m_data_recreation(amountOfRegions), m_data_work(amountOfRegions), m_amountOfTravel(amountOfTravel),</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      m_fractionWork(fractionWork), m_rnManager(rnManager), m_maxDays(maxDays)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; amountOfRegions; ++i) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                <a class="code" href="../../d9/db6/a00146.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a>[i] = std::vector&lt;double&gt;(amountOfRegions);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <a class="code" href="../../d9/db6/a00146.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a>[i]       = std::vector&lt;double&gt;(amountOfRegions);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d9/db6/a00146.html#a810f4044c50a8341090834bd75253357">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/db6/a00146.html#a810f4044c50a8341090834bd75253357">TravellerProfile::AddTravelRecreation</a>(std::size_t from, std::size_t to, <span class="keywordtype">double</span> relativePopulation)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="../../d9/db6/a00146.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a>.at(from).at(to) = relativePopulation;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d9/db6/a00146.html#a5a8da1f66852e62002ada510e95e5ada">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/db6/a00146.html#a5a8da1f66852e62002ada510e95e5ada">TravellerProfile::AddTravelWork</a>(std::size_t from, std::size_t to, <span class="keywordtype">double</span> relativePopulation)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="../../d9/db6/a00146.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a>.at(from).at(to) = relativePopulation;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d9/db6/a00146.html#a54b16967d8175cb7d331d667003b5fd5">   28</a></span>&#160;std::tuple&lt;bool, bool, std::size_t, unsigned int&gt; <a class="code" href="../../d9/db6/a00146.html#a54b16967d8175cb7d331d667003b5fd5">TravellerProfile::PersonWillTravel</a>(std::size_t currentRegion)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d9/db6/a00146.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a>.size() &gt; 1 &amp;&amp; <a class="code" href="../../d9/db6/a00146.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a>.size() &gt; 1 &amp;&amp; <a class="code" href="../../d9/db6/a00146.html#ab9f4b79657eabfff845b4fd8eed603cb">MakeChoice</a>(<a class="code" href="../../d9/db6/a00146.html#a5c4d2c976a3b840cd9322098e1459527">m_amountOfTravel</a>)) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                std::size_t destination = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordtype">bool</span>        work;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d9/db6/a00146.html#ab9f4b79657eabfff845b4fd8eed603cb">MakeChoice</a>(<a class="code" href="../../d9/db6/a00146.html#af617090f0723c7e5125df8f6f1200474">m_fractionWork</a>)) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        <span class="comment">// Work travel</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                        work = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                        <span class="keyword">auto</span> dist = <a class="code" href="../../d9/db6/a00146.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a>.<a class="code" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                            0, static_cast&lt;trng::uniform_int_dist::result_type&gt;(<a class="code" href="../../d9/db6/a00146.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a>[currentRegion].size())));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        destination = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(dist());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="comment">// Recreation travel</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        work = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <span class="keyword">auto</span> dist = <a class="code" href="../../d9/db6/a00146.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a>.<a class="code" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                            0,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                            static_cast&lt;trng::uniform_int_dist::result_type&gt;(<a class="code" href="../../d9/db6/a00146.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a>[currentRegion].size())));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        destination = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(dist());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">auto</span> durationDist = <a class="code" href="../../d9/db6/a00146.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a>.<a class="code" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(0, <a class="code" href="../../d9/db6/a00146.html#a13305f7b3d07fac2eb22d4c682a51347">m_maxDays</a>));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">auto</span> duration     = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(durationDist());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">return</span> {<span class="keyword">true</span>, work, destination, duration};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> {<span class="keyword">false</span>, <span class="keyword">false</span>, 0, 0};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00146_html_ab85cd366fb4ad5d449bcac8dd0e22680"><div class="ttname"><a href="../../d9/db6/a00146.html#ab85cd366fb4ad5d449bcac8dd0e22680">stride::TravellerProfile::m_data_recreation</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; m_data_recreation</div><div class="ttdoc">From region, to region, relative amount of people. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00035">TravellerProfile.h:35</a></div></div>
+<div class="ttc" id="a00146_html_a54b16967d8175cb7d331d667003b5fd5"><div class="ttname"><a href="../../d9/db6/a00146.html#a54b16967d8175cb7d331d667003b5fd5">stride::TravellerProfile::PersonWillTravel</a></div><div class="ttdeci">std::tuple&lt; bool, bool, std::size_t, unsigned int &gt; PersonWillTravel(std::size_t currentRegion)</div><div class="ttdoc">Based on the profile determines if a person will travel. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00028">TravellerProfile.cpp:28</a></div></div>
+<div class="ttc" id="a00146_html_a05f8820a7b048409b5df0ef3a5c6a6f3"><div class="ttname"><a href="../../d9/db6/a00146.html#a05f8820a7b048409b5df0ef3a5c6a6f3">stride::TravellerProfile::m_rnManager</a></div><div class="ttdeci">util::RNManager &amp; m_rnManager</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00046">TravellerProfile.h:46</a></div></div>
+<div class="ttc" id="a00439_html"><div class="ttname"><a href="../../d9/d3a/a00439.html">TravellerProfile.h</a></div></div>
+<div class="ttc" id="a00146_html_a810f4044c50a8341090834bd75253357"><div class="ttname"><a href="../../d9/db6/a00146.html#a810f4044c50a8341090834bd75253357">stride::TravellerProfile::AddTravelRecreation</a></div><div class="ttdeci">void AddTravelRecreation(std::size_t from, std::size_t to, double relativePopulation)</div><div class="ttdoc">Add a travel record to the recreation profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00018">TravellerProfile.cpp:18</a></div></div>
+<div class="ttc" id="a00146_html_af617090f0723c7e5125df8f6f1200474"><div class="ttname"><a href="../../d9/db6/a00146.html#af617090f0723c7e5125df8f6f1200474">stride::TravellerProfile::m_fractionWork</a></div><div class="ttdeci">double m_fractionWork</div><div class="ttdoc">A fraction 0-1 which indicates whether it&#39;s work travel or recreation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00044">TravellerProfile.h:44</a></div></div>
+<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00146_html_a13305f7b3d07fac2eb22d4c682a51347"><div class="ttname"><a href="../../d9/db6/a00146.html#a13305f7b3d07fac2eb22d4c682a51347">stride::TravellerProfile::m_maxDays</a></div><div class="ttdeci">unsigned int m_maxDays</div><div class="ttdoc">Maximum amount of days to travel. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00049">TravellerProfile.h:49</a></div></div>
+<div class="ttc" id="a00161_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00081">RNManager.h:81</a></div></div>
+<div class="ttc" id="a00146_html_a5a8da1f66852e62002ada510e95e5ada"><div class="ttname"><a href="../../d9/db6/a00146.html#a5a8da1f66852e62002ada510e95e5ada">stride::TravellerProfile::AddTravelWork</a></div><div class="ttdeci">void AddTravelWork(std::size_t from, std::size_t to, double relativePopulation)</div><div class="ttdoc">Add a travel record to the work profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00023">TravellerProfile.cpp:23</a></div></div>
+<div class="ttc" id="a00146_html_a79f89bdd08206854e9dba02bf39d5f58"><div class="ttname"><a href="../../d9/db6/a00146.html#a79f89bdd08206854e9dba02bf39d5f58">stride::TravellerProfile::TravellerProfile</a></div><div class="ttdeci">TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork, util::RNManager &amp;rnManager, unsigned int maxDays)</div><div class="ttdoc">AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel fractionWork indic...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfd/a00438_source.html#l00007">TravellerProfile.cpp:7</a></div></div>
+<div class="ttc" id="a00146_html_a5c4d2c976a3b840cd9322098e1459527"><div class="ttname"><a href="../../d9/db6/a00146.html#a5c4d2c976a3b840cd9322098e1459527">stride::TravellerProfile::m_amountOfTravel</a></div><div class="ttdeci">double m_amountOfTravel</div><div class="ttdoc">A fraction 0-1 which indicates the change for a person to travel. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00041">TravellerProfile.h:41</a></div></div>
+<div class="ttc" id="a00146_html_a089c66f906b78f748d73de4d107fc96d"><div class="ttname"><a href="../../d9/db6/a00146.html#a089c66f906b78f748d73de4d107fc96d">stride::TravellerProfile::m_data_work</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; m_data_work</div><div class="ttdoc">From region, to region, relative amount of people. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00038">TravellerProfile.h:38</a></div></div>
+<div class="ttc" id="a00146_html_ab9f4b79657eabfff845b4fd8eed603cb"><div class="ttname"><a href="../../d9/db6/a00146.html#ab9f4b79657eabfff845b4fd8eed603cb">stride::TravellerProfile::MakeChoice</a></div><div class="ttdeci">bool MakeChoice(double fraction)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d3a/a00439_source.html#l00051">TravellerProfile.h:51</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/dfd/a00438.html">TimeToString.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../dd/dfd/a00438.html">TravellerProfile.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

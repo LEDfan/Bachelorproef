@@ -1,14 +1,16 @@
 var a00054 =
 [
-    [ "Child", "d1/dea/a00054.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd", null ],
-    [ "Node", "d1/dea/a00054.html#a02ba27ac4148503a9bdd015c6b7caaf8", null ],
-    [ "BorrowLeft", "d1/dea/a00054.html#a1feff6a9480fd9b7c2640934833ea467", null ],
-    [ "BorrowRight", "d1/dea/a00054.html#aa97b067c48e16c1303f9f909debac811", null ],
-    [ "BorrowSplitChild", "d1/dea/a00054.html#aa9f437cdb9e45dd8195e84867af839cf", null ],
-    [ "AddChild", "d1/dea/a00054.html#aa376a34dcf6f2717873ff3db5af7a70d", null ],
-    [ "GetPoint", "d1/dea/a00054.html#a27eb66747642dce6122ae8725cdf799b", null ],
-    [ "KdTree< P >", "d1/dea/a00054.html#a0d8dc73ff7f8bb9d7b6db0adc4509640", null ],
-    [ "m_point", "d1/dea/a00054.html#a6e0934a373b9c4f7485d4f71a7de2b12", null ],
-    [ "m_left", "d1/dea/a00054.html#a518b60a5ec3c409358fb97bde0d8e974", null ],
-    [ "m_right", "d1/dea/a00054.html#ad86880280760aaae9ef50dd165ee6c9e", null ]
+    [ "KdTree", "d1/dea/a00054.html#a31373f76ffce6f1a479a65fc04f23e5b", null ],
+    [ "Build", "d1/dea/a00054.html#a94158f4c08d181a21d1d0eb76ce500d1", null ],
+    [ "Insert", "d1/dea/a00054.html#a0a9ab7e8f5f5c9e8b561583a0d6e31f9", null ],
+    [ "Contains", "d1/dea/a00054.html#a0b0bde4960cf9a4260e03f8ff0547db7", null ],
+    [ "Query", "d1/dea/a00054.html#a4f91953317fe80faa03eca5dfd5ddf9e", null ],
+    [ "Apply", "d1/dea/a00054.html#ae9d76910fa3cca092fa8e339226cf0c0", null ],
+    [ "Apply", "d1/dea/a00054.html#a8c59ea871d0dd12c7ea751a974298a89", null ],
+    [ "Height", "d1/dea/a00054.html#a6509dc9a5dd05d41e833a0e1acfed77e", null ],
+    [ "Empty", "d1/dea/a00054.html#afad11c4405af9e2000dd75f751f4996d", null ],
+    [ "Size", "d1/dea/a00054.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe", null ],
+    [ "Construct", "d1/dea/a00054.html#ac0c7aa7f1ab2657c7348205aecafae0c", null ],
+    [ "m_size", "d1/dea/a00054.html#a625810b7c176d77e5616f2c610bec58f", null ],
+    [ "m_root", "d1/dea/a00054.html#a99fe9b7899ae84a4ee8637a7e7e5add3", null ]
 ];

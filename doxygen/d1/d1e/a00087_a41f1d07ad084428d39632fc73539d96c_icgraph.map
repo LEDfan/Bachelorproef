@@ -1,0 +1,4 @@
+<map id="proto::GeoGrid_Person::set_gender" name="proto::GeoGrid_Person::set_gender">
+<area shape="rect" id="node2" href="$db/d3a/a00040.html#aeeb27df99670bf86ed6564b1affdd986" title="Create a ProtoBuf Person containing all the information needed to reconstruct a Person. " alt="" coords="209,5,415,46"/>
+<area shape="rect" id="node3" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="465,5,671,46"/>
+</map>

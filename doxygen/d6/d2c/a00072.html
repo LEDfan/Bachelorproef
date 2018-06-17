@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::WorkplaceGenerator Class Reference</title>
+<title>Stride Reference Manual: gengeopop::WorkplacePopulator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,51 +112,135 @@ $(document).ready(function(){initNavTree('d6/d2c/a00072.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d9/d24/a00524.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d8/dbf/a01109.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::WorkplaceGenerator Class Reference</div>  </div>
+<div class="title">gengeopop::WorkplacePopulator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d9/d10/a00449_source.html">WorkplaceGenerator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::WorkplaceGenerator:</div>
+Inheritance diagram for gengeopop::WorkplacePopulator:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d6/d2c/a00072.png" usemap="#gengeopop::WorkplaceGenerator_map" alt=""/>
-  <map id="gengeopop::WorkplaceGenerator_map" name="gengeopop::WorkplaceGenerator_map">
-<area href="../../d1/d22/a00057.html" title="An interface for generators that provide a partial solution. " alt="gengeopop::PartialGenerator" shape="rect" coords="0,0,198,24"/>
-</map>
- </div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d3d/a01110.svg" width="227" height="566"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::WorkplacePopulator:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d3/de1/a01111.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a382ddb08546a893331863f64bd1e5046"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a382ddb08546a893331863f64bd1e5046">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../d4/d8c/a00035.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
-<tr class="separator:a382ddb08546a893331863f64bd1e5046"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00057"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00057')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d1/d22/a00057.html">gengeopop::PartialGenerator</a></td></tr>
-<tr class="memitem:a731cd830897bc6aa1e1026b4fec80cda inherit pub_methods_a00057"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a731cd830897bc6aa1e1026b4fec80cda">PartialGenerator</a> (<a class="el" href="../../db/d44/a00162.html">stride::util::RNManager</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="separator:a731cd830897bc6aa1e1026b4fec80cda inherit pub_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87e944a4ed78c7a88bb3a1445f2cfb34 inherit pub_methods_a00057"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a87e944a4ed78c7a88bb3a1445f2cfb34">~PartialGenerator</a> ()</td></tr>
-<tr class="separator:a87e944a4ed78c7a88bb3a1445f2cfb34 inherit pub_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e14ce3cb6f5c58ac7ed594d47743e7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a5e14ce3cb6f5c58ac7ed594d47743e7b">WorkplacePopulator</a> (<a class="el" href="../../d6/d7d/a00161.html">stride::util::RNManager</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="separator:a5e14ce3cb6f5c58ac7ed594d47743e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace51c5ac0d05c5fca400d8f93a26ec87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../db/df3/a00034.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
+<tr class="separator:ace51c5ac0d05c5fca400d8f93a26ec87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00057"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00057')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></td></tr>
+<tr class="memitem:ab0d36a7eec42c951ab03d32db44566db inherit pub_methods_a00057"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator</a> (<a class="el" href="../../d6/d7d/a00161.html">stride::util::RNManager</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="separator:ab0d36a7eec42c951ab03d32db44566db inherit pub_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea88face365d0f2d163eedaa9fafe461 inherit pub_methods_a00057"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aea88face365d0f2d163eedaa9fafe461">~PartialPopulator</a> ()</td></tr>
+<tr class="separator:aea88face365d0f2d163eedaa9fafe461 inherit pub_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae813a532362b485b1f15cf400f54ff5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d">CalculateWorkplacesInCity</a> ()</td></tr>
+<tr class="separator:ae813a532362b485b1f15cf400f54ff5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea8236e442390e7e3156849c584160f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#aea8236e442390e7e3156849c584160f9">CalculateFractionCommutingStudents</a> ()</td></tr>
+<tr class="separator:aea8236e442390e7e3156849c584160f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9acd5b5f1bbac318795ce674911f8dc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a9acd5b5f1bbac318795ce674911f8dc8">CalculateCommutingLocations</a> ()</td></tr>
+<tr class="separator:a9acd5b5f1bbac318795ce674911f8dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf0b3f40814a56af4736ef1af9ffc30e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#adf0b3f40814a56af4736ef1af9ffc30e">CalculateNearbyWorkspaces</a> ()</td></tr>
+<tr class="separator:adf0b3f40814a56af4736ef1af9ffc30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad89eccae3e00345e123b1e65ec7ebe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe">AssignActive</a> (<a class="el" href="../../d0/d5e/a00136.html">stride::Person</a> *person)</td></tr>
+<tr class="separator:a5ad89eccae3e00345e123b1e65ec7ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a35129fdcea085dcf6f45340ecf431a2b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a35129fdcea085dcf6f45340ecf431a2b">m_assignedTo0</a> = 0</td></tr>
+<tr class="separator:a35129fdcea085dcf6f45340ecf431a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5643da77a8761f2ca74244e266a14880"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a5643da77a8761f2ca74244e266a14880">m_assignedCommuting</a> = 0</td></tr>
+<tr class="separator:a5643da77a8761f2ca74244e266a14880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc9548509712502783632f1591834343"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#acc9548509712502783632f1591834343">m_assignedNotCommuting</a> = 0</td></tr>
+<tr class="separator:acc9548509712502783632f1591834343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22cc9811f09ff8187f78b0680039a007"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d6d/a00055.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a22cc9811f09ff8187f78b0680039a007">m_currentLoc</a></td></tr>
+<tr class="separator:a22cc9811f09ff8187f78b0680039a007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bedb9f80f5b1caa94d2d42d1c0bf5e9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a5bedb9f80f5b1caa94d2d42d1c0bf5e9">m_geoGrid</a></td></tr>
+<tr class="separator:a5bedb9f80f5b1caa94d2d42d1c0bf5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ffa6df50bf8cbb7aac393b9abcf9ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/df3/a00034.html">GeoGridConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#ab5ffa6df50bf8cbb7aac393b9abcf9ca">m_geoGridConfig</a></td></tr>
+<tr class="separator:ab5ffa6df50bf8cbb7aac393b9abcf9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdf57dc27aa9c84e265d4e6c2c9a47f1"><td class="memItemLeft" align="right" valign="top">std::unordered_map<br class="typebreak"/>
+&lt; std::shared_ptr&lt; <a class="el" href="../../d4/d6d/a00055.html">Location</a> &gt;<br class="typebreak"/>
+, std::pair&lt; std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt;<br class="typebreak"/>
+, discreteDist &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#abdf57dc27aa9c84e265d4e6c2c9a47f1">m_workplacesInCity</a></td></tr>
+<tr class="separator:abdf57dc27aa9c84e265d4e6c2c9a47f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a153587164ccbfc9515a2d6fd426a4ba0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a153587164ccbfc9515a2d6fd426a4ba0">m_fractionCommutingStudents</a></td></tr>
+<tr class="separator:a153587164ccbfc9515a2d6fd426a4ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c74d6663371126e6c6b4a6946c707bb"><td class="memItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a3c74d6663371126e6c6b4a6946c707bb">m_nearByWorkplaces</a></td></tr>
+<tr class="separator:a3c74d6663371126e6c6b4a6946c707bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a726033ab8efbeb75b4aaf7b8f34c5461"><td class="memItemLeft" align="right" valign="top">discreteDist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a726033ab8efbeb75b4aaf7b8f34c5461">m_distNonCommuting</a></td></tr>
+<tr class="separator:a726033ab8efbeb75b4aaf7b8f34c5461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cfb187d6b03e18c358167053083746b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d6d/a00055.html">Location</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a4cfb187d6b03e18c358167053083746b">m_commutingLocations</a></td></tr>
+<tr class="separator:a4cfb187d6b03e18c358167053083746b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a24fee30b84cd2e4e04a3732a060a5"><td class="memItemLeft" align="right" valign="top">discreteDist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html#a85a24fee30b84cd2e4e04a3732a060a5">m_disCommuting</a></td></tr>
+<tr class="separator:a85a24fee30b84cd2e4e04a3732a060a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00057"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00057')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d1/d22/a00057.html">gengeopop::PartialGenerator</a></td></tr>
-<tr class="memitem:a28a70c98b4b5a47d3b3ca2913601815a inherit pro_methods_a00057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../d7/daa/a00490.html">double</a> weight)</td></tr>
-<tr class="separator:a28a70c98b4b5a47d3b3ca2913601815a inherit pro_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00057"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00057')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d1/d22/a00057.html">gengeopop::PartialGenerator</a></td></tr>
-<tr class="memitem:a5fc3c56913851b8a3dd6e151d69418c5 inherit pro_attribs_a00057"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d44/a00162.html">stride::util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a5fc3c56913851b8a3dd6e151d69418c5">m_rnManager</a></td></tr>
-<tr class="memdesc:a5fc3c56913851b8a3dd6e151d69418c5 inherit pro_attribs_a00057"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a5fc3c56913851b8a3dd6e151d69418c5">More...</a><br/></td></tr>
-<tr class="separator:a5fc3c56913851b8a3dd6e151d69418c5 inherit pro_attribs_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a63ae2cd38221875c5d4ee38c02e3ef inherit pro_attribs_a00057"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a3a63ae2cd38221875c5d4ee38c02e3ef">m_logger</a></td></tr>
-<tr class="memdesc:a3a63ae2cd38221875c5d4ee38c02e3ef inherit pro_attribs_a00057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a3a63ae2cd38221875c5d4ee38c02e3ef">More...</a><br/></td></tr>
-<tr class="separator:a3a63ae2cd38221875c5d4ee38c02e3ef inherit pro_attribs_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00057"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00057')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></td></tr>
+<tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961 inherit pro_methods_a00057"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961 inherit pro_methods_a00057"><td class="memTemplItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a992a6f6b8761f481eabe22ffccc8f961">GetContactPoolInIncreasingRadius</a> (const std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../d4/d6d/a00055.html">Location</a> &gt; &amp;start, <a class="el" href="../../dd/d9c/a00487.html">double</a> startRadius=10) const </td></tr>
+<tr class="separator:a992a6f6b8761f481eabe22ffccc8f961 inherit pro_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18d65985647c2afb90627fa7048be6a inherit pro_methods_a00057"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a> (<a class="el" href="../../dd/d9c/a00487.html">double</a> fraction)</td></tr>
+<tr class="separator:ad18d65985647c2afb90627fa7048be6a inherit pro_methods_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00057"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00057')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></td></tr>
+<tr class="memitem:abac3795203d9926b6c5dee1090a2de2c inherit pro_attribs_a00057"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">stride::util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#abac3795203d9926b6c5dee1090a2de2c">m_rnManager</a></td></tr>
+<tr class="memdesc:abac3795203d9926b6c5dee1090a2de2c inherit pro_attribs_a00057"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#abac3795203d9926b6c5dee1090a2de2c">More...</a><br/></td></tr>
+<tr class="separator:abac3795203d9926b6c5dee1090a2de2c inherit pro_attribs_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9b69f1083ed1016458ccaaa8e53964 inherit pro_attribs_a00057"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a></td></tr>
+<tr class="memdesc:a7c9b69f1083ed1016458ccaaa8e53964 inherit pro_attribs_a00057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#a7c9b69f1083ed1016458ccaaa8e53964">More...</a><br/></td></tr>
+<tr class="separator:a7c9b69f1083ed1016458ccaaa8e53964 inherit pro_attribs_a00057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../d9/d10/a00449_source.html#l00008">8</a> of file <a class="el" href="../../d9/d10/a00449_source.html">WorkplaceGenerator.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a382ddb08546a893331863f64bd1e5046"></a>
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00013">13</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5e14ce3cb6f5c58ac7ed594d47743e7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::WorkplacePopulator::WorkplacePopulator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">stride::util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rn_manager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00017">17</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae813a532362b485b1f15cf400f54ff5d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -164,15 +248,224 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::WorkplaceGenerator::Apply </td>
+          <td class="memname">void gengeopop::WorkplacePopulator::CalculateWorkplacesInCity </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00087">87</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d42/a00235_source.html#l00009">gengeopop::ContactCenter::begin()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00011">gengeopop::ContactCenter::end()</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00022">m_geoGrid</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00018">gengeopop::PartialPopulator::m_rnManager</a>, and <a class="el" href="../../de/dfe/a00448_source.html#l00026">m_workplacesInCity</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_ae813a532362b485b1f15cf400f54ff5d_cgraph.svg" width="478" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_ae813a532362b485b1f15cf400f54ff5d_icgraph.svg" width="480" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aea8236e442390e7e3156849c584160f9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00079">79</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d5d/a00278_source.html#l00076">gengeopop::GeoGridConfig::_1826_years_and_student</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00081">gengeopop::GeoGridConfig::_1865_and_years_active</a>, <a class="el" href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">gengeopop::GeoGridConfig::calculated</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00035">gengeopop::GeoGridConfig::fraction_active_commutingPeople</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00040">gengeopop::GeoGridConfig::fraction_student_commutingPeople</a>, <a class="el" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00030">m_fractionCommutingStudents</a>, and <a class="el" href="../../de/dfe/a00448_source.html#l00023">m_geoGridConfig</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_aea8236e442390e7e3156849c584160f9_icgraph.svg" width="520" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9acd5b5f1bbac318795ce674911f8dc8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::WorkplacePopulator::CalculateCommutingLocations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00126">126</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dcc/a00264_source.html#l00008">ExcAssert()</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00038">m_commutingLocations</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00020">m_currentLoc</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00039">m_disCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00030">m_fractionCommutingStudents</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00018">gengeopop::PartialPopulator::m_rnManager</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_a9acd5b5f1bbac318795ce674911f8dc8_cgraph.svg" width="427" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_a9acd5b5f1bbac318795ce674911f8dc8_icgraph.svg" width="480" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adf0b3f40814a56af4736ef1af9ffc30e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::WorkplacePopulator::CalculateNearbyWorkspaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00151">151</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00020">m_currentLoc</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00034">m_distNonCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00022">m_geoGrid</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00033">m_nearByWorkplaces</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00018">gengeopop::PartialPopulator::m_rnManager</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_adf0b3f40814a56af4736ef1af9ffc30e_cgraph.svg" width="427" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_adf0b3f40814a56af4736ef1af9ffc30e_icgraph.svg" width="480" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ad89eccae3e00345e123b1e65ec7ebe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::WorkplacePopulator::AssignActive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d5e/a00136.html">stride::Person</a> *&#160;</td>
+          <td class="paramname"><em>person</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00104">104</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d5d/a00278_source.html#l00035">gengeopop::GeoGridConfig::fraction_active_commutingPeople</a>, <a class="el" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00017">m_assignedCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00018">m_assignedNotCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00038">m_commutingLocations</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00039">m_disCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00034">m_distNonCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00023">m_geoGridConfig</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00033">m_nearByWorkplaces</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00026">m_workplacesInCity</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00048">gengeopop::PartialPopulator::MakeChoice()</a>, and <a class="el" href="../../d7/d08/a00378_source.html#l00142">stride::Person::SetWorkId()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_a5ad89eccae3e00345e123b1e65ec7ebe_cgraph.svg" width="100%" height="377"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_a5ad89eccae3e00345e123b1e65ec7ebe_icgraph.svg" width="480" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ace51c5ac0d05c5fca400d8f93a26ec87"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::WorkplacePopulator::Apply </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt;&#160;</td>
           <td class="paramname"><em>geogrid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d8c/a00035.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/df3/a00034.html">GeoGridConfig</a> &amp;&#160;</td>
           <td class="paramname"><em>geoGridConfig</em>&#160;</td>
         </tr>
         <tr>
@@ -188,25 +481,321 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="../../d1/d22/a00057.html#af967669815aebaaba24674d88c011730">gengeopop::PartialGenerator</a>.</p>
+<p>Implements <a class="el" href="../../d1/d22/a00057.html#aee01751cc775128b108e03118609091c">gengeopop::PartialPopulator</a>.</p>
 
-<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00011">11</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplaceGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d84/a00447_source.html#l00024">24</a> of file <a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d2/d04/a00281_source.html#l00081">gengeopop::GeoGridConfig::_1865_and_years_active</a>, <a class="el" href="../../d4/d8c/a00035.html#af9610682c3d25a6c5cf4dc0164988a54">gengeopop::GeoGridConfig::calculated</a>, <a class="el" href="../../d5/db5/a00374_source.html#l00024">gengeopop::PartialGenerator::CheckWeight()</a>, <a class="el" href="../../d2/d04/a00281_source.html#l00105">gengeopop::GeoGridConfig::contactCenters</a>, <a class="el" href="../../d2/d04/a00281_source.html#l00045">gengeopop::GeoGridConfig::fraction_1865_years_active</a>, <a class="el" href="../../d2/d04/a00281_source.html#l00035">gengeopop::GeoGridConfig::fraction_active_commutingPeople</a>, <a class="el" href="../../d4/d8c/a00035.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a>, <a class="el" href="../../d1/d53/a00399_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../d4/d8c/a00035.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, and <a class="el" href="../../d5/db5/a00374_source.html#l00018">gengeopop::PartialGenerator::m_rnManager</a>.</p>
+<p>References <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00126">CalculateCommutingLocations()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00079">CalculateFractionCommutingStudents()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00151">CalculateNearbyWorkspaces()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00087">CalculateWorkplacesInCity()</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00030">gengeopop::GeoGridConfig::fraction_1826_years_WhichAreStudents</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00045">gengeopop::GeoGridConfig::fraction_1865_years_active</a>, <a class="el" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00017">m_assignedCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00018">m_assignedNotCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00016">m_assignedTo0</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00038">m_commutingLocations</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00020">m_currentLoc</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00039">m_disCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00034">m_distNonCommuting</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00030">m_fractionCommutingStudents</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00022">m_geoGrid</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00023">m_geoGridConfig</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00022">gengeopop::PartialPopulator::m_logger</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00033">m_nearByWorkplaces</a>, <a class="el" href="../../de/dfe/a00448_source.html#l00026">m_workplacesInCity</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00048">gengeopop::PartialPopulator::MakeChoice()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d2c/a00072_ace51c5ac0d05c5fca400d8f93a26ec87_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a35129fdcea085dcf6f45340ecf431a2b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::WorkplacePopulator::m_assignedTo0 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00016">16</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5643da77a8761f2ca74244e266a14880"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::WorkplacePopulator::m_assignedCommuting = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00017">17</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc9548509712502783632f1591834343"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::WorkplacePopulator::m_assignedNotCommuting = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00018">18</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22cc9811f09ff8187f78b0680039a007"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/d6d/a00055.html">Location</a>&gt; gengeopop::WorkplacePopulator::m_currentLoc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00020">20</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00126">CalculateCommutingLocations()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00151">CalculateNearbyWorkspaces()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5bedb9f80f5b1caa94d2d42d1c0bf5e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../df/d61/a00031.html">GeoGrid</a>&gt; gengeopop::WorkplacePopulator::m_geoGrid</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00022">22</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00151">CalculateNearbyWorkspaces()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00087">CalculateWorkplacesInCity()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5ffa6df50bf8cbb7aac393b9abcf9ca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/df3/a00034.html">GeoGridConfig</a> gengeopop::WorkplacePopulator::m_geoGridConfig</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00023">23</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00079">CalculateFractionCommutingStudents()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abdf57dc27aa9c84e265d4e6c2c9a47f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::shared_ptr&lt;<a class="el" href="../../d4/d6d/a00055.html">Location</a>&gt;, std::pair&lt;std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a>*&gt;, discreteDist&gt; &gt; gengeopop::WorkplacePopulator::m_workplacesInCity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00026">26</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00087">CalculateWorkplacesInCity()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a153587164ccbfc9515a2d6fd426a4ba0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d9c/a00487.html">double</a> gengeopop::WorkplacePopulator::m_fractionCommutingStudents</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00030">30</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00126">CalculateCommutingLocations()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00079">CalculateFractionCommutingStudents()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3c74d6663371126e6c6b4a6946c707bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a>*&gt; gengeopop::WorkplacePopulator::m_nearByWorkplaces</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00033">33</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00151">CalculateNearbyWorkspaces()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a726033ab8efbeb75b4aaf7b8f34c5461"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">discreteDist gengeopop::WorkplacePopulator::m_distNonCommuting</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00034">34</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00151">CalculateNearbyWorkspaces()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cfb187d6b03e18c358167053083746b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../d4/d6d/a00055.html">Location</a>&gt; &gt; gengeopop::WorkplacePopulator::m_commutingLocations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00038">38</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00126">CalculateCommutingLocations()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85a24fee30b84cd2e4e04a3732a060a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">discreteDist gengeopop::WorkplacePopulator::m_disCommuting</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dfe/a00448_source.html#l00039">39</a> of file <a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00024">Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00104">AssignActive()</a>, and <a class="el" href="../../de/d84/a00447_source.html#l00126">CalculateCommutingLocations()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d10/a00449_source.html">WorkplaceGenerator.h</a></li>
-<li><a class="el" href="../../de/dfe/a00448_source.html">WorkplaceGenerator.cpp</a></li>
+<li><a class="el" href="../../de/dfe/a00448_source.html">WorkplacePopulator.h</a></li>
+<li><a class="el" href="../../de/d84/a00447_source.html">WorkplacePopulator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d2c/a00072.html">WorkplaceGenerator</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d2c/a00072.html">WorkplacePopulator</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

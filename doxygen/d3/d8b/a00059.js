@@ -1,8 +1,6 @@
 var a00059 =
 [
-    [ "Args", "d3/d8b/a00059.html#a37487ad0cbc7a0623ddcdd296ebf6dcb", null ],
-    [ "PolygonPolicy", "d3/d8b/a00059.html#a4f45af44c216988a695d57633819496a", null ],
-    [ "GetBoundingBox", "d3/d8b/a00059.html#a6b61e682cbf2e95e333d170d535720f1", null ],
-    [ "Contains", "d3/d8b/a00059.html#a16eaa288435e30ffc3bd28f874cdb256", null ],
-    [ "m_poly", "d3/d8b/a00059.html#a6e969812cc31820a81250186a2476e46", null ]
+    [ "PrimaryCommunity", "d3/d8b/a00059.html#aa711bfaac9eb804db71d33cb8389f5fd", null ],
+    [ "GetType", "d3/d8b/a00059.html#ae5dd0a2af2978dc76fafc1d5c2756394", null ],
+    [ "Fill", "d3/d8b/a00059.html#acac73a4c6f3fa5b09699dce0a5e0e1c6", null ]
 ];

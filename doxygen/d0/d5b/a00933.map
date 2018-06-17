@@ -1,0 +1,5 @@
+<map id="QAbstractListModel" name="QAbstractListModel">
+<area shape="rect" id="node2" href="$d7/dec/a00010.html" title="{CommutesListModel\n|&#45; m_location\l|+ CommutesListModel()\l+ data()\l+ rowCount()\l+ columnCount()\l+ roleNames()\l+ SetCommutes()\l}" alt="" coords="5,138,168,289"/>
+<area shape="rect" id="node3" href="$da/d45/a00011.html" title="{ContactCenterListModel\n|&#45; m_centers\l|+ ContactCenterListModel()\l+ data()\l+ rowCount()\l+ columnCount()\l+ roleNames()\l+ SetCenters()\l+ HandleClickRow()\l}" alt="" coords="193,131,375,296"/>
+<area shape="rect" id="node4" href="$d7/dd4/a00013.html" title="{ContactPoolListModel\n|&#45; m_pools\l|+ ContactPoolListModel()\l+ data()\l+ rowCount()\l+ columnCount()\l+ roleNames()\l+ SetPools()\l}" alt="" coords="400,138,571,289"/>
+</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CliController.cpp Source File</title>
+<title>Stride Reference Manual: CliController.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,91 +109,86 @@ $(document).ready(function(){initNavTree('dd/ded/a00211_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CliController.cpp</div>  </div>
+<div class="title">CliController.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/ded/a00211.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Header for the command line controller.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dc1/a00212.html">sim/CliController.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/db9/a00387.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d72/a00412.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d42/a00235.html">util/ConfigInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d86/a00271.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dc9/a00355.html">util/LogUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da8/a00437.html">util/TimeStamp.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d52/a00183.html">viewers/AdoptedViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dd1/a00214.html">viewers/CliViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d50/a00332.html">viewers/InfectedViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d05/a00385.html">viewers/PersonsViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d53/a00429.html">viewers/SummaryViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/xml_parser.hpp&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/d5d/a00278.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">using namespace </span>boost::filesystem;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">using namespace </span>boost::property_tree::xml_parser;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#a6c1780a5ff62df746e6f8328c16a3c62">   46</a></span>&#160;CliController::CliController(<span class="keyword">const</span> ptree&amp; config_pt) : <a class="code" href="../../d9/df8/a00096.html">BaseController</a>(config_pt) {}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#a126fe70ea36234d7db97a53db9912338">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d61/a00100.html#a126fe70ea36234d7db97a53db9912338">CliController::Control</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">// Build population, instantiate SimRunner &amp; register viewers &amp; run.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d9/df8/a00096.html#ab18dbcda248fedfaeae623a2503ec1ab">m_runner</a>-&gt;Run();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="../../d9/df8/a00096.html#a7cdffe733cbad2794e23eb82606c8b5c">m_stride_logger</a>-&gt;info(<span class="stringliteral">&quot;CliController shutting down.&quot;</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        spdlog::drop_all();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00235_html"><div class="ttname"><a href="../../d3/d42/a00235.html">ConfigInfo.h</a></div><div class="ttdoc">Info on configuration. </div></div>
-<div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">stride::BaseController</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00033">BaseController.h:33</a></div></div>
-<div class="ttc" id="a00355_html"><div class="ttname"><a href="../../d3/dc9/a00355.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
-<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00096_html_ab18dbcda248fedfaeae623a2503ec1ab"><div class="ttname"><a href="../../d9/df8/a00096.html#ab18dbcda248fedfaeae623a2503ec1ab">stride::BaseController::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00091">BaseController.h:91</a></div></div>
-<div class="ttc" id="a00214_html"><div class="ttname"><a href="../../d3/dd1/a00214.html">CliViewer.h</a></div><div class="ttdoc">Observer for SimEvents for commandline interface usage. </div></div>
-<div class="ttc" id="a00412_html"><div class="ttname"><a href="../../d9/d72/a00412.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00212_html"><div class="ttname"><a href="../../dd/dc1/a00212.html">CliController.h</a></div><div class="ttdoc">Header for the command line controller. </div></div>
-<div class="ttc" id="a00096_html_a7cdffe733cbad2794e23eb82606c8b5c"><div class="ttname"><a href="../../d9/df8/a00096.html#a7cdffe733cbad2794e23eb82606c8b5c">stride::BaseController::m_stride_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_stride_logger</div><div class="ttdoc">General logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00089">BaseController.h:89</a></div></div>
-<div class="ttc" id="a00183_html"><div class="ttname"><a href="../../dc/d52/a00183.html">AdoptedViewer.h</a></div><div class="ttdoc">Observer for Adopted output. </div></div>
-<div class="ttc" id="a00429_html"><div class="ttname"><a href="../../d4/d53/a00429.html">SummaryViewer.h</a></div><div class="ttdoc">Observer for Persons output. </div></div>
-<div class="ttc" id="a00332_html"><div class="ttname"><a href="../../dc/d50/a00332.html">InfectedViewer.h</a></div><div class="ttdoc">Observer for Cases output. </div></div>
-<div class="ttc" id="a00278_html"><div class="ttname"><a href="../../dc/d5d/a00278.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00437_html"><div class="ttname"><a href="../../d4/da8/a00437.html">TimeStamp.h</a></div><div class="ttdoc">TimeStamp class. </div></div>
-<div class="ttc" id="a00100_html_a126fe70ea36234d7db97a53db9912338"><div class="ttname"><a href="../../d0/d61/a00100.html#a126fe70ea36234d7db97a53db9912338">stride::CliController::Control</a></div><div class="ttdeci">void Control()</div><div class="ttdoc">Actual run of the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/ded/a00211_source.html#l00048">CliController.cpp:48</a></div></div>
-<div class="ttc" id="a00385_html"><div class="ttname"><a href="../../d5/d05/a00385.html">PersonsViewer.h</a></div><div class="ttdoc">Observer for Persons output. </div></div>
-<div class="ttc" id="a00271_html"><div class="ttname"><a href="../../dd/d86/a00271.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<a href="../../dd/ded/a00211.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header for the command line controller.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd0/a00191.html">BaseController.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d9c/a00413.html">util/Stopwatch.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>SimRunner;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> * Controls a simulation run initiated with the command line interface (cli).</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> * CliController functions include:</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> * \li accepts the commandline arguments</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> * \li checks the OpenMP environment</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> * \li checks the file system environment</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * \li reads the config file specified on the cli</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * \li effects cli overides of config parameters</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * \li patches the config file for any remaining defaults</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> * \li interprets and executes the ouput prefix</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> * \li makes a stride logger</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> * The CliController execution</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> * \li creates a simulation runner (@see SimRunner)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> * \li registers the appropriate viewers</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * \li runs the simulation</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../da/d74/a00099.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d74/a00099.html">CliController</a> : <span class="keyword">public</span> <a class="code" href="../../d9/d77/a00095.html">BaseController</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">        /// Straight initialization.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../da/d74/a00099.html#a6c1780a5ff62df746e6f8328c16a3c62">CliController</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">        /// Virtual desctructor for overloading</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="../../da/d74/a00099.html#a29d17b6884d0d29c4af76dc429b2a14f">~CliController</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">        /// Actual run of the simulator.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../da/d74/a00099.html#a126fe70ea36234d7db97a53db9912338">Control</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00191_html"><div class="ttname"><a href="../../d9/dd0/a00191.html">BaseController.h</a></div></div>
+<div class="ttc" id="a00099_html_a6c1780a5ff62df746e6f8328c16a3c62"><div class="ttname"><a href="../../da/d74/a00099.html#a6c1780a5ff62df746e6f8328c16a3c62">stride::CliController::CliController</a></div><div class="ttdeci">CliController(const boost::property_tree::ptree &amp;configPt)</div><div class="ttdoc">Straight initialization. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de7/a00210_source.html#l00046">CliController.cpp:46</a></div></div>
+<div class="ttc" id="a00099_html_a126fe70ea36234d7db97a53db9912338"><div class="ttname"><a href="../../da/d74/a00099.html#a126fe70ea36234d7db97a53db9912338">stride::CliController::Control</a></div><div class="ttdeci">void Control()</div><div class="ttdoc">Actual run of the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de7/a00210_source.html#l00048">CliController.cpp:48</a></div></div>
+<div class="ttc" id="a00099_html_a29d17b6884d0d29c4af76dc429b2a14f"><div class="ttname"><a href="../../da/d74/a00099.html#a29d17b6884d0d29c4af76dc429b2a14f">stride::CliController::~CliController</a></div><div class="ttdeci">virtual ~CliController()=default</div><div class="ttdoc">Virtual desctructor for overloading. </div></div>
+<div class="ttc" id="a00099_html"><div class="ttname"><a href="../../da/d74/a00099.html">stride::CliController</a></div><div class="ttdoc">Controls a simulation run initiated with the command line interface (cli). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/ded/a00211_source.html#l00050">CliController.h:50</a></div></div>
+<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">stride::BaseController</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00033">BaseController.h:33</a></div></div>
+<div class="ttc" id="a00413_html"><div class="ttname"><a href="../../da/d9c/a00413.html">Stopwatch.h</a></div><div class="ttdoc">Definition of Stopwatch. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dd/ded/a00211.html">CliController.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dd/ded/a00211.html">CliController.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,0 +1,39 @@
+<map id="gengeopop::GeoGridProtoReader::Read" name="gengeopop::GeoGridProtoReader::Read">
+<area shape="rect" id="node2" href="$dd/d32/a00041.html#af173ec28b1fb8313b64c8a14308b9710" title="Add the commutes that were found to their respective Locations symmetrically. " alt="" coords="286,230,469,271"/>
+<area shape="rect" id="node3" href="$dd/d32/a00041.html#a6544f0fb22a2b053a9480f45f06fdcb9" title="Add the SubMunicipalities that were found while looping of the Locations to their parent municipality..." alt="" coords="286,295,469,337"/>
+<area shape="rect" id="node4" href="$d0/d5e/a00136.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="306,361,449,388"/>
+<area shape="rect" id="node5" href="$d8/d53/a00081.html#a3b5d0b66ec5382518acb9fc346d600a7" title="proto::GeoGrid::locations" alt="" coords="294,412,461,439"/>
+<area shape="rect" id="node6" href="$d8/d53/a00081.html#aa4e4cc38da711b133be850b95d4cf2cb" title="proto::GeoGrid::locations_size" alt="" coords="278,463,477,489"/>
+<area shape="rect" id="node7" href="$d3/de7/a00039.html#a0adca811808bc9edf494cd38b6ca0bae" title="Create a Location based on the provided protobuf Location. " alt="" coords="270,514,485,555"/>
+<area shape="rect" id="node34" href="$d3/de7/a00039.html#ace84e5989875f9deb376a2ed83d7a4c3" title="Create a Person based on the provided protobuf Person. " alt="" coords="270,579,485,621"/>
+<area shape="rect" id="node37" href="$d8/d53/a00081.html#af24fe8aeed116df8e4dc62d33c871653" title="proto::GeoGrid::persons" alt="" coords="297,645,458,672"/>
+<area shape="rect" id="node38" href="$d8/d53/a00081.html#a2305009892d1e70cf58a9ff9b422a21d" title="proto::GeoGrid::persons_size" alt="" coords="281,696,473,723"/>
+<area shape="rect" id="node8" href="$d4/d63/a00082.html#a9f787c871e478cd4706979b0d78edce4" title="proto::GeoGrid_Location::id" alt="" coords="551,5,732,32"/>
+<area shape="rect" id="node9" href="$d4/d63/a00082.html#ae5d5287002d2a97e9c59fc974e850df8" title="proto::GeoGrid_Location\l::name" alt="" coords="560,57,723,98"/>
+<area shape="rect" id="node10" href="$d4/d63/a00082.html#aefd4205f29912c851f50c5cc9858b96c" title="proto::GeoGrid_Location\l::province" alt="" coords="560,122,723,163"/>
+<area shape="rect" id="node11" href="$d4/d63/a00082.html#a8f722f8a9c6609c033a0654fd3bef9d8" title="proto::GeoGrid_Location\l::population" alt="" coords="560,187,723,229"/>
+<area shape="rect" id="node12" href="$d3/de7/a00039.html#ab4b797ef7bd19d8122192fcbdcba8f50" title="Create a Coordinate based on the provided protobuf Coordinate. " alt="" coords="534,253,749,294"/>
+<area shape="rect" id="node15" href="$d4/d63/a00082.html#a20327f38bc0288016b3eeb04997e66fd" title="proto::GeoGrid_Location\l::coordinate" alt="" coords="560,318,723,359"/>
+<area shape="rect" id="node16" href="$d4/d63/a00082.html#a9af8ca81e0d174f95d789faa3c185d2a" title="proto::GeoGrid_Location\l::contactcenters_size" alt="" coords="560,383,723,425"/>
+<area shape="rect" id="node17" href="$d4/d63/a00082.html#aadf531763d2e4f044e98f688958d8353" title="proto::GeoGrid_Location\l::contactcenters" alt="" coords="560,449,723,490"/>
+<area shape="rect" id="node18" href="$d3/de7/a00039.html#a351fab1f7eb8f7035fa432b2a3d7c104" title="Create a ContactCenter based on the provided protobuf ContactCenter. " alt="" coords="534,514,749,555"/>
+<area shape="rect" id="node28" href="$d4/d63/a00082.html#a61d7217103491dd110c59c46cc32aa25" title="proto::GeoGrid_Location\l::commutes_size" alt="" coords="560,579,723,621"/>
+<area shape="rect" id="node29" href="$d4/d63/a00082.html#af51162270a0c084022903489941101ab" title="proto::GeoGrid_Location\l::commutes" alt="" coords="560,645,723,686"/>
+<area shape="rect" id="node30" href="$d2/d1f/a00083.html#a7c9df75a7447c72721d84f192a2c19b7" title="proto::GeoGrid_Location\l_Commute::to" alt="" coords="560,710,723,751"/>
+<area shape="rect" id="node31" href="$d2/d1f/a00083.html#a84004e570416a8aaae361bb53f57d8f6" title="proto::GeoGrid_Location\l_Commute::proportion" alt="" coords="560,775,723,817"/>
+<area shape="rect" id="node32" href="$d4/d63/a00082.html#aa6b681cff1e7752484cf41af78dcaf5b" title="proto::GeoGrid_Location\l::submunicipalities_size" alt="" coords="560,841,723,882"/>
+<area shape="rect" id="node33" href="$d4/d63/a00082.html#a288f9df809ad80a45aac18077a76116b" title="proto::GeoGrid_Location\l::submunicipalities" alt="" coords="560,906,723,947"/>
+<area shape="rect" id="node13" href="$da/d2a/a00086.html#a03d2590a2f44bf79ad4872b5bcfb3b6d" title="proto::GeoGrid_Location\l_Coordinate::longitude" alt="" coords="824,221,987,262"/>
+<area shape="rect" id="node14" href="$da/d2a/a00086.html#a6bc5976b2e0d0f05f1a134544844b6bc" title="proto::GeoGrid_Location\l_Coordinate::latitude" alt="" coords="824,286,987,327"/>
+<area shape="rect" id="node19" href="$df/d5d/a00084.html#a527127a37e7e5f5735eb829bf959da9d" title="proto::GeoGrid_Location\l_ContactCenter::type" alt="" coords="824,383,987,425"/>
+<area shape="rect" id="node20" href="$df/d5d/a00084.html#a836da18e7ce8173b075a1fa72d33ea84" title="proto::GeoGrid_Location\l_ContactCenter::id" alt="" coords="824,449,987,490"/>
+<area shape="rect" id="node21" href="$df/d5d/a00084.html#a2fba27d68b28b8f526346d0fe1d3cdd6" title="proto::GeoGrid_Location\l_ContactCenter::pools_size" alt="" coords="813,514,997,555"/>
+<area shape="rect" id="node22" href="$df/d5d/a00084.html#ad72f8f06adf64bedd21c233827dc8d65" title="proto::GeoGrid_Location\l_ContactCenter::pools" alt="" coords="824,579,987,621"/>
+<area shape="rect" id="node23" href="$d3/de7/a00039.html#a19e0ff14a2aef228d926d53132fa767b" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="798,645,1013,686"/>
+<area shape="rect" id="node24" href="$df/d13/a00085.html#af18dfe27121c6513a6edf82892651fab" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people_size" alt="" coords="1062,521,1255,577"/>
+<area shape="rect" id="node25" href="$df/d13/a00085.html#a0de33357e50cb2549d9aad7b987dcc5a" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people" alt="" coords="1062,601,1255,657"/>
+<area shape="rect" id="node26" href="$d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47" title="Add the given Person. " alt="" coords="1091,681,1226,722"/>
+<area shape="rect" id="node27" href="$d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="1091,746,1226,787"/>
+<area shape="rect" id="node35" href="$d1/d1e/a00087.html#a4af5dc5058c3aa6cf84838094d6514af" title="proto::GeoGrid_Person::id" alt="" coords="555,972,728,999"/>
+<area shape="rect" id="node36" href="$d1/d1e/a00087.html#aff796dcc38d801c94f34280e473cd3d4" title="proto::GeoGrid_Person::age" alt="" coords="549,1023,733,1049"/>
+</map>

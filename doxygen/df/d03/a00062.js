@@ -1,9 +1,12 @@
 var a00062 =
 [
-    [ "Args", "df/d03/a00062.html#ab7a8c340fbfb47b01ee3cb4cd56441c5", null ],
-    [ "RadiusPolicy", "df/d03/a00062.html#a2e112e02719985a20d96193e03f89d2d", null ],
-    [ "GetBoundingBox", "df/d03/a00062.html#a2be92bc66c0e5766612d5c850b86cddf", null ],
-    [ "Contains", "df/d03/a00062.html#a4c4d73f9f48e35491d11dcb4947f1860", null ],
-    [ "m_center", "df/d03/a00062.html#a6e9bfbf6bc52f1b42c32f52bf13b1e2f", null ],
-    [ "m_radius", "df/d03/a00062.html#a6057ef8f12f388d187d313e5f94bb823", null ]
+    [ "CreateCitiesReader", "df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755", null ],
+    [ "CreateCitiesReader", "df/d03/a00062.html#a76eb18fa73415d684668d13833ba13c1", null ],
+    [ "CreateCommutesReader", "df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71", null ],
+    [ "CreateCommutesReader", "df/d03/a00062.html#aab20bfa25fbeac22eb8e955f91507115", null ],
+    [ "CreateHouseholdReader", "df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5", null ],
+    [ "CreateHouseholdReader", "df/d03/a00062.html#aca22bd8c41b3bd061cd3ab79c8c0dc55", null ],
+    [ "CreateSubMunicipalitiesReader", "df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8", null ],
+    [ "CreateSubMunicipalitiesReader", "df/d03/a00062.html#ac25e323f919b9794479e5c964589359d", null ],
+    [ "OpenFile", "df/d03/a00062.html#a301c922d893444c635c375f4c0326568", null ]
 ];

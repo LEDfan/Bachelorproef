@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GeoGridReaderFactory.cpp Source File</title>
+<title>Stride Reference Manual: GeoGridWriterFactory.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,47 +109,44 @@ $(document).ready(function(){initNavTree('db/d7b/a00296_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GeoGridReaderFactory.cpp</div>  </div>
+<div class="title">GeoGridWriterFactory.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/d7b/a00296.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d4a/a00297.html">GeoGridReaderFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d58/a00285.html">GeoGridJSONReader.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dd4/a00291.html">GeoGridProtoReader.h</a>&quot;</span></div>
+<a href="../../db/d7b/a00296.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d4a/a00297.html">GeoGridWriterFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/dc3/a00284.html">GeoGridJSONWriter.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d25/a00290.html">GeoGridProtoWriter.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem.hpp&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">util/Exception.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d5/d35/a00266.html">util/Exception.h</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">    9</a></span>&#160;std::shared_ptr&lt;GeoGridReader&gt; <a class="code" href="../../d6/d42/a00043.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">GeoGridReaderFactory::CreateReader</a>(std::string filename)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">    9</a></span>&#160;std::shared_ptr&lt;GeoGridWriter&gt; <a class="code" href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">GeoGridWriterFactory::CreateWriter</a>(std::string filename)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        boost::filesystem::path path(filename);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span> (!boost::filesystem::exists(path)) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d3/d65/a00154.html">stride::util::Exception</a>(<span class="stringliteral">&quot;File not found: &quot;</span> + path.string());</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.json&quot;</span>) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridJSONReader&gt;(std::make_unique&lt;std::ifstream&gt;(path.string()));</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.proto&quot;</span>) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridProtoReader&gt;(std::make_unique&lt;std::ifstream&gt;(path.string()));</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d3/d65/a00154.html">stride::util::Exception</a>(<span class="stringliteral">&quot;Unsupported file extension: &quot;</span> + path.extension().string());</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00291_html"><div class="ttname"><a href="../../da/dd4/a00291.html">GeoGridProtoReader.h</a></div></div>
-<div class="ttc" id="a00043_html_acd3fdf6ac3e67ee88dd3b2a67c1821f0"><div class="ttname"><a href="../../d6/d42/a00043.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">gengeopop::GeoGridReaderFactory::CreateReader</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridReader &gt; CreateReader(std::string filename) const </div><div class="ttdoc">Create a GeoGridReader based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7b/a00296_source.html#l00009">GeoGridReaderFactory.cpp:9</a></div></div>
-<div class="ttc" id="a00154_html"><div class="ttname"><a href="../../d3/d65/a00154.html">stride::util::Exception</a></div><div class="ttdoc">Basic exception class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d42/a00269_source.html#l00011">Exception.h:11</a></div></div>
-<div class="ttc" id="a00269_html"><div class="ttname"><a href="../../d5/d42/a00269.html">Exception.h</a></div></div>
-<div class="ttc" id="a00297_html"><div class="ttname"><a href="../../d3/d4a/a00297.html">GeoGridReaderFactory.h</a></div></div>
-<div class="ttc" id="a00285_html"><div class="ttname"><a href="../../d3/d58/a00285.html">GeoGridJSONReader.h</a></div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.json&quot;</span>) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridJSONWriter&gt;();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.proto&quot;</span>) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridProtoWriter&gt;();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../da/d01/a00153.html">stride::util::Exception</a>(<span class="stringliteral">&quot;Unsupported file extension: &quot;</span> + path.extension().string());</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00284_html"><div class="ttname"><a href="../../db/dc3/a00284.html">GeoGridJSONWriter.h</a></div></div>
+<div class="ttc" id="a00290_html"><div class="ttname"><a href="../../de/d25/a00290.html">GeoGridProtoWriter.h</a></div></div>
+<div class="ttc" id="a00044_html_a4992a30def6112ba16f8b76c7d5ea768"><div class="ttname"><a href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">gengeopop::GeoGridWriterFactory::CreateWriter</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridWriter &gt; CreateWriter(std::string filename) const </div><div class="ttdoc">Create a GeoGridWriter based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7b/a00296_source.html#l00009">GeoGridWriterFactory.cpp:9</a></div></div>
+<div class="ttc" id="a00266_html"><div class="ttname"><a href="../../d5/d35/a00266.html">Exception.h</a></div></div>
+<div class="ttc" id="a00153_html"><div class="ttname"><a href="../../da/d01/a00153.html">stride::util::Exception</a></div><div class="ttdoc">Basic exception class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d35/a00266_source.html#l00011">Exception.h:11</a></div></div>
+<div class="ttc" id="a00297_html"><div class="ttname"><a href="../../d3/d4a/a00297.html">GeoGridWriterFactory.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../db/d7b/a00296.html">GeoGridReaderFactory.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../db/d7b/a00296.html">GeoGridWriterFactory.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

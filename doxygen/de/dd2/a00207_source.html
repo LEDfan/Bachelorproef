@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CitiesCSVReader.cpp Source File</title>
+<title>Stride Reference Manual: CitiesCSVReader.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,64 +109,47 @@ $(document).ready(function(){initNavTree('de/dd2/a00207_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CitiesCSVReader.cpp</div>  </div>
+<div class="title">CitiesCSVReader.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/dd2/a00207.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d31/a00208.html">CitiesCSVReader.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../../util/CSV.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../../util/CSVRow.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d4/d51/a00017.html#ad26e6eacb61c4c71b400aa371ed54db9">    7</a></span>&#160;<a class="code" href="../../d4/d51/a00017.html#ad26e6eacb61c4c71b400aa371ed54db9">CitiesCSVReader::CitiesCSVReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    : <a class="code" href="../../d1/d2b/a00018.html">CitiesReader</a>(std::move(inputStream)), m_reader(*(m_inputStream.get()))</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d4/d51/a00017.html#afe702a1c1bd6e6d0313611e749ecac89">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d51/a00017.html#afe702a1c1bd6e6d0313611e749ecac89">CitiesCSVReader::FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="comment">// cols: id     province        population      x_coord         y_coord         latitude        longitude</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">// name</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::vector&lt;std::pair&lt;std::shared_ptr&lt;Location&gt;, <span class="keywordtype">int</span>&gt;&gt; addedLocations;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> totalPopulation = 0;</div>
+<a href="../../de/dd2/a00207.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/de5/a00209.html">CitiesReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/ded/a00252.html">util/CSV.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * Create a Reader which fills a GeoGrid with the Cities found in a given CSV file</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d7a/a00016.html">CitiesCSVReader</a> : <span class="keyword">public</span> <a class="code" href="../../d4/d51/a00017.html">CitiesReader</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        /// Construct the CitiesCSVReader with an istream containing the CSV data</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">CitiesCSVReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Add the found Locations to the provided GeoGrid</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid) <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../da/d01/a00153.html">stride::util::CSVRow</a>&amp; row : <a class="code" href="../../d4/d51/a00017.html#a763c671bb5318d5c69a566ac7aeab038">m_reader</a>) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keyword">auto</span> <span class="keywordtype">id</span>       = row.GetValue&lt;<span class="keywordtype">int</span>&gt;(0);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keyword">auto</span> location = std::make_shared&lt;Location&gt;(id,                                 <span class="comment">// id</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                           row.GetValue&lt;<span class="keywordtype">int</span>&gt;(1),               <span class="comment">// province</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                           <a class="code" href="../../d2/de7/a00014.html">Coordinate</a>(row.GetValue&lt;<span class="keywordtype">double</span>&gt;(3), <span class="comment">// x_coord</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                                      row.GetValue&lt;<span class="keywordtype">double</span>&gt;(4), <span class="comment">// y_coord</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                      row.GetValue&lt;<span class="keywordtype">double</span>&gt;(6), <span class="comment">// longtitude</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                                      row.GetValue&lt;<span class="keywordtype">double</span>&gt;(5)  <span class="comment">// latitude</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                                      ),</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                                           row.GetValue(7));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                geoGrid-&gt;AddLocation(location);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                addedLocations.emplace_back(location, row.GetValue&lt;<span class="keywordtype">int</span>&gt;(2));</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                totalPopulation += row.GetValue&lt;<span class="keywordtype">int</span>&gt;(2);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; loc : addedLocations) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                loc.first-&gt;SetRelativePopulation(static_cast&lt;double&gt;(loc.second) /</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                 static_cast&lt;double&gt;(totalPopulation));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00017_html_afe702a1c1bd6e6d0313611e749ecac89"><div class="ttname"><a href="../../d4/d51/a00017.html#afe702a1c1bd6e6d0313611e749ecac89">gengeopop::CitiesCSVReader::FillGeoGrid</a></div><div class="ttdeci">void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt; geoGrid) const override</div><div class="ttdoc">Add the found Locations to the provided GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00012">CitiesCSVReader.cpp:12</a></div></div>
-<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">gengeopop::CitiesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de7/a00210_source.html#l00014">CitiesReader.h:14</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">Coordinate</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00003">Coordinate.h:3</a></div></div>
-<div class="ttc" id="a00017_html_ad26e6eacb61c4c71b400aa371ed54db9"><div class="ttname"><a href="../../d4/d51/a00017.html#ad26e6eacb61c4c71b400aa371ed54db9">gengeopop::CitiesCSVReader::CitiesCSVReader</a></div><div class="ttdeci">CitiesCSVReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CitiesCSVReader with an istream containing the CSV data. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00007">CitiesCSVReader.cpp:7</a></div></div>
-<div class="ttc" id="a00017_html_a763c671bb5318d5c69a566ac7aeab038"><div class="ttname"><a href="../../d4/d51/a00017.html#a763c671bb5318d5c69a566ac7aeab038">gengeopop::CitiesCSVReader::m_reader</a></div><div class="ttdeci">stride::util::CSV m_reader</div><div class="ttdoc">The pure CSV reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00021">CitiesCSVReader.h:21</a></div></div>
-<div class="ttc" id="a00208_html"><div class="ttname"><a href="../../dc/d31/a00208.html">CitiesCSVReader.h</a></div></div>
-<div class="ttc" id="a00153_html"><div class="ttname"><a href="../../da/d01/a00153.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d39/a00257_source.html#l00037">CSVRow.h:37</a></div></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html#a763c671bb5318d5c69a566ac7aeab038">   21</a></span>&#160;        <a class="code" href="../../dd/db2/a00151.html">stride::util::CSV</a> <a class="code" href="../../d7/d7a/a00016.html#a763c671bb5318d5c69a566ac7aeab038">m_reader</a>; <span class="comment">///&lt; The pure CSV reader</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00016_html_ad26e6eacb61c4c71b400aa371ed54db9"><div class="ttname"><a href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">gengeopop::CitiesCSVReader::CitiesCSVReader</a></div><div class="ttdeci">CitiesCSVReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CitiesCSVReader with an istream containing the CSV data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00007">CitiesCSVReader.cpp:7</a></div></div>
+<div class="ttc" id="a00016_html_afe702a1c1bd6e6d0313611e749ecac89"><div class="ttname"><a href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">gengeopop::CitiesCSVReader::FillGeoGrid</a></div><div class="ttdeci">void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt; geoGrid) const override</div><div class="ttdoc">Add the found Locations to the provided GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00012">CitiesCSVReader.cpp:12</a></div></div>
+<div class="ttc" id="a00209_html"><div class="ttname"><a href="../../d3/de5/a00209.html">CitiesReader.h</a></div></div>
+<div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">gengeopop::CitiesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/de5/a00209_source.html#l00014">CitiesReader.h:14</a></div></div>
+<div class="ttc" id="a00252_html"><div class="ttname"><a href="../../dc/ded/a00252.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
+<div class="ttc" id="a00016_html_a763c671bb5318d5c69a566ac7aeab038"><div class="ttname"><a href="../../d7/d7a/a00016.html#a763c671bb5318d5c69a566ac7aeab038">gengeopop::CitiesCSVReader::m_reader</a></div><div class="ttdeci">stride::util::CSV m_reader</div><div class="ttdoc">The pure CSV reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00021">CitiesCSVReader.h:21</a></div></div>
+<div class="ttc" id="a00016_html"><div class="ttname"><a href="../../d7/d7a/a00016.html">gengeopop::CitiesCSVReader</a></div><div class="ttdoc">Create a Reader which fills a GeoGrid with the Cities found in a given CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00011">CitiesCSVReader.h:11</a></div></div>
+<div class="ttc" id="a00151_html"><div class="ttname"><a href="../../dd/db2/a00151.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ded/a00252_source.html#l00037">CSV.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../de/dd2/a00207.html">CitiesCSVReader.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../de/dd2/a00207.html">CitiesCSVReader.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

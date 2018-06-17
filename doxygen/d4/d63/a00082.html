@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: proto::GeoGrid Class Reference</title>
+<title>Stride Reference Manual: proto::GeoGrid_Location Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -118,209 +118,348 @@ $(document).ready(function(){initNavTree('d4/d63/a00082.html','../../');});
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
-<a href="../../d5/d80/a00583.html">List of all members</a>  </div>
+<a href="../../d9/d65/a01145.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">proto::GeoGrid Class Reference</div>  </div>
+<div class="title">proto::GeoGrid_Location Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for proto::GeoGrid:</div>
+Inheritance diagram for proto::GeoGrid_Location:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d4/d63/a00082.png" usemap="#proto::GeoGrid_map" alt=""/>
-  <map id="proto::GeoGrid_map" name="proto::GeoGrid_map">
-<area href="../../db/df8/a00076.html" alt="Message" shape="rect" coords="0,0,94,24"/>
-</map>
- </div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d07/a01146.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for proto::GeoGrid_Location:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/ddb/a01147.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a963ab4b80a4a037b773704b483ca3d72"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../d2/d1f/a00083.html">GeoGrid_Location</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a963ab4b80a4a037b773704b483ca3d72">Location</a></td></tr>
-<tr class="separator:a963ab4b80a4a037b773704b483ca3d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afffd60fc3e9fad4e152b3fd8bc89bec9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../db/ddf/a00088.html">GeoGrid_Person</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#afffd60fc3e9fad4e152b3fd8bc89bec9">Person</a></td></tr>
-<tr class="separator:afffd60fc3e9fad4e152b3fd8bc89bec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee7eae8f2b409cb0919a7c27069e0ca0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../da/d2a/a00086.html">GeoGrid_Location_Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aee7eae8f2b409cb0919a7c27069e0ca0">Coordinate</a></td></tr>
+<tr class="separator:aee7eae8f2b409cb0919a7c27069e0ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4dce1d29875f19ff40d56b380f68450"><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="../../df/d5d/a00084.html">GeoGrid_Location_ContactCenter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa4dce1d29875f19ff40d56b380f68450">ContactCenter</a></td></tr>
+<tr class="separator:aa4dce1d29875f19ff40d56b380f68450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a135d7ab8a0e8c841230cd7cedb02f823"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../d2/d1f/a00083.html">GeoGrid_Location_Commute</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a135d7ab8a0e8c841230cd7cedb02f823">Commute</a></td></tr>
+<tr class="separator:a135d7ab8a0e8c841230cd7cedb02f823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4fee992d5d7fced60a847258f37e9b62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4fee992d5d7fced60a847258f37e9b62">GeoGrid</a> ()</td></tr>
-<tr class="separator:a4fee992d5d7fced60a847258f37e9b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae33322ada2b25c723eb29ce985c62694"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ae33322ada2b25c723eb29ce985c62694">~GeoGrid</a> ()</td></tr>
-<tr class="separator:ae33322ada2b25c723eb29ce985c62694"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59548cbbed93d5c0cd85a6eea1247b7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a59548cbbed93d5c0cd85a6eea1247b7e">GeoGrid</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;from)</td></tr>
-<tr class="separator:a59548cbbed93d5c0cd85a6eea1247b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61ddeb423f13fff30f6bd927e0448247"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a61ddeb423f13fff30f6bd927e0448247">operator=</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;from)</td></tr>
-<tr class="separator:a61ddeb423f13fff30f6bd927e0448247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95227d9895983275fbc95beada93f9f8"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
-::google::protobuf::UnknownFieldSet &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a95227d9895983275fbc95beada93f9f8">unknown_fields</a> () const </td></tr>
-<tr class="separator:a95227d9895983275fbc95beada93f9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c697b72f2ff8ed9b6ad9d1dee86f30e"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::UnknownFieldSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4c697b72f2ff8ed9b6ad9d1dee86f30e">mutable_unknown_fields</a> ()</td></tr>
-<tr class="separator:a4c697b72f2ff8ed9b6ad9d1dee86f30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eee713fcbfb1b4de56fc4eae35d6580"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a5eee713fcbfb1b4de56fc4eae35d6580">Swap</a> (<a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *other)</td></tr>
-<tr class="separator:a5eee713fcbfb1b4de56fc4eae35d6580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6fcea44a7d8dd5c46fa3ab6293f7915"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab6fcea44a7d8dd5c46fa3ab6293f7915">New</a> () const PROTOBUF_FINAL</td></tr>
-<tr class="separator:ab6fcea44a7d8dd5c46fa3ab6293f7915"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac740c651eb405eab234371b01bf12e46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac740c651eb405eab234371b01bf12e46">New</a> (::google::protobuf::Arena *arena) const PROTOBUF_FINAL</td></tr>
-<tr class="separator:ac740c651eb405eab234371b01bf12e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a727b39df7edab34ec30acf75a9cd1fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a727b39df7edab34ec30acf75a9cd1fe3">CopyFrom</a> (const ::<a class="el" href="../../db/df8/a00076.html">google::protobuf::Message</a> &amp;from) PROTOBUF_FINAL</td></tr>
-<tr class="separator:a727b39df7edab34ec30acf75a9cd1fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25004061a5814fef5e45257d8d1455a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a25004061a5814fef5e45257d8d1455a9">MergeFrom</a> (const ::<a class="el" href="../../db/df8/a00076.html">google::protobuf::Message</a> &amp;from) PROTOBUF_FINAL</td></tr>
-<tr class="separator:a25004061a5814fef5e45257d8d1455a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a33b29e9fd5d61df9cae50199554a65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a8a33b29e9fd5d61df9cae50199554a65">CopyFrom</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;from)</td></tr>
-<tr class="separator:a8a33b29e9fd5d61df9cae50199554a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0918519155be92ff94e54cbd46488ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a0918519155be92ff94e54cbd46488ba9">MergeFrom</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;from)</td></tr>
-<tr class="separator:a0918519155be92ff94e54cbd46488ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8bdec0685ba6072feb2d99ef8905f11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac8bdec0685ba6072feb2d99ef8905f11">Clear</a> () PROTOBUF_FINAL</td></tr>
-<tr class="separator:ac8bdec0685ba6072feb2d99ef8905f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac62e5c9271697944f25fc0b72f9a074"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aac62e5c9271697944f25fc0b72f9a074">IsInitialized</a> () const PROTOBUF_FINAL</td></tr>
-<tr class="separator:aac62e5c9271697944f25fc0b72f9a074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac876ed269b172d05ef8fb7864647fc2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d7e/a00492.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac876ed269b172d05ef8fb7864647fc2b">ByteSizeLong</a> () const PROTOBUF_FINAL</td></tr>
-<tr class="separator:ac876ed269b172d05ef8fb7864647fc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4c9c7af5f773ffbea47128e6fa3e20e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac4c9c7af5f773ffbea47128e6fa3e20e">MergePartialFromCodedStream</a> (::google::protobuf::io::CodedInputStream *input) PROTOBUF_FINAL</td></tr>
-<tr class="separator:ac4c9c7af5f773ffbea47128e6fa3e20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7255e19f769fc04dcd4e2cf183db3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#abb7255e19f769fc04dcd4e2cf183db3a">SerializeWithCachedSizes</a> (::google::protobuf::io::CodedOutputStream *output) const PROTOBUF_FINAL</td></tr>
-<tr class="separator:abb7255e19f769fc04dcd4e2cf183db3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e487168430474707c8def5814d435d3"><td class="memItemLeft" align="right" valign="top">::google::protobuf::uint8 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a7e487168430474707c8def5814d435d3">InternalSerializeWithCachedSizesToArray</a> (bool deterministic,::google::protobuf::uint8 *target) const PROTOBUF_FINAL</td></tr>
-<tr class="separator:a7e487168430474707c8def5814d435d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a5ee78e10d89970cc5b9f977b3a874"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad2a5ee78e10d89970cc5b9f977b3a874">GetCachedSize</a> () const PROTOBUF_FINAL</td></tr>
-<tr class="separator:ad2a5ee78e10d89970cc5b9f977b3a874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31829900cfb16fac4772ceda0cc9dbfd"><td class="memItemLeft" align="right" valign="top">::google::protobuf::Metadata&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a31829900cfb16fac4772ceda0cc9dbfd">GetMetadata</a> () const PROTOBUF_FINAL</td></tr>
-<tr class="separator:a31829900cfb16fac4772ceda0cc9dbfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4e4cc38da711b133be850b95d4cf2cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa4e4cc38da711b133be850b95d4cf2cb">locations_size</a> () const </td></tr>
-<tr class="separator:aa4e4cc38da711b133be850b95d4cf2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f6f7a131d55f0be231362c117a4829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a29f6f7a131d55f0be231362c117a4829">clear_locations</a> ()</td></tr>
-<tr class="separator:a29f6f7a131d55f0be231362c117a4829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5d0b66ec5382518acb9fc346d600a7"><td class="memItemLeft" align="right" valign="top">const ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3b5d0b66ec5382518acb9fc346d600a7">locations</a> (int index) const </td></tr>
-<tr class="separator:a3b5d0b66ec5382518acb9fc346d600a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b13413d35bd5562b0eaf4ab1b517616"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4b13413d35bd5562b0eaf4ab1b517616">mutable_locations</a> (int index)</td></tr>
-<tr class="separator:a4b13413d35bd5562b0eaf4ab1b517616"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e490616ea40c285ca1cf5832d1fc244"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3e490616ea40c285ca1cf5832d1fc244">add_locations</a> ()</td></tr>
-<tr class="separator:a3e490616ea40c285ca1cf5832d1fc244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36d1cf8fc0242fb534a8604dee0ad3b0"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
-&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a36d1cf8fc0242fb534a8604dee0ad3b0">mutable_locations</a> ()</td></tr>
-<tr class="separator:a36d1cf8fc0242fb534a8604dee0ad3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03281d346ea7ad3bf9cad98116e3bd4"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+<tr class="memitem:aac7b99d1d33890606786aebe1d7d8a02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aac7b99d1d33890606786aebe1d7d8a02">GeoGrid_Location</a> ()</td></tr>
+<tr class="separator:aac7b99d1d33890606786aebe1d7d8a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef9e62896feceea1467d67e8c09ba27"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a5ef9e62896feceea1467d67e8c09ba27">~GeoGrid_Location</a> ()</td></tr>
+<tr class="separator:a5ef9e62896feceea1467d67e8c09ba27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a50f961c4c37f7788cf771845d5867"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a66a50f961c4c37f7788cf771845d5867">GeoGrid_Location</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;from)</td></tr>
+<tr class="separator:a66a50f961c4c37f7788cf771845d5867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af965c169cda71029ea71d695aa940072"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af965c169cda71029ea71d695aa940072">operator=</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;from)</td></tr>
+<tr class="separator:af965c169cda71029ea71d695aa940072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6109044fb47770d021c6d7ea2742a488"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+::google::protobuf::UnknownFieldSet &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6109044fb47770d021c6d7ea2742a488">unknown_fields</a> () const </td></tr>
+<tr class="separator:a6109044fb47770d021c6d7ea2742a488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21dab5fd2498fce3643f278fe1686aff"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::UnknownFieldSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a21dab5fd2498fce3643f278fe1686aff">mutable_unknown_fields</a> ()</td></tr>
+<tr class="separator:a21dab5fd2498fce3643f278fe1686aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc2a1da87de5f5db68bbfa11cda143e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4bc2a1da87de5f5db68bbfa11cda143e">Swap</a> (<a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *other)</td></tr>
+<tr class="separator:a4bc2a1da87de5f5db68bbfa11cda143e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f5479b7427e58731a3c5ccad8a76b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a41f5479b7427e58731a3c5ccad8a76b4">New</a> () const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a41f5479b7427e58731a3c5ccad8a76b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab51f3a9ec52e54e12359f0401758a64b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab51f3a9ec52e54e12359f0401758a64b">New</a> (::google::protobuf::Arena *arena) const PROTOBUF_FINAL</td></tr>
+<tr class="separator:ab51f3a9ec52e54e12359f0401758a64b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62775d61c733972a1167d16a96e1a5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad62775d61c733972a1167d16a96e1a5a">CopyFrom</a> (const ::<a class="el" href="../../d9/da5/a00075.html">google::protobuf::Message</a> &amp;from) PROTOBUF_FINAL</td></tr>
+<tr class="separator:ad62775d61c733972a1167d16a96e1a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5421d8f6a3929b987bdc127ea20a769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa5421d8f6a3929b987bdc127ea20a769">MergeFrom</a> (const ::<a class="el" href="../../d9/da5/a00075.html">google::protobuf::Message</a> &amp;from) PROTOBUF_FINAL</td></tr>
+<tr class="separator:aa5421d8f6a3929b987bdc127ea20a769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa6d49dd480d7d471437052744a5be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#abfa6d49dd480d7d471437052744a5be1">CopyFrom</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;from)</td></tr>
+<tr class="separator:abfa6d49dd480d7d471437052744a5be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab38a059582607804aff2ccb25b90735d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab38a059582607804aff2ccb25b90735d">MergeFrom</a> (const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;from)</td></tr>
+<tr class="separator:ab38a059582607804aff2ccb25b90735d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592594bf2bf9019104d443442985afc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a592594bf2bf9019104d443442985afc8">Clear</a> () PROTOBUF_FINAL</td></tr>
+<tr class="separator:a592594bf2bf9019104d443442985afc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb60e78c13a009753a04a3edbfbd13d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9fb60e78c13a009753a04a3edbfbd13d">IsInitialized</a> () const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a9fb60e78c13a009753a04a3edbfbd13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ac3212baeb35313b2179770f649f5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d05/a00489.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a35ac3212baeb35313b2179770f649f5f">ByteSizeLong</a> () const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a35ac3212baeb35313b2179770f649f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca57ae1cd890f811a7ad1ab54f7cc46f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aca57ae1cd890f811a7ad1ab54f7cc46f">MergePartialFromCodedStream</a> (::google::protobuf::io::CodedInputStream *input) PROTOBUF_FINAL</td></tr>
+<tr class="separator:aca57ae1cd890f811a7ad1ab54f7cc46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d483a64dc4cad06d5cc4dc33bc8c083"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a5d483a64dc4cad06d5cc4dc33bc8c083">SerializeWithCachedSizes</a> (::google::protobuf::io::CodedOutputStream *output) const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a5d483a64dc4cad06d5cc4dc33bc8c083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3675112ca80e296f3f706bbe88bf48a4"><td class="memItemLeft" align="right" valign="top">::google::protobuf::uint8 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3675112ca80e296f3f706bbe88bf48a4">InternalSerializeWithCachedSizesToArray</a> (bool deterministic,::google::protobuf::uint8 *target) const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a3675112ca80e296f3f706bbe88bf48a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786b41ccd4fa34f0daefd625d5cb5276"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a786b41ccd4fa34f0daefd625d5cb5276">GetCachedSize</a> () const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a786b41ccd4fa34f0daefd625d5cb5276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32716a6c9c5df16eb15ce81d814d6244"><td class="memItemLeft" align="right" valign="top">::google::protobuf::Metadata&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a32716a6c9c5df16eb15ce81d814d6244">GetMetadata</a> () const PROTOBUF_FINAL</td></tr>
+<tr class="separator:a32716a6c9c5df16eb15ce81d814d6244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af8ca81e0d174f95d789faa3c185d2a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9af8ca81e0d174f95d789faa3c185d2a">contactcenters_size</a> () const </td></tr>
+<tr class="separator:a9af8ca81e0d174f95d789faa3c185d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0e3935edfee6b1dde6b9084097ae1a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad0e3935edfee6b1dde6b9084097ae1a4">clear_contactcenters</a> ()</td></tr>
+<tr class="separator:ad0e3935edfee6b1dde6b9084097ae1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf531763d2e4f044e98f688958d8353"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aadf531763d2e4f044e98f688958d8353">contactcenters</a> (int index) const </td></tr>
+<tr class="separator:aadf531763d2e4f044e98f688958d8353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de6d9a673b14c9db837edd47fedee38"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a7de6d9a673b14c9db837edd47fedee38">mutable_contactcenters</a> (int index)</td></tr>
+<tr class="separator:a7de6d9a673b14c9db837edd47fedee38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe71705ad7142a1f8b6260631f42ffc7"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#afe71705ad7142a1f8b6260631f42ffc7">add_contactcenters</a> ()</td></tr>
+<tr class="separator:afe71705ad7142a1f8b6260631f42ffc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4b1f9b7aaf5bec4447852ddb592294"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
+&lt; ::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a5f4b1f9b7aaf5bec4447852ddb592294">mutable_contactcenters</a> ()</td></tr>
+<tr class="separator:a5f4b1f9b7aaf5bec4447852ddb592294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac328df76484139aa61fd5a0f4e46c0f3"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
 ::google::protobuf::RepeatedPtrField<br class="typebreak"/>
-&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac03281d346ea7ad3bf9cad98116e3bd4">locations</a> () const </td></tr>
-<tr class="separator:ac03281d346ea7ad3bf9cad98116e3bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2305009892d1e70cf58a9ff9b422a21d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a2305009892d1e70cf58a9ff9b422a21d">persons_size</a> () const </td></tr>
-<tr class="separator:a2305009892d1e70cf58a9ff9b422a21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9d48ccb4edf9802081eda4dbc676061"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac9d48ccb4edf9802081eda4dbc676061">clear_persons</a> ()</td></tr>
-<tr class="separator:ac9d48ccb4edf9802081eda4dbc676061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af24fe8aeed116df8e4dc62d33c871653"><td class="memItemLeft" align="right" valign="top">const ::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af24fe8aeed116df8e4dc62d33c871653">persons</a> (int index) const </td></tr>
-<tr class="separator:af24fe8aeed116df8e4dc62d33c871653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dad9d30efd49e95ea9f5eb1a7da85d9"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9dad9d30efd49e95ea9f5eb1a7da85d9">mutable_persons</a> (int index)</td></tr>
-<tr class="separator:a9dad9d30efd49e95ea9f5eb1a7da85d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0bd3b734049997531218f3507b844bf"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac0bd3b734049997531218f3507b844bf">add_persons</a> ()</td></tr>
-<tr class="separator:ac0bd3b734049997531218f3507b844bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fad890daf2aa7bf4ebf6b6cbb3a9ac4"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
-&lt; ::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6fad890daf2aa7bf4ebf6b6cbb3a9ac4">mutable_persons</a> ()</td></tr>
-<tr class="separator:a6fad890daf2aa7bf4ebf6b6cbb3a9ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6137bac35dabdae659f09f5514819ca5"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+&lt; ::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac328df76484139aa61fd5a0f4e46c0f3">contactcenters</a> () const </td></tr>
+<tr class="separator:ac328df76484139aa61fd5a0f4e46c0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61d7217103491dd110c59c46cc32aa25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a61d7217103491dd110c59c46cc32aa25">commutes_size</a> () const </td></tr>
+<tr class="separator:a61d7217103491dd110c59c46cc32aa25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9d58db09b52758c26e72b0d4750e902"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac9d58db09b52758c26e72b0d4750e902">clear_commutes</a> ()</td></tr>
+<tr class="separator:ac9d58db09b52758c26e72b0d4750e902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51162270a0c084022903489941101ab"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af51162270a0c084022903489941101ab">commutes</a> (int index) const </td></tr>
+<tr class="separator:af51162270a0c084022903489941101ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf320ea0798dc204651aa88ad109a705"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#acf320ea0798dc204651aa88ad109a705">mutable_commutes</a> (int index)</td></tr>
+<tr class="separator:acf320ea0798dc204651aa88ad109a705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcaa78dcf409d0cb1f68907948ed761a"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#afcaa78dcf409d0cb1f68907948ed761a">add_commutes</a> ()</td></tr>
+<tr class="separator:afcaa78dcf409d0cb1f68907948ed761a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27658c224904994363aa9740b74ca3b3"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
+&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a27658c224904994363aa9740b74ca3b3">mutable_commutes</a> ()</td></tr>
+<tr class="separator:a27658c224904994363aa9740b74ca3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad662c74f5a93da4636449ab3dc8a9e6"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
 ::google::protobuf::RepeatedPtrField<br class="typebreak"/>
-&lt; ::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6137bac35dabdae659f09f5514819ca5">persons</a> () const </td></tr>
-<tr class="separator:a6137bac35dabdae659f09f5514819ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aad662c74f5a93da4636449ab3dc8a9e6">commutes</a> () const </td></tr>
+<tr class="separator:aad662c74f5a93da4636449ab3dc8a9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6b681cff1e7752484cf41af78dcaf5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa6b681cff1e7752484cf41af78dcaf5b">submunicipalities_size</a> () const </td></tr>
+<tr class="separator:aa6b681cff1e7752484cf41af78dcaf5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24516596c17a10db31433da52c72d79d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a24516596c17a10db31433da52c72d79d">clear_submunicipalities</a> ()</td></tr>
+<tr class="separator:a24516596c17a10db31433da52c72d79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288f9df809ad80a45aac18077a76116b"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a288f9df809ad80a45aac18077a76116b">submunicipalities</a> (int index) const </td></tr>
+<tr class="separator:a288f9df809ad80a45aac18077a76116b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa339c24e126163faed830f6f3f11f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a1fa339c24e126163faed830f6f3f11f0">set_submunicipalities</a> (int index,::google::protobuf::int64 value)</td></tr>
+<tr class="separator:a1fa339c24e126163faed830f6f3f11f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e60a8f6702a60e4897be906f9bc9950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6e60a8f6702a60e4897be906f9bc9950">add_submunicipalities</a> (::google::protobuf::int64 value)</td></tr>
+<tr class="separator:a6e60a8f6702a60e4897be906f9bc9950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac231a5720bed3302dc8a91264606310"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+::google::protobuf::RepeatedField<br class="typebreak"/>
+&lt; ::google::protobuf::int64 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aac231a5720bed3302dc8a91264606310">submunicipalities</a> () const </td></tr>
+<tr class="separator:aac231a5720bed3302dc8a91264606310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152cb77528615a770ab033708bda386e"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedField<br class="typebreak"/>
+&lt; ::google::protobuf::int64 &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a152cb77528615a770ab033708bda386e">mutable_submunicipalities</a> ()</td></tr>
+<tr class="separator:a152cb77528615a770ab033708bda386e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e664fb5a0a203d346143f468edc8615"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a5e664fb5a0a203d346143f468edc8615">has_name</a> () const </td></tr>
+<tr class="separator:a5e664fb5a0a203d346143f468edc8615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a756456e14649022ee445a4dcfe1deb87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a756456e14649022ee445a4dcfe1deb87">clear_name</a> ()</td></tr>
+<tr class="separator:a756456e14649022ee445a4dcfe1deb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5d5287002d2a97e9c59fc974e850df8"><td class="memItemLeft" align="right" valign="top">const ::std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ae5d5287002d2a97e9c59fc974e850df8">name</a> () const </td></tr>
+<tr class="separator:ae5d5287002d2a97e9c59fc974e850df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c05daf9d464d1459286d096d989bf23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a7c05daf9d464d1459286d096d989bf23">set_name</a> (const ::std::string &amp;value)</td></tr>
+<tr class="separator:a7c05daf9d464d1459286d096d989bf23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985989f409ffec618810b9ae89fe07cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a985989f409ffec618810b9ae89fe07cb">set_name</a> (const char *value)</td></tr>
+<tr class="separator:a985989f409ffec618810b9ae89fe07cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76aa00ce21d3d8541c3afa26b8a997f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a76aa00ce21d3d8541c3afa26b8a997f3">set_name</a> (const char *value, <a class="el" href="../../da/d05/a00489.html">size_t</a> size)</td></tr>
+<tr class="separator:a76aa00ce21d3d8541c3afa26b8a997f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ca3d9786fc44042c0bc460bc6526af"><td class="memItemLeft" align="right" valign="top">::std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a12ca3d9786fc44042c0bc460bc6526af">mutable_name</a> ()</td></tr>
+<tr class="separator:a12ca3d9786fc44042c0bc460bc6526af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924aad372ff9a2967f94b198896ca299"><td class="memItemLeft" align="right" valign="top">::std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a924aad372ff9a2967f94b198896ca299">release_name</a> ()</td></tr>
+<tr class="separator:a924aad372ff9a2967f94b198896ca299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01cf036be24d5c1d67a374d2a44fbcfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a01cf036be24d5c1d67a374d2a44fbcfd">set_allocated_name</a> (::std::string *<a class="el" href="../../d4/d63/a00082.html#ae5d5287002d2a97e9c59fc974e850df8">name</a>)</td></tr>
+<tr class="separator:a01cf036be24d5c1d67a374d2a44fbcfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f7b564237684a11c1ce1af65fd6eba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a35f7b564237684a11c1ce1af65fd6eba">has_coordinate</a> () const </td></tr>
+<tr class="separator:a35f7b564237684a11c1ce1af65fd6eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17487e6e5d0da981dc9775621c8cc3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad17487e6e5d0da981dc9775621c8cc3f">clear_coordinate</a> ()</td></tr>
+<tr class="separator:ad17487e6e5d0da981dc9775621c8cc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20327f38bc0288016b3eeb04997e66fd"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a20327f38bc0288016b3eeb04997e66fd">coordinate</a> () const </td></tr>
+<tr class="separator:a20327f38bc0288016b3eeb04997e66fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8a5ae790adc68a5454bd78baa7ef7e"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9e8a5ae790adc68a5454bd78baa7ef7e">release_coordinate</a> ()</td></tr>
+<tr class="separator:a9e8a5ae790adc68a5454bd78baa7ef7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e61799098b7a39a13873eb1824b642"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af5e61799098b7a39a13873eb1824b642">mutable_coordinate</a> ()</td></tr>
+<tr class="separator:af5e61799098b7a39a13873eb1824b642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6dbb45201d633d8cb62b7a553f76d37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ae6dbb45201d633d8cb62b7a553f76d37">set_allocated_coordinate</a> (::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> *<a class="el" href="../../d4/d63/a00082.html#a20327f38bc0288016b3eeb04997e66fd">coordinate</a>)</td></tr>
+<tr class="separator:ae6dbb45201d633d8cb62b7a553f76d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a17f91574f146e2a25c09f37718432"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa0a17f91574f146e2a25c09f37718432">has_id</a> () const </td></tr>
+<tr class="separator:aa0a17f91574f146e2a25c09f37718432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2f62809f8085afdbb4564ec8c5c590c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab2f62809f8085afdbb4564ec8c5c590c">clear_id</a> ()</td></tr>
+<tr class="separator:ab2f62809f8085afdbb4564ec8c5c590c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f787c871e478cd4706979b0d78edce4"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9f787c871e478cd4706979b0d78edce4">id</a> () const </td></tr>
+<tr class="separator:a9f787c871e478cd4706979b0d78edce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d365381ae92aed8249b91cce620cf99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a1d365381ae92aed8249b91cce620cf99">set_id</a> (::google::protobuf::int64 value)</td></tr>
+<tr class="separator:a1d365381ae92aed8249b91cce620cf99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce50d94d05b3ea2d51e072a8aacf39d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6ce50d94d05b3ea2d51e072a8aacf39d">has_province</a> () const </td></tr>
+<tr class="separator:a6ce50d94d05b3ea2d51e072a8aacf39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d1ae9228428e91f6c52d43160d6bca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a2d1ae9228428e91f6c52d43160d6bca2">clear_province</a> ()</td></tr>
+<tr class="separator:a2d1ae9228428e91f6c52d43160d6bca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd4205f29912c851f50c5cc9858b96c"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aefd4205f29912c851f50c5cc9858b96c">province</a> () const </td></tr>
+<tr class="separator:aefd4205f29912c851f50c5cc9858b96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0e0fef5af15055b22c4d2419107caf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac0e0fef5af15055b22c4d2419107caf1">set_province</a> (::google::protobuf::int64 value)</td></tr>
+<tr class="separator:ac0e0fef5af15055b22c4d2419107caf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9669ea59ea91f192e5974f805e8311c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa9669ea59ea91f192e5974f805e8311c">has_population</a> () const </td></tr>
+<tr class="separator:aa9669ea59ea91f192e5974f805e8311c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947f641c8d446b2ecc61ea0ebcd5b33f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a947f641c8d446b2ecc61ea0ebcd5b33f">clear_population</a> ()</td></tr>
+<tr class="separator:a947f641c8d446b2ecc61ea0ebcd5b33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f722f8a9c6609c033a0654fd3bef9d8"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a8f722f8a9c6609c033a0654fd3bef9d8">population</a> () const </td></tr>
+<tr class="separator:a8f722f8a9c6609c033a0654fd3bef9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a881f94e3b033b5535b37654013177e31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a881f94e3b033b5535b37654013177e31">set_population</a> (::google::protobuf::int64 value)</td></tr>
+<tr class="separator:a881f94e3b033b5535b37654013177e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a91917f97a836a3cd49870ff3eb8f18d5"><td class="memItemLeft" align="right" valign="top">static const <br class="typebreak"/>
-::google::protobuf::Descriptor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a91917f97a836a3cd49870ff3eb8f18d5">descriptor</a> ()</td></tr>
-<tr class="separator:a91917f97a836a3cd49870ff3eb8f18d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0418166b3d0262a61b01ef05b15d84e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa0418166b3d0262a61b01ef05b15d84e">default_instance</a> ()</td></tr>
-<tr class="separator:aa0418166b3d0262a61b01ef05b15d84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87307c4033caa44177d16461e1ff099c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a87307c4033caa44177d16461e1ff099c">InitAsDefaultInstance</a> ()</td></tr>
-<tr class="separator:a87307c4033caa44177d16461e1ff099c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5a61b2bcfa2aa734cca65c1fab2a99"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4b5a61b2bcfa2aa734cca65c1fab2a99">internal_default_instance</a> ()</td></tr>
-<tr class="separator:a4b5a61b2bcfa2aa734cca65c1fab2a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9142882adec24247d36610ee120d95f5"><td class="memItemLeft" align="right" valign="top">static const <br class="typebreak"/>
+::google::protobuf::Descriptor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9142882adec24247d36610ee120d95f5">descriptor</a> ()</td></tr>
+<tr class="separator:a9142882adec24247d36610ee120d95f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa165379b333c623dc0577d585e26bbdf"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa165379b333c623dc0577d585e26bbdf">default_instance</a> ()</td></tr>
+<tr class="separator:aa165379b333c623dc0577d585e26bbdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae2b43eadf57dfd131a2d36ef487caf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a0ae2b43eadf57dfd131a2d36ef487caf">InitAsDefaultInstance</a> ()</td></tr>
+<tr class="separator:a0ae2b43eadf57dfd131a2d36ef487caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad68cc7cae3c07b4d9d4cc4841c6ab68"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aad68cc7cae3c07b4d9d4cc4841c6ab68">internal_default_instance</a> ()</td></tr>
+<tr class="separator:aad68cc7cae3c07b4d9d4cc4841c6ab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ad756783e577e814adbd017f9665ac186"><td class="memItemLeft" align="right" valign="top">static PROTOBUF_CONSTEXPR int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad756783e577e814adbd017f9665ac186">kIndexInFileMessages</a></td></tr>
-<tr class="separator:ad756783e577e814adbd017f9665ac186"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bbaadeac24c2eb30a3bb20da7054ee9"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4bbaadeac24c2eb30a3bb20da7054ee9">kLocationsFieldNumber</a> = 1</td></tr>
-<tr class="separator:a4bbaadeac24c2eb30a3bb20da7054ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533642b064cb5729d76e18022a26fda7"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a533642b064cb5729d76e18022a26fda7">kPersonsFieldNumber</a> = 2</td></tr>
-<tr class="separator:a533642b064cb5729d76e18022a26fda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6cc434fc89f0e594724ee028333859"><td class="memItemLeft" align="right" valign="top">static PROTOBUF_CONSTEXPR int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a0e6cc434fc89f0e594724ee028333859">kIndexInFileMessages</a></td></tr>
+<tr class="separator:a0e6cc434fc89f0e594724ee028333859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88d39b48a8f6274142c0c915e4eda4c"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac88d39b48a8f6274142c0c915e4eda4c">kContactCentersFieldNumber</a> = 6</td></tr>
+<tr class="separator:ac88d39b48a8f6274142c0c915e4eda4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced174ea67ca957ba51a1faa8c5f08b8"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aced174ea67ca957ba51a1faa8c5f08b8">kCommutesFieldNumber</a> = 7</td></tr>
+<tr class="separator:aced174ea67ca957ba51a1faa8c5f08b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd59da5474130471ad6566528cd72307"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#acd59da5474130471ad6566528cd72307">kSubmunicipalitiesFieldNumber</a> = 8</td></tr>
+<tr class="separator:acd59da5474130471ad6566528cd72307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ca7478b7e9a028a2a8a950d39445eda"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a8ca7478b7e9a028a2a8a950d39445eda">kNameFieldNumber</a> = 2</td></tr>
+<tr class="separator:a8ca7478b7e9a028a2a8a950d39445eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35ef5d60c70510d75b63b1bad4813f52"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a35ef5d60c70510d75b63b1bad4813f52">kCoordinateFieldNumber</a> = 5</td></tr>
+<tr class="separator:a35ef5d60c70510d75b63b1bad4813f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e48ac4d0cfefa4b5f044bbc65fcea3"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a79e48ac4d0cfefa4b5f044bbc65fcea3">kIdFieldNumber</a> = 1</td></tr>
+<tr class="separator:a79e48ac4d0cfefa4b5f044bbc65fcea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1a4e981f5845eebb30b7934ee64404"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a7c1a4e981f5845eebb30b7934ee64404">kProvinceFieldNumber</a> = 3</td></tr>
+<tr class="separator:a7c1a4e981f5845eebb30b7934ee64404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f92eac529e75759dac9bab64b89b16"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab6f92eac529e75759dac9bab64b89b16">kPopulationFieldNumber</a> = 4</td></tr>
+<tr class="separator:ab6f92eac529e75759dac9bab64b89b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:af4fab526347d90e22210ba5e294336a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af4fab526347d90e22210ba5e294336a6">SharedCtor</a> ()</td></tr>
-<tr class="separator:af4fab526347d90e22210ba5e294336a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add027c74de86c395d6b529d76331c619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#add027c74de86c395d6b529d76331c619">SharedDtor</a> ()</td></tr>
-<tr class="separator:add027c74de86c395d6b529d76331c619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6821bc8c7b417bd3a383280ea7cbf323"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6821bc8c7b417bd3a383280ea7cbf323">SetCachedSize</a> (int size) const PROTOBUF_FINAL</td></tr>
-<tr class="separator:a6821bc8c7b417bd3a383280ea7cbf323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a057520444e9348ec15713f8bad7c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a7a057520444e9348ec15713f8bad7c9f">InternalSwap</a> (<a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *other)</td></tr>
-<tr class="separator:a7a057520444e9348ec15713f8bad7c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae06b872919c51df7446ce55e68b6d2c6"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::Arena *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ae06b872919c51df7446ce55e68b6d2c6">GetArenaNoVirtual</a> () const </td></tr>
-<tr class="separator:ae06b872919c51df7446ce55e68b6d2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e00fc98bc53673d0c70b6609b141b98"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a8e00fc98bc53673d0c70b6609b141b98">MaybeArenaPtr</a> () const </td></tr>
-<tr class="separator:a8e00fc98bc53673d0c70b6609b141b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961025dbd53e459b5657e0d517aa7f9f"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a961025dbd53e459b5657e0d517aa7f9f">void::protobuf_geogrid_2eproto::InitDefaultsGeoGridImpl</a> ()</td></tr>
-<tr class="separator:a961025dbd53e459b5657e0d517aa7f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fde046b8a29c13d638f48f3771fa8e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a8fde046b8a29c13d638f48f3771fa8e7">SharedCtor</a> ()</td></tr>
+<tr class="separator:a8fde046b8a29c13d638f48f3771fa8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813d99a6bb4e8adae7d2d5a39a3f3131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a813d99a6bb4e8adae7d2d5a39a3f3131">SharedDtor</a> ()</td></tr>
+<tr class="separator:a813d99a6bb4e8adae7d2d5a39a3f3131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af826bad4fb1d3b9a7219af156267be97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af826bad4fb1d3b9a7219af156267be97">SetCachedSize</a> (int size) const PROTOBUF_FINAL</td></tr>
+<tr class="separator:af826bad4fb1d3b9a7219af156267be97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4352a98a571a6664a098300487f3b6a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4352a98a571a6664a098300487f3b6a8">InternalSwap</a> (<a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *other)</td></tr>
+<tr class="separator:a4352a98a571a6664a098300487f3b6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c711c7a803c67b6a41000d27fc2fee2"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::Arena *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a1c711c7a803c67b6a41000d27fc2fee2">GetArenaNoVirtual</a> () const </td></tr>
+<tr class="separator:a1c711c7a803c67b6a41000d27fc2fee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a8c3cb33092310d676a8c986f62ade9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9a8c3cb33092310d676a8c986f62ade9">MaybeArenaPtr</a> () const </td></tr>
+<tr class="separator:a9a8c3cb33092310d676a8c986f62ade9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ebbcead7dc93673308fc637ec171fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad7ebbcead7dc93673308fc637ec171fe">set_has_id</a> ()</td></tr>
+<tr class="separator:ad7ebbcead7dc93673308fc637ec171fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a428fbbb4c1d33c0265721cd7a9b99685"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a428fbbb4c1d33c0265721cd7a9b99685">clear_has_id</a> ()</td></tr>
+<tr class="separator:a428fbbb4c1d33c0265721cd7a9b99685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9557a6aca7a99341e35e8f8dcc4066a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac9557a6aca7a99341e35e8f8dcc4066a">set_has_name</a> ()</td></tr>
+<tr class="separator:ac9557a6aca7a99341e35e8f8dcc4066a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04799e4fa9b8edfd11c882b00ec21aa6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a04799e4fa9b8edfd11c882b00ec21aa6">clear_has_name</a> ()</td></tr>
+<tr class="separator:a04799e4fa9b8edfd11c882b00ec21aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0596c9a764ed4915c36e022fcb93de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aea0596c9a764ed4915c36e022fcb93de">set_has_province</a> ()</td></tr>
+<tr class="separator:aea0596c9a764ed4915c36e022fcb93de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a667d4f600ec2c8a61b8242293ef8b94e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a667d4f600ec2c8a61b8242293ef8b94e">clear_has_province</a> ()</td></tr>
+<tr class="separator:a667d4f600ec2c8a61b8242293ef8b94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af745bee2ef930b42d6d45b33c6569ad6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af745bee2ef930b42d6d45b33c6569ad6">set_has_population</a> ()</td></tr>
+<tr class="separator:af745bee2ef930b42d6d45b33c6569ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44bb98f939f21662effc827fb342420d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a44bb98f939f21662effc827fb342420d">clear_has_population</a> ()</td></tr>
+<tr class="separator:a44bb98f939f21662effc827fb342420d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f7fe66506f910537b03e28d4abd6b59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a2f7fe66506f910537b03e28d4abd6b59">set_has_coordinate</a> ()</td></tr>
+<tr class="separator:a2f7fe66506f910537b03e28d4abd6b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab09ec833a498eac7020f94a77aa20ac3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab09ec833a498eac7020f94a77aa20ac3">clear_has_coordinate</a> ()</td></tr>
+<tr class="separator:ab09ec833a498eac7020f94a77aa20ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e51726be8ca0872d455a9075ae08e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d05/a00489.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ab5e51726be8ca0872d455a9075ae08e1">RequiredFieldsByteSizeFallback</a> () const </td></tr>
+<tr class="separator:ab5e51726be8ca0872d455a9075ae08e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2c2e2d8205b79370dc692e195d28ab"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a9f2c2e2d8205b79370dc692e195d28ab">void::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_LocationImpl</a> ()</td></tr>
+<tr class="separator:a9f2c2e2d8205b79370dc692e195d28ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3acf2fe46f539d2cae99f8a1fac9c574"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::InternalMetadataWithArena&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3acf2fe46f539d2cae99f8a1fac9c574">_internal_metadata_</a></td></tr>
-<tr class="separator:a3acf2fe46f539d2cae99f8a1fac9c574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68c59da0f1dbb1d5d230da48ce276dcd"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::HasBits&lt; 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a68c59da0f1dbb1d5d230da48ce276dcd">_has_bits_</a></td></tr>
-<tr class="separator:a68c59da0f1dbb1d5d230da48ce276dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51e0311eb722815c1169d0c366f89a78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a51e0311eb722815c1169d0c366f89a78">_cached_size_</a></td></tr>
-<tr class="separator:a51e0311eb722815c1169d0c366f89a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef45db26c3ceb9df2afcc1195be76b9f"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
-&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aef45db26c3ceb9df2afcc1195be76b9f">locations_</a></td></tr>
-<tr class="separator:aef45db26c3ceb9df2afcc1195be76b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b59a92801fa6e3205c99df850f08dd1"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
-&lt; ::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3b59a92801fa6e3205c99df850f08dd1">persons_</a></td></tr>
-<tr class="separator:a3b59a92801fa6e3205c99df850f08dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1296fe1050f811ae0135917be1cc716"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::InternalMetadataWithArena&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad1296fe1050f811ae0135917be1cc716">_internal_metadata_</a></td></tr>
+<tr class="separator:ad1296fe1050f811ae0135917be1cc716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e3f9007c7c0ba802d489e1d4b0698d"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::HasBits&lt; 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ad8e3f9007c7c0ba802d489e1d4b0698d">_has_bits_</a></td></tr>
+<tr class="separator:ad8e3f9007c7c0ba802d489e1d4b0698d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ea8f1e3410b9951c4d7ada1f326f22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af9ea8f1e3410b9951c4d7ada1f326f22">_cached_size_</a></td></tr>
+<tr class="separator:af9ea8f1e3410b9951c4d7ada1f326f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5ee56896c3552cabccecd44252f143"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
+&lt; ::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6d5ee56896c3552cabccecd44252f143">contactcenters_</a></td></tr>
+<tr class="separator:a6d5ee56896c3552cabccecd44252f143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a894569fd4ed53ed226da26767b5196f3"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedPtrField<br class="typebreak"/>
+&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a894569fd4ed53ed226da26767b5196f3">commutes_</a></td></tr>
+<tr class="separator:a894569fd4ed53ed226da26767b5196f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037b768b1b9df2cc7c3544fc2c0e5434"><td class="memItemLeft" align="right" valign="top">::google::protobuf::RepeatedField<br class="typebreak"/>
+&lt; ::google::protobuf::int64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a037b768b1b9df2cc7c3544fc2c0e5434">submunicipalities_</a></td></tr>
+<tr class="separator:a037b768b1b9df2cc7c3544fc2c0e5434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac638471e5c17dd7c8c5afd34857849c5"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::ArenaStringPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#ac638471e5c17dd7c8c5afd34857849c5">name_</a></td></tr>
+<tr class="separator:ac638471e5c17dd7c8c5afd34857849c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3204117f261e1df6e78448aaad829625"><td class="memItemLeft" align="right" valign="top">::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3204117f261e1df6e78448aaad829625">coordinate_</a></td></tr>
+<tr class="separator:a3204117f261e1df6e78448aaad829625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af958c62137595d2148f14541a8871522"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#af958c62137595d2148f14541a8871522">id_</a></td></tr>
+<tr class="separator:af958c62137595d2148f14541a8871522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3270c34b911a8e64c45fbb3f40f0a205"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a3270c34b911a8e64c45fbb3f40f0a205">province_</a></td></tr>
+<tr class="separator:a3270c34b911a8e64c45fbb3f40f0a205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6547521bb7e4140e082542aae89d718f"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a6547521bb7e4140e082542aae89d718f">population_</a></td></tr>
+<tr class="separator:a6547521bb7e4140e082542aae89d718f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a437672657e3af2123b8beae13f7edf12"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a437672657e3af2123b8beae13f7edf12">::protobuf_geogrid_2eproto::TableStruct</a></td></tr>
 <tr class="separator:a437672657e3af2123b8beae13f7edf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a789a8a2ccf7c912383dbe9df4cc26ba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a789a8a2ccf7c912383dbe9df4cc26ba5">swap</a> (<a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;a, <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;b)</td></tr>
-<tr class="separator:a789a8a2ccf7c912383dbe9df4cc26ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58ff10da1ec7829033d5fa80e133f5d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a58ff10da1ec7829033d5fa80e133f5d5">swap</a> (<a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;a, <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;b)</td></tr>
+<tr class="separator:a58ff10da1ec7829033d5fa80e133f5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01031">1031</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00664">664</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a963ab4b80a4a037b773704b483ca3d72"></a>
+<a class="anchor" id="aee7eae8f2b409cb0919a7c27069e0ca0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="../../d2/d1f/a00083.html">GeoGrid_Location</a> <a class="el" href="../../d4/d63/a00082.html#a963ab4b80a4a037b773704b483ca3d72">proto::GeoGrid::Location</a></td>
+          <td class="memname">typedef <a class="el" href="../../da/d2a/a00086.html">GeoGrid_Location_Coordinate</a> <a class="el" href="../../d4/d63/a00082.html#aee7eae8f2b409cb0919a7c27069e0ca0">proto::GeoGrid_Location::Coordinate</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01118">1118</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00751">751</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="afffd60fc3e9fad4e152b3fd8bc89bec9"></a>
+<a class="anchor" id="aa4dce1d29875f19ff40d56b380f68450"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="../../db/ddf/a00088.html">GeoGrid_Person</a> <a class="el" href="../../d4/d63/a00082.html#afffd60fc3e9fad4e152b3fd8bc89bec9">proto::GeoGrid::Person</a></td>
+          <td class="memname">typedef <a class="el" href="../../df/d5d/a00084.html">GeoGrid_Location_ContactCenter</a> <a class="el" href="../../d4/d63/a00082.html#aa4dce1d29875f19ff40d56b380f68450">proto::GeoGrid_Location::ContactCenter</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01119">1119</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00752">752</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a135d7ab8a0e8c841230cd7cedb02f823"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="../../d2/d1f/a00083.html">GeoGrid_Location_Commute</a> <a class="el" href="../../d4/d63/a00082.html#a135d7ab8a0e8c841230cd7cedb02f823">proto::GeoGrid_Location::Commute</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00753">753</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4fee992d5d7fced60a847258f37e9b62"></a>
+<a class="anchor" id="aac7b99d1d33890606786aebe1d7d8a02"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid::GeoGrid </td>
+          <td class="memname">proto::GeoGrid_Location::GeoGrid_Location </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -330,7 +469,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae33322ada2b25c723eb29ce985c62694"></a>
+<a class="anchor" id="a5ef9e62896feceea1467d67e8c09ba27"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -338,7 +477,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual proto::GeoGrid::~GeoGrid </td>
+          <td class="memname">virtual proto::GeoGrid_Location::~GeoGrid_Location </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -353,14 +492,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a59548cbbed93d5c0cd85a6eea1247b7e"></a>
+<a class="anchor" id="a66a50f961c4c37f7788cf771845d5867"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid::GeoGrid </td>
+          <td class="memname">proto::GeoGrid_Location::GeoGrid_Location </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -370,7 +509,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a61ddeb423f13fff30f6bd927e0448247"></a>
+<a class="anchor" id="af965c169cda71029ea71d695aa940072"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -378,9 +517,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a>&amp; proto::GeoGrid::operator= </td>
+          <td class="memname"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a>&amp; proto::GeoGrid_Location::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -392,13 +531,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01038">1038</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00671">671</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>References <a class="el" href="../../d1/d1e/a00087.html#acd1fbac407774997606c59d34c12d110">proto::GeoGrid_Location_Coordinate::CopyFrom()</a>.</p>
+<p>References <a class="el" href="../../da/d2a/a00086.html#acd1fbac407774997606c59d34c12d110">proto::GeoGrid_Location_Coordinate::CopyFrom()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_af965c169cda71029ea71d695aa940072_cgraph.svg" width="384" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a95227d9895983275fbc95beada93f9f8"></a>
+<a class="anchor" id="a6109044fb47770d021c6d7ea2742a488"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -406,7 +552,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ::google::protobuf::UnknownFieldSet&amp; proto::GeoGrid::unknown_fields </td>
+          <td class="memname">const ::google::protobuf::UnknownFieldSet&amp; proto::GeoGrid_Location::unknown_fields </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -419,11 +565,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01057">1057</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00690">690</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4c697b72f2ff8ed9b6ad9d1dee86f30e"></a>
+<a class="anchor" id="a21dab5fd2498fce3643f278fe1686aff"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -431,7 +577,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">inline ::google::protobuf::UnknownFieldSet* proto::GeoGrid::mutable_unknown_fields </td>
+          <td class="memname">inline ::google::protobuf::UnknownFieldSet* proto::GeoGrid_Location::mutable_unknown_fields </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -444,11 +590,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01060">1060</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00693">693</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a91917f97a836a3cd49870ff3eb8f18d5"></a>
+<a class="anchor" id="a9142882adec24247d36610ee120d95f5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -456,7 +602,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static const ::google::protobuf::Descriptor* proto::GeoGrid::descriptor </td>
+          <td class="memname">static const ::google::protobuf::Descriptor* proto::GeoGrid_Location::descriptor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -471,7 +617,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa0418166b3d0262a61b01ef05b15d84e"></a>
+<a class="anchor" id="aa165379b333c623dc0577d585e26bbdf"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -479,7 +625,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a>&amp; proto::GeoGrid::default_instance </td>
+          <td class="memname">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a>&amp; proto::GeoGrid_Location::default_instance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -494,7 +640,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a87307c4033caa44177d16461e1ff099c"></a>
+<a class="anchor" id="a0ae2b43eadf57dfd131a2d36ef487caf"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -502,7 +648,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void proto::GeoGrid::InitAsDefaultInstance </td>
+          <td class="memname">static void proto::GeoGrid_Location::InitAsDefaultInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -517,7 +663,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4b5a61b2bcfa2aa734cca65c1fab2a99"></a>
+<a class="anchor" id="aad68cc7cae3c07b4d9d4cc4841c6ab68"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -525,7 +671,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a>* proto::GeoGrid::internal_default_instance </td>
+          <td class="memname">static const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a>* proto::GeoGrid_Location::internal_default_instance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -538,20 +684,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01068">1068</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00701">701</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/d4b/a00471.html#a8d72fed491d0139073e6e2bd512f7488">proto::_GeoGrid_default_instance_</a>.</p>
+<p>References <a class="el" href="../../df/d38/a00468.html#aceb99fee11b7bff15d992ba5c29c87f9">proto::_GeoGrid_Location_default_instance_</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5eee713fcbfb1b4de56fc4eae35d6580"></a>
+<a class="anchor" id="a4bc2a1da87de5f5db68bbfa11cda143e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::Swap </td>
+          <td class="memname">void proto::GeoGrid_Location::Swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -560,7 +706,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab6fcea44a7d8dd5c46fa3ab6293f7915"></a>
+<a class="anchor" id="a41f5479b7427e58731a3c5ccad8a76b4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -568,7 +714,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a>* proto::GeoGrid::New </td>
+          <td class="memname"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a>* proto::GeoGrid_Location::New </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -581,20 +727,34 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01082">1082</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00715">715</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>References <a class="el" href="../../d2/d82/a00279_source.html#l01082">New()</a>.</p>
+<p>References <a class="el" href="../../dc/d28/a00276_source.html#l00715">New()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l01082">New()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00715">New()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a41f5479b7427e58731a3c5ccad8a76b4_cgraph.svg" width="211" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a41f5479b7427e58731a3c5ccad8a76b4_icgraph.svg" width="211" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="ac740c651eb405eab234371b01bf12e46"></a>
+<a class="anchor" id="ab51f3a9ec52e54e12359f0401758a64b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a>* proto::GeoGrid::New </td>
+          <td class="memname"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a>* proto::GeoGrid_Location::New </td>
           <td>(</td>
           <td class="paramtype">::google::protobuf::Arena *&#160;</td>
           <td class="paramname"><em>arena</em></td><td>)</td>
@@ -605,14 +765,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a727b39df7edab34ec30acf75a9cd1fe3"></a>
+<a class="anchor" id="ad62775d61c733972a1167d16a96e1a5a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::CopyFrom </td>
+          <td class="memname">void proto::GeoGrid_Location::CopyFrom </td>
           <td>(</td>
-          <td class="paramtype">const ::<a class="el" href="../../db/df8/a00076.html">google::protobuf::Message</a> &amp;&#160;</td>
+          <td class="paramtype">const ::<a class="el" href="../../d9/da5/a00075.html">google::protobuf::Message</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -621,14 +781,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a25004061a5814fef5e45257d8d1455a9"></a>
+<a class="anchor" id="aa5421d8f6a3929b987bdc127ea20a769"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::MergeFrom </td>
+          <td class="memname">void proto::GeoGrid_Location::MergeFrom </td>
           <td>(</td>
-          <td class="paramtype">const ::<a class="el" href="../../db/df8/a00076.html">google::protobuf::Message</a> &amp;&#160;</td>
+          <td class="paramtype">const ::<a class="el" href="../../d9/da5/a00075.html">google::protobuf::Message</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -637,14 +797,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8a33b29e9fd5d61df9cae50199554a65"></a>
+<a class="anchor" id="abfa6d49dd480d7d471437052744a5be1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::CopyFrom </td>
+          <td class="memname">void proto::GeoGrid_Location::CopyFrom </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -653,14 +813,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0918519155be92ff94e54cbd46488ba9"></a>
+<a class="anchor" id="ab38a059582607804aff2ccb25b90735d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::MergeFrom </td>
+          <td class="memname">void proto::GeoGrid_Location::MergeFrom </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -669,12 +829,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac8bdec0685ba6072feb2d99ef8905f11"></a>
+<a class="anchor" id="a592594bf2bf9019104d443442985afc8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::Clear </td>
+          <td class="memname">void proto::GeoGrid_Location::Clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -684,27 +844,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aac62e5c9271697944f25fc0b72f9a074"></a>
+<a class="anchor" id="a9fb60e78c13a009753a04a3edbfbd13d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool proto::GeoGrid::IsInitialized </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac876ed269b172d05ef8fb7864647fc2b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d7e/a00492.html">size_t</a> proto::GeoGrid::ByteSizeLong </td>
+          <td class="memname">bool proto::GeoGrid_Location::IsInitialized </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -714,12 +859,27 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac4c9c7af5f773ffbea47128e6fa3e20e"></a>
+<a class="anchor" id="a35ac3212baeb35313b2179770f649f5f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool proto::GeoGrid::MergePartialFromCodedStream </td>
+          <td class="memname"><a class="el" href="../../da/d05/a00489.html">size_t</a> proto::GeoGrid_Location::ByteSizeLong </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aca57ae1cd890f811a7ad1ab54f7cc46f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool proto::GeoGrid_Location::MergePartialFromCodedStream </td>
           <td>(</td>
           <td class="paramtype">::google::protobuf::io::CodedInputStream *&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -730,12 +890,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abb7255e19f769fc04dcd4e2cf183db3a"></a>
+<a class="anchor" id="a5d483a64dc4cad06d5cc4dc33bc8c083"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::SerializeWithCachedSizes </td>
+          <td class="memname">void proto::GeoGrid_Location::SerializeWithCachedSizes </td>
           <td>(</td>
           <td class="paramtype">::google::protobuf::io::CodedOutputStream *&#160;</td>
           <td class="paramname"><em>output</em></td><td>)</td>
@@ -746,12 +906,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7e487168430474707c8def5814d435d3"></a>
+<a class="anchor" id="a3675112ca80e296f3f706bbe88bf48a4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::uint8* proto::GeoGrid::InternalSerializeWithCachedSizesToArray </td>
+          <td class="memname">::google::protobuf::uint8* proto::GeoGrid_Location::InternalSerializeWithCachedSizesToArray </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>deterministic</em>, </td>
@@ -772,7 +932,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad2a5ee78e10d89970cc5b9f977b3a874"></a>
+<a class="anchor" id="a786b41ccd4fa34f0daefd625d5cb5276"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -780,7 +940,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int proto::GeoGrid::GetCachedSize </td>
+          <td class="memname">int proto::GeoGrid_Location::GetCachedSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -793,13 +953,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01099">1099</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00732">732</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00254">proto::GeoGrid_Location_Coordinate::_cached_size_</a>.</p>
+<p>References <a class="el" href="../../dc/d28/a00276_source.html#l00236">proto::GeoGrid_Location_Coordinate::_cached_size_</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af4fab526347d90e22210ba5e294336a6"></a>
+<a class="anchor" id="a8fde046b8a29c13d638f48f3771fa8e7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -807,7 +967,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::SharedCtor </td>
+          <td class="memname">void proto::GeoGrid_Location::SharedCtor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -822,7 +982,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="add027c74de86c395d6b529d76331c619"></a>
+<a class="anchor" id="a813d99a6bb4e8adae7d2d5a39a3f3131"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -830,7 +990,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::SharedDtor </td>
+          <td class="memname">void proto::GeoGrid_Location::SharedDtor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -845,7 +1005,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6821bc8c7b417bd3a383280ea7cbf323"></a>
+<a class="anchor" id="af826bad4fb1d3b9a7219af156267be97"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -853,7 +1013,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::SetCachedSize </td>
+          <td class="memname">void proto::GeoGrid_Location::SetCachedSize </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>size</em></td><td>)</td>
@@ -869,7 +1029,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7a057520444e9348ec15713f8bad7c9f"></a>
+<a class="anchor" id="a4352a98a571a6664a098300487f3b6a8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -877,9 +1037,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::InternalSwap </td>
+          <td class="memname">void proto::GeoGrid_Location::InternalSwap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> *&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -893,7 +1053,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae06b872919c51df7446ce55e68b6d2c6"></a>
+<a class="anchor" id="a1c711c7a803c67b6a41000d27fc2fee2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -901,7 +1061,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">inline ::google::protobuf::Arena* proto::GeoGrid::GetArenaNoVirtual </td>
+          <td class="memname">inline ::google::protobuf::Arena* proto::GeoGrid_Location::GetArenaNoVirtual </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -914,11 +1074,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01106">1106</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00739">739</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8e00fc98bc53673d0c70b6609b141b98"></a>
+<a class="anchor" id="a9a8c3cb33092310d676a8c986f62ade9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -926,7 +1086,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void* proto::GeoGrid::MaybeArenaPtr </td>
+          <td class="memname">void* proto::GeoGrid_Location::MaybeArenaPtr </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -939,16 +1099,16 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01109">1109</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00742">742</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a31829900cfb16fac4772ceda0cc9dbfd"></a>
+<a class="anchor" id="a32716a6c9c5df16eb15ce81d814d6244"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::Metadata proto::GeoGrid::GetMetadata </td>
+          <td class="memname">::google::protobuf::Metadata proto::GeoGrid_Location::GetMetadata </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -958,7 +1118,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa4e4cc38da711b133be850b95d4cf2cb"></a>
+<a class="anchor" id="a9af8ca81e0d174f95d789faa3c185d2a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -966,7 +1126,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int proto::GeoGrid::locations_size </td>
+          <td class="memname">int proto::GeoGrid_Location::contactcenters_size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -979,13 +1139,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01861">1861</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01584">1584</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d25/a00290_source.html#l00023">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a9af8ca81e0d174f95d789faa3c185d2a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a29f6f7a131d55f0be231362c117a4829"></a>
+<a class="anchor" id="ad0e3935edfee6b1dde6b9084097ae1a4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -993,7 +1160,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::clear_locations </td>
+          <td class="memname">void proto::GeoGrid_Location::clear_contactcenters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1006,11 +1173,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01864">1864</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01587">1587</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b5d0b66ec5382518acb9fc346d600a7"></a>
+<a class="anchor" id="aadf531763d2e4f044e98f688958d8353"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1018,7 +1185,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &amp; proto::GeoGrid::locations </td>
+          <td class="memname">const ::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &amp; proto::GeoGrid_Location::contactcenters </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -1032,13 +1199,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01867">1867</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01590">1590</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d25/a00290_source.html#l00023">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_aadf531763d2e4f044e98f688958d8353_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a4b13413d35bd5562b0eaf4ab1b517616"></a>
+<a class="anchor" id="a7de6d9a673b14c9db837edd47fedee38"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1046,7 +1220,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> * proto::GeoGrid::mutable_locations </td>
+          <td class="memname"><a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> * proto::GeoGrid_Location::mutable_contactcenters </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -1060,11 +1234,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01871">1871</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01594">1594</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3e490616ea40c285ca1cf5832d1fc244"></a>
+<a class="anchor" id="afe71705ad7142a1f8b6260631f42ffc7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1072,7 +1246,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> * proto::GeoGrid::add_locations </td>
+          <td class="memname"><a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> * proto::GeoGrid_Location::add_contactcenters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1085,13 +1259,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01875">1875</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01598">1598</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d0a/a00292_source.html#l00012">gengeopop::GeoGridProtoWriter::Write()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_afe71705ad7142a1f8b6260631f42ffc7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a36d1cf8fc0242fb534a8604dee0ad3b0"></a>
+<a class="anchor" id="a5f4b1f9b7aaf5bec4447852ddb592294"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1099,7 +1280,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &gt; * proto::GeoGrid::mutable_locations </td>
+          <td class="memname">google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &gt; * proto::GeoGrid_Location::mutable_contactcenters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1112,11 +1293,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01880">1880</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01603">1603</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac03281d346ea7ad3bf9cad98116e3bd4"></a>
+<a class="anchor" id="ac328df76484139aa61fd5a0f4e46c0f3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1124,7 +1305,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ::google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &gt; &amp; proto::GeoGrid::locations </td>
+          <td class="memname">const ::google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &gt; &amp; proto::GeoGrid_Location::contactcenters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1137,11 +1318,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01885">1885</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01608">1608</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2305009892d1e70cf58a9ff9b422a21d"></a>
+<a class="anchor" id="a61d7217103491dd110c59c46cc32aa25"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1149,7 +1330,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int proto::GeoGrid::persons_size </td>
+          <td class="memname">int proto::GeoGrid_Location::commutes_size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1162,13 +1343,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01891">1891</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01614">1614</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d25/a00290_source.html#l00023">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a61d7217103491dd110c59c46cc32aa25_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="ac9d48ccb4edf9802081eda4dbc676061"></a>
+<a class="anchor" id="ac9d58db09b52758c26e72b0d4750e902"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1176,7 +1364,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid::clear_persons </td>
+          <td class="memname">void proto::GeoGrid_Location::clear_commutes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1189,11 +1377,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01894">1894</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01617">1617</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af24fe8aeed116df8e4dc62d33c871653"></a>
+<a class="anchor" id="af51162270a0c084022903489941101ab"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1201,7 +1389,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &amp; proto::GeoGrid::persons </td>
+          <td class="memname">const ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &amp; proto::GeoGrid_Location::commutes </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -1215,13 +1403,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01897">1897</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01620">1620</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d25/a00290_source.html#l00023">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_af51162270a0c084022903489941101ab_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a9dad9d30efd49e95ea9f5eb1a7da85d9"></a>
+<a class="anchor" id="acf320ea0798dc204651aa88ad109a705"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1229,7 +1424,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> * proto::GeoGrid::mutable_persons </td>
+          <td class="memname"><a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> * proto::GeoGrid_Location::mutable_commutes </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -1243,11 +1438,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01901">1901</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01624">1624</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac0bd3b734049997531218f3507b844bf"></a>
+<a class="anchor" id="afcaa78dcf409d0cb1f68907948ed761a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1255,7 +1450,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> * proto::GeoGrid::add_persons </td>
+          <td class="memname"><a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> * proto::GeoGrid_Location::add_commutes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1268,13 +1463,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01905">1905</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01628">1628</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d0a/a00292_source.html#l00012">gengeopop::GeoGridProtoWriter::Write()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_afcaa78dcf409d0cb1f68907948ed761a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a6fad890daf2aa7bf4ebf6b6cbb3a9ac4"></a>
+<a class="anchor" id="a27658c224904994363aa9740b74ca3b3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1282,7 +1484,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &gt; * proto::GeoGrid::mutable_persons </td>
+          <td class="memname">google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &gt; * proto::GeoGrid_Location::mutable_commutes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1295,11 +1497,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01910">1910</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01633">1633</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6137bac35dabdae659f09f5514819ca5"></a>
+<a class="anchor" id="aad662c74f5a93da4636449ab3dc8a9e6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1307,7 +1509,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ::google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &gt; &amp; proto::GeoGrid::persons </td>
+          <td class="memname">const ::google::protobuf::RepeatedPtrField&lt;::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &gt; &amp; proto::GeoGrid_Location::commutes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1320,11 +1522,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01915">1915</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01638">1638</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a961025dbd53e459b5657e0d517aa7f9f"></a>
+<a class="anchor" id="aa6b681cff1e7752484cf41af78dcaf5b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1332,7 +1534,1289 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid::void::protobuf_geogrid_2eproto::InitDefaultsGeoGridImpl </td>
+          <td class="memname">int proto::GeoGrid_Location::submunicipalities_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01644">1644</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_aa6b681cff1e7752484cf41af78dcaf5b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a24516596c17a10db31433da52c72d79d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_submunicipalities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01647">1647</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a288f9df809ad80a45aac18077a76116b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">google::protobuf::int64 proto::GeoGrid_Location::submunicipalities </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01650">1650</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a288f9df809ad80a45aac18077a76116b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1fa339c24e126163faed830f6f3f11f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_submunicipalities </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">::google::protobuf::int64&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01654">1654</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e60a8f6702a60e4897be906f9bc9950"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::add_submunicipalities </td>
+          <td>(</td>
+          <td class="paramtype">::google::protobuf::int64&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01658">1658</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a6e60a8f6702a60e4897be906f9bc9950_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aac231a5720bed3302dc8a91264606310"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ::google::protobuf::RepeatedField&lt;::google::protobuf::int64 &gt; &amp; proto::GeoGrid_Location::submunicipalities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01663">1663</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a152cb77528615a770ab033708bda386e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">google::protobuf::RepeatedField&lt;::google::protobuf::int64 &gt; * proto::GeoGrid_Location::mutable_submunicipalities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01668">1668</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e664fb5a0a203d346143f468edc8615"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool proto::GeoGrid_Location::has_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01419">1419</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a756456e14649022ee445a4dcfe1deb87"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01428">1428</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5d5287002d2a97e9c59fc974e850df8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ::std::string &amp; proto::GeoGrid_Location::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01432">1432</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_ae5d5287002d2a97e9c59fc974e850df8_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c05daf9d464d1459286d096d989bf23"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_name </td>
+          <td>(</td>
+          <td class="paramtype">const ::std::string &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01436">1436</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a7c05daf9d464d1459286d096d989bf23_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a985989f409ffec618810b9ae89fe07cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_name </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01449">1449</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76aa00ce21d3d8541c3afa26b8a997f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_name </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d05/a00489.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01455">1455</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12ca3d9786fc44042c0bc460bc6526af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string * proto::GeoGrid_Location::mutable_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01461">1461</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a924aad372ff9a2967f94b198896ca299"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string * proto::GeoGrid_Location::release_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01466">1466</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a01cf036be24d5c1d67a374d2a44fbcfd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_allocated_name </td>
+          <td>(</td>
+          <td class="paramtype">::std::string *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01471">1471</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35f7b564237684a11c1ce1af65fd6eba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool proto::GeoGrid_Location::has_coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01530">1530</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad17487e6e5d0da981dc9775621c8cc3f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01539">1539</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20327f38bc0288016b3eeb04997e66fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> &amp; proto::GeoGrid_Location::coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01543">1543</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>References <a class="el" href="../../df/d38/a00468.html#a2a8cb433bd6d94158cab73a051bbfd72">proto::_GeoGrid_Location_Coordinate_default_instance_</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a20327f38bc0288016b3eeb04997e66fd_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e8a5ae790adc68a5454bd78baa7ef7e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> * proto::GeoGrid_Location::release_coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01549">1549</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5e61799098b7a39a13873eb1824b642"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> * proto::GeoGrid_Location::mutable_coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01556">1556</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6dbb45201d633d8cb62b7a553f76d37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_allocated_coordinate </td>
+          <td>(</td>
+          <td class="paramtype">::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a> *&#160;</td>
+          <td class="paramname"><em>coordinate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01564">1564</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>References <a class="el" href="../../dc/d28/a00276_source.html#l00196">proto::GeoGrid_Location_Coordinate::GetArenaNoVirtual()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_ae6dbb45201d633d8cb62b7a553f76d37_cgraph.svg" width="446" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_ae6dbb45201d633d8cb62b7a553f76d37_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa0a17f91574f146e2a25c09f37718432"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool proto::GeoGrid_Location::has_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01395">1395</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2f62809f8085afdbb4564ec8c5c590c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01404">1404</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f787c871e478cd4706979b0d78edce4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">google::protobuf::int64 proto::GeoGrid_Location::id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01408">1408</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a9f787c871e478cd4706979b0d78edce4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d365381ae92aed8249b91cce620cf99"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_id </td>
+          <td>(</td>
+          <td class="paramtype">::google::protobuf::int64&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01412">1412</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a1d365381ae92aed8249b91cce620cf99_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ce50d94d05b3ea2d51e072a8aacf39d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool proto::GeoGrid_Location::has_province </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01482">1482</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d1ae9228428e91f6c52d43160d6bca2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_province </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01491">1491</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefd4205f29912c851f50c5cc9858b96c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">google::protobuf::int64 proto::GeoGrid_Location::province </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01495">1495</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_aefd4205f29912c851f50c5cc9858b96c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0e0fef5af15055b22c4d2419107caf1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_province </td>
+          <td>(</td>
+          <td class="paramtype">::google::protobuf::int64&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01499">1499</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_ac0e0fef5af15055b22c4d2419107caf1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9669ea59ea91f192e5974f805e8311c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool proto::GeoGrid_Location::has_population </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01506">1506</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a947f641c8d446b2ecc61ea0ebcd5b33f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_population </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01515">1515</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f722f8a9c6609c033a0654fd3bef9d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">google::protobuf::int64 proto::GeoGrid_Location::population </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01519">1519</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7f/a00287_source.html#l00077">gengeopop::GeoGridProtoReader::ParseLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a8f722f8a9c6609c033a0654fd3bef9d8_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a881f94e3b033b5535b37654013177e31"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_population </td>
+          <td>(</td>
+          <td class="paramtype">::google::protobuf::int64&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01523">1523</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00032">gengeopop::GeoGridProtoWriter::WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d63/a00082_a881f94e3b033b5535b37654013177e31_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7ebbcead7dc93673308fc637ec171fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_has_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01398">1398</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a428fbbb4c1d33c0265721cd7a9b99685"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_has_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01401">1401</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9557a6aca7a99341e35e8f8dcc4066a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_has_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01422">1422</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04799e4fa9b8edfd11c882b00ec21aa6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_has_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01425">1425</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aea0596c9a764ed4915c36e022fcb93de"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_has_province </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01485">1485</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a667d4f600ec2c8a61b8242293ef8b94e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_has_province </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01488">1488</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af745bee2ef930b42d6d45b33c6569ad6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_has_population </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01509">1509</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44bb98f939f21662effc827fb342420d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_has_population </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01512">1512</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f7fe66506f910537b03e28d4abd6b59"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::set_has_coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01533">1533</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab09ec833a498eac7020f94a77aa20ac3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void proto::GeoGrid_Location::clear_has_coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l01536">1536</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5e51726be8ca0872d455a9075ae08e1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d05/a00489.html">size_t</a> proto::GeoGrid_Location::RequiredFieldsByteSizeFallback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9f2c2e2d8205b79370dc692e195d28ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">proto::GeoGrid_Location::void::protobuf_geogrid_2eproto::InitDefaultsGeoGrid_LocationImpl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1356,7 +2840,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend struct ::<a class="el" href="../../db/dab/a00089.html">protobuf_geogrid_2eproto::TableStruct</a></td>
+          <td class="memname">friend struct ::<a class="el" href="../../db/ddf/a00088.html">protobuf_geogrid_2eproto::TableStruct</a></td>
         </tr>
       </table>
   </td>
@@ -1366,11 +2850,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01155">1155</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00865">865</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a789a8a2ccf7c912383dbe9df4cc26ba5"></a>
+<a class="anchor" id="a58ff10da1ec7829033d5fa80e133f5d5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1380,13 +2864,13 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -1402,12 +2886,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01076">1076</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00709">709</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad756783e577e814adbd017f9665ac186"></a>
+<a class="anchor" id="a0e6cc434fc89f0e594724ee028333859"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1415,7 +2899,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">PROTOBUF_CONSTEXPR int const proto::GeoGrid::kIndexInFileMessages</td>
+          <td class="memname">PROTOBUF_CONSTEXPR int const proto::GeoGrid_Location::kIndexInFileMessages</td>
         </tr>
       </table>
   </td>
@@ -1425,13 +2909,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    6</div>
+<div class="line">    4</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01072">1072</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00705">705</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4bbaadeac24c2eb30a3bb20da7054ee9"></a>
+<a class="anchor" id="ac88d39b48a8f6274142c0c915e4eda4c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1439,7 +2923,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int proto::GeoGrid::kLocationsFieldNumber = 1</td>
+          <td class="memname">const int proto::GeoGrid_Location::kContactCentersFieldNumber = 6</td>
         </tr>
       </table>
   </td>
@@ -1449,11 +2933,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01126">1126</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00760">760</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a533642b064cb5729d76e18022a26fda7"></a>
+<a class="anchor" id="aced174ea67ca957ba51a1faa8c5f08b8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1461,7 +2945,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int proto::GeoGrid::kPersonsFieldNumber = 2</td>
+          <td class="memname">const int proto::GeoGrid_Location::kCommutesFieldNumber = 7</td>
         </tr>
       </table>
   </td>
@@ -1471,11 +2955,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01138">1138</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00772">772</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3acf2fe46f539d2cae99f8a1fac9c574"></a>
+<a class="anchor" id="acd59da5474130471ad6566528cd72307"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1483,7 +2967,139 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::internal::InternalMetadataWithArena proto::GeoGrid::_internal_metadata_</td>
+          <td class="memname">const int proto::GeoGrid_Location::kSubmunicipalitiesFieldNumber = 8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00784">784</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ca7478b7e9a028a2a8a950d39445eda"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int proto::GeoGrid_Location::kNameFieldNumber = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00796">796</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35ef5d60c70510d75b63b1bad4813f52"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int proto::GeoGrid_Location::kCoordinateFieldNumber = 5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00811">811</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a79e48ac4d0cfefa4b5f044bbc65fcea3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int proto::GeoGrid_Location::kIdFieldNumber = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00820">820</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c1a4e981f5845eebb30b7934ee64404"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int proto::GeoGrid_Location::kProvinceFieldNumber = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00827">827</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6f92eac529e75759dac9bab64b89b16"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int proto::GeoGrid_Location::kPopulationFieldNumber = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00834">834</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1296fe1050f811ae0135917be1cc716"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::google::protobuf::internal::InternalMetadataWithArena proto::GeoGrid_Location::_internal_metadata_</td>
         </tr>
       </table>
   </td>
@@ -1493,11 +3109,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01150">1150</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00854">854</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a68c59da0f1dbb1d5d230da48ce276dcd"></a>
+<a class="anchor" id="ad8e3f9007c7c0ba802d489e1d4b0698d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1505,7 +3121,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::internal::HasBits&lt;1&gt; proto::GeoGrid::_has_bits_</td>
+          <td class="memname">::google::protobuf::internal::HasBits&lt;1&gt; proto::GeoGrid_Location::_has_bits_</td>
         </tr>
       </table>
   </td>
@@ -1515,11 +3131,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01151">1151</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00855">855</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a51e0311eb722815c1169d0c366f89a78"></a>
+<a class="anchor" id="af9ea8f1e3410b9951c4d7ada1f326f22"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1527,7 +3143,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int proto::GeoGrid::_cached_size_</td>
+          <td class="memname">int proto::GeoGrid_Location::_cached_size_</td>
         </tr>
       </table>
   </td>
@@ -1537,11 +3153,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01152">1152</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00856">856</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aef45db26c3ceb9df2afcc1195be76b9f"></a>
+<a class="anchor" id="a6d5ee56896c3552cabccecd44252f143"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1549,7 +3165,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::RepeatedPtrField&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a> &gt; proto::GeoGrid::locations_</td>
+          <td class="memname">::google::protobuf::RepeatedPtrField&lt; ::<a class="el" href="../../df/d5d/a00084.html">proto::GeoGrid_Location_ContactCenter</a> &gt; proto::GeoGrid_Location::contactcenters_</td>
         </tr>
       </table>
   </td>
@@ -1559,11 +3175,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01153">1153</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00857">857</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b59a92801fa6e3205c99df850f08dd1"></a>
+<a class="anchor" id="a894569fd4ed53ed226da26767b5196f3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1571,7 +3187,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::RepeatedPtrField&lt; ::<a class="el" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a> &gt; proto::GeoGrid::persons_</td>
+          <td class="memname">::google::protobuf::RepeatedPtrField&lt; ::<a class="el" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location_Commute</a> &gt; proto::GeoGrid_Location::commutes_</td>
         </tr>
       </table>
   </td>
@@ -1581,20 +3197,152 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l01154">1154</a> of file <a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00858">858</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a037b768b1b9df2cc7c3544fc2c0e5434"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::google::protobuf::RepeatedField&lt; ::google::protobuf::int64 &gt; proto::GeoGrid_Location::submunicipalities_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00859">859</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac638471e5c17dd7c8c5afd34857849c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::google::protobuf::internal::ArenaStringPtr proto::GeoGrid_Location::name_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00860">860</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3204117f261e1df6e78448aaad829625"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::<a class="el" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_Coordinate</a>* proto::GeoGrid_Location::coordinate_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00861">861</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af958c62137595d2148f14541a8871522"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::google::protobuf::int64 proto::GeoGrid_Location::id_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00862">862</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3270c34b911a8e64c45fbb3f40f0a205"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::google::protobuf::int64 proto::GeoGrid_Location::province_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00863">863</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6547521bb7e4140e082542aae89d718f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">::google::protobuf::int64 proto::GeoGrid_Location::population_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00864">864</a> of file <a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d2/d82/a00279_source.html">geogrid.pb.h</a></li>
+<li><a class="el" href="../../dc/d28/a00276_source.html">geogrid.pb.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d4b/a00471.html">proto</a></li><li class="navelem"><a class="el" href="../../d4/d63/a00082.html">GeoGrid</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../df/d38/a00468.html">proto</a></li><li class="navelem"><a class="el" href="../../d4/d63/a00082.html">GeoGrid_Location</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

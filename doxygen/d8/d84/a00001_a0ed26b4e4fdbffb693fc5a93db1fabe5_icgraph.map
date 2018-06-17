@@ -1,0 +1,8 @@
+<map id="Backend::PlaceMarkers" name="Backend::PlaceMarkers">
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a4c68caab686f34853c326b801fbadf4b" title="Load a GeoGrid from JSON file, specified in the command line arguments. " alt="" coords="223,5,409,46"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#acb9ec493bbac930f2c20e69963459770" title="Changes the geogrid to the given one. " alt="" coords="238,71,394,97"/>
+<area shape="rect" id="node6" href="$d8/d84/a00001.html#af3d90629f93456f7ed430d53225d28cc" title="Places the locations of the current GeoGrid on the map. " alt="" coords="243,121,389,148"/>
+<area shape="rect" id="node7" href="$d8/d84/a00001.html#a6ff4f267985cb8eea228352455ab6b67" title="Backend::SetShowCommutes" alt="" coords="217,172,415,199"/>
+<area shape="rect" id="node4" href="$d8/d84/a00001.html#a76b9d9ea83aa45c28655644598ce1b27" title="Loads a GeoGrid from JSON file. " alt="" coords="464,45,672,72"/>
+<area shape="rect" id="node5" href="$da/dec/a00080.html#a13cbf50eb92e9c512412e2da30a313b8" title="Shows the given geogrid in the mapviewer. " alt="" coords="503,96,633,123"/>
+</map>

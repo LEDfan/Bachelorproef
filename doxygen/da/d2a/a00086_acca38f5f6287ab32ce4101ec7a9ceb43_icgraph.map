@@ -1,0 +1,6 @@
+<map id="proto::GeoGrid_Location_Coordinate::set_has_latitude" name="proto::GeoGrid_Location_Coordinate::set_has_latitude">
+<area shape="rect" id="node2" href="$da/d2a/a00086.html#a676dbe40aedbf5a4e3ea42a86a6878e3" title="proto::GeoGrid_Location\l_Coordinate::set_latitude" alt="" coords="249,5,415,46"/>
+<area shape="rect" id="node3" href="$db/d3a/a00040.html#a7909bc4f9f4d5d20737a5f1777b90fa4" title="Create a ProtoBuf Coordinate containing all the information needed to reconstruct a Coordinate..." alt="" coords="465,5,671,46"/>
+<area shape="rect" id="node4" href="$db/d3a/a00040.html#a2b0641108a2e713aa25c5969939a3c14" title="Create a ProtoBuf Location containing all the information needed to reconstruct a Location..." alt="" coords="721,5,927,46"/>
+<area shape="rect" id="node5" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="977,5,1183,46"/>
+</map>

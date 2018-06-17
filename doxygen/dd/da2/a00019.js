@@ -1,6 +1,8 @@
 var a00019 =
 [
-    [ "Collector", "dd/da2/a00019.html#ade1a346a6e6324ad1bbc872e93ba4717", null ],
-    [ "operator()", "dd/da2/a00019.html#ad0d0993c1c8f1c9ff517ede6f66dd8d7", null ],
-    [ "m_ins", "dd/da2/a00019.html#aeaa5ec032b107f7865299dad0aa0fb4d", null ]
+    [ "College", "dd/da2/a00019.html#a4c4cfbf6cdec574798f3cdbcbf19fcf2", null ],
+    [ "GetType", "dd/da2/a00019.html#a89ecb95547bda6b23726fc82f60760c2", null ],
+    [ "GetPoolSize", "dd/da2/a00019.html#a62977caa888aff35af48443e3ce890c2", null ],
+    [ "GetMaxPools", "dd/da2/a00019.html#a77035ed2452bb47c763282b46233f9e9", null ],
+    [ "Fill", "dd/da2/a00019.html#a754f1a7c9921e9a397ad1c9331db10e2", null ]
 ];

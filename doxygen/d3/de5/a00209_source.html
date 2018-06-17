@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CitiesReader.cpp Source File</title>
+<title>Stride Reference Manual: CitiesReader.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,25 +109,52 @@ $(document).ready(function(){initNavTree('d3/de5/a00209_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CitiesReader.cpp</div>  </div>
+<div class="title">CitiesReader.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d3/de5/a00209.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/de7/a00210.html">CitiesReader.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d1/d2b/a00018.html#a154d0d27a849179dc131b6c15773a931">    5</a></span>&#160;<a class="code" href="../../d1/d2b/a00018.html#a154d0d27a849179dc131b6c15773a931">CitiesReader::CitiesReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream) : m_inputStream(std::move(inputStream)) {}</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00210_html"><div class="ttname"><a href="../../da/de7/a00210.html">CitiesReader.h</a></div></div>
-<div class="ttc" id="a00018_html_a154d0d27a849179dc131b6c15773a931"><div class="ttname"><a href="../../d1/d2b/a00018.html#a154d0d27a849179dc131b6c15773a931">gengeopop::CitiesReader::CitiesReader</a></div><div class="ttdeci">CitiesReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CitiesReader with an istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/de5/a00209_source.html#l00005">CitiesReader.cpp:5</a></div></div>
+<a href="../../d3/de5/a00209.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d5e/a00275.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d1/dc6/a00347.html">gengeopop/Location.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * Create an abstract Reader which fills a GeoGrid with the Cities found in a given file.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * This can be implemented using different input file types. Currently CSV is implemented.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d4/d51/a00017.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d51/a00017.html">CitiesReader</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Construct the CitiesReader with an istream containing the file content</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d4/d51/a00017.html#a154d0d27a849179dc131b6c15773a931">CitiesReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// Add the found Locations to the provided GeoGrid</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d51/a00017.html#aa5acb51ba0643af5d5f67f47ba6b9a5c">FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt;) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">        /// Default destructor</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="../../d4/d51/a00017.html#a068af8ee265596b9689721403375b636">~CitiesReader</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d4/d51/a00017.html#a793dc38b147b1082c5a61131e2330c25">   27</a></span>&#160;        std::unique_ptr&lt;std::istream&gt; <a class="code" href="../../d4/d51/a00017.html#a793dc38b147b1082c5a61131e2330c25">m_inputStream</a>; <span class="comment">///&lt; The istream containing the file content</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00017_html_aa5acb51ba0643af5d5f67f47ba6b9a5c"><div class="ttname"><a href="../../d4/d51/a00017.html#aa5acb51ba0643af5d5f67f47ba6b9a5c">gengeopop::CitiesReader::FillGeoGrid</a></div><div class="ttdeci">virtual void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt;) const =0</div><div class="ttdoc">Add the found Locations to the provided GeoGrid. </div></div>
+<div class="ttc" id="a00347_html"><div class="ttname"><a href="../../d1/dc6/a00347.html">Location.h</a></div></div>
+<div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGrid.h</a></div></div>
+<div class="ttc" id="a00017_html_a154d0d27a849179dc131b6c15773a931"><div class="ttname"><a href="../../d4/d51/a00017.html#a154d0d27a849179dc131b6c15773a931">gengeopop::CitiesReader::CitiesReader</a></div><div class="ttdeci">CitiesReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CitiesReader with an istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00005">CitiesReader.cpp:5</a></div></div>
+<div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">gengeopop::CitiesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/de5/a00209_source.html#l00014">CitiesReader.h:14</a></div></div>
+<div class="ttc" id="a00017_html_a793dc38b147b1082c5a61131e2330c25"><div class="ttname"><a href="../../d4/d51/a00017.html#a793dc38b147b1082c5a61131e2330c25">gengeopop::CitiesReader::m_inputStream</a></div><div class="ttdeci">std::unique_ptr&lt; std::istream &gt; m_inputStream</div><div class="ttdoc">The istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/de5/a00209_source.html#l00027">CitiesReader.h:27</a></div></div>
+<div class="ttc" id="a00017_html_a068af8ee265596b9689721403375b636"><div class="ttname"><a href="../../d4/d51/a00017.html#a068af8ee265596b9689721403375b636">gengeopop::CitiesReader::~CitiesReader</a></div><div class="ttdeci">virtual ~CitiesReader()=default</div><div class="ttdoc">Default destructor. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d3/de5/a00209.html">CitiesReader.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d3/de5/a00209.html">CitiesReader.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

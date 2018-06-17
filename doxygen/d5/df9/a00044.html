@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::GeoGridWriter Class Reference</title>
+<title>Stride Reference Manual: gengeopop::GeoGridWriterFactory Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,117 +112,73 @@ $(document).ready(function(){initNavTree('d5/df9/a00044.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../dd/de6/a00548.html">List of all members</a>  </div>
+<a href="../../d2/db8/a01057.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GeoGridWriter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">gengeopop::GeoGridWriterFactory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An interface for writing the <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> to a file, can be implemented with multiple file types (protobuf and json are currently implemented)  
+<p>A Factory for creating the correct implementation of a <a class="el" href="../../d6/d42/a00043.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> based on the filename extension.  
  <a href="../../d5/df9/a00044.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d0d/a00298_source.html">GeoGridWriter.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/d4a/a00297_source.html">GeoGridWriterFactory.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::GeoGridWriter:</div>
+Collaboration diagram for gengeopop::GeoGridWriterFactory:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d5/df9/a00044.png" usemap="#gengeopop::GeoGridWriter_map" alt=""/>
-  <map id="gengeopop::GeoGridWriter_map" name="gengeopop::GeoGridWriter_map">
-<area href="../../d8/d41/a00038.html" title="An implementation of the GeoGridWriter using JSON This class is used to write a GeoGrid to a JSON fil..." alt="gengeopop::GeoGridJSONWriter" shape="rect" coords="0,56,196,80"/>
-<area href="../../dd/d32/a00041.html" title="An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t..." alt="gengeopop::GeoGridProtoWriter" shape="rect" coords="206,56,402,80"/>
-</map>
- </div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d4c/a01058.svg" width="187" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e5e193a2008a7088dd1ec906a25ffec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a3e5e193a2008a7088dd1ec906a25ffec">~GeoGridWriter</a> ()</td></tr>
-<tr class="memdesc:a3e5e193a2008a7088dd1ec906a25ffec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Writer.  <a href="#a3e5e193a2008a7088dd1ec906a25ffec">More...</a><br/></td></tr>
-<tr class="separator:a3e5e193a2008a7088dd1ec906a25ffec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4a6cacfbe68ffae860ae217273413be"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#af4a6cacfbe68ffae860ae217273413be">Write</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt; geoGrid, std::ostream &amp;stream)=0</td></tr>
-<tr class="memdesc:af4a6cacfbe68ffae860ae217273413be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the provided geoGrid to the provided ostream.  <a href="#af4a6cacfbe68ffae860ae217273413be">More...</a><br/></td></tr>
-<tr class="separator:af4a6cacfbe68ffae860ae217273413be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4992a30def6112ba16f8b76c7d5ea768"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">GeoGridWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">CreateWriter</a> (std::string filename) const </td></tr>
+<tr class="memdesc:a4992a30def6112ba16f8b76c7d5ea768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d6/d42/a00043.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> based on the provided extension in the filename.  <a href="#a4992a30def6112ba16f8b76c7d5ea768">More...</a><br/></td></tr>
+<tr class="separator:a4992a30def6112ba16f8b76c7d5ea768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface for writing the <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> to a file, can be implemented with multiple file types (protobuf and json are currently implemented) </p>
+<div class="textblock"><p>A Factory for creating the correct implementation of a <a class="el" href="../../d6/d42/a00043.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> based on the filename extension. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00013">13</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">GeoGridWriter.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a3e5e193a2008a7088dd1ec906a25ffec"></a>
+<p>Definition at line <a class="el" href="../../d3/d4a/a00297_source.html#l00010">10</a> of file <a class="el" href="../../d3/d4a/a00297_source.html">GeoGridWriterFactory.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4992a30def6112ba16f8b76c7d5ea768"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual gengeopop::GeoGridWriter::~GeoGridWriter </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">GeoGridWriter</a> &gt; gengeopop::GeoGridWriterFactory::CreateWriter </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Construct the Writer. </p>
+<p>Create a <a class="el" href="../../d6/d42/a00043.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> based on the provided extension in the filename. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00017">17</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">GeoGridWriter.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d7b/a00296_source.html#l00009">9</a> of file <a class="el" href="../../db/d7b/a00296_source.html">GeoGridWriterFactory.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/dc9/a00355_source.html#l00034">main()</a>, and <a class="el" href="../../da/d15/a00188_source.html#l00151">Backend::SaveGeoGridToFile()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/df9/a00044_a4992a30def6112ba16f8b76c7d5ea768_icgraph.svg" width="430" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af4a6cacfbe68ffae860ae217273413be"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void gengeopop::GeoGridWriter::Write </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>stream</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write the provided geoGrid to the provided ostream. </p>
-
-<p>Implemented in <a class="el" href="../../d8/d41/a00038.html#a06da89c72da72992bbd517973c9513eb">gengeopop::GeoGridJSONWriter</a>, and <a class="el" href="../../dd/d32/a00041.html#a3163b8464f599d204597a01dfc47f08f">gengeopop::GeoGridProtoWriter</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d9/d0d/a00298_source.html">GeoGridWriter.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d3/d4a/a00297_source.html">GeoGridWriterFactory.h</a></li>
+<li><a class="el" href="../../db/d7b/a00296_source.html">GeoGridWriterFactory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/df9/a00044.html">GeoGridWriter</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/df9/a00044.html">GeoGridWriterFactory</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

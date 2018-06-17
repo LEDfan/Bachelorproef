@@ -1,0 +1,4 @@
+<map id="GuiControllerBackend::Stepped" name="GuiControllerBackend::Stepped">
+<area shape="rect" id="node2" href="$db/df8/a00076.html#a1b7f60fb20985b273aeac44ed8e029f4" title="Called by the SimWorker to notify the backend that a step in the simulation was completed. " alt="" coords="203,5,352,46"/>
+<area shape="rect" id="node3" href="$db/df8/a00076.html#ae36c8a0c983cc8eb2b9363548ddb79e9" title="Step a day in the simulator, this will be done on a separate thread. " alt="" coords="400,5,549,46"/>
+</map>

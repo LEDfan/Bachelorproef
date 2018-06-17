@@ -1,0 +1,4 @@
+<map id="gengeopop::GeoGridWriter" name="gengeopop::GeoGridWriter">
+<area shape="rect" id="node2" href="$d1/dc6/a00037.html" title="An implementation of the GeoGridWriter using JSON This class is used to write a GeoGrid to a JSON fil..." alt="" coords="5,147,216,312"/>
+<area shape="rect" id="node3" href="$db/d3a/a00040.html" title="An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t..." alt="" coords="241,147,447,312"/>
+</map>

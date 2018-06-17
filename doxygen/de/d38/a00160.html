@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::PartitionedSegmentedVector&lt; T, N &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::RangeIndexer&lt; T, std::size_t &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -113,255 +113,98 @@ $(document).ready(function(){initNavTree('de/d38/a00160.html','../../');});
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/ddd/a00653.html">List of all members</a>  </div>
+<a href="../../d5/d78/a01330.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::PartitionedSegmentedVector&lt; T, N &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::RangeIndexer&lt; T, std::size_t &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>&gt;</code></p>
+<p>Datastructure to index a container that supports RandomAccessIterators with subranges.  
+ <a href="../../de/d38/a00160.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::util::RangeIndexer&lt; T, std::size_t &gt;:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d8e/a01331.svg" width="247" height="587"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a504456b6c59562f51c06e1f3efbdcf09"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a> = <a class="el" href="../../d4/d7d/a00093.html">SegmentedVector</a>&lt; T, N, true &gt;</td></tr>
-<tr class="separator:a504456b6c59562f51c06e1f3efbdcf09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7651fbfa418a8170c4ca0a7de761b2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a1e7651fbfa418a8170c4ca0a7de761b2">partitionIterator_type</a> = typename std::vector&lt; <a class="el" href="../../d4/d7d/a00093.html">SegmentedVector</a>&lt; T, N, true &gt;&gt;::<a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a></td></tr>
-<tr class="separator:a1e7651fbfa418a8170c4ca0a7de761b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82e5cf754afae91e86ff365347e339d7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a> = std::tuple&lt; <a class="el" href="../../de/d38/a00160.html#a1e7651fbfa418a8170c4ca0a7de761b2">partitionIterator_type</a>, std::size_t, std::size_t &gt;</td></tr>
-<tr class="separator:a82e5cf754afae91e86ff365347e339d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2df284cb2c159975709f8e393eaa4735"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a> = <a class="el" href="../../de/db9/a00159.html">NestedIterator</a>&lt; T, <a class="el" href="../../de/d38/a00160.html#a1e7651fbfa418a8170c4ca0a7de761b2">partitionIterator_type</a>, <a class="el" href="../../dd/da7/a00168.html">SVIterator</a>&lt; T, N, true, T *, T &amp;, false &gt;&gt;</td></tr>
-<tr class="separator:a2df284cb2c159975709f8e393eaa4735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbb560a16bded3b032d58f032b9965b3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#abbb560a16bded3b032d58f032b9965b3">const_partitionIterator_type</a> = typename std::vector&lt; <a class="el" href="../../d4/d7d/a00093.html">SegmentedVector</a>&lt; T, N, true &gt;&gt;::<a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a></td></tr>
-<tr class="separator:abbb560a16bded3b032d58f032b9965b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a293fc8afa245bdf6bb97e8b5d06774cc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> = <a class="el" href="../../de/db9/a00159.html">NestedIterator</a>&lt; T, <a class="el" href="../../de/d38/a00160.html#abbb560a16bded3b032d58f032b9965b3">const_partitionIterator_type</a>, <a class="el" href="../../dd/da7/a00168.html">SVIterator</a>&lt; T, N, true, const T *, const T &amp;, true &gt;, const T *, const T &amp;, true &gt;</td></tr>
-<tr class="separator:a293fc8afa245bdf6bb97e8b5d06774cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40c399685b42d5a3d8d870b5f63512f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> = boost::sub_range&lt; T &gt;</td></tr>
+<tr class="separator:aa40c399685b42d5a3d8d870b5f63512f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a28276bc8446da8aef2f5b58a20bdb993"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a28276bc8446da8aef2f5b58a20bdb993">PartitionedSegmentedVector</a> (std::size_t partitionsCount)</td></tr>
-<tr class="separator:a28276bc8446da8aef2f5b58a20bdb993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af62d1c5d8f873a60e6c29b66b85df202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#af62d1c5d8f873a60e6c29b66b85df202">CreatePartitions</a> (std::size_t count)</td></tr>
-<tr class="separator:af62d1c5d8f873a60e6c29b66b85df202"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ea35837ed49e9446038c7225e3f4bda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a8ea35837ed49e9446038c7225e3f4bda">PartitionedSegmentedVector</a> ()</td></tr>
-<tr class="separator:a8ea35837ed49e9446038c7225e3f4bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af622e862286c35bcad35bd3cc7f229fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#af622e862286c35bcad35bd3cc7f229fe">PartitionedSegmentedVector</a> (const <a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;other)</td></tr>
-<tr class="memdesc:af622e862286c35bcad35bd3cc7f229fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#af622e862286c35bcad35bd3cc7f229fe">More...</a><br/></td></tr>
-<tr class="separator:af622e862286c35bcad35bd3cc7f229fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a03614839ebdf887f56b8617c3995d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a9a03614839ebdf887f56b8617c3995d9">PartitionedSegmentedVector</a> (const <a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;&amp;other)</td></tr>
-<tr class="memdesc:a9a03614839ebdf887f56b8617c3995d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#a9a03614839ebdf887f56b8617c3995d9">More...</a><br/></td></tr>
-<tr class="separator:a9a03614839ebdf887f56b8617c3995d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1050836f2f108d35dc7aa39dfa13103d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a1050836f2f108d35dc7aa39dfa13103d">operator=</a> (const <a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;other)</td></tr>
-<tr class="memdesc:a1050836f2f108d35dc7aa39dfa13103d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment.  <a href="#a1050836f2f108d35dc7aa39dfa13103d">More...</a><br/></td></tr>
-<tr class="separator:a1050836f2f108d35dc7aa39dfa13103d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89aee39c9d213ef2c5dab298f78fab58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a89aee39c9d213ef2c5dab298f78fab58">operator=</a> (<a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a89aee39c9d213ef2c5dab298f78fab58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment.  <a href="#a89aee39c9d213ef2c5dab298f78fab58">More...</a><br/></td></tr>
-<tr class="separator:a89aee39c9d213ef2c5dab298f78fab58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad271f787cf077aa1410ac3768e3bc753"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#ad271f787cf077aa1410ac3768e3bc753">~PartitionedSegmentedVector</a> ()=default</td></tr>
-<tr class="separator:ad271f787cf077aa1410ac3768e3bc753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a385a4d40d6db6c69caaaac95dd07bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a2a385a4d40d6db6c69caaaac95dd07bc">begin</a> ()</td></tr>
-<tr class="separator:a2a385a4d40d6db6c69caaaac95dd07bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91b6c3ea9ef255d5b8ae2b41e65f2c9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a91b6c3ea9ef255d5b8ae2b41e65f2c9f">end</a> ()</td></tr>
-<tr class="separator:a91b6c3ea9ef255d5b8ae2b41e65f2c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe2d2acb35f7f55d1ac871ec5c0a8d50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#afe2d2acb35f7f55d1ac871ec5c0a8d50">begin</a> () const </td></tr>
-<tr class="separator:afe2d2acb35f7f55d1ac871ec5c0a8d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac08c39c2a65e28ed7c0ae8fac6930a39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#ac08c39c2a65e28ed7c0ae8fac6930a39">end</a> () const </td></tr>
-<tr class="separator:ac08c39c2a65e28ed7c0ae8fac6930a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2efc92b466bf6747b680f3e82348953c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a2efc92b466bf6747b680f3e82348953c">cbegin</a> () const </td></tr>
-<tr class="separator:a2efc92b466bf6747b680f3e82348953c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5581c758f7b87567a5bc6b04e0ff59bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a5581c758f7b87567a5bc6b04e0ff59bf">cend</a> () const </td></tr>
-<tr class="separator:a5581c758f7b87567a5bc6b04e0ff59bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba499376ffbdb70dc111cd00cdc04a02"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#aba499376ffbdb70dc111cd00cdc04a02">push_back</a> (const T &amp;obj, std::size_t partition=0)</td></tr>
-<tr class="memdesc:aba499376ffbdb70dc111cd00cdc04a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#aba499376ffbdb70dc111cd00cdc04a02">More...</a><br/></td></tr>
-<tr class="separator:aba499376ffbdb70dc111cd00cdc04a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13e24041c35df543cd84887dbf4dc746"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
-<tr class="memitem:a13e24041c35df543cd84887dbf4dc746"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a13e24041c35df543cd84887dbf4dc746">emplace_back</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:a13e24041c35df543cd84887dbf4dc746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a13e24041c35df543cd84887dbf4dc746">More...</a><br/></td></tr>
-<tr class="separator:a13e24041c35df543cd84887dbf4dc746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed43469b6abd38d5f7f0fb4f57897a4f"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
-<tr class="memitem:aed43469b6abd38d5f7f0fb4f57897a4f"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#aed43469b6abd38d5f7f0fb4f57897a4f">emplace_back</a> (std::size_t partition, Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:aed43469b6abd38d5f7f0fb4f57897a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#aed43469b6abd38d5f7f0fb4f57897a4f">More...</a><br/></td></tr>
-<tr class="separator:aed43469b6abd38d5f7f0fb4f57897a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadcef60fdd5d888f86e64a0a892b8c17"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#aadcef60fdd5d888f86e64a0a892b8c17">at</a> (std::size_t pos)</td></tr>
-<tr class="memdesc:aadcef60fdd5d888f86e64a0a892b8c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets element at index with range check.  <a href="#aadcef60fdd5d888f86e64a0a892b8c17">More...</a><br/></td></tr>
-<tr class="separator:aadcef60fdd5d888f86e64a0a892b8c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14d1ddfa2022df76b01e95869b480b0b"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a14d1ddfa2022df76b01e95869b480b0b">at</a> (std::size_t pos) const </td></tr>
-<tr class="memdesc:a14d1ddfa2022df76b01e95869b480b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const element at index with range check.  <a href="#a14d1ddfa2022df76b01e95869b480b0b">More...</a><br/></td></tr>
-<tr class="separator:a14d1ddfa2022df76b01e95869b480b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fccbdccfeac3547ef3bb97303358d66"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a9fccbdccfeac3547ef3bb97303358d66">operator[]</a> (std::size_t pos)</td></tr>
-<tr class="memdesc:a9fccbdccfeac3547ef3bb97303358d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const element at index without range check.  <a href="#a9fccbdccfeac3547ef3bb97303358d66">More...</a><br/></td></tr>
-<tr class="separator:a9fccbdccfeac3547ef3bb97303358d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac1ea734f2988eb47f0ca5567937d65"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a9ac1ea734f2988eb47f0ca5567937d65">operator[]</a> (std::size_t pos) const </td></tr>
-<tr class="memdesc:a9ac1ea734f2988eb47f0ca5567937d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets const element at index without range check.  <a href="#a9ac1ea734f2988eb47f0ca5567937d65">More...</a><br/></td></tr>
-<tr class="separator:a9ac1ea734f2988eb47f0ca5567937d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fa547518ca695dfa770603b89e70752"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a5fa547518ca695dfa770603b89e70752">back</a> ()</td></tr>
-<tr class="memdesc:a5fa547518ca695dfa770603b89e70752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#a5fa547518ca695dfa770603b89e70752">More...</a><br/></td></tr>
-<tr class="separator:a5fa547518ca695dfa770603b89e70752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95212660bff1e24ea096a0fa08137cfb"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a95212660bff1e24ea096a0fa08137cfb">back</a> () const </td></tr>
-<tr class="memdesc:a95212660bff1e24ea096a0fa08137cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#a95212660bff1e24ea096a0fa08137cfb">More...</a><br/></td></tr>
-<tr class="separator:a95212660bff1e24ea096a0fa08137cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a208b5e024fd2c8909f0c763364219a8f"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a208b5e024fd2c8909f0c763364219a8f">back</a> (std::size_t partitionId)</td></tr>
-<tr class="memdesc:a208b5e024fd2c8909f0c763364219a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#a208b5e024fd2c8909f0c763364219a8f">More...</a><br/></td></tr>
-<tr class="separator:a208b5e024fd2c8909f0c763364219a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8357dd428409dd1eccb026dd2de5574"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#ad8357dd428409dd1eccb026dd2de5574">back</a> (std::size_t partitionId) const </td></tr>
-<tr class="memdesc:ad8357dd428409dd1eccb026dd2de5574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#ad8357dd428409dd1eccb026dd2de5574">More...</a><br/></td></tr>
-<tr class="separator:ad8357dd428409dd1eccb026dd2de5574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3742ff8effa83a1d26b57cf9163fb232"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a3742ff8effa83a1d26b57cf9163fb232">size</a> () const </td></tr>
-<tr class="memdesc:a3742ff8effa83a1d26b57cf9163fb232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the size when not finalized else returns the size.  <a href="#a3742ff8effa83a1d26b57cf9163fb232">More...</a><br/></td></tr>
-<tr class="separator:a3742ff8effa83a1d26b57cf9163fb232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5efe8345db1d381125ecfadab3307626"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a5efe8345db1d381125ecfadab3307626">GetPartition</a> (std::size_t partitionIndex)</td></tr>
-<tr class="separator:a5efe8345db1d381125ecfadab3307626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fad7fe61214a0eb24a6a15b2ac9882d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a7fad7fe61214a0eb24a6a15b2ac9882d">GetPartition</a> (std::size_t partitionIndex) const </td></tr>
-<tr class="separator:a7fad7fe61214a0eb24a6a15b2ac9882d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1484a7f657530c8e5abb327e450a5874"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a1484a7f657530c8e5abb327e450a5874">Finalize</a> ()</td></tr>
-<tr class="memdesc:a1484a7f657530c8e5abb327e450a5874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the Indexes for the partitions and prevents partitions from being added or growing.  <a href="#a1484a7f657530c8e5abb327e450a5874">More...</a><br/></td></tr>
-<tr class="separator:a1484a7f657530c8e5abb327e450a5874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3937c5871866bcb53cf5331bf7332d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#ae3937c5871866bcb53cf5331bf7332d9">IsFinalized</a> () const </td></tr>
-<tr class="memdesc:ae3937c5871866bcb53cf5331bf7332d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the partitions may grow or partitions may be added.  <a href="#ae3937c5871866bcb53cf5331bf7332d9">More...</a><br/></td></tr>
-<tr class="separator:ae3937c5871866bcb53cf5331bf7332d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a144fdb4a4e43ba80d09c63ab0be5f0de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a> &gt;<br class="typebreak"/>
-::<a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a144fdb4a4e43ba80d09c63ab0be5f0de">FindPartition</a> (std::size_t pos)</td></tr>
-<tr class="memdesc:a144fdb4a4e43ba80d09c63ab0be5f0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find in which partition pos lies.  <a href="#a144fdb4a4e43ba80d09c63ab0be5f0de">More...</a><br/></td></tr>
-<tr class="separator:a144fdb4a4e43ba80d09c63ab0be5f0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a446dbd94f7eae6ec0a5b722f74f375a3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a> &gt;<br class="typebreak"/>
-::<a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a446dbd94f7eae6ec0a5b722f74f375a3">FindPartition</a> (std::size_t pos) const </td></tr>
-<tr class="memdesc:a446dbd94f7eae6ec0a5b722f74f375a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find in which partition pos lies.  <a href="#a446dbd94f7eae6ec0a5b722f74f375a3">More...</a><br/></td></tr>
-<tr class="separator:a446dbd94f7eae6ec0a5b722f74f375a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6ba7e87da7c4e816e9889ea89e1d1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a8e6ba7e87da7c4e816e9889ea89e1d1e">RangeIndexer</a> (T &amp;t)</td></tr>
+<tr class="memdesc:a8e6ba7e87da7c4e816e9889ea89e1d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d82/a00091.html" title="Datastructure to index a container that supports RandomAccessIterators with subranges. ">RangeIndexer</a> holds a reference to the conatiner that it indexes.  <a href="#a8e6ba7e87da7c4e816e9889ea89e1d1e">More...</a><br/></td></tr>
+<tr class="separator:a8e6ba7e87da7c4e816e9889ea89e1d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b0566a8eb6d02f9f2ad9545533944df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a6b0566a8eb6d02f9f2ad9545533944df">SetRange</a> (std::size_t ibegin, std::size_t iend, const std::size_t &amp;id)</td></tr>
+<tr class="memdesc:a6b0566a8eb6d02f9f2ad9545533944df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!  <a href="#a6b0566a8eb6d02f9f2ad9545533944df">More...</a><br/></td></tr>
+<tr class="separator:a6b0566a8eb6d02f9f2ad9545533944df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a570288b736c62a3d6100ffbe386bc2f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a570288b736c62a3d6100ffbe386bc2f4">SetRange</a> (std::size_t ibegin, const std::size_t &amp;id)</td></tr>
+<tr class="memdesc:a570288b736c62a3d6100ffbe386bc2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#a570288b736c62a3d6100ffbe386bc2f4">More...</a><br/></td></tr>
+<tr class="separator:a570288b736c62a3d6100ffbe386bc2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a143e3f699c7f2304c1231b07870386d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a143e3f699c7f2304c1231b07870386d7">GetRange</a> (std::size_t i)</td></tr>
+<tr class="memdesc:a143e3f699c7f2304c1231b07870386d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a range by its subscipt in the indexer.  <a href="#a143e3f699c7f2304c1231b07870386d7">More...</a><br/></td></tr>
+<tr class="separator:a143e3f699c7f2304c1231b07870386d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a17a83c2d09d7ffe7fd4d836ca217cb23"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a17a83c2d09d7ffe7fd4d836ca217cb23">m_partitions</a></td></tr>
-<tr class="memdesc:a17a83c2d09d7ffe7fd4d836ca217cb23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partitions.  <a href="#a17a83c2d09d7ffe7fd4d836ca217cb23">More...</a><br/></td></tr>
-<tr class="separator:a17a83c2d09d7ffe7fd4d836ca217cb23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02d1325685998c0a276e137d0c5f13bf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a02d1325685998c0a276e137d0c5f13bf">m_prefixSums</a></td></tr>
-<tr class="memdesc:a02d1325685998c0a276e137d0c5f13bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metadata with iterator, prefix sum and prefix sum without current size.  <a href="#a02d1325685998c0a276e137d0c5f13bf">More...</a><br/></td></tr>
-<tr class="separator:a02d1325685998c0a276e137d0c5f13bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712c35e9680e23dcfd1c7e10623890ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a712c35e9680e23dcfd1c7e10623890ee">m_finalized</a></td></tr>
-<tr class="memdesc:a712c35e9680e23dcfd1c7e10623890ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether the partitions may grow or partitions may be added  <a href="#a712c35e9680e23dcfd1c7e10623890ee">More...</a><br/></td></tr>
-<tr class="separator:a712c35e9680e23dcfd1c7e10623890ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6082bd44bb292de4e7f1c101d8accbd1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a6082bd44bb292de4e7f1c101d8accbd1">m_ranges</a></td></tr>
+<tr class="memdesc:a6082bd44bb292de4e7f1c101d8accbd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the ranges.  <a href="#a6082bd44bb292de4e7f1c101d8accbd1">More...</a><br/></td></tr>
+<tr class="separator:a6082bd44bb292de4e7f1c101d8accbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a93a169646ca225e9d843e324b20ef2"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d38/a00160.html#a8a93a169646ca225e9d843e324b20ef2">m_t</a></td></tr>
+<tr class="memdesc:a8a93a169646ca225e9d843e324b20ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">refers to container in which ranges are defined.  <a href="#a8a93a169646ca225e9d843e324b20ef2">More...</a><br/></td></tr>
+<tr class="separator:a8a93a169646ca225e9d843e324b20ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, std::size_t N = 512&gt;<br/>
-class stride::util::PartitionedSegmentedVector&lt; T, N &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T&gt;<br/>
+class stride::util::RangeIndexer&lt; T, std::size_t &gt;</h3>
 
+<p>Datastructure to index a container that supports RandomAccessIterators with subranges. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the container in whom the subranges are indexed </td></tr>
+    <tr><td class="paramname">Key</td><td>Type of the key to access the subranges </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00014">14</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00091">91</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a504456b6c59562f51c06e1f3efbdcf09"></a>
+<a class="anchor" id="aa40c399685b42d5a3d8d870b5f63512f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a> =  <a class="el" href="../../d4/d7d/a00093.html">SegmentedVector</a>&lt;T, N, true&gt;</td>
+          <td class="memname">using <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::<a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> =  boost::sub_range&lt;T&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00017">17</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1e7651fbfa418a8170c4ca0a7de761b2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html#a1e7651fbfa418a8170c4ca0a7de761b2">partitionIterator_type</a> =  typename std::vector&lt;<a class="el" href="../../d4/d7d/a00093.html">SegmentedVector</a>&lt;T, N, true&gt;&gt;::<a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00018">18</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a82e5cf754afae91e86ff365347e339d7"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a> =  std::tuple&lt;<a class="el" href="../../de/d38/a00160.html#a1e7651fbfa418a8170c4ca0a7de761b2">partitionIterator_type</a>, std::size_t, std::size_t&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00019">19</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2df284cb2c159975709f8e393eaa4735"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a> =  <a class="el" href="../../de/db9/a00159.html">NestedIterator</a>&lt;T, <a class="el" href="../../de/d38/a00160.html#a1e7651fbfa418a8170c4ca0a7de761b2">partitionIterator_type</a>, <a class="el" href="../../dd/da7/a00168.html">SVIterator</a>&lt;T, N, true, T*, T&amp;, false&gt;&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00020">20</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abbb560a16bded3b032d58f032b9965b3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html#abbb560a16bded3b032d58f032b9965b3">const_partitionIterator_type</a> =  typename std::vector&lt;<a class="el" href="../../d4/d7d/a00093.html">SegmentedVector</a>&lt;T, N, true&gt;&gt;::<a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00021">21</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a293fc8afa245bdf6bb97e8b5d06774cc"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> =  <a class="el" href="../../de/db9/a00159.html">NestedIterator</a>&lt;T, <a class="el" href="../../de/d38/a00160.html#abbb560a16bded3b032d58f032b9965b3">const_partitionIterator_type</a>, <a class="el" href="../../dd/da7/a00168.html">SVIterator</a>&lt;T, N, true, const T*, const T&amp;, true&gt;, const T*, const T&amp;, true&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00024">24</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00094">94</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a28276bc8446da8aef2f5b58a20bdb993"></a>
+<a class="anchor" id="a8e6ba7e87da7c4e816e9889ea89e1d1e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> </td>
+          <td class="memname"><a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::<a class="el" href="../../da/d82/a00091.html">RangeIndexer</a> </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partitionsCount</em></td><td>)</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -372,417 +215,39 @@ template&lt;typename T, std::size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00027">27</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
+<p><a class="el" href="../../da/d82/a00091.html" title="Datastructure to index a container that supports RandomAccessIterators with subranges. ">RangeIndexer</a> holds a reference to the conatiner that it indexes. </p>
 
-</div>
-</div>
-<a class="anchor" id="a8ea35837ed49e9446038c7225e3f4bda"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00035">35</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af622e862286c35bcad35bd3cc7f229fe"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy constructor. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00038">38</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9a03614839ebdf887f56b8617c3995d9"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::<a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move constructor. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00048">48</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad271f787cf077aa1410ac3768e3bc753"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::~<a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00098">98</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af62d1c5d8f873a60e6c29b66b85df202"></a>
+<a class="anchor" id="a6b0566a8eb6d02f9f2ad9545533944df"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::CreatePartitions </td>
+          <td class="memname"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::SetRange </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>count</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00032">32</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1050836f2f108d35dc7aa39dfa13103d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00053">53</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a89aee39c9d213ef2c5dab298f78fab58"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a>&lt; T, N &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00064">64</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a385a4d40d6db6c69caaaac95dd07bc"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::begin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00076">76</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a91b6c3ea9ef255d5b8ae2b41e65f2c9f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00078">78</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afe2d2acb35f7f55d1ac871ec5c0a8d50"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::begin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00080">80</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00084">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::cbegin()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac08c39c2a65e28ed7c0ae8fac6930a39"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00082">82</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00088">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::cend()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2efc92b466bf6747b680f3e82348953c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::cbegin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00084">84</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d13/a00377_source.html#l00080">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::begin()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5581c758f7b87567a5bc6b04e0ff59bf"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::cend </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00088">88</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d13/a00377_source.html#l00082">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::end()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aba499376ffbdb70dc111cd00cdc04a02"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T* <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::push_back </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>obj</em>, </td>
+          <td class="paramname"><em>ibegin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partition</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>iend</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::size_t &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -797,70 +262,34 @@ template&lt;typename T, std::size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Adds element to end. </p>
+<p>Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </p>
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00094">94</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00101">101</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
+<p>References <a class="el" href="../../d9/d0a/a00390_source.html#l00081">stride::util::RangeIndexer&lt; T, Key &gt;::m_ranges</a>, and <a class="el" href="../../d9/d0a/a00390_source.html#l00082">stride::util::RangeIndexer&lt; T, Key &gt;::m_t</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a13e24041c35df543cd84887dbf4dc746"></a>
+<a class="anchor" id="a570288b736c62a3d6100ffbe386bc2f4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<div class="memtemplate">
-template&lt;class... Args&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T* <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::emplace_back </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds element to end. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00104">104</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aed43469b6abd38d5f7f0fb4f57897a4f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<div class="memtemplate">
-template&lt;class... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T* <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::emplace_back </td>
+          <td class="memname"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::SetRange </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partition</em>, </td>
+          <td class="paramname"><em>ibegin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
+          <td class="paramtype">const std::size_t &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -875,28 +304,28 @@ template&lt;class... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Adds element to end. </p>
+<p>Set a range, where the end is the end of the container. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00114">114</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00111">111</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
+<p>References <a class="el" href="../../d9/d0a/a00390_source.html#l00081">stride::util::RangeIndexer&lt; T, Key &gt;::m_ranges</a>, and <a class="el" href="../../d9/d0a/a00390_source.html#l00082">stride::util::RangeIndexer&lt; T, Key &gt;::m_t</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aadcef60fdd5d888f86e64a0a892b8c17"></a>
+<a class="anchor" id="a143e3f699c7f2304c1231b07870386d7"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::at </td>
+          <td class="memname"><a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::GetRange </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -907,467 +336,26 @@ template&lt;typename T, std::size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets element at index with range check. </p>
+<p>Retrieve reference to a range by its subscipt in the indexer. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00123">123</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00121">121</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00213">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::FindPartition()</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a14d1ddfa2022df76b01e95869b480b0b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::at </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets const element at index with range check. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00137">137</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00213">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::FindPartition()</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9fccbdccfeac3547ef3bb97303358d66"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets const element at index without range check. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00151">151</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00213">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::FindPartition()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9ac1ea734f2988eb47f0ca5567937d65"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets const element at index without range check. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00158">158</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00213">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::FindPartition()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5fa547518ca695dfa770603b89e70752"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::back </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Access the last element. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00165">165</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a95212660bff1e24ea096a0fa08137cfb"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::back </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Access the last element. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00168">168</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a208b5e024fd2c8909f0c763364219a8f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::back </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partitionId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Access the last element. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00171">171</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad8357dd428409dd1eccb026dd2de5574"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::back </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partitionId</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Access the last element. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00174">174</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3742ff8effa83a1d26b57cf9163fb232"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the size when not finalized else returns the size. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00177">177</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5efe8345db1d381125ecfadab3307626"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a>&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::GetPartition </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partitionIndex</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00189">189</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7fad7fe61214a0eb24a6a15b2ac9882d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a>&amp; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::GetPartition </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>partitionIndex</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00191">191</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1484a7f657530c8e5abb327e450a5874"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::Finalize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the Indexes for the partitions and prevents partitions from being added or growing. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00197">197</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00240">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_partitions</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae3937c5871866bcb53cf5331bf7332d9"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::IsFinalized </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Whether the partitions may grow or partitions may be added. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00209">209</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a144fdb4a4e43ba80d09c63ab0be5f0de"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a>&gt;::<a class="el" href="../../de/d38/a00160.html#a2df284cb2c159975709f8e393eaa4735">iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::FindPartition </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Find in which partition pos lies. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00213">213</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d6/de1/a00356_source.html#l00017">stride::util::std_::lower_bound()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d13/a00377_source.html#l00123">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::at()</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00151">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::operator[]()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a446dbd94f7eae6ec0a5b722f74f375a3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a>&gt;::<a class="el" href="../../de/d38/a00160.html#a293fc8afa245bdf6bb97e8b5d06774cc">const_iterator</a> <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::FindPartition </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Find in which partition pos lies. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00227">227</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>References <a class="el" href="../../d6/de1/a00356_source.html#l00017">stride::util::std_::lower_bound()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00243">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_finalized</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00242">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::m_prefixSums</a>.</p>
+<p>References <a class="el" href="../../d9/d0a/a00390_source.html#l00081">stride::util::RangeIndexer&lt; T, Key &gt;::m_ranges</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a17a83c2d09d7ffe7fd4d836ca217cb23"></a>
+<a class="anchor" id="a6082bd44bb292de4e7f1c101d8accbd1"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../de/d38/a00160.html#a504456b6c59562f51c06e1f3efbdcf09">segmentedVector_type</a>&gt; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::m_partitions</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&gt; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::m_ranges</td>
         </tr>
       </table>
   </td>
@@ -1377,25 +365,23 @@ template&lt;typename T, std::size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Partitions. </p>
+<p>Holds the ranges. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00240">240</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d13/a00377_source.html#l00165">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::back()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00076">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::begin()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00084">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::cbegin()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00088">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::cend()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00032">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::CreatePartitions()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00104">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::emplace_back()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00078">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::end()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00197">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::Finalize()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00189">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::GetPartition()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00053">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::operator=()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00038">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::PartitionedSegmentedVector()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00094">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::push_back()</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00177">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::size()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00124">124</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a02d1325685998c0a276e137d0c5f13bf"></a>
+<a class="anchor" id="a8a93a169646ca225e9d843e324b20ef2"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../de/d38/a00160.html#a82e5cf754afae91e86ff365347e339d7">partItIndex</a>&gt; <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::m_prefixSums</td>
+          <td class="memname">T&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::m_t</td>
         </tr>
       </table>
   </td>
@@ -1405,52 +391,22 @@ template&lt;typename T, std::size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Metadata with iterator, prefix sum and prefix sum without current size. </p>
+<p>refers to container in which ranges are defined. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00242">242</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d13/a00377_source.html#l00123">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::at()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00197">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::Finalize()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00213">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::FindPartition()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00053">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::operator=()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00038">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::PartitionedSegmentedVector()</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00177">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::size()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a712c35e9680e23dcfd1c7e10623890ee"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, std::size_t N = 512&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d38/a00160.html">stride::util::PartitionedSegmentedVector</a>&lt; T, N &gt;::m_finalized</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>whether the partitions may grow or partitions may be added </p>
-
-<p>Definition at line <a class="el" href="../../d4/d13/a00377_source.html#l00243">243</a> of file <a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d13/a00377_source.html#l00104">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::emplace_back()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00197">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::Finalize()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00213">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::FindPartition()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00209">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::IsFinalized()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00053">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::operator=()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00038">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::PartitionedSegmentedVector()</a>, <a class="el" href="../../d4/d13/a00377_source.html#l00094">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::push_back()</a>, and <a class="el" href="../../d4/d13/a00377_source.html#l00177">stride::util::PartitionedSegmentedVector&lt; T, N &gt;::size()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d0a/a00390_source.html#l00125">125</a> of file <a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d4/d13/a00377_source.html">PartitionedSegmentedVector.h</a></li>
+<li><a class="el" href="../../d9/d0a/a00390_source.html">RangeIndexer.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../d8/d89/a00484.html">util</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">PartitionedSegmentedVector</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d58/a00481.html">util</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">RangeIndexer< T, std::size_t ></a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

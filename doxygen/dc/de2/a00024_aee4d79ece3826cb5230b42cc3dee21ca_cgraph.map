@@ -1,0 +1,4 @@
+<map id="gengeopop::CommutesCSVReader::AddCommuteTo" name="gengeopop::CommutesCSVReader::AddCommuteTo">
+<area shape="rect" id="node2" href="$dc/de2/a00024.html#ac1bf33d26337d5de5769f3c300490679" title="Add the provided commute symmetrically to the locations. " alt="" coords="280,5,507,46"/>
+<area shape="rect" id="node3" href="$dc/de2/a00024.html#aacda603127a4a37fbb57ea3c454479c5" title="Find the relative total populution in the submunicipalities. If it doesn&#39;t have any, it will return 0. " alt="" coords="280,70,507,111"/>
+</map>

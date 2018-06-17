@@ -1,0 +1,11 @@
+<map id="gengeopop::GeoGridProtoReader::ParseContactCenter" name="gengeopop::GeoGridProtoReader::ParseContactCenter">
+<area shape="rect" id="node2" href="$df/d5d/a00084.html#a836da18e7ce8173b075a1fa72d33ea84" title="proto::GeoGrid_Location\l_ContactCenter::id" alt="" coords="296,63,459,105"/>
+<area shape="rect" id="node3" href="$d3/de7/a00039.html#a19e0ff14a2aef228d926d53132fa767b" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="270,129,485,170"/>
+<area shape="rect" id="node8" href="$df/d5d/a00084.html#ad72f8f06adf64bedd21c233827dc8d65" title="proto::GeoGrid_Location\l_ContactCenter::pools" alt="" coords="296,194,459,235"/>
+<area shape="rect" id="node9" href="$df/d5d/a00084.html#a2fba27d68b28b8f526346d0fe1d3cdd6" title="proto::GeoGrid_Location\l_ContactCenter::pools_size" alt="" coords="285,259,469,301"/>
+<area shape="rect" id="node10" href="$df/d5d/a00084.html#a527127a37e7e5f5735eb829bf959da9d" title="proto::GeoGrid_Location\l_ContactCenter::type" alt="" coords="296,325,459,366"/>
+<area shape="rect" id="node4" href="$df/d13/a00085.html#af18dfe27121c6513a6edf82892651fab" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people_size" alt="" coords="534,5,727,61"/>
+<area shape="rect" id="node5" href="$df/d13/a00085.html#a0de33357e50cb2549d9aad7b987dcc5a" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people" alt="" coords="534,85,727,141"/>
+<area shape="rect" id="node6" href="$d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47" title="Add the given Person. " alt="" coords="563,165,698,206"/>
+<area shape="rect" id="node7" href="$d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="563,230,698,271"/>
+</map>

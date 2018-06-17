@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConcatednatedIterators.h Source File</title>
+<title>Stride Reference Manual: ConfigFileCalibrationRunner.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,52 +109,56 @@ $(document).ready(function(){initNavTree('df/d17/a00231_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ConcatednatedIterators.h</div>  </div>
+<div class="title">ConfigFileCalibrationRunner.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/d17/a00231.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d95/a00379.html">pchheader.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> IteratorType, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Storage = std::vector&gt;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d7d/a00150.html">ConcatenatedIterators</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a28b056d9d335b2d19636b77fed306083">   13</a></span>&#160;        <a class="code" href="../../d9/d7d/a00150.html#a28b056d9d335b2d19636b77fed306083">ConcatenatedIterators</a>() : <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>() {}</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a6220e199b77daae837ad156784dfbcf1">   14</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../de/db9/a00159.html">iterator</a> = <a class="code" href="../../de/db9/a00159.html">NestedIterator&lt;T, typename std::vector&lt;IteratorPair&lt;IteratorType&gt;</a>&gt;<a class="code" href="../../d9/d7d/a00150.html#a6220e199b77daae837ad156784dfbcf1">::iterator</a>, IteratorType&gt;;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a4bf3c23c2b0b6cefc506a38db418198d">   16</a></span>&#160;        <a class="code" href="../../de/db9/a00159.html">iterator</a> <a class="code" href="../../d9/d7d/a00150.html#a4bf3c23c2b0b6cefc506a38db418198d">begin</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d9/d7d/a00150.html#a6220e199b77daae837ad156784dfbcf1">iterator</a>(<a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.begin(), <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.begin(), <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.end()); }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a6364e2d883d81e9a1c9045c80407d3e8">   18</a></span>&#160;        <a class="code" href="../../de/db9/a00159.html">iterator</a> <a class="code" href="../../d9/d7d/a00150.html#a6364e2d883d81e9a1c9045c80407d3e8">end</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d9/d7d/a00150.html#a6220e199b77daae837ad156784dfbcf1">iterator</a>(<a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.end(), <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.begin(), <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.end()); }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a5845b2bb3641466cab0e4d46cb142e99">   20</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/d7d/a00150.html#a5845b2bb3641466cab0e4d46cb142e99">AddIterator</a>(IteratorType <a class="code" href="../../d9/d7d/a00150.html#a4bf3c23c2b0b6cefc506a38db418198d">begin</a>, IteratorType <a class="code" href="../../d9/d7d/a00150.html#a6364e2d883d81e9a1c9045c80407d3e8">end</a>) { <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.emplace_back(begin, end); }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">   23</a></span>&#160;        Storage&lt;IteratorPair&lt;IteratorType&gt;&gt; <a class="code" href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00159_html"><div class="ttname"><a href="../../de/db9/a00159.html">stride::util::NestedIterator</a></div><div class="ttdoc">Implementation of iterator for looping over the inner elements of a nested data structure. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d21/a00368_source.html#l00061">NestedIterator.h:61</a></div></div>
-<div class="ttc" id="a00150_html_a6364e2d883d81e9a1c9045c80407d3e8"><div class="ttname"><a href="../../d9/d7d/a00150.html#a6364e2d883d81e9a1c9045c80407d3e8">stride::util::ConcatenatedIterators::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00018">ConcatednatedIterators.h:18</a></div></div>
-<div class="ttc" id="a00150_html"><div class="ttname"><a href="../../d9/d7d/a00150.html">stride::util::ConcatenatedIterators</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00010">ConcatednatedIterators.h:10</a></div></div>
-<div class="ttc" id="a00379_html"><div class="ttname"><a href="../../d8/d95/a00379.html">pchheader.h</a></div></div>
-<div class="ttc" id="a00150_html_a4bf3c23c2b0b6cefc506a38db418198d"><div class="ttname"><a href="../../d9/d7d/a00150.html#a4bf3c23c2b0b6cefc506a38db418198d">stride::util::ConcatenatedIterators::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00016">ConcatednatedIterators.h:16</a></div></div>
-<div class="ttc" id="a00150_html_a28b056d9d335b2d19636b77fed306083"><div class="ttname"><a href="../../d9/d7d/a00150.html#a28b056d9d335b2d19636b77fed306083">stride::util::ConcatenatedIterators::ConcatenatedIterators</a></div><div class="ttdeci">ConcatenatedIterators()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00013">ConcatednatedIterators.h:13</a></div></div>
-<div class="ttc" id="a00150_html_a1ee6fe0e35db812f0cae1c8cec312eba"><div class="ttname"><a href="../../d9/d7d/a00150.html#a1ee6fe0e35db812f0cae1c8cec312eba">stride::util::ConcatenatedIterators::m_iterators</a></div><div class="ttdeci">Storage&lt; IteratorPair&lt; IteratorType &gt; &gt; m_iterators</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00023">ConcatednatedIterators.h:23</a></div></div>
-<div class="ttc" id="a00150_html_a6220e199b77daae837ad156784dfbcf1"><div class="ttname"><a href="../../d9/d7d/a00150.html#a6220e199b77daae837ad156784dfbcf1">stride::util::ConcatenatedIterators::iterator</a></div><div class="ttdeci">NestedIterator&lt; T, typename std::vector&lt; IteratorPair&lt; IteratorType &gt;&gt;::iterator, IteratorType &gt; iterator</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00014">ConcatednatedIterators.h:14</a></div></div>
-<div class="ttc" id="a00150_html_a5845b2bb3641466cab0e4d46cb142e99"><div class="ttname"><a href="../../d9/d7d/a00150.html#a5845b2bb3641466cab0e4d46cb142e99">stride::util::ConcatenatedIterators::AddIterator</a></div><div class="ttdeci">void AddIterator(IteratorType begin, IteratorType end)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00020">ConcatednatedIterators.h:20</a></div></div>
+<a href="../../df/d17/a00231.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d53/a00232.html">ConfigFileCalibrationRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../../test/cpp/gtester/ScenarioData.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">Boxplot.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d13/a00205.html">Calibrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d12/a00268.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd1/a00398.html">util/RunConfigManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>calibration {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">   12</a></span>&#160;<a class="code" href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">ConfigFileCalibrationRunner::ConfigFileCalibrationRunner</a>(std::vector&lt;std::string&gt; configFiles) : <a class="code" href="../../de/d21/a00006.html">CalibrationRunner</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> config : configFiles) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                boost::property_tree::ptree configPt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="keywordflow">if</span> (regex_search(config, std::regex(<span class="stringliteral">&quot;^name=&quot;</span>))) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                        config   = regex_replace(config, std::regex(std::string(<span class="stringliteral">&quot;^name=&quot;</span>)), std::string(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                        configPt = <a class="code" href="../../dd/dae/a00163.html#ab4007f793a1924a65458824fef455208">stride::util::RunConfigManager::Create</a>(config);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                        config = regex_replace(config, std::regex(std::string(<span class="stringliteral">&quot;^file=&quot;</span>)), std::string(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                        <span class="keyword">const</span> boost::filesystem::path configPath = <a class="code" href="../../d3/d65/a00154.html#aacc5928eeee467f5e0c21c7ec5aaaf5a">stride::util::FileSys::GetConfigDir</a>() / config;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        configPt                                 = <a class="code" href="../../d3/d65/a00154.html#a2e80d7e6f1045279269a967ad8476422">stride::util::FileSys::ReadPtreeFile</a>(configPath);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <a class="code" href="../../de/d21/a00006.html#a419082164b3f4f27abc7ddc4f65663e9">configs</a>.emplace_back(configPt, config);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace calibration</span></div>
+<div class="ttc" id="a00268_html"><div class="ttname"><a href="../../db/d12/a00268.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00008_html_a840ab2341a3e5eca99f3507e9b79da18"><div class="ttname"><a href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">calibration::ConfigFileCalibrationRunner::ConfigFileCalibrationRunner</a></div><div class="ttdeci">ConfigFileCalibrationRunner(std::vector&lt; std::string &gt; configFiles)</div><div class="ttdoc">Setup, creates a ptree based on the filenames in configFiles. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00012">ConfigFileCalibrationRunner.cpp:12</a></div></div>
+<div class="ttc" id="a00154_html_a2e80d7e6f1045279269a967ad8476422"><div class="ttname"><a href="../../d3/d65/a00154.html#a2e80d7e6f1045279269a967ad8476422">stride::util::FileSys::ReadPtreeFile</a></div><div class="ttdeci">static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path &amp;f_p)</div><div class="ttdoc">Read ptree from file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dd4/a00267_source.html#l00200">FileSys.cpp:200</a></div></div>
+<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">Boxplot.h</a></div></div>
+<div class="ttc" id="a00163_html_ab4007f793a1924a65458824fef455208"><div class="ttname"><a href="../../dd/dae/a00163.html#ab4007f793a1924a65458824fef455208">stride::util::RunConfigManager::Create</a></div><div class="ttdeci">static boost::property_tree::ptree Create(const std::string &amp;configName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d93/a00397_source.html#l00048">RunConfigManager.cpp:48</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">calibration::CalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d79/a00203_source.html#l00013">CalibrationRunner.h:13</a></div></div>
+<div class="ttc" id="a00205_html"><div class="ttname"><a href="../../d5/d13/a00205.html">Calibrator.h</a></div></div>
+<div class="ttc" id="a00232_html"><div class="ttname"><a href="../../d0/d53/a00232.html">ConfigFileCalibrationRunner.h</a></div></div>
+<div class="ttc" id="a00154_html_aacc5928eeee467f5e0c21c7ec5aaaf5a"><div class="ttname"><a href="../../d3/d65/a00154.html#aacc5928eeee467f5e0c21c7ec5aaaf5a">stride::util::FileSys::GetConfigDir</a></div><div class="ttdeci">static boost::filesystem::path GetConfigDir()</div><div class="ttdoc">Return config dir (only relevant when use_install_dirs mode is active) </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d12/a00268_source.html#l00074">FileSys.h:74</a></div></div>
+<div class="ttc" id="a00398_html"><div class="ttname"><a href="../../d9/dd1/a00398.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
+<div class="ttc" id="a00006_html_a419082164b3f4f27abc7ddc4f65663e9"><div class="ttname"><a href="../../de/d21/a00006.html#a419082164b3f4f27abc7ddc4f65663e9">calibration::CalibrationRunner::configs</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; boost::property_tree::ptree, std::string &gt; &gt; configs</div><div class="ttdoc">The configs for the testcases. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d79/a00203_source.html#l00035">CalibrationRunner.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">ConcatednatedIterators.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">ConfigFileCalibrationRunner.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

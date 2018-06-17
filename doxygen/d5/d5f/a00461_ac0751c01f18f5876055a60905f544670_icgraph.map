@@ -1,0 +1,4 @@
+<map id="gengeopop::MakeCollector" name="gengeopop::MakeCollector">
+<area shape="rect" id="node2" href="$df/d61/a00031.html#addaa32c8efb3147589554a0753d2266f" title="Search for locations in radius around start. " alt="" coords="232,5,395,46"/>
+<area shape="rect" id="node3" href="$df/d61/a00031.html#a1ffbcb494e4c2bdb6e337691779d3e87" title="Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2..." alt="" coords="243,70,384,111"/>
+</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Household.cpp Source File</title>
+<title>Stride Reference Manual: HouseholdCSVReader.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,44 +109,48 @@ $(document).ready(function(){initNavTree('d1/d67/a00310_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Household.cpp</div>  </div>
+<div class="title">HouseholdCSVReader.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/d67/a00310.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d5d/a00311.html">Household.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d04/a00281.html">GeoGridConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
+<a href="../../d1/d67/a00310.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/db8/a00316.html">HouseholdReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d56/a00384.html">pop/Population.h</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a6cb7e57ef075ae9a017b78e7fd2550e3">    8</a></span>&#160;<a class="code" href="../../d3/dea/a00046.html#a6cb7e57ef075ae9a017b78e7fd2550e3">Household::Household</a>() : <a class="code" href="../../d0/d33/a00027.html">ContactCenter</a>(0) {}</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a73f0b8ee89440829f987745c5234dbb4">   10</a></span>&#160;<a class="code" href="../../d3/dea/a00046.html#a6cb7e57ef075ae9a017b78e7fd2550e3">Household::Household</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="../../d0/d33/a00027.html">ContactCenter</a>(id) {}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#abdf5369ecfcc801e90d4b92aef0044be">   12</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d3/dea/a00046.html#abdf5369ecfcc801e90d4b92aef0044be">Household::GetMaxPools</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a4164f233324b4b0172d7d58d723d34ba">   14</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d3/dea/a00046.html#a4164f233324b4b0172d7d58d723d34ba">Household::GetPoolSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 15; }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#af26aec270baa38e7b76eac06e6be84cc">   16</a></span>&#160;std::string <a class="code" href="../../d3/dea/a00046.html#af26aec270baa38e7b76eac06e6be84cc">Household::GetType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Household&quot;</span>; }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a8ddb12a1f6779e33d97765549b93eb60">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/dea/a00046.html#a8ddb12a1f6779e33d97765549b93eb60">Household::Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid) { <a class="code" href="../../d0/d33/a00027.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a>(geoGrid-&gt;CreateContactPool(Id::Household)); }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00046_html_a8ddb12a1f6779e33d97765549b93eb60"><div class="ttname"><a href="../../d3/dea/a00046.html#a8ddb12a1f6779e33d97765549b93eb60">gengeopop::Household::Fill</a></div><div class="ttdeci">void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00018">Household.cpp:18</a></div></div>
-<div class="ttc" id="a00027_html"><div class="ttname"><a href="../../d0/d33/a00027.html">gengeopop::ContactCenter</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/a00237_source.html#l00008">ContactCenter.h:8</a></div></div>
-<div class="ttc" id="a00046_html_abdf5369ecfcc801e90d4b92aef0044be"><div class="ttname"><a href="../../d3/dea/a00046.html#abdf5369ecfcc801e90d4b92aef0044be">gengeopop::Household::GetMaxPools</a></div><div class="ttdeci">unsigned int GetMaxPools() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00012">Household.cpp:12</a></div></div>
-<div class="ttc" id="a00046_html_af26aec270baa38e7b76eac06e6be84cc"><div class="ttname"><a href="../../d3/dea/a00046.html#af26aec270baa38e7b76eac06e6be84cc">gengeopop::Household::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00016">Household.cpp:16</a></div></div>
-<div class="ttc" id="a00281_html"><div class="ttname"><a href="../../d2/d04/a00281.html">GeoGridConfig.h</a></div></div>
-<div class="ttc" id="a00046_html_a6cb7e57ef075ae9a017b78e7fd2550e3"><div class="ttname"><a href="../../d3/dea/a00046.html#a6cb7e57ef075ae9a017b78e7fd2550e3">gengeopop::Household::Household</a></div><div class="ttdeci">Household()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00008">Household.cpp:8</a></div></div>
-<div class="ttc" id="a00027_html_a05e2ac775c782a156ad867059f3b5e57"><div class="ttname"><a href="../../d0/d33/a00027.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter::AddPool</a></div><div class="ttdeci">void AddPool(stride::ContactPool *pool)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00007">ContactCenter.cpp:7</a></div></div>
-<div class="ttc" id="a00311_html"><div class="ttname"><a href="../../d1/d5d/a00311.html">Household.h</a></div></div>
-<div class="ttc" id="a00046_html_a4164f233324b4b0172d7d58d723d34ba"><div class="ttname"><a href="../../d3/dea/a00046.html#a4164f233324b4b0172d7d58d723d34ba">gengeopop::Household::GetPoolSize</a></div><div class="ttdeci">unsigned int GetPoolSize() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00014">Household.cpp:14</a></div></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * Create a Reader that retrieves the different Household profiles from a given CSV file</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/dea/a00046.html">HouseholdCSVReader</a> : <span class="keyword">public</span> <a class="code" href="../../d2/dee/a00049.html">HouseholdReader</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        /// Construct the HouseholdCSVReader with an istream containing the CSV data</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d3/dea/a00046.html#a977c1f083a3ac0f06f5fa22ef9937e77">HouseholdCSVReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">        ///&lt; Persons used in this Household, segmented vector to be able to have working pointers to it</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a9f9f54b5d67017060f0bf6a0e2c5c99b">   19</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../d1/dc1/a00092.html">stride::util::SegmentedVector&lt;stride::Person&gt;</a> <a class="code" href="../../d3/dea/a00046.html#a9f9f54b5d67017060f0bf6a0e2c5c99b">m_persons</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">        ///&lt; Contactpools used in this Household, segmented vector to be able to have working pointers to it</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d3/dea/a00046.html#a7188e1436bbf330ce8157086297d5231">   22</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../d1/dc1/a00092.html">stride::util::SegmentedVector&lt;stride::ContactPool&gt;</a> <a class="code" href="../../d3/dea/a00046.html#a7188e1436bbf330ce8157086297d5231">m_contactPools</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00384_html"><div class="ttname"><a href="../../d2/d56/a00384.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00046_html"><div class="ttname"><a href="../../d3/dea/a00046.html">gengeopop::HouseholdCSVReader</a></div><div class="ttdoc">Create a Reader that retrieves the different Household profiles from a given CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00011">HouseholdCSVReader.h:11</a></div></div>
+<div class="ttc" id="a00049_html"><div class="ttname"><a href="../../d2/dee/a00049.html">gengeopop::HouseholdReader</a></div><div class="ttdoc">Create a Reader that retrieves the different Household profiles from a given file This can be impleme...</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db8/a00316_source.html#l00015">HouseholdReader.h:15</a></div></div>
+<div class="ttc" id="a00046_html_a9f9f54b5d67017060f0bf6a0e2c5c99b"><div class="ttname"><a href="../../d3/dea/a00046.html#a9f9f54b5d67017060f0bf6a0e2c5c99b">gengeopop::HouseholdCSVReader::m_persons</a></div><div class="ttdeci">stride::util::SegmentedVector&lt; stride::Person &gt; m_persons</div><div class="ttdoc">&lt; Persons used in this Household, segmented vector to be able to have working pointers to it ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00019">HouseholdCSVReader.h:19</a></div></div>
+<div class="ttc" id="a00092_html"><div class="ttname"><a href="../../d1/dc1/a00092.html">stride::util::SegmentedVector&lt; stride::Person &gt;</a></div></div>
+<div class="ttc" id="a00316_html"><div class="ttname"><a href="../../d3/db8/a00316.html">HouseholdReader.h</a></div></div>
+<div class="ttc" id="a00046_html_a7188e1436bbf330ce8157086297d5231"><div class="ttname"><a href="../../d3/dea/a00046.html#a7188e1436bbf330ce8157086297d5231">gengeopop::HouseholdCSVReader::m_contactPools</a></div><div class="ttdeci">stride::util::SegmentedVector&lt; stride::ContactPool &gt; m_contactPools</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00022">HouseholdCSVReader.h:22</a></div></div>
+<div class="ttc" id="a00046_html_a977c1f083a3ac0f06f5fa22ef9937e77"><div class="ttname"><a href="../../d3/dea/a00046.html#a977c1f083a3ac0f06f5fa22ef9937e77">gengeopop::HouseholdCSVReader::HouseholdCSVReader</a></div><div class="ttdeci">HouseholdCSVReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the HouseholdCSVReader with an istream containing the CSV data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d71/a00309_source.html#l00004">HouseholdCSVReader.cpp:4</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d1/d67/a00310.html">Household.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d1/d67/a00310.html">HouseholdCSVReader.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::SubMunicipalitiesReader Class Reference</title>
+<title>Stride Reference Manual: gengeopop::ThreadException Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -111,81 +111,95 @@ $(document).ready(function(){initNavTree('dc/ddf/a00067.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../dc/df9/a00554.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d9/d7c/a01073.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::SubMunicipalitiesReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">gengeopop::ThreadException Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Create an abstract Reader which fills a <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> with the SubMunicipalities found in a given file.  
+<p>Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exception can then later be re-thrown in the main thread.  
  <a href="../../dc/ddf/a00067.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d2f/a00425_source.html">SubMunicipalitiesReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::SubMunicipalitiesReader:</div>
+Collaboration diagram for gengeopop::ThreadException:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../dc/ddf/a00067.png" usemap="#gengeopop::SubMunicipalitiesReader_map" alt=""/>
-  <map id="gengeopop::SubMunicipalitiesReader_map" name="gengeopop::SubMunicipalitiesReader_map">
-<area href="../../d9/db3/a00066.html" title="Create a Reader which fills a GeoGrid with the SubMunicipalities found in a given CSV file..." alt="gengeopop::SubMunicipalitiesCSVReader" shape="rect" coords="0,56,247,80"/>
-</map>
- </div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/df7/a01074.svg" width="206" height="304"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html">RunType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../da/d24/a00068.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html">RunType&lt; void &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:af366ae4c7b0d7f6d5679b68f6600a118"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af366ae4c7b0d7f6d5679b68f6600a118"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#af366ae4c7b0d7f6d5679b68f6600a118">RunType_t</a> = typename <a class="el" href="../../da/d24/a00068.html">RunType</a>&lt; T &gt;::type</td></tr>
+<tr class="separator:af366ae4c7b0d7f6d5679b68f6600a118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac94f368c917b043fb11c03cb3db709c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#ac94f368c917b043fb11c03cb3db709c2">SubMunicipalitiesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:ac94f368c917b043fb11c03cb3db709c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../dc/ddf/a00067.html" title="Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file...">SubMunicipalitiesReader</a> with an istream containing the file content.  <a href="#ac94f368c917b043fb11c03cb3db709c2">More...</a><br/></td></tr>
-<tr class="separator:ac94f368c917b043fb11c03cb3db709c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91c17048ecfd57ffec3412d763a2187d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a91c17048ecfd57ffec3412d763a2187d">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;) const =0</td></tr>
-<tr class="memdesc:a91c17048ecfd57ffec3412d763a2187d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found SubMunicipalities to the provided <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a>.  <a href="#a91c17048ecfd57ffec3412d763a2187d">More...</a><br/></td></tr>
-<tr class="separator:a91c17048ecfd57ffec3412d763a2187d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60cb58aee637fdc6a3f82cdf73891323"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a60cb58aee637fdc6a3f82cdf73891323">~SubMunicipalitiesReader</a> ()=default</td></tr>
-<tr class="memdesc:a60cb58aee637fdc6a3f82cdf73891323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a60cb58aee637fdc6a3f82cdf73891323">More...</a><br/></td></tr>
-<tr class="separator:a60cb58aee637fdc6a3f82cdf73891323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fbb9574d760116efc926e54df349e59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a1fbb9574d760116efc926e54df349e59">ThreadException</a> ()</td></tr>
+<tr class="memdesc:a1fbb9574d760116efc926e54df349e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="../../dc/ddf/a00067.html" title="Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exce...">ThreadException</a>.  <a href="#a1fbb9574d760116efc926e54df349e59">More...</a><br/></td></tr>
+<tr class="separator:a1fbb9574d760116efc926e54df349e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3b14cccb597c468c037670bb912c32c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#aa3b14cccb597c468c037670bb912c32c">~ThreadException</a> ()</td></tr>
+<tr class="memdesc:aa3b14cccb597c468c037670bb912c32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#aa3b14cccb597c468c037670bb912c32c">More...</a><br/></td></tr>
+<tr class="separator:aa3b14cccb597c468c037670bb912c32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98cfb6ecb19db16cb150321d60574603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a98cfb6ecb19db16cb150321d60574603">Rethrow</a> ()</td></tr>
+<tr class="memdesc:a98cfb6ecb19db16cb150321d60574603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-throw the exception if one was caught.  <a href="#a98cfb6ecb19db16cb150321d60574603">More...</a><br/></td></tr>
+<tr class="separator:a98cfb6ecb19db16cb150321d60574603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1132fb1b2f34a8ac2ae91eb0ba64732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#ac1132fb1b2f34a8ac2ae91eb0ba64732">CaptureException</a> ()</td></tr>
+<tr class="memdesc:ac1132fb1b2f34a8ac2ae91eb0ba64732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capture the current exception and save it.  <a href="#ac1132fb1b2f34a8ac2ae91eb0ba64732">More...</a><br/></td></tr>
+<tr class="separator:ac1132fb1b2f34a8ac2ae91eb0ba64732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc16f492441b304129ff2e0b4ccd9131"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Parameters&gt; </td></tr>
+<tr class="memitem:abc16f492441b304129ff2e0b4ccd9131"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#abc16f492441b304129ff2e0b4ccd9131">Run</a> (Function f, Parameters...params)</td></tr>
+<tr class="memdesc:abc16f492441b304129ff2e0b4ccd9131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given function and capture any exception that may be thrown.  <a href="#abc16f492441b304129ff2e0b4ccd9131">More...</a><br/></td></tr>
+<tr class="separator:abc16f492441b304129ff2e0b4ccd9131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e463acad6e2cf32ec2ac3106e35e739"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a4e463acad6e2cf32ec2ac3106e35e739">HasError</a> () const </td></tr>
+<tr class="memdesc:a4e463acad6e2cf32ec2ac3106e35e739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if an exception was caught.  <a href="#a4e463acad6e2cf32ec2ac3106e35e739">More...</a><br/></td></tr>
+<tr class="separator:a4e463acad6e2cf32ec2ac3106e35e739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ada89d21fe18775d79b9e44ebbcb2c13e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#ada89d21fe18775d79b9e44ebbcb2c13e">m_inputStream</a></td></tr>
-<tr class="memdesc:ada89d21fe18775d79b9e44ebbcb2c13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream containing the file content.  <a href="#ada89d21fe18775d79b9e44ebbcb2c13e">More...</a><br/></td></tr>
-<tr class="separator:ada89d21fe18775d79b9e44ebbcb2c13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5363ae4cbb435e3b4789971c994210a8"><td class="memItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a5363ae4cbb435e3b4789971c994210a8">ptr</a></td></tr>
+<tr class="memdesc:a5363ae4cbb435e3b4789971c994210a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The caught exception (if none was caught, contains a nullptr)  <a href="#a5363ae4cbb435e3b4789971c994210a8">More...</a><br/></td></tr>
+<tr class="separator:a5363ae4cbb435e3b4789971c994210a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eaf8c9a458243ef883acf6ded668642"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a2eaf8c9a458243ef883acf6ded668642">Lock</a></td></tr>
+<tr class="memdesc:a2eaf8c9a458243ef883acf6ded668642"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lock used to prevent two exceptions being caught at the same time.  <a href="#a2eaf8c9a458243ef883acf6ded668642">More...</a><br/></td></tr>
+<tr class="separator:a2eaf8c9a458243ef883acf6ded668642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create an abstract Reader which fills a <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> with the SubMunicipalities found in a given file. </p>
-<p>This can be implemented using different input file types. Currently CSV is implemented. </p>
+<div class="textblock"><p>Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exception can then later be re-thrown in the main thread. </p>
+<p>Based on <a href="https://stackoverflow.com/a/13978507/1393103">https://stackoverflow.com/a/13978507/1393103</a> </p>
 
-<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00013">13</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">SubMunicipalitiesReader.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac94f368c917b043fb11c03cb3db709c2"></a>
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00012">12</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="af366ae4c7b0d7f6d5679b68f6600a118"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::SubMunicipalitiesReader::SubMunicipalitiesReader </td>
-          <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="../../dc/ddf/a00067.html#af366ae4c7b0d7f6d5679b68f6600a118">gengeopop::ThreadException::RunType_t</a> =  typename <a class="el" href="../../da/d24/a00068.html">RunType</a>&lt;T&gt;::type</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Construct the <a class="el" href="../../dc/ddf/a00067.html" title="Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file...">SubMunicipalitiesReader</a> with an istream containing the file content. </p>
-
-<p>Definition at line <a class="el" href="../../dc/df3/a00424_source.html#l00005">5</a> of file <a class="el" href="../../dc/df3/a00424_source.html">SubMunicipalitiesReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00044">44</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a60cb58aee637fdc6a3f82cdf73891323"></a>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1fbb9574d760116efc926e54df349e59"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -193,7 +207,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual gengeopop::SubMunicipalitiesReader::~SubMunicipalitiesReader </td>
+          <td class="memname">gengeopop::ThreadException::ThreadException </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -201,17 +215,18 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default constructor. </p>
+<p>Create the <a class="el" href="../../dc/ddf/a00067.html" title="Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exce...">ThreadException</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00016">16</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a91c17048ecfd57ffec3412d763a2187d"></a>
+<a class="anchor" id="aa3b14cccb597c468c037670bb912c32c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -219,28 +234,173 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void gengeopop::SubMunicipalitiesReader::FillGeoGrid </td>
+          <td class="memname">gengeopop::ThreadException::~ThreadException </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00019">19</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a98cfb6ecb19db16cb150321d60574603"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::ThreadException::Rethrow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Re-throw the exception if one was caught. </p>
+
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00022">22</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/dd5/a00432_source.html#l00062">ptr</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1132fb1b2f34a8ac2ae91eb0ba64732"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::ThreadException::CaptureException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Capture the current exception and save it. </p>
+
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00030">30</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/dd5/a00432_source.html#l00063">Lock</a>, and <a class="el" href="../../d9/dd5/a00432_source.html#l00062">ptr</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dd5/a00432_source.html#l00048">Run()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/ddf/a00067_ac1132fb1b2f34a8ac2ae91eb0ba64732_icgraph.svg" width="475" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abc16f492441b304129ff2e0b4ccd9131"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function , typename... Parameters&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto gengeopop::ThreadException::Run </td>
+          <td>(</td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Parameters...&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Run the given function and capture any exception that may be thrown. </p>
+
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00048">48</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/dd5/a00432_source.html#l00030">CaptureException()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/ddf/a00067_abc16f492441b304129ff2e0b4ccd9131_cgraph.svg" width="475" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e463acad6e2cf32ec2ac3106e35e739"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gengeopop::ThreadException::HasError </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Add the found SubMunicipalities to the provided <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a>. </p>
+<p>Returns if an exception was caught. </p>
 
-<p>Implemented in <a class="el" href="../../d9/db3/a00066.html#a591d4d4d32fc62556ec428047d140b85">gengeopop::SubMunicipalitiesCSVReader</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00059">59</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/dd5/a00432_source.html#l00062">ptr</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ada89d21fe18775d79b9e44ebbcb2c13e"></a>
+<a class="anchor" id="a5363ae4cbb435e3b4789971c994210a8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -248,33 +408,60 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;std::istream&gt; gengeopop::SubMunicipalitiesReader::m_inputStream</td>
+          <td class="memname">std::exception_ptr gengeopop::ThreadException::ptr</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The istream containing the file content. </p>
+<p>The caught exception (if none was caught, contains a nullptr) </p>
 
-<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00026">26</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">SubMunicipalitiesReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00062">62</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dd5/a00432_source.html#l00030">CaptureException()</a>, <a class="el" href="../../d9/dd5/a00432_source.html#l00059">HasError()</a>, and <a class="el" href="../../d9/dd5/a00432_source.html#l00022">Rethrow()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/d2f/a00425_source.html">SubMunicipalitiesReader.h</a></li>
-<li><a class="el" href="../../dc/df3/a00424_source.html">SubMunicipalitiesReader.cpp</a></li>
+<a class="anchor" id="a2eaf8c9a458243ef883acf6ded668642"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex gengeopop::ThreadException::Lock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A lock used to prevent two exceptions being caught at the same time. </p>
+
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00063">63</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dd5/a00432_source.html#l00030">CaptureException()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d9/dd5/a00432_source.html">ThreadException.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/ddf/a00067.html">SubMunicipalitiesReader</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/ddf/a00067.html">ThreadException</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

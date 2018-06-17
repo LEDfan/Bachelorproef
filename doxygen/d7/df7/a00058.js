@@ -1,10 +1,8 @@
 var a00058 =
 [
-    [ "PartialPopulator", "d7/df7/a00058.html#ab0d36a7eec42c951ab03d32db44566db", null ],
-    [ "~PartialPopulator", "d7/df7/a00058.html#aea88face365d0f2d163eedaa9fafe461", null ],
-    [ "Apply", "d7/df7/a00058.html#aee01751cc775128b108e03118609091c", null ],
-    [ "GetContactPoolInIncreasingRadius", "d7/df7/a00058.html#a992a6f6b8761f481eabe22ffccc8f961", null ],
-    [ "MakeChoice", "d7/df7/a00058.html#ad18d65985647c2afb90627fa7048be6a", null ],
-    [ "m_rnManager", "d7/df7/a00058.html#abac3795203d9926b6c5dee1090a2de2c", null ],
-    [ "m_logger", "d7/df7/a00058.html#a7c9b69f1083ed1016458ccaaa8e53964", null ]
+    [ "Args", "d7/df7/a00058.html#ad4356187773550de9c9f8f70861e5686", null ],
+    [ "PolygonPolicy", "d7/df7/a00058.html#a4f45af44c216988a695d57633819496a", null ],
+    [ "GetBoundingBox", "d7/df7/a00058.html#a6b61e682cbf2e95e333d170d535720f1", null ],
+    [ "Contains", "d7/df7/a00058.html#a16eaa288435e30ffc3bd28f874cdb256", null ],
+    [ "m_poly", "d7/df7/a00058.html#a6e969812cc31820a81250186a2476e46", null ]
 ];

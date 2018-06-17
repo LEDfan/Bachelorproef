@@ -1,0 +1,5 @@
+<map id="proto::GeoGrid_Location_Coordinate::GetArenaNoVirtual" name="proto::GeoGrid_Location_Coordinate::GetArenaNoVirtual">
+<area shape="rect" id="node2" href="$d4/d63/a00082.html#ae6dbb45201d633d8cb62b7a553f76d37" title="proto::GeoGrid_Location\l::set_allocated_coordinate" alt="" coords="265,5,439,46"/>
+<area shape="rect" id="node3" href="$db/d3a/a00040.html#a2b0641108a2e713aa25c5969939a3c14" title="Create a ProtoBuf Location containing all the information needed to reconstruct a Location..." alt="" coords="489,5,695,46"/>
+<area shape="rect" id="node4" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="745,5,951,46"/>
+</map>

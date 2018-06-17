@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PrimaryCommunity.cpp Source File</title>
+<title>Stride Reference Manual: PrimaryCommunityPopulator.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,40 +109,37 @@ $(document).ready(function(){initNavTree('dc/dc9/a00389_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PrimaryCommunity.cpp</div>  </div>
+<div class="title">PrimaryCommunityPopulator.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dc/dc9/a00389.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d0a/a00390.html">PrimaryCommunity.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d9/d73/a00060.html#aa711bfaac9eb804db71d33cb8389f5fd">    7</a></span>&#160;<a class="code" href="../../d9/d73/a00060.html#aa711bfaac9eb804db71d33cb8389f5fd">PrimaryCommunity::PrimaryCommunity</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="../../d3/d52/a00023.html">Community</a>(id) {}</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d9/d73/a00060.html#ae5dd0a2af2978dc76fafc1d5c2756394">    8</a></span>&#160;std::string <a class="code" href="../../d9/d73/a00060.html#ae5dd0a2af2978dc76fafc1d5c2756394">PrimaryCommunity::GetType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Primary Community&quot;</span>; }</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d9/d73/a00060.html#acac73a4c6f3fa5b09699dce0a5e0e1c6">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#acac73a4c6f3fa5b09699dce0a5e0e1c6">PrimaryCommunity::Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d0/d33/a00027.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>.empty()) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                <a class="code" href="../../d0/d33/a00027.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a>(geoGrid-&gt;CreateContactPool(Id::PrimaryCommunity));</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00060_html_aa711bfaac9eb804db71d33cb8389f5fd"><div class="ttname"><a href="../../d9/d73/a00060.html#aa711bfaac9eb804db71d33cb8389f5fd">gengeopop::PrimaryCommunity::PrimaryCommunity</a></div><div class="ttdeci">PrimaryCommunity(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00007">PrimaryCommunity.cpp:7</a></div></div>
-<div class="ttc" id="a00023_html"><div class="ttname"><a href="../../d3/d52/a00023.html">gengeopop::Community</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00009">Community.h:9</a></div></div>
-<div class="ttc" id="a00060_html_acac73a4c6f3fa5b09699dce0a5e0e1c6"><div class="ttname"><a href="../../d9/d73/a00060.html#acac73a4c6f3fa5b09699dce0a5e0e1c6">gengeopop::PrimaryCommunity::Fill</a></div><div class="ttdeci">void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid) override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00010">PrimaryCommunity.cpp:10</a></div></div>
-<div class="ttc" id="a00390_html"><div class="ttname"><a href="../../d9/d0a/a00390.html">PrimaryCommunity.h</a></div></div>
-<div class="ttc" id="a00027_html_ac0b05f8789a5272fa8ec5e1113c5b731"><div class="ttname"><a href="../../d0/d33/a00027.html#ac0b05f8789a5272fa8ec5e1113c5b731">gengeopop::ContactCenter::m_pools</a></div><div class="ttdeci">std::vector&lt; stride::ContactPool * &gt; m_pools</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/a00237_source.html#l00034">ContactCenter.h:34</a></div></div>
-<div class="ttc" id="a00060_html_ae5dd0a2af2978dc76fafc1d5c2756394"><div class="ttname"><a href="../../d9/d73/a00060.html#ae5dd0a2af2978dc76fafc1d5c2756394">gengeopop::PrimaryCommunity::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00008">PrimaryCommunity.cpp:8</a></div></div>
-<div class="ttc" id="a00027_html_a05e2ac775c782a156ad867059f3b5e57"><div class="ttname"><a href="../../d0/d33/a00027.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter::AddPool</a></div><div class="ttdeci">void AddPool(stride::ContactPool *pool)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00007">ContactCenter.cpp:7</a></div></div>
+<a href="../../dc/dc9/a00389.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de3/a00373.html">PartialPopulator.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d9/d73/a00060.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d73/a00060.html">PrimaryCommunityPopulator</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d22/a00057.html">PartialPopulator</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator::PartialPopulator</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#a20e841fc232bb6cd3a5b4ddf166187eb">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00060_html_a20e841fc232bb6cd3a5b4ddf166187eb"><div class="ttname"><a href="../../d9/d73/a00060.html#a20e841fc232bb6cd3a5b4ddf166187eb">gengeopop::PrimaryCommunityPopulator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dc1/a00388_source.html#l00013">PrimaryCommunityPopulator.cpp:13</a></div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00013">GeoGridConfig.h:13</a></div></div>
+<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></div><div class="ttdoc">An interface for populators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de3/a00373_source.html#l00013">PartialPopulator.h:13</a></div></div>
+<div class="ttc" id="a00060_html"><div class="ttname"><a href="../../d9/d73/a00060.html">gengeopop::PrimaryCommunityPopulator</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc9/a00389_source.html#l00008">PrimaryCommunityPopulator.h:8</a></div></div>
+<div class="ttc" id="a00057_html_ab0d36a7eec42c951ab03d32db44566db"><div class="ttname"><a href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">gengeopop::PartialPopulator::PartialPopulator</a></div><div class="ttdeci">PartialPopulator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7e/a00372_source.html#l00004">PartialPopulator.cpp:4</a></div></div>
+<div class="ttc" id="a00373_html"><div class="ttname"><a href="../../dc/de3/a00373.html">PartialPopulator.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/dc9/a00389.html">PrimaryCommunity.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../dc/dc9/a00389.html">PrimaryCommunityPopulator.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

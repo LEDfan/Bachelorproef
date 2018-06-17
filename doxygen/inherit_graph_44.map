@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d9/da5/a00075.html" title="Message" alt="" coords="5,180,80,207"/>
+<area shape="rect" id="node2" href="$d8/d53/a00081.html" title="proto::GeoGrid" alt="" coords="172,5,279,32"/>
+<area shape="rect" id="node3" href="$d4/d63/a00082.html" title="proto::GeoGrid_Location" alt="" coords="144,56,307,83"/>
+<area shape="rect" id="node4" href="$d2/d1f/a00083.html" title="proto::GeoGrid_Location\l_Commute" alt="" coords="144,107,307,149"/>
+<area shape="rect" id="node5" href="$df/d5d/a00084.html" title="proto::GeoGrid_Location\l_ContactCenter" alt="" coords="144,173,307,214"/>
+<area shape="rect" id="node6" href="$df/d13/a00085.html" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool" alt="" coords="129,238,322,279"/>
+<area shape="rect" id="node7" href="$da/d2a/a00086.html" title="proto::GeoGrid_Location\l_Coordinate" alt="" coords="144,303,307,345"/>
+<area shape="rect" id="node8" href="$d1/d1e/a00087.html" title="proto::GeoGrid_Person" alt="" coords="148,369,303,396"/>
+</map>

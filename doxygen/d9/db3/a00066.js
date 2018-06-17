@@ -1,6 +1,7 @@
 var a00066 =
 [
-    [ "SubMunicipalitiesCSVReader", "d9/db3/a00066.html#a5ee4d9a74679ed737aaf4de6cfffca07", null ],
-    [ "FillGeoGrid", "d9/db3/a00066.html#a591d4d4d32fc62556ec428047d140b85", null ],
-    [ "m_reader", "d9/db3/a00066.html#a354a39d65b42b6b82606ba254cc91c17", null ]
+    [ "SubMunicipalitiesReader", "d9/db3/a00066.html#ac94f368c917b043fb11c03cb3db709c2", null ],
+    [ "~SubMunicipalitiesReader", "d9/db3/a00066.html#a60cb58aee637fdc6a3f82cdf73891323", null ],
+    [ "FillGeoGrid", "d9/db3/a00066.html#a91c17048ecfd57ffec3412d763a2187d", null ],
+    [ "m_inputStream", "d9/db3/a00066.html#ada89d21fe18775d79b9e44ebbcb2c13e", null ]
 ];

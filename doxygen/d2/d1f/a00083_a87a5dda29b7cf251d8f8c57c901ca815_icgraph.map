@@ -1,0 +1,4 @@
+<map id="proto::GeoGrid_Location_Commute::set_to" name="proto::GeoGrid_Location_Commute::set_to">
+<area shape="rect" id="node2" href="$db/d3a/a00040.html#a2b0641108a2e713aa25c5969939a3c14" title="Create a ProtoBuf Location containing all the information needed to reconstruct a Location..." alt="" coords="217,5,423,46"/>
+<area shape="rect" id="node3" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="473,5,679,46"/>
+</map>

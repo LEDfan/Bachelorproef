@@ -1,0 +1,18 @@
+<map id="Backend::GetLocationInRegion" name="Backend::GetLocationInRegion">
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a613fb0cc751f55a428c18156fae84d15" title="Sends a signal with the currently selected locations. " alt="" coords="282,341,446,368"/>
+<area shape="rect" id="node10" href="$d8/d84/a00001.html#a0ed26b4e4fdbffb693fc5a93db1fabe5" title="Places the markers on the map, according to the current checked boxes. " alt="" coords="283,123,445,149"/>
+<area shape="rect" id="node16" href="$d8/d84/a00001.html#a711a658ab043057fa608d1db6a49df24" title="Update colors of Markers based on the value of m_selection and m_unselection. " alt="" coords="257,392,471,419"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#a12718652247133e7a7dc8fba69fdd56d" title="Removes all locations from selection and unselection + re&#45;render the map. " alt="" coords="532,225,721,266"/>
+<area shape="rect" id="node5" href="$d8/d84/a00001.html#a99bb1003a584e978452b99901fc573ba" title="Adds the location of the marker to the selection. " alt="" coords="520,443,733,469"/>
+<area shape="rect" id="node6" href="$d8/d84/a00001.html#a21d367f733a25f731ee2c9e55a3d796e" title="Handles a click on a marker. " alt="" coords="794,493,977,520"/>
+<area shape="rect" id="node7" href="$d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" title="Backend::SelectAll" alt="" coords="560,341,693,368"/>
+<area shape="rect" id="node8" href="$d8/d84/a00001.html#a74ab20ec1a62676534387b56c2b514d5" title="The Same as SelectArea but does not clear selection first. " alt="" coords="533,392,720,419"/>
+<area shape="rect" id="node4" href="$d8/d84/a00001.html#a6ff4f267985cb8eea228352455ab6b67" title="Backend::SetShowCommutes" alt="" coords="786,216,985,243"/>
+<area shape="rect" id="node9" href="$d8/d84/a00001.html#a902157ea9e4cd13e6a25eed9135115e7" title="Selects all locations in between. " alt="" coords="813,417,958,444"/>
+<area shape="rect" id="node11" href="$d8/d84/a00001.html#a4c68caab686f34853c326b801fbadf4b" title="Load a GeoGrid from JSON file, specified in the command line arguments. " alt="" coords="533,57,720,98"/>
+<area shape="rect" id="node12" href="$d8/d84/a00001.html#acb9ec493bbac930f2c20e69963459770" title="Changes the geogrid to the given one. " alt="" coords="549,123,705,149"/>
+<area shape="rect" id="node15" href="$d8/d84/a00001.html#af3d90629f93456f7ed430d53225d28cc" title="Places the locations of the current GeoGrid on the map. " alt="" coords="553,5,700,32"/>
+<area shape="rect" id="node13" href="$d8/d84/a00001.html#a76b9d9ea83aa45c28655644598ce1b27" title="Loads a GeoGrid from JSON file. " alt="" coords="781,148,989,175"/>
+<area shape="rect" id="node14" href="$da/dec/a00080.html#a13cbf50eb92e9c512412e2da30a313b8" title="Shows the given geogrid in the mapviewer. " alt="" coords="820,97,951,124"/>
+<area shape="rect" id="node17" href="$d8/d84/a00001.html#a57957c86dc6eb450c9b4830001d4000e" title="Removes all locations from selection and unselection but don&#39;t re&#45;render the map. ..." alt="" coords="543,493,710,520"/>
+</map>

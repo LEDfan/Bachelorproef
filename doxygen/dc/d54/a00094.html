@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::AbstractPopBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::AgeContactProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,102 +112,42 @@ $(document).ready(function(){initNavTree('dc/d54/a00094.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../df/d6f/a00623.html">List of all members</a>  </div>
+<a href="../../dc/dcc/a01200.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::AbstractPopBuilder Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stride::AgeContactProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base Class for PopBuilders.  
+<p>Contact rates as a function of age.  
  <a href="../../dc/d54/a00094.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/df3/a00185_source.html">AgeContactProfile.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::AbstractPopBuilder:</div>
+Inheritance diagram for stride::AgeContactProfile:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../dc/d54/a00094.png" usemap="#stride::AbstractPopBuilder_map" alt=""/>
-  <map id="stride::AbstractPopBuilder_map" name="stride::AbstractPopBuilder_map">
-<area href="../../dd/d42/a00109.html" title="Initializes Population objects. " alt="stride::DefaultPopBuilder" shape="rect" coords="0,56,158,80"/>
-<area href="../../dd/d6d/a00111.html" title="Initializes Population objects. " alt="stride::GenPopBuilder" shape="rect" coords="168,56,326,80"/>
-<area href="../../d4/d98/a00120.html" title="Initializes Population objects. " alt="stride::ImportPopBuilder" shape="rect" coords="336,56,494,80"/>
-</map>
- </div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/df7/a01201.svg" width="179" height="246"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::AgeContactProfile:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d5d/a01202.svg" width="179" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a71a53948acc3676803feff7586d1d195"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#a71a53948acc3676803feff7586d1d195">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;regionPt, <a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:a71a53948acc3676803feff7586d1d195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a71a53948acc3676803feff7586d1d195">More...</a><br/></td></tr>
-<tr class="separator:a71a53948acc3676803feff7586d1d195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad985ef83434157d439ff1a15f051c488"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#ad985ef83434157d439ff1a15f051c488">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt; pop, std::size_t regionId, std::string regionName)=0</td></tr>
-<tr class="memdesc:ad985ef83434157d439ff1a15f051c488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build <a class="el" href="../../d4/ddd/a00138.html" title="Container for persons in population. ">Population</a> and return it afterwards.  <a href="#ad985ef83434157d439ff1a15f051c488">More...</a><br/></td></tr>
-<tr class="separator:ad985ef83434157d439ff1a15f051c488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8053325e3b65a908aacff4f1a42c6a8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#ac8053325e3b65a908aacff4f1a42c6a8">~AbstractPopBuilder</a> ()</td></tr>
-<tr class="separator:ac8053325e3b65a908aacff4f1a42c6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ae531cd041f5d2a849258039f820f9c9a"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td></tr>
-<tr class="memdesc:ae531cd041f5d2a849258039f820f9c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#ae531cd041f5d2a849258039f820f9c9a">More...</a><br/></td></tr>
-<tr class="separator:ae531cd041f5d2a849258039f820f9c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8c77e5698556a6545bccce54550e3d5"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#aa8c77e5698556a6545bccce54550e3d5">m_region_pt</a></td></tr>
-<tr class="memdesc:aa8c77e5698556a6545bccce54550e3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree of the region.  <a href="#aa8c77e5698556a6545bccce54550e3d5">More...</a><br/></td></tr>
-<tr class="separator:aa8c77e5698556a6545bccce54550e3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af54ded40bb19a7927e8215884956c5fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#af54ded40bb19a7927e8215884956c5fc">m_rn_manager</a></td></tr>
-<tr class="memdesc:af54ded40bb19a7927e8215884956c5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#af54ded40bb19a7927e8215884956c5fc">More...</a><br/></td></tr>
-<tr class="separator:af54ded40bb19a7927e8215884956c5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcac910ea28f2cefae9efd6f462aa34d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a> ()=default</td></tr>
+<tr class="memdesc:abcac910ea28f2cefae9efd6f462aa34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Need to keep the default constructor available.  <a href="#abcac910ea28f2cefae9efd6f462aa34d">More...</a><br/></td></tr>
+<tr class="separator:abcac910ea28f2cefae9efd6f462aa34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac325eb59f82e16bbe16cfc850947dd94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#ac325eb59f82e16bbe16cfc850947dd94">AgeContactProfile</a> (<a class="el" href="../../d9/d34/a00476.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, const boost::property_tree::ptree &amp;contactPt)</td></tr>
+<tr class="memdesc:ac325eb59f82e16bbe16cfc850947dd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicitly initialize.  <a href="#ac325eb59f82e16bbe16cfc850947dd94">More...</a><br/></td></tr>
+<tr class="separator:ac325eb59f82e16bbe16cfc850947dd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base Class for PopBuilders. </p>
+<div class="textblock"><p>Contact rates as a function of age. </p>
 
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00036">36</a> of file <a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00033">33</a> of file <a class="el" href="../../de/df3/a00185_source.html">AgeContactProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a71a53948acc3676803feff7586d1d195"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::AbstractPopBuilder::AbstractPopBuilder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>regionPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializing constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">configPt</td><td>Property_tree with general configuration settings. </td></tr>
-    <tr><td class="paramname">rnManager</td><td>Random number manager for pop build process. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d9/d90/a00178_source.html#l00037">37</a> of file <a class="el" href="../../d9/d90/a00178_source.html">AbstractPopBuilder.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac8053325e3b65a908aacff4f1a42c6a8"></a>
+<a class="anchor" id="abcac910ea28f2cefae9efd6f462aa34d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -215,7 +155,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stride::AbstractPopBuilder::~AbstractPopBuilder </td>
+          <td class="memname">stride::AgeContactProfile::AgeContactProfile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -223,40 +163,30 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00049">49</a> of file <a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a>.</p>
+<p>Need to keep the default constructor available. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad985ef83434157d439ff1a15f051c488"></a>
+<a class="anchor" id="ac325eb59f82e16bbe16cfc850947dd94"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../d4/ddd/a00138.html">Population</a>&gt; stride::AbstractPopBuilder::Build </td>
+          <td class="memname">stride::AgeContactProfile::AgeContactProfile </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d9/d34/a00476.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>poolType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>regionId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>regionName</em>&#160;</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>contactPt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -264,103 +194,22 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Build <a class="el" href="../../d4/ddd/a00138.html" title="Container for persons in population. ">Population</a> and return it afterwards. </p>
-
-<p>Implemented in <a class="el" href="../../dd/d42/a00109.html#a98f2494729bf1d46e947b302f3e1b3b1">stride::DefaultPopBuilder</a>, <a class="el" href="../../d4/d98/a00120.html#a1ebe3b9029f30d9cfb5fb1aef47360a9">stride::ImportPopBuilder</a>, and <a class="el" href="../../dd/d6d/a00111.html#a1a9f0c9424522454bc5f99419734993c">stride::GenPopBuilder</a>.</p>
+<p>Explicitly initialize. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ae531cd041f5d2a849258039f820f9c9a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::AbstractPopBuilder::m_config_pt</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Configuration property tree. </p>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00049">49</a> of file <a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa8c77e5698556a6545bccce54550e3d5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::AbstractPopBuilder::m_region_pt</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Configuration property tree of the region. </p>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00053">53</a> of file <a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af54ded40bb19a7927e8215884956c5fc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a>&amp; stride::AbstractPopBuilder::m_rn_manager</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Random number generation management. </p>
-
-<p>Definition at line <a class="el" href="../../db/dd9/a00179_source.html#l00054">54</a> of file <a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../db/dd9/a00179_source.html">AbstractPopBuilder.h</a></li>
-<li><a class="el" href="../../d9/d90/a00178_source.html">AbstractPopBuilder.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../de/df3/a00185_source.html">AgeContactProfile.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">AbstractPopBuilder</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">AgeContactProfile</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

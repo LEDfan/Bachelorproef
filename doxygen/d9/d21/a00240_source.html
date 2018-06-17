@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactCenterViewerBackend.cpp Source File</title>
+<title>Stride Reference Manual: ContactCenterViewerBackend.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,40 +109,41 @@ $(document).ready(function(){initNavTree('d9/d21/a00240_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactCenterViewerBackend.cpp</div>  </div>
+<div class="title">ContactCenterViewerBackend.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/d21/a00240.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/db6/a00241.html">ContactCenterViewerBackend.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;QTableView&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QtCore/QVariant&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d4/d08/a00237.html">gengeopop/ContactCenter.h</a>&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<a href="../../d9/d21/a00240.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d5e/a00275.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../df/d86/a00012.html#a0c1e190377d26b949763f6f385f0aa5f">    7</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/d86/a00012.html#a0c1e190377d26b949763f6f385f0aa5f">ContactCenterViewerBackend::ShowContactCenter</a>(std::shared_ptr&lt;gengeopop::ContactCenter&gt; center)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../df/d86/a00012.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d86/a00012.html">ContactCenterViewerBackend</a> : <span class="keyword">public</span> <a class="code" href="../../d9/dec/a00090.html">QObject</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keyword">auto</span>  poolSizeText    = parent()-&gt;findChild&lt;<a class="code" href="../../da/d82/a00091.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textCCPoolSize&quot;</span>));</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keyword">auto</span>* maxPoolSizeText = parent()-&gt;findChild&lt;<a class="code" href="../../da/d82/a00091.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textCCMaxPools&quot;</span>));</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        QString poolsString    = <span class="stringliteral">&quot;Pool Size: &quot;</span> + QString::number(center-&gt;GetPoolSize());</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        QString maxPoolsString = <span class="stringliteral">&quot;Max # Pools: &quot;</span> + QString::number(center-&gt;GetMaxPools());</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        poolSizeText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, poolsString);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        maxPoolSizeText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, maxPoolsString);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../df/d86/a00012.html#a7681f1ba16d8ff0c8acf7083ad432ea8">   19</a></span>&#160;<a class="code" href="../../df/d86/a00012.html#a7681f1ba16d8ff0c8acf7083ad432ea8">ContactCenterViewerBackend::ContactCenterViewerBackend</a>(<a class="code" href="../../da/d82/a00091.html">QObject</a>* parent) : <a class="code" href="../../da/d82/a00091.html">QObject</a>(parent) {}</div>
-<div class="ttc" id="a00091_html"><div class="ttname"><a href="../../da/d82/a00091.html">QObject</a></div></div>
-<div class="ttc" id="a00241_html"><div class="ttname"><a href="../../d6/db6/a00241.html">ContactCenterViewerBackend.h</a></div></div>
-<div class="ttc" id="a00012_html_a0c1e190377d26b949763f6f385f0aa5f"><div class="ttname"><a href="../../df/d86/a00012.html#a0c1e190377d26b949763f6f385f0aa5f">ContactCenterViewerBackend::ShowContactCenter</a></div><div class="ttdeci">Q_INVOKABLE void ShowContactCenter(std::shared_ptr&lt; gengeopop::ContactCenter &gt; contactCenter)</div><div class="ttdoc">Changes the texts and table in the viewer to show the given contactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d21/a00240_source.html#l00007">ContactCenterViewerBackend.cpp:7</a></div></div>
-<div class="ttc" id="a00012_html_a7681f1ba16d8ff0c8acf7083ad432ea8"><div class="ttname"><a href="../../df/d86/a00012.html#a7681f1ba16d8ff0c8acf7083ad432ea8">ContactCenterViewerBackend::ContactCenterViewerBackend</a></div><div class="ttdeci">ContactCenterViewerBackend(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d21/a00240_source.html#l00019">ContactCenterViewerBackend.cpp:19</a></div></div>
-<div class="ttc" id="a00237_html"><div class="ttname"><a href="../../d4/d08/a00237.html">ContactCenter.h</a></div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        Q_OBJECT</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../df/d86/a00012.html#a7681f1ba16d8ff0c8acf7083ad432ea8">ContactCenterViewerBackend</a>(<a class="code" href="../../d9/dec/a00090.html">QObject</a>* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        Q_INVOKABLE<span class="comment"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">        /**</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">         * Changes the texts and table in the viewer to show the given contactCenter.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">         * @param contactCenter The location to show in the viewer.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d86/a00012.html#a0c1e190377d26b949763f6f385f0aa5f">ShowContactCenter</a>(std::shared_ptr&lt;gengeopop::ContactCenter&gt; contactCenter);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="ttc" id="a00012_html_a0c1e190377d26b949763f6f385f0aa5f"><div class="ttname"><a href="../../df/d86/a00012.html#a0c1e190377d26b949763f6f385f0aa5f">ContactCenterViewerBackend::ShowContactCenter</a></div><div class="ttdeci">Q_INVOKABLE void ShowContactCenter(std::shared_ptr&lt; gengeopop::ContactCenter &gt; contactCenter)</div><div class="ttdoc">Changes the texts and table in the viewer to show the given contactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d27/a00239_source.html#l00007">ContactCenterViewerBackend.cpp:7</a></div></div>
+<div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGrid.h</a></div></div>
+<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
+<div class="ttc" id="a00012_html"><div class="ttname"><a href="../../df/d86/a00012.html">ContactCenterViewerBackend</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d21/a00240_source.html#l00007">ContactCenterViewerBackend.h:7</a></div></div>
+<div class="ttc" id="a00012_html_a7681f1ba16d8ff0c8acf7083ad432ea8"><div class="ttname"><a href="../../df/d86/a00012.html#a7681f1ba16d8ff0c8acf7083ad432ea8">ContactCenterViewerBackend::ContactCenterViewerBackend</a></div><div class="ttdeci">ContactCenterViewerBackend(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d27/a00239_source.html#l00019">ContactCenterViewerBackend.cpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../dir_72f029039fb3dc01bf2697144f25fede.html">backends</a></li><li class="navelem"><a class="el" href="../../d9/d21/a00240.html">ContactCenterViewerBackend.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../dir_72f029039fb3dc01bf2697144f25fede.html">backends</a></li><li class="navelem"><a class="el" href="../../d9/d21/a00240.html">ContactCenterViewerBackend.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

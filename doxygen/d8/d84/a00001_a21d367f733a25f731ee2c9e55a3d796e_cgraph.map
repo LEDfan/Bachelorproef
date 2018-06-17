@@ -1,0 +1,11 @@
+<map id="Backend::OnMarkerClicked" name="Backend::OnMarkerClicked">
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a57957c86dc6eb450c9b4830001d4000e" title="Removes all locations from selection and unselection but don&#39;t re&#45;render the map. ..." alt="" coords="242,5,409,32"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#a711a658ab043057fa608d1db6a49df24" title="Update colors of Markers based on the value of m_selection and m_unselection. " alt="" coords="462,56,677,83"/>
+<area shape="rect" id="node9" href="$d8/d84/a00001.html#a613fb0cc751f55a428c18156fae84d15" title="Sends a signal with the currently selected locations. " alt="" coords="487,107,651,133"/>
+<area shape="rect" id="node10" href="$d8/d84/a00001.html#a09f0850d236439a5c5a2025dd1bab78c" title="Adds the location to the selection if it is not yet in the list. " alt="" coords="238,158,413,199"/>
+<area shape="rect" id="node4" href="$d8/d84/a00001.html#a0478e17f39806247ce5544cac69f528f" title="Return the requested location. " alt="" coords="732,107,935,133"/>
+<area shape="rect" id="node5" href="$d8/d84/a00001.html#a0382cea391f86bd0759ec8bd2784a332" title="Hides the commutes between the given 2 locations on the map. " alt="" coords="725,5,941,32"/>
+<area shape="rect" id="node7" href="$d8/d84/a00001.html#a852a5daca487b26cdb2416733cee3721" title="Shows the commute from loc1 to loc2 on the map. " alt="" coords="748,56,919,83"/>
+<area shape="rect" id="node6" href="$d8/d84/a00001.html#acd9816e8f8840c71d0cbe46c2a826126" title="Hides the commute line on the map. " alt="" coords="989,5,1179,32"/>
+<area shape="rect" id="node8" href="$d8/d84/a00001.html#adfeca0359eba8ac76a148ba3a6463178" title="Add a line on the map for the given commute info. " alt="" coords="991,56,1177,83"/>
+</map>

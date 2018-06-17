@@ -1,0 +1,5 @@
+<map id="gengeopop::GeoGridJSONReader::ParseContactPool" name="gengeopop::GeoGridJSONReader::ParseContactPool">
+<area shape="rect" id="node2" href="$de/d8c/a00036.html#afb3033a81be83438278779ea66f0ac7d" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="272,5,491,46"/>
+<area shape="rect" id="node3" href="$de/d8c/a00036.html#adaab40c2b8396d2333ca9cd6dd56da7c" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="539,5,757,46"/>
+<area shape="rect" id="node4" href="$de/d8c/a00036.html#a34a17d9a7742cc392ec09fa6dbddd402" title="Actually perform the read and return the GeoGrid. " alt="" coords="805,5,1024,46"/>
+</map>

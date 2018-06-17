@@ -1,0 +1,4 @@
+<map id="calibration::Calibrator::PrintMultipleResultsAtStep" name="calibration::Calibrator::PrintMultipleResultsAtStep">
+<area shape="rect" id="node2" href="$de/d5e/a00007.html#a6051757f0d88bc0b388bff42f5c25869" title="Print the mean and standard deviation of the given numbers, name and step. " alt="" coords="241,5,386,46"/>
+<area shape="rect" id="node3" href="$de/d5e/a00007.html#acffd4064a0ca1fe9e249167bb0acbcec" title="Compute the mean and standard deviation of the given numbers and return (mean, stdev). " alt="" coords="435,5,581,46"/>
+</map>

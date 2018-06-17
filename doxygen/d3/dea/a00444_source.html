@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TravellerProfileBuilder.h Source File</title>
+<title>Stride Reference Manual: Workplace.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,54 +109,41 @@ $(document).ready(function(){initNavTree('d3/dea/a00444_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TravellerProfileBuilder.h</div>  </div>
+<div class="title">Workplace.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/dea/a00444.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d34/a00442.html">TravellerProfile.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../db/db9/a00387.html">pop/Population.h</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * Builds a TravellerProfile from the values in a configPt (using csv files).</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d48/a00148.html">TravellerProfileBuilder</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">        /// Constructor</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span>        <a class="code" href="../../db/d48/a00148.html#a92a979fcc9126020bb317ea37d26296f">TravellerProfileBuilder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../db/d44/a00162.html">util::RNManager</a>&amp; rnManager,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                                std::shared_ptr&lt;Population&gt; pop);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// Build and return the TravellerProfile</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span>        std::shared_ptr&lt;TravellerProfile&gt; <a class="code" href="../../db/d48/a00148.html#a054950caec73fe87d50736d61377d182">Build</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html#a3f7685d5081a50a71241c36279c02858">   24</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../db/d48/a00148.html#a3f7685d5081a50a71241c36279c02858">m_configPt</a>;  <span class="comment">///&lt; Configuration sued</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html#aad912ff7f64511bae926e1eb87cfe946">   25</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../db/d44/a00162.html">util::RNManager</a>&amp;                   <a class="code" href="../../db/d48/a00148.html#aad912ff7f64511bae926e1eb87cfe946">m_rnManager</a>; <span class="comment">///&lt; RnManager (passed to created TravellerProfile)</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">   26</a></span>&#160;<span class="comment"></span>        std::shared_ptr&lt;Population&gt;        <a class="code" href="../../db/d48/a00148.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">m_pop</a>;       <span class="comment">///&lt; Population</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00442_html"><div class="ttname"><a href="../../db/d34/a00442.html">TravellerProfile.h</a></div></div>
-<div class="ttc" id="a00162_html"><div class="ttname"><a href="../../db/d44/a00162.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00148_html_aad912ff7f64511bae926e1eb87cfe946"><div class="ttname"><a href="../../db/d48/a00148.html#aad912ff7f64511bae926e1eb87cfe946">stride::TravellerProfileBuilder::m_rnManager</a></div><div class="ttdeci">util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager (passed to created TravellerProfile) </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00025">TravellerProfileBuilder.h:25</a></div></div>
-<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00148_html_ae183a7f7ec1e3f6a1ee8b1a9e1e41f49"><div class="ttname"><a href="../../db/d48/a00148.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">stride::TravellerProfileBuilder::m_pop</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; m_pop</div><div class="ttdoc">Population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00026">TravellerProfileBuilder.h:26</a></div></div>
-<div class="ttc" id="a00148_html_a3f7685d5081a50a71241c36279c02858"><div class="ttname"><a href="../../db/d48/a00148.html#a3f7685d5081a50a71241c36279c02858">stride::TravellerProfileBuilder::m_configPt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_configPt</div><div class="ttdoc">Configuration sued. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00024">TravellerProfileBuilder.h:24</a></div></div>
-<div class="ttc" id="a00148_html_a054950caec73fe87d50736d61377d182"><div class="ttname"><a href="../../db/d48/a00148.html#a054950caec73fe87d50736d61377d182">stride::TravellerProfileBuilder::Build</a></div><div class="ttdeci">std::shared_ptr&lt; TravellerProfile &gt; Build()</div><div class="ttdoc">Build and return the TravellerProfile. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00020">TravellerProfileBuilder.cpp:20</a></div></div>
-<div class="ttc" id="a00148_html_a92a979fcc9126020bb317ea37d26296f"><div class="ttname"><a href="../../db/d48/a00148.html#a92a979fcc9126020bb317ea37d26296f">stride::TravellerProfileBuilder::TravellerProfileBuilder</a></div><div class="ttdeci">TravellerProfileBuilder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00014">TravellerProfileBuilder.cpp:14</a></div></div>
-<div class="ttc" id="a00148_html"><div class="ttname"><a href="../../db/d48/a00148.html">stride::TravellerProfileBuilder</a></div><div class="ttdoc">Builds a TravellerProfile from the values in a configPt (using csv files). </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00013">TravellerProfileBuilder.h:13</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d40/a00236.html">ContactCenter.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d5e/a00275.html">GeoGrid.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/db1/a00070.html">Workplace</a> : <span class="keyword">public</span> <a class="code" href="../../d6/d5b/a00026.html">ContactCenter</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d2/db1/a00070.html#a2a5776adcfa1badbfb93f59dfa61137f">Workplace</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db1/a00070.html#a2a15bafc9cd5009f0a5fdf37c3098d5c">GetPoolSize</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db1/a00070.html#a707de3229c14c3486a4ad16972ff85f7">GetMaxPools</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        std::string  <a class="code" href="../../d2/db1/a00070.html#af3f4050abcabf657c120225725c1f8d5">GetType</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span>         <a class="code" href="../../d2/db1/a00070.html#a2389c1fe82dc8221ad2f6fdb216e04af">Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00070_html_a2a15bafc9cd5009f0a5fdf37c3098d5c"><div class="ttname"><a href="../../d2/db1/a00070.html#a2a15bafc9cd5009f0a5fdf37c3098d5c">gengeopop::Workplace::GetPoolSize</a></div><div class="ttdeci">unsigned int GetPoolSize() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00012">Workplace.cpp:12</a></div></div>
+<div class="ttc" id="a00070_html_a707de3229c14c3486a4ad16972ff85f7"><div class="ttname"><a href="../../d2/db1/a00070.html#a707de3229c14c3486a4ad16972ff85f7">gengeopop::Workplace::GetMaxPools</a></div><div class="ttdeci">unsigned int GetMaxPools() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00014">Workplace.cpp:14</a></div></div>
+<div class="ttc" id="a00070_html"><div class="ttname"><a href="../../d2/db1/a00070.html">gengeopop::Workplace</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dea/a00444_source.html#l00007">Workplace.h:7</a></div></div>
+<div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGrid.h</a></div></div>
+<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">gengeopop::ContactCenter</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00008">ContactCenter.h:8</a></div></div>
+<div class="ttc" id="a00070_html_af3f4050abcabf657c120225725c1f8d5"><div class="ttname"><a href="../../d2/db1/a00070.html#af3f4050abcabf657c120225725c1f8d5">gengeopop::Workplace::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00010">Workplace.cpp:10</a></div></div>
+<div class="ttc" id="a00070_html_a2389c1fe82dc8221ad2f6fdb216e04af"><div class="ttname"><a href="../../d2/db1/a00070.html#a2389c1fe82dc8221ad2f6fdb216e04af">gengeopop::Workplace::Fill</a></div><div class="ttdeci">void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00016">Workplace.cpp:16</a></div></div>
+<div class="ttc" id="a00070_html_a2a5776adcfa1badbfb93f59dfa61137f"><div class="ttname"><a href="../../d2/db1/a00070.html#a2a5776adcfa1badbfb93f59dfa61137f">gengeopop::Workplace::Workplace</a></div><div class="ttdeci">Workplace(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc4/a00443_source.html#l00008">Workplace.cpp:8</a></div></div>
+<div class="ttc" id="a00236_html"><div class="ttname"><a href="../../d7/d40/a00236.html">ContactCenter.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d3/dea/a00444.html">TravellerProfileBuilder.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dea/a00444.html">Workplace.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,0 +1,4 @@
+<map id="proto::GeoGrid_Location::id" name="proto::GeoGrid_Location::id">
+<area shape="rect" id="node2" href="$d3/de7/a00039.html#a0adca811808bc9edf494cd38b6ca0bae" title="Create a Location based on the provided protobuf Location. " alt="" coords="235,5,450,46"/>
+<area shape="rect" id="node3" href="$d3/de7/a00039.html#ad9d1285450862c08629d6f8456976413" title="Actually perform the read and return the GeoGrid. " alt="" coords="499,5,714,46"/>
+</map>

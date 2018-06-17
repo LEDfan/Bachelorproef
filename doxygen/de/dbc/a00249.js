@@ -1,4 +1,6 @@
 var a00249 =
 [
-    [ "ContactPoolSys", "de/dbc/a00249.html#a49dce703c45af99fbc6215835b94327d", null ]
+    [ "IsType", "de/dbc/a00249.html#a1269217f56908f0da981dbe4e43bb73d", null ],
+    [ "ToString", "de/dbc/a00249.html#a0cf9d3425b406cd76acdc02ef9c0286d", null ],
+    [ "ToType", "de/dbc/a00249.html#af529300a78547c29c95b81ad8ac62afe", null ]
 ];

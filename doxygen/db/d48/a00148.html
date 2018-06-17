@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::TravellerProfileBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::util::Any Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -113,105 +113,258 @@ $(document).ready(function(){initNavTree('db/d48/a00148.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/db1/a00622.html">List of all members</a>  </div>
+<a href="../../d4/d34/a01298.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::TravellerProfileBuilder Class Reference</div>  </div>
+<div class="title">stride::util::Any Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds a <a class="el" href="../../d0/d4a/a00147.html" title="Holds the information about travels. ">TravellerProfile</a> from the values in a configPt (using csv files).  
+<p>A RAII void*, for type erasure, that can point to anything.  
  <a href="../../db/d48/a00148.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/dea/a00444_source.html">TravellerProfileBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::util::Any:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d38/a01299.svg" width="210" height="318"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92a979fcc9126020bb317ea37d26296f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a92a979fcc9126020bb317ea37d26296f">TravellerProfileBuilder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;rnManager, std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a92a979fcc9126020bb317ea37d26296f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a92a979fcc9126020bb317ea37d26296f">More...</a><br/></td></tr>
-<tr class="separator:a92a979fcc9126020bb317ea37d26296f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a054950caec73fe87d50736d61377d182"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">TravellerProfile</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a054950caec73fe87d50736d61377d182">Build</a> ()</td></tr>
-<tr class="memdesc:a054950caec73fe87d50736d61377d182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build and return the <a class="el" href="../../d0/d4a/a00147.html" title="Holds the information about travels. ">TravellerProfile</a>.  <a href="#a054950caec73fe87d50736d61377d182">More...</a><br/></td></tr>
-<tr class="separator:a054950caec73fe87d50736d61377d182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78136d1eb13e5df0bd7f8043adff152a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a> ()</td></tr>
+<tr class="separator:a78136d1eb13e5df0bd7f8043adff152a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1330eaf1df07a82065354e88a87a6fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#ad1330eaf1df07a82065354e88a87a6fd">operator=</a> (const <a class="el" href="../../db/d48/a00148.html">Any</a> &amp;)=delete</td></tr>
+<tr class="separator:ad1330eaf1df07a82065354e88a87a6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37a30a7324377f7afe3b614d3c8f1eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#aa37a30a7324377f7afe3b614d3c8f1eb">Any</a> (<a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:aa37a30a7324377f7afe3b614d3c8f1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5387b1910deeba0f0fb319c8a6e710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#aac5387b1910deeba0f0fb319c8a6e710">operator=</a> (<a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:aac5387b1910deeba0f0fb319c8a6e710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memTemplParams" colspan="2">template&lt;typename T , class... Args&gt; </td></tr>
+<tr class="memitem:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a8aee74d02cb317ad6a8212f9a84c9254">emplace</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25363f8f215051caae46e3094da0bff8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a25363f8f215051caae46e3094da0bff8"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a25363f8f215051caae46e3094da0bff8">cast</a> () const </td></tr>
+<tr class="separator:a25363f8f215051caae46e3094da0bff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60543e81cc55aee3d0a2d8e02779825b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a60543e81cc55aee3d0a2d8e02779825b">operator bool</a> () const </td></tr>
+<tr class="separator:a60543e81cc55aee3d0a2d8e02779825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3f7685d5081a50a71241c36279c02858"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a3f7685d5081a50a71241c36279c02858">m_configPt</a></td></tr>
-<tr class="memdesc:a3f7685d5081a50a71241c36279c02858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration sued.  <a href="#a3f7685d5081a50a71241c36279c02858">More...</a><br/></td></tr>
-<tr class="separator:a3f7685d5081a50a71241c36279c02858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad912ff7f64511bae926e1eb87cfe946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#aad912ff7f64511bae926e1eb87cfe946">m_rnManager</a></td></tr>
-<tr class="memdesc:aad912ff7f64511bae926e1eb87cfe946"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager (passed to created <a class="el" href="../../d0/d4a/a00147.html" title="Holds the information about travels. ">TravellerProfile</a>)  <a href="#aad912ff7f64511bae926e1eb87cfe946">More...</a><br/></td></tr>
-<tr class="separator:aad912ff7f64511bae926e1eb87cfe946"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae183a7f7ec1e3f6a1ee8b1a9e1e41f49"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">m_pop</a></td></tr>
-<tr class="memdesc:ae183a7f7ec1e3f6a1ee8b1a9e1e41f49"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/ddd/a00138.html" title="Container for persons in population. ">Population</a>.  <a href="#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">More...</a><br/></td></tr>
-<tr class="separator:ae183a7f7ec1e3f6a1ee8b1a9e1e41f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a581dd8c8a98e7470e351687980a7f41d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a></td></tr>
+<tr class="separator:a581dd8c8a98e7470e351687980a7f41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e14abfb952e01348cb11cb50649daf"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a></td></tr>
+<tr class="separator:a43e14abfb952e01348cb11cb50649daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds a <a class="el" href="../../d0/d4a/a00147.html" title="Holds the information about travels. ">TravellerProfile</a> from the values in a configPt (using csv files). </p>
+<div class="textblock"><p>A RAII void*, for type erasure, that can point to anything. </p>
+<p><a class="el" href="../../db/d48/a00148.html" title="A RAII void*, for type erasure, that can point to anything. ">Any</a> owns the pointer, and cleans up with a custom destructor. Does type verification when NDEBUG is not set. </p>
 
-<p>Definition at line <a class="el" href="../../d3/dea/a00444_source.html#l00013">13</a> of file <a class="el" href="../../d3/dea/a00444_source.html">TravellerProfileBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00036">36</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a92a979fcc9126020bb317ea37d26296f"></a>
+<a class="anchor" id="a78136d1eb13e5df0bd7f8043adff152a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::TravellerProfileBuilder::TravellerProfileBuilder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc4/a00443_source.html#l00014">14</a> of file <a class="el" href="../../d0/dc4/a00443_source.html">TravellerProfileBuilder.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a054950caec73fe87d50736d61377d182"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">TravellerProfile</a> &gt; stride::TravellerProfileBuilder::Build </td>
+          <td class="memname">stride::util::Any::Any </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Build and return the <a class="el" href="../../d0/d4a/a00147.html" title="Holds the information about travels. ">TravellerProfile</a>. </p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00040">40</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d0/dc4/a00443_source.html#l00020">20</a> of file <a class="el" href="../../d0/dc4/a00443_source.html">TravellerProfileBuilder.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa37a30a7324377f7afe3b614d3c8f1eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::util::Any::Any </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="../../dd/d86/a00271_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d3/dea/a00444_source.html#l00024">m_configPt</a>, <a class="el" href="../../d3/dea/a00444_source.html#l00026">m_pop</a>, and <a class="el" href="../../d3/dea/a00444_source.html#l00025">m_rnManager</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad1330eaf1df07a82065354e88a87a6fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d48/a00148.html">Any</a>&amp; stride::util::Any::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00044">stride::SimBuilder::Build()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aac5387b1910deeba0f0fb319c8a6e710"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d48/a00148.html">Any</a>&amp; stride::util::Any::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8aee74d02cb317ad6a8212f9a84c9254"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::util::Any::emplace </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00060">60</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/daa/a00187_source.html#l00090">m_destroy</a>, and <a class="el" href="../../d6/daa/a00187_source.html#l00089">m_ptr</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d56/a00384_source.html#l00128">stride::Population::InitBeliefPolicy()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d48/a00148_a8aee74d02cb317ad6a8212f9a84c9254_icgraph.svg" width="659" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a25363f8f215051caae46e3094da0bff8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* stride::util::Any::cast </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00072">72</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/daa/a00187_source.html#l00089">m_ptr</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d56/a00384_source.html#l00144">stride::Population::SetBeliefPolicy()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d48/a00148_a25363f8f215051caae46e3094da0bff8_icgraph.svg" width="326" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a60543e81cc55aee3d0a2d8e02779825b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::util::Any::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00086">86</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/daa/a00187_source.html#l00089">m_ptr</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3f7685d5081a50a71241c36279c02858"></a>
+<a class="anchor" id="a581dd8c8a98e7470e351687980a7f41d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -219,7 +372,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::TravellerProfileBuilder::m_configPt</td>
+          <td class="memname">void* stride::util::Any::m_ptr</td>
         </tr>
       </table>
   </td>
@@ -229,15 +382,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Configuration sued. </p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00089">89</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d3/dea/a00444_source.html#l00024">24</a> of file <a class="el" href="../../d3/dea/a00444_source.html">TravellerProfileBuilder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dc4/a00443_source.html#l00020">Build()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/daa/a00187_source.html#l00072">cast()</a>, <a class="el" href="../../d6/daa/a00187_source.html#l00060">emplace()</a>, and <a class="el" href="../../d6/daa/a00187_source.html#l00086">operator bool()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aad912ff7f64511bae926e1eb87cfe946"></a>
+<a class="anchor" id="a43e14abfb952e01348cb11cb50649daf"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -245,7 +396,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a>&amp; stride::TravellerProfileBuilder::m_rnManager</td>
+          <td class="memname">std::function&lt;void()&gt; stride::util::Any::m_destroy</td>
         </tr>
       </table>
   </td>
@@ -255,51 +406,22 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>RnManager (passed to created <a class="el" href="../../d0/d4a/a00147.html" title="Holds the information about travels. ">TravellerProfile</a>) </p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00090">90</a> of file <a class="el" href="../../d6/daa/a00187_source.html">Any.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d3/dea/a00444_source.html#l00025">25</a> of file <a class="el" href="../../d3/dea/a00444_source.html">TravellerProfileBuilder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dc4/a00443_source.html#l00020">Build()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/daa/a00187_source.html#l00060">emplace()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae183a7f7ec1e3f6a1ee8b1a9e1e41f49"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/ddd/a00138.html">Population</a>&gt; stride::TravellerProfileBuilder::m_pop</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../d4/ddd/a00138.html" title="Container for persons in population. ">Population</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d3/dea/a00444_source.html#l00026">26</a> of file <a class="el" href="../../d3/dea/a00444_source.html">TravellerProfileBuilder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dc4/a00443_source.html#l00020">Build()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/dea/a00444_source.html">TravellerProfileBuilder.h</a></li>
-<li><a class="el" href="../../d0/dc4/a00443_source.html">TravellerProfileBuilder.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d6/daa/a00187_source.html">Any.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">TravellerProfileBuilder</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d58/a00481.html">util</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">Any</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,0 +1,4 @@
+<map id="gengeopop::GeoGridProtoWriter::WriteCoordinate" name="gengeopop::GeoGridProtoWriter::WriteCoordinate">
+<area shape="rect" id="node2" href="$db/d3a/a00040.html#a2b0641108a2e713aa25c5969939a3c14" title="Create a ProtoBuf Location containing all the information needed to reconstruct a Location..." alt="" coords="262,5,469,46"/>
+<area shape="rect" id="node3" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="518,5,725,46"/>
+</map>

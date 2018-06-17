@@ -1,0 +1,4 @@
+<map id="gengeopop::PrimaryCommunity" name="gengeopop::PrimaryCommunity">
+<area shape="rect" id="node2" href="$d7/de0/a00022.html" title="{gengeopop::Community\n||+ Community()\l+ AddHouseHold()\l+ GetType()\l+ GetPoolSize()\l+ GetMaxPools()\l}" alt="" coords="28,323,187,459"/>
+<area shape="rect" id="node3" href="$d6/d5b/a00026.html" title="{gengeopop::ContactCenter\n|# m_pools\l# m_id\l|+ ContactCenter()\l+ GetType()\l+ GetPoolSize()\l+ GetMaxPools()\l+ Fill()\l+ GetId()\l+ GetPopulationAndInfected\lCount()\l+ AddPool()\l+ GetPools()\l+ begin()\l+ end()\l+ ~ContactCenter()\l}" alt="" coords="15,6,201,274"/>
+</map>

@@ -1,0 +1,26 @@
+<map id="gengeopop::GeoGridProtoWriter::WriteLocation" name="gengeopop::GeoGridProtoWriter::WriteLocation">
+<area shape="rect" id="node2" href="$d4/d63/a00082.html#afcaa78dcf409d0cb1f68907948ed761a" title="proto::GeoGrid_Location\l::add_commutes" alt="" coords="284,5,447,46"/>
+<area shape="rect" id="node3" href="$d4/d63/a00082.html#afe71705ad7142a1f8b6260631f42ffc7" title="proto::GeoGrid_Location\l::add_contactcenters" alt="" coords="284,70,447,111"/>
+<area shape="rect" id="node4" href="$d4/d63/a00082.html#a6e60a8f6702a60e4897be906f9bc9950" title="proto::GeoGrid_Location\l::add_submunicipalities" alt="" coords="284,135,447,177"/>
+<area shape="rect" id="node5" href="$d4/d63/a00082.html#ae6dbb45201d633d8cb62b7a553f76d37" title="proto::GeoGrid_Location\l::set_allocated_coordinate" alt="" coords="278,201,453,242"/>
+<area shape="rect" id="node7" href="$d4/d63/a00082.html#a1d365381ae92aed8249b91cce620cf99" title="proto::GeoGrid_Location\l::set_id" alt="" coords="284,266,447,307"/>
+<area shape="rect" id="node8" href="$d4/d63/a00082.html#a7c05daf9d464d1459286d096d989bf23" title="proto::GeoGrid_Location\l::set_name" alt="" coords="284,331,447,373"/>
+<area shape="rect" id="node9" href="$d4/d63/a00082.html#a881f94e3b033b5535b37654013177e31" title="proto::GeoGrid_Location\l::set_population" alt="" coords="284,397,447,438"/>
+<area shape="rect" id="node10" href="$d4/d63/a00082.html#ac0e0fef5af15055b22c4d2419107caf1" title="proto::GeoGrid_Location\l::set_province" alt="" coords="284,462,447,503"/>
+<area shape="rect" id="node11" href="$d2/d1f/a00083.html#a87a5dda29b7cf251d8f8c57c901ca815" title="proto::GeoGrid_Location\l_Commute::set_to" alt="" coords="284,527,447,569"/>
+<area shape="rect" id="node12" href="$db/d3a/a00040.html#a1235f787a58d45e623cf5bf21819ccc1" title="Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter..." alt="" coords="262,593,469,634"/>
+<area shape="rect" id="node21" href="$db/d3a/a00040.html#a7909bc4f9f4d5d20737a5f1777b90fa4" title="Create a ProtoBuf Coordinate containing all the information needed to reconstruct a Coordinate..." alt="" coords="262,737,469,778"/>
+<area shape="rect" id="node6" href="$da/d2a/a00086.html#acff5ecad9d9dc70b38e1eba34d7aa1e6" title="proto::GeoGrid_Location\l_Coordinate::GetArenaNoVirtual" alt="" coords="518,201,727,242"/>
+<area shape="rect" id="node13" href="$df/d5d/a00084.html#a8e7caabf4b4a582a09158b2f9b081147" title="proto::GeoGrid_Location\l_ContactCenter::set_id" alt="" coords="541,462,704,503"/>
+<area shape="rect" id="node14" href="$df/d5d/a00084.html#a52834c8723f6f469c13bddd262ad01bd" title="proto::GeoGrid_Location\l_ContactCenter::set_type" alt="" coords="537,527,709,569"/>
+<area shape="rect" id="node16" href="$db/d3a/a00040.html#a0551c1ce7927fc90a5dcc38df8980176" title="Create a ProtoBuf ContactPool containing all the information needed to reconstruct a ContactPool..." alt="" coords="519,593,726,634"/>
+<area shape="rect" id="node20" href="$df/d5d/a00084.html#ad60595d25a1d1bd0fde30587f42fb4b0" title="proto::GeoGrid_Location\l_ContactCenter::add_pools" alt="" coords="532,658,713,699"/>
+<area shape="rect" id="node15" href="$df/d38/a00468.html#a34e7d7c47b9a19a58bd24d0522898461" title="proto::GeoGrid_Location\l_ContactCenter_Type_IsValid" alt="" coords="780,449,977,490"/>
+<area shape="rect" id="node17" href="$df/d13/a00085.html#a3a96e7914b029f35fbb01df4994e19ca" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::set_id" alt="" coords="782,513,975,569"/>
+<area shape="rect" id="node18" href="$d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="811,593,946,634"/>
+<area shape="rect" id="node19" href="$df/d13/a00085.html#aa0d19e37f4c187d754b71a7696ad32eb" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::add_people" alt="" coords="782,657,975,713"/>
+<area shape="rect" id="node22" href="$da/d2a/a00086.html#a41462bd58d029d61dcb0fb40238b0285" title="proto::GeoGrid_Location\l_Coordinate::set_longitude" alt="" coords="534,737,711,778"/>
+<area shape="rect" id="node24" href="$da/d2a/a00086.html#a676dbe40aedbf5a4e3ea42a86a6878e3" title="proto::GeoGrid_Location\l_Coordinate::set_latitude" alt="" coords="539,802,706,843"/>
+<area shape="rect" id="node23" href="$da/d2a/a00086.html#abc74541cc879e27256db7d1f1cb21440" title="proto::GeoGrid_Location\l_Coordinate::set_has_longitude" alt="" coords="776,737,981,778"/>
+<area shape="rect" id="node25" href="$da/d2a/a00086.html#acca38f5f6287ab32ce4101ec7a9ceb43" title="proto::GeoGrid_Location\l_Coordinate::set_has_latitude" alt="" coords="781,802,976,843"/>
+</map>

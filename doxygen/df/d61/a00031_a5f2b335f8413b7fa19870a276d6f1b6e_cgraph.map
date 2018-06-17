@@ -1,0 +1,5 @@
+<map id="gengeopop::GeoGrid::Finalize" name="gengeopop::GeoGrid::Finalize">
+<area shape="rect" id="node2" href="$df/d61/a00031.html#a0918eba7514cc962302299a17ccf596c" title="Iterator to first Location. " alt="" coords="209,5,351,46"/>
+<area shape="rect" id="node3" href="$d1/dea/a00054.html#a94158f4c08d181a21d1d0eb76ce500d1" title="Build a balanced tree from the given set of points efficiently. " alt="" coords="209,70,351,111"/>
+<area shape="rect" id="node4" href="$df/d61/a00031.html#a71b514257a01a8da95368603d7581b1e" title="Iterator to the end of the Location storage. " alt="" coords="195,136,365,163"/>
+</map>

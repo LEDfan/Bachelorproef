@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GenGeoPopController.cpp File Reference</title>
+<title>Stride Reference Manual: GenPopBuilder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,43 +109,57 @@ $(document).ready(function(){initNavTree('d9/dd6/a00272.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GenGeoPopController.cpp File Reference</div>  </div>
+<div class="title">GenPopBuilder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d19/a00273_source.html">GenGeoPopController.h</a>&quot;</code><br/>
-<code>#include &lt;<a class="el" href="../../dc/d9a/a00218_source.html">gengeopop/generators/CollegeGenerator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">gengeopop/generators/CommunityGenerator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../dd/dfe/a00283_source.html">gengeopop/generators/GeoGridGenerator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d4/d6f/a00315_source.html">gengeopop/generators/HouseholdGenerator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d2/d45/a00342_source.html">gengeopop/generators/K12SchoolGenerator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d9/d10/a00449_source.html">gengeopop/generators/WorkplaceGenerator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../db/dbc/a00395_source.html">gengeopop/io/ReaderFactory.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d5/d0b/a00220_source.html">gengeopop/populators/CollegePopulator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d4/d66/a00289_source.html">gengeopop/populators/GeoGridPopulator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../da/de0/a00317_source.html">gengeopop/populators/HouseholdPopulator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d8/d8e/a00344_source.html">gengeopop/populators/K12SchoolPopulator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d4/d27/a00392_source.html">gengeopop/populators/PrimaryCommunityPopulator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../de/de8/a00405_source.html">gengeopop/populators/SecondaryCommunityPopulator.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d9/d69/a00451_source.html">gengeopop/populators/WorkplacePopulator.h</a>&gt;</code><br/>
-<code>#include &lt;spdlog/logger.h&gt;</code><br/>
-<code>#include &lt;utility&gt;</code><br/>
+
+<p>Initialize populations.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d90/a00178_source.html">AbstractPopBuilder.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for GenPopBuilder.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d1d/a00633.svg" width="374" height="203"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/de4/a00634.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 </div>
 <p><a href="../../d9/dd6/a00272_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html">stride::GenPopBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="../../d2/df5/a00137.html" title="Container for persons in population. ">Population</a> objects.  <a href="../../d4/d81/a00110.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d9d/a00464"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></td></tr>
+<tr class="memitem:d5/d26/a00474"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d26/a00474.html">stride</a></td></tr>
+<tr class="memdesc:d5/d26/a00474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/d58/a00481"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d58/a00481.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/d58/a00481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Initialize populations. </p>
+
+<p>Definition in file <a class="el" href="../../d9/dd6/a00272_source.html">GenPopBuilder.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d9/dd6/a00272.html">GenGeoPopController.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d9/dd6/a00272.html">GenPopBuilder.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

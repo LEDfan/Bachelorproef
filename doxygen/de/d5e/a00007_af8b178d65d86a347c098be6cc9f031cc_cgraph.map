@@ -1,0 +1,4 @@
+<map id="calibration::Calibrator::WriteMultipleResults" name="calibration::Calibrator::WriteMultipleResults">
+<area shape="rect" id="node2" href="$de/d5e/a00007.html#ab944c0ca970d0cbe6f0edb885fd47aa0" title="Combines the content of the two other write functions. " alt="" coords="206,5,351,46"/>
+<area shape="rect" id="node3" href="$de/d5e/a00007.html#acffd4064a0ca1fe9e249167bb0acbcec" title="Compute the mean and standard deviation of the given numbers and return (mean, stdev). " alt="" coords="401,5,546,46"/>
+</map>

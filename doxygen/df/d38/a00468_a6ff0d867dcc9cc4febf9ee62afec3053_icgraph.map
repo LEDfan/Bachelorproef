@@ -1,0 +1,8 @@
+<map id="proto::GeoGrid_Location_ContactCenter_Type_descriptor" name="proto::GeoGrid_Location_ContactCenter_Type_descriptor">
+<area shape="rect" id="node2" href="$df/d38/a00468.html#aa56953c595ad3a04311b02220a83ef6f" title="proto::GeoGrid_Location\l_ContactCenter_Type_Name" alt="" coords="283,5,475,46"/>
+<area shape="rect" id="node4" href="$df/d38/a00468.html#ae655a21b16e68bd0e027a3543b2697d3" title="proto::GeoGrid_Location\l_ContactCenter_Type_Parse" alt="" coords="283,70,474,111"/>
+<area shape="rect" id="node6" href="$d7/d5e/a00467.html#ac5458135917397aeacd9ca41cbdcb960" title="google::protobuf::GetEnum\lDescriptor\&lt; ::proto::GeoGrid\l_Location_ContactCenter_Type \&gt;" alt="" coords="269,135,488,191"/>
+<area shape="rect" id="node7" href="$df/d5d/a00084.html#a39108debe7a77ebcc8cf05d582f3fa8b" title="proto::GeoGrid_Location\l_ContactCenter::Type_descriptor" alt="" coords="271,214,486,255"/>
+<area shape="rect" id="node3" href="$df/d5d/a00084.html#a5f627174480f9108921d82066c90aa19" title="proto::GeoGrid_Location\l_ContactCenter::Type_Name" alt="" coords="537,5,730,46"/>
+<area shape="rect" id="node5" href="$df/d5d/a00084.html#ad8c18cb521a8b5aa3cb14b41ceb933bb" title="proto::GeoGrid_Location\l_ContactCenter::Type_Parse" alt="" coords="537,70,729,111"/>
+</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::SubMunicipalitiesCSVReader Class Reference</title>
+<title>Stride Reference Manual: gengeopop::SubMunicipalitiesReader Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,62 +112,53 @@ $(document).ready(function(){initNavTree('d9/db3/a00066.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/d79/a00553.html">List of all members</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../d5/d67/a01070.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::SubMunicipalitiesCSVReader Class Reference</div>  </div>
+<div class="title">gengeopop::SubMunicipalitiesReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Create a Reader which fills a <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> with the SubMunicipalities found in a given CSV file.  
+<p>Create an abstract Reader which fills a <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> with the SubMunicipalities found in a given file.  
  <a href="../../d9/db3/a00066.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d05/a00423_source.html">SubMunicipalitiesCSVReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesReader.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::SubMunicipalitiesCSVReader:</div>
+Inheritance diagram for gengeopop::SubMunicipalitiesReader:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d9/db3/a00066.png" usemap="#gengeopop::SubMunicipalitiesCSVReader_map" alt=""/>
-  <map id="gengeopop::SubMunicipalitiesCSVReader_map" name="gengeopop::SubMunicipalitiesCSVReader_map">
-<area href="../../dc/ddf/a00067.html" title="Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file..." alt="gengeopop::SubMunicipalitiesReader" shape="rect" coords="0,0,247,24"/>
-</map>
- </div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d18/a01071.svg" width="224" height="288"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::SubMunicipalitiesReader:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d6a/a01072.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ee4d9a74679ed737aaf4de6cfffca07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a5ee4d9a74679ed737aaf4de6cfffca07">SubMunicipalitiesCSVReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:a5ee4d9a74679ed737aaf4de6cfffca07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d9/db3/a00066.html" title="Create a Reader which fills a GeoGrid with the SubMunicipalities found in a given CSV file...">SubMunicipalitiesCSVReader</a> with an istream containing the CSV data.  <a href="#a5ee4d9a74679ed737aaf4de6cfffca07">More...</a><br/></td></tr>
-<tr class="separator:a5ee4d9a74679ed737aaf4de6cfffca07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a591d4d4d32fc62556ec428047d140b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a591d4d4d32fc62556ec428047d140b85">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt; geoGrid) const override</td></tr>
-<tr class="memdesc:a591d4d4d32fc62556ec428047d140b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found SubMunicipalities to the provided <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a>.  <a href="#a591d4d4d32fc62556ec428047d140b85">More...</a><br/></td></tr>
-<tr class="separator:a591d4d4d32fc62556ec428047d140b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00067"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00067')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/ddf/a00067.html">gengeopop::SubMunicipalitiesReader</a></td></tr>
-<tr class="memitem:ac94f368c917b043fb11c03cb3db709c2 inherit pub_methods_a00067"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#ac94f368c917b043fb11c03cb3db709c2">SubMunicipalitiesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:ac94f368c917b043fb11c03cb3db709c2 inherit pub_methods_a00067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../dc/ddf/a00067.html" title="Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file...">SubMunicipalitiesReader</a> with an istream containing the file content.  <a href="#ac94f368c917b043fb11c03cb3db709c2">More...</a><br/></td></tr>
-<tr class="separator:ac94f368c917b043fb11c03cb3db709c2 inherit pub_methods_a00067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60cb58aee637fdc6a3f82cdf73891323 inherit pub_methods_a00067"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a60cb58aee637fdc6a3f82cdf73891323">~SubMunicipalitiesReader</a> ()=default</td></tr>
-<tr class="memdesc:a60cb58aee637fdc6a3f82cdf73891323 inherit pub_methods_a00067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a60cb58aee637fdc6a3f82cdf73891323">More...</a><br/></td></tr>
-<tr class="separator:a60cb58aee637fdc6a3f82cdf73891323 inherit pub_methods_a00067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94f368c917b043fb11c03cb3db709c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ac94f368c917b043fb11c03cb3db709c2">SubMunicipalitiesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
+<tr class="memdesc:ac94f368c917b043fb11c03cb3db709c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d9/db3/a00066.html" title="Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file...">SubMunicipalitiesReader</a> with an istream containing the file content.  <a href="#ac94f368c917b043fb11c03cb3db709c2">More...</a><br/></td></tr>
+<tr class="separator:ac94f368c917b043fb11c03cb3db709c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c17048ecfd57ffec3412d763a2187d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a91c17048ecfd57ffec3412d763a2187d">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt;) const =0</td></tr>
+<tr class="memdesc:a91c17048ecfd57ffec3412d763a2187d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found SubMunicipalities to the provided <a class="el" href="../../df/d61/a00031.html">GeoGrid</a>.  <a href="#a91c17048ecfd57ffec3412d763a2187d">More...</a><br/></td></tr>
+<tr class="separator:a91c17048ecfd57ffec3412d763a2187d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60cb58aee637fdc6a3f82cdf73891323"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a60cb58aee637fdc6a3f82cdf73891323">~SubMunicipalitiesReader</a> ()=default</td></tr>
+<tr class="memdesc:a60cb58aee637fdc6a3f82cdf73891323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a60cb58aee637fdc6a3f82cdf73891323">More...</a><br/></td></tr>
+<tr class="separator:a60cb58aee637fdc6a3f82cdf73891323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a354a39d65b42b6b82606ba254cc91c17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d9a/a00152.html">stride::util::CSV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a354a39d65b42b6b82606ba254cc91c17">m_reader</a></td></tr>
-<tr class="memdesc:a354a39d65b42b6b82606ba254cc91c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pure CSV reader.  <a href="#a354a39d65b42b6b82606ba254cc91c17">More...</a><br/></td></tr>
-<tr class="separator:a354a39d65b42b6b82606ba254cc91c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00067"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00067')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../dc/ddf/a00067.html">gengeopop::SubMunicipalitiesReader</a></td></tr>
-<tr class="memitem:ada89d21fe18775d79b9e44ebbcb2c13e inherit pro_attribs_a00067"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#ada89d21fe18775d79b9e44ebbcb2c13e">m_inputStream</a></td></tr>
-<tr class="memdesc:ada89d21fe18775d79b9e44ebbcb2c13e inherit pro_attribs_a00067"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream containing the file content.  <a href="#ada89d21fe18775d79b9e44ebbcb2c13e">More...</a><br/></td></tr>
-<tr class="separator:ada89d21fe18775d79b9e44ebbcb2c13e inherit pro_attribs_a00067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ada89d21fe18775d79b9e44ebbcb2c13e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ada89d21fe18775d79b9e44ebbcb2c13e">m_inputStream</a></td></tr>
+<tr class="memdesc:ada89d21fe18775d79b9e44ebbcb2c13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream containing the file content.  <a href="#ada89d21fe18775d79b9e44ebbcb2c13e">More...</a><br/></td></tr>
+<tr class="separator:ada89d21fe18775d79b9e44ebbcb2c13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create a Reader which fills a <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> with the SubMunicipalities found in a given CSV file. </p>
+<div class="textblock"><p>Create an abstract Reader which fills a <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> with the SubMunicipalities found in a given file. </p>
+<p>This can be implemented using different input file types. Currently CSV is implemented. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d05/a00423_source.html#l00011">11</a> of file <a class="el" href="../../d1/d05/a00423_source.html">SubMunicipalitiesCSVReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00013">13</a> of file <a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesReader.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5ee4d9a74679ed737aaf4de6cfffca07"></a>
+<a class="anchor" id="ac94f368c917b043fb11c03cb3db709c2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -175,7 +166,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::SubMunicipalitiesCSVReader::SubMunicipalitiesCSVReader </td>
+          <td class="memname">gengeopop::SubMunicipalitiesReader::SubMunicipalitiesReader </td>
           <td>(</td>
           <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
           <td class="paramname"><em>inputStream</em></td><td>)</td>
@@ -189,14 +180,13 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct the <a class="el" href="../../d9/db3/a00066.html" title="Create a Reader which fills a GeoGrid with the SubMunicipalities found in a given CSV file...">SubMunicipalitiesCSVReader</a> with an istream containing the CSV data. </p>
+<p>Construct the <a class="el" href="../../d9/db3/a00066.html" title="Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file...">SubMunicipalitiesReader</a> with an istream containing the file content. </p>
 
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00008">8</a> of file <a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesCSVReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/de1/a00421_source.html#l00005">5</a> of file <a class="el" href="../../d2/de1/a00421_source.html">SubMunicipalitiesReader.cpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a591d4d4d32fc62556ec428047d140b85"></a>
+<a class="anchor" id="a60cb58aee637fdc6a3f82cdf73891323"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -204,32 +194,54 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::SubMunicipalitiesCSVReader::FillGeoGrid </td>
+          <td class="memname">virtual gengeopop::SubMunicipalitiesReader::~SubMunicipalitiesReader </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geoGrid</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a91c17048ecfd57ffec3412d763a2187d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gengeopop::SubMunicipalitiesReader::FillGeoGrid </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Add the found SubMunicipalities to the provided <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a>. </p>
+<p>Add the found SubMunicipalities to the provided <a class="el" href="../../df/d61/a00031.html">GeoGrid</a>. </p>
 
-<p>Implements <a class="el" href="../../dc/ddf/a00067.html#a91c17048ecfd57ffec3412d763a2187d">gengeopop::SubMunicipalitiesReader</a>.</p>
-
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00013">13</a> of file <a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesCSVReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d05/a00423_source.html#l00021">m_reader</a>.</p>
+<p>Implemented in <a class="el" href="../../de/de1/a00065.html#a591d4d4d32fc62556ec428047d140b85">gengeopop::SubMunicipalitiesCSVReader</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a354a39d65b42b6b82606ba254cc91c17"></a>
+<a class="anchor" id="ada89d21fe18775d79b9e44ebbcb2c13e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -237,35 +249,33 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d9a/a00152.html">stride::util::CSV</a> gengeopop::SubMunicipalitiesCSVReader::m_reader</td>
+          <td class="memname">std::unique_ptr&lt;std::istream&gt; gengeopop::SubMunicipalitiesReader::m_inputStream</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The pure CSV reader. </p>
+<p>The istream containing the file content. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d05/a00423_source.html#l00021">21</a> of file <a class="el" href="../../d1/d05/a00423_source.html">SubMunicipalitiesCSVReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d43/a00422_source.html#l00013">FillGeoGrid()</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00026">26</a> of file <a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesReader.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/d05/a00423_source.html">SubMunicipalitiesCSVReader.h</a></li>
-<li><a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesCSVReader.cpp</a></li>
+<li><a class="el" href="../../db/d43/a00422_source.html">SubMunicipalitiesReader.h</a></li>
+<li><a class="el" href="../../d2/de1/a00421_source.html">SubMunicipalitiesReader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d9/db3/a00066.html">SubMunicipalitiesCSVReader</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d9/db3/a00066.html">SubMunicipalitiesReader</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

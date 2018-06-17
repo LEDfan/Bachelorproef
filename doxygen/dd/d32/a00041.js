@@ -1,11 +1,16 @@
 var a00041 =
 [
-    [ "GeoGridProtoWriter", "dd/d32/a00041.html#a1b1a82a0a173891a35672929c13ba6da", null ],
-    [ "Write", "dd/d32/a00041.html#a3163b8464f599d204597a01dfc47f08f", null ],
-    [ "WriteLocation", "dd/d32/a00041.html#a2b0641108a2e713aa25c5969939a3c14", null ],
-    [ "WriteCoordinate", "dd/d32/a00041.html#a7909bc4f9f4d5d20737a5f1777b90fa4", null ],
-    [ "WriteContactCenter", "dd/d32/a00041.html#a1235f787a58d45e623cf5bf21819ccc1", null ],
-    [ "WriteContactPool", "dd/d32/a00041.html#a0551c1ce7927fc90a5dcc38df8980176", null ],
-    [ "WritePerson", "dd/d32/a00041.html#aeeb27df99670bf86ed6564b1affdd986", null ],
-    [ "m_persons_found", "dd/d32/a00041.html#ada0a307ad7ac6ecfe8198a17a71bba6a", null ]
+    [ "GeoGridReader", "dd/d32/a00041.html#ad734d0b867227ae292fc70b7c9daca6e", null ],
+    [ "~GeoGridReader", "dd/d32/a00041.html#a6013cfc52c2643a6a967b781ce25a334", null ],
+    [ "Read", "dd/d32/a00041.html#a75a53634f7886fdd97d544027663ec9c", null ],
+    [ "UsePopulation", "dd/d32/a00041.html#a6a2a6d6c702383c17eb9c76dff18fd0c", null ],
+    [ "AddSubMunicipalities", "dd/d32/a00041.html#a6544f0fb22a2b053a9480f45f06fdcb9", null ],
+    [ "AddCommutes", "dd/d32/a00041.html#af173ec28b1fb8313b64c8a14308b9710", null ],
+    [ "m_people", "dd/d32/a00041.html#a25c66335a8ce2710593123c80ebea5e3", null ],
+    [ "m_commutes", "dd/d32/a00041.html#ad638e9563c6270f35e5a6c03b40572f6", null ],
+    [ "m_subMunicipalities", "dd/d32/a00041.html#a5af2c53fb2afd4ff87b7742fadbc4fc6", null ],
+    [ "m_regionId", "dd/d32/a00041.html#a23c32a71c6b5820ba38febe1ba723611", null ],
+    [ "m_regionName", "dd/d32/a00041.html#afe7f671fd0b81d0a10c37ae3fd19cbcb", null ],
+    [ "m_inputStream", "dd/d32/a00041.html#a55b57af40336cf2ad466154e97b68701", null ],
+    [ "m_population", "dd/d32/a00041.html#a617ff434d992b6c1b9b86a51f7d50758", null ]
 ];

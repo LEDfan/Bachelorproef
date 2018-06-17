@@ -1,0 +1,6 @@
+<map id="Backend::SetObjects" name="Backend::SetObjects">
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a0ed26b4e4fdbffb693fc5a93db1fabe5" title="Places the markers on the map, according to the current checked boxes. " alt="" coords="201,56,362,83"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#a0478e17f39806247ce5544cac69f528f" title="Return the requested location. " alt="" coords="411,5,613,32"/>
+<area shape="rect" id="node4" href="$d8/d84/a00001.html#adfeca0359eba8ac76a148ba3a6463178" title="Add a line on the map for the given commute info. " alt="" coords="419,56,605,83"/>
+<area shape="rect" id="node5" href="$d8/d84/a00001.html#a294338bb0db7d2ddf23be0ec8a916c24" title="Places a marker at the given coordinate &#160;specialmarker Whether or not to display a special marker..." alt="" coords="435,107,589,133"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="stride::output::AdoptedFile::AdoptedFile" name="stride::output::AdoptedFile::AdoptedFile">
+<area shape="rect" id="node2" href="$d5/deb/a00132.html#aefdeb0e49b52e1fb5844bb311a6319cb" title="Generate file name and open the file stream. " alt="" coords="230,5,405,46"/>
+<area shape="rect" id="node3" href="$d3/d65/a00154.html#a750e3b3e045bb2e17639b4d014d33974" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="453,5,584,46"/>
+<area shape="rect" id="node4" href="$d3/d65/a00154.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="632,5,763,46"/>
+</map>

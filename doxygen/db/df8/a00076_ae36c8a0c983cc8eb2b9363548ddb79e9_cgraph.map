@@ -1,0 +1,4 @@
+<map id="GuiControllerBackend::StepDay" name="GuiControllerBackend::StepDay">
+<area shape="rect" id="node2" href="$db/df8/a00076.html#a1b7f60fb20985b273aeac44ed8e029f4" title="Called by the SimWorker to notify the backend that a step in the simulation was completed. " alt="" coords="212,5,361,46"/>
+<area shape="rect" id="node3" href="$d2/d82/a00142.html#ac7ca560af4b686acd9e403fe182861f6" title="Perform the actual step if we are not at the end of the sim. " alt="" coords="203,71,370,97"/>
+</map>

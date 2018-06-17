@@ -1,0 +1,7 @@
+<map id="gengeopop::kd::Median" name="gengeopop::kd::Median">
+<area shape="rect" id="node2" href="$dd/dad/a00005.html#a9089af8bf6151c4476cc8faa7d9de52c" title="Generate the actual plots. " alt="" coords="211,38,402,79"/>
+<area shape="rect" id="node3" href="$dd/dad/a00005.html#a4e2764ccb029510b2676d0fb811ffe5d" title="Display the boxplots. " alt="" coords="451,5,642,46"/>
+<area shape="rect" id="node5" href="$dd/dad/a00005.html#a16cdc7eb9273905886d51d90bb591c71" title="Write the boxplots to files. " alt="" coords="451,70,642,111"/>
+<area shape="rect" id="node4" href="$de/d21/a00006.html#a834c54ae4a52f4a5292e1a5b1eee91fd" title="Display the generated boxplots for step &#39;step&#39; in the simulation to the screen. " alt="" coords="691,5,858,46"/>
+<area shape="rect" id="node6" href="$de/d21/a00006.html#add25803cc7645f929e578d01e10091b2" title="Write the boxplots to their respective files (based on testcase name) " alt="" coords="697,70,852,111"/>
+</map>

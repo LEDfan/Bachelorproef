@@ -1,0 +1,17 @@
+<map id="stride::Person::GetId" name="stride::Person::GetId">
+<area shape="rect" id="node2" href="$dc/dfe/a00125.html#ac571c931677ef5dd82de6cc46a085dbd" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::All \&gt;::Contact" alt="" coords="231,5,383,61"/>
+<area shape="rect" id="node3" href="$d7/d12/a00126.html#a027a20be44f26ed2efddc2198158cc04" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::Susceptibles \&gt;::Contact" alt="" coords="221,85,392,141"/>
+<area shape="rect" id="node4" href="$de/d8c/a00036.html#a34a17d9a7742cc392ec09fa6dbddd402" title="Actually perform the read and return the GeoGrid. " alt="" coords="197,165,416,206"/>
+<area shape="rect" id="node5" href="$d3/de7/a00039.html#ad9d1285450862c08629d6f8456976413" title="Actually perform the read and return the GeoGrid. " alt="" coords="199,230,414,271"/>
+<area shape="rect" id="node6" href="$dd/d42/a00109.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="231,295,382,337"/>
+<area shape="rect" id="node8" href="$d7/dce/a00143.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="235,361,379,402"/>
+<area shape="rect" id="node11" href="$df/dcd/a00127.html#a52603e3ed1e5a67a20110c339ce25872" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::Transmissions \&gt;::Trans" alt="" coords="223,425,391,481"/>
+<area shape="rect" id="node12" href="$dc/dfe/a00125.html#a2a1c733f931d13419e338a64a759f6c9" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::All \&gt;::Trans" alt="" coords="231,505,383,561"/>
+<area shape="rect" id="node13" href="$db/d3a/a00040.html#aeeb27df99670bf86ed6564b1affdd986" title="Create a ProtoBuf Person containing all the information needed to reconstruct a Person. " alt="" coords="203,585,410,626"/>
+<area shape="rect" id="node15" href="$d1/dc6/a00037.html#a0e11b2f67f86e812421761f61fd7274f" title="Create a Boost Property Tree containing all the information needed to reconstruct a Person..." alt="" coords="201,650,413,691"/>
+<area shape="rect" id="node7" href="$d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="508,295,633,337"/>
+<area shape="rect" id="node9" href="$d1/dd6/a00108.html#a98f2494729bf1d46e947b302f3e1b3b1" title="Build Population and return it afterwards. " alt="" coords="487,361,654,402"/>
+<area shape="rect" id="node10" href="$d2/df5/a00137.html#ac9658f1a5fa801de6742a46efb85fb9c" title="Create a Population for the given region parameters. " alt="" coords="725,361,848,402"/>
+<area shape="rect" id="node14" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="467,585,674,626"/>
+<area shape="rect" id="node16" href="$d1/dc6/a00037.html#a06da89c72da72992bbd517973c9513eb" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="465,650,677,691"/>
+</map>

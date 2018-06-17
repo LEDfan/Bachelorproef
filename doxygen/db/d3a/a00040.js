@@ -1,11 +1,11 @@
 var a00040 =
 [
-    [ "GeoGridProtoReader", "db/d3a/a00040.html#ad5776ccdda5390e850ab0675aac668d3", null ],
-    [ "Read", "db/d3a/a00040.html#ad9d1285450862c08629d6f8456976413", null ],
-    [ "ParseLocation", "db/d3a/a00040.html#a0adca811808bc9edf494cd38b6ca0bae", null ],
-    [ "ParseCoordinate", "db/d3a/a00040.html#ab4b797ef7bd19d8122192fcbdcba8f50", null ],
-    [ "ParseContactCenter", "db/d3a/a00040.html#a351fab1f7eb8f7035fa432b2a3d7c104", null ],
-    [ "ParseContactPool", "db/d3a/a00040.html#a19e0ff14a2aef228d926d53132fa767b", null ],
-    [ "ParsePerson", "db/d3a/a00040.html#ace84e5989875f9deb376a2ed83d7a4c3", null ],
-    [ "m_geoGrid", "db/d3a/a00040.html#ada3ae9fc9f8d7dccaa43356258b92150", null ]
+    [ "GeoGridProtoWriter", "db/d3a/a00040.html#a1b1a82a0a173891a35672929c13ba6da", null ],
+    [ "Write", "db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f", null ],
+    [ "WriteLocation", "db/d3a/a00040.html#a2b0641108a2e713aa25c5969939a3c14", null ],
+    [ "WriteCoordinate", "db/d3a/a00040.html#a7909bc4f9f4d5d20737a5f1777b90fa4", null ],
+    [ "WriteContactCenter", "db/d3a/a00040.html#a1235f787a58d45e623cf5bf21819ccc1", null ],
+    [ "WriteContactPool", "db/d3a/a00040.html#a0551c1ce7927fc90a5dcc38df8980176", null ],
+    [ "WritePerson", "db/d3a/a00040.html#aeeb27df99670bf86ed6564b1affdd986", null ],
+    [ "m_persons_found", "db/d3a/a00040.html#ada0a307ad7ac6ecfe8198a17a71bba6a", null ]
 ];

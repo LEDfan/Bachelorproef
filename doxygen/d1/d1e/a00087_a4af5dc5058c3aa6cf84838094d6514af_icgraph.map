@@ -1,0 +1,4 @@
+<map id="proto::GeoGrid_Person::id" name="proto::GeoGrid_Person::id">
+<area shape="rect" id="node2" href="$d3/de7/a00039.html#ace84e5989875f9deb376a2ed83d7a4c3" title="Create a Person based on the provided protobuf Person. " alt="" coords="227,5,442,46"/>
+<area shape="rect" id="node3" href="$d3/de7/a00039.html#ad9d1285450862c08629d6f8456976413" title="Actually perform the read and return the GeoGrid. " alt="" coords="491,5,706,46"/>
+</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CollegePopulator.h Source File</title>
+<title>Stride Reference Manual: Community.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,37 +109,55 @@ $(document).ready(function(){initNavTree('d5/d0b/a00220_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CollegePopulator.h</div>  </div>
+<div class="title">Community.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/d0b/a00220.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/db8/a00376.html">PartialPopulator.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d7/de0/a00022.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/de0/a00022.html">CollegePopulator</a> : <span class="keyword">public</span> <a class="code" href="../../d7/df7/a00058.html">PartialPopulator</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d7/df7/a00058.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator::PartialPopulator</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/de0/a00022.html#abc6ecf1b07270c3a1e2152f3be6ffeae">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../d4/d8c/a00035.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00022_html"><div class="ttname"><a href="../../d7/de0/a00022.html">gengeopop::CollegePopulator</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00008">CollegePopulator.h:8</a></div></div>
-<div class="ttc" id="a00376_html"><div class="ttname"><a href="../../d6/db8/a00376.html">PartialPopulator.h</a></div></div>
-<div class="ttc" id="a00058_html_ab0d36a7eec42c951ab03d32db44566db"><div class="ttname"><a href="../../d7/df7/a00058.html#ab0d36a7eec42c951ab03d32db44566db">gengeopop::PartialPopulator::PartialPopulator</a></div><div class="ttdeci">PartialPopulator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dcb/a00375_source.html#l00004">PartialPopulator.cpp:4</a></div></div>
-<div class="ttc" id="a00035_html"><div class="ttname"><a href="../../d4/d8c/a00035.html">gengeopop::GeoGridConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d04/a00281_source.html#l00013">GeoGridConfig.h:13</a></div></div>
-<div class="ttc" id="a00022_html_abc6ecf1b07270c3a1e2152f3be6ffeae"><div class="ttname"><a href="../../d7/de0/a00022.html#abc6ecf1b07270c3a1e2152f3be6ffeae">gengeopop::CollegePopulator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df3/a00219_source.html#l00015">CollegePopulator.cpp:15</a></div></div>
-<div class="ttc" id="a00058_html"><div class="ttname"><a href="../../d7/df7/a00058.html">gengeopop::PartialPopulator</a></div><div class="ttdoc">An interface for populators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00376_source.html#l00013">PartialPopulator.h:13</a></div></div>
+<a href="../../d5/d0b/a00220.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d52/a00221.html">Community.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d5d/a00278.html">GeoGridConfig.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d5/d35/a00266.html">util/Exception.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d7/de0/a00022.html#ae6def476e3033bb45ad2c0cce88b1ebe">    9</a></span>&#160;<a class="code" href="../../d7/de0/a00022.html#ae6def476e3033bb45ad2c0cce88b1ebe">Community::Community</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="../../d6/d5b/a00026.html">ContactCenter</a>(id) {}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d7/de0/a00022.html#aea32f2d892d805314cc7840f7d500d92">   11</a></span>&#160;std::string  <a class="code" href="../../d7/de0/a00022.html#aea32f2d892d805314cc7840f7d500d92">Community::GetType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Community&quot;</span>; }</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d7/de0/a00022.html#ae3647563c11814f26e7de0d681f2d9a5">   12</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d7/de0/a00022.html#ae3647563c11814f26e7de0d681f2d9a5">Community::GetPoolSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 2000; }</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d7/de0/a00022.html#a91c409a0ed68e0c3246723a5296a298e">   13</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d7/de0/a00022.html#a91c409a0ed68e0c3246723a5296a298e">Community::GetMaxPools</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d7/de0/a00022.html#a381029e4f9aa49bcd9dd5af98e992aa7">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/de0/a00022.html#a381029e4f9aa49bcd9dd5af98e992aa7">Community::AddHouseHold</a>(std::shared_ptr&lt;Household&gt; household)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>.empty()) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../da/d01/a00153.html">stride::util::Exception</a>(<span class="stringliteral">&quot;Could not add the Household to the Community, no ContactPool available&quot;</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordflow">if</span> (household-&gt;GetPools().empty())</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="../../d0/d5e/a00136.html">stride::Person</a>* person : **household-&gt;begin()) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>[0]-&gt;AddMember(person);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00022_html_aea32f2d892d805314cc7840f7d500d92"><div class="ttname"><a href="../../d7/de0/a00022.html#aea32f2d892d805314cc7840f7d500d92">gengeopop::Community::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00011">Community.cpp:11</a></div></div>
+<div class="ttc" id="a00221_html"><div class="ttname"><a href="../../dd/d52/a00221.html">Community.h</a></div></div>
+<div class="ttc" id="a00022_html_ae3647563c11814f26e7de0d681f2d9a5"><div class="ttname"><a href="../../d7/de0/a00022.html#ae3647563c11814f26e7de0d681f2d9a5">gengeopop::Community::GetPoolSize</a></div><div class="ttdeci">unsigned int GetPoolSize() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00012">Community.cpp:12</a></div></div>
+<div class="ttc" id="a00026_html_ac0b05f8789a5272fa8ec5e1113c5b731"><div class="ttname"><a href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">gengeopop::ContactCenter::m_pools</a></div><div class="ttdeci">std::vector&lt; stride::ContactPool * &gt; m_pools</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00034">ContactCenter.h:34</a></div></div>
+<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">gengeopop::ContactCenter</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00008">ContactCenter.h:8</a></div></div>
+<div class="ttc" id="a00022_html_ae6def476e3033bb45ad2c0cce88b1ebe"><div class="ttname"><a href="../../d7/de0/a00022.html#ae6def476e3033bb45ad2c0cce88b1ebe">gengeopop::Community::Community</a></div><div class="ttdeci">Community(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00009">Community.cpp:9</a></div></div>
+<div class="ttc" id="a00278_html"><div class="ttname"><a href="../../dc/d5d/a00278.html">GeoGridConfig.h</a></div></div>
+<div class="ttc" id="a00266_html"><div class="ttname"><a href="../../d5/d35/a00266.html">Exception.h</a></div></div>
+<div class="ttc" id="a00153_html"><div class="ttname"><a href="../../da/d01/a00153.html">stride::util::Exception</a></div><div class="ttdoc">Basic exception class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d35/a00266_source.html#l00011">Exception.h:11</a></div></div>
+<div class="ttc" id="a00022_html_a381029e4f9aa49bcd9dd5af98e992aa7"><div class="ttname"><a href="../../d7/de0/a00022.html#a381029e4f9aa49bcd9dd5af98e992aa7">gengeopop::Community::AddHouseHold</a></div><div class="ttdeci">void AddHouseHold(std::shared_ptr&lt; Household &gt; household)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00015">Community.cpp:15</a></div></div>
+<div class="ttc" id="a00022_html_a91c409a0ed68e0c3246723a5296a298e"><div class="ttname"><a href="../../d7/de0/a00022.html#a91c409a0ed68e0c3246723a5296a298e">gengeopop::Community::GetMaxPools</a></div><div class="ttdeci">unsigned int GetMaxPools() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00013">Community.cpp:13</a></div></div>
+<div class="ttc" id="a00136_html"><div class="ttname"><a href="../../d0/d5e/a00136.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d08/a00378_source.html#l00038">Person.h:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">CollegePopulator.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">Community.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

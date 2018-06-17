@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Infector.cpp File Reference</title>
+<title>Stride Reference Manual: InfectorExec.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,38 +109,52 @@ $(document).ready(function(){initNavTree('d2/d0a/a00333.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">contact/Infector.cpp File Reference</div>  </div>
+<div class="title">InfectorExec.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of Infector algorithms.  
+<p>Header for the InfectorExec class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d91/a00335_source.html">Infector.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">calendar/Calendar.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d4/d9a/a00246_source.html">pool/ContactPool.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/d08/a00381_source.html">pop/Person.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for InfectorExec.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/db9/a00725.svg" width="123" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d59/a00726.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 </div>
 <p><a href="../../d2/d0a/a00333_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/dca/a00477"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dca/a00477.html">stride</a></td></tr>
-<tr class="memdesc:d9/dca/a00477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d5/d26/a00474"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d26/a00474.html">stride</a></td></tr>
+<tr class="memdesc:d5/d26/a00474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a635bb1de3d0d033b13e5ea468dfdd0bb"><td class="memItemLeft" align="right" valign="top">typedef void(&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d26/a00474.html#a635bb1de3d0d033b13e5ea468dfdd0bb">stride::InfectorExec</a> )(ContactPool &amp;pool, const AgeContactProfile &amp;profile, const TransmissionProfile &amp;trans_profile, ContactHandler &amp;c_handler, unsigned short int sim_day, std::shared_ptr&lt; spdlog::logger &gt; c_logger)</td></tr>
+<tr class="memdesc:a635bb1de3d0d033b13e5ea468dfdd0bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in the <a class="el" href="../../df/dc8/a00122.html" title="Simulator can time step and reveal some of the key data. ">InfectorMap</a> and <a class="el" href="../../de/d14/a00139.html" title="Simulator can time step and reveal some of the key data. ">Sim</a>.  <a href="#a635bb1de3d0d033b13e5ea468dfdd0bb">More...</a><br/></td></tr>
+<tr class="separator:a635bb1de3d0d033b13e5ea468dfdd0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of Infector algorithms. </p>
+<div class="textblock"><p>Header for the InfectorExec class. </p>
 
-<p>Definition in file <a class="el" href="../../d2/d0a/a00333_source.html">contact/Infector.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/d0a/a00333_source.html">InfectorExec.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">Infector.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">InfectorExec.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

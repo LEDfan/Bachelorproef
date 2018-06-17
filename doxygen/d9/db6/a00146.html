@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
+<title>Stride Reference Manual: stride::TravellerProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,114 +112,107 @@ $(document).ready(function(){initNavTree('d9/db6/a00146.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../dd/dc0/a00611.html">List of all members</a>  </div>
+<a href="../../d7/dc5/a01242.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
+<div class="title">stride::TravellerProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Transmission rates from disease data.  
+<p>Holds the information about travels.  
  <a href="../../d9/db6/a00146.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/df8/a00440_source.html">TransmissionProfile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::TravellerProfile:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/db0/a01243.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
-<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br/></td></tr>
-<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
-<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br/></td></tr>
-<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
-<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br/></td></tr>
-<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f89bdd08206854e9dba02bf39d5f58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a79f89bdd08206854e9dba02bf39d5f58">TravellerProfile</a> (std::size_t amountOfRegions, <a class="el" href="../../dd/d9c/a00487.html">double</a> amountOfTravel, <a class="el" href="../../dd/d9c/a00487.html">double</a> fractionWork, <a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager, unsigned int maxDays)</td></tr>
+<tr class="memdesc:a79f89bdd08206854e9dba02bf39d5f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel fractionWork indicates the amount of work travel.  <a href="#a79f89bdd08206854e9dba02bf39d5f58">More...</a><br/></td></tr>
+<tr class="separator:a79f89bdd08206854e9dba02bf39d5f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091b01535ec4d3a7233909380955ce2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a091b01535ec4d3a7233909380955ce2b">TravellerProfile</a> (<a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager)</td></tr>
+<tr class="separator:a091b01535ec4d3a7233909380955ce2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810f4044c50a8341090834bd75253357"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a810f4044c50a8341090834bd75253357">AddTravelRecreation</a> (std::size_t from, std::size_t to, <a class="el" href="../../dd/d9c/a00487.html">double</a> relativePopulation)</td></tr>
+<tr class="memdesc:a810f4044c50a8341090834bd75253357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a travel record to the recreation profile.  <a href="#a810f4044c50a8341090834bd75253357">More...</a><br/></td></tr>
+<tr class="separator:a810f4044c50a8341090834bd75253357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8da1f66852e62002ada510e95e5ada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a5a8da1f66852e62002ada510e95e5ada">AddTravelWork</a> (std::size_t from, std::size_t to, <a class="el" href="../../dd/d9c/a00487.html">double</a> relativePopulation)</td></tr>
+<tr class="memdesc:a5a8da1f66852e62002ada510e95e5ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a travel record to the work profile.  <a href="#a5a8da1f66852e62002ada510e95e5ada">More...</a><br/></td></tr>
+<tr class="separator:a5a8da1f66852e62002ada510e95e5ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b16967d8175cb7d331d667003b5fd5"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, bool, <br class="typebreak"/>
+std::size_t, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a54b16967d8175cb7d331d667003b5fd5">PersonWillTravel</a> (std::size_t currentRegion)</td></tr>
+<tr class="memdesc:a54b16967d8175cb7d331d667003b5fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Based on the profile determines if a person will travel.  <a href="#a54b16967d8175cb7d331d667003b5fd5">More...</a><br/></td></tr>
+<tr class="separator:a54b16967d8175cb7d331d667003b5fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab9f4b79657eabfff845b4fd8eed603cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#ab9f4b79657eabfff845b4fd8eed603cb">MakeChoice</a> (<a class="el" href="../../dd/d9c/a00487.html">double</a> fraction)</td></tr>
+<tr class="separator:ab9f4b79657eabfff845b4fd8eed603cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
-<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab85cd366fb4ad5d449bcac8dd0e22680"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../dd/d9c/a00487.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a></td></tr>
+<tr class="memdesc:ab85cd366fb4ad5d449bcac8dd0e22680"><td class="mdescLeft">&#160;</td><td class="mdescRight">From region, to region, relative amount of people.  <a href="#ab85cd366fb4ad5d449bcac8dd0e22680">More...</a><br/></td></tr>
+<tr class="separator:ab85cd366fb4ad5d449bcac8dd0e22680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089c66f906b78f748d73de4d107fc96d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../dd/d9c/a00487.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a></td></tr>
+<tr class="memdesc:a089c66f906b78f748d73de4d107fc96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">From region, to region, relative amount of people.  <a href="#a089c66f906b78f748d73de4d107fc96d">More...</a><br/></td></tr>
+<tr class="separator:a089c66f906b78f748d73de4d107fc96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4d2c976a3b840cd9322098e1459527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a5c4d2c976a3b840cd9322098e1459527">m_amountOfTravel</a></td></tr>
+<tr class="memdesc:a5c4d2c976a3b840cd9322098e1459527"><td class="mdescLeft">&#160;</td><td class="mdescRight">A fraction 0-1 which indicates the change for a person to travel.  <a href="#a5c4d2c976a3b840cd9322098e1459527">More...</a><br/></td></tr>
+<tr class="separator:a5c4d2c976a3b840cd9322098e1459527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af617090f0723c7e5125df8f6f1200474"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#af617090f0723c7e5125df8f6f1200474">m_fractionWork</a></td></tr>
+<tr class="memdesc:af617090f0723c7e5125df8f6f1200474"><td class="mdescLeft">&#160;</td><td class="mdescRight">A fraction 0-1 which indicates whether it's work travel or recreation.  <a href="#af617090f0723c7e5125df8f6f1200474">More...</a><br/></td></tr>
+<tr class="separator:af617090f0723c7e5125df8f6f1200474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05f8820a7b048409b5df0ef3a5c6a6f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a></td></tr>
+<tr class="separator:a05f8820a7b048409b5df0ef3a5c6a6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13305f7b3d07fac2eb22d4c682a51347"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a13305f7b3d07fac2eb22d4c682a51347">m_maxDays</a></td></tr>
+<tr class="memdesc:a13305f7b3d07fac2eb22d4c682a51347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum amount of days to travel.  <a href="#a13305f7b3d07fac2eb22d4c682a51347">More...</a><br/></td></tr>
+<tr class="separator:a13305f7b3d07fac2eb22d4c682a51347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Transmission rates from disease data. </p>
+<div class="textblock"><p>Holds the information about travels. </p>
 
-<p>Definition at line <a class="el" href="../../de/df8/a00440_source.html#l00029">29</a> of file <a class="el" href="../../de/df8/a00440_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00012">12</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize. </p>
-
-<p>Definition at line <a class="el" href="../../de/df8/a00440_source.html#l00033">33</a> of file <a class="el" href="../../de/df8/a00440_source.html">TransmissionProfile.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/daa/a00490.html">double</a> stride::TransmissionProfile::GetRate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return transmission rate. </p>
-
-<p>Definition at line <a class="el" href="../../de/df8/a00440_source.html#l00036">36</a> of file <a class="el" href="../../de/df8/a00440_source.html">TransmissionProfile.h</a>.</p>
-
-<p>References <a class="el" href="../../de/df8/a00440_source.html#l00042">m_transmission_rate</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d0a/a00333_source.html#l00145">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, and <a class="el" href="../../d2/d0a/a00333_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
+<a class="anchor" id="a79f89bdd08206854e9dba02bf39d5f58"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::TransmissionProfile::Initialize </td>
+          <td class="memname">stride::TravellerProfile::TravellerProfile </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>amountOfRegions</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>diseasePt</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td>
+          <td class="paramname"><em>amountOfTravel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td>
+          <td class="paramname"><em>fractionWork</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>maxDays</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -229,14 +222,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize. </p>
+<p>AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel fractionWork indicates the amount of work travel. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00030">30</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TransmissionProfile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00007">7</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">TravellerProfile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d3a/a00439_source.html#l00035">m_data_recreation</a>, and <a class="el" href="../../d9/d3a/a00439_source.html#l00038">m_data_work</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
+<a class="anchor" id="a091b01535ec4d3a7233909380955ce2b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -244,7 +238,184 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/daa/a00490.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
+          <td class="memname">stride::TravellerProfile::TravellerProfile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00020">20</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a810f4044c50a8341090834bd75253357"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::TravellerProfile::AddTravelRecreation </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td>
+          <td class="paramname"><em>relativePopulation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a travel record to the recreation profile. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00018">18</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">TravellerProfile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d3a/a00439_source.html#l00035">m_data_recreation</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a8da1f66852e62002ada510e95e5ada"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::TravellerProfile::AddTravelWork </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td>
+          <td class="paramname"><em>relativePopulation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a travel record to the work profile. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00023">23</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">TravellerProfile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d3a/a00439_source.html#l00038">m_data_work</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a54b16967d8175cb7d331d667003b5fd5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; bool, bool, std::size_t, unsigned int &gt; stride::TravellerProfile::PersonWillTravel </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>currentRegion</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Based on the profile determines if a person will travel. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00028">28</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">TravellerProfile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00041">m_amountOfTravel</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00035">m_data_recreation</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00038">m_data_work</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00044">m_fractionWork</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00049">m_maxDays</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00046">m_rnManager</a>, and <a class="el" href="../../d9/d3a/a00439_source.html#l00051">MakeChoice()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/db6/a00146_a54b16967d8175cb7d331d667003b5fd5_cgraph.svg" width="563" height="80"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9f4b79657eabfff845b4fd8eed603cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::TravellerProfile::MakeChoice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d9c/a00487.html">double</a>&#160;</td>
+          <td class="paramname"><em>fraction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00051">51</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, and <a class="el" href="../../d9/d3a/a00439_source.html#l00046">m_rnManager</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/db6/a00146_ab9f4b79657eabfff845b4fd8eed603cb_cgraph.svg" width="366" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/db6/a00146_ab9f4b79657eabfff845b4fd8eed603cb_icgraph.svg" width="358" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ab85cd366fb4ad5d449bcac8dd0e22680"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="../../dd/d9c/a00487.html">double</a>&gt; &gt; stride::TravellerProfile::m_data_recreation</td>
         </tr>
       </table>
   </td>
@@ -254,23 +425,153 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../de/df8/a00440_source.html#l00042">42</a> of file <a class="el" href="../../de/df8/a00440_source.html">TransmissionProfile.h</a>.</p>
+<p>From region, to region, relative amount of people. </p>
 
-<p>Referenced by <a class="el" href="../../de/df8/a00440_source.html#l00036">GetRate()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00035">35</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dfd/a00438_source.html#l00018">AddTravelRecreation()</a>, <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>, and <a class="el" href="../../dd/dfd/a00438_source.html#l00007">TravellerProfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a089c66f906b78f748d73de4d107fc96d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="../../dd/d9c/a00487.html">double</a>&gt; &gt; stride::TravellerProfile::m_data_work</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>From region, to region, relative amount of people. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00038">38</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dfd/a00438_source.html#l00023">AddTravelWork()</a>, <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>, and <a class="el" href="../../dd/dfd/a00438_source.html#l00007">TravellerProfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c4d2c976a3b840cd9322098e1459527"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d9c/a00487.html">double</a> stride::TravellerProfile::m_amountOfTravel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A fraction 0-1 which indicates the change for a person to travel. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00041">41</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af617090f0723c7e5125df8f6f1200474"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d9c/a00487.html">double</a> stride::TravellerProfile::m_fractionWork</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A fraction 0-1 which indicates whether it's work travel or recreation. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00044">44</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05f8820a7b048409b5df0ef3a5c6a6f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; stride::TravellerProfile::m_rnManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00046">46</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d3a/a00439_source.html#l00051">MakeChoice()</a>, and <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a13305f7b3d07fac2eb22d4c682a51347"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::TravellerProfile::m_maxDays</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum amount of days to travel. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d3a/a00439_source.html#l00049">49</a> of file <a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dfd/a00438_source.html#l00028">PersonWillTravel()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/df8/a00440_source.html">TransmissionProfile.h</a></li>
-<li><a class="el" href="../../d9/d3a/a00439_source.html">TransmissionProfile.cpp</a></li>
+<li><a class="el" href="../../d9/d3a/a00439_source.html">TravellerProfile.h</a></li>
+<li><a class="el" href="../../dd/dfd/a00438_source.html">TravellerProfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">TransmissionProfile</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">TravellerProfile</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

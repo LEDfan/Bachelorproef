@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GeoGridReaderFactory.h Source File</title>
+<title>Stride Reference Manual: GeoGridWriterFactory.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,35 +109,35 @@ $(document).ready(function(){initNavTree('d3/d4a/a00297_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GeoGridReaderFactory.h</div>  </div>
+<div class="title">GeoGridWriterFactory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/d4a/a00297.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d5e/a00295.html">gengeopop/io/GeoGridReader.h</a>&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d5e/a00295.html">gengeopop/io/GeoGridWriter.h</a>&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * A Factory for creating the correct implementation of a GeoGridReader based on the filename extension</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * A Factory for creating the correct implementation of a GeoGridWriter based on the filename extension</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d42/a00043.html">GeoGridReaderFactory</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d5/df9/a00044.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/df9/a00044.html">GeoGridWriterFactory</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">        /// Create a GeoGridReader based on the provided extension in the filename</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span>        std::shared_ptr&lt;GeoGridReader&gt; <a class="code" href="../../d6/d42/a00043.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">CreateReader</a>(std::string filename) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">        /// Create a GeoGridWriter based on the provided extension in the filename</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span>        std::shared_ptr&lt;GeoGridWriter&gt; <a class="code" href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">CreateWriter</a>(std::string filename) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00043_html"><div class="ttname"><a href="../../d6/d42/a00043.html">gengeopop::GeoGridReaderFactory</a></div><div class="ttdoc">A Factory for creating the correct implementation of a GeoGridReader based on the filename extension...</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d4a/a00297_source.html#l00010">GeoGridReaderFactory.h:10</a></div></div>
-<div class="ttc" id="a00295_html"><div class="ttname"><a href="../../d9/d5e/a00295.html">GeoGridReader.h</a></div></div>
-<div class="ttc" id="a00043_html_acd3fdf6ac3e67ee88dd3b2a67c1821f0"><div class="ttname"><a href="../../d6/d42/a00043.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">gengeopop::GeoGridReaderFactory::CreateReader</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridReader &gt; CreateReader(std::string filename) const </div><div class="ttdoc">Create a GeoGridReader based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7b/a00296_source.html#l00009">GeoGridReaderFactory.cpp:9</a></div></div>
+<div class="ttc" id="a00044_html"><div class="ttname"><a href="../../d5/df9/a00044.html">gengeopop::GeoGridWriterFactory</a></div><div class="ttdoc">A Factory for creating the correct implementation of a GeoGridWriter based on the filename extension...</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d4a/a00297_source.html#l00010">GeoGridWriterFactory.h:10</a></div></div>
+<div class="ttc" id="a00295_html"><div class="ttname"><a href="../../d9/d5e/a00295.html">GeoGridWriter.h</a></div></div>
+<div class="ttc" id="a00044_html_a4992a30def6112ba16f8b76c7d5ea768"><div class="ttname"><a href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">gengeopop::GeoGridWriterFactory::CreateWriter</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridWriter &gt; CreateWriter(std::string filename) const </div><div class="ttdoc">Create a GeoGridWriter based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7b/a00296_source.html#l00009">GeoGridWriterFactory.cpp:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d3/d4a/a00297.html">GeoGridReaderFactory.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d3/d4a/a00297.html">GeoGridWriterFactory.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

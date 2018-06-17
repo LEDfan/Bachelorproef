@@ -1,0 +1,4 @@
+<map id="Backend::ToggleSelectionOfLocation" name="Backend::ToggleSelectionOfLocation">
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a99bb1003a584e978452b99901fc573ba" title="Adds the location of the marker to the selection. " alt="" coords="229,5,443,32"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#a21d367f733a25f731ee2c9e55a3d796e" title="Handles a click on a marker. " alt="" coords="245,56,427,83"/>
+</map>

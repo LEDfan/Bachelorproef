@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Vaccination.h Source File</title>
+<title>Stride Reference Manual: WorkplaceGenerator.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,54 +109,89 @@ $(document).ready(function(){initNavTree('dd/d47/a00445_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Vaccination.h</div>  </div>
+<div class="title">WorkplaceGenerator.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/d47/a00445.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * Vaccination beliefs and information have an influence on the vaccination</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * behaviour of an individual.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> belief_policy&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d1/d0d/a00171.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d0d/a00171.html">Vaccination</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d1/d0d/a00171.html#a8dcb01be7e194bb29d6a379322781a14">   27</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d0d/a00171.html#a8dcb01be7e194bb29d6a379322781a14">PracticesSocialDistancing</a>(<span class="keyword">const</span> <span class="keyword">typename</span> belief_policy::Data&amp; belief_data) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d1/d0d/a00171.html#a4db3031aaeba5b0de11bd821ece9adbe">   29</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d0d/a00171.html#a4db3031aaeba5b0de11bd821ece9adbe">PracticesVaccination</a>(<span class="keyword">const</span> <span class="keyword">typename</span> belief_policy::Data&amp; belief_data)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> belief_policy::HasAdopted(belief_data);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<a href="../../dd/d47/a00445.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/def/a00446.html">WorkplaceGenerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/dce/a00337.html">gengeopop/K12School.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;trng/discrete_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;trng/lcg64.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/dea/a00444.html">gengeopop/Workplace.h</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046">WorkplaceGenerator::Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">         * 1. the amount of active employees and the amount of commuting people are given</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">         * 2. calculate the amount of workplaces, each workplace has an average of 20 employees</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">         * 3. calculate the amount of working people at each location = #residents + #incoming commuting people -</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">         * #outgoing commuting people</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">         * 4. use the last information for the distribution</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">         * 5. assign each workplace to a location</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">auto</span> amountOfEmployees  = geoGridConfig.<a class="code" href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>.<a class="code" href="../../db/df3/a00034.html#ade71ba9da0d4d09ea0a1c3e44acd780b">_1865_and_years_active</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">auto</span> amountOfWorkplaces = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::ceil(amountOfEmployees / 20.0)); <span class="comment">// TODO magic constant</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::vector&lt;double&gt;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            weights; <span class="comment">// = for each location #residents + #incoming commuting people - #outgoing commuting people</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;Location&gt;&amp; loc : *geoGrid) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordtype">double</span> amountOfWorkingPeople =</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    (loc-&gt;GetPopulation() +</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                     loc-&gt;IncomingCommutingPeople(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#abc57c86996194cd95c586896e8918a20">fraction_active_commutingPeople</a>) -</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                     loc-&gt;OutGoingCommutingPeople(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#abc57c86996194cd95c586896e8918a20">fraction_active_commutingPeople</a>) *</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                         geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#a34a5fe86ba4e60ef668c1bc60222634d">fraction_1865_years_active</a>);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00171_html_a8dcb01be7e194bb29d6a379322781a14"><div class="ttname"><a href="../../d1/d0d/a00171.html#a8dcb01be7e194bb29d6a379322781a14">stride::Vaccination::PracticesSocialDistancing</a></div><div class="ttdeci">static bool PracticesSocialDistancing(const typename belief_policy::Data &amp;belief_data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d47/a00445_source.html#l00027">Vaccination.h:27</a></div></div>
-<div class="ttc" id="a00171_html_a4db3031aaeba5b0de11bd821ece9adbe"><div class="ttname"><a href="../../d1/d0d/a00171.html#a4db3031aaeba5b0de11bd821ece9adbe">stride::Vaccination::PracticesVaccination</a></div><div class="ttdeci">static bool PracticesVaccination(const typename belief_policy::Data &amp;belief_data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d47/a00445_source.html#l00029">Vaccination.h:29</a></div></div>
-<div class="ttc" id="a00171_html"><div class="ttname"><a href="../../d1/d0d/a00171.html">stride::Vaccination</a></div><div class="ttdoc">Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d47/a00445_source.html#l00024">Vaccination.h:24</a></div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordtype">double</span> weight = amountOfWorkingPeople / amountOfEmployees;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <a class="code" href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a>(<span class="stringliteral">&quot;WorkplaceGenerator&quot;</span>, weight);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                weights.push_back(weight);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span> (weights.empty()) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="comment">// trng can&#39;t handle empty vectors</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">auto</span> dist = <a class="code" href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">m_rnManager</a>.<a class="code" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::discrete_dist(weights.begin(), weights.end()));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> workPlaceId = 0; workPlaceId &lt; amountOfWorkplaces; workPlaceId++) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordtype">int</span>                       locationId = dist();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                std::shared_ptr&lt;Location&gt; loc        = (*geoGrid)[locationId];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">auto</span> workplace = std::make_shared&lt;Workplace&gt;(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.<a class="code" href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">contactCenters</a>++);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                workplace-&gt;Fill(geoGrid);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                loc-&gt;AddContactCenter(workplace);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00071_html_a382ddb08546a893331863f64bd1e5046"><div class="ttname"><a href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d47/a00445_source.html#l00011">WorkplaceGenerator.cpp:11</a></div></div>
+<div class="ttc" id="a00034_html_a932e91e15c65933abb7934ecace53f35"><div class="ttname"><a href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@0 input</div><div class="ttdoc">INPUT. </div></div>
+<div class="ttc" id="a00056_html_a5fc3c56913851b8a3dd6e151d69418c5"><div class="ttname"><a href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">gengeopop::PartialGenerator::m_rnManager</a></div><div class="ttdeci">stride::util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager used by generators. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00018">PartialGenerator.h:18</a></div></div>
+<div class="ttc" id="a00444_html"><div class="ttname"><a href="../../d3/dea/a00444.html">Workplace.h</a></div></div>
+<div class="ttc" id="a00034_html_a737d7b1ed78c73a8628b1a938a47475f"><div class="ttname"><a href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">gengeopop::GeoGridConfig::contactCenters</a></div><div class="ttdeci">unsigned int contactCenters</div><div class="ttdoc">The current amount of ContactCenters, used to obtain an Id for a new contactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00105">GeoGridConfig.h:105</a></div></div>
+<div class="ttc" id="a00034_html_a981511c45d99012d50aefe53d08fef7c"><div class="ttname"><a href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@2 generated</div></div>
+<div class="ttc" id="a00056_html_a28a70c98b4b5a47d3b3ca2913601815a"><div class="ttname"><a href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a">gengeopop::PartialGenerator::CheckWeight</a></div><div class="ttdeci">void CheckWeight(const std::string &amp;func, double weight)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00024">PartialGenerator.h:24</a></div></div>
+<div class="ttc" id="a00034_html_ade71ba9da0d4d09ea0a1c3e44acd780b"><div class="ttname"><a href="../../db/df3/a00034.html#ade71ba9da0d4d09ea0a1c3e44acd780b">gengeopop::GeoGridConfig::_1865_and_years_active</a></div><div class="ttdeci">unsigned int _1865_and_years_active</div><div class="ttdoc">Absolute amount of population which are [18, 65] years old and active. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00081">GeoGridConfig.h:81</a></div></div>
+<div class="ttc" id="a00034_html_af9610682c3d25a6c5cf4dc0164988a54"><div class="ttname"><a href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">gengeopop::GeoGridConfig::calculated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@1 calculated</div><div class="ttdoc">CALCULATED. </div></div>
+<div class="ttc" id="a00034_html_abc57c86996194cd95c586896e8918a20"><div class="ttname"><a href="../../db/df3/a00034.html#abc57c86996194cd95c586896e8918a20">gengeopop::GeoGridConfig::fraction_active_commutingPeople</a></div><div class="ttdeci">double fraction_active_commutingPeople</div><div class="ttdoc">Fraction of calc_1865_and_active which commute. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00035">GeoGridConfig.h:35</a></div></div>
+<div class="ttc" id="a00446_html"><div class="ttname"><a href="../../d3/def/a00446.html">WorkplaceGenerator.h</a></div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00013">GeoGridConfig.h:13</a></div></div>
+<div class="ttc" id="a00161_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00081">RNManager.h:81</a></div></div>
+<div class="ttc" id="a00337_html"><div class="ttname"><a href="../../d4/dce/a00337.html">K12School.h</a></div></div>
+<div class="ttc" id="a00034_html_a34a5fe86ba4e60ef668c1bc60222634d"><div class="ttname"><a href="../../db/df3/a00034.html#a34a5fe86ba4e60ef668c1bc60222634d">gengeopop::GeoGridConfig::fraction_1865_years_active</a></div><div class="ttdeci">double fraction_1865_years_active</div><div class="ttdoc">Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00045">GeoGridConfig.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_6619f542450013781d0ff5d08067d16d.html">behaviour_policies</a></li><li class="navelem"><a class="el" href="../../dd/d47/a00445.html">Vaccination.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../dd/d47/a00445.html">WorkplaceGenerator.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

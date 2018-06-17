@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CommutesReader.h Source File</title>
+<title>Stride Reference Manual: ConcatednatedIterators.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,52 +109,52 @@ $(document).ready(function(){initNavTree('d1/da8/a00230_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CommutesReader.h</div>  </div>
+<div class="title">ConcatednatedIterators.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/da8/a00230.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/d5d/a00278.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../db/d10/a00350.html">gengeopop/Location.h</a>&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * This can be implemented using different input file types. Currently CSV is implemented.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d5b/a00026.html">CommutesReader</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Construct the CommutesReader with an istream containing the file content</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d6/d5b/a00026.html#a51b15bad7efe54c1e35a21271b5c6dda">CommutesReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// Add the found Commutes to the provided GeoGrid</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/a00026.html#ad60a7f16bdd36bffc1f1ee859a0f2920">FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt;) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">        /// Default destructor</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="../../d6/d5b/a00026.html#a205f22dd3728b0732139155437410faf">~CommutesReader</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/db8/a00376.html">pchheader.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> IteratorType, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Storage = std::vector&gt;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d1e/a00149.html">ConcatenatedIterators</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a28b056d9d335b2d19636b77fed306083">   13</a></span>&#160;        <a class="code" href="../../da/d1e/a00149.html#a28b056d9d335b2d19636b77fed306083">ConcatenatedIterators</a>() : <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>() {}</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a6220e199b77daae837ad156784dfbcf1">   14</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d6/db8/a00158.html">iterator</a> = <a class="code" href="../../d6/db8/a00158.html">NestedIterator&lt;T, typename std::vector&lt;IteratorPair&lt;IteratorType&gt;</a>&gt;<a class="code" href="../../da/d1e/a00149.html#a6220e199b77daae837ad156784dfbcf1">::iterator</a>, IteratorType&gt;;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a4bf3c23c2b0b6cefc506a38db418198d">   16</a></span>&#160;        <a class="code" href="../../d6/db8/a00158.html">iterator</a> <a class="code" href="../../da/d1e/a00149.html#a4bf3c23c2b0b6cefc506a38db418198d">begin</a>() { <span class="keywordflow">return</span> <a class="code" href="../../da/d1e/a00149.html#a6220e199b77daae837ad156784dfbcf1">iterator</a>(<a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.begin(), <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.begin(), <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.end()); }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a6364e2d883d81e9a1c9045c80407d3e8">   18</a></span>&#160;        <a class="code" href="../../d6/db8/a00158.html">iterator</a> <a class="code" href="../../da/d1e/a00149.html#a6364e2d883d81e9a1c9045c80407d3e8">end</a>() { <span class="keywordflow">return</span> <a class="code" href="../../da/d1e/a00149.html#a6220e199b77daae837ad156784dfbcf1">iterator</a>(<a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.end(), <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.begin(), <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.end()); }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a5845b2bb3641466cab0e4d46cb142e99">   20</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../da/d1e/a00149.html#a5845b2bb3641466cab0e4d46cb142e99">AddIterator</a>(IteratorType <a class="code" href="../../da/d1e/a00149.html#a4bf3c23c2b0b6cefc506a38db418198d">begin</a>, IteratorType <a class="code" href="../../da/d1e/a00149.html#a6364e2d883d81e9a1c9045c80407d3e8">end</a>) { <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>.emplace_back(begin, end); }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">   23</a></span>&#160;        Storage&lt;IteratorPair&lt;IteratorType&gt;&gt; <a class="code" href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">m_iterators</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#ad400fd1d400ef2d1e014b97328a2ddf5">   27</a></span>&#160;        std::unique_ptr&lt;std::istream&gt; <a class="code" href="../../d6/d5b/a00026.html#ad400fd1d400ef2d1e014b97328a2ddf5">m_inputStream</a>; <span class="comment">///&lt; The istream containing the file content</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00026_html_ad400fd1d400ef2d1e014b97328a2ddf5"><div class="ttname"><a href="../../d6/d5b/a00026.html#ad400fd1d400ef2d1e014b97328a2ddf5">gengeopop::CommutesReader::m_inputStream</a></div><div class="ttdeci">std::unique_ptr&lt; std::istream &gt; m_inputStream</div><div class="ttdoc">The istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00027">CommutesReader.h:27</a></div></div>
-<div class="ttc" id="a00350_html"><div class="ttname"><a href="../../db/d10/a00350.html">Location.h</a></div></div>
-<div class="ttc" id="a00026_html_ad60a7f16bdd36bffc1f1ee859a0f2920"><div class="ttname"><a href="../../d6/d5b/a00026.html#ad60a7f16bdd36bffc1f1ee859a0f2920">gengeopop::CommutesReader::FillGeoGrid</a></div><div class="ttdeci">virtual void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt;) const =0</div><div class="ttdoc">Add the found Commutes to the provided GeoGrid. </div></div>
-<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">gengeopop::CommutesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00014">CommutesReader.h:14</a></div></div>
-<div class="ttc" id="a00278_html"><div class="ttname"><a href="../../dc/d5d/a00278.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00026_html_a205f22dd3728b0732139155437410faf"><div class="ttname"><a href="../../d6/d5b/a00026.html#a205f22dd3728b0732139155437410faf">gengeopop::CommutesReader::~CommutesReader</a></div><div class="ttdeci">virtual ~CommutesReader()=default</div><div class="ttdoc">Default destructor. </div></div>
-<div class="ttc" id="a00026_html_a51b15bad7efe54c1e35a21271b5c6dda"><div class="ttname"><a href="../../d6/d5b/a00026.html#a51b15bad7efe54c1e35a21271b5c6dda">gengeopop::CommutesReader::CommutesReader</a></div><div class="ttdeci">CommutesReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CommutesReader with an istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2d/a00229_source.html#l00007">CommutesReader.cpp:7</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00376_html"><div class="ttname"><a href="../../d6/db8/a00376.html">pchheader.h</a></div></div>
+<div class="ttc" id="a00149_html_a6364e2d883d81e9a1c9045c80407d3e8"><div class="ttname"><a href="../../da/d1e/a00149.html#a6364e2d883d81e9a1c9045c80407d3e8">stride::util::ConcatenatedIterators::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00018">ConcatednatedIterators.h:18</a></div></div>
+<div class="ttc" id="a00158_html"><div class="ttname"><a href="../../d6/db8/a00158.html">stride::util::NestedIterator</a></div><div class="ttdoc">Implementation of iterator for looping over the inner elements of a nested data structure. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db5/a00365_source.html#l00061">NestedIterator.h:61</a></div></div>
+<div class="ttc" id="a00149_html_a6220e199b77daae837ad156784dfbcf1"><div class="ttname"><a href="../../da/d1e/a00149.html#a6220e199b77daae837ad156784dfbcf1">stride::util::ConcatenatedIterators::iterator</a></div><div class="ttdeci">NestedIterator&lt; T, typename std::vector&lt; IteratorPair&lt; IteratorType &gt;&gt;::iterator, IteratorType &gt; iterator</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00014">ConcatednatedIterators.h:14</a></div></div>
+<div class="ttc" id="a00149_html_a1ee6fe0e35db812f0cae1c8cec312eba"><div class="ttname"><a href="../../da/d1e/a00149.html#a1ee6fe0e35db812f0cae1c8cec312eba">stride::util::ConcatenatedIterators::m_iterators</a></div><div class="ttdeci">Storage&lt; IteratorPair&lt; IteratorType &gt; &gt; m_iterators</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00023">ConcatednatedIterators.h:23</a></div></div>
+<div class="ttc" id="a00149_html"><div class="ttname"><a href="../../da/d1e/a00149.html">stride::util::ConcatenatedIterators</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00010">ConcatednatedIterators.h:10</a></div></div>
+<div class="ttc" id="a00149_html_a4bf3c23c2b0b6cefc506a38db418198d"><div class="ttname"><a href="../../da/d1e/a00149.html#a4bf3c23c2b0b6cefc506a38db418198d">stride::util::ConcatenatedIterators::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00016">ConcatednatedIterators.h:16</a></div></div>
+<div class="ttc" id="a00149_html_a28b056d9d335b2d19636b77fed306083"><div class="ttname"><a href="../../da/d1e/a00149.html#a28b056d9d335b2d19636b77fed306083">stride::util::ConcatenatedIterators::ConcatenatedIterators</a></div><div class="ttdeci">ConcatenatedIterators()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00013">ConcatednatedIterators.h:13</a></div></div>
+<div class="ttc" id="a00149_html_a5845b2bb3641466cab0e4d46cb142e99"><div class="ttname"><a href="../../da/d1e/a00149.html#a5845b2bb3641466cab0e4d46cb142e99">stride::util::ConcatenatedIterators::AddIterator</a></div><div class="ttdeci">void AddIterator(IteratorType begin, IteratorType end)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00020">ConcatednatedIterators.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">CommutesReader.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">ConcatednatedIterators.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

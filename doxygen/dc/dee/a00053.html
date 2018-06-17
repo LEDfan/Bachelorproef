@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::K12SchoolPopulator Class Reference</title>
+<title>Stride Reference Manual: gengeopop::kd::Node&lt; P, D &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,105 +112,406 @@ $(document).ready(function(){initNavTree('dc/dee/a00053.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d8/dd2/a00565.html">List of all members</a>  </div>
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="../../d9/d12/a01128.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::K12SchoolPopulator Class Reference</div>  </div>
+<div class="title">gengeopop::kd::Node&lt; P, D &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d8/d8e/a00344_source.html">K12SchoolPopulator.h</a>&gt;</code></p>
+<p>A node in the <a class="el" href="../../d1/dea/a00054.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a>.  
+ <a href="../../dc/dee/a00053.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::K12SchoolPopulator:</div>
+Inheritance diagram for gengeopop::kd::Node&lt; P, D &gt;:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../dc/dee/a00053.png" usemap="#gengeopop::K12SchoolPopulator_map" alt=""/>
-  <map id="gengeopop::K12SchoolPopulator_map" name="gengeopop::K12SchoolPopulator_map">
-<area href="../../d7/df7/a00058.html" title="An interface for populators that provide a partial solution. " alt="gengeopop::PartialPopulator" shape="rect" coords="0,0,196,24"/>
-</map>
- </div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d17/a01129.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::kd::Node&lt; P, D &gt;:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d61/a01130.svg" width="428" height="563"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a88753abc8ea1c837507c22c8b305cde2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a88753abc8ea1c837507c22c8b305cde2">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../d4/d8c/a00035.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
-<tr class="separator:a88753abc8ea1c837507c22c8b305cde2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00058"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00058')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/df7/a00058.html">gengeopop::PartialPopulator</a></td></tr>
-<tr class="memitem:ab0d36a7eec42c951ab03d32db44566db inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator</a> (<a class="el" href="../../db/d44/a00162.html">stride::util::RNManager</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="separator:ab0d36a7eec42c951ab03d32db44566db inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea88face365d0f2d163eedaa9fafe461 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#aea88face365d0f2d163eedaa9fafe461">~PartialPopulator</a> ()</td></tr>
-<tr class="separator:aea88face365d0f2d163eedaa9fafe461 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ba27ac4148503a9bdd015c6b7caaf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a02ba27ac4148503a9bdd015c6b7caaf8">Node</a> (P pt)</td></tr>
+<tr class="separator:a02ba27ac4148503a9bdd015c6b7caaf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1feff6a9480fd9b7c2640934833ea467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a1feff6a9480fd9b7c2640934833ea467">BorrowLeft</a> () const override</td></tr>
+<tr class="memdesc:a1feff6a9480fd9b7c2640934833ea467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the left child nullptr if there's no such child.  <a href="#a1feff6a9480fd9b7c2640934833ea467">More...</a><br/></td></tr>
+<tr class="separator:a1feff6a9480fd9b7c2640934833ea467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97b067c48e16c1303f9f909debac811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aa97b067c48e16c1303f9f909debac811">BorrowRight</a> () const override</td></tr>
+<tr class="memdesc:aa97b067c48e16c1303f9f909debac811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the right child nullptr if there's no such child.  <a href="#aa97b067c48e16c1303f9f909debac811">More...</a><br/></td></tr>
+<tr class="separator:aa97b067c48e16c1303f9f909debac811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f437cdb9e45dd8195e84867af839cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aa9f437cdb9e45dd8195e84867af839cf">BorrowSplitChild</a> (const P &amp;point) const override</td></tr>
+<tr class="memdesc:aa9f437cdb9e45dd8195e84867af839cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the child corresponding to the correct split for point.  <a href="#aa9f437cdb9e45dd8195e84867af839cf">More...</a><br/></td></tr>
+<tr class="separator:aa9f437cdb9e45dd8195e84867af839cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa376a34dcf6f2717873ff3db5af7a70d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aa376a34dcf6f2717873ff3db5af7a70d">AddChild</a> (P point) override</td></tr>
+<tr class="memdesc:aa376a34dcf6f2717873ff3db5af7a70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new child in the right place, according to split.  <a href="#aa376a34dcf6f2717873ff3db5af7a70d">More...</a><br/></td></tr>
+<tr class="separator:aa376a34dcf6f2717873ff3db5af7a70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27eb66747642dce6122ae8725cdf799b"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a27eb66747642dce6122ae8725cdf799b">GetPoint</a> () const override</td></tr>
+<tr class="memdesc:a27eb66747642dce6122ae8725cdf799b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the point for this node.  <a href="#a27eb66747642dce6122ae8725cdf799b">More...</a><br/></td></tr>
+<tr class="separator:a27eb66747642dce6122ae8725cdf799b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00002"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00002')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/d46/a00002.html">gengeopop::kd::BaseNode&lt; P &gt;</a></td></tr>
+<tr class="memitem:a8fb2d048fe969f0e043ff56b60c3ff1e inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a8fb2d048fe969f0e043ff56b60c3ff1e">~BaseNode</a> ()</td></tr>
+<tr class="separator:a8fb2d048fe969f0e043ff56b60c3ff1e inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00058"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00058')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d7/df7/a00058.html">gengeopop::PartialPopulator</a></td></tr>
-<tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961 inherit pro_methods_a00058"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961 inherit pro_methods_a00058"><td class="memTemplItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
-&lt; <a class="el" href="../../d9/dcc/a00102.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a992a6f6b8761f481eabe22ffccc8f961">GetContactPoolInIncreasingRadius</a> (const std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; &amp;start, <a class="el" href="../../d7/daa/a00490.html">double</a> startRadius=10) const </td></tr>
-<tr class="separator:a992a6f6b8761f481eabe22ffccc8f961 inherit pro_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad18d65985647c2afb90627fa7048be6a inherit pro_methods_a00058"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a> (<a class="el" href="../../d7/daa/a00490.html">double</a> fraction)</td></tr>
-<tr class="separator:ad18d65985647c2afb90627fa7048be6a inherit pro_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00058"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00058')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d7/df7/a00058.html">gengeopop::PartialPopulator</a></td></tr>
-<tr class="memitem:abac3795203d9926b6c5dee1090a2de2c inherit pro_attribs_a00058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d44/a00162.html">stride::util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#abac3795203d9926b6c5dee1090a2de2c">m_rnManager</a></td></tr>
-<tr class="memdesc:abac3795203d9926b6c5dee1090a2de2c inherit pro_attribs_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#abac3795203d9926b6c5dee1090a2de2c">More...</a><br/></td></tr>
-<tr class="separator:abac3795203d9926b6c5dee1090a2de2c inherit pro_attribs_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c9b69f1083ed1016458ccaaa8e53964 inherit pro_attribs_a00058"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a></td></tr>
-<tr class="memdesc:a7c9b69f1083ed1016458ccaaa8e53964 inherit pro_attribs_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#a7c9b69f1083ed1016458ccaaa8e53964">More...</a><br/></td></tr>
-<tr class="separator:a7c9b69f1083ed1016458ccaaa8e53964 inherit pro_attribs_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a9e0da2b6a1dae5d9b84b4a9c7e5998cd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> = <a class="el" href="../../dc/dee/a00053.html">Node</a>&lt; P,(D+1)%P::dim &gt;</td></tr>
+<tr class="separator:a9e0da2b6a1dae5d9b84b4a9c7e5998cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6e0934a373b9c4f7485d4f71a7de2b12"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a6e0934a373b9c4f7485d4f71a7de2b12">m_point</a></td></tr>
+<tr class="separator:a6e0934a373b9c4f7485d4f71a7de2b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a518b60a5ec3c409358fb97bde0d8e974"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../dc/dee/a00053.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a518b60a5ec3c409358fb97bde0d8e974">m_left</a></td></tr>
+<tr class="separator:a518b60a5ec3c409358fb97bde0d8e974"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86880280760aaae9ef50dd165ee6c9e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../dc/dee/a00053.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ad86880280760aaae9ef50dd165ee6c9e">m_right</a></td></tr>
+<tr class="separator:ad86880280760aaae9ef50dd165ee6c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a0d8dc73ff7f8bb9d7b6db0adc4509640">KdTree&lt; P &gt;</a></td></tr>
+<tr class="separator:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00008">8</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">K12SchoolPopulator.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a88753abc8ea1c837507c22c8b305cde2"></a>
+<div class="textblock"><h3>template&lt;typename P, std::size_t D&gt;<br/>
+class gengeopop::kd::Node&lt; P, D &gt;</h3>
+
+<p>A node in the <a class="el" href="../../d1/dea/a00054.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a>. </p>
+<p>Template parameter P: the type of point Template parameter D: The dimension this node splits on </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00019">19</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a9e0da2b6a1dae5d9b84b4a9c7e5998cd"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::K12SchoolPopulator::Apply </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geogrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d8c/a00035.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">using <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../dc/dee/a00053.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> =  <a class="el" href="../../dc/dee/a00053.html">Node</a>&lt;P, (D + 1) % P::dim&gt;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="../../d7/df7/a00058.html#aee01751cc775128b108e03118609091c">gengeopop::PartialPopulator</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00014">14</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">K12SchoolPopulator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d53/a00399_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00022">gengeopop::PartialPopulator::m_logger</a>, and <a class="el" href="../../d6/db8/a00376_source.html#l00018">gengeopop::PartialPopulator::m_rnManager</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00349">349</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d8/d8e/a00344_source.html">K12SchoolPopulator.h</a></li>
-<li><a class="el" href="../../d0/dc5/a00343_source.html">K12SchoolPopulator.cpp</a></li>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a02ba27ac4148503a9bdd015c6b7caaf8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../dc/dee/a00053.html">Node</a> </td>
+          <td>(</td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00318">318</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1feff6a9480fd9b7c2640934833ea467"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a non-owning pointer to the left child nullptr if there's no such child. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00320">320</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa97b067c48e16c1303f9f909debac811"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a non-owning pointer to the right child nullptr if there's no such child. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00322">322</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9f437cdb9e45dd8195e84867af839cf"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowSplitChild </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a non-owning pointer to the child corresponding to the correct split for point. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00324">324</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa376a34dcf6f2717873ff3db5af7a70d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::AddChild </td>
+          <td>(</td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a new child in the right place, according to split. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a09a8a5870c292d5f39a0efe888e3d7a3">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00335">335</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27eb66747642dce6122ae8725cdf799b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">P <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::GetPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the point for this node. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00346">346</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a0d8dc73ff7f8bb9d7b6db0adc4509640"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d1/dea/a00054.html">KdTree</a>&lt; P &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00354">354</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a6e0934a373b9c4f7485d4f71a7de2b12"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">P <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_point</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00351">351</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d45/a00342_source.html#l00335">gengeopop::kd::Node&lt; P, 0 &gt;::AddChild()</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00324">gengeopop::kd::Node&lt; P, 0 &gt;::BorrowSplitChild()</a>, and <a class="el" href="../../d2/d45/a00342_source.html#l00346">gengeopop::kd::Node&lt; P, 0 &gt;::GetPoint()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a518b60a5ec3c409358fb97bde0d8e974"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../dc/dee/a00053.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a>&gt; <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_left</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00352">352</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d45/a00342_source.html#l00335">gengeopop::kd::Node&lt; P, 0 &gt;::AddChild()</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00320">gengeopop::kd::Node&lt; P, 0 &gt;::BorrowLeft()</a>, and <a class="el" href="../../d2/d45/a00342_source.html#l00324">gengeopop::kd::Node&lt; P, 0 &gt;::BorrowSplitChild()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad86880280760aaae9ef50dd165ee6c9e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../dc/dee/a00053.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a>&gt; <a class="el" href="../../dc/dee/a00053.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_right</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00352">352</a> of file <a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d45/a00342_source.html#l00335">gengeopop::kd::Node&lt; P, 0 &gt;::AddChild()</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00322">gengeopop::kd::Node&lt; P, 0 &gt;::BorrowRight()</a>, and <a class="el" href="../../d2/d45/a00342_source.html#l00324">gengeopop::kd::Node&lt; P, 0 &gt;::BorrowSplitChild()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/dee/a00053.html">K12SchoolPopulator</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">kd</a></li><li class="navelem"><a class="el" href="../../dc/dee/a00053.html">Node</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

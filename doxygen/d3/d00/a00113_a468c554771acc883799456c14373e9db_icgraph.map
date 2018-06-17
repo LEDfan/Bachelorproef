@@ -1,0 +1,6 @@
+<map id="stride::Health::ResetDiseaseCounter" name="stride::Health::ResetDiseaseCounter">
+<area shape="rect" id="node2" href="$d3/d00/a00113.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="245,56,432,83"/>
+<area shape="rect" id="node3" href="$d8/dfa/a00121.html#a3e10dc57119090c30ba818420bbd7b94" title="stride::Infector\&lt; LL,\l TIC, NoLocalInformation,\l true \&gt;::Exec" alt="" coords="480,5,653,61"/>
+<area shape="rect" id="node4" href="$dd/d42/a00109.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="491,85,642,126"/>
+<area shape="rect" id="node5" href="$d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="701,85,827,126"/>
+</map>

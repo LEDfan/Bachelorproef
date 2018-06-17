@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: K12School.cpp Source File</title>
+<title>Stride Reference Manual: K12SchoolGenerator.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,48 +109,37 @@ $(document).ready(function(){initNavTree('d0/d01/a00339_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">K12School.cpp</div>  </div>
+<div class="title">K12SchoolGenerator.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/d01/a00339.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/df1/a00340.html">K12School.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d04/a00281.html">GeoGridConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
+<a href="../../d0/d01/a00339.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d80/a00371.html">PartialGenerator.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html#a5deacd923a5dbde43feb7b481937cb43">    8</a></span>&#160;<a class="code" href="../../d2/d79/a00051.html#a5deacd923a5dbde43feb7b481937cb43">K12School::K12School</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="../../d0/d33/a00027.html">ContactCenter</a>(id) {}</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html#add262995f20f78d16c8dffc8c8ba0b3c">   10</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d79/a00051.html#add262995f20f78d16c8dffc8c8ba0b3c">K12School::GetMaxPools</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 25; }</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html#a5ef2351ea77265383b0f9e66659d692e">   12</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d79/a00051.html#a5ef2351ea77265383b0f9e66659d692e">K12School::GetPoolSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 20; }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48">   14</a></span>&#160;std::string <a class="code" href="../../d2/d79/a00051.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48">K12School::GetType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;K12School&quot;</span>; }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html#a686dd2fdbffef436c37f14bc23786c51">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d79/a00051.html#a686dd2fdbffef436c37f14bc23786c51">K12School::Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; <a class="code" href="../../d2/d79/a00051.html#add262995f20f78d16c8dffc8c8ba0b3c">GetMaxPools</a>(); ++i) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <a class="code" href="../../d0/d33/a00027.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a>(geoGrid-&gt;CreateContactPool(Id::K12School));</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00027_html"><div class="ttname"><a href="../../d0/d33/a00027.html">gengeopop::ContactCenter</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/a00237_source.html#l00008">ContactCenter.h:8</a></div></div>
-<div class="ttc" id="a00051_html_a5deacd923a5dbde43feb7b481937cb43"><div class="ttname"><a href="../../d2/d79/a00051.html#a5deacd923a5dbde43feb7b481937cb43">gengeopop::K12School::K12School</a></div><div class="ttdeci">K12School(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d01/a00339_source.html#l00008">K12School.cpp:8</a></div></div>
-<div class="ttc" id="a00281_html"><div class="ttname"><a href="../../d2/d04/a00281.html">GeoGridConfig.h</a></div></div>
-<div class="ttc" id="a00051_html_a5ef2351ea77265383b0f9e66659d692e"><div class="ttname"><a href="../../d2/d79/a00051.html#a5ef2351ea77265383b0f9e66659d692e">gengeopop::K12School::GetPoolSize</a></div><div class="ttdeci">unsigned int GetPoolSize() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d01/a00339_source.html#l00012">K12School.cpp:12</a></div></div>
-<div class="ttc" id="a00027_html_a05e2ac775c782a156ad867059f3b5e57"><div class="ttname"><a href="../../d0/d33/a00027.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter::AddPool</a></div><div class="ttdeci">void AddPool(stride::ContactPool *pool)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00007">ContactCenter.cpp:7</a></div></div>
-<div class="ttc" id="a00340_html"><div class="ttname"><a href="../../df/df1/a00340.html">K12School.h</a></div></div>
-<div class="ttc" id="a00051_html_a686dd2fdbffef436c37f14bc23786c51"><div class="ttname"><a href="../../d2/d79/a00051.html#a686dd2fdbffef436c37f14bc23786c51">gengeopop::K12School::Fill</a></div><div class="ttdeci">void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d01/a00339_source.html#l00016">K12School.cpp:16</a></div></div>
-<div class="ttc" id="a00051_html_add262995f20f78d16c8dffc8c8ba0b3c"><div class="ttname"><a href="../../d2/d79/a00051.html#add262995f20f78d16c8dffc8c8ba0b3c">gengeopop::K12School::GetMaxPools</a></div><div class="ttdeci">unsigned int GetMaxPools() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d01/a00339_source.html#l00010">K12School.cpp:10</a></div></div>
-<div class="ttc" id="a00051_html_aebbfbc1fb0df68b4f8e79bfb69d8ab48"><div class="ttname"><a href="../../d2/d79/a00051.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48">gengeopop::K12School::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d01/a00339_source.html#l00014">K12School.cpp:14</a></div></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d2/d79/a00051.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d79/a00051.html">K12SchoolGenerator</a> : <span class="keyword">public</span> <a class="code" href="../../d9/d2e/a00056.html">PartialGenerator</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">PartialGenerator::PartialGenerator</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d2/d79/a00051.html#a650110aa1e45d01478a4227c73635a72">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00056_html_a731cd830897bc6aa1e1026b4fec80cda"><div class="ttname"><a href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">gengeopop::PartialGenerator::PartialGenerator</a></div><div class="ttdeci">PartialGenerator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d30/a00370_source.html#l00005">PartialGenerator.cpp:5</a></div></div>
+<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">gengeopop::PartialGenerator</a></div><div class="ttdoc">An interface for generators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00013">PartialGenerator.h:13</a></div></div>
+<div class="ttc" id="a00051_html_a650110aa1e45d01478a4227c73635a72"><div class="ttname"><a href="../../d2/d79/a00051.html#a650110aa1e45d01478a4227c73635a72">gengeopop::K12SchoolGenerator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d84/a00338_source.html#l00010">K12SchoolGenerator.cpp:10</a></div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00013">GeoGridConfig.h:13</a></div></div>
+<div class="ttc" id="a00051_html"><div class="ttname"><a href="../../d2/d79/a00051.html">gengeopop::K12SchoolGenerator</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d01/a00339_source.html#l00008">K12SchoolGenerator.h:8</a></div></div>
+<div class="ttc" id="a00371_html"><div class="ttname"><a href="../../d6/d80/a00371.html">PartialGenerator.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d0/d01/a00339.html">K12School.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d0/d01/a00339.html">K12SchoolGenerator.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

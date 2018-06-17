@@ -1,7 +1,8 @@
 var a00015 =
 [
-    [ "AABB", "dd/d1b/a00015.html#a8e634d53e74b3bd81ff09e886083b230", null ],
-    [ "AABB", "dd/d1b/a00015.html#a8b98d15aee9ba87a39c0e8639a30ed37", null ],
-    [ "lower", "dd/d1b/a00015.html#acc6fb9ccb5a28eda8c781314d9c4bfe0", null ],
-    [ "upper", "dd/d1b/a00015.html#af3eccaec5b5d42ead4b5d7078b05691b", null ]
+    [ "Args", "dd/d1b/a00015.html#acfcc6c9d82f3b0ba28276db9087081be", null ],
+    [ "BoxPolicy", "dd/d1b/a00015.html#a940492f305ed119b38ca35a59c7d8265", null ],
+    [ "GetBoundingBox", "dd/d1b/a00015.html#a8cc7fa5c51d15d5d7ee7877852ff8850", null ],
+    [ "Contains", "dd/d1b/a00015.html#aac9e042e3a7e60eebde5221b580198a6", null ],
+    [ "m_args", "dd/d1b/a00015.html#aa873e1cd13351fd0d1fc4ebc1921675e", null ]
 ];

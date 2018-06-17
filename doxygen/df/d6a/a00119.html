@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::Immunizer&lt; ImmunizationProfile::Random &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::ImportPopBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -111,32 +111,59 @@ $(document).ready(function(){initNavTree('df/d6a/a00119.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../de/d85/a00618.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d7/d88/a01255.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Immunizer&lt; ImmunizationProfile::Random &gt; Class Template Reference</div>  </div>
+<div class="title">stride::ImportPopBuilder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Random immunization profile.  
+<p>Initializes <a class="el" href="../../d2/df5/a00137.html" title="Container for persons in population. ">Population</a> objects.  
  <a href="../../df/d6a/a00119.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d8/d23/a00326_source.html">Immunizer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dc8/a00325_source.html">ImportPopBuilder.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for stride::ImportPopBuilder:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d0f/a01256.svg" width="184" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::ImportPopBuilder:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/de7/a01257.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:adcdb237a4244d380212176ec7654ea79"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#adcdb237a4244d380212176ec7654ea79">Administer</a> (const std::vector&lt; <a class="el" href="../../d9/dcc/a00102.html">ContactPool</a> &gt; &amp;pools, std::vector&lt; <a class="el" href="../../d7/daa/a00490.html">double</a> &gt; &amp;immunity_distribution, <a class="el" href="../../d7/daa/a00490.html">double</a> immunity_link_probability, <a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;rn_manager)</td></tr>
-<tr class="separator:adcdb237a4244d380212176ec7654ea79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1ebe3b9029f30d9cfb5fb1aef47360a9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#a1ebe3b9029f30d9cfb5fb1aef47360a9">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt; pop, std::size_t regionId, std::string regionName)</td></tr>
+<tr class="memdesc:a1ebe3b9029f30d9cfb5fb1aef47360a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a population by importing it.  <a href="#a1ebe3b9029f30d9cfb5fb1aef47360a9">More...</a><br/></td></tr>
+<tr class="separator:a1ebe3b9029f30d9cfb5fb1aef47360a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00093"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00093')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:a71a53948acc3676803feff7586d1d195 inherit pub_methods_a00093"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a71a53948acc3676803feff7586d1d195">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;regionPt, <a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager)</td></tr>
+<tr class="memdesc:a71a53948acc3676803feff7586d1d195 inherit pub_methods_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a71a53948acc3676803feff7586d1d195">More...</a><br/></td></tr>
+<tr class="separator:a71a53948acc3676803feff7586d1d195 inherit pub_methods_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8053325e3b65a908aacff4f1a42c6a8 inherit pub_methods_a00093"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#ac8053325e3b65a908aacff4f1a42c6a8">~AbstractPopBuilder</a> ()</td></tr>
+<tr class="separator:ac8053325e3b65a908aacff4f1a42c6a8 inherit pub_methods_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00093"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00093')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00093"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td></tr>
+<tr class="memdesc:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#ae531cd041f5d2a849258039f820f9c9a">More...</a><br/></td></tr>
+<tr class="separator:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c77e5698556a6545bccce54550e3d5 inherit pro_attribs_a00093"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#aa8c77e5698556a6545bccce54550e3d5">m_region_pt</a></td></tr>
+<tr class="memdesc:aa8c77e5698556a6545bccce54550e3d5 inherit pro_attribs_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree of the region.  <a href="#aa8c77e5698556a6545bccce54550e3d5">More...</a><br/></td></tr>
+<tr class="separator:aa8c77e5698556a6545bccce54550e3d5 inherit pro_attribs_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af54ded40bb19a7927e8215884956c5fc inherit pro_attribs_a00093"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#af54ded40bb19a7927e8215884956c5fc">m_rn_manager</a></td></tr>
+<tr class="memdesc:af54ded40bb19a7927e8215884956c5fc inherit pro_attribs_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#af54ded40bb19a7927e8215884956c5fc">More...</a><br/></td></tr>
+<tr class="separator:af54ded40bb19a7927e8215884956c5fc inherit pro_attribs_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;&gt;<br/>
-class stride::Immunizer&lt; ImmunizationProfile::Random &gt;</h3>
+<div class="textblock"><p>Initializes <a class="el" href="../../d2/df5/a00137.html" title="Container for persons in population. ">Population</a> objects. </p>
 
-<p>Random immunization profile. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d23/a00326_source.html#l00050">50</a> of file <a class="el" href="../../d8/d23/a00326_source.html">immunity/Immunizer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00037">37</a> of file <a class="el" href="../../de/dc8/a00325_source.html">ImportPopBuilder.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="adcdb237a4244d380212176ec7654ea79"></a>
+<a class="anchor" id="a1ebe3b9029f30d9cfb5fb1aef47360a9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -144,28 +171,22 @@ class stride::Immunizer&lt; ImmunizationProfile::Random &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="../../d9/d4b/a00117.html">stride::Immunizer</a>&lt; <a class="el" href="../../d9/dca/a00477.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">ImmunizationProfile::Random</a> &gt;::Administer </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt; stride::ImportPopBuilder::Build </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d9/dcc/a00102.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pools</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d7/daa/a00490.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>immunity_distribution</em>, </td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>regionId</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td>
-          <td class="paramname"><em>immunity_link_probability</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d44/a00162.html">util::RNManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>rn_manager</em>&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>regionName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,23 +196,48 @@ class stride::Immunizer&lt; ImmunizationProfile::Random &gt;</h3>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a population by importing it. </p>
+
+<p>Implements <a class="el" href="../../d4/d7d/a00093.html#ad985ef83434157d439ff1a15f051c488">stride::AbstractPopBuilder</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00045">45</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">ImportPopBuilder.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d6/d82/a00293_source.html#l00009">gengeopop::GeoGridReaderFactory::CreateReader()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/dee/a00383_source.html#l00165">stride::Population::CreateRegion()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d6a/a00119_a1ebe3b9029f30d9cfb5fb1aef47360a9_cgraph.svg" width="406" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d6a/a00119_a1ebe3b9029f30d9cfb5fb1aef47360a9_icgraph.svg" width="344" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d8/d23/a00326_source.html">immunity/Immunizer.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../de/dc8/a00325_source.html">ImportPopBuilder.h</a></li>
+<li><a class="el" href="../../d4/d8f/a00324_source.html">ImportPopBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/dca/a00477.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">Immunizer< ImmunizationProfile::Random ></a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">ImportPopBuilder</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

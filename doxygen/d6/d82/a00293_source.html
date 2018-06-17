@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GeoGridProtoWriter.h Source File</title>
+<title>Stride Reference Manual: GeoGridReaderFactory.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,80 +109,47 @@ $(document).ready(function(){initNavTree('d6/d82/a00293_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GeoGridProtoWriter.h</div>  </div>
+<div class="title">GeoGridReaderFactory.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/d82/a00293.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d0d/a00298.html">GeoGridWriter.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d82/a00279.html">proto/geogrid.pb.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<a href="../../d6/d82/a00293.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d5b/a00294.html">GeoGridReaderFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/dc9/a00282.html">GeoGridJSONReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/ddc/a00288.html">GeoGridProtoReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d5/d35/a00266.html">util/Exception.h</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * An implementation of the GeoGridWriter using Protocol Buffers</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * This class is used to write a GeoGrid to a Proto file</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d32/a00041.html">GeoGridProtoWriter</a> : <span class="keyword">public</span> <a class="code" href="../../d5/df9/a00044.html">GeoGridWriter</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">        /// Construct the GeoGridProtoWriter</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span>        <a class="code" href="../../dd/d32/a00041.html#a1b1a82a0a173891a35672929c13ba6da">GeoGridProtoWriter</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">        /// Write the provided GeoGrid to the proved ostream in Protobuf format</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#a3163b8464f599d204597a01dfc47f08f">Write</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid, std::ostream&amp; stream) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">        /// Create a ProtoBuf Location containing all the information needed to reconstruct a Location</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#a2b0641108a2e713aa25c5969939a3c14">WriteLocation</a>(std::shared_ptr&lt;Location&gt; location, <a class="code" href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a>* protoLocation);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">        /// Create a ProtoBuf Coordinate containing all the information needed to reconstruct a Coordinate</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#a7909bc4f9f4d5d20737a5f1777b90fa4">WriteCoordinate</a>(<span class="keyword">const</span> <a class="code" href="../../d2/de7/a00014.html">Coordinate</a>&amp; coordinate, <a class="code" href="../../d1/d1e/a00087.html">proto::GeoGrid_Location_Coordinate</a>* protoCoordinate);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">        /// Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#a1235f787a58d45e623cf5bf21819ccc1">WriteContactCenter</a>(std::shared_ptr&lt;ContactCenter&gt;         contactCenter,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                <a class="code" href="../../df/d13/a00085.html">proto::GeoGrid_Location_ContactCenter</a>* protoContactCenter);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        /// Create a ProtoBuf ContactPool containing all the information needed to reconstruct a ContactPool</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#a0551c1ce7927fc90a5dcc38df8980176">WriteContactPool</a>(<a class="code" href="../../d9/dcc/a00102.html">stride::ContactPool</a>*                               contactPool,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                              <a class="code" href="../../da/d2a/a00086.html">proto::GeoGrid_Location_ContactCenter_ContactPool</a>* protoContactPool);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        /// Create a ProtoBuf Person containing all the information needed to reconstruct a Person</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#aeeb27df99670bf86ed6564b1affdd986">WritePerson</a>(<a class="code" href="../../d2/df5/a00137.html">stride::Person</a>* person, <a class="code" href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a>* protoPerson);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        std::set&lt;stride::Person*&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#ada0a307ad7ac6ecfe8198a17a71bba6a">   41</a></span>&#160;            <a class="code" href="../../dd/d32/a00041.html#ada0a307ad7ac6ecfe8198a17a71bba6a">m_persons_found</a>; <span class="comment">///&lt; The persons found when looping over the ContactPools.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span><span class="comment">                             ///&lt; These are needed since they are stored in a separate list inside the JSON file.</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00041_html_a2b0641108a2e713aa25c5969939a3c14"><div class="ttname"><a href="../../dd/d32/a00041.html#a2b0641108a2e713aa25c5969939a3c14">gengeopop::GeoGridProtoWriter::WriteLocation</a></div><div class="ttdeci">void WriteLocation(std::shared_ptr&lt; Location &gt; location, proto::GeoGrid_Location *protoLocation)</div><div class="ttdoc">Create a ProtoBuf Location containing all the information needed to reconstruct a Location...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00032">GeoGridProtoWriter.cpp:32</a></div></div>
-<div class="ttc" id="a00044_html"><div class="ttname"><a href="../../d5/df9/a00044.html">gengeopop::GeoGridWriter</a></div><div class="ttdoc">An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0d/a00298_source.html#l00013">GeoGridWriter.h:13</a></div></div>
-<div class="ttc" id="a00088_html"><div class="ttname"><a href="../../db/ddf/a00088.html">proto::GeoGrid_Person</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00279_source.html#l00890">geogrid.pb.h:890</a></div></div>
-<div class="ttc" id="a00279_html"><div class="ttname"><a href="../../d2/d82/a00279.html">geogrid.pb.h</a></div></div>
-<div class="ttc" id="a00041_html_ada0a307ad7ac6ecfe8198a17a71bba6a"><div class="ttname"><a href="../../dd/d32/a00041.html#ada0a307ad7ac6ecfe8198a17a71bba6a">gengeopop::GeoGridProtoWriter::m_persons_found</a></div><div class="ttdeci">std::set&lt; stride::Person * &gt; m_persons_found</div><div class="ttdoc">The persons found when looping over the ContactPools. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00293_source.html#l00041">GeoGridProtoWriter.h:41</a></div></div>
-<div class="ttc" id="a00041_html"><div class="ttname"><a href="../../dd/d32/a00041.html">gengeopop::GeoGridProtoWriter</a></div><div class="ttdoc">An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00293_source.html#l00013">GeoGridProtoWriter.h:13</a></div></div>
-<div class="ttc" id="a00087_html"><div class="ttname"><a href="../../d1/d1e/a00087.html">proto::GeoGrid_Location_Coordinate</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00279_source.html#l00121">geogrid.pb.h:121</a></div></div>
-<div class="ttc" id="a00041_html_a0551c1ce7927fc90a5dcc38df8980176"><div class="ttname"><a href="../../dd/d32/a00041.html#a0551c1ce7927fc90a5dcc38df8980176">gengeopop::GeoGridProtoWriter::WriteContactPool</a></div><div class="ttdeci">void WriteContactPool(stride::ContactPool *contactPool, proto::GeoGrid_Location_ContactCenter_ContactPool *protoContactPool)</div><div class="ttdoc">Create a ProtoBuf ContactPool containing all the information needed to reconstruct a ContactPool...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00085">GeoGridProtoWriter.cpp:85</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">Coordinate</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00003">Coordinate.h:3</a></div></div>
-<div class="ttc" id="a00041_html_a1235f787a58d45e623cf5bf21819ccc1"><div class="ttname"><a href="../../dd/d32/a00041.html#a1235f787a58d45e623cf5bf21819ccc1">gengeopop::GeoGridProtoWriter::WriteContactCenter</a></div><div class="ttdeci">void WriteContactCenter(std::shared_ptr&lt; ContactCenter &gt; contactCenter, proto::GeoGrid_Location_ContactCenter *protoContactCenter)</div><div class="ttdoc">Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00066">GeoGridProtoWriter.cpp:66</a></div></div>
-<div class="ttc" id="a00083_html"><div class="ttname"><a href="../../d2/d1f/a00083.html">proto::GeoGrid_Location</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00279_source.html#l00684">geogrid.pb.h:684</a></div></div>
-<div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d08/a00381_source.html#l00038">Person.h:38</a></div></div>
-<div class="ttc" id="a00298_html"><div class="ttname"><a href="../../d9/d0d/a00298.html">GeoGridWriter.h</a></div></div>
-<div class="ttc" id="a00086_html"><div class="ttname"><a href="../../da/d2a/a00086.html">proto::GeoGrid_Location_ContactCenter_ContactPool</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00279_source.html#l00264">geogrid.pb.h:264</a></div></div>
-<div class="ttc" id="a00041_html_a1b1a82a0a173891a35672929c13ba6da"><div class="ttname"><a href="../../dd/d32/a00041.html#a1b1a82a0a173891a35672929c13ba6da">gengeopop::GeoGridProtoWriter::GeoGridProtoWriter</a></div><div class="ttdeci">GeoGridProtoWriter()</div><div class="ttdoc">Construct the GeoGridProtoWriter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00010">GeoGridProtoWriter.cpp:10</a></div></div>
-<div class="ttc" id="a00041_html_a3163b8464f599d204597a01dfc47f08f"><div class="ttname"><a href="../../dd/d32/a00041.html#a3163b8464f599d204597a01dfc47f08f">gengeopop::GeoGridProtoWriter::Write</a></div><div class="ttdeci">void Write(std::shared_ptr&lt; GeoGrid &gt; geoGrid, std::ostream &amp;stream) override</div><div class="ttdoc">Write the provided GeoGrid to the proved ostream in Protobuf format. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00012">GeoGridProtoWriter.cpp:12</a></div></div>
-<div class="ttc" id="a00041_html_aeeb27df99670bf86ed6564b1affdd986"><div class="ttname"><a href="../../dd/d32/a00041.html#aeeb27df99670bf86ed6564b1affdd986">gengeopop::GeoGridProtoWriter::WritePerson</a></div><div class="ttdeci">void WritePerson(stride::Person *person, proto::GeoGrid_Person *protoPerson)</div><div class="ttdoc">Create a ProtoBuf Person containing all the information needed to reconstruct a Person. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00095">GeoGridProtoWriter.cpp:95</a></div></div>
-<div class="ttc" id="a00041_html_a7909bc4f9f4d5d20737a5f1777b90fa4"><div class="ttname"><a href="../../dd/d32/a00041.html#a7909bc4f9f4d5d20737a5f1777b90fa4">gengeopop::GeoGridProtoWriter::WriteCoordinate</a></div><div class="ttdeci">void WriteCoordinate(const Coordinate &amp;coordinate, proto::GeoGrid_Location_Coordinate *protoCoordinate)</div><div class="ttdoc">Create a ProtoBuf Coordinate containing all the information needed to reconstruct a Coordinate...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00057">GeoGridProtoWriter.cpp:57</a></div></div>
-<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">proto::GeoGrid_Location_ContactCenter</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00279_source.html#l00387">geogrid.pb.h:387</a></div></div>
-<div class="ttc" id="a00102_html"><div class="ttname"><a href="../../d9/dcc/a00102.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9a/a00246_source.html#l00037">ContactPool.h:37</a></div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">    9</a></span>&#160;std::shared_ptr&lt;GeoGridReader&gt; <a class="code" href="../../d5/db6/a00042.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">GeoGridReaderFactory::CreateReader</a>(std::string filename)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        boost::filesystem::path path(filename);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span> (!boost::filesystem::exists(path)) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../da/d01/a00153.html">stride::util::Exception</a>(<span class="stringliteral">&quot;File not found: &quot;</span> + path.string());</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.json&quot;</span>) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridJSONReader&gt;(std::make_unique&lt;std::ifstream&gt;(path.string()));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.proto&quot;</span>) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridProtoReader&gt;(std::make_unique&lt;std::ifstream&gt;(path.string()));</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../da/d01/a00153.html">stride::util::Exception</a>(<span class="stringliteral">&quot;Unsupported file extension: &quot;</span> + path.extension().string());</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00288_html"><div class="ttname"><a href="../../da/ddc/a00288.html">GeoGridProtoReader.h</a></div></div>
+<div class="ttc" id="a00282_html"><div class="ttname"><a href="../../dc/dc9/a00282.html">GeoGridJSONReader.h</a></div></div>
+<div class="ttc" id="a00266_html"><div class="ttname"><a href="../../d5/d35/a00266.html">Exception.h</a></div></div>
+<div class="ttc" id="a00042_html_acd3fdf6ac3e67ee88dd3b2a67c1821f0"><div class="ttname"><a href="../../d5/db6/a00042.html#acd3fdf6ac3e67ee88dd3b2a67c1821f0">gengeopop::GeoGridReaderFactory::CreateReader</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridReader &gt; CreateReader(std::string filename) const </div><div class="ttdoc">Create a GeoGridReader based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00293_source.html#l00009">GeoGridReaderFactory.cpp:9</a></div></div>
+<div class="ttc" id="a00294_html"><div class="ttname"><a href="../../d4/d5b/a00294.html">GeoGridReaderFactory.h</a></div></div>
+<div class="ttc" id="a00153_html"><div class="ttname"><a href="../../da/d01/a00153.html">stride::util::Exception</a></div><div class="ttdoc">Basic exception class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d35/a00266_source.html#l00011">Exception.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d6/d82/a00293.html">GeoGridProtoWriter.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d6/d82/a00293.html">GeoGridReaderFactory.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

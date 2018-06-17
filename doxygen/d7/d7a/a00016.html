@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::BoxPolicy Class Reference</title>
+<title>Stride Reference Manual: gengeopop::CitiesCSVReader Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -111,64 +111,64 @@ $(document).ready(function(){initNavTree('d7/d7a/a00016.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../da/d7e/a00530.html">List of all members</a>  </div>
+<a href="../../d5/dfb/a01021.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::BoxPolicy Class Reference</div>  </div>
+<div class="title">gengeopop::CitiesCSVReader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A <a class="el" href="../../d5/d16/a00029.html" title="A GeoAggregator can either be instanciated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over an axis aligned bounding box.  
+<p>Create a Reader which fills a <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> with the Cities found in a given CSV file.  
  <a href="../../d7/d7a/a00016.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dd2/a00207_source.html">CitiesCSVReader.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for gengeopop::CitiesCSVReader:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/dd8/a01022.svg" width="208" height="259"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::CitiesCSVReader:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/dfd/a01027.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:acfcc6c9d82f3b0ba28276db9087081be"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a> = std::tuple&lt; <a class="el" href="../../d7/daa/a00490.html">double</a>, <a class="el" href="../../d7/daa/a00490.html">double</a>, <a class="el" href="../../d7/daa/a00490.html">double</a>, <a class="el" href="../../d7/daa/a00490.html">double</a> &gt;</td></tr>
-<tr class="memdesc:acfcc6c9d82f3b0ba28276db9087081be"><td class="mdescLeft">&#160;</td><td class="mdescRight">lon1, lat1, lon2, lat2  <a href="#acfcc6c9d82f3b0ba28276db9087081be">More...</a><br/></td></tr>
-<tr class="separator:acfcc6c9d82f3b0ba28276db9087081be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a940492f305ed119b38ca35a59c7d8265"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a940492f305ed119b38ca35a59c7d8265">BoxPolicy</a> (<a class="el" href="../../d7/d7a/a00016.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a> args)</td></tr>
-<tr class="separator:a940492f305ed119b38ca35a59c7d8265"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cc7fa5c51d15d5d7ee7877852ff8850"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d1b/a00015.html">AABB</a><br class="typebreak"/>
-&lt; <a class="el" href="../../d0/dc0/a00033.html">geogrid_detail::KdTree2DPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a8cc7fa5c51d15d5d7ee7877852ff8850">GetBoundingBox</a> () const </td></tr>
-<tr class="separator:a8cc7fa5c51d15d5d7ee7877852ff8850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac9e042e3a7e60eebde5221b580198a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#aac9e042e3a7e60eebde5221b580198a6">Contains</a> (const <a class="el" href="../../d0/dc0/a00033.html">geogrid_detail::KdTree2DPoint</a> &amp;) const </td></tr>
-<tr class="separator:aac9e042e3a7e60eebde5221b580198a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26e6eacb61c4c71b400aa371ed54db9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">CitiesCSVReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
+<tr class="memdesc:ad26e6eacb61c4c71b400aa371ed54db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d7/d7a/a00016.html" title="Create a Reader which fills a GeoGrid with the Cities found in a given CSV file. ">CitiesCSVReader</a> with an istream containing the CSV data.  <a href="#ad26e6eacb61c4c71b400aa371ed54db9">More...</a><br/></td></tr>
+<tr class="separator:ad26e6eacb61c4c71b400aa371ed54db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe702a1c1bd6e6d0313611e749ecac89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt; geoGrid) const override</td></tr>
+<tr class="memdesc:afe702a1c1bd6e6d0313611e749ecac89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found Locations to the provided <a class="el" href="../../df/d61/a00031.html">GeoGrid</a>.  <a href="#afe702a1c1bd6e6d0313611e749ecac89">More...</a><br/></td></tr>
+<tr class="separator:afe702a1c1bd6e6d0313611e749ecac89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00017"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00017')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d51/a00017.html">gengeopop::CitiesReader</a></td></tr>
+<tr class="memitem:a154d0d27a849179dc131b6c15773a931 inherit pub_methods_a00017"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a154d0d27a849179dc131b6c15773a931">CitiesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
+<tr class="memdesc:a154d0d27a849179dc131b6c15773a931 inherit pub_methods_a00017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d4/d51/a00017.html" title="Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. ">CitiesReader</a> with an istream containing the file content.  <a href="#a154d0d27a849179dc131b6c15773a931">More...</a><br/></td></tr>
+<tr class="separator:a154d0d27a849179dc131b6c15773a931 inherit pub_methods_a00017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a068af8ee265596b9689721403375b636 inherit pub_methods_a00017"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a068af8ee265596b9689721403375b636">~CitiesReader</a> ()=default</td></tr>
+<tr class="memdesc:a068af8ee265596b9689721403375b636 inherit pub_methods_a00017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a068af8ee265596b9689721403375b636">More...</a><br/></td></tr>
+<tr class="separator:a068af8ee265596b9689721403375b636 inherit pub_methods_a00017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aa873e1cd13351fd0d1fc4ebc1921675e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d7a/a00016.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#aa873e1cd13351fd0d1fc4ebc1921675e">m_args</a></td></tr>
-<tr class="separator:aa873e1cd13351fd0d1fc4ebc1921675e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763c671bb5318d5c69a566ac7aeab038"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/db2/a00151.html">stride::util::CSV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a763c671bb5318d5c69a566ac7aeab038">m_reader</a></td></tr>
+<tr class="memdesc:a763c671bb5318d5c69a566ac7aeab038"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pure CSV reader.  <a href="#a763c671bb5318d5c69a566ac7aeab038">More...</a><br/></td></tr>
+<tr class="separator:a763c671bb5318d5c69a566ac7aeab038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00017"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00017')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d4/d51/a00017.html">gengeopop::CitiesReader</a></td></tr>
+<tr class="memitem:a793dc38b147b1082c5a61131e2330c25 inherit pro_attribs_a00017"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d51/a00017.html#a793dc38b147b1082c5a61131e2330c25">m_inputStream</a></td></tr>
+<tr class="memdesc:a793dc38b147b1082c5a61131e2330c25 inherit pro_attribs_a00017"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream containing the file content.  <a href="#a793dc38b147b1082c5a61131e2330c25">More...</a><br/></td></tr>
+<tr class="separator:a793dc38b147b1082c5a61131e2330c25 inherit pro_attribs_a00017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A <a class="el" href="../../d5/d16/a00029.html" title="A GeoAggregator can either be instanciated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over an axis aligned bounding box. </p>
+<div class="textblock"><p>Create a Reader which fills a <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> with the Cities found in a given CSV file. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00146">146</a> of file <a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="acfcc6c9d82f3b0ba28276db9087081be"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d7/d7a/a00016.html#acfcc6c9d82f3b0ba28276db9087081be">gengeopop::BoxPolicy::Args</a> =  std::tuple&lt;<a class="el" href="../../d7/daa/a00490.html">double</a>, <a class="el" href="../../d7/daa/a00490.html">double</a>, <a class="el" href="../../d7/daa/a00490.html">double</a>, <a class="el" href="../../d7/daa/a00490.html">double</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>lon1, lat1, lon2, lat2 </p>
-
-<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00149">149</a> of file <a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a940492f305ed119b38ca35a59c7d8265"></a>
+<p>Definition at line <a class="el" href="../../de/dd2/a00207_source.html#l00011">11</a> of file <a class="el" href="../../de/dd2/a00207_source.html">CitiesCSVReader.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad26e6eacb61c4c71b400aa371ed54db9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -176,26 +176,28 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::BoxPolicy::BoxPolicy </td>
+          <td class="memname">gengeopop::CitiesCSVReader::CitiesCSVReader </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/d7a/a00016.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a>&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
+          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
+          <td class="paramname"><em>inputStream</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00151">151</a> of file <a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>.</p>
+<p>Construct the <a class="el" href="../../d7/d7a/a00016.html" title="Create a Reader which fills a GeoGrid with the Cities found in a given CSV file. ">CitiesCSVReader</a> with an istream containing the CSV data. </p>
+
+<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00007">7</a> of file <a class="el" href="../../d5/df1/a00206_source.html">CitiesCSVReader.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a8cc7fa5c51d15d5d7ee7877852ff8850"></a>
+<a class="anchor" id="afe702a1c1bd6e6d0313611e749ecac89"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -203,51 +205,32 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/d1b/a00015.html">AABB</a>&lt;<a class="el" href="../../d0/dc0/a00033.html">geogrid_detail::KdTree2DPoint</a>&gt; gengeopop::BoxPolicy::GetBoundingBox </td>
+          <td class="memname">void gengeopop::CitiesCSVReader::FillGeoGrid </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geoGrid</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00153">153</a> of file <a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>.</p>
+<p>Add the found Locations to the provided <a class="el" href="../../df/d61/a00031.html">GeoGrid</a>. </p>
 
-</div>
-</div>
-<a class="anchor" id="aac9e042e3a7e60eebde5221b580198a6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool gengeopop::BoxPolicy::Contains </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/dc0/a00033.html">geogrid_detail::KdTree2DPoint</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Implements <a class="el" href="../../d4/d51/a00017.html#aa5acb51ba0643af5d5f67f47ba6b9a5c">gengeopop::CitiesReader</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00159">159</a> of file <a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00012">12</a> of file <a class="el" href="../../d5/df1/a00206_source.html">CitiesCSVReader.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/dd2/a00207_source.html#l00021">m_reader</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="aa873e1cd13351fd0d1fc4ebc1921675e"></a>
+<a class="anchor" id="a763c671bb5318d5c69a566ac7aeab038"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -255,7 +238,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d7a/a00016.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a> gengeopop::BoxPolicy::m_args</td>
+          <td class="memname"><a class="el" href="../../dd/db2/a00151.html">stride::util::CSV</a> gengeopop::CitiesCSVReader::m_reader</td>
         </tr>
       </table>
   </td>
@@ -265,20 +248,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00162">162</a> of file <a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a>.</p>
+<p>The pure CSV reader. </p>
+
+<p>Definition at line <a class="el" href="../../de/dd2/a00207_source.html#l00021">21</a> of file <a class="el" href="../../de/dd2/a00207_source.html">CitiesCSVReader.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/df1/a00206_source.html#l00012">FillGeoGrid()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d28/a00276_source.html">GeoAggregator.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../de/dd2/a00207_source.html">CitiesCSVReader.h</a></li>
+<li><a class="el" href="../../d5/df1/a00206_source.html">CitiesCSVReader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">BoxPolicy</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">CitiesCSVReader</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

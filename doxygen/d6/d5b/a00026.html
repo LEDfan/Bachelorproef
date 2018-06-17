@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: gengeopop::CommutesReader Class Reference</title>
+<title>Stride Reference Manual: gengeopop::ContactCenter Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -111,53 +111,89 @@ $(document).ready(function(){initNavTree('d6/d5b/a00026.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../dd/d72/a00541.html">List of all members</a>  </div>
+<a href="../../d0/daf/a00970.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::CommutesReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">gengeopop::ContactCenter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Create an abstract Reader which fills a <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> with the Commutes found in a given file.  
- <a href="../../d6/d5b/a00026.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d1/da8/a00230_source.html">CommutesReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/d40/a00236_source.html">ContactCenter.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::CommutesReader:</div>
+Inheritance diagram for gengeopop::ContactCenter:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="../../d6/d5b/a00026.png" usemap="#gengeopop::CommutesReader_map" alt=""/>
-  <map id="gengeopop::CommutesReader_map" name="gengeopop::CommutesReader_map">
-<area href="../../d3/dfe/a00025.html" title="Create a Reader which fills a GeoGrid with the Commutes found in a given CSV file. " alt="gengeopop::CommutesCSVReader" shape="rect" coords="0,56,205,80"/>
-</map>
- </div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d3c/a00971.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::ContactCenter:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d4e/a00972.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7ffc40d11c7c2f8c2a6b012104e38179"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a> = std::vector&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt;::<a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a></td></tr>
+<tr class="separator:a7ffc40d11c7c2f8c2a6b012104e38179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a51b15bad7efe54c1e35a21271b5c6dda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a51b15bad7efe54c1e35a21271b5c6dda">CommutesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:a51b15bad7efe54c1e35a21271b5c6dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d6/d5b/a00026.html" title="Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...">CommutesReader</a> with an istream containing the file content.  <a href="#a51b15bad7efe54c1e35a21271b5c6dda">More...</a><br/></td></tr>
-<tr class="separator:a51b15bad7efe54c1e35a21271b5c6dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad60a7f16bdd36bffc1f1ee859a0f2920"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#ad60a7f16bdd36bffc1f1ee859a0f2920">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;) const =0</td></tr>
-<tr class="memdesc:ad60a7f16bdd36bffc1f1ee859a0f2920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found Commutes to the provided <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a>.  <a href="#ad60a7f16bdd36bffc1f1ee859a0f2920">More...</a><br/></td></tr>
-<tr class="separator:ad60a7f16bdd36bffc1f1ee859a0f2920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a205f22dd3728b0732139155437410faf"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a205f22dd3728b0732139155437410faf">~CommutesReader</a> ()=default</td></tr>
-<tr class="memdesc:a205f22dd3728b0732139155437410faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a205f22dd3728b0732139155437410faf">More...</a><br/></td></tr>
-<tr class="separator:a205f22dd3728b0732139155437410faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aaa45f62fcb16bcd4b6f382a94e5526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a9aaa45f62fcb16bcd4b6f382a94e5526">ContactCenter</a> (unsigned int id)</td></tr>
+<tr class="separator:a9aaa45f62fcb16bcd4b6f382a94e5526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6accccf2036e95ef292fa475e75fa6fc"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a6accccf2036e95ef292fa475e75fa6fc">GetType</a> () const =0</td></tr>
+<tr class="separator:a6accccf2036e95ef292fa475e75fa6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29071ba50d10e1c2bad9d4ab52cbd561"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a29071ba50d10e1c2bad9d4ab52cbd561">GetPoolSize</a> () const =0</td></tr>
+<tr class="separator:a29071ba50d10e1c2bad9d4ab52cbd561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae39a8e8f20bebc8c0e2a548dc5a72ce5"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5">GetMaxPools</a> () const =0</td></tr>
+<tr class="separator:ae39a8e8f20bebc8c0e2a548dc5a72ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c1b74ce73ad2ae64a4c6bc48238d1ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff">Fill</a> (const std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt; &amp;geoGrid)=0</td></tr>
+<tr class="separator:a4c1b74ce73ad2ae64a4c6bc48238d1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41db67c04a80efb125efdbfa4a39b4ad"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a41db67c04a80efb125efdbfa4a39b4ad">GetId</a> () const </td></tr>
+<tr class="separator:a41db67c04a80efb125efdbfa4a39b4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8b55f34ee88976dc4e4cd124f508ffa"><td class="memItemLeft" align="right" valign="top">std::pair&lt; unsigned int, <br class="typebreak"/>
+unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#af8b55f34ee88976dc4e4cd124f508ffa">GetPopulationAndInfectedCount</a> () const </td></tr>
+<tr class="separator:af8b55f34ee88976dc4e4cd124f508ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e2ac775c782a156ad867059f3b5e57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a> (<a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> *pool)</td></tr>
+<tr class="separator:a05e2ac775c782a156ad867059f3b5e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af52200fb10382cffac4fa67d987f5406"><td class="memItemLeft" align="right" valign="top">const std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#af52200fb10382cffac4fa67d987f5406">GetPools</a> () const </td></tr>
+<tr class="separator:af52200fb10382cffac4fa67d987f5406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351f15c90b8cb94886b69752960dc741"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741">begin</a> ()</td></tr>
+<tr class="separator:a351f15c90b8cb94886b69752960dc741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb792059c787efb17ae9a9c91f6938a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3">end</a> ()</td></tr>
+<tr class="separator:aeb792059c787efb17ae9a9c91f6938a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac520d66f2268d03298cb36a47103aa74"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#ac520d66f2268d03298cb36a47103aa74">~ContactCenter</a> ()=default</td></tr>
+<tr class="separator:ac520d66f2268d03298cb36a47103aa74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ad400fd1d400ef2d1e014b97328a2ddf5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#ad400fd1d400ef2d1e014b97328a2ddf5">m_inputStream</a></td></tr>
-<tr class="memdesc:ad400fd1d400ef2d1e014b97328a2ddf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream containing the file content.  <a href="#ad400fd1d400ef2d1e014b97328a2ddf5">More...</a><br/></td></tr>
-<tr class="separator:ad400fd1d400ef2d1e014b97328a2ddf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b05f8789a5272fa8ec5e1113c5b731"><td class="memItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a></td></tr>
+<tr class="separator:ac0b05f8789a5272fa8ec5e1113c5b731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785264e08f004b2e1f51e2fb158c0fdf"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a785264e08f004b2e1f51e2fb158c0fdf">m_id</a></td></tr>
+<tr class="separator:a785264e08f004b2e1f51e2fb158c0fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create an abstract Reader which fills a <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> with the Commutes found in a given file. </p>
-<p>This can be implemented using different input file types. Currently CSV is implemented. </p>
+<div class="textblock">
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00008">8</a> of file <a class="el" href="../../d7/d40/a00236_source.html">ContactCenter.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a7ffc40d11c7c2f8c2a6b012104e38179"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">gengeopop::ContactCenter::iterator</a> =  std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a>*&gt;::<a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00014">14</a> of file <a class="el" href="../../d1/da8/a00230_source.html">CommutesReader.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a51b15bad7efe54c1e35a21271b5c6dda"></a>
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00011">11</a> of file <a class="el" href="../../d7/d40/a00236_source.html">ContactCenter.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9aaa45f62fcb16bcd4b6f382a94e5526"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -165,10 +201,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::CommutesReader::CommutesReader </td>
+          <td class="memname">gengeopop::ContactCenter::ContactCenter </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -179,13 +215,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct the <a class="el" href="../../d6/d5b/a00026.html" title="Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...">CommutesReader</a> with an istream containing the file content. </p>
-
-<p>Definition at line <a class="el" href="../../dd/d2d/a00229_source.html#l00007">7</a> of file <a class="el" href="../../dd/d2d/a00229_source.html">CommutesReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00005">5</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a205f22dd3728b0732139155437410faf"></a>
+<a class="anchor" id="ac520d66f2268d03298cb36a47103aa74"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -193,7 +227,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual gengeopop::CommutesReader::~CommutesReader </td>
+          <td class="memname">virtual gengeopop::ContactCenter::~ContactCenter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -206,12 +240,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default destructor. </p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad60a7f16bdd36bffc1f1ee859a0f2920"></a>
+<a class="anchor" id="a6accccf2036e95ef292fa475e75fa6fc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -219,9 +251,8 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void gengeopop::CommutesReader::FillGeoGrid </td>
+          <td class="memname">virtual std::string gengeopop::ContactCenter::GetType </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a> &gt;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
@@ -233,14 +264,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Add the found Commutes to the provided <a class="el" href="../../dc/d87/a00032.html">GeoGrid</a>. </p>
-
-<p>Implemented in <a class="el" href="../../d3/dfe/a00025.html#a50eaa47a39752b6388d031767f81d40b">gengeopop::CommutesCSVReader</a>.</p>
+<p>Implemented in <a class="el" href="../../d7/de0/a00022.html#aea32f2d892d805314cc7840f7d500d92">gengeopop::Community</a>, <a class="el" href="../../d2/db1/a00070.html#af3f4050abcabf657c120225725c1f8d5">gengeopop::Workplace</a>, <a class="el" href="../../d6/d97/a00045.html#af26aec270baa38e7b76eac06e6be84cc">gengeopop::Household</a>, <a class="el" href="../../d3/d8b/a00059.html#ae5dd0a2af2978dc76fafc1d5c2756394">gengeopop::PrimaryCommunity</a>, <a class="el" href="../../dd/da2/a00019.html#a89ecb95547bda6b23726fc82f60760c2">gengeopop::College</a>, <a class="el" href="../../d5/de0/a00050.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48">gengeopop::K12School</a>, and <a class="el" href="../../d1/d6f/a00063.html#adcfd4a6c759daf31280e544f48c5eafe">gengeopop::SecondaryCommunity</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad400fd1d400ef2d1e014b97328a2ddf5"></a>
+<a class="anchor" id="a29071ba50d10e1c2bad9d4ab52cbd561"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -248,7 +276,226 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;std::istream&gt; gengeopop::CommutesReader::m_inputStream</td>
+          <td class="memname">virtual unsigned int gengeopop::ContactCenter::GetPoolSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d7/de0/a00022.html#ae3647563c11814f26e7de0d681f2d9a5">gengeopop::Community</a>, <a class="el" href="../../d6/d97/a00045.html#a4164f233324b4b0172d7d58d723d34ba">gengeopop::Household</a>, <a class="el" href="../../d5/de0/a00050.html#a5ef2351ea77265383b0f9e66659d692e">gengeopop::K12School</a>, <a class="el" href="../../dd/da2/a00019.html#a62977caa888aff35af48443e3ce890c2">gengeopop::College</a>, and <a class="el" href="../../d2/db1/a00070.html#a2a15bafc9cd5009f0a5fdf37c3098d5c">gengeopop::Workplace</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae39a8e8f20bebc8c0e2a548dc5a72ce5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int gengeopop::ContactCenter::GetMaxPools </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d7/de0/a00022.html#a91c409a0ed68e0c3246723a5296a298e">gengeopop::Community</a>, <a class="el" href="../../dd/da2/a00019.html#a77035ed2452bb47c763282b46233f9e9">gengeopop::College</a>, <a class="el" href="../../d6/d97/a00045.html#abdf5369ecfcc801e90d4b92aef0044be">gengeopop::Household</a>, <a class="el" href="../../d5/de0/a00050.html#add262995f20f78d16c8dffc8c8ba0b3c">gengeopop::K12School</a>, and <a class="el" href="../../d2/db1/a00070.html#a707de3229c14c3486a4ad16972ff85f7">gengeopop::Workplace</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c1b74ce73ad2ae64a4c6bc48238d1ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gengeopop::ContactCenter::Fill </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../df/d61/a00031.html">GeoGrid</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d6/d97/a00045.html#a8ddb12a1f6779e33d97765549b93eb60">gengeopop::Household</a>, <a class="el" href="../../dd/da2/a00019.html#a754f1a7c9921e9a397ad1c9331db10e2">gengeopop::College</a>, <a class="el" href="../../d5/de0/a00050.html#a686dd2fdbffef436c37f14bc23786c51">gengeopop::K12School</a>, <a class="el" href="../../d2/db1/a00070.html#a2389c1fe82dc8221ad2f6fdb216e04af">gengeopop::Workplace</a>, <a class="el" href="../../d3/d8b/a00059.html#acac73a4c6f3fa5b09699dce0a5e0e1c6">gengeopop::PrimaryCommunity</a>, and <a class="el" href="../../d1/d6f/a00063.html#ae145286436b24b695b7958c829db67b7">gengeopop::SecondaryCommunity</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41db67c04a80efb125efdbfa4a39b4ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::ContactCenter::GetId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00015">15</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d40/a00236_source.html#l00035">m_id</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8b55f34ee88976dc4e4cd124f508ffa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; unsigned int, unsigned int &gt; gengeopop::ContactCenter::GetPopulationAndInfectedCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00017">17</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d40/a00236_source.html#l00034">m_pools</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05e2ac775c782a156ad867059f3b5e57"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::ContactCenter::AddPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> *&#160;</td>
+          <td class="paramname"><em>pool</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00007">7</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d40/a00236_source.html#l00034">m_pools</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d53/a00399_source.html#l00011">gengeopop::SecondaryCommunity::Fill()</a>, <a class="el" href="../../dd/df5/a00386_source.html#l00010">gengeopop::PrimaryCommunity::Fill()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00016">gengeopop::College::Fill()</a>, <a class="el" href="../../d0/dc4/a00443_source.html#l00016">gengeopop::Workplace::Fill()</a>, <a class="el" href="../../dd/d1d/a00336_source.html#l00016">gengeopop::K12School::Fill()</a>, and <a class="el" href="../../d0/da2/a00307_source.html#l00018">gengeopop::Household::Fill()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d5b/a00026_a05e2ac775c782a156ad867059f3b5e57_icgraph.svg" width="462" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af52200fb10382cffac4fa67d987f5406"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> * &gt; &amp; gengeopop::ContactCenter::GetPools </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00013">13</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d40/a00236_source.html#l00034">m_pools</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a351f15c90b8cb94886b69752960dc741"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">ContactCenter::iterator</a> gengeopop::ContactCenter::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00009">9</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d40/a00236_source.html#l00034">m_pools</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00087">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d5b/a00026_a351f15c90b8cb94886b69752960dc741_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb792059c787efb17ae9a9c91f6938a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">ContactCenter::iterator</a> gengeopop::ContactCenter::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00011">11</a> of file <a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d40/a00236_source.html#l00034">m_pools</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d84/a00447_source.html#l00087">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d5b/a00026_aeb792059c787efb17ae9a9c91f6938a3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ac0b05f8789a5272fa8ec5e1113c5b731"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a>*&gt; gengeopop::ContactCenter::m_pools</td>
         </tr>
       </table>
   </td>
@@ -258,23 +505,47 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The istream containing the file content. </p>
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00034">34</a> of file <a class="el" href="../../d7/d40/a00236_source.html">ContactCenter.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00027">27</a> of file <a class="el" href="../../d1/da8/a00230_source.html">CommutesReader.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d0b/a00220_source.html#l00015">gengeopop::Community::AddHouseHold()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00007">AddPool()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00009">begin()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00011">end()</a>, <a class="el" href="../../d1/d53/a00399_source.html#l00011">gengeopop::SecondaryCommunity::Fill()</a>, <a class="el" href="../../dd/df5/a00386_source.html#l00010">gengeopop::PrimaryCommunity::Fill()</a>, <a class="el" href="../../d3/d42/a00235_source.html#l00013">GetPools()</a>, and <a class="el" href="../../d3/d42/a00235_source.html#l00017">GetPopulationAndInfectedCount()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a785264e08f004b2e1f51e2fb158c0fdf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::ContactCenter::m_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00035">35</a> of file <a class="el" href="../../d7/d40/a00236_source.html">ContactCenter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d42/a00235_source.html#l00015">GetId()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/da8/a00230_source.html">CommutesReader.h</a></li>
-<li><a class="el" href="../../dd/d2d/a00229_source.html">CommutesReader.cpp</a></li>
+<li><a class="el" href="../../d7/d40/a00236_source.html">ContactCenter.h</a></li>
+<li><a class="el" href="../../d3/d42/a00235_source.html">ContactCenter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d5b/a00026.html">CommutesReader</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d5b/a00026.html">ContactCenter</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

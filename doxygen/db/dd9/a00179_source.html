@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: AbstractPopBuilder.h Source File</title>
+<title>Stride Reference Manual: AdoptedFile.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,81 +109,68 @@ $(document).ready(function(){initNavTree('db/dd9/a00179_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AbstractPopBuilder.h</div>  </div>
+<div class="title">AdoptedFile.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/dd9/a00179.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Base Class for PopBuilders</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
+<a href="../../db/dd9/a00179.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d81/a00180.html">AdoptedFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d12/a00268.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d9/dca/a00477.html">   20</a></span>&#160;<span class="keyword">namespace </span>output {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;spdlog/logger.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>Population;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>RNManager;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * Base Class for PopBuilders</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dc/d54/a00094.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d54/a00094.html">AbstractPopBuilder</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">        /// Initializing constructor.</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        /// \param configPt    Property_tree with general configuration settings.</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">        /// \param rnManager   Random number manager for pop build process.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span>        <a class="code" href="../../dc/d54/a00094.html#a71a53948acc3676803feff7586d1d195">AbstractPopBuilder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <span class="keyword">const</span> boost::property_tree::ptree&amp; regionPt,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                           <a class="code" href="../../db/d44/a00162.html">util::RNManager</a>&amp; rnManager);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">        /// Build Population and return it afterwards.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> std::shared_ptr&lt;Population&gt; <a class="code" href="../../dc/d54/a00094.html#ad985ef83434157d439ff1a15f051c488">Build</a>(std::shared_ptr&lt;Population&gt; pop, std::size_t regionId,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                                  std::string regionName) = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../dc/d54/a00094.html#ac8053325e3b65a908aacff4f1a42c6a8">   49</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../dc/d54/a00094.html#ac8053325e3b65a908aacff4f1a42c6a8">~AbstractPopBuilder</a>(){};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../dc/d54/a00094.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a>;  <span class="comment">///&lt; Configuration property tree.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../dc/d54/a00094.html#aa8c77e5698556a6545bccce54550e3d5">   53</a></span>&#160;<span class="comment"></span>        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../dc/d54/a00094.html#aa8c77e5698556a6545bccce54550e3d5">m_region_pt</a>;  <span class="comment">///&lt; Configuration property tree of the region.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../dc/d54/a00094.html#af54ded40bb19a7927e8215884956c5fc">   54</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../db/d44/a00162.html">util::RNManager</a>&amp;                   <a class="code" href="../../dc/d54/a00094.html#af54ded40bb19a7927e8215884956c5fc">m_rn_manager</a>; <span class="comment">///&lt; Random number generation management.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00094_html_ae531cd041f5d2a849258039f820f9c9a"><div class="ttname"><a href="../../dc/d54/a00094.html#ae531cd041f5d2a849258039f820f9c9a">stride::AbstractPopBuilder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Configuration property tree. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00049">AbstractPopBuilder.h:49</a></div></div>
-<div class="ttc" id="a00094_html_af54ded40bb19a7927e8215884956c5fc"><div class="ttname"><a href="../../dc/d54/a00094.html#af54ded40bb19a7927e8215884956c5fc">stride::AbstractPopBuilder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number generation management. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00054">AbstractPopBuilder.h:54</a></div></div>
-<div class="ttc" id="a00162_html"><div class="ttname"><a href="../../db/d44/a00162.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d53/a00399_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00094_html_a71a53948acc3676803feff7586d1d195"><div class="ttname"><a href="../../dc/d54/a00094.html#a71a53948acc3676803feff7586d1d195">stride::AbstractPopBuilder::AbstractPopBuilder</a></div><div class="ttdeci">AbstractPopBuilder(const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;regionPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initializing constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d90/a00178_source.html#l00037">AbstractPopBuilder.cpp:37</a></div></div>
-<div class="ttc" id="a00094_html_ac8053325e3b65a908aacff4f1a42c6a8"><div class="ttname"><a href="../../dc/d54/a00094.html#ac8053325e3b65a908aacff4f1a42c6a8">stride::AbstractPopBuilder::~AbstractPopBuilder</a></div><div class="ttdeci">virtual ~AbstractPopBuilder()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00049">AbstractPopBuilder.h:49</a></div></div>
-<div class="ttc" id="a00094_html_ad985ef83434157d439ff1a15f051c488"><div class="ttname"><a href="../../dc/d54/a00094.html#ad985ef83434157d439ff1a15f051c488">stride::AbstractPopBuilder::Build</a></div><div class="ttdeci">virtual std::shared_ptr&lt; Population &gt; Build(std::shared_ptr&lt; Population &gt; pop, std::size_t regionId, std::string regionName)=0</div><div class="ttdoc">Build Population and return it afterwards. </div></div>
-<div class="ttc" id="a00094_html"><div class="ttname"><a href="../../dc/d54/a00094.html">stride::AbstractPopBuilder</a></div><div class="ttdoc">Base Class for PopBuilders. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00036">AbstractPopBuilder.h:36</a></div></div>
-<div class="ttc" id="a00094_html_aa8c77e5698556a6545bccce54550e3d5"><div class="ttname"><a href="../../dc/d54/a00094.html#aa8c77e5698556a6545bccce54550e3d5">stride::AbstractPopBuilder::m_region_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_region_pt</div><div class="ttdoc">Configuration property tree of the region. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00053">AbstractPopBuilder.h:53</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d5/deb/a00132.html#aa24c13053bcf131ad878b465a4125828">   25</a></span>&#160;<a class="code" href="../../d5/deb/a00132.html#aa24c13053bcf131ad878b465a4125828">AdoptedFile::AdoptedFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix) : m_fstream() { <a class="code" href="../../d5/deb/a00132.html#aefdeb0e49b52e1fb5844bb311a6319cb">Initialize</a>(output_prefix); }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d5/deb/a00132.html#a3ffdabc86a3d9e8300cdbde251ab4763">   27</a></span>&#160;<a class="code" href="../../d5/deb/a00132.html#a3ffdabc86a3d9e8300cdbde251ab4763">AdoptedFile::~AdoptedFile</a>() { <a class="code" href="../../d5/deb/a00132.html#aa82a130d557abb519a61bde42e626103">m_fstream</a>.close(); }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/deb/a00132.html#aa93f976e835a7255e7d479252eca28c9">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/deb/a00132.html#aa93f976e835a7255e7d479252eca28c9">AdoptedFile::Print</a>(<span class="keyword">const</span> vector&lt;unsigned int&gt;&amp; adopters)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; (adopters.size() - 1); i++) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="../../d5/deb/a00132.html#aa82a130d557abb519a61bde42e626103">m_fstream</a> &lt;&lt; adopters[i] &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d5/deb/a00132.html#aa82a130d557abb519a61bde42e626103">m_fstream</a> &lt;&lt; adopters[adopters.size() - 1] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d5/deb/a00132.html#aefdeb0e49b52e1fb5844bb311a6319cb">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/deb/a00132.html#aefdeb0e49b52e1fb5844bb311a6319cb">AdoptedFile::Initialize</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> p = <a class="code" href="../../d3/d65/a00154.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(output_prefix, <span class="stringliteral">&quot;adopted.csv&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d5/deb/a00132.html#aa82a130d557abb519a61bde42e626103">m_fstream</a>.open(p.c_str());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace output</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00268_html"><div class="ttname"><a href="../../db/d12/a00268.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00132_html_a3ffdabc86a3d9e8300cdbde251ab4763"><div class="ttname"><a href="../../d5/deb/a00132.html#a3ffdabc86a3d9e8300cdbde251ab4763">stride::output::AdoptedFile::~AdoptedFile</a></div><div class="ttdeci">~AdoptedFile()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00027">AdoptedFile.cpp:27</a></div></div>
+<div class="ttc" id="a00132_html_aa93f976e835a7255e7d479252eca28c9"><div class="ttname"><a href="../../d5/deb/a00132.html#aa93f976e835a7255e7d479252eca28c9">stride::output::AdoptedFile::Print</a></div><div class="ttdeci">void Print(const std::vector&lt; unsigned int &gt; &amp;adopters)</div><div class="ttdoc">Print the given cases with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00029">AdoptedFile.cpp:29</a></div></div>
+<div class="ttc" id="a00132_html_aa24c13053bcf131ad878b465a4125828"><div class="ttname"><a href="../../d5/deb/a00132.html#aa24c13053bcf131ad878b465a4125828">stride::output::AdoptedFile::AdoptedFile</a></div><div class="ttdeci">AdoptedFile(const std::string &amp;output_dir=&quot;output&quot;)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00025">AdoptedFile.cpp:25</a></div></div>
+<div class="ttc" id="a00154_html_a750e3b3e045bb2e17639b4d014d33974"><div class="ttname"><a href="../../d3/d65/a00154.html#a750e3b3e045bb2e17639b4d014d33974">stride::util::FileSys::BuildPath</a></div><div class="ttdeci">static boost::filesystem::path BuildPath(const std::string &amp;output_prefix, const std::string &amp;filename)</div><div class="ttdoc">Interpret prefix (directory or filename prefix) and return appropriate path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dd4/a00267_source.html#l00051">FileSys.cpp:51</a></div></div>
+<div class="ttc" id="a00132_html_aa82a130d557abb519a61bde42e626103"><div class="ttname"><a href="../../d5/deb/a00132.html#aa82a130d557abb519a61bde42e626103">stride::output::AdoptedFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdoc">The file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00049">AdoptedFile.h:49</a></div></div>
+<div class="ttc" id="a00132_html_aefdeb0e49b52e1fb5844bb311a6319cb"><div class="ttname"><a href="../../d5/deb/a00132.html#aefdeb0e49b52e1fb5844bb311a6319cb">stride::output::AdoptedFile::Initialize</a></div><div class="ttdeci">void Initialize(const std::string &amp;output_dir)</div><div class="ttdoc">Generate file name and open the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00037">AdoptedFile.cpp:37</a></div></div>
+<div class="ttc" id="a00180_html"><div class="ttname"><a href="../../d0/d81/a00180.html">AdoptedFile.h</a></div><div class="ttdoc">Header for the AdoptedFile class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../db/dd9/a00179.html">AbstractPopBuilder.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../db/dd9/a00179.html">AdoptedFile.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

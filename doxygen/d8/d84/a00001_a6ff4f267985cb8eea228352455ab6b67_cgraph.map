@@ -1,0 +1,12 @@
+<map id="Backend::SetShowCommutes" name="Backend::SetShowCommutes">
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a12718652247133e7a7dc8fba69fdd56d" title="Removes all locations from selection and unselection + re&#45;render the map. " alt="" coords="253,91,443,133"/>
+<area shape="rect" id="node10" href="$d8/d84/a00001.html#a0ed26b4e4fdbffb693fc5a93db1fabe5" title="Places the markers on the map, according to the current checked boxes. " alt="" coords="518,157,679,184"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#a613fb0cc751f55a428c18156fae84d15" title="Sends a signal with the currently selected locations. " alt="" coords="517,107,681,133"/>
+<area shape="rect" id="node5" href="$d8/d84/a00001.html#a711a658ab043057fa608d1db6a49df24" title="Update colors of Markers based on the value of m_selection and m_unselection. " alt="" coords="491,56,706,83"/>
+<area shape="rect" id="node4" href="$d8/d84/a00001.html#a0478e17f39806247ce5544cac69f528f" title="Return the requested location. " alt="" coords="761,107,964,133"/>
+<area shape="rect" id="node6" href="$d8/d84/a00001.html#a0382cea391f86bd0759ec8bd2784a332" title="Hides the commutes between the given 2 locations on the map. " alt="" coords="755,5,971,32"/>
+<area shape="rect" id="node8" href="$d8/d84/a00001.html#a852a5daca487b26cdb2416733cee3721" title="Shows the commute from loc1 to loc2 on the map. " alt="" coords="777,56,948,83"/>
+<area shape="rect" id="node7" href="$d8/d84/a00001.html#acd9816e8f8840c71d0cbe46c2a826126" title="Hides the commute line on the map. " alt="" coords="1019,5,1208,32"/>
+<area shape="rect" id="node9" href="$d8/d84/a00001.html#adfeca0359eba8ac76a148ba3a6463178" title="Add a line on the map for the given commute info. " alt="" coords="1021,132,1206,159"/>
+<area shape="rect" id="node11" href="$d8/d84/a00001.html#a294338bb0db7d2ddf23be0ec8a916c24" title="Places a marker at the given coordinate &#160;specialmarker Whether or not to display a special marker..." alt="" coords="785,157,940,184"/>
+</map>

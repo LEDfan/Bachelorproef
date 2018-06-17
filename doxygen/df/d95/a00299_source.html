@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GeoGridWriterFactory.cpp Source File</title>
+<title>Stride Reference Manual: GuiController.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,44 +109,72 @@ $(document).ready(function(){initNavTree('df/d95/a00299_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GeoGridWriterFactory.cpp</div>  </div>
+<div class="title">GuiController.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/d95/a00299.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/da2/a00300.html">GeoGridWriterFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d7f/a00287.html">GeoGridJSONWriter.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d82/a00293.html">GeoGridProtoWriter.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem.hpp&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">util/Exception.h</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d6/d97/a00045.html#a4992a30def6112ba16f8b76c7d5ea768">    9</a></span>&#160;std::shared_ptr&lt;GeoGridWriter&gt; <a class="code" href="../../d6/d97/a00045.html#a4992a30def6112ba16f8b76c7d5ea768">GeoGridWriterFactory::CreateWriter</a>(std::string filename)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        boost::filesystem::path path(filename);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.json&quot;</span>) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridJSONWriter&gt;();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.proto&quot;</span>) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                <span class="keywordflow">return</span> std::make_shared&lt;GeoGridProtoWriter&gt;();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d3/d65/a00154.html">stride::util::Exception</a>(<span class="stringliteral">&quot;Unsupported file extension: &quot;</span> + path.extension().string());</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00293_html"><div class="ttname"><a href="../../d6/d82/a00293.html">GeoGridProtoWriter.h</a></div></div>
-<div class="ttc" id="a00287_html"><div class="ttname"><a href="../../d6/d7f/a00287.html">GeoGridJSONWriter.h</a></div></div>
-<div class="ttc" id="a00300_html"><div class="ttname"><a href="../../db/da2/a00300.html">GeoGridWriterFactory.h</a></div></div>
-<div class="ttc" id="a00045_html_a4992a30def6112ba16f8b76c7d5ea768"><div class="ttname"><a href="../../d6/d97/a00045.html#a4992a30def6112ba16f8b76c7d5ea768">gengeopop::GeoGridWriterFactory::CreateWriter</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridWriter &gt; CreateWriter(std::string filename) const </div><div class="ttdoc">Create a GeoGridWriter based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d95/a00299_source.html#l00009">GeoGridWriterFactory.cpp:9</a></div></div>
-<div class="ttc" id="a00154_html"><div class="ttname"><a href="../../d3/d65/a00154.html">stride::util::Exception</a></div><div class="ttdoc">Basic exception class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d42/a00269_source.html#l00011">Exception.h:11</a></div></div>
-<div class="ttc" id="a00269_html"><div class="ttname"><a href="../../d5/d42/a00269.html">Exception.h</a></div></div>
+<a href="../../df/d95/a00299.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d50/a00301.html">GuiControllerBackend.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d5e/a00275.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/dd0/a00191.html">sim/BaseController.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QtCore/QObject&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QtGui/QGuiApplication&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QtQml/QQmlApplicationEngine&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * A controller for the simulation that uses Qt to give the user the ability of controlling the steps.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../dd/d6d/a00111.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d6d/a00111.html">GuiController</a> : <span class="keyword">public</span> <a class="code" href="../../d9/d77/a00095.html">BaseController</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// Construct the controller with a ptree containing the configuration, this contains the information needed to</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">        /// construct the BaseController</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../dd/d6d/a00111.html#a264c5b8d0317ff9ac2909e5c450a648e">GuiController</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="../../dd/d6d/a00111.html#a264c5b8d0317ff9ac2909e5c450a648e">GuiController</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d6d/a00111.html">GuiController</a>&amp; b) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="../../dd/d6d/a00111.html">GuiController</a>&amp; <a class="code" href="../../dd/d6d/a00111.html#ac9549db2c1d92fbfd650d031f64fa42e">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d6d/a00111.html">GuiController</a>&amp; b) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="../../dd/d6d/a00111.html#a1ae1fb2220c3ffd7b589d6ccbefab299">~GuiController</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">        /// Start the Gui</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dd/d6d/a00111.html#af99fbfe3cc3bcb48d94aafa00c2cb164">Control</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">        /// Returns the QQmlApplicationEngine used to construct the Gui, so other Gui components can register themselves</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">        /// on the same engine.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span>        QQmlApplicationEngine* <a class="code" href="../../dd/d6d/a00111.html#a4745f5e03356071307ad95ca4291ddb8">GetEngine</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dd/d6d/a00111.html#af8ee2c666be0831c8593b7d1229f8c11">   36</a></span>&#160;        std::shared_ptr&lt;int&gt;                   <a class="code" href="../../dd/d6d/a00111.html#af8ee2c666be0831c8593b7d1229f8c11">m_argc</a>;   <span class="comment">///&lt; Used for initializing m_app, is always 0.</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d6d/a00111.html#a10295746c4926950d50cc2c6a8de3af9">   37</a></span>&#160;<span class="comment"></span>        std::unique_ptr&lt;QGuiApplication&gt;       <a class="code" href="../../dd/d6d/a00111.html#a10295746c4926950d50cc2c6a8de3af9">m_app</a>;    <span class="comment">///&lt; The main application that is used for the event loop.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d6d/a00111.html#a3f5c908dacb5f26b5a533174778ff63b">   38</a></span>&#160;<span class="comment"></span>        std::unique_ptr&lt;QQmlApplicationEngine&gt; <a class="code" href="../../dd/d6d/a00111.html#a3f5c908dacb5f26b5a533174778ff63b">m_engine</a>; <span class="comment">///&lt; The engine used to register QML files</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dd/d6d/a00111.html#a15b6b5485c19a9d4ee67c49cf22b2bda">   39</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../db/df8/a00076.html">GuiControllerBackend</a>* <a class="code" href="../../dd/d6d/a00111.html#a15b6b5485c19a9d4ee67c49cf22b2bda">m_backend</a>; <span class="comment">///&lt; The backend used in the QML to control the behaviour of the simulation</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00111_html_a10295746c4926950d50cc2c6a8de3af9"><div class="ttname"><a href="../../dd/d6d/a00111.html#a10295746c4926950d50cc2c6a8de3af9">stride::GuiController::m_app</a></div><div class="ttdeci">std::unique_ptr&lt; QGuiApplication &gt; m_app</div><div class="ttdoc">The main application that is used for the event loop. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d95/a00299_source.html#l00037">GuiController.h:37</a></div></div>
+<div class="ttc" id="a00111_html_af99fbfe3cc3bcb48d94aafa00c2cb164"><div class="ttname"><a href="../../dd/d6d/a00111.html#af99fbfe3cc3bcb48d94aafa00c2cb164">stride::GuiController::Control</a></div><div class="ttdeci">void Control() override</div><div class="ttdoc">Start the Gui. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0d/a00298_source.html#l00025">GuiController.cpp:25</a></div></div>
+<div class="ttc" id="a00111_html_a15b6b5485c19a9d4ee67c49cf22b2bda"><div class="ttname"><a href="../../dd/d6d/a00111.html#a15b6b5485c19a9d4ee67c49cf22b2bda">stride::GuiController::m_backend</a></div><div class="ttdeci">GuiControllerBackend * m_backend</div><div class="ttdoc">The backend used in the QML to control the behaviour of the simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d95/a00299_source.html#l00039">GuiController.h:39</a></div></div>
+<div class="ttc" id="a00191_html"><div class="ttname"><a href="../../d9/dd0/a00191.html">BaseController.h</a></div></div>
+<div class="ttc" id="a00301_html"><div class="ttname"><a href="../../da/d50/a00301.html">GuiControllerBackend.h</a></div></div>
+<div class="ttc" id="a00111_html_ac9549db2c1d92fbfd650d031f64fa42e"><div class="ttname"><a href="../../dd/d6d/a00111.html#ac9549db2c1d92fbfd650d031f64fa42e">stride::GuiController::operator=</a></div><div class="ttdeci">GuiController &amp; operator=(const GuiController &amp;b)=delete</div></div>
+<div class="ttc" id="a00076_html"><div class="ttname"><a href="../../db/df8/a00076.html">GuiControllerBackend</a></div><div class="ttdoc">A class used as a backend for the QML to provide simulation functionality. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/a00301_source.html#l00009">GuiControllerBackend.h:9</a></div></div>
+<div class="ttc" id="a00111_html_af8ee2c666be0831c8593b7d1229f8c11"><div class="ttname"><a href="../../dd/d6d/a00111.html#af8ee2c666be0831c8593b7d1229f8c11">stride::GuiController::m_argc</a></div><div class="ttdeci">std::shared_ptr&lt; int &gt; m_argc</div><div class="ttdoc">Used for initializing m_app, is always 0. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d95/a00299_source.html#l00036">GuiController.h:36</a></div></div>
+<div class="ttc" id="a00111_html_a264c5b8d0317ff9ac2909e5c450a648e"><div class="ttname"><a href="../../dd/d6d/a00111.html#a264c5b8d0317ff9ac2909e5c450a648e">stride::GuiController::GuiController</a></div><div class="ttdeci">GuiController(const boost::property_tree::ptree &amp;configPt)</div><div class="ttdoc">Construct the controller with a ptree containing the configuration, this contains the information nee...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0d/a00298_source.html#l00010">GuiController.cpp:10</a></div></div>
+<div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGrid.h</a></div></div>
+<div class="ttc" id="a00111_html_a3f5c908dacb5f26b5a533174778ff63b"><div class="ttname"><a href="../../dd/d6d/a00111.html#a3f5c908dacb5f26b5a533174778ff63b">stride::GuiController::m_engine</a></div><div class="ttdeci">std::unique_ptr&lt; QQmlApplicationEngine &gt; m_engine</div><div class="ttdoc">The engine used to register QML files. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d95/a00299_source.html#l00038">GuiController.h:38</a></div></div>
+<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">stride::BaseController</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00033">BaseController.h:33</a></div></div>
+<div class="ttc" id="a00111_html"><div class="ttname"><a href="../../dd/d6d/a00111.html">stride::GuiController</a></div><div class="ttdoc">A controller for the simulation that uses Qt to give the user the ability of controlling the steps...</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d95/a00299_source.html#l00017">GuiController.h:17</a></div></div>
+<div class="ttc" id="a00111_html_a1ae1fb2220c3ffd7b589d6ccbefab299"><div class="ttname"><a href="../../dd/d6d/a00111.html#a1ae1fb2220c3ffd7b589d6ccbefab299">stride::GuiController::~GuiController</a></div><div class="ttdeci">~GuiController()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0d/a00298_source.html#l00027">GuiController.cpp:27</a></div></div>
+<div class="ttc" id="a00111_html_a4745f5e03356071307ad95ca4291ddb8"><div class="ttname"><a href="../../dd/d6d/a00111.html#a4745f5e03356071307ad95ca4291ddb8">stride::GuiController::GetEngine</a></div><div class="ttdeci">QQmlApplicationEngine * GetEngine()</div><div class="ttdoc">Returns the QQmlApplicationEngine used to construct the Gui, so other Gui components can register the...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0d/a00298_source.html#l00029">GuiController.cpp:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../df/d95/a00299.html">GeoGridWriterFactory.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:05 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_416cd9c18b57e0cec85f7c142c9ff32b.html">guicontroller</a></li><li class="navelem"><a class="el" href="../../df/d95/a00299.html">GuiController.h</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

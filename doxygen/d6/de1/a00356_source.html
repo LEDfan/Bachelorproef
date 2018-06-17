@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: lower_bound.h Source File</title>
+<title>Stride Reference Manual: main.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
+   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
    </div>
   </td>
  </tr>
@@ -109,55 +109,67 @@ $(document).ready(function(){initNavTree('d6/de1/a00356_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">lower_bound.h</div>  </div>
+<div class="title">guilauncher/main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/de1/a00356.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
+<a href="../../d6/de1/a00356.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;QtGui/QGuiApplication&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;QtQml/QQmlApplicationEngine&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QtQml/QtQml&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../db/df1/a00486.html">    7</a></span>&#160;<span class="keyword">namespace </span>std_ {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Returns an iterator pointing to the first element in the range [first, last) that is not less than</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * (i.e. greater or equal to) value, or last if no such element is found.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * @see http://en.cppreference.com/w/cpp/algorithm/lower_bound</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * Implementation copied from ^, available in c++20</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> ForwardIt, <span class="keyword">class</span> T, <span class="keyword">class</span> Compare&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../db/df1/a00486.html#a9b929f410a88edd2781c88791050ddd7">   17</a></span>&#160;ForwardIt <a class="code" href="../../db/df1/a00486.html#a9b929f410a88edd2781c88791050ddd7">lower_bound</a>(ForwardIt first, ForwardIt last, <span class="keyword">const</span> T&amp; value, Compare comp)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        ForwardIt                                                 it;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">typename</span> std::iterator_traits&lt;ForwardIt&gt;::difference_type count, step;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        count = std::distance(first, last);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">while</span> (count &gt; 0) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                it   = first;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                step = count / 2;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                std::advance(it, step);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">if</span> (comp(*it, value)) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                        first = ++it;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                        count -= step + 1;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        count = step;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> first;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">// namespace std_</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00486_html_a9b929f410a88edd2781c88791050ddd7"><div class="ttname"><a href="../../db/df1/a00486.html#a9b929f410a88edd2781c88791050ddd7">stride::util::std_::lower_bound</a></div><div class="ttdeci">ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T &amp;value, Compare comp)</div><div class="ttdoc">Returns an iterator pointing to the first element in the range [first, last) that is not less than (i...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00017">lower_bound.h:17</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d8e/a00344.html">Launcher.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d6/de1/a00356.html#ae0509bb7817eee297e8f3c9dbd675b00">    7</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/de1/a00356.html#ae0509bb7817eee297e8f3c9dbd675b00">LaunchGui</a>()</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        Q_INIT_RESOURCE(qml);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        Q_INIT_RESOURCE(launcherqml);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        Q_INIT_RESOURCE(controllerqml);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">int</span>      i = 0;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="../../d9/da4/a00078.html">Launcher</a> launcher;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        { <span class="comment">// Makes sure the QGuiApplication is destructed when launcher.launch() is called</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                QGuiApplication       app(i, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                QQmlApplicationEngine engine;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                qmlRegisterType&lt;Launcher&gt;(<span class="stringliteral">&quot;io.bistromatics.launcher&quot;</span>, 1, 0, <span class="stringliteral">&quot;Launcher&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                engine.rootContext()-&gt;setContextProperty(<span class="stringliteral">&quot;launcher&quot;</span>, &amp;launcher);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                engine.load(QUrl(QStringLiteral(<span class="stringliteral">&quot;qrc:/launchermain.qml&quot;</span>)));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">if</span> (engine.rootObjects().isEmpty())</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                launcher.<a class="code" href="../../d9/da4/a00078.html#ad2ccb8d2bf932012100890a1f3e5311c">SetRootObject</a>(engine.rootObjects().first());</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                app.exec();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">// Wait for the launcher to close</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        launcher.<a class="code" href="../../d9/da4/a00078.html#a69589d1327149e595d3242dab0805035">Launch</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d6/de1/a00356.html#a81ce304348a420752ee080480d2b3095">   34</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/de1/a00356.html#a81ce304348a420752ee080480d2b3095">main</a>(<span class="keywordtype">int</span>, <span class="keywordtype">char</span>* [])</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">int</span> crashed = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">while</span> (crashed &gt;= 0 &amp;&amp; crashed &lt; 5) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        <a class="code" href="../../d6/de1/a00356.html#ae0509bb7817eee297e8f3c9dbd675b00">LaunchGui</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        crashed = -1;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        crashed++;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="ttc" id="a00344_html"><div class="ttname"><a href="../../d8/d8e/a00344.html">Launcher.h</a></div></div>
+<div class="ttc" id="a00078_html_a69589d1327149e595d3242dab0805035"><div class="ttname"><a href="../../d9/da4/a00078.html#a69589d1327149e595d3242dab0805035">Launcher::Launch</a></div><div class="ttdeci">Q_INVOKABLE void Launch()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00343_source.html#l00023">Launcher.cpp:23</a></div></div>
+<div class="ttc" id="a00356_html_a81ce304348a420752ee080480d2b3095"><div class="ttname"><a href="../../d6/de1/a00356.html#a81ce304348a420752ee080480d2b3095">main</a></div><div class="ttdeci">int main(int, char *[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00034">guilauncher/main.cpp:34</a></div></div>
+<div class="ttc" id="a00078_html"><div class="ttname"><a href="../../d9/da4/a00078.html">Launcher</a></div><div class="ttdoc">Represents the current set data for the launch. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d8e/a00344_source.html#l00010">Launcher.h:10</a></div></div>
+<div class="ttc" id="a00078_html_ad2ccb8d2bf932012100890a1f3e5311c"><div class="ttname"><a href="../../d9/da4/a00078.html#ad2ccb8d2bf932012100890a1f3e5311c">Launcher::SetRootObject</a></div><div class="ttdeci">void SetRootObject(QObject *rootObject)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00343_source.html#l00322">Launcher.cpp:322</a></div></div>
+<div class="ttc" id="a00356_html_ae0509bb7817eee297e8f3c9dbd675b00"><div class="ttname"><a href="../../d6/de1/a00356.html#ae0509bb7817eee297e8f3c9dbd675b00">LaunchGui</a></div><div class="ttdeci">void LaunchGui()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00007">guilauncher/main.cpp:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">lower_bound.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 15:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5335ad58122d8b317bc58a7551fc92f8.html">guilauncher</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">main.cpp</a></li>
+    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
