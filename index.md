@@ -30,3 +30,4 @@ Tobia De Koninck
 - [Travis](https://travis-ci.com/LEDfan/Bachelorproef)
 - [GitHub](https://github.com/LEDfan/Bachelorproef)
 - [Test Results](test-results)
+- [Hosted doxygen documentation for master](doxygen)
