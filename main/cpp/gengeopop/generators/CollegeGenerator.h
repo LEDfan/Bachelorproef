@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// Generate Colleges
 class CollegeGenerator : public PartialGenerator
 {
 public:

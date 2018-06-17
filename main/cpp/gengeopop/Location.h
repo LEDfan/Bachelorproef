@@ -14,6 +14,8 @@ namespace gengeopop {
 
 class ContactCenter;
 
+/// A location for use within the GeoGrid
+/// Contains useful information, both spatial and administrative
 class Location
 {
 public:

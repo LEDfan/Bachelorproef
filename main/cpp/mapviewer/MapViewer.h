@@ -6,6 +6,8 @@
 
 namespace stride {
 namespace viewers {
+
+/// A Viewer that visually shows the GeoGrids and associated information with Qt
 class MapViewer
 {
 public:
@@ -16,6 +18,7 @@ public:
         {
         }
 
+        /// Destructor
         ~MapViewer();
 
         /// Let viewer perform update.

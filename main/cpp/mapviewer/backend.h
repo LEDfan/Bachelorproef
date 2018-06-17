@@ -6,6 +6,7 @@
 #include <set>
 #include <unordered_map>
 
+/// The backend for the MapViewer qml
 class Backend : public QObject
 {
         Q_OBJECT

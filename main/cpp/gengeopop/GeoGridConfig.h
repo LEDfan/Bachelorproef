@@ -10,6 +10,7 @@ namespace gengeopop {
 
 using stride::util::intToDottedString;
 
+/// Configuration data when generating a GeoGrid
 class GeoGridConfig
 {
 public:

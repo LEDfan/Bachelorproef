@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// A model of a Primary Community (as a ContactCenter)
 class PrimaryCommunity : public Community
 {
 public:

@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// Generate Workplaces
 class WorkplaceGenerator : public PartialGenerator
 {
 public:

@@ -10,9 +10,11 @@ namespace {
 using discreteDist = std::function<trng::discrete_dist::result_type()>;
 }
 
+/// Populate Workplaces
 class WorkplacePopulator : public PartialPopulator
 {
 private:
+        // TODO: doc
         unsigned int m_assignedTo0          = 0;
         unsigned int m_assignedCommuting    = 0;
         unsigned int m_assignedNotCommuting = 0;
