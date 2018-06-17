@@ -5,6 +5,9 @@
 #include <gengeopop/GeoGrid.h>
 #include <set>
 
+/**
+ * This backend sets the correct info in the GUI of the location that is being shown.
+ */
 class LocationViewerBackend : public QObject
 {
         Q_OBJECT
