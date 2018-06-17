@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9e825f3</span>
+   &#160;<span id="projectnumber">- generated for commit 776f5ec</span>
    </div>
   </td>
  </tr>
@@ -112,6 +112,7 @@ $(document).ready(function(){initNavTree('d3/dfe/a00025.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d4/d79/a00540.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -148,6 +149,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a205f22dd3728b0732139155437410faf inherit pub_methods_a00026"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a205f22dd3728b0732139155437410faf">~CommutesReader</a> ()=default</td></tr>
 <tr class="memdesc:a205f22dd3728b0732139155437410faf inherit pub_methods_a00026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a205f22dd3728b0732139155437410faf">More...</a><br/></td></tr>
 <tr class="separator:a205f22dd3728b0732139155437410faf inherit pub_methods_a00026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aacda603127a4a37fbb57ea3c454479c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#aacda603127a4a37fbb57ea3c454479c5">MunicipalityTotal</a> (std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; loc) const </td></tr>
+<tr class="memdesc:aacda603127a4a37fbb57ea3c454479c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the relative total populution in the submunicipalities. If it doesn't have any, it will return 0.  <a href="#aacda603127a4a37fbb57ea3c454479c5">More...</a><br/></td></tr>
+<tr class="separator:aacda603127a4a37fbb57ea3c454479c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1bf33d26337d5de5769f3c300490679"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ac1bf33d26337d5de5769f3c300490679">AddCommute</a> (std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; from, std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; to, <a class="el" href="../../d7/daa/a00490.html">double</a> proportion) const </td></tr>
+<tr class="memdesc:ac1bf33d26337d5de5769f3c300490679"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the provided commute symmetrically to the locations.  <a href="#ac1bf33d26337d5de5769f3c300490679">More...</a><br/></td></tr>
+<tr class="separator:ac1bf33d26337d5de5769f3c300490679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a423b912a592057bfbd5cac7e5db771"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a0a423b912a592057bfbd5cac7e5db771">AddCommuteFrom</a> (std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; from, std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; to, <a class="el" href="../../d7/daa/a00490.html">double</a> proportion) const </td></tr>
+<tr class="memdesc:a0a423b912a592057bfbd5cac7e5db771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add commutes by splitting the 'from' into submunicipalities if necessary.  <a href="#a0a423b912a592057bfbd5cac7e5db771">More...</a><br/></td></tr>
+<tr class="separator:a0a423b912a592057bfbd5cac7e5db771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4d79ece3826cb5230b42cc3dee21ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#aee4d79ece3826cb5230b42cc3dee21ca">AddCommuteTo</a> (std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; from, std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt; to, <a class="el" href="../../d7/daa/a00490.html">double</a> proportion) const </td></tr>
+<tr class="memdesc:aee4d79ece3826cb5230b42cc3dee21ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add commutes by splitting the 'to' into submunicipalities if necessary.  <a href="#aee4d79ece3826cb5230b42cc3dee21ca">More...</a><br/></td></tr>
+<tr class="separator:aee4d79ece3826cb5230b42cc3dee21ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -222,9 +238,181 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d5b/a00026.html#ad60a7f16bdd36bffc1f1ee859a0f2920">gengeopop::CommutesReader</a>.</p>
 
+<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00059">59</a> of file <a class="el" href="../../dc/d98/a00225_source.html">CommutesCSVReader.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d98/a00225_source.html#l00029">AddCommuteFrom()</a>, <a class="el" href="../../d4/d04/a00255_source.html#l00059">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00153">stride::util::CSV::GetLabels()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00037">m_reader</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aacda603127a4a37fbb57ea3c454479c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/daa/a00490.html">double</a> gengeopop::CommutesCSVReader::MunicipalityTotal </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>loc</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the relative total populution in the submunicipalities. If it doesn't have any, it will return 0. </p>
+
 <p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00013">13</a> of file <a class="el" href="../../dc/d98/a00225_source.html">CommutesCSVReader.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d4/d04/a00255_source.html#l00059">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00153">stride::util::CSV::GetLabels()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00024">m_reader</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00040">AddCommuteTo()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1bf33d26337d5de5769f3c300490679"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::CommutesCSVReader::AddCommute </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td>
+          <td class="paramname"><em>proportion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add the provided commute symmetrically to the locations. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00022">22</a> of file <a class="el" href="../../dc/d98/a00225_source.html">CommutesCSVReader.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00040">AddCommuteTo()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a423b912a592057bfbd5cac7e5db771"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::CommutesCSVReader::AddCommuteFrom </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td>
+          <td class="paramname"><em>proportion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add commutes by splitting the 'from' into submunicipalities if necessary. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00029">29</a> of file <a class="el" href="../../dc/d98/a00225_source.html">CommutesCSVReader.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d98/a00225_source.html#l00040">AddCommuteTo()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00059">FillGeoGrid()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee4d79ece3826cb5230b42cc3dee21ca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::CommutesCSVReader::AddCommuteTo </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/d2e/a00056.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/daa/a00490.html">double</a>&#160;</td>
+          <td class="paramname"><em>proportion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add commutes by splitting the 'to' into submunicipalities if necessary. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00040">40</a> of file <a class="el" href="../../dc/d98/a00225_source.html">CommutesCSVReader.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d98/a00225_source.html#l00022">AddCommute()</a>, and <a class="el" href="../../dc/d98/a00225_source.html#l00013">MunicipalityTotal()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00029">AddCommuteFrom()</a>.</p>
 
 </div>
 </div>
@@ -249,9 +437,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The pure CSV reader. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00024">24</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesCSVReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00037">37</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesCSVReader.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00013">FillGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00059">FillGeoGrid()</a>.</p>
 
 </div>
 </div>
@@ -265,7 +453,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d9d/a00464.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">CommutesCSVReader</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 12:08:44 for Stride Reference Manual by
+    <li class="footer">Generated on Sun Jun 17 2018 15:39:07 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
