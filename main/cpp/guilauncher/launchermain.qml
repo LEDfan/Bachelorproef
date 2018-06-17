@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.4
 import QtLocation 5.3
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.2
-import QtQuick.Dialogs 1.3
+import QtQuick.Dialogs 1.2
 
 import io.bistromatics.launcher 1.0
 
