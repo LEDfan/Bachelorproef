@@ -311,6 +311,8 @@ QObject* Backend::AddCommuteLine(Coordinate from, Coordinate to, double /* amoun
 
 void Backend::SelectAll()
 {
+        m_unselection.clear();
+
         int i = 0;
         for (auto grid : m_grids) {
                 for (const auto& it : *grid) {
@@ -319,8 +321,8 @@ void Backend::SelectAll()
                 i++;
         }
 
+        UpdateColorOfMarkers();
         EmitLocations();
-        PlaceMarkers();
 }
 
 void Backend::HideCommuteLine(QObject* line)
