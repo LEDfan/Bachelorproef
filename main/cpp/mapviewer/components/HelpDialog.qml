@@ -11,6 +11,9 @@ Dialog {
                 Select a single marker: Click on the marker
                 Select extra marker: Hold Control and press the marker.
                 Select Area: Hold control and drag over the area you want to select.
+                Select Extra Area: Hold Ctrl+Shift and drag of the area.
+
+                Pan the map without deselecting: Hold Alt while panning.
 
                 Select All: Ctrl + A
 
