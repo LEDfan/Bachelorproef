@@ -63,11 +63,7 @@ void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Lo
         infectedText->setProperty("text", infectedString);
 }
 
-void LocationViewerBackend::UpdateInfected()
-{
-        std::cout << "Updating infected" << std::endl;
-        ShowLocations(m_locations);
-}
+void LocationViewerBackend::UpdateInfected() { ShowLocations(m_locations); }
 
 LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent) {}
 
