@@ -122,8 +122,11 @@ signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
+        /// Emits a signal that the infected count should be updated
+        void UpdateInfected();
+
 private:
-        double   m_colorExponent = 0.15;    ///< We use this exponent to make the color change not linear
+        double   m_colorExponent = 0.1;     ///< We use this exponent to make the color change not linear
         QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_grids;
         std::map<std::tuple<int, int>, QObject*> m_markers; ///< Reference to the markers so we do not need to search

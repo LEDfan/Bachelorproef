@@ -173,7 +173,7 @@ ColumnLayout {
         }
 
         function mapClicked(event) {
-            if( ! (event.modifiers & Qt.ControlModifier)){
+            if( ! (event.modifiers & Qt.ControlModifier) && !(event.modifiers & Qt.AltModifier)){
                 event.accepted = true
                 backend.ClearSelection()
                 selectionRectangle.opacity = 0

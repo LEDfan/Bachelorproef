@@ -5,15 +5,18 @@
 
 void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
+        m_locations         = locations;
         auto nameText       = parent()->findChild<QObject*>(QString("textName"));
         auto provinceText   = parent()->findChild<QObject*>(QString("textProvince"));
         auto idText         = parent()->findChild<QObject*>(QString("textID"));
         auto populationText = parent()->findChild<QObject*>(QString("textPopulation"));
+        auto infectedText   = parent()->findChild<QObject*>(QString("textInfected"));
 
         QString nameString("Name: ");
         QString provinceString("Province: ");
         QString idString("ID: ");
         QString populationString("Population: ");
+        QString infectedString("Infected: ");
 
         int maxChars = 30;
 
@@ -45,16 +48,22 @@ void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Lo
 
         // Calculate aggregated population
         unsigned int totalPopulation = 0;
+        unsigned int totalInfected   = 0;
         for (const auto& location : locations) {
-                totalPopulation += location->GetPopulation();
+                totalPopulation += location->GetSimulationPopulation();
+                totalInfected += location->GetInfectedCount();
         }
         populationString += QString::number(totalPopulation);
+        infectedString += QString::number(totalInfected);
 
         nameText->setProperty("text", nameString);
         provinceText->setProperty("text", provinceString);
         idText->setProperty("text", idString);
         populationText->setProperty("text", populationString);
+        infectedText->setProperty("text", infectedString);
 }
+
+void LocationViewerBackend::UpdateInfected() { ShowLocations(m_locations); }
 
 LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent) {}
 

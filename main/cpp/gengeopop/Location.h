@@ -52,8 +52,14 @@ public:
         /// Gets the absolute population
         unsigned int GetPopulation() const;
 
+        /// Gets the population amount used in the simulation
+        unsigned int GetSimulationPopulation() const;
+
         /// Gets the ratio of infected persons in all contactPools of this location
         double GetInfectedRatio() const;
+
+        /// Gets the amount of people infected in the contactpools of this location
+        double GetInfectedCount() const;
 
         /// Gets the ratio of infected persons in all contactPools of this location's subMunicipalities
         double GetInfectedRatioOfSubmunicipalities() const;
