@@ -58,6 +58,7 @@ public:
         /// Retrieve the actual location
         std::shared_ptr<Location> GetLocation() const { return m_location; }
 
+        /// Get the coordinate for this Location
         Coordinate GetPoint() const { return m_pt; }
 
         template <std::size_t D>
