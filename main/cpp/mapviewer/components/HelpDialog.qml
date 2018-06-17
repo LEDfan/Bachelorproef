@@ -20,6 +20,8 @@ Dialog {
                 Color coding:
                 Blue = No infected people at this location.
                 When the infected rate goes up it will first start turning green then yellow and finally red.
+
+                Ctrl+F will fit the viewport of the map.
                 "
         anchors.centerIn: parent
     }

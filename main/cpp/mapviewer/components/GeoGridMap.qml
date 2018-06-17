@@ -20,44 +20,31 @@ ColumnLayout {
         PluginParameter { name: "osm.geocoding.host"; value: "https://nominatim.openstreetmap.org" }
         PluginParameter { name: "osm.routing.host"; value: "https://router.project-osrm.org/viaroute" }
         PluginParameter { name: "osm.places.host"; value: "https://nominatim.openstreetmap.org/search" }
-        /*PluginParameter { name: "osm.mapping.copyright"; value: "" }*/
-        /*PluginParameter { name: "osm.mapping.highdpi_tiles"; value: true }*/
     }
 
-    Settings {
-        id: mapSettings
-        property var centerLat: 51.2
-        property var centerLong: 4.1
-        property var zoomLevel: 14
+    property variant mapCenter: QtPositioning.coordinate(50.84667, 4.35472)
 
+    function fitViewport() {
+        map.fitViewportToVisibleMapItems()
     }
 
     Map {
         id: map
         anchors.fill: parent
         plugin: mapPlugin
-        zoomLevel: mapSettings.zoomLevel
-        center: QtPositioning.coordinate(0,0)
+        zoomLevel: 8
+        center: mapCenter
         Layout.fillHeight: true
         Layout.fillWidth: true
         maximumTilt: 0
 
         Component.onCompleted: {
             backend.SetObjects(map)
-            map.center = QtPositioning.coordinate(mapSettings.centerLat, mapSettings.centerLong)
             for( var i_type in supportedMapTypes  ) {
                 if( supportedMapTypes[i_type].name.localeCompare( "Custom URL Map"  ) === 0  ) {
                 activeMapType = supportedMapTypes[i_type]
-                map.addMapItem(selectionRectangle)
-
                 }
             }
-        }
-
-        Component.onDestruction: {
-            mapSettings.centerLat = map.center.latitude;
-            mapSettings.centerLong = map.center.longitude;
-            mapSettings.zoomLevel = map.zoomLevel
         }
 
         MapRectangle {
@@ -66,12 +53,12 @@ ColumnLayout {
             opacity: 0.25
             border.width: 2
             topLeft {
-                latitude: -27
-                longitude: 153
+                latitude: 0
+                longitude: 0
             }
             bottomRight {
-                latitude: -28
-                longitude: 153.5
+                latitude: 0
+                longitude: 0
             }
         }
 
@@ -89,13 +76,19 @@ ColumnLayout {
                     rectSelectStarted = true
                     // Save the start coordiate
                     start = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
+                    map.addMapItem(selectionRectangle)
                 }
             }
             onPositionChanged: {
                 if(rectSelectStarted) {
                     // Get the end coordinate of the selection
                     var end = map.toCoordinate(Qt.point(mouse.x, mouse.y), false)
-                    backend.SelectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+
+                    if(mouse.modifiers & Qt.ShiftModifier){
+                        backend.SelectExtraInArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                    } else {
+                        backend.SelectArea(start.latitude, start.longitude, end.latitude, end.longitude)
+                    }
                     // Fix order
                     var tstart = start;
                     var tend = end;
@@ -119,6 +112,7 @@ ColumnLayout {
                     mouse.accepted = true
                     // Hide selection rectangle
                     selectionRectangle.opacity = 0
+                    map.removeMapItem(selectionRectangle)
                 }
             }
         }
@@ -189,8 +183,7 @@ ColumnLayout {
         function clearMap() {
             // Remove the map
             map.clearMapItems()
-            // Re add the selection rectangle
-            map.addMapItem(selectionRectangle)
         }
-}
+    }
+
 }

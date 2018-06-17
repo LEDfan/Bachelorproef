@@ -29,7 +29,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
         if (m_population) {
-                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId);
+                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
         } else {
                 m_geoGrid = std::make_shared<GeoGrid>();
         }
@@ -172,7 +172,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                         stride::ContactPool* pool;
 #pragma omp task firstprivate(it, pool)
                         {
-                                e->Run([&it, &pool, this, &result, typeId] {
+                                e->Run([&it, &pool, this, typeId] {
                                         pool = ParseContactPool(it->second.get_child(""), typeId);
                                 });
                                 if (!e->HasError())

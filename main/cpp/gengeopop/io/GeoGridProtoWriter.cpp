@@ -97,11 +97,5 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
         protoPerson->set_gender(std::string(1, person->GetGender()));
-        protoPerson->set_k12school(person->GetK12SchoolId());
-        protoPerson->set_college(person->GetCollegeId());
-        protoPerson->set_household(person->GetHouseholdId());
-        protoPerson->set_workplace(person->GetWorkId());
-        protoPerson->set_primarycommunity(person->GetPrimaryCommunityId());
-        protoPerson->set_secondarycommunity(person->GetSecondaryCommunityId());
 }
 } // namespace gengeopop

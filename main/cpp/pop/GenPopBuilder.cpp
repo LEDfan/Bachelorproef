@@ -41,7 +41,8 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId)
+shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std::size_t regionId,
+                                            std::string regionName)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
@@ -61,19 +62,20 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
 
         std::string commutesFile;
         // Check if given
-        if (m_region_pt.count("geopop_gen.commuting_file")) {
+        auto geopop_gen = m_region_pt.get_child("geopop_gen");
+        if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_region_pt.get<std::string>("geopop_gen.commuting_file");
         }
 
         std::string submunicipalitiesFile;
         // Check if given
-        if (m_region_pt.count("geopop_gen.submunicipalities_file")) {
+        if (geopop_gen.count("submunicipalities_file") > 0) {
                 submunicipalitiesFile = m_region_pt.get<std::string>("geopop_gen.submunicipalities_file");
         }
 
         GenGeoPopController genGeoPopController(
             stride_logger, geoGridConfig, m_rn_manager, m_region_pt.get<std::string>("geopop_gen.cities_file"),
-            commutesFile, m_region_pt.get<std::string>("geopop_gen.household_file"), submunicipalitiesFile);
+            commutesFile, m_region_pt.get<std::string>("geopop_gen.household_file"), submunicipalitiesFile, regionName);
 
         genGeoPopController.UsePopulation(pop, regionId);
 
