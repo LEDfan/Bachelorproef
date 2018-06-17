@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Coordinate.h"
 #include <iostream>
 #include <memory>
 #include <set>
@@ -10,7 +9,12 @@
 #include <unordered_map>
 #include <vector>
 
+#include <boost/geometry/core/cs.hpp>
+#include <boost/geometry/geometries/point.hpp>
+
 namespace gengeopop {
+
+using Coordinate = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
 
 class ContactCenter;
 
@@ -19,11 +23,11 @@ class Location
 public:
         using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
 
-        Location(unsigned int id, unsigned int province, Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0),
+        Location(unsigned int id, unsigned int province, Coordinate coordinate = Coordinate(0.0, 0.0),
                  std::string name = "");
 
         Location(unsigned int id, unsigned int province, unsigned int population,
-                 Coordinate coordinate = Coordinate(0.0, 0.0, 0.0, 0.0), std::string name = "");
+                 Coordinate coordinate = Coordinate(0.0, 0.0), std::string name = "");
 
         /// Add a ContactCenter
         template <typename T>

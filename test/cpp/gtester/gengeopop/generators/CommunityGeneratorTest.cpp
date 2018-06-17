@@ -20,7 +20,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         config.input.populationSize = 10000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
+        auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
 
         communityGenerator.Apply(geoGrid, config);
@@ -42,7 +42,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         auto geoGrid = std::make_shared<GeoGrid>();
         for (int i = 0; i < 10; i++) {
-                geoGrid->AddLocation(std::make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0, 0, 0),
+                geoGrid->AddLocation(std::make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0),
                                                                 "Location " + std::to_string(i)));
         }
 
@@ -84,11 +84,11 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         config.calculated.compulsoryPupils = 750840;
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0, 0, 0), "Antwerpen");
-        auto loc2    = std::make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0, 0, 0), "Vlaams-Brabant");
-        auto loc3    = std::make_shared<Location>(1, 4, 7460 * 100, Coordinate(0, 0, 0, 0), "Henegouwen");
-        auto loc4    = std::make_shared<Location>(1, 4, 3269 * 100, Coordinate(0, 0, 0, 0), "Limburg");
-        auto loc5    = std::make_shared<Location>(1, 4, 4123 * 100, Coordinate(0, 0, 0, 0), "Luxemburg");
+        auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
+        auto loc2    = std::make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");
+        auto loc3    = std::make_shared<Location>(1, 4, 7460 * 100, Coordinate(0, 0), "Henegouwen");
+        auto loc4    = std::make_shared<Location>(1, 4, 3269 * 100, Coordinate(0, 0), "Limburg");
+        auto loc5    = std::make_shared<Location>(1, 4, 4123 * 100, Coordinate(0, 0), "Luxemburg");
 
         geoGrid->AddLocation(loc1);
         geoGrid->AddLocation(loc2);

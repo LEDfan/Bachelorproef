@@ -13,6 +13,7 @@
 
 #include "GeoGridIOUtils.h"
 using namespace gengeopop;
+using boost::geometry::get;
 
 namespace {
 
@@ -24,10 +25,8 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
         location->set_name(name);
         location->set_population(population);
         auto protoCoordinate = new proto::GeoGrid_Location_Coordinate();
-        protoCoordinate->set_x(coordinate.x);
-        protoCoordinate->set_y(coordinate.y);
-        protoCoordinate->set_latitude(coordinate.latitude);
-        protoCoordinate->set_longitude(coordinate.longitude);
+        protoCoordinate->set_latitude(get<1>(coordinate));
+        protoCoordinate->set_longitude(get<0>(coordinate));
         location->set_allocated_coordinate(protoCoordinate);
 }
 
@@ -50,16 +49,16 @@ void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
 TEST(GeoGridProtoReaderTest, locationTest)
 {
         proto::GeoGrid geoGrid;
-        fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", geoGrid.add_locations());
-        fillLocation(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent", geoGrid.add_locations());
-        fillLocation(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons", geoGrid.add_locations());
+        fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", geoGrid.add_locations());
+        fillLocation(2, 3, 5000, Coordinate(0, 0), "Gent", geoGrid.add_locations());
+        fillLocation(3, 2, 2500, Coordinate(0, 0), "Mons", geoGrid.add_locations());
         CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoReaderTest, contactCentersTest)
 {
         proto::GeoGrid geoGrid;
         auto           location = geoGrid.add_locations();
-        fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
+        fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
         fillContactCenter(std::make_shared<K12School>(0), location->add_contactcenters());
         fillContactCenter(std::make_shared<PrimaryCommunity>(1), location->add_contactcenters());
         fillContactCenter(std::make_shared<College>(2), location->add_contactcenters());
@@ -73,8 +72,8 @@ TEST(GeoGridProtoReaderTest, submunicipalityTest)
         proto::GeoGrid geoGrid;
         auto           location        = geoGrid.add_locations();
         auto           submunicipality = geoGrid.add_locations();
-        fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
-        fillLocation(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent", submunicipality);
+        fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
+        fillLocation(2, 4, 2500, Coordinate(0, 0), "Gent", submunicipality);
         location->add_submunicipalities(submunicipality->id());
         CompareGeoGrid(geoGrid);
 }
@@ -82,7 +81,7 @@ TEST(GeoGridProtoReaderTest, peopleTest)
 {
         proto::GeoGrid geoGrid;
         auto           location = geoGrid.add_locations();
-        fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", location);
+        fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
 
         {
                 auto contactCenter = location->add_contactcenters();
@@ -139,9 +138,9 @@ TEST(GeoGridProtoReaderTest, commutesTest)
         auto           bavikhove = geoGrid.add_locations();
         auto           gent      = geoGrid.add_locations();
         auto           mons      = geoGrid.add_locations();
-        fillLocation(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove", bavikhove);
-        fillLocation(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent", gent);
-        fillLocation(3, 4, 2500, Coordinate(0, 0, 0, 0), "Mons", mons);
+        fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", bavikhove);
+        fillLocation(2, 4, 2500, Coordinate(0, 0), "Gent", gent);
+        fillLocation(3, 4, 2500, Coordinate(0, 0), "Mons", mons);
         {
                 auto commute = bavikhove->add_commutes();
                 commute->set_to(gent->id());

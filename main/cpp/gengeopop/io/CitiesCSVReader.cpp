@@ -19,11 +19,10 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 
         for (const stride::util::CSVRow& row : m_reader) {
                 auto id       = row.GetValue<int>(0);
-                auto location = std::make_shared<Location>(id,                                 // id
-                                                           row.GetValue<int>(1),               // province
-                                                           Coordinate(row.GetValue<double>(3), // x_coord
-                                                                      row.GetValue<double>(4), // y_coord
-                                                                      row.GetValue<double>(6), // longtitude
+                auto location = std::make_shared<Location>(id,                   // id
+                                                           row.GetValue<int>(1), // province
+                                                           // ignore x and y, not sure what they actually do
+                                                           Coordinate(row.GetValue<double>(6), // longtitude
                                                                       row.GetValue<double>(5)  // latitude
                                                                       ),
                                                            row.GetValue(7));

@@ -29,9 +29,7 @@ void SubMunicipalitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) c
                 parent->SetRelativePopulation(0);
                 auto location = std::make_shared<Location>(id,                                           // id
                                                            parent->GetProvince(),                        // province
-                                                           Coordinate(0,                                 // x_coord
-                                                                      0,                                 // y_coord
-                                                                      row.GetValue<double>("longitude"), // longtitude
+                                                           Coordinate(row.GetValue<double>("longitude"), // longtitude
                                                                       row.GetValue<double>("latitude")   // latitude
                                                                       ),
                                                            row.GetValue(5));
