@@ -15,6 +15,7 @@
 #include <cmath>
 #include <gengeopop/College.h>
 #include <gengeopop/K12School.h>
+#include <gengeopop/Location.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>
@@ -135,13 +136,14 @@ void Backend::SetObjects(QObject* map)
         PlaceMarkers();
 }
 
-void Backend::PlaceMarker(Coordinate coordinate, int region, int id, unsigned int population, bool selected,
+void Backend::PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected,
                           bool specialmarker)
 {
+        using boost::geometry::get;
         QVariant returnVal;
         double   size = std::min(50.0, 10 + population * 0.0015);
-        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, coordinate.latitude),
-                                  Q_ARG(QVariant, coordinate.longitude), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
+        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, get<1>(coordinate)),
+                                  Q_ARG(QVariant, get<0>(coordinate)), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
                                   Q_ARG(QVariant, size), Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
         m_markers[{region, id}] = qvariant_cast<QObject*>(returnVal);
 }
@@ -300,12 +302,13 @@ void Backend::UpdateColorOfMarkers()
         }
 }
 
-QObject* Backend::AddCommuteLine(Coordinate from, Coordinate to, double /* amount */)
+QObject* Backend::AddCommuteLine(gengeopop::Coordinate from, gengeopop::Coordinate to, double /* amount */)
 {
+        using boost::geometry::get;
         QVariant retVal;
         QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(QVariant, from.latitude), Q_ARG(QVariant, from.longitude),
-                                  Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
+                                  Q_ARG(QVariant, get<1>(from)), Q_ARG(QVariant, get<0>(from)),
+                                  Q_ARG(QVariant, get<1>(to)), Q_ARG(QVariant, get<0>(to)));
         return qvariant_cast<QObject*>(retVal);
 }
 

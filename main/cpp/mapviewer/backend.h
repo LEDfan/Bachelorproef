@@ -141,7 +141,7 @@ private:
          * Places a marker at the given coordinate
          * @Param specialmarker Whether or not to display a special marker
          */
-        void PlaceMarker(Coordinate coordinate, int region, int id, unsigned int population, bool selected,
+        void PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected,
                          bool specialmarker);
 
         /**
@@ -174,7 +174,7 @@ private:
          * @param toLatitude
          * @param toLongitude
          */
-        QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
+        QObject* AddCommuteLine(gengeopop::Coordinate from, gengeopop::Coordinate to, double amount);
 
         /**
          * Hides the commute line on the map.
