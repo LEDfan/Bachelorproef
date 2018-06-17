@@ -55,10 +55,9 @@ void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCe
 
 void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Location_Coordinate& protoCoordinate)
 {
-        EXPECT_EQ(coordinate.x, protoCoordinate.x());
-        EXPECT_EQ(coordinate.y, protoCoordinate.y());
-        EXPECT_EQ(coordinate.longitude, protoCoordinate.longitude());
-        EXPECT_EQ(coordinate.latitude, protoCoordinate.latitude());
+        using boost::geometry::get;
+        EXPECT_EQ(get<0>(coordinate), protoCoordinate.longitude());
+        EXPECT_EQ(get<1>(coordinate), protoCoordinate.latitude());
 }
 
 void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location& protoLocation)
@@ -168,7 +167,7 @@ std::shared_ptr<GeoGrid> GetGeoGrid()
 std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
 {
         auto geoGrid  = GetGeoGrid();
-        auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
+        auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
 
         auto school = std::make_shared<K12School>(0);
         location->AddContactCenter(school);
@@ -214,9 +213,9 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
 std::shared_ptr<GeoGrid> GetCommutesGeoGrid()
 {
         auto geoGrid   = GetGeoGrid();
-        auto bavikhove = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
-        auto gent      = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0, 0, 0), "Gent");
-        auto mons      = std::make_shared<Location>(3, 4, 2500, Coordinate(0, 0, 0, 0), "Mons");
+        auto bavikhove = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
+        auto gent      = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0), "Gent");
+        auto mons      = std::make_shared<Location>(3, 4, 2500, Coordinate(0, 0), "Mons");
 
         bavikhove->AddOutgoingCommutingLocation(gent, 0.5);
         gent->AddIncomingCommutingLocation(bavikhove, 0.5);

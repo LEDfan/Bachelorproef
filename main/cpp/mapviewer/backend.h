@@ -120,8 +120,11 @@ signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
+        /// Emits a signal that the infected count should be updated
+        void UpdateInfected();
+
 private:
-        double   m_colorExponent = 0.15;    ///< We use this exponent to make the color change not linear
+        double   m_colorExponent = 0.1;     ///< We use this exponent to make the color change not linear
         QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_grids;
         std::map<std::tuple<int, int>, QObject*> m_markers; ///< Reference to the markers so we do not need to search
@@ -139,7 +142,7 @@ private:
          * Places a marker at the given coordinate
          * @Param specialmarker Whether or not to display a special marker
          */
-        void PlaceMarker(Coordinate coordinate, int region, int id, unsigned int population, bool selected,
+        void PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected,
                          bool specialmarker);
 
         /**
@@ -186,7 +189,7 @@ private:
          * @param toLatitude
          * @param toLongitude
          */
-        QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
+        QObject* AddCommuteLine(gengeopop::Coordinate from, gengeopop::Coordinate to, double amount);
 
         /**
          * Hides the commute line on the map.

@@ -24,13 +24,16 @@ template <typename Policy, typename... F>
 class GeoAggregator;
 
 namespace geogrid_detail {
-using BoostPoint = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
+
 /// Used as a point in de geogrid when using the KdTree
+using BoostPoint = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
+
+/// \ref KdTree for some more information on methods
 class KdTree2DPoint
 {
 public:
         explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
-            : m_pt(location->GetCoordinate().longitude, location->GetCoordinate().latitude), m_location(location)
+            : m_pt(location->GetCoordinate()), m_location(location)
         {
         }
 
@@ -50,13 +53,17 @@ public:
         bool InBox(const AABB<KdTree2DPoint>& box) const
         {
                 return boost::geometry::within(m_pt,
-                                               boost::geometry::model::box<BoostPoint>{box.lower.m_pt, box.upper.m_pt});
+                                               boost::geometry::model::box<Coordinate>{box.lower.m_pt, box.upper.m_pt});
         }
 
         /// Does the point lie within `radius` km from `start`?
         bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
 
+        /// Retrieve the actual location
         std::shared_ptr<Location> GetLocation() const { return m_location; }
+
+        /// Get the coordinate for this Location
+        Coordinate GetPoint() const { return m_pt; }
 
         template <std::size_t D>
         struct dimension_type
@@ -64,11 +71,9 @@ public:
                 using type = double;
         };
 
-        BoostPoint AsBoostPoint() const { return m_pt; }
-
 private:
-        BoostPoint                m_pt;
-        std::shared_ptr<Location> m_location;
+        Coordinate                m_pt;       ///< Shortcut for access without dereferencing
+        std::shared_ptr<Location> m_location; ///< The underlying location
 
         /// Distance in kilometers, following great circle distance on a speroid earth
         double Distance(const KdTree2DPoint& other) const
@@ -124,8 +129,9 @@ public:
         std::set<std::shared_ptr<Location>> InBox(const std::shared_ptr<Location>& loc1,
                                                   const std::shared_ptr<Location>& loc2) const
         {
-                return InBox(loc1->GetCoordinate().longitude, loc1->GetCoordinate().latitude,
-                             loc2->GetCoordinate().longitude, loc2->GetCoordinate().latitude);
+                using boost::geometry::get;
+                return InBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
+                             get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
         }
 
         /// Iterator to first Location

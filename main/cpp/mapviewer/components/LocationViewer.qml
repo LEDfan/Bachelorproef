@@ -28,6 +28,14 @@ ColumnLayout {
         wrapMode: Text.WordWrap
     }
     Text {
+        id: textInfrected
+        objectName: 'textInfected'
+        text: 'Infected:'
+        width: 100
+        clip: true
+        wrapMode: Text.WordWrap
+    }
+    Text {
         id: textProvince
         objectName: 'textProvince'
         text: 'Province:'
@@ -88,5 +96,9 @@ ColumnLayout {
     function showLocations(location) {
         locationViewerBackend.ShowLocations(location)
         ccModel.SetCenters(location)
+    }
+
+    function updateInfected() {
+        locationViewerBackend.UpdateInfected()
     }
 }

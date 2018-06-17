@@ -57,10 +57,9 @@ void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto
 void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coordinate,
                                          proto::GeoGrid_Location_Coordinate* protoCoordinate)
 {
-        protoCoordinate->set_x(coordinate.x);
-        protoCoordinate->set_y(coordinate.y);
-        protoCoordinate->set_longitude(coordinate.longitude);
-        protoCoordinate->set_latitude(coordinate.latitude);
+        using boost::geometry::get;
+        protoCoordinate->set_longitude(get<0>(coordinate));
+        protoCoordinate->set_latitude(get<1>(coordinate));
 }
 
 void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,

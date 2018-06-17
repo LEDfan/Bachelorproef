@@ -94,7 +94,7 @@ install:
     export PATH=/usr/local/bin:$PATH # use version installed using pip
     export BOOST_ROOT=$HOME/deps/boost_1_66_0
     export BOOST_NO_SYSTEM_PATHS=ON
-    if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
+    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
       cd /tmp/
       wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
