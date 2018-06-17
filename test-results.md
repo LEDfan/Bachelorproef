@@ -524,3 +524,4 @@ Test results
 # submunicipalities_commutes
  - [909.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/submunicipalities_commutes/909.4-osx-8.3-apple-clang.html)
  - [909.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/submunicipalities_commutes/909.5-osx-9.2-apple-clang.html)
+ - [909.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/submunicipalities_commutes/909.6-osx-8.3-llvm-clang.html)
