@@ -530,3 +530,4 @@ Test results
 # fix_blocking_ui
  - [911.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_blocking_ui/911.4-osx-8.3-apple-clang.html)
  - [911.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_blocking_ui/911.5-osx-9.2-apple-clang.html)
+ - [911.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_blocking_ui/911.6-osx-8.3-llvm-clang.html)
