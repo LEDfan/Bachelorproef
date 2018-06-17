@@ -76,6 +76,12 @@ ApplicationWindow {
                          checked: false
                          shortcut: "Alt+c"
                      }
+            MenuItem {
+                         text: "&Fit viewport"
+                         onTriggered: geogridmap.fitViewport()
+                         checkable: false
+                         shortcut: "Ctrl+f"
+                     }
         }
 
         Menu {

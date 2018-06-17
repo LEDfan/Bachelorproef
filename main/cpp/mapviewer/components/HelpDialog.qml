@@ -15,7 +15,10 @@ Dialog {
                 Select All: Ctrl + A
 
                 Show commutes: Click checkbox 'View > Show Commutes' then select cities.
-                The commutes between them will be shown"
+                The commutes between them will be shown
+
+                Ctrl+F will fit the viewport of the map.
+                "
         anchors.centerIn: parent
     }
 }

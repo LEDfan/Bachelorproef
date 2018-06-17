@@ -10,16 +10,18 @@
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>
 
+#include <QtCore/QTimer>
+#include <QtQuick/QQuickItem>
 #include <cmath>
-#include <iostream>
-
 #include <gengeopop/College.h>
 #include <gengeopop/K12School.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
+#include <iostream>
 #include <util/Stopwatch.h>
+#include <utility>
 
 Backend::Backend(QObject* parent)
     : QObject(parent), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection()
@@ -51,8 +53,8 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 
 void Backend::SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids)
 {
-        m_grids = grids;
-        for (auto grid : m_grids) {
+        m_grids = std::move(grids);
+        for (const auto& grid : m_grids) {
                 grid->Finalize();
         }
         m_selection.clear();
