@@ -1,6 +1,7 @@
 Test results
 ===
 # master
+ - [910.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/910.4-osx-8.3-apple-clang.html)
  - [889.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/889.4-osx-8.3-apple-clang.html)
  - [889.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/master/889.5-osx-9.2-apple-clang.html)
  - [889.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/master/889.6-osx-8.3-llvm-clang.html)

@@ -1610,6 +1610,11 @@
       "href": "https://ledfan.github.io/Bachelorproef/test_results/master/889.6-osx-8.3-llvm-clang.html",
       "name": "osx-8.3-llvm-clang",
       "build_id": "889.6"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/910.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "910.4"
     }
   ],
   "integration": [
