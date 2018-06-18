@@ -21,7 +21,7 @@
 
 #include "pool/ContactPool.h"
 
-#include <util/PartitionedSegmentedVector.h>
+#include <util/SegmentedVector.h>
 #include <vector>
 
 namespace stride {
@@ -36,7 +36,7 @@ class RNManager;
 class Immunizer
 {
 public:
-        ///
+        /// Constructor
         explicit Immunizer(util::RNManager& rnManager);
 
         /// Random immunization.

@@ -28,7 +28,6 @@ set(EXEC gtester)
 set(SRC
         BatchRuns.cpp
         CSVTest.cpp
-        PartitionedSegmentedVector.cpp
         ScenarioData.cpp
         UnitRange.cpp
         UnitSVIterator.cpp

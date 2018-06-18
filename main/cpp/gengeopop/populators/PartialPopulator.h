@@ -13,14 +13,22 @@ namespace gengeopop {
 class PartialPopulator
 {
 public:
+        /// Construct with a RNManager and a logger
         PartialPopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
+
+        /// Populate the given geogrid
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
-        virtual ~PartialPopulator(){};
+
+        /// Virtual destructor for inheritance
+        virtual ~PartialPopulator() = default;
 
 protected:
         stride::util::RNManager&        m_rnManager; ///< RnManager used by populators
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 
+        /// Find contactpools in `geoGrid` in an exponentially increasing radius, starting at `startRadius`, around
+        /// `start` As soon as at least one pool is found, all pools within the current radius are returned May return
+        /// an empty vector when there are no pools to be found
         template <typename T>
         std::vector<stride::ContactPool*> GetContactPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
                                                                            const std::shared_ptr<Location>& start,
@@ -45,14 +53,7 @@ protected:
                 return pools;
         }
 
-        bool MakeChoice(double fraction)
-        {
-                std::vector<double> weights;
-                weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
-                weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
-
-                auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
-                return static_cast<bool>(dist());
-        }
+        /// Convenience wrapper around m_rnManager
+        bool MakeChoice(double fraction);
 };
 } // namespace gengeopop

@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// Populate primary Communities
 class PrimaryCommunityPopulator : public PartialPopulator
 {
 public:

@@ -24,6 +24,10 @@ template <typename Policy, typename... F>
 class GeoAggregator;
 
 namespace geogrid_detail {
+
+/// Used as a point in de geogrid when using the KdTree
+using BoostPoint = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
+
 /// \ref KdTree for some more information on methods
 class KdTree2DPoint
 {
@@ -82,14 +86,17 @@ private:
 
 } // namespace geogrid_detail
 
+/// A Geographic information grid for a single region
 class GeoGrid
 {
 public:
         using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
 
+        /// Construct with information about population and region (id + name)
         GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId, std::string regionName);
 
+        /// Constructor
         GeoGrid();
 
         /// Adds a location to this GeoGrid
@@ -172,9 +179,11 @@ public:
         /// Get the population of this GeoGrid
         std::shared_ptr<stride::Population> GetPopulation();
 
+        /// Build a GeoAggregator with a predefined functor and given args for the Policy
         template <typename Policy, typename F>
         GeoAggregator<Policy, F> BuildAggregator(F functor, typename Policy::Args&& args) const;
 
+        /// Build a GeoAggregator that gets its functor when calling, with given args for the Policy
         template <typename Policy>
         GeoAggregator<Policy> BuildAggregator(typename Policy::Args&& args) const;
 
@@ -187,9 +196,9 @@ private:
                                             m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id
         std::shared_ptr<stride::Population> m_population;         ///< Stores and Owns the population of this GeoGrid
 
-        bool m_finalized;
+        bool m_finalized; ///< Is this finalized yet?
 
-        KdTree<geogrid_detail::KdTree2DPoint> m_tree;
+        KdTree<geogrid_detail::KdTree2DPoint> m_tree; ///< Internal KdTree for quick spatial lookup
 
         std::size_t m_regionId;   ///< RegionId, used to create persons
         std::string m_regionName; ///< Region name of this GeoGrid
