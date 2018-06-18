@@ -46,6 +46,30 @@ double Location::GetInfectedRatio() const
         return r;
 }
 
+double Location::GetInfectedCount() const
+{
+        unsigned int infected = 0;
+
+        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
+                auto r = cc->GetPopulationAndInfectedCount();
+                infected += r.second;
+        }
+
+        return infected;
+}
+
+unsigned int Location::GetSimulationPopulation() const
+{
+        unsigned int population = 0;
+
+        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
+                auto r = cc->GetPopulationAndInfectedCount();
+                population += r.first;
+        }
+
+        return population;
+}
+
 double Location::GetInfectedRatioOfSubmunicipalities() const
 {
         unsigned int infected   = 0;
@@ -122,7 +146,9 @@ bool Location::operator==(const Location& other) const
         auto        sub1 = GetSubMunicipalities();
         const auto& sub2 = other.GetSubMunicipalities();
 
-        return GetID() == other.GetID() && GetCoordinate() == other.GetCoordinate() && GetName() == other.GetName() &&
+        using boost::geometry::get;
+        return GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
+               get<1>(GetCoordinate()) == get<1>(other.GetCoordinate()) && GetName() == other.GetName() &&
                GetProvince() == other.GetProvince() && GetPopulation() == other.GetPopulation() &&
                GetContactCenters() == other.GetContactCenters() &&
                GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&

@@ -127,11 +127,9 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
 
 Coordinate GeoGridJSONReader::ParseCoordinate(boost::property_tree::ptree& coordinate)
 {
-        auto x         = boost::lexical_cast<double>(coordinate.get<std::string>("x"));
-        auto y         = boost::lexical_cast<double>(coordinate.get<std::string>("y"));
         auto longitude = boost::lexical_cast<double>(coordinate.get<std::string>("longitude"));
         auto latitude  = boost::lexical_cast<double>(coordinate.get<std::string>("latitude"));
-        return {x, y, longitude, latitude};
+        return {longitude, latitude};
 }
 
 std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_tree::ptree& contactCenter)
@@ -172,7 +170,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                         stride::ContactPool* pool;
 #pragma omp task firstprivate(it, pool)
                         {
-                                e->Run([&it, &pool, this, &result, typeId] {
+                                e->Run([&it, &pool, this, typeId] {
                                         pool = ParseContactPool(it->second.get_child(""), typeId);
                                 });
                                 if (!e->HasError())

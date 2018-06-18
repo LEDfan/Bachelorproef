@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.4
 import QtLocation 5.3
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.2
-import QtQuick.Dialogs 1.3
+import QtQuick.Dialogs 1.2
 
 import io.bistromatics.launcher 1.0
 
@@ -373,21 +373,26 @@ ApplicationWindow {
                     ComboBox {
                         objectName: "gengeopopType"
                         Layout.fillWidth: true
-                        model: ["default", "generate", "import"]
+                        model: ["default", "generate", "import", "multi-region"]
                         onCurrentIndexChanged: {
-                            if (currentIndex == 0) {
+                            if (currentIndex == 0 || currentIndex == 3) {
                                 window.width = 820
                                 setGenGeopPopFileVisibility(false)
-                                mapViewerCheckbox.enabled = false
-                                mapViewerCheckbox.checked = false
                                 setGenGeopPopGenerateVisibility(false)
+                                if (currentIndex == 0) {
+                                    mapViewerCheckbox.enabled = false
+                                    mapViewerCheckbox.checked = false
+                                } else {
+                                    mapViewerCheckbox.enabled = true
+                                    mapViewerCheckbox.checked = true
+                                }
                             } else if (currentIndex == 1) {
                                 mapViewerCheckbox.checked = true
                                 mapViewerCheckbox.enabled = true
                                 window.width = 910
                                 setGenGeopPopFileVisibility(false)
                                 setGenGeopPopGenerateVisibility(true)
-                            } else {
+                            } else if (currentIndex == 2){
                                 mapViewerCheckbox.checked = true
                                 mapViewerCheckbox.enabled = true
                                 window.width = 820

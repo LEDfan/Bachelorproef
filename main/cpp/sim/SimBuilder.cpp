@@ -94,8 +94,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         BeliefSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
 
-        sim->m_travellerProfile =
-            std::move(TravellerProfileBuilder(m_config_pt, sim->m_rn_manager, sim->m_population).Build());
+        sim->m_travellerProfile = TravellerProfileBuilder(m_config_pt, sim->m_rn_manager, sim->m_population).Build();
 
         // --------------------------------------------------------------
         // Done.

@@ -99,11 +99,10 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(std::shared_ptr<Loc
 
 boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate& coordinate)
 {
+        using boost::geometry::get;
         boost::property_tree::ptree coordinate_root;
-        coordinate_root.put("x", coordinate.x);
-        coordinate_root.put("y", coordinate.y);
-        coordinate_root.put("longitude", coordinate.longitude);
-        coordinate_root.put("latitude", coordinate.latitude);
+        coordinate_root.put("longitude", get<0>(coordinate));
+        coordinate_root.put("latitude", get<1>(coordinate));
         return coordinate_root;
 }
 

@@ -17,7 +17,7 @@ Q_DECLARE_METATYPE(std::set<std::shared_ptr<gengeopop::Location>>)
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::ContactCenter>)
 
 Map::Map(QQmlApplicationEngine* engine)
-    : m_rootContext(nullptr), m_thread(nullptr), m_setGrid(false), m_engine(std::move(engine)), m_ccModel(nullptr),
+    : m_rootContext(nullptr), m_thread(nullptr), m_setGrid(false), m_engine(engine), m_ccModel(nullptr),
       m_cpModel(nullptr), m_commutesModel(nullptr)
 {
         RegisterQML();

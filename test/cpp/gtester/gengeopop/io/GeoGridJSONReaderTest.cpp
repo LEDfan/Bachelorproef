@@ -10,6 +10,8 @@
 
 using namespace gengeopop;
 
+using boost::geometry::get;
+
 namespace {
 
 std::shared_ptr<GeoGrid> getGeoGridForFile(std::string filename)
@@ -39,28 +41,22 @@ TEST(GeoGridJSONReaderTest, locationsTest)
         EXPECT_EQ(location1->GetName(), "Bavikhove");
         EXPECT_EQ(location1->GetProvince(), 4);
         EXPECT_EQ(location1->GetPopulation(), 2500);
-        EXPECT_EQ(location1->GetCoordinate().x, 0);
-        EXPECT_EQ(location1->GetCoordinate().y, 0);
-        EXPECT_EQ(location1->GetCoordinate().longitude, 0);
-        EXPECT_EQ(location1->GetCoordinate().latitude, 0);
+        EXPECT_EQ(get<0>(location1->GetCoordinate()), 0);
+        EXPECT_EQ(get<1>(location1->GetCoordinate()), 0);
 
         EXPECT_EQ(location2->GetID(), 2);
         EXPECT_EQ(location2->GetName(), "Gent");
         EXPECT_EQ(location2->GetProvince(), 3);
         EXPECT_EQ(location2->GetPopulation(), 5000);
-        EXPECT_EQ(location2->GetCoordinate().x, 0);
-        EXPECT_EQ(location2->GetCoordinate().y, 0);
-        EXPECT_EQ(location2->GetCoordinate().longitude, 0);
-        EXPECT_EQ(location2->GetCoordinate().latitude, 0);
+        EXPECT_EQ(get<0>(location2->GetCoordinate()), 0);
+        EXPECT_EQ(get<1>(location2->GetCoordinate()), 0);
 
         EXPECT_EQ(location3->GetID(), 3);
         EXPECT_EQ(location3->GetName(), "Mons");
         EXPECT_EQ(location3->GetProvince(), 2);
         EXPECT_EQ(location3->GetPopulation(), 2500);
-        EXPECT_EQ(location3->GetCoordinate().x, 0);
-        EXPECT_EQ(location3->GetCoordinate().y, 0);
-        EXPECT_EQ(location3->GetCoordinate().longitude, 0);
-        EXPECT_EQ(location3->GetCoordinate().latitude, 0);
+        EXPECT_EQ(get<0>(location3->GetCoordinate()), 0);
+        EXPECT_EQ(get<1>(location3->GetCoordinate()), 0);
 }
 
 TEST(GeoGridJSONReaderTest, commutesTest)
@@ -158,10 +154,8 @@ void runPeopleTest(std::string filename)
         EXPECT_EQ(location->GetName(), "Bavikhove");
         EXPECT_EQ(location->GetProvince(), 4);
         EXPECT_EQ(location->GetPopulation(), 2500);
-        EXPECT_EQ(location->GetCoordinate().x, 0);
-        EXPECT_EQ(location->GetCoordinate().y, 0);
-        EXPECT_EQ(location->GetCoordinate().longitude, 0);
-        EXPECT_EQ(location->GetCoordinate().latitude, 0);
+        EXPECT_EQ(get<0>(location->GetCoordinate()), 0);
+        EXPECT_EQ(get<1>(location->GetCoordinate()), 0);
 
         auto contactCenters = location->GetContactCenters();
         for (const auto& center : contactCenters) {

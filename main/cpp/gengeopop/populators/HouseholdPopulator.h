@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// Populate Households
 class HouseholdPopulator : public PartialPopulator
 {
 public:

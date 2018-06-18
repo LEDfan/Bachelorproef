@@ -8,10 +8,8 @@ message GeoGrid {
         required int64 province = 3;
         required int64 population = 4;
         message Coordinate {
-            required double x = 1;
-            required double y = 2;
-            required double longitude = 3;
-            required double latitude = 4;
+            required double longitude = 1;
+            required double latitude = 2;
         }
         required Coordinate coordinate = 5;
         message ContactCenter {
@@ -44,12 +42,6 @@ message GeoGrid {
         required int64 id = 1;
         required int64 age = 2;
         required string gender = 3;
-        required int64 K12School = 4;
-        required int64 College = 5;
-        required int64 Household = 6;
-        required int64 Workplace = 7;
-        required int64 PrimaryCommunity = 8;
-        required int64 SecondaryCommunity = 9;
     }
     repeated Location locations = 1;
     repeated Person persons = 2;

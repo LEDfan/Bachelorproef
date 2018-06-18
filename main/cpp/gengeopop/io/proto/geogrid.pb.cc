@@ -219,14 +219,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Coordinate, x_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Coordinate, y_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Coordinate, longitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_Coordinate, latitude_),
   0,
   1,
-  2,
-  3,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_ContactCenter_ContactPool, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Location_ContactCenter_ContactPool, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -285,21 +281,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, age_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, gender_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, k12school_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, college_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, household_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, workplace_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, primarycommunity_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid_Person, secondarycommunity_),
   1,
   2,
   0,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::proto::GeoGrid, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -311,13 +295,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 9, sizeof(::proto::GeoGrid_Location_Coordinate)},
-  { 13, 20, sizeof(::proto::GeoGrid_Location_ContactCenter_ContactPool)},
-  { 22, 30, sizeof(::proto::GeoGrid_Location_ContactCenter)},
-  { 33, 40, sizeof(::proto::GeoGrid_Location_Commute)},
-  { 42, 55, sizeof(::proto::GeoGrid_Location)},
-  { 63, 77, sizeof(::proto::GeoGrid_Person)},
-  { 86, 93, sizeof(::proto::GeoGrid)},
+  { 0, 7, sizeof(::proto::GeoGrid_Location_Coordinate)},
+  { 9, 16, sizeof(::proto::GeoGrid_Location_ContactCenter_ContactPool)},
+  { 18, 26, sizeof(::proto::GeoGrid_Location_ContactCenter)},
+  { 29, 36, sizeof(::proto::GeoGrid_Location_Commute)},
+  { 38, 51, sizeof(::proto::GeoGrid_Location)},
+  { 59, 67, sizeof(::proto::GeoGrid_Person)},
+  { 70, 77, sizeof(::proto::GeoGrid)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -352,35 +336,31 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rgeogrid.proto\022\005proto\"\333\007\n\007GeoGrid\022*\n\tlo"
+      "\n\rgeogrid.proto\022\005proto\"\304\006\n\007GeoGrid\022*\n\tlo"
       "cations\030\001 \003(\0132\027.proto.GeoGrid.Location\022&"
-      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\307"
+      "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\261"
       "\005\n\010Location\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n"
       "\010province\030\003 \002(\003\022\022\n\npopulation\030\004 \002(\003\0226\n\nc"
       "oordinate\030\005 \002(\0132\".proto.GeoGrid.Location"
       ".Coordinate\022=\n\016contactCenters\030\006 \003(\0132%.pr"
       "oto.GeoGrid.Location.ContactCenter\0221\n\010co"
       "mmutes\030\007 \003(\0132\037.proto.GeoGrid.Location.Co"
-      "mmute\022\031\n\021submunicipalities\030\010 \003(\003\032G\n\nCoor"
-      "dinate\022\t\n\001x\030\001 \002(\001\022\t\n\001y\030\002 \002(\001\022\021\n\tlongitud"
-      "e\030\003 \002(\001\022\020\n\010latitude\030\004 \002(\001\032\301\002\n\rContactCen"
-      "ter\022\n\n\002id\030\001 \002(\003\0228\n\004type\030\002 \002(\0162*.proto.Ge"
-      "oGrid.Location.ContactCenter.Type\022@\n\005poo"
-      "ls\030\003 \003(\01321.proto.GeoGrid.Location.Contac"
-      "tCenter.ContactPool\032)\n\013ContactPool\022\n\n\002id"
-      "\030\001 \002(\003\022\016\n\006people\030\002 \003(\003\"}\n\004Type\022\r\n\tK12Sch"
-      "ool\020\000\022\r\n\tCommunity\020\001\022\024\n\020PrimaryCommunity"
-      "\020\002\022\026\n\022SecondaryCommunity\020\003\022\013\n\007College\020\004\022"
-      "\r\n\tHousehold\020\005\022\r\n\tWorkplace\020\006\032)\n\007Commute"
-      "\022\n\n\002to\030\001 \002(\003\022\022\n\nproportion\030\002 \002(\001\032\261\001\n\006Per"
-      "son\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030\002 \002(\003\022\016\n\006gender\030\003"
-      " \002(\t\022\021\n\tK12School\030\004 \002(\003\022\017\n\007College\030\005 \002(\003"
-      "\022\021\n\tHousehold\030\006 \002(\003\022\021\n\tWorkplace\030\007 \002(\003\022\030"
-      "\n\020PrimaryCommunity\030\010 \002(\003\022\032\n\022SecondaryCom"
-      "munity\030\t \002(\003"
+      "mmute\022\031\n\021submunicipalities\030\010 \003(\003\0321\n\nCoor"
+      "dinate\022\021\n\tlongitude\030\001 \002(\001\022\020\n\010latitude\030\002 "
+      "\002(\001\032\301\002\n\rContactCenter\022\n\n\002id\030\001 \002(\003\0228\n\004typ"
+      "e\030\002 \002(\0162*.proto.GeoGrid.Location.Contact"
+      "Center.Type\022@\n\005pools\030\003 \003(\01321.proto.GeoGr"
+      "id.Location.ContactCenter.ContactPool\032)\n"
+      "\013ContactPool\022\n\n\002id\030\001 \002(\003\022\016\n\006people\030\002 \003(\003"
+      "\"}\n\004Type\022\r\n\tK12School\020\000\022\r\n\tCommunity\020\001\022\024"
+      "\n\020PrimaryCommunity\020\002\022\026\n\022SecondaryCommuni"
+      "ty\020\003\022\013\n\007College\020\004\022\r\n\tHousehold\020\005\022\r\n\tWork"
+      "place\020\006\032)\n\007Commute\022\n\n\002to\030\001 \002(\003\022\022\n\npropor"
+      "tion\030\002 \002(\001\0321\n\006Person\022\n\n\002id\030\001 \002(\003\022\013\n\003age\030"
+      "\002 \002(\003\022\016\n\006gender\030\003 \002(\t"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1012);
+      descriptor, 861);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "geogrid.proto", &protobuf_RegisterTypes);
 }
@@ -434,8 +414,6 @@ const int GeoGrid_Location_ContactCenter::Type_ARRAYSIZE;
 void GeoGrid_Location_Coordinate::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GeoGrid_Location_Coordinate::kXFieldNumber;
-const int GeoGrid_Location_Coordinate::kYFieldNumber;
 const int GeoGrid_Location_Coordinate::kLongitudeFieldNumber;
 const int GeoGrid_Location_Coordinate::kLatitudeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -454,17 +432,17 @@ GeoGrid_Location_Coordinate::GeoGrid_Location_Coordinate(const GeoGrid_Location_
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&x_, &from.x_,
+  ::memcpy(&longitude_, &from.longitude_,
     static_cast<size_t>(reinterpret_cast<char*>(&latitude_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(latitude_));
+    reinterpret_cast<char*>(&longitude_)) + sizeof(latitude_));
   // @@protoc_insertion_point(copy_constructor:proto.GeoGrid.Location.Coordinate)
 }
 
 void GeoGrid_Location_Coordinate::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&x_, 0, static_cast<size_t>(
+  ::memset(&longitude_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&latitude_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(latitude_));
+      reinterpret_cast<char*>(&longitude_)) + sizeof(latitude_));
 }
 
 GeoGrid_Location_Coordinate::~GeoGrid_Location_Coordinate() {
@@ -505,10 +483,10 @@ void GeoGrid_Location_Coordinate::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 15u) {
-    ::memset(&x_, 0, static_cast<size_t>(
+  if (cached_has_bits & 3u) {
+    ::memset(&longitude_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&latitude_) -
-        reinterpret_cast<char*>(&x_)) + sizeof(latitude_));
+        reinterpret_cast<char*>(&longitude_)) + sizeof(latitude_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -524,38 +502,10 @@ bool GeoGrid_Location_Coordinate::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required double x = 1;
+      // required double longitude = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(9u /* 9 & 0xFF */)) {
-          set_has_x();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &x_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required double y = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
-          set_has_y();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &y_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required double longitude = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
           set_has_longitude();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -566,10 +516,10 @@ bool GeoGrid_Location_Coordinate::MergePartialFromCodedStream(
         break;
       }
 
-      // required double latitude = 4;
-      case 4: {
+      // required double latitude = 2;
+      case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(33u /* 33 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(17u /* 17 & 0xFF */)) {
           set_has_latitude();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
@@ -607,24 +557,14 @@ void GeoGrid_Location_Coordinate::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required double x = 1;
+  // required double longitude = 1;
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->x(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->longitude(), output);
   }
 
-  // required double y = 2;
+  // required double latitude = 2;
   if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->y(), output);
-  }
-
-  // required double longitude = 3;
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->longitude(), output);
-  }
-
-  // required double latitude = 4;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->latitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->latitude(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -642,24 +582,14 @@ void GeoGrid_Location_Coordinate::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required double x = 1;
+  // required double longitude = 1;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->x(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->longitude(), target);
   }
 
-  // required double y = 2;
+  // required double latitude = 2;
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->y(), target);
-  }
-
-  // required double longitude = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->longitude(), target);
-  }
-
-  // required double latitude = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->latitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->latitude(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -674,23 +604,13 @@ size_t GeoGrid_Location_Coordinate::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:proto.GeoGrid.Location.Coordinate)
   size_t total_size = 0;
 
-  if (has_x()) {
-    // required double x = 1;
-    total_size += 1 + 8;
-  }
-
-  if (has_y()) {
-    // required double y = 2;
-    total_size += 1 + 8;
-  }
-
   if (has_longitude()) {
-    // required double longitude = 3;
+    // required double longitude = 1;
     total_size += 1 + 8;
   }
 
   if (has_latitude()) {
-    // required double latitude = 4;
+    // required double latitude = 2;
     total_size += 1 + 8;
   }
 
@@ -705,17 +625,11 @@ size_t GeoGrid_Location_Coordinate::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
-    // required double x = 1;
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required double longitude = 1;
     total_size += 1 + 8;
 
-    // required double y = 2;
-    total_size += 1 + 8;
-
-    // required double longitude = 3;
-    total_size += 1 + 8;
-
-    // required double latitude = 4;
+    // required double latitude = 2;
     total_size += 1 + 8;
 
   } else {
@@ -751,17 +665,11 @@ void GeoGrid_Location_Coordinate::MergeFrom(const GeoGrid_Location_Coordinate& f
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 15u) {
+  if (cached_has_bits & 3u) {
     if (cached_has_bits & 0x00000001u) {
-      x_ = from.x_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      y_ = from.y_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       longitude_ = from.longitude_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000002u) {
       latitude_ = from.latitude_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -783,7 +691,7 @@ void GeoGrid_Location_Coordinate::CopyFrom(const GeoGrid_Location_Coordinate& fr
 }
 
 bool GeoGrid_Location_Coordinate::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   return true;
 }
 
@@ -793,8 +701,6 @@ void GeoGrid_Location_Coordinate::Swap(GeoGrid_Location_Coordinate* other) {
 }
 void GeoGrid_Location_Coordinate::InternalSwap(GeoGrid_Location_Coordinate* other) {
   using std::swap;
-  swap(x_, other->x_);
-  swap(y_, other->y_);
   swap(longitude_, other->longitude_);
   swap(latitude_, other->latitude_);
   swap(_has_bits_[0], other->_has_bits_[0]);
@@ -2380,12 +2286,6 @@ void GeoGrid_Person::InitAsDefaultInstance() {
 const int GeoGrid_Person::kIdFieldNumber;
 const int GeoGrid_Person::kAgeFieldNumber;
 const int GeoGrid_Person::kGenderFieldNumber;
-const int GeoGrid_Person::kK12SchoolFieldNumber;
-const int GeoGrid_Person::kCollegeFieldNumber;
-const int GeoGrid_Person::kHouseholdFieldNumber;
-const int GeoGrid_Person::kWorkplaceFieldNumber;
-const int GeoGrid_Person::kPrimaryCommunityFieldNumber;
-const int GeoGrid_Person::kSecondaryCommunityFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GeoGrid_Person::GeoGrid_Person()
@@ -2407,8 +2307,8 @@ GeoGrid_Person::GeoGrid_Person(const GeoGrid_Person& from)
     gender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gender_);
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&secondarycommunity_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(secondarycommunity_));
+    static_cast<size_t>(reinterpret_cast<char*>(&age_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(age_));
   // @@protoc_insertion_point(copy_constructor:proto.GeoGrid.Person)
 }
 
@@ -2416,8 +2316,8 @@ void GeoGrid_Person::SharedCtor() {
   _cached_size_ = 0;
   gender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&secondarycommunity_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(secondarycommunity_));
+      reinterpret_cast<char*>(&age_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(age_));
 }
 
 GeoGrid_Person::~GeoGrid_Person() {
@@ -2463,12 +2363,11 @@ void GeoGrid_Person::Clear() {
     GOOGLE_DCHECK(!gender_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
     (*gender_.UnsafeRawStringPointer())->clear();
   }
-  if (cached_has_bits & 254u) {
+  if (cached_has_bits & 6u) {
     ::memset(&id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&primarycommunity_) -
-        reinterpret_cast<char*>(&id_)) + sizeof(primarycommunity_));
+        reinterpret_cast<char*>(&age_) -
+        reinterpret_cast<char*>(&id_)) + sizeof(age_));
   }
-  secondarycommunity_ = GOOGLE_LONGLONG(0);
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -2527,90 +2426,6 @@ bool GeoGrid_Person::MergePartialFromCodedStream(
         break;
       }
 
-      // required int64 K12School = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_k12school();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &k12school_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required int64 College = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-          set_has_college();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &college_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required int64 Household = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_household();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &household_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required int64 Workplace = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-          set_has_workplace();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &workplace_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required int64 PrimaryCommunity = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-          set_has_primarycommunity();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &primarycommunity_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // required int64 SecondaryCommunity = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
-          set_has_secondarycommunity();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &secondarycommunity_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2658,36 +2473,6 @@ void GeoGrid_Person::SerializeWithCachedSizes(
       3, this->gender(), output);
   }
 
-  // required int64 K12School = 4;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->k12school(), output);
-  }
-
-  // required int64 College = 5;
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->college(), output);
-  }
-
-  // required int64 Household = 6;
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->household(), output);
-  }
-
-  // required int64 Workplace = 7;
-  if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->workplace(), output);
-  }
-
-  // required int64 PrimaryCommunity = 8;
-  if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->primarycommunity(), output);
-  }
-
-  // required int64 SecondaryCommunity = 9;
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->secondarycommunity(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -2724,36 +2509,6 @@ void GeoGrid_Person::SerializeWithCachedSizes(
         3, this->gender(), target);
   }
 
-  // required int64 K12School = 4;
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->k12school(), target);
-  }
-
-  // required int64 College = 5;
-  if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->college(), target);
-  }
-
-  // required int64 Household = 6;
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->household(), target);
-  }
-
-  // required int64 Workplace = 7;
-  if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->workplace(), target);
-  }
-
-  // required int64 PrimaryCommunity = 8;
-  if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->primarycommunity(), target);
-  }
-
-  // required int64 SecondaryCommunity = 9;
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->secondarycommunity(), target);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -2787,48 +2542,6 @@ size_t GeoGrid_Person::RequiredFieldsByteSizeFallback() const {
         this->age());
   }
 
-  if (has_k12school()) {
-    // required int64 K12School = 4;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->k12school());
-  }
-
-  if (has_college()) {
-    // required int64 College = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->college());
-  }
-
-  if (has_household()) {
-    // required int64 Household = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->household());
-  }
-
-  if (has_workplace()) {
-    // required int64 Workplace = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->workplace());
-  }
-
-  if (has_primarycommunity()) {
-    // required int64 PrimaryCommunity = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->primarycommunity());
-  }
-
-  if (has_secondarycommunity()) {
-    // required int64 SecondaryCommunity = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->secondarycommunity());
-  }
-
   return total_size;
 }
 size_t GeoGrid_Person::ByteSizeLong() const {
@@ -2840,7 +2553,7 @@ size_t GeoGrid_Person::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x000001ff) ^ 0x000001ff) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
     // required string gender = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2855,36 +2568,6 @@ size_t GeoGrid_Person::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->age());
-
-    // required int64 K12School = 4;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->k12school());
-
-    // required int64 College = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->college());
-
-    // required int64 Household = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->household());
-
-    // required int64 Workplace = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->workplace());
-
-    // required int64 PrimaryCommunity = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->primarycommunity());
-
-    // required int64 SecondaryCommunity = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->secondarycommunity());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -2919,7 +2602,7 @@ void GeoGrid_Person::MergeFrom(const GeoGrid_Person& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 255u) {
+  if (cached_has_bits & 7u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_gender();
       gender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gender_);
@@ -2930,25 +2613,7 @@ void GeoGrid_Person::MergeFrom(const GeoGrid_Person& from) {
     if (cached_has_bits & 0x00000004u) {
       age_ = from.age_;
     }
-    if (cached_has_bits & 0x00000008u) {
-      k12school_ = from.k12school_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      college_ = from.college_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      household_ = from.household_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      workplace_ = from.workplace_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      primarycommunity_ = from.primarycommunity_;
-    }
     _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x00000100u) {
-    set_secondarycommunity(from.secondarycommunity());
   }
 }
 
@@ -2967,7 +2632,7 @@ void GeoGrid_Person::CopyFrom(const GeoGrid_Person& from) {
 }
 
 bool GeoGrid_Person::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
   return true;
 }
 
@@ -2980,12 +2645,6 @@ void GeoGrid_Person::InternalSwap(GeoGrid_Person* other) {
   gender_.Swap(&other->gender_);
   swap(id_, other->id_);
   swap(age_, other->age_);
-  swap(k12school_, other->k12school_);
-  swap(college_, other->college_);
-  swap(household_, other->household_);
-  swap(workplace_, other->workplace_);
-  swap(primarycommunity_, other->primarycommunity_);
-  swap(secondarycommunity_, other->secondarycommunity_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);

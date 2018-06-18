@@ -25,4 +25,11 @@ void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)
         }
 }
 
+void GeoGridReader::UsePopulation(const std::shared_ptr<stride::Population>& pop, std::size_t regionId,
+                                  std::string regionName)
+{
+        m_population = pop;
+        m_regionId   = regionId;
+        m_regionName = std::move(regionName);
+}
 } // namespace gengeopop

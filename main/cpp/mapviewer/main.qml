@@ -76,12 +76,18 @@ ApplicationWindow {
                          checked: false
                          shortcut: "Alt+c"
                      }
+            MenuItem {
+                         text: "&Fit viewport"
+                         onTriggered: geogridmap.fitViewport()
+                         checkable: false
+                         shortcut: "Ctrl+f"
+                     }
         }
 
         Menu {
             title: "Help"
             MenuItem {
-                         text: "Shortcuts"
+                         text: "Help"
                          onTriggered: helpDialog.open()
                      }
         }
@@ -132,6 +138,7 @@ ApplicationWindow {
         objectName: 'backend'
         Component.onCompleted: {
             backend.LocationsSelected.connect(clickSignal)
+            backend.UpdateInfected.connect(updateInfectedOfLocation)
             if (Qt.application.arguments.length > 1) {
                 backend.LoadGeoGridFromCommandLine(Qt.application.arguments);
             }
@@ -140,6 +147,10 @@ ApplicationWindow {
         function clickSignal (arg) {
             locViewer.showLocations(arg)
             commutesViewer.showCommutes(arg)
+        }
+
+        function updateInfectedOfLocation(){
+            locViewer.updateInfected()
         }
 
     }

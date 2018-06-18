@@ -19,7 +19,7 @@ MapQuickItem {
     }
 
     function setColor(color){
-        rect.color = color
+        rect.color = Qt.hsla(color, 1.0, 0.5)
     }
 
     function setBorder(color){
@@ -34,7 +34,6 @@ MapQuickItem {
         cursorShape: Qt.PointingHandCursor
         hoverEnabled: true
         onClicked: {
-            console.warn("Clicked", regionID, markerID, mouse)
             parent.clicked(regionID, markerID, mouse)
             mouse.accepted = true
         }

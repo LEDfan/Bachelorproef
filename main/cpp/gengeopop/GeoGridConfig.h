@@ -10,11 +10,14 @@ namespace gengeopop {
 
 using stride::util::intToDottedString;
 
+/// Configuration data when generating a GeoGrid
 class GeoGridConfig
 {
 public:
         GeoGridConfig();
 
+        /// Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid and
+        /// HouseholdReader
         void Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader);
 
         friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);

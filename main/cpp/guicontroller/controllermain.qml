@@ -10,6 +10,8 @@ ApplicationWindow {
     visible: true
     title: qsTr("GuiController")
 
+    property var autostepping: false;
+
     Backend {
         id: backend
         objectName: 'backend'
@@ -22,6 +24,9 @@ ApplicationWindow {
             stepButtonOneDay.enabled = true
             infectedNr.text = infectedCount
             dayNr.text = day
+            if (autostepping) {
+                stepTimer.start();
+            }
         }
 
     }
@@ -40,7 +45,7 @@ ApplicationWindow {
             }
 
             Text {
-                text: "Seconds / Day"
+                text: "seconds between days"
             }
             Button {
                 text: "Start"
@@ -48,9 +53,11 @@ ApplicationWindow {
                     if (text == "Start") {
                         stepTimer.interval = secondsPerDay.value * 1000
                         stepTimer.start()
+                        autostepping = true;
                         text = "Pause"
                     } else {
                         stepTimer.stop()
+                        autostepping = false;
                         text = "Start"
                     }
 
@@ -59,7 +66,7 @@ ApplicationWindow {
             Timer {
                 id: stepTimer
                 running: false
-                repeat: true
+                repeat: false
                 onTriggered: stepDay(1)
             }
         }

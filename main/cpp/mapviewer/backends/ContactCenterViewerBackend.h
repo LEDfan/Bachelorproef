@@ -4,6 +4,9 @@
 #include <QString>
 #include <gengeopop/GeoGrid.h>
 
+/**
+ * This backend sets the correct text in the GUI when a new contacteCenter is shown.
+ */
 class ContactCenterViewerBackend : public QObject
 {
         Q_OBJECT

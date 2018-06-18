@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// Generate Communities
 class CommunityGenerator : public PartialGenerator
 {
 public:
