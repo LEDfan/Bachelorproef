@@ -382,6 +382,7 @@ Test results
  - [936.3 linux-clang-5](https://ledfan.github.io/Bachelorproef/test_results/docs/936.3-linux-clang-5.html)
  - [936.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/docs/936.4-osx-8.3-apple-clang.html)
  - [936.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/docs/936.5-osx-9.2-apple-clang.html)
+ - [936.6 osx-8.3-llvm-clang](https://ledfan.github.io/Bachelorproef/test_results/docs/936.6-osx-8.3-llvm-clang.html)
 # fix_blocking_ui
  - [911.4 osx-8.3-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_blocking_ui/911.4-osx-8.3-apple-clang.html)
  - [911.5 osx-9.2-apple-clang](https://ledfan.github.io/Bachelorproef/test_results/fix_blocking_ui/911.5-osx-9.2-apple-clang.html)
