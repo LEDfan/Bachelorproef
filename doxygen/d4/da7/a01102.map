@@ -1,4 +1,2 @@
-<map id="gengeopop::PartialPopulator" name="gengeopop::PartialPopulator">
-<area shape="rect" id="node3" href="$d6/d7d/a00161.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="587,446,744,655"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="607,147,723,224"/>
+<map id="gengeopop::geogrid_detail::KdTree2DPoint" name="gengeopop::geogrid_detail::KdTree2DPoint">
 </map>

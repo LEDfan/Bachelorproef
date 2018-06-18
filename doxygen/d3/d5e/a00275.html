@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GeoGrid.h File Reference</title>
+<title>Stride Reference Manual: GeoGridGenerator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -112,56 +112,32 @@ $(document).ready(function(){initNavTree('d3/d5e/a00275.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGrid.h File Reference</div>  </div>
+<div class="title">GeoGridGenerator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cmath&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d2/d56/a00384_source.html">pop/Population.h</a>&gt;</code><br/>
-<code>#include &lt;set&gt;</code><br/>
-<code>#include &lt;unordered_map&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d6/d22/a00245_source.html">../pool/ContactPool.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/d45/a00342_source.html">KdTree.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/dc6/a00347_source.html">Location.h</a>&quot;</code><br/>
-<code>#include &lt;boost/geometry/algorithms/distance.hpp&gt;</code><br/>
-<code>#include &lt;boost/geometry/algorithms/within.hpp&gt;</code><br/>
-<code>#include &lt;boost/geometry/geometries/box.hpp&gt;</code><br/>
-<code>#include &lt;boost/geometry/geometries/point.hpp&gt;</code><br/>
-<code>#include &lt;boost/geometry/strategies/geographic/distance.hpp&gt;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/d19/a00273_source.html">GeoAggregator.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d9b/a00363_source.html">PartialGenerator.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGrid.h:</div>
+Include dependency graph for GeoGridGenerator.h:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/daa/a00638.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d1d/a00633.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/db6/a00639.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/de4/a00634.svg" width="462" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="../../d3/d5e/a00275_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html">gengeopop::GeoAggregator&lt; Policy, F &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="../../dc/d3c/a00028.html" title="A GeoAggregator can either be instanciated with a functor, or be called with one every time...">GeoAggregator</a> can either be instanciated with a functor, or be called with one every time.  <a href="../../dc/d3c/a00028.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html">gengeopop::geogrid_detail::KdTree2DPoint</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/dea/a00054.html">KdTree</a> for some more information on methods  <a href="../../dc/d87/a00032.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html">gengeopop::geogrid_detail::KdTree2DPoint::dimension_type&lt; D &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html">gengeopop::GeoGrid</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8c/a00035.html">gengeopop::GeoGridGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="../../df/d61/a00031.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartialGenerators (analog to <a class="el" href="../../d8/d41/a00038.html" title="Add population to a GeoGrid out of PartionPopulators (analog to GeoGridGenerator) ...">GeoGridPopulator</a>)  <a href="../../d4/d8c/a00035.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d5/d5f/a00461"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d5d/a00463"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d5d/a00463.html">gengeopop::geogrid_detail</a></td></tr>
+<tr class="memitem:d1/d0b/a00452"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0b/a00452.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -169,8 +145,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">GeoGrid.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">GeoGridGenerator.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BaseController.h Source File</title>
+<title>Stride Reference Manual: Boxplot.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,137 +109,124 @@ $(document).ready(function(){initNavTree('d9/dd0/a00191_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">BaseController.h</div>  </div>
+<div class="title">Boxplot.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/dd0/a00191.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d3d/a00409.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d9c/a00413.html">util/Stopwatch.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>SimRunner;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d77/a00095.html">BaseController</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        /// Straight initialization.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d9/d77/a00095.html#a9837dd9796e5b2a40c37984537c1375f">BaseController</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">        /// Virtual desctructor for overloading</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="../../d9/d77/a00095.html#a402d80b213280b46fdda6713c5734389">~BaseController</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">        /// Actual run of the simulator.</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#a69f449954b557b6418f36996253034a0">Control</a>() = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">        /// Returns the SimRunner that is used</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../d9/d77/a00095.html#a5c522f31ad7520a8d8da979a453ed921">GetSimRunner</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Targs&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b">   49</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b">RegisterViewer</a>(Targs&amp;&amp;... args)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keyword">auto</span> v = std::make_shared&lt;T&gt;(<a class="code" href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">m_runner</a>, std::forward&lt;Targs&gt;(args)...);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                m_runner-&gt;Register(v, bind(&amp;T::Update, v, std::placeholders::_1));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">        /// Register the viewers of the SimRunner.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#acbdf31ef7f947010a3c1cba494aa7fd0">RegisterViewers</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">        /// Returns the logger</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d9/d77/a00095.html#aeeb79289441333395c55b949a8c775dd">GetLogger</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> std::string <a class="code" href="../../d9/d77/a00095.html#ad6ad5a418fa38c9e42fa93f88c522860">GetOutputPrefix</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">        /// Empty controller: used as taget for delegation.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d9/d77/a00095.html#a9837dd9796e5b2a40c37984537c1375f">BaseController</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">        /// Check install environment.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#ab018c0bad76fb740e98203ca2d432a26">CheckEnv</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// Output_prefix: if it&#39;s a string not containing any / it gets interpreted as a</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// filename prefix; otherwise we &#39;ll create the corresponding directory.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#a0837ea00e86c16aa6e7e7fa6d31d5a57">CheckOutputPrefix</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">        /// Logs info on setup for cli environment to stride_logger.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#ad3e11456e1c2d064aa7307045761ca04">LogSetup</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">        /// Make the appropriate logger for cli environment and register as stride_logger.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#a2d12c22b23e4f38dc6ce483e0edcee84">MakeLogger</a>();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">        /// Patch run configuration with cli overrides and defaults.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#a939613d6334e50ba91e96f92bd013204">PatchConfig</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">        /// Read configuration file.</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d9/d77/a00095.html#aeb3cf705a4906867e3e63d2c430a7f52">ReadConfigFile</a>();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#a168454c784330f99397bac8249d7c1f4">   86</a></span>&#160;        boost::property_tree::ptree     <a class="code" href="../../d9/d77/a00095.html#a168454c784330f99397bac8249d7c1f4">m_config_pt</a>;        <span class="comment">///&lt; Main configuration for run and sim.</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#a353127db697307bd1851455813269695">   87</a></span>&#160;<span class="comment"></span>        std::string                     <a class="code" href="../../d9/d77/a00095.html#a353127db697307bd1851455813269695">m_output_prefix</a>;    <span class="comment">///&lt; Prefix to output (name prefix or prefix dir)</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#a02262faead2ab4d3f9c65616d6a6e0e1">   88</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../d0/d48/a00165.html">util::Stopwatch&lt;&gt;</a>               <a class="code" href="../../d9/d77/a00095.html#a02262faead2ab4d3f9c65616d6a6e0e1">m_run_clock</a>;        <span class="comment">///&lt; Stopwatch for timing the computation.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#a7cdffe733cbad2794e23eb82606c8b5c">   89</a></span>&#160;<span class="comment"></span>        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d9/d77/a00095.html#a7cdffe733cbad2794e23eb82606c8b5c">m_stride_logger</a>;    <span class="comment">///&lt; General logger.</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#ae430f32baafa359df7630e93466cb595">   90</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span>                            <a class="code" href="../../d9/d77/a00095.html#ae430f32baafa359df7630e93466cb595">m_use_install_dirs</a>; <span class="comment">///&lt; Working dir or install dir mode.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">   91</a></span>&#160;<span class="comment"></span>        std::shared_ptr&lt;SimRunner&gt;      <a class="code" href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">m_runner</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d9/d77/a00095.html#abb4597d6e5cd9192060281895542847d">   92</a></span>&#160;        <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>                 <a class="code" href="../../d9/d77/a00095.html#abb4597d6e5cd9192060281895542847d">m_rn_manager</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
+<a href="../../d9/dd0/a00191.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/da2/a00192.html">Boxplot.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d9/d69/a00451.html">    5</a></span>&#160;<span class="keyword">namespace </span>calibration {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Inspired by https://doc.qt.io/qt-5.10/qtcharts-boxplotchart-example.html</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#ad9a45d30a93277aaa13c42ff5d381f09">   11</a></span>&#160;<a class="code" href="../../d1/d7c/a00003.html#ad9a45d30a93277aaa13c42ff5d381f09">Boxplot::Boxplot</a>() : m_logger(stride::util::LogUtils::CreateCliLogger(<span class="stringliteral">&quot;boxplot_m_logger&quot;</span>, <span class="stringliteral">&quot;boxplot_log.txt&quot;</span>)) {}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">   13</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">Boxplot::FindMedian</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> begin, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> end, std::vector&lt;unsigned int&gt;&amp; results)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> count = end - begin;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">if</span> (count % 2) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="keywordflow">return</span> results.at(count / 2 + begin);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="keywordtype">double</span> right = results.at(count / 2 + begin);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordtype">double</span> left  = results.at(count / 2 - 1 + begin);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">return</span> (right + left) / 2.0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#a9c73d82ee83ebb4a58329afd59e7ca90">   24</a></span>&#160;std::vector&lt;BoxplotData&gt; <a class="code" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Boxplot::Calculate</a>(<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;std::vector&lt;unsigned int&gt;&gt;&gt;&amp; data,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> step)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::vector&lt;BoxplotData&gt; boxplots;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; config : data) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                std::vector&lt;unsigned int&gt; results;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; run : config.second) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        <span class="keywordflow">if</span> (run.size() - 1 &lt; step) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                <a class="code" href="../../d1/d7c/a00003.html#a583193d5b2376fb8f40715fdd3b6db4f">m_logger</a>-&gt;error(<span class="stringliteral">&quot;No such step {} for {} in input.&quot;</span>, step, config.first);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                        results.push_back(run[step]);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                boxplots.push_back(<a class="code" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Calculate</a>(results, config.first + <span class="stringliteral">&quot; step &quot;</span> + std::to_string(step)));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> boxplots;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#a07b21a6e037c8324b63e2ec67d566968">   41</a></span>&#160;std::vector&lt;BoxplotData&gt; <a class="code" href="../../d1/d7c/a00003.html#a07b21a6e037c8324b63e2ec67d566968">Boxplot::CalculateLastStep</a>(</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;std::vector&lt;unsigned int&gt;&gt;&gt;&amp; data)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::vector&lt;BoxplotData&gt; boxplots;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; config : data) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                std::vector&lt;unsigned int&gt; results;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; run : config.second) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        results.push_back(run[run.size() - 1]);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                boxplots.push_back(<a class="code" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Calculate</a>(results, config.first));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> boxplots;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">   55</a></span>&#160;std::vector&lt;BoxplotData&gt; <a class="code" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Boxplot::Calculate</a>(</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;std::vector&lt;unsigned int&gt;&gt;&gt;&amp; data)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::vector&lt;BoxplotData&gt; boxplots;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; config : data) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">if</span> (config.second.empty())</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> step = 0; step &lt; config.second[0].size(); step++) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        std::vector&lt;unsigned int&gt; results;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; run : config.second) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                <span class="keywordflow">if</span> (run.size() - 1 &lt; step) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                        <a class="code" href="../../d1/d7c/a00003.html#a583193d5b2376fb8f40715fdd3b6db4f">m_logger</a>-&gt;error(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                            <span class="stringliteral">&quot;Inconstistent input data! Not all runs have the same number of steps.&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                results.push_back(run[step]);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        boxplots.push_back(<a class="code" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Calculate</a>(results, config.first + <span class="stringliteral">&quot; step &quot;</span> + std::to_string(step)));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> boxplots;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#a9994fd4bb5859c027cbfc29c566ae4c0">   78</a></span>&#160;<a class="code" href="../../d0/d0b/a00004.html">BoxplotData</a> <a class="code" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Boxplot::Calculate</a>(std::vector&lt;unsigned int&gt; data, std::string name)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        std::sort(data.begin(), data.end());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (data.size() &lt;= 1) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <a class="code" href="../../d1/d7c/a00003.html#a583193d5b2376fb8f40715fdd3b6db4f">m_logger</a>-&gt;warn(<span class="stringliteral">&quot;Warning: Could not generate information: not enough data.&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = data.size();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="../../d0/d0b/a00004.html">BoxplotData</a>  boxplotData;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        boxplotData.<a class="code" href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">name</a>           = name;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        boxplotData.<a class="code" href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">min_value</a>      = *std::min_element(data.begin(), data.end());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        boxplotData.<a class="code" href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">max_value</a>      = *std::max_element(data.begin(), data.end());</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        boxplotData.<a class="code" href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">median</a>         = <a class="code" href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">FindMedian</a>(0, count, data);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        boxplotData.<a class="code" href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">lower_quartile</a> = <a class="code" href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">FindMedian</a>(0, static_cast&lt;unsigned long&gt;(count / 2.0), data);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        boxplotData.<a class="code" href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">upper_quartile</a> = <a class="code" href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">FindMedian</a>(static_cast&lt;unsigned long&gt;(count / 2.0 + (count % 2)), count, data);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> boxplotData;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00095_html_a402d80b213280b46fdda6713c5734389"><div class="ttname"><a href="../../d9/d77/a00095.html#a402d80b213280b46fdda6713c5734389">stride::BaseController::~BaseController</a></div><div class="ttdeci">virtual ~BaseController()=default</div><div class="ttdoc">Virtual desctructor for overloading. </div></div>
-<div class="ttc" id="a00095_html_a5c522f31ad7520a8d8da979a453ed921"><div class="ttname"><a href="../../d9/d77/a00095.html#a5c522f31ad7520a8d8da979a453ed921">stride::BaseController::GetSimRunner</a></div><div class="ttdeci">virtual std::shared_ptr&lt; SimRunner &gt; GetSimRunner()</div><div class="ttdoc">Returns the SimRunner that is used. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00168">BaseController.cpp:168</a></div></div>
-<div class="ttc" id="a00095_html_ab018c0bad76fb740e98203ca2d432a26"><div class="ttname"><a href="../../d9/d77/a00095.html#ab018c0bad76fb740e98203ca2d432a26">stride::BaseController::CheckEnv</a></div><div class="ttdeci">virtual void CheckEnv()</div><div class="ttdoc">Check install environment. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00080">BaseController.cpp:80</a></div></div>
-<div class="ttc" id="a00095_html_a0837ea00e86c16aa6e7e7fa6d31d5a57"><div class="ttname"><a href="../../d9/d77/a00095.html#a0837ea00e86c16aa6e7e7fa6d31d5a57">stride::BaseController::CheckOutputPrefix</a></div><div class="ttdeci">virtual void CheckOutputPrefix()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00090">BaseController.cpp:90</a></div></div>
-<div class="ttc" id="a00095_html_ad3e11456e1c2d064aa7307045761ca04"><div class="ttname"><a href="../../d9/d77/a00095.html#ad3e11456e1c2d064aa7307045761ca04">stride::BaseController::LogSetup</a></div><div class="ttdeci">virtual void LogSetup()</div><div class="ttdoc">Logs info on setup for cli environment to stride_logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00144">BaseController.cpp:144</a></div></div>
-<div class="ttc" id="a00095_html_a2d12c22b23e4f38dc6ce483e0edcee84"><div class="ttname"><a href="../../d9/d77/a00095.html#a2d12c22b23e4f38dc6ce483e0edcee84">stride::BaseController::MakeLogger</a></div><div class="ttdeci">virtual void MakeLogger()</div><div class="ttdoc">Make the appropriate logger for cli environment and register as stride_logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00102">BaseController.cpp:102</a></div></div>
-<div class="ttc" id="a00095_html_ad6ad5a418fa38c9e42fa93f88c522860"><div class="ttname"><a href="../../d9/d77/a00095.html#ad6ad5a418fa38c9e42fa93f88c522860">stride::BaseController::GetOutputPrefix</a></div><div class="ttdeci">virtual std::string GetOutputPrefix()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00170">BaseController.cpp:170</a></div></div>
-<div class="ttc" id="a00409_html"><div class="ttname"><a href="../../de/d3d/a00409.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">stride::BaseController</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00033">BaseController.h:33</a></div></div>
-<div class="ttc" id="a00095_html_a168454c784330f99397bac8249d7c1f4"><div class="ttname"><a href="../../d9/d77/a00095.html#a168454c784330f99397bac8249d7c1f4">stride::BaseController::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdoc">Main configuration for run and sim. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00086">BaseController.h:86</a></div></div>
-<div class="ttc" id="a00095_html_a02262faead2ab4d3f9c65616d6a6e0e1"><div class="ttname"><a href="../../d9/d77/a00095.html#a02262faead2ab4d3f9c65616d6a6e0e1">stride::BaseController::m_run_clock</a></div><div class="ttdeci">util::Stopwatch m_run_clock</div><div class="ttdoc">Stopwatch for timing the computation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00088">BaseController.h:88</a></div></div>
-<div class="ttc" id="a00095_html_abb4597d6e5cd9192060281895542847d"><div class="ttname"><a href="../../d9/d77/a00095.html#abb4597d6e5cd9192060281895542847d">stride::BaseController::m_rn_manager</a></div><div class="ttdeci">util::RNManager m_rn_manager</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00092">BaseController.h:92</a></div></div>
-<div class="ttc" id="a00095_html_ae430f32baafa359df7630e93466cb595"><div class="ttname"><a href="../../d9/d77/a00095.html#ae430f32baafa359df7630e93466cb595">stride::BaseController::m_use_install_dirs</a></div><div class="ttdeci">bool m_use_install_dirs</div><div class="ttdoc">Working dir or install dir mode. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00090">BaseController.h:90</a></div></div>
-<div class="ttc" id="a00095_html_a939613d6334e50ba91e96f92bd013204"><div class="ttname"><a href="../../d9/d77/a00095.html#a939613d6334e50ba91e96f92bd013204">stride::BaseController::PatchConfig</a></div><div class="ttdeci">void PatchConfig()</div><div class="ttdoc">Patch run configuration with cli overrides and defaults. </div></div>
-<div class="ttc" id="a00095_html_a353127db697307bd1851455813269695"><div class="ttname"><a href="../../d9/d77/a00095.html#a353127db697307bd1851455813269695">stride::BaseController::m_output_prefix</a></div><div class="ttdeci">std::string m_output_prefix</div><div class="ttdoc">Prefix to output (name prefix or prefix dir) </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00087">BaseController.h:87</a></div></div>
-<div class="ttc" id="a00095_html_acbdf31ef7f947010a3c1cba494aa7fd0"><div class="ttname"><a href="../../d9/d77/a00095.html#acbdf31ef7f947010a3c1cba494aa7fd0">stride::BaseController::RegisterViewers</a></div><div class="ttdeci">virtual void RegisterViewers()</div><div class="ttdoc">Register the viewers of the SimRunner. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00112">BaseController.cpp:112</a></div></div>
-<div class="ttc" id="a00095_html_a9837dd9796e5b2a40c37984537c1375f"><div class="ttname"><a href="../../d9/d77/a00095.html#a9837dd9796e5b2a40c37984537c1375f">stride::BaseController::BaseController</a></div><div class="ttdeci">BaseController()</div><div class="ttdoc">Empty controller: used as taget for delegation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00047">BaseController.cpp:47</a></div></div>
-<div class="ttc" id="a00095_html_a69f449954b557b6418f36996253034a0"><div class="ttname"><a href="../../d9/d77/a00095.html#a69f449954b557b6418f36996253034a0">stride::BaseController::Control</a></div><div class="ttdeci">virtual void Control()=0</div><div class="ttdoc">Actual run of the simulator. </div></div>
-<div class="ttc" id="a00095_html_a904f58a60d934c8726f100a820c5322b"><div class="ttname"><a href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b">stride::BaseController::RegisterViewer</a></div><div class="ttdeci">void RegisterViewer(Targs &amp;&amp;...args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00049">BaseController.h:49</a></div></div>
-<div class="ttc" id="a00095_html_ab18dbcda248fedfaeae623a2503ec1ab"><div class="ttname"><a href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">stride::BaseController::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00091">BaseController.h:91</a></div></div>
-<div class="ttc" id="a00413_html"><div class="ttname"><a href="../../da/d9c/a00413.html">Stopwatch.h</a></div><div class="ttdoc">Definition of Stopwatch. </div></div>
-<div class="ttc" id="a00095_html_a7cdffe733cbad2794e23eb82606c8b5c"><div class="ttname"><a href="../../d9/d77/a00095.html#a7cdffe733cbad2794e23eb82606c8b5c">stride::BaseController::m_stride_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_stride_logger</div><div class="ttdoc">General logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00089">BaseController.h:89</a></div></div>
-<div class="ttc" id="a00095_html_aeb3cf705a4906867e3e63d2c430a7f52"><div class="ttname"><a href="../../d9/d77/a00095.html#aeb3cf705a4906867e3e63d2c430a7f52">stride::BaseController::ReadConfigFile</a></div><div class="ttdeci">void ReadConfigFile()</div><div class="ttdoc">Read configuration file. </div></div>
-<div class="ttc" id="a00165_html"><div class="ttname"><a href="../../d0/d48/a00165.html">stride::util::Stopwatch</a></div><div class="ttdoc">Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d9c/a00413_source.html#l00034">Stopwatch.h:34</a></div></div>
-<div class="ttc" id="a00095_html_aeeb79289441333395c55b949a8c775dd"><div class="ttname"><a href="../../d9/d77/a00095.html#aeeb79289441333395c55b949a8c775dd">stride::BaseController::GetLogger</a></div><div class="ttdeci">virtual std::shared_ptr&lt; spdlog::logger &gt; GetLogger() const </div><div class="ttdoc">Returns the logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6e/a00190_source.html#l00166">BaseController.cpp:166</a></div></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace calibration</span></div>
+<div class="ttc" id="a00004_html_a960b021f1a4f6f4f96a07695e703a254"><div class="ttname"><a href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">calibration::BoxplotData::lower_quartile</a></div><div class="ttdeci">double lower_quartile</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00015">BoxplotData.h:15</a></div></div>
+<div class="ttc" id="a00004_html_a008469d5fc5d9abbdc9ad1baab672165"><div class="ttname"><a href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">calibration::BoxplotData::median</a></div><div class="ttdeci">double median</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00014">BoxplotData.h:14</a></div></div>
+<div class="ttc" id="a00004_html_a4ab0898577209988d5139777629652bf"><div class="ttname"><a href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">calibration::BoxplotData::max_value</a></div><div class="ttdeci">double max_value</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00013">BoxplotData.h:13</a></div></div>
+<div class="ttc" id="a00004_html_a72a394df7beccfcfb95e0ead67ff7bbc"><div class="ttname"><a href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">calibration::BoxplotData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00011">BoxplotData.h:11</a></div></div>
+<div class="ttc" id="a00004_html_ac466b65750251938495b974dfc1ed160"><div class="ttname"><a href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">calibration::BoxplotData::min_value</a></div><div class="ttdeci">double min_value</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00012">BoxplotData.h:12</a></div></div>
+<div class="ttc" id="a00003_html_ad9a45d30a93277aaa13c42ff5d381f09"><div class="ttname"><a href="../../d1/d7c/a00003.html#ad9a45d30a93277aaa13c42ff5d381f09">calibration::Boxplot::Boxplot</a></div><div class="ttdeci">Boxplot()</div><div class="ttdoc">Setup. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00011">Boxplot.cpp:11</a></div></div>
+<div class="ttc" id="a00003_html_a07b21a6e037c8324b63e2ec67d566968"><div class="ttname"><a href="../../d1/d7c/a00003.html#a07b21a6e037c8324b63e2ec67d566968">calibration::Boxplot::CalculateLastStep</a></div><div class="ttdeci">std::vector&lt; BoxplotData &gt; CalculateLastStep(const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;data) const </div><div class="ttdoc">Compute the information for the last step in a list of testcase results. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00041">Boxplot.cpp:41</a></div></div>
+<div class="ttc" id="a00004_html_a61c72bd9cca45da1fa59e2739aa00dd9"><div class="ttname"><a href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">calibration::BoxplotData::upper_quartile</a></div><div class="ttdeci">double upper_quartile</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00016">BoxplotData.h:16</a></div></div>
+<div class="ttc" id="a00003_html_ab64b57c32b24ae75db939c865794ff49"><div class="ttname"><a href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">calibration::Boxplot::FindMedian</a></div><div class="ttdeci">double FindMedian(unsigned long begin, unsigned long end, std::vector&lt; unsigned int &gt; &amp;results) const </div><div class="ttdoc">Find the median of values between begin and end in the results. This vector needs to be sorted...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00013">Boxplot.cpp:13</a></div></div>
+<div class="ttc" id="a00003_html_ab82c8f0821323b55645f69efc0db8325"><div class="ttname"><a href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">calibration::Boxplot::Calculate</a></div><div class="ttdeci">std::vector&lt; BoxplotData &gt; Calculate(const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;data) const </div><div class="ttdoc">Compute the information for each step in a list of testcase results. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00055">Boxplot.cpp:55</a></div></div>
+<div class="ttc" id="a00192_html"><div class="ttname"><a href="../../dd/da2/a00192.html">Boxplot.h</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">calibration::BoxplotData</a></div><div class="ttdoc">The data that describes a boxplot. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00007">BoxplotData.h:7</a></div></div>
+<div class="ttc" id="a00003_html_a583193d5b2376fb8f40715fdd3b6db4f"><div class="ttname"><a href="../../d1/d7c/a00003.html#a583193d5b2376fb8f40715fdd3b6db4f">calibration::Boxplot::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdoc">Logger to use for this class. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00039">Boxplot.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">BaseController.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:56 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">Boxplot.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

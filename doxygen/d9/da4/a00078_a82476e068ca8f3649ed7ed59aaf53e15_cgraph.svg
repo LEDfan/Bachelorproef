@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a764a1803d2df7509dba617e753f483fb" target="_top" xlink:title="Launcher::LoadComboBox">
+<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a764a1803d2df7509dba617e753f483fb" target="_top" xlink:title="Sets the value of the provided ComboBox to the provided value. ">
 <polygon fill="white" stroke="black" points="182,-0.5 182,-19.5 314,-19.5 314,-0.5 182,-0.5"/>
 <text text-anchor="middle" x="248" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::LoadComboBox</text>
 </a>

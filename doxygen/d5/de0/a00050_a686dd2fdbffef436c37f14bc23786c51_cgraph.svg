@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57" target="_top" xlink:title="gengeopop::ContactCenter\l::AddPool">
+<g id="a_node2"><a xlink:href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57" target="_top" xlink:title="Add a ContactPool. ">
 <polygon fill="white" stroke="black" points="154,-49 154,-79 288,-79 288,-49 154,-49"/>
 <text text-anchor="start" x="162" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::ContactCenter</text>
 <text text-anchor="middle" x="221" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPool</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d5/de0/a00050.html#add262995f20f78d16c8dffc8c8ba0b3c" target="_top" xlink:title="gengeopop::K12School\l::GetMaxPools">
+<g id="a_node3"><a xlink:href="../../d5/de0/a00050.html#add262995f20f78d16c8dffc8c8ba0b3c" target="_top" xlink:title="Get the maximal number of pools for this center. ">
 <polygon fill="white" stroke="black" points="162.5,-0 162.5,-30 279.5,-30 279.5,-0 162.5,-0"/>
 <text text-anchor="start" x="170.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::K12School</text>
 <text text-anchor="middle" x="221" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::GetMaxPools</text>

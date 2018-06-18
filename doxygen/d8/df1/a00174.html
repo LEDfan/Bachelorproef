@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::viewers::MapViewer Class Reference</title>
+<title>Stride Reference Manual: AbstractPopBuilder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -52,8 +52,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -74,10 +74,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -111,278 +109,57 @@ $(document).ready(function(){initNavTree('d8/df1/a00174.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d8/d4e/a01355.html">List of all members</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::MapViewer Class Reference</div>  </div>
+<div class="title">AbstractPopBuilder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for stride::viewers::MapViewer:</div>
+<p>Base Class for PopBuilders.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
+<code>#include &lt;spdlog/logger.h&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for AbstractPopBuilder.h:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d3f/a01356.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/dc5/a00480.svg" width="374" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d3/d58/a00481.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="../../d8/df1/a00174_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a354bb93b86fe6ab7d88188f3e66cc8e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#a354bb93b86fe6ab7d88188f3e66cc8e8">MapViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger, QQmlApplicationEngine *engine=nullptr)</td></tr>
-<tr class="memdesc:a354bb93b86fe6ab7d88188f3e66cc8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cli viewer.  <a href="#a354bb93b86fe6ab7d88188f3e66cc8e8">More...</a><br/></td></tr>
-<tr class="separator:a354bb93b86fe6ab7d88188f3e66cc8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347ee82efaa83090012fa331c855285a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#a347ee82efaa83090012fa331c855285a">~MapViewer</a> ()</td></tr>
-<tr class="separator:a347ee82efaa83090012fa331c855285a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a682fd168e97785d7342bc192baeac078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#a682fd168e97785d7342bc192baeac078">Update</a> (const <a class="el" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a682fd168e97785d7342bc192baeac078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a682fd168e97785d7342bc192baeac078">More...</a><br/></td></tr>
-<tr class="separator:a682fd168e97785d7342bc192baeac078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base Class for PopBuilders.  <a href="../../d4/d7d/a00093.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a7899a4938e50547e1b14e387255c290a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">m_logger</a></td></tr>
-<tr class="memdesc:a7899a4938e50547e1b14e387255c290a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The logger used for notifying that the <a class="el" href="../../d8/df1/a00174.html">MapViewer</a> was updated.  <a href="#a7899a4938e50547e1b14e387255c290a">More...</a><br/></td></tr>
-<tr class="separator:a7899a4938e50547e1b14e387255c290a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac76efad12d02ce9ee9f0b8487ff726ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">m_first</a> = true</td></tr>
-<tr class="memdesc:ac76efad12d02ce9ee9f0b8487ff726ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">A variable used to see if it was the first time the "Update" method was called.  <a href="#ac76efad12d02ce9ee9f0b8487ff726ec">More...</a><br/></td></tr>
-<tr class="separator:ac76efad12d02ce9ee9f0b8487ff726ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611730b84751ab3a6fbf48ff64e7a8c5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../da/dec/a00080.html">Map</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a></td></tr>
-<tr class="memdesc:a611730b84751ab3a6fbf48ff64e7a8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../da/dec/a00080.html">Map</a> to display.  <a href="#a611730b84751ab3a6fbf48ff64e7a8c5">More...</a><br/></td></tr>
-<tr class="separator:a611730b84751ab3a6fbf48ff64e7a8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086e9f45a7652dbbb2f2b63a790f41d7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">m_runner</a></td></tr>
-<tr class="memdesc:a086e9f45a7652dbbb2f2b63a790f41d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The runner for the current simulation.  <a href="#a086e9f45a7652dbbb2f2b63a790f41d7">More...</a><br/></td></tr>
-<tr class="separator:a086e9f45a7652dbbb2f2b63a790f41d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:db/de0/a00465"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de0/a00465.html">stride</a></td></tr>
+<tr class="memdesc:db/de0/a00465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/db5/a00472"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db5/a00472.html">stride::util</a></td></tr>
+<tr class="memdesc:d7/db5/a00472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00009">9</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a354bb93b86fe6ab7d88188f3e66cc8e8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::viewers::MapViewer::MapViewer </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QQmlApplicationEngine *&#160;</td>
-          <td class="paramname"><em>engine</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<div class="textblock"><p>Base Class for PopBuilders. </p>
 
-<p>Instantiate cli viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00013">13</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d9b/a00363_source.html#l00028">m_runner</a>, <a class="el" href="../../de/dd7/a00362_source.html#l00009">Update()</a>, and <a class="el" href="../../de/dd7/a00362_source.html#l00033">~MapViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/df1/a00174_a354bb93b86fe6ab7d88188f3e66cc8e8_cgraph.svg" width="422" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a347ee82efaa83090012fa331c855285a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::viewers::MapViewer::~MapViewer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../de/dd7/a00362_source.html#l00033">33</a> of file <a class="el" href="../../de/dd7/a00362_source.html">MapViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d9b/a00363_source.html#l00013">MapViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/df1/a00174_a347ee82efaa83090012fa331c855285a_icgraph.svg" width="422" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a682fd168e97785d7342bc192baeac078"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::MapViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../de/dd7/a00362_source.html#l00009">9</a> of file <a class="el" href="../../de/dd7/a00362_source.html">MapViewer.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d9b/a00363_source.html#l00026">m_first</a>, <a class="el" href="../../d9/d9b/a00363_source.html#l00025">m_logger</a>, <a class="el" href="../../d9/d9b/a00363_source.html#l00028">m_runner</a>, and <a class="el" href="../../d9/d9b/a00363_source.html#l00027">m_vis</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d9b/a00363_source.html#l00013">MapViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/df1/a00174_a682fd168e97785d7342bc192baeac078_icgraph.svg" width="422" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a7899a4938e50547e1b14e387255c290a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::viewers::MapViewer::m_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The logger used for notifying that the <a class="el" href="../../d8/df1/a00174.html">MapViewer</a> was updated. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00025">25</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/dd7/a00362_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac76efad12d02ce9ee9f0b8487ff726ec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::viewers::MapViewer::m_first = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A variable used to see if it was the first time the "Update" method was called. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00026">26</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/dd7/a00362_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a611730b84751ab3a6fbf48ff64e7a8c5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../da/dec/a00080.html">Map</a>&gt; stride::viewers::MapViewer::m_vis</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../da/dec/a00080.html">Map</a> to display. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00027">27</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/dd7/a00362_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a086e9f45a7652dbbb2f2b63a790f41d7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d5/d4e/a00141.html">SimRunner</a>&gt; stride::viewers::MapViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The runner for the current simulation. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d9b/a00363_source.html#l00028">28</a> of file <a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d9b/a00363_source.html#l00013">MapViewer()</a>, and <a class="el" href="../../de/dd7/a00362_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d9b/a00363_source.html">MapViewer.h</a></li>
-<li><a class="el" href="../../de/dd7/a00362_source.html">MapViewer.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d8/df1/a00174_source.html">AbstractPopBuilder.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d8/d89/a00484.html">viewers</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">MapViewer</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">AbstractPopBuilder.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

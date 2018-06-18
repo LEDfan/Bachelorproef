@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d3/d65/a00154.html#a2e80d7e6f1045279269a967ad8476422" target="_top" xlink:title="Read ptree from file at path. ">
+<g id="a_node2"><a xlink:href="../../da/d01/a00153.html#a2e80d7e6f1045279269a967ad8476422" target="_top" xlink:title="Read ptree from file at path. ">
 <polygon fill="white" stroke="black" points="186,-39 186,-69 284,-69 284,-39 186,-39"/>
 <text text-anchor="start" x="194" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys</text>
 <text text-anchor="middle" x="235" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::ReadPtreeFile</text>
@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d9/da4/a00078.html#a82476e068ca8f3649ed7ed59aaf53e15" target="_top" xlink:title="Launcher::UpdateConfigForm">
+<g id="a_node3"><a xlink:href="../../d9/da4/a00078.html#a82476e068ca8f3649ed7ed59aaf53e15" target="_top" xlink:title="Updates the information in the QML forms with what is stored in the Boost Property Tree...">
 <polygon fill="white" stroke="black" points="162.5,-0.5 162.5,-19.5 307.5,-19.5 307.5,-0.5 162.5,-0.5"/>
 <text text-anchor="middle" x="235" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::UpdateConfigForm</text>
 </a>
@@ -43,7 +43,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d9/da4/a00078.html#a764a1803d2df7509dba617e753f483fb" target="_top" xlink:title="Launcher::LoadComboBox">
+<g id="a_node4"><a xlink:href="../../d9/da4/a00078.html#a764a1803d2df7509dba617e753f483fb" target="_top" xlink:title="Sets the value of the provided ComboBox to the provided value. ">
 <polygon fill="white" stroke="black" points="344,-0.5 344,-19.5 476,-19.5 476,-0.5 344,-0.5"/>
 <text text-anchor="middle" x="410" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::LoadComboBox</text>
 </a>

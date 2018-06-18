@@ -1,10 +1,7 @@
-<map id="PartitionedSegmentedVector.h" name="PartitionedSegmentedVector.h">
-<area shape="rect" id="node2" href="$d5/d35/a00266.html" title="Exception.h" alt="" coords="189,80,280,107"/>
-<area shape="rect" id="node4" href="$d6/db8/a00376.html" title="util/pchheader.h" alt="" coords="488,80,603,107"/>
-<area shape="rect" id="node5" href="$d1/da8/a00230.html" title="util/ConcatednatedIterators.h" alt="" coords="629,155,819,181"/>
-<area shape="rect" id="node7" href="$df/d91/a00335.html" title="util/IteratorPair.h" alt="" coords="486,155,604,181"/>
-<area shape="rect" id="node8" href="$dd/db5/a00365.html" title="Interface/Implementation for NestedIterator. " alt="" coords="843,155,980,181"/>
-<area shape="rect" id="node15" href="$d4/d53/a00429.html" title="Interface/Implementation for SVIterator. " alt="" coords="159,229,272,256"/>
-<area shape="rect" id="node17" href="$d0/da0/a00403.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="251,155,409,181"/>
-<area shape="rect" id="node20" href="$db/ddc/a00353.html" title="util/lower_bound.h" alt="" coords="1005,155,1131,181"/>
+<map id="PrimaryCommunity.h" name="PrimaryCommunity.h">
+<area shape="rect" id="node2" href="$dc/d9a/a00218.html" title="CommunityGenerator.cpp" alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node3" href="$dc/d28/a00276.html" title="GeoGridJSONReader.cpp" alt="" coords="200,80,373,107"/>
+<area shape="rect" id="node4" href="$dc/dc9/a00282.html" title="GeoGridProtoReader.cpp" alt="" coords="397,80,565,107"/>
+<area shape="rect" id="node5" href="$d8/d95/a00379.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="590,80,804,107"/>
+<area shape="rect" id="node6" href="$d4/d13/a00377.html" title="PrimaryCommunity.cpp" alt="" coords="829,80,987,107"/>
 </map>

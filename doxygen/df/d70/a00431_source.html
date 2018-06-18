@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TestCalibrationRunner.h Source File</title>
+<title>Stride Reference Manual: TravellerProfileBuilder.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,42 +109,99 @@ $(document).ready(function(){initNavTree('df/d70/a00431_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TestCalibrationRunner.h</div>  </div>
+<div class="title">TravellerProfileBuilder.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/d70/a00431.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d79/a00203.html">CalibrationRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d13/a00205.html">Calibrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>calibration {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * A runner for the Calibration</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/da0/a00009.html">TestCalibrationRunner</a> : <span class="keyword">public</span> <a class="code" href="../../de/d21/a00006.html">CalibrationRunner</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Setup, retrieves the ptrees from the ScenarioData</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <a class="code" href="../../da/da0/a00009.html#a9c0a5e130799c1b1365326c2b63d0e26">TestCalibrationRunner</a>(std::vector&lt;std::string&gt; testcases);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace calibration</span></div>
-<div class="ttc" id="a00009_html_a9c0a5e130799c1b1365326c2b63d0e26"><div class="ttname"><a href="../../da/da0/a00009.html#a9c0a5e130799c1b1365326c2b63d0e26">calibration::TestCalibrationRunner::TestCalibrationRunner</a></div><div class="ttdeci">TestCalibrationRunner(std::vector&lt; std::string &gt; testcases)</div><div class="ttdoc">Setup, retrieves the ptrees from the ScenarioData. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0c/a00430_source.html#l00008">TestCalibrationRunner.cpp:8</a></div></div>
-<div class="ttc" id="a00203_html"><div class="ttname"><a href="../../de/d79/a00203.html">CalibrationRunner.h</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">calibration::CalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d79/a00203_source.html#l00013">CalibrationRunner.h:13</a></div></div>
-<div class="ttc" id="a00009_html"><div class="ttname"><a href="../../da/da0/a00009.html">calibration::TestCalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d70/a00431_source.html#l00014">TestCalibrationRunner.h:14</a></div></div>
-<div class="ttc" id="a00205_html"><div class="ttname"><a href="../../d5/d13/a00205.html">Calibrator.h</a></div></div>
+<a href="../../df/d70/a00431.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd5/a00432.html">TravellerProfileBuilder.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d1f/a00247.html">util/CSV.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/operations.hpp&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dd/dcb/a00375.html">pop/Population.h</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/d1f/a00247.html">util/CSV.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/da9/a00263.html">util/FileSys.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../db/db9/a00387.html">util/RNManager.h</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d0/d4a/a00147.html#a92a979fcc9126020bb317ea37d26296f">   14</a></span>&#160;<a class="code" href="../../d0/d4a/a00147.html#a92a979fcc9126020bb317ea37d26296f">TravellerProfileBuilder::TravellerProfileBuilder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                                 <a class="code" href="../../d1/db7/a00157.html">util::RNManager</a>&amp; rnManager, std::shared_ptr&lt;Population&gt; pop)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    : m_configPt(configPt), m_rnManager(rnManager), m_pop(std::move(pop))</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d0/d4a/a00147.html#a054950caec73fe87d50736d61377d182">   20</a></span>&#160;std::shared_ptr&lt;TravellerProfile&gt; <a class="code" href="../../d0/d4a/a00147.html#a054950caec73fe87d50736d61377d182">TravellerProfileBuilder::Build</a>()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::unordered_map&lt;std::string, std::size_t&gt; regions = <a class="code" href="../../d0/d4a/a00147.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">m_pop</a>-&gt;GetRegionIdentifiers();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">auto</span> travellerProfile = std::make_shared&lt;TravellerProfile&gt;(regions.size(), 0.0001, 0.5, <a class="code" href="../../d0/d4a/a00147.html#aad912ff7f64511bae926e1eb87cfe946">m_rnManager</a>, 21);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                boost::optional&lt;std::string&gt; name =</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    <a class="code" href="../../d0/d4a/a00147.html#a3f7685d5081a50a71241c36279c02858">m_configPt</a>.get_optional&lt;std::string&gt;(<span class="stringliteral">&quot;run.traveller_data_recreation&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">if</span> (name) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                        <span class="keyword">const</span> boost::filesystem::path path = <a class="code" href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">util::FileSys::GetDataDir</a>() /= name.value();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        <span class="keywordflow">if</span> (!boost::filesystem::is_regular_file(path)) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                <span class="keywordflow">throw</span> std::runtime_error(std::string(__func__) + <span class="stringliteral">&quot;Traveller data recreation not found&quot;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                        <a class="code" href="../../d9/d7d/a00150.html">stride::util::CSV</a> reader(path);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../dd/db2/a00151.html">stride::util::CSVRow</a>&amp; row : reader) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                <span class="keyword">const</span> std::string&amp; from     = row.GetValue&lt;std::string&gt;(<span class="stringliteral">&quot;from&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                <span class="keyword">const</span> std::string&amp; to       = row.GetValue&lt;std::string&gt;(<span class="stringliteral">&quot;to&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                <span class="keyword">auto</span>               relative = row.GetValue&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;relative&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                travellerProfile-&gt;AddTravelRecreation(regions.at(from), regions.at(to), relative);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                boost::optional&lt;std::string&gt; name = <a class="code" href="../../d0/d4a/a00147.html#a3f7685d5081a50a71241c36279c02858">m_configPt</a>.get_optional&lt;std::string&gt;(<span class="stringliteral">&quot;run.traveller_data_work&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> (name) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        <span class="keyword">const</span> boost::filesystem::path path = <a class="code" href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">util::FileSys::GetDataDir</a>() /= name.value();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        <span class="keywordflow">if</span> (!boost::filesystem::is_regular_file(path)) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                <span class="keywordflow">throw</span> std::runtime_error(std::string(__func__) + <span class="stringliteral">&quot;Traveller data recreation not found&quot;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        <a class="code" href="../../d9/d7d/a00150.html">stride::util::CSV</a> reader(path);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../dd/db2/a00151.html">stride::util::CSVRow</a>&amp; row : reader) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                <span class="keyword">const</span> std::string&amp; from     = row.GetValue&lt;std::string&gt;(<span class="stringliteral">&quot;from&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                <span class="keyword">const</span> std::string&amp; to       = row.GetValue&lt;std::string&gt;(<span class="stringliteral">&quot;to&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                <span class="keyword">auto</span>               relative = row.GetValue&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;relative&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                travellerProfile-&gt;AddTravelWork(regions.at(from), regions.at(to), relative);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> travellerProfile;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00147_html_aad912ff7f64511bae926e1eb87cfe946"><div class="ttname"><a href="../../d0/d4a/a00147.html#aad912ff7f64511bae926e1eb87cfe946">stride::TravellerProfileBuilder::m_rnManager</a></div><div class="ttdeci">util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager (passed to created TravellerProfile) </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00025">TravellerProfileBuilder.h:25</a></div></div>
+<div class="ttc" id="a00247_html"><div class="ttname"><a href="../../d0/d1f/a00247.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
+<div class="ttc" id="a00150_html"><div class="ttname"><a href="../../d9/d7d/a00150.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d1f/a00247_source.html#l00037">CSV.h:37</a></div></div>
+<div class="ttc" id="a00147_html_a3f7685d5081a50a71241c36279c02858"><div class="ttname"><a href="../../d0/d4a/a00147.html#a3f7685d5081a50a71241c36279c02858">stride::TravellerProfileBuilder::m_configPt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_configPt</div><div class="ttdoc">Configuration sued. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00024">TravellerProfileBuilder.h:24</a></div></div>
+<div class="ttc" id="a00147_html_ae183a7f7ec1e3f6a1ee8b1a9e1e41f49"><div class="ttname"><a href="../../d0/d4a/a00147.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49">stride::TravellerProfileBuilder::m_pop</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; m_pop</div><div class="ttdoc">Population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00026">TravellerProfileBuilder.h:26</a></div></div>
+<div class="ttc" id="a00147_html_a054950caec73fe87d50736d61377d182"><div class="ttname"><a href="../../d0/d4a/a00147.html#a054950caec73fe87d50736d61377d182">stride::TravellerProfileBuilder::Build</a></div><div class="ttdeci">std::shared_ptr&lt; TravellerProfile &gt; Build()</div><div class="ttdoc">Build and return the TravellerProfile. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d70/a00431_source.html#l00020">TravellerProfileBuilder.cpp:20</a></div></div>
+<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00375_html"><div class="ttname"><a href="../../dd/dcb/a00375.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00432_html"><div class="ttname"><a href="../../d9/dd5/a00432.html">TravellerProfileBuilder.h</a></div></div>
+<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00153_html_aafd39e698c442fd0917915d085c9aa1a"><div class="ttname"><a href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a></div><div class="ttdeci">static boost::filesystem::path GetDataDir()</div><div class="ttdoc">/// Return data dir (only relevant when use_install_dirs mode is active) </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da9/a00263_source.html#l00077">FileSys.h:77</a></div></div>
+<div class="ttc" id="a00147_html_a92a979fcc9126020bb317ea37d26296f"><div class="ttname"><a href="../../d0/d4a/a00147.html#a92a979fcc9126020bb317ea37d26296f">stride::TravellerProfileBuilder::TravellerProfileBuilder</a></div><div class="ttdeci">TravellerProfileBuilder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d70/a00431_source.html#l00014">TravellerProfileBuilder.cpp:14</a></div></div>
+<div class="ttc" id="a00151_html"><div class="ttname"><a href="../../dd/db2/a00151.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00037">CSVRow.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../df/d70/a00431.html">TestCalibrationRunner.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../df/d70/a00431.html">TravellerProfileBuilder.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

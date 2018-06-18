@@ -63,7 +63,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" target="_top" xlink:title="gengeopop::HouseholdPopulator\l::Apply">
+<g id="a_node2"><a xlink:href="../../d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" target="_top" xlink:title="Populate the given geogrid. ">
 <polygon fill="white" stroke="black" points="144,-98 144,-128 302,-128 302,-98 144,-98"/>
 <text text-anchor="start" x="152" y="-116" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::HouseholdPopulator</text>
 <text text-anchor="middle" x="223" y="-105" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>

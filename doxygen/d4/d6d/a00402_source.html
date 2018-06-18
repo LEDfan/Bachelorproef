@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SecondaryCommunityPopulator.h Source File</title>
+<title>Stride Reference Manual: SimWorker.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,37 +109,51 @@ $(document).ready(function(){initNavTree('d4/d6d/a00402_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SecondaryCommunityPopulator.h</div>  </div>
+<div class="title">SimWorker.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d4/d6d/a00402.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de3/a00373.html">PartialPopulator.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">SecondaryCommunityPopulator</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d22/a00057.html">PartialPopulator</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator::PartialPopulator</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a2ae716371ebfd9bf1bd7eba3dfe4b8d2">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">gengeopop::SecondaryCommunityPopulator</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00008">SecondaryCommunityPopulator.h:8</a></div></div>
-<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d5d/a00278_source.html#l00013">GeoGridConfig.h:13</a></div></div>
-<div class="ttc" id="a00064_html_a2ae716371ebfd9bf1bd7eba3dfe4b8d2"><div class="ttname"><a href="../../df/d5f/a00064.html#a2ae716371ebfd9bf1bd7eba3dfe4b8d2">gengeopop::SecondaryCommunityPopulator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d00/a00401_source.html#l00013">SecondaryCommunityPopulator.cpp:13</a></div></div>
-<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></div><div class="ttdoc">An interface for populators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de3/a00373_source.html#l00013">PartialPopulator.h:13</a></div></div>
-<div class="ttc" id="a00057_html_ab0d36a7eec42c951ab03d32db44566db"><div class="ttname"><a href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">gengeopop::PartialPopulator::PartialPopulator</a></div><div class="ttdeci">PartialPopulator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d7e/a00372_source.html#l00004">PartialPopulator.cpp:4</a></div></div>
-<div class="ttc" id="a00373_html"><div class="ttname"><a href="../../dc/de3/a00373.html">PartialPopulator.h</a></div></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QtCore/QObject&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d95/a00400.html">sim/SimRunner.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>stride {<span class="comment"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * A worker class used to perform 1 step of the simulation on a different thread.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d2/d82/a00142.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d82/a00142.html">SimWorker</a> : <span class="keyword">public</span> <a class="code" href="../../d9/dec/a00090.html">QObject</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        Q_OBJECT</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">        /// Construct the Simworker with the SimRunner it has to perform a step for</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d2/d82/a00142.html#a0875edd265908fc98c009a0734559b7c">SimWorker</a>(std::shared_ptr&lt;SimRunner&gt; runner);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span> slots:<span class="comment"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">        /// Perform the actual step if we are not at the end of the sim</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d2/d82/a00142.html#ac7ca560af4b686acd9e403fe182861f6">Work</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;signals:<span class="comment"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">        /// Let the caller know that the simulation was completely run and give the current infected count.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d2/d82/a00142.html#abfc68e11e3746597ef229bc2a446b290">Worked</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> infectedCount);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d2/d82/a00142.html#a7128f5bad9e29fcfeeaded32724ec7c7">   25</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../d2/d82/a00142.html#a7128f5bad9e29fcfeeaded32724ec7c7">m_runner</a>; <span class="comment">///&lt; The runner used to perform a step</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00142_html"><div class="ttname"><a href="../../d2/d82/a00142.html">stride::SimWorker</a></div><div class="ttdoc">A worker class used to perform 1 step of the simulation on a different thread. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00011">SimWorker.h:11</a></div></div>
+<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
+<div class="ttc" id="a00400_html"><div class="ttname"><a href="../../d9/d95/a00400.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="ttc" id="a00142_html_a0875edd265908fc98c009a0734559b7c"><div class="ttname"><a href="../../d2/d82/a00142.html#a0875edd265908fc98c009a0734559b7c">stride::SimWorker::SimWorker</a></div><div class="ttdeci">SimWorker(std::shared_ptr&lt; SimRunner &gt; runner)</div><div class="ttdoc">Construct the Simworker with the SimRunner it has to perform a step for. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d00/a00401_source.html#l00006">SimWorker.cpp:6</a></div></div>
+<div class="ttc" id="a00142_html_ac7ca560af4b686acd9e403fe182861f6"><div class="ttname"><a href="../../d2/d82/a00142.html#ac7ca560af4b686acd9e403fe182861f6">stride::SimWorker::Work</a></div><div class="ttdeci">void Work()</div><div class="ttdoc">Perform the actual step if we are not at the end of the sim. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d00/a00401_source.html#l00008">SimWorker.cpp:8</a></div></div>
+<div class="ttc" id="a00142_html_a7128f5bad9e29fcfeeaded32724ec7c7"><div class="ttname"><a href="../../d2/d82/a00142.html#a7128f5bad9e29fcfeeaded32724ec7c7">stride::SimWorker::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdoc">The runner used to perform a step. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d6d/a00402_source.html#l00025">SimWorker.h:25</a></div></div>
+<div class="ttc" id="a00142_html_abfc68e11e3746597ef229bc2a446b290"><div class="ttname"><a href="../../d2/d82/a00142.html#abfc68e11e3746597ef229bc2a446b290">stride::SimWorker::Worked</a></div><div class="ttdeci">void Worked(unsigned int infectedCount)</div><div class="ttdoc">Let the caller know that the simulation was completely run and give the current infected count...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00402.html">SecondaryCommunityPopulator.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_416cd9c18b57e0cec85f7c142c9ff32b.html">guicontroller</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00402.html">SimWorker.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

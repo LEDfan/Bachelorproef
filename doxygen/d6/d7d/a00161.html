@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::RNManager Class Reference</title>
+<title>Stride Reference Manual: stride::util::Stopwatch&lt; T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -111,295 +111,292 @@ $(document).ready(function(){initNavTree('d6/d7d/a00161.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/d45/a01332.html">List of all members</a>  </div>
+<a href="../../d9/de6/a01314.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RNManager Class Reference</div>  </div>
+<div class="title">stride::util::Stopwatch&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Manages random number generation in parallel (OpenMP) calculations.  
+<p>Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  
  <a href="../../d6/d7d/a00161.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RNManager:</div>
+Collaboration diagram for stride::util::Stopwatch&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/d2a/a01333.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/d8e/a01315.svg" width="459" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d44/a00162.html">Info</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">POD representation of the <a class="el" href="../../d6/d7d/a00161.html" title="Manages random number generation in parallel (OpenMP) calculations. ">RNManager</a>'s state.  <a href="../../db/d44/a00162.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aedbb343fde64ffebcdb371dd862aae7f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> = T</td></tr>
+<tr class="separator:aedbb343fde64ffebcdb371dd862aae7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a30121f0f47cf4c23bed8da7521b2b904"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a30121f0f47cf4c23bed8da7521b2b904">RNManager</a> (const <a class="el" href="../../db/d44/a00162.html">Info</a> &amp;info=<a class="el" href="../../db/d44/a00162.html">Info</a>())</td></tr>
-<tr class="memdesc:a30121f0f47cf4c23bed8da7521b2b904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes to default engine( trng::mrg2 with seed 1).  <a href="#a30121f0f47cf4c23bed8da7521b2b904">More...</a><br/></td></tr>
-<tr class="separator:a30121f0f47cf4c23bed8da7521b2b904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09c7ac5ae3b2ecffe9ee9b373d035e57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a09c7ac5ae3b2ecffe9ee9b373d035e57">RNManager</a> (const <a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a09c7ac5ae3b2ecffe9ee9b373d035e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copying.  <a href="#a09c7ac5ae3b2ecffe9ee9b373d035e57">More...</a><br/></td></tr>
-<tr class="separator:a09c7ac5ae3b2ecffe9ee9b373d035e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd2ac6bfbf177b216ce9cfff0626a0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a9bd2ac6bfbf177b216ce9cfff0626a0f">RNManager</a> (<a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:a9bd2ac6bfbf177b216ce9cfff0626a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a546d57ebd3d79450abc641b3ebe5d23c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a546d57ebd3d79450abc641b3ebe5d23c">operator=</a> (const <a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a546d57ebd3d79450abc641b3ebe5d23c"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignement.  <a href="#a546d57ebd3d79450abc641b3ebe5d23c">More...</a><br/></td></tr>
-<tr class="separator:a546d57ebd3d79450abc641b3ebe5d23c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b35b013e3ee4263df703ee01745ea3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a6b35b013e3ee4263df703ee01745ea3f">operator=</a> (<a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:a6b35b013e3ee4263df703ee01745ea3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3faf18a9fdd2400012612a2cafde01a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d44/a00162.html">Info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a3faf18a9fdd2400012612a2cafde01a3">GetInfo</a> () const </td></tr>
-<tr class="memdesc:a3faf18a9fdd2400012612a2cafde01a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the random engine.  <a href="#a3faf18a9fdd2400012612a2cafde01a3">More...</a><br/></td></tr>
-<tr class="separator:a3faf18a9fdd2400012612a2cafde01a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6508932485d419a6e7ab3cac60754ae6"><td class="memTemplParams" colspan="2">template&lt;typename D &gt; </td></tr>
-<tr class="memitem:a6508932485d419a6e7ab3cac60754ae6"><td class="memTemplItemLeft" align="right" valign="top">std::function&lt; typename <br class="typebreak"/>
-D::result_type()&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a> (const D &amp;d, <a class="el" href="../../da/d05/a00489.html">size_t</a> i=0)</td></tr>
-<tr class="memdesc:a6508932485d419a6e7ab3cac60754ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce a random generator out of a distribution bound to sim's random engine.  <a href="#a6508932485d419a6e7ab3cac60754ae6">More...</a><br/></td></tr>
-<tr class="separator:a6508932485d419a6e7ab3cac60754ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7dc58c76f112c8d808866cac5a272d"><td class="memTemplParams" colspan="2">template&lt;typename RandomIt &gt; </td></tr>
-<tr class="memitem:a5a7dc58c76f112c8d808866cac5a272d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a5a7dc58c76f112c8d808866cac5a272d">RandomShuffle</a> (RandomIt first, RandomIt last, <a class="el" href="../../da/d05/a00489.html">size_t</a> i=0)</td></tr>
-<tr class="memdesc:a5a7dc58c76f112c8d808866cac5a272d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly shuffle items between iterators using i-th stream of the random engine.  <a href="#a5a7dc58c76f112c8d808866cac5a272d">More...</a><br/></td></tr>
-<tr class="separator:a5a7dc58c76f112c8d808866cac5a272d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c78f40f38b8a3fc25e2c21be2de505a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a8c78f40f38b8a3fc25e2c21be2de505a">Initialize</a> (const <a class="el" href="../../db/d44/a00162.html">Info</a> &amp;info=<a class="el" href="../../db/d44/a00162.html">Info</a>())</td></tr>
-<tr class="memdesc:a8c78f40f38b8a3fc25e2c21be2de505a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize with data in <a class="el" href="../../db/d44/a00162.html" title="POD representation of the RNManager&#39;s state. ">Info</a>.  <a href="#a8c78f40f38b8a3fc25e2c21be2de505a">More...</a><br/></td></tr>
-<tr class="separator:a8c78f40f38b8a3fc25e2c21be2de505a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49618df845ec996f3a777263c7f376de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a49618df845ec996f3a777263c7f376de">Initialize</a> (std::string type, unsigned long seed, std::string state, unsigned int stream_count)</td></tr>
-<tr class="memdesc:a49618df845ec996f3a777263c7f376de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper method that creates an <a class="el" href="../../db/d44/a00162.html" title="POD representation of the RNManager&#39;s state. ">Info</a> object, used because SWIG can't handle nested structs.  <a href="#a49618df845ec996f3a777263c7f376de">More...</a><br/></td></tr>
-<tr class="separator:a49618df845ec996f3a777263c7f376de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925b07b32b747a519b37c549ba7f1531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a925b07b32b747a519b37c549ba7f1531">Stopwatch</a> (std::string name=&quot;stopwatch&quot;, bool running=false)</td></tr>
+<tr class="memdesc:a925b07b32b747a519b37c549ba7f1531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializes stopwatch.  <a href="#a925b07b32b747a519b37c549ba7f1531">More...</a><br/></td></tr>
+<tr class="separator:a925b07b32b747a519b37c549ba7f1531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf0b5f9f645a7dd6420420443de5a96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a> ()</td></tr>
+<tr class="memdesc:acaf0b5f9f645a7dd6420420443de5a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts stopwatch if it was stopped.  <a href="#acaf0b5f9f645a7dd6420420443de5a96">More...</a><br/></td></tr>
+<tr class="separator:acaf0b5f9f645a7dd6420420443de5a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6145f590e94467a0048817f348ac75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a4b6145f590e94467a0048817f348ac75">Stop</a> ()</td></tr>
+<tr class="memdesc:a4b6145f590e94467a0048817f348ac75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the stopwatch if it was running.  <a href="#a4b6145f590e94467a0048817f348ac75">More...</a><br/></td></tr>
+<tr class="separator:a4b6145f590e94467a0048817f348ac75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a45e66e4b53acb9c8f1edb7d5fda4f451">Reset</a> ()</td></tr>
+<tr class="memdesc:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared.  <a href="#a45e66e4b53acb9c8f1edb7d5fda4f451">More...</a><br/></td></tr>
+<tr class="separator:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6afa0761326b35e675517b6a81ffef1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a6afa0761326b35e675517b6a81ffef1f">IsRunning</a> () const </td></tr>
+<tr class="memdesc:a6afa0761326b35e675517b6a81ffef1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether stopwatch has been started.  <a href="#a6afa0761326b35e675517b6a81ffef1f">More...</a><br/></td></tr>
+<tr class="separator:a6afa0761326b35e675517b6a81ffef1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcec896fa075fcb4b54b13e4bf1fd088"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#abcec896fa075fcb4b54b13e4bf1fd088">GetName</a> () const </td></tr>
+<tr class="memdesc:abcec896fa075fcb4b54b13e4bf1fd088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return name of this stopwatch.  <a href="#abcec896fa075fcb4b54b13e4bf1fd088">More...</a><br/></td></tr>
+<tr class="separator:abcec896fa075fcb4b54b13e4bf1fd088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe36cf7e76eb1de8cda4490fc5b41829"><td class="memItemLeft" align="right" valign="top">T::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a> () const </td></tr>
+<tr class="memdesc:afe36cf7e76eb1de8cda4490fc5b41829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the accumulated value without altering the stopwatch state.  <a href="#afe36cf7e76eb1de8cda4490fc5b41829">More...</a><br/></td></tr>
+<tr class="separator:afe36cf7e76eb1de8cda4490fc5b41829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a1a068a66f6b5db8cf68dabe5a8935f22">ToString</a> () const </td></tr>
+<tr class="memdesc:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string representation of readout.  <a href="#a1a068a66f6b5db8cf68dabe5a8935f22">More...</a><br/></td></tr>
+<tr class="separator:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af9b36fdeadaea938995a293c940b90a4"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#af9b36fdeadaea938995a293c940b90a4">m_seed</a></td></tr>
-<tr class="memdesc:af9b36fdeadaea938995a293c940b90a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual seed used with random engine.  <a href="#af9b36fdeadaea938995a293c940b90a4">More...</a><br/></td></tr>
-<tr class="separator:af9b36fdeadaea938995a293c940b90a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56d4de95212dccdd02652c477673297c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a></td></tr>
-<tr class="memdesc:a56d4de95212dccdd02652c477673297c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of streams set up with the engine.  <a href="#a56d4de95212dccdd02652c477673297c">More...</a><br/></td></tr>
-<tr class="separator:a56d4de95212dccdd02652c477673297c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74b3b62e58d9dc935287af1f403e3a88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d4a/a00479.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">RNEngineType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a74b3b62e58d9dc935287af1f403e3a88">m_type_id</a></td></tr>
-<tr class="memdesc:a74b3b62e58d9dc935287af1f403e3a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifies type of random engine.  <a href="#a74b3b62e58d9dc935287af1f403e3a88">More...</a><br/></td></tr>
-<tr class="separator:a74b3b62e58d9dc935287af1f403e3a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a138adbebf56ee6aff14f4a5d657eb582"><td class="memItemLeft" align="right" valign="top">std::vector&lt; trng::lcg64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a138adbebf56ee6aff14f4a5d657eb582">m_lcg64</a></td></tr>
-<tr class="separator:a138adbebf56ee6aff14f4a5d657eb582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47e49d570a9cef2fee04ef084c93e09a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; trng::lcg64_shift &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a47e49d570a9cef2fee04ef084c93e09a">m_lcg64_shift</a></td></tr>
-<tr class="separator:a47e49d570a9cef2fee04ef084c93e09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef24d7bf005b199b20bbc26111bac570"><td class="memItemLeft" align="right" valign="top">std::vector&lt; trng::mrg2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#aef24d7bf005b199b20bbc26111bac570">m_mrg2</a></td></tr>
-<tr class="separator:aef24d7bf005b199b20bbc26111bac570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03cc6bedd665abb75073633f6bef0a73"><td class="memItemLeft" align="right" valign="top">std::vector&lt; trng::mrg3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a03cc6bedd665abb75073633f6bef0a73">m_mrg3</a></td></tr>
-<tr class="separator:a03cc6bedd665abb75073633f6bef0a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a769a08942e570dd9d257f12e5db009c5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; trng::yarn2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a769a08942e570dd9d257f12e5db009c5">m_yarn2</a></td></tr>
-<tr class="separator:a769a08942e570dd9d257f12e5db009c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7488be1e53338d26888543c134065392"><td class="memItemLeft" align="right" valign="top">std::vector&lt; trng::yarn3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a7488be1e53338d26888543c134065392">m_yarn3</a></td></tr>
-<tr class="separator:a7488be1e53338d26888543c134065392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765784978119de616443c956d98166c4"><td class="memItemLeft" align="right" valign="top">T::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a765784978119de616443c956d98166c4">m_accumulated</a></td></tr>
+<tr class="separator:a765784978119de616443c956d98166c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c7ba8e093b3c7d933ed5511d16cde4"><td class="memItemLeft" align="right" valign="top">T::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a></td></tr>
+<tr class="separator:ab9c7ba8e093b3c7d933ed5511d16cde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa22d2b26b456a8895b2e5c8ce62fe071"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#aa22d2b26b456a8895b2e5c8ce62fe071">m_name</a></td></tr>
+<tr class="separator:aa22d2b26b456a8895b2e5c8ce62fe071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bfb79938c423d71cde68c8d2d42fbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7d/a00161.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a></td></tr>
+<tr class="separator:a20bfb79938c423d71cde68c8d2d42fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages random number generation in parallel (OpenMP) calculations. </p>
-<p>Internally, TRNG engines are used. </p>
+<div class="textblock"><h3>template&lt;typename T = std::chrono::steady_clock&gt;<br/>
+class stride::util::Stopwatch&lt; T &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00041">41</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a30121f0f47cf4c23bed8da7521b2b904"></a>
+<p>Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </p>
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00034">34</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="aedbb343fde64ffebcdb371dd862aae7f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::<a class="el" href="../../d6/d7d/a00161.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> =  T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00037">37</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a925b07b32b747a519b37c549ba7f1531"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::RNManager::RNManager </td>
+          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::<a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../db/d44/a00162.html">Info</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em> = <code><a class="el" href="../../db/d44/a00162.html">Info</a>()</code></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;stopwatch&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>running</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor initializes stopwatch. </p>
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00040">40</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acaf0b5f9f645a7dd6420420443de5a96"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a>&amp; <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes to default engine( trng::mrg2 with seed 1). </p>
+<p>Starts stopwatch if it was stopped. </p>
 
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00069">69</a> of file <a class="el" href="../../db/dbc/a00395_source.html">RNManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00049">49</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>References <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>.</p>
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d53/a00399_source.html#l00046">stride::SimRunner::Run()</a>, and <a class="el" href="../../d1/d53/a00399_source.html#l00033">stride::SimRunner::SimRunner()</a>.</p>
 
 <p><div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a30121f0f47cf4c23bed8da7521b2b904_cgraph.svg" width="584" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_acaf0b5f9f645a7dd6420420443de5a96_icgraph.svg" width="368" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a09c7ac5ae3b2ecffe9ee9b373d035e57"></a>
+<a class="anchor" id="a4b6145f590e94467a0048817f348ac75"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::RNManager::RNManager </td>
+          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a>&amp; <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::Stop </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>No copying. </p>
+<p>Stops the stopwatch if it was running. </p>
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00059">59</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00114">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d53/a00399_source.html#l00046">stride::SimRunner::Run()</a>, and <a class="el" href="../../d1/d53/a00399_source.html#l00033">stride::SimRunner::SimRunner()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a4b6145f590e94467a0048817f348ac75_icgraph.svg" width="368" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a9bd2ac6bfbf177b216ce9cfff0626a0f"></a>
+<a class="anchor" id="a45e66e4b53acb9c8f1edb7d5fda4f451"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::RNManager::RNManager </td>
+          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a>&amp; <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::Reset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared. </p>
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00069">69</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00114">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a546d57ebd3d79450abc641b3ebe5d23c"></a>
+<a class="anchor" id="a6afa0761326b35e675517b6a81ffef1f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a>&amp; stride::util::RNManager::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>No copy assignement. </p>
-
-</div>
-</div>
-<a class="anchor" id="a6b35b013e3ee4263df703ee01745ea3f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a>&amp; stride::util::RNManager::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3faf18a9fdd2400012612a2cafde01a3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d44/a00162.html">RNManager::Info</a> stride::util::RNManager::GetInfo </td>
+          <td class="memname">bool <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::IsRunning </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Return the state of the random engine. </p>
+<p>Reports whether stopwatch has been started. </p>
 
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00075">75</a> of file <a class="el" href="../../db/dbc/a00395_source.html">RNManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00077">77</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00126">m_lcg64</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00127">m_lcg64_shift</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00128">m_mrg2</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00129">m_mrg3</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00051">stride::util::RNManager::Info::m_seed</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00121">m_seed</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00054">stride::util::RNManager::Info::m_state</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00055">stride::util::RNManager::Info::m_stream_count</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00122">m_stream_count</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00056">stride::util::RNManager::Info::m_type</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00123">m_type_id</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00130">m_yarn2</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00131">m_yarn3</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00037">stride::util::para_info()</a>, and <a class="el" href="../../d4/dbc/a00414_source.html#l00078">stride::util::ToString()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dc9/a00355_source.html#l00034">main()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a3faf18a9fdd2400012612a2cafde01a3_cgraph.svg" width="358" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a3faf18a9fdd2400012612a2cafde01a3_icgraph.svg" width="267" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6508932485d419a6e7ab3cac60754ae6"></a>
+<a class="anchor" id="abcec896fa075fcb4b54b13e4bf1fd088"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename D &gt; </div>
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;typename D::result_type()&gt; stride::util::RNManager::GetGenerator </td>
+          <td class="memname">std::string <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::GetName </td>
           <td>(</td>
-          <td class="paramtype">const D &amp;&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d05/a00489.html">size_t</a>&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -409,62 +406,28 @@ template&lt;typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Produce a random generator out of a distribution bound to sim's random engine. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>The distribution object. </td></tr>
-    <tr><td class="paramname">i</td><td>Which stream gets sampled, 0 by default. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The random generator g that can be called as g() </dd></dl>
+<p>Return name of this stopwatch. </p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00081">81</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00080">80</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00126">m_lcg64</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00127">m_lcg64_shift</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00128">m_mrg2</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00129">m_mrg3</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00123">m_type_id</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00130">m_yarn2</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00131">m_yarn3</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d43/a00216_source.html#l00012">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00015">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dc/d84/a00338_source.html#l00010">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../dd/d47/a00445_source.html#l00011">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../df/df1/a00340_source.html#l00014">gengeopop::K12SchoolPopulator::Apply()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00010">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../d9/dc1/a00388_source.html#l00013">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d0/d24/a00222_source.html#l00011">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00012">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d7/d00/a00401_source.html#l00013">gengeopop::SecondaryCommunityPopulator::Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00126">gengeopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00151">gengeopop::WorkplacePopulator::CalculateNearbyWorkspaces()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00087">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00048">gengeopop::PartialPopulator::MakeChoice()</a>, <a class="el" href="../../d9/d3a/a00439_source.html#l00051">stride::TravellerProfile::MakeChoice()</a>, <a class="el" href="../../dd/dfd/a00438_source.html#l00028">stride::TravellerProfile::PersonWillTravel()</a>, <a class="el" href="../../db/d53/a00321_source.html#l00035">stride::Immunizer&lt; profile &gt;::Random()</a>, <a class="el" href="../../da/db6/a00427_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d9/d8d/a00262_source.html#l00046">stride::DiseaseSeeder::Seed()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a6508932485d419a6e7ab3cac60754ae6_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00116">stride::util::Stopwatch&lt; T &gt;::m_name</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5a7dc58c76f112c8d808866cac5a272d"></a>
+<a class="anchor" id="afe36cf7e76eb1de8cda4490fc5b41829"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename RandomIt &gt; </div>
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::RNManager::RandomShuffle </td>
+          <td class="memname">T::duration <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::Get </td>
           <td>(</td>
-          <td class="paramtype">RandomIt&#160;</td>
-          <td class="paramname"><em>first</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RandomIt&#160;</td>
-          <td class="paramname"><em>last</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d05/a00489.html">size_t</a>&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -474,130 +437,73 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Randomly shuffle items between iterators using i-th stream of the random engine. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">first</td><td></td></tr>
-    <tr><td class="paramname">last</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Returns the accumulated value without altering the stopwatch state. </p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00101">101</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00083">83</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00126">m_lcg64</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00127">m_lcg64_shift</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00128">m_mrg2</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00129">m_mrg3</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00123">m_type_id</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00130">m_yarn2</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00131">m_yarn3</a>.</p>
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00114">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d53/a00321_source.html#l00035">stride::Immunizer&lt; profile &gt;::Random()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/de6/a00404_source.html#l00093">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a5a7dc58c76f112c8d808866cac5a272d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_afe36cf7e76eb1de8cda4490fc5b41829_icgraph.svg" width="387" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a8c78f40f38b8a3fc25e2c21be2de505a"></a>
+<a class="anchor" id="a1a068a66f6b5db8cf68dabe5a8935f22"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::RNManager::Initialize </td>
+          <td class="memname">std::string <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::ToString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../db/d44/a00162.html">Info</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em> = <code><a class="el" href="../../db/d44/a00162.html">Info</a>()</code></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Initalize with data in <a class="el" href="../../db/d44/a00162.html" title="POD representation of the RNManager&#39;s state. ">Info</a>. </p>
+<p>Returns string representation of readout. </p>
 
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00096">96</a> of file <a class="el" href="../../db/dbc/a00395_source.html">RNManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00093">93</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/da1/a00396_source.html#l00126">m_lcg64</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00127">m_lcg64_shift</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00128">m_mrg2</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00129">m_mrg3</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00051">stride::util::RNManager::Info::m_seed</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00121">m_seed</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00054">stride::util::RNManager::Info::m_state</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00055">stride::util::RNManager::Info::m_stream_count</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00122">m_stream_count</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00056">stride::util::RNManager::Info::m_type</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00123">m_type_id</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00130">m_yarn2</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00131">m_yarn3</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00047">stride::util::para_seed()</a>, and <a class="el" href="../../de/dbc/a00249_source.html#l00060">stride::ContactPoolType::ToType()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d6e/a00190_source.html#l00047">stride::BaseController::BaseController()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00220">calibration::Calibrator::CreateRNManager()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00127">Initialize()</a>, and <a class="el" href="../../db/dbc/a00395_source.html#l00069">RNManager()</a>.</p>
+<p>References <a class="el" href="../../d9/de6/a00404_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, and <a class="el" href="../../d7/db9/a00426_source.html#l00038">stride::util::TimeToString::ToColonString()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a8c78f40f38b8a3fc25e2c21be2de505a_cgraph.svg" width="379" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a8c78f40f38b8a3fc25e2c21be2de505a_icgraph.svg" width="100%" height="485"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a49618df845ec996f3a777263c7f376de"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::RNManager::Initialize </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>seed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>state</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>stream_count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Wrapper method that creates an <a class="el" href="../../db/d44/a00162.html" title="POD representation of the RNManager&#39;s state. ">Info</a> object, used because SWIG can't handle nested structs. </p>
-
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00127">127</a> of file <a class="el" href="../../db/dbc/a00395_source.html">RNManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a49618df845ec996f3a777263c7f376de_cgraph.svg" width="584" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d7d/a00161_a1a068a66f6b5db8cf68dabe5a8935f22_cgraph.svg" width="387" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af9b36fdeadaea938995a293c940b90a4"></a>
+<a class="anchor" id="a765784978119de616443c956d98166c4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long stride::util::RNManager::m_seed</td>
+          <td class="memname">T::duration <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::m_accumulated</td>
         </tr>
       </table>
   </td>
@@ -607,23 +513,23 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Actual seed used with random engine. </p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00114">114</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00121">121</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, and <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/de6/a00404_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00069">stride::util::Stopwatch&lt; T &gt;::Reset()</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a56d4de95212dccdd02652c477673297c"></a>
+<a class="anchor" id="ab9c7ba8e093b3c7d933ed5511d16cde4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int stride::util::RNManager::m_stream_count</td>
+          <td class="memname">T::time_point <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::m_last_start</td>
         </tr>
       </table>
   </td>
@@ -633,23 +539,23 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Number of streams set up with the engine. </p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00115">115</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00122">122</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, and <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/de6/a00404_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00040">stride::util::Stopwatch&lt; T &gt;::Stopwatch()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a74b3b62e58d9dc935287af1f403e3a88"></a>
+<a class="anchor" id="aa22d2b26b456a8895b2e5c8ce62fe071"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d4a/a00479.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">RNEngineType::Id</a> stride::util::RNManager::m_type_id</td>
+          <td class="memname">std::string <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::m_name</td>
         </tr>
       </table>
   </td>
@@ -659,23 +565,23 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Identifies type of random engine. </p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00116">116</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00123">123</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/de6/a00404_source.html#l00080">stride::util::Stopwatch&lt; T &gt;::GetName()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a138adbebf56ee6aff14f4a5d657eb582"></a>
+<a class="anchor" id="a20bfb79938c423d71cde68c8d2d42fbb"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;trng::lcg64&gt; stride::util::RNManager::m_lcg64</td>
+          <td class="memname">bool <a class="el" href="../../d6/d7d/a00161.html">stride::util::Stopwatch</a>&lt; T &gt;::m_running</td>
         </tr>
       </table>
   </td>
@@ -685,143 +591,22 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00126">126</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00117">117</a> of file <a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a47e49d570a9cef2fee04ef084c93e09a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;trng::lcg64_shift&gt; stride::util::RNManager::m_lcg64_shift</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00127">127</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/de6/a00404_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00077">stride::util::Stopwatch&lt; T &gt;::IsRunning()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00069">stride::util::Stopwatch&lt; T &gt;::Reset()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, <a class="el" href="../../d9/de6/a00404_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00040">stride::util::Stopwatch&lt; T &gt;::Stopwatch()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aef24d7bf005b199b20bbc26111bac570"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;trng::mrg2&gt; stride::util::RNManager::m_mrg2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00128">128</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a03cc6bedd665abb75073633f6bef0a73"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;trng::mrg3&gt; stride::util::RNManager::m_mrg3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00129">129</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a769a08942e570dd9d257f12e5db009c5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;trng::yarn2&gt; stride::util::RNManager::m_yarn2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00130">130</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7488be1e53338d26888543c134065392"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;trng::yarn3&gt; stride::util::RNManager::m_yarn3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00131">131</a> of file <a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/da1/a00396_source.html#l00081">GetGenerator()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00075">GetInfo()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00096">Initialize()</a>, and <a class="el" href="../../d9/da1/a00396_source.html#l00101">RandomShuffle()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/da1/a00396_source.html">RNManager.h</a></li>
-<li><a class="el" href="../../db/dbc/a00395_source.html">RNManager.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d9/de6/a00404_source.html">Stopwatch.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d58/a00481.html">util</a></li><li class="navelem"><a class="el" href="../../d6/d7d/a00161.html">RNManager</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../db/de0/a00465.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/db5/a00472.html">util</a></li><li class="navelem"><a class="el" href="../../d6/d7d/a00161.html">Stopwatch</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

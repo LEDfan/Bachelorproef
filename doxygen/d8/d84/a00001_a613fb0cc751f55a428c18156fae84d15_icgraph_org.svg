@@ -56,7 +56,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" target="_top" xlink:title="Backend::SelectAll">
+<g id="a_node6"><a xlink:href="../../d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" target="_top" xlink:title="Adds all locations of the grid to the selection and updates the visual appearance of these locations...">
 <polygon fill="white" stroke="black" points="190,-38.5 190,-57.5 290,-57.5 290,-38.5 190,-38.5"/>
 <text text-anchor="middle" x="240" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">Backend::SelectAll</text>
 </a>

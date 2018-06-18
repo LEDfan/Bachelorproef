@@ -1,7 +1,7 @@
-<map id="PrimaryCommunity.h" name="PrimaryCommunity.h">
-<area shape="rect" id="node2" href="$d0/d24/a00222.html" title="CommunityGenerator.cpp" alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="$d2/d04/a00281.html" title="GeoGridJSONReader.cpp" alt="" coords="200,80,373,107"/>
-<area shape="rect" id="node4" href="$d6/d7f/a00287.html" title="GeoGridProtoReader.cpp" alt="" coords="397,80,565,107"/>
-<area shape="rect" id="node5" href="$d9/dc1/a00388.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="590,80,804,107"/>
-<area shape="rect" id="node6" href="$dd/df5/a00386.html" title="PrimaryCommunity.cpp" alt="" coords="829,80,987,107"/>
+<map id="SecondaryCommunity.h" name="SecondaryCommunity.h">
+<area shape="rect" id="node2" href="$dc/d9a/a00218.html" title="CommunityGenerator.cpp" alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node3" href="$dc/d28/a00276.html" title="GeoGridJSONReader.cpp" alt="" coords="200,80,373,107"/>
+<area shape="rect" id="node4" href="$dc/dc9/a00282.html" title="GeoGridProtoReader.cpp" alt="" coords="397,80,565,107"/>
+<area shape="rect" id="node5" href="$d4/d27/a00392.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="590,80,820,107"/>
+<area shape="rect" id="node6" href="$d9/d0a/a00390.html" title="SecondaryCommunity.cpp" alt="" coords="845,80,1021,107"/>
 </map>

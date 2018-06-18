@@ -11,7 +11,7 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-83 308,-83 308,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<g id="a_node1"><a xlink:href="d7/d46/a00002.html" target="_top" xlink:title="gengeopop::kd::BaseNode\&lt; P \&gt;">
+<g id="a_node1"><a xlink:href="d7/d46/a00002.html" target="_top" xlink:title="A base class for all instanciations of a Node with D. ">
 <polygon fill="white" stroke="black" points="0.5,-29.5 0.5,-48.5 157.5,-48.5 157.5,-29.5 0.5,-29.5"/>
 <text text-anchor="middle" x="79" y="-36.5" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::kd::BaseNode&lt; P &gt;</text>
 </a>

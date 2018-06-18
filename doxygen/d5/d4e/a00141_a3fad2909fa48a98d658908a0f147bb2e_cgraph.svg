@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d9/d38/a00166.html#a9496d626bbde63eb55836f0af402522c" target="_top" xlink:title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::Notify">
+<g id="a_node3"><a xlink:href="../../db/d44/a00162.html#a9496d626bbde63eb55836f0af402522c" target="_top" xlink:title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::Notify">
 <polygon fill="white" stroke="black" points="140.5,-97.5 140.5,-138.5 247.5,-138.5 247.5,-97.5 140.5,-97.5"/>
 <text text-anchor="start" x="148.5" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::Subject</text>
 <text text-anchor="start" x="148.5" y="-115.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; stride::sim_event::</text>
@@ -45,7 +45,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d0/d48/a00165.html#acaf0b5f9f645a7dd6420420443de5a96" target="_top" xlink:title="Starts stopwatch if it was stopped. ">
+<g id="a_node4"><a xlink:href="../../d6/d7d/a00161.html#acaf0b5f9f645a7dd6420420443de5a96" target="_top" xlink:title="Starts stopwatch if it was stopped. ">
 <polygon fill="white" stroke="black" points="138,-49 138,-79 250,-79 250,-49 138,-49"/>
 <text text-anchor="start" x="146" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::Stopwatch</text>
 <text text-anchor="middle" x="194" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::Start</text>
@@ -59,7 +59,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d0/d48/a00165.html#a4b6145f590e94467a0048817f348ac75" target="_top" xlink:title="Stops the stopwatch if it was running. ">
+<g id="a_node5"><a xlink:href="../../d6/d7d/a00161.html#a4b6145f590e94467a0048817f348ac75" target="_top" xlink:title="Stops the stopwatch if it was running. ">
 <polygon fill="white" stroke="black" points="138,-0 138,-30 250,-30 250,-0 138,-0"/>
 <text text-anchor="start" x="146" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::Stopwatch</text>
 <text text-anchor="middle" x="194" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Stop</text>

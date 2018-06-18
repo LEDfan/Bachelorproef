@@ -1,10 +1,12 @@
 var a00160 =
 [
-    [ "range_type", "de/d38/a00160.html#aa40c399685b42d5a3d8d870b5f63512f", null ],
-    [ "RangeIndexer", "de/d38/a00160.html#a8e6ba7e87da7c4e816e9889ea89e1d1e", null ],
-    [ "SetRange", "de/d38/a00160.html#a6b0566a8eb6d02f9f2ad9545533944df", null ],
-    [ "SetRange", "de/d38/a00160.html#a570288b736c62a3d6100ffbe386bc2f4", null ],
-    [ "GetRange", "de/d38/a00160.html#a143e3f699c7f2304c1231b07870386d7", null ],
-    [ "m_ranges", "de/d38/a00160.html#a6082bd44bb292de4e7f1c101d8accbd1", null ],
-    [ "m_t", "de/d38/a00160.html#a8a93a169646ca225e9d843e324b20ef2", null ]
+    [ "range_type", "de/d38/a00160.html#ae2f8f5fde77de1bb59c21d3b75fb3698", null ],
+    [ "SliceIndexer", "de/d38/a00160.html#a9210f4ffebabcdad9931ad724214b673", null ],
+    [ "SetSlice", "de/d38/a00160.html#a058f206ff2b09de8004fe38737e571af", null ],
+    [ "SetSlice", "de/d38/a00160.html#aba8419e386f526d2d8931130434ce649", null ],
+    [ "GetSlice", "de/d38/a00160.html#ae5cb46ba6c2fec9f7893c138d3300363", null ],
+    [ "GetSlice", "de/d38/a00160.html#a95272c334500597a9ad20622b16802a6", null ],
+    [ "m_map", "de/d38/a00160.html#ad9a0900ce547251d9d10a8d2f344d696", null ],
+    [ "m_ranges", "de/d38/a00160.html#a358f3242544506cc57262021482fa795", null ],
+    [ "m_t", "de/d38/a00160.html#a500a50a442d246c218c26d714ff94480", null ]
 ];

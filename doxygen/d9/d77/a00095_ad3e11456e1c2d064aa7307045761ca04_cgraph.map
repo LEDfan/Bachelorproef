@@ -1,12 +1,12 @@
 <map id="stride::BaseController::LogSetup" name="stride::BaseController::LogSetup">
-<area shape="rect" id="node2" href="$d3/d65/a00154.html#aacc5928eeee467f5e0c21c7ec5aaaf5a" title="Return config dir (only relevant when use_install_dirs mode is active) " alt="" coords="225,5,356,46"/>
-<area shape="rect" id="node4" href="$d3/d65/a00154.html#a39efd4d2a1344ebc5d26759693d3d546" title="Get path to the current directory. " alt="" coords="225,70,356,111"/>
-<area shape="rect" id="node5" href="$d3/d65/a00154.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="225,135,356,177"/>
-<area shape="rect" id="node6" href="$d3/d65/a00154.html#ad4bcf3a836909fad40dbff80ae4157c8" title="Get path of the executable. " alt="" coords="225,201,356,242"/>
-<area shape="rect" id="node7" href="$d3/d65/a00154.html#a01b3eb32bba2b55a62086271185f8832" title="Return install root dir (only relevant when use_install_dirs mode is active) " alt="" coords="225,266,356,307"/>
-<area shape="rect" id="node8" href="$d9/d7d/a00150.html#aea2c9d397f10f54b7ae47f4b0f181799" title="stride::util::ConfigInfo\l::GitRevision" alt="" coords="217,331,364,373"/>
-<area shape="rect" id="node9" href="$d9/d7d/a00150.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="stride::util::ConfigInfo\l::HaveOpenMP" alt="" coords="217,397,364,438"/>
-<area shape="rect" id="node10" href="$d9/d7d/a00150.html#a6b4240ce29160e778c69f9e246e1747d" title="stride::util::ConfigInfo\l::NumberAvailableThreads" alt="" coords="203,462,379,503"/>
-<area shape="rect" id="node11" href="$d1/d92/a00475.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="210,527,371,569"/>
-<area shape="rect" id="node3" href="$d3/d65/a00154.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="427,143,587,169"/>
+<area shape="rect" id="node2" href="$da/d01/a00153.html#aacc5928eeee467f5e0c21c7ec5aaaf5a" title="Return config dir (only relevant when use_install_dirs mode is active) " alt="" coords="225,5,356,46"/>
+<area shape="rect" id="node4" href="$da/d01/a00153.html#a39efd4d2a1344ebc5d26759693d3d546" title="Get path to the current directory. " alt="" coords="225,70,356,111"/>
+<area shape="rect" id="node5" href="$da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="225,135,356,177"/>
+<area shape="rect" id="node6" href="$da/d01/a00153.html#ad4bcf3a836909fad40dbff80ae4157c8" title="Get path of the executable. " alt="" coords="225,201,356,242"/>
+<area shape="rect" id="node7" href="$da/d01/a00153.html#a01b3eb32bba2b55a62086271185f8832" title="Return install root dir (only relevant when use_install_dirs mode is active) " alt="" coords="225,266,356,307"/>
+<area shape="rect" id="node8" href="$da/d1e/a00149.html#aea2c9d397f10f54b7ae47f4b0f181799" title="stride::util::ConfigInfo\l::GitRevision" alt="" coords="217,331,364,373"/>
+<area shape="rect" id="node9" href="$da/d1e/a00149.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="stride::util::ConfigInfo\l::HaveOpenMP" alt="" coords="217,397,364,438"/>
+<area shape="rect" id="node10" href="$da/d1e/a00149.html#a6b4240ce29160e778c69f9e246e1747d" title="stride::util::ConfigInfo\l::NumberAvailableThreads" alt="" coords="203,462,379,503"/>
+<area shape="rect" id="node11" href="$db/d2c/a00466.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="210,527,371,569"/>
+<area shape="rect" id="node3" href="$da/d01/a00153.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="427,143,587,169"/>
 </map>

@@ -87,7 +87,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" target="_top" xlink:title="gengeopop::GeoGridGenerator\l::AddPartialGenerator">
+<g id="a_node3"><a xlink:href="../../d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" target="_top" xlink:title="Add a PartialGenerator to use when generating. ">
 <polygon fill="white" stroke="black" points="355.5,-392 355.5,-422 504.5,-422 504.5,-392 355.5,-392"/>
 <text text-anchor="start" x="363.5" y="-410" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridGenerator</text>
 <text text-anchor="middle" x="430" y="-399" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPartialGenerator</text>
@@ -115,7 +115,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" target="_top" xlink:title="gengeopop::GeoGridPopulator\l::AddPartialPopulator">
+<g id="a_node6"><a xlink:href="../../d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" target="_top" xlink:title="Add a PartialPopulator to use when populating. ">
 <polygon fill="white" stroke="black" points="356.5,-294 356.5,-324 503.5,-324 503.5,-294 356.5,-294"/>
 <text text-anchor="start" x="364.5" y="-312" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridPopulator</text>
 <text text-anchor="middle" x="430" y="-301" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPartialPopulator</text>
@@ -143,7 +143,7 @@
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="../../db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" target="_top" xlink:title="gengeopop::GeoGridConfig\l::Calculate">
+<g id="a_node10"><a xlink:href="../../db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" target="_top" xlink:title="Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid...">
 <polygon fill="white" stroke="black" points="363,-196 363,-226 497,-226 497,-196 363,-196"/>
 <text text-anchor="start" x="371" y="-214" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridConfig</text>
 <text text-anchor="middle" x="430" y="-203" font-family="Helvetica,sans-Serif" font-size="10.00">::Calculate</text>
@@ -227,7 +227,7 @@
 </g>
 <!-- Node14 -->
 <g id="node14" class="node"><title>Node14</title>
-<g id="a_node14"><a xlink:href="../../d3/d65/a00154.html#aafd39e698c442fd0917915d085c9aa1a" target="_top" xlink:title="/// Return data dir (only relevant when use_install_dirs mode is active) ">
+<g id="a_node14"><a xlink:href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a" target="_top" xlink:title="/// Return data dir (only relevant when use_install_dirs mode is active) ">
 <polygon fill="white" stroke="black" points="564,-49 564,-79 662,-79 662,-49 564,-49"/>
 <text text-anchor="start" x="572" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys</text>
 <text text-anchor="middle" x="613" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::GetDataDir</text>
@@ -241,7 +241,7 @@
 </g>
 <!-- Node15 -->
 <g id="node15" class="node"><title>Node15</title>
-<g id="a_node15"><a xlink:href="../../d3/d65/a00154.html#a811a1d113f57785952045d9541c95db5" target="_top" xlink:title="Return paths. ">
+<g id="a_node15"><a xlink:href="../../da/d01/a00153.html#a811a1d113f57785952045d9541c95db5" target="_top" xlink:title="Return paths. ">
 <polygon fill="white" stroke="black" points="716,-54.5 716,-73.5 836,-73.5 836,-54.5 716,-54.5"/>
 <text text-anchor="middle" x="776" y="-61.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys::Get</text>
 </a>

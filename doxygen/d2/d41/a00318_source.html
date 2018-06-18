@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Id.h Source File</title>
+<title>Stride Reference Manual: Immunizer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('d2/d41/a00318_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Id.h</div>  </div>
+<div class="title">immunity/Immunizer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d2/d41/a00318.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -130,61 +130,74 @@ $(document).ready(function(){initNavTree('d2/d41/a00318_source.html','../../');}
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Definition of EventId.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header for the Vaccinator class.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>sim_event {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/// Enumerates the event.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">   29</a></span>&#160;<span class="comment"></span><span class="keyword">enum class</span> <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/db9/a00387.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">   29</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/// Number of ContactPool types.</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d9/dc5/a00480.html#afd464f4ca1769b7880cb27383a3cafd2">   39</a></span>&#160;<span class="comment"></span><span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/dc5/a00480.html#afd464f4ca1769b7880cb27383a3cafd2">NumOfTypes</a>() { <span class="keywordflow">return</span> 5U; }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/// Check whether string is name of a ContactPoolType::Id.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span><span class="keywordtype">bool</span> <a class="code" href="../../d9/dc5/a00480.html#a43c0310b3eef6024b540ffaa5c4c39b2">IsType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/// Cast to size_t for indexing.</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d9/dc5/a00480.html#acdde1acea1c3f4536af74bb4b126a739">   45</a></span>&#160;<span class="comment"></span><span class="keyword">inline</span> std::size_t <a class="code" href="../../d9/dc5/a00480.html#acdde1acea1c3f4536af74bb4b126a739">ToSizeT</a>(<a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(id); }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/// Converts a ContactPoolType::Id value to corresponding name.</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span>std::string <a class="code" href="../../d9/dc5/a00480.html#aaa54357f0c5b3af4e7905ed503167ede">ToString</a>(<a class="code" href="../../d1/d92/a00475.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> w);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/// Converts a string with name to Id.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span><a class="code" href="../../d1/d92/a00475.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> <a class="code" href="../../d9/dc5/a00480.html#ac81b85da174b73232cac26f53bd6d3a0">ToType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace sim_event</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00480_html_a43c0310b3eef6024b540ffaa5c4c39b2"><div class="ttname"><a href="../../d9/dc5/a00480.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/a00317_source.html#l00032">Id.cpp:32</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">stride::sim_event::Id::SetupEnd</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">stride::sim_event::Id::SetupBegin</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">stride::sim_event::Id::Stepped</a></div></div>
-<div class="ttc" id="a00475_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d1/d92/a00475.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00033">ContactLogMode.h:33</a></div></div>
-<div class="ttc" id="a00480_html_afd464f4ca1769b7880cb27383a3cafd2"><div class="ttname"><a href="../../d9/dc5/a00480.html#afd464f4ca1769b7880cb27383a3cafd2">stride::sim_event::NumOfTypes</a></div><div class="ttdeci">constexpr unsigned int NumOfTypes()</div><div class="ttdoc">Number of ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00039">Id.h:39</a></div></div>
-<div class="ttc" id="a00480_html_ac81b85da174b73232cac26f53bd6d3a0"><div class="ttname"><a href="../../d9/dc5/a00480.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/a00317_source.html#l00050">Id.cpp:50</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">stride::sim_event::Id::AtStart</a></div></div>
-<div class="ttc" id="a00480_html_acdde1acea1c3f4536af74bb4b126a739"><div class="ttname"><a href="../../d9/dc5/a00480.html#acdde1acea1c3f4536af74bb4b126a739">stride::sim_event::ToSizeT</a></div><div class="ttdeci">std::size_t ToSizeT(Id id)</div><div class="ttdoc">Cast to size_t for indexing. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00045">Id.h:45</a></div></div>
-<div class="ttc" id="a00480_html_aaa54357f0c5b3af4e7905ed503167ede"><div class="ttname"><a href="../../d9/dc5/a00480.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/a00317_source.html#l00042">Id.cpp:42</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">stride::sim_event::Id::Finished</a></div></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">None</a>   = 0U,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a> = 1U,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a> = 2U,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/// Primary immunization profile: do nothing</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;ImmunizationProfile profile&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>Immunizer</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">   41</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; <span class="comment">/*pools*/</span>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                               std::vector&lt;double&gt;&amp; <span class="comment">/*immunity_distribution*/</span>, <span class="keywordtype">double</span> <span class="comment">/*immunity_link_probability*/</span>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                               <a class="code" href="../../d1/db7/a00157.html">util::RNManager</a>&amp; <span class="comment">/*rn_manager*/</span>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/// Random immunization profile</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d8/d87/a00118.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a>&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunity_distribution,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                               <span class="keywordtype">double</span> immunity_link_probability, <a class="code" href="../../d1/db7/a00157.html">util::RNManager</a>&amp; rn_manager);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/// Profile for cocoon vaccination strategy</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d9/d4b/a00117.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a>&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunity_distribution,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                               <span class="keywordtype">double</span> immunity_link_probability, <a class="code" href="../../d1/db7/a00157.html">util::RNManager</a>&amp; rn_manager);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d8/d87/a00118.html">Immunizer&lt;ImmunizationProfile::Random&gt;</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d9/d4b/a00117.html">Immunizer&lt;ImmunizationProfile::Cocoon&gt;</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">stride::ImmunizationProfile::None</a></div></div>
+<div class="ttc" id="a00118_html"><div class="ttname"><a href="../../d8/d87/a00118.html">stride::Immunizer&lt; ImmunizationProfile::Random &gt;</a></div><div class="ttdoc">Random immunization profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00050">immunity/Immunizer.h:50</a></div></div>
+<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">stride::ImmunizationProfile::Cocoon</a></div></div>
+<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00117_html"><div class="ttname"><a href="../../d9/d4b/a00117.html">stride::Immunizer&lt; ImmunizationProfile::Cocoon &gt;</a></div><div class="ttdoc">Profile for cocoon vaccination strategy. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00059">immunity/Immunizer.h:59</a></div></div>
+<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fe"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">stride::ImmunizationProfile</a></div><div class="ttdeci">ImmunizationProfile</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00029">immunity/Immunizer.h:29</a></div></div>
+<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">stride::ImmunizationProfile::Random</a></div></div>
+<div class="ttc" id="a00116_html"><div class="ttname"><a href="../../d4/d3e/a00116.html">stride::Immunizer</a></div><div class="ttdoc">Deals with immunization strategies. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/a00317_source.html#l00036">disease/Immunizer.h:36</a></div></div>
+<div class="ttc" id="a00116_html_ae5bf03aebe76050242db382a0beab89b"><div class="ttname"><a href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">stride::Immunizer::Administer</a></div><div class="ttdeci">static void Administer(const std::vector&lt; ContactPool &gt; &amp;, std::vector&lt; double &gt; &amp;, double, util::RNManager &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00041">immunity/Immunizer.h:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d2/d41/a00318.html">Id.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_6b2c953cb5563d633add466861f11f69.html">immunity</a></li><li class="navelem"><a class="el" href="../../d2/d41/a00318.html">Immunizer.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,4 +1,0 @@
-<map id="gengeopop::GeoGridReader" name="gengeopop::GeoGridReader">
-<area shape="rect" id="node2" href="$de/d8c/a00036.html" title="An implementation of the GeoGridReader using JSON This class is used to read a GeoGrid from a JSON fi..." alt="" coords="5,293,224,459"/>
-<area shape="rect" id="node3" href="$d3/de7/a00039.html" title="An implementation of the GeoGridReader using Protocol Buffers This class is used to read a GeoGrid fr..." alt="" coords="249,293,463,459"/>
-</map>

@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a73d93a492ebe652b29b3b07f4f418ac4" target="_top" xlink:title="Launcher::SetConfigPath">
+<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a73d93a492ebe652b29b3b07f4f418ac4" target="_top" xlink:title="Load the configuration from the provided path. ">
 <polygon fill="white" stroke="black" points="182,-0.5 182,-19.5 308,-19.5 308,-0.5 182,-0.5"/>
 <text text-anchor="middle" x="245" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::SetConfigPath</text>
 </a>

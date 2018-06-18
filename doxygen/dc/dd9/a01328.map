@@ -1,3 +1,0 @@
-<map id="stride::util::RangeIndexer&lt; T, Key &gt;" name="stride::util::RangeIndexer&lt; T, Key &gt;">
-<area shape="rect" id="node2" href="$da/d82/a00091.html" title="{stride::util::RangeIndexer\l\&lt; util::stride::util::Segmented\lVector\&lt; stride::Person \&gt;, std\l::size_t \&gt;\n|&#45; m_map\l&#45; m_ranges\l&#45; m_t\l|+ RangeIndexer()\l+ SetRange()\l+ SetRange()\l+ GetRange()\l+ GetRange()\l}" alt="" coords="5,281,195,490"/>
-</map>

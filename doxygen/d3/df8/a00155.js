@@ -1,11 +1,7 @@
 var a00155 =
 [
-    [ "Dirs", "d3/df8/a00155.html#a5c0e642aa05f9c73a9d5edb298b7fa1c", null ],
-    [ "m_current_dir", "d3/df8/a00155.html#a0f2510f1e56e9702540ae0ee41ae082a", null ],
-    [ "m_exec_path", "d3/df8/a00155.html#af9e0a5016367c19e14e102efcbf6ff4b", null ],
-    [ "m_bin_dir", "d3/df8/a00155.html#aa84e5bea799040c78f75190d7fa242e9", null ],
-    [ "m_config_dir", "d3/df8/a00155.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef", null ],
-    [ "m_data_dir", "d3/df8/a00155.html#ad844a270ca421636f164982233789d2f", null ],
-    [ "m_root_dir", "d3/df8/a00155.html#a02d39f43d1e81ea01c51c6715c4b7041", null ],
-    [ "m_tests_dir", "d3/df8/a00155.html#a7b91aab4bd5ca85b91fad338a228b7b9", null ]
+    [ "CreateCliLogger", "d3/df8/a00155.html#a106af93dd3f814adf8b87ffaaf3ef3bb", null ],
+    [ "CreateFileLogger", "d3/df8/a00155.html#a52920faed22a1733b580a42ea065ed0d", null ],
+    [ "CreateNullLogger", "d3/df8/a00155.html#ab89be4aea714eff74a2d4143023840a6", null ],
+    [ "CreateRotatingLogger", "d3/df8/a00155.html#a137e01100d0d79b122f731bb1292179d", null ]
 ];

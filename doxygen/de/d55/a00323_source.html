@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Immunizer.h Source File</title>
+<title>Stride Reference Manual: InfectedViewer.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,95 +109,76 @@ $(document).ready(function(){initNavTree('de/d55/a00323_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">immunity/Immunizer.h</div>  </div>
+<div class="title">InfectedViewer.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/d55/a00323.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header for the Vaccinator class.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da1/a00396.html">util/RNManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<a href="../../de/d55/a00323.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Definition of Observer for SimEvents for commandline interface usage.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d8f/a00324.html">InfectedViewer.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dcb/a00375.html">pop/Population.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da1/a00396.html">sim/Sim.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d95/a00400.html">sim/SimRunner.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fe">   29</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">None</a>   = 0U,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a> = 1U,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a> = 2U,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/// Primary immunization profile: do nothing</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;ImmunizationProfile profile&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>Immunizer</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">   41</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; <span class="comment">/*pools*/</span>,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                               std::vector&lt;double&gt;&amp; <span class="comment">/*immunity_distribution*/</span>, <span class="keywordtype">double</span> <span class="comment">/*immunity_link_probability*/</span>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                               <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; <span class="comment">/*rn_manager*/</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span>stride::sim_event;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../de/d53/a00169.html#ac539c7549cc8c19530813f0bdb35a14d">   33</a></span>&#160;<span class="keywordtype">void</span> InfectedViewer::Update(<span class="keyword">const</span> <a class="code" href="../../d4/d4b/a00471.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">switch</span> (<span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">case</span> Id::AtStart: {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> pop = m_runner-&gt;GetSim()-&gt;GetPopulation();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                m_infected.push_back(pop-&gt;GetInfectedCount());</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">case</span> Id::Stepped: {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> pop = m_runner-&gt;GetSim()-&gt;GetPopulation();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                m_infected.push_back(pop-&gt;GetInfectedCount());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/// Random immunization profile</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d8/d87/a00118.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a>&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunity_distribution,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                               <span class="keywordtype">double</span> immunity_link_probability, <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; rn_manager);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/// Profile for cocoon vaccination strategy</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d9/d4b/a00117.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a>&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunity_distribution,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                               <span class="keywordtype">double</span> immunity_link_probability, <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; rn_manager);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d8/d87/a00118.html">Immunizer&lt;ImmunizationProfile::Random&gt;</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d9/d4b/a00117.html">Immunizer&lt;ImmunizationProfile::Cocoon&gt;</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00474_html_add8b5ebb9e886c003bf194783b4dd7fe"><div class="ttname"><a href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fe">stride::ImmunizationProfile</a></div><div class="ttdeci">ImmunizationProfile</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d55/a00323_source.html#l00029">immunity/Immunizer.h:29</a></div></div>
-<div class="ttc" id="a00474_html_add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">stride::ImmunizationProfile::None</a></div></div>
-<div class="ttc" id="a00396_html"><div class="ttname"><a href="../../d9/da1/a00396.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00118_html"><div class="ttname"><a href="../../d8/d87/a00118.html">stride::Immunizer&lt; ImmunizationProfile::Random &gt;</a></div><div class="ttdoc">Random immunization profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d55/a00323_source.html#l00050">immunity/Immunizer.h:50</a></div></div>
-<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00474_html_add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae"><div class="ttname"><a href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">stride::ImmunizationProfile::Cocoon</a></div></div>
-<div class="ttc" id="a00117_html"><div class="ttname"><a href="../../d9/d4b/a00117.html">stride::Immunizer&lt; ImmunizationProfile::Cocoon &gt;</a></div><div class="ttdoc">Profile for cocoon vaccination strategy. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d55/a00323_source.html#l00059">immunity/Immunizer.h:59</a></div></div>
-<div class="ttc" id="a00474_html_add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23"><div class="ttname"><a href="../../d5/d26/a00474.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">stride::ImmunizationProfile::Random</a></div></div>
-<div class="ttc" id="a00116_html"><div class="ttname"><a href="../../d4/d3e/a00116.html">stride::Immunizer</a></div><div class="ttdoc">Deals with immunization strategies. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/de9/a00322_source.html#l00036">disease/Immunizer.h:36</a></div></div>
-<div class="ttc" id="a00116_html_ae5bf03aebe76050242db382a0beab89b"><div class="ttname"><a href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">stride::Immunizer::Administer</a></div><div class="ttdeci">static void Administer(const std::vector&lt; ContactPool &gt; &amp;, std::vector&lt; double &gt; &amp;, double, util::RNManager &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d55/a00323_source.html#l00041">immunity/Immunizer.h:41</a></div></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">case</span> Id::Finished: {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                m_infected_file.Print(m_infected);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00324_html"><div class="ttname"><a href="../../d4/d8f/a00324.html">InfectedViewer.h</a></div><div class="ttdoc">Observer for Cases output. </div></div>
+<div class="ttc" id="a00396_html"><div class="ttname"><a href="../../d9/da1/a00396.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
+<div class="ttc" id="a00375_html"><div class="ttname"><a href="../../dd/dcb/a00375.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00400_html"><div class="ttname"><a href="../../d9/d95/a00400.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="ttc" id="a00471_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d4/d4b/a00471.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db3/a00313_source.html#l00029">Id.h:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_6b2c953cb5563d633add466861f11f69.html">immunity</a></li><li class="navelem"><a class="el" href="../../de/d55/a00323.html">Immunizer.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/d55/a00323.html">InfectedViewer.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

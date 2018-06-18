@@ -1,10 +1,10 @@
 <map id="gengeopop::GenGeoPopController::ReadDataFiles" name="gengeopop::GenGeoPopController::ReadDataFiles">
-<area shape="rect" id="node2" href="$db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" title="gengeopop::GeoGridConfig\l::Calculate" alt="" coords="292,5,471,46"/>
+<area shape="rect" id="node2" href="$db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" title="Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid..." alt="" coords="292,5,471,46"/>
 <area shape="rect" id="node3" href="$df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755" title="Create a CitiesReader based on an absolute Boost Filesystem Path pointing to the input file..." alt="" coords="292,70,471,111"/>
 <area shape="rect" id="node5" href="$df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71" title="Create a CommutesReader based on an absolute Boost Filesystem Path pointing to the input file..." alt="" coords="292,135,471,177"/>
 <area shape="rect" id="node8" href="$df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5" title="Create a HouseholdReader based on the filename of the input file, relative to the data directory..." alt="" coords="292,201,471,242"/>
 <area shape="rect" id="node9" href="$df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8" title="Create a SubMunicipalitiesReader based on the filename of the input file, relative to the data direct..." alt="" coords="275,266,488,307"/>
 <area shape="rect" id="node4" href="$df/d03/a00062.html#a301c922d893444c635c375f4c0326568" title="Create an istream based on the provided Boost Filesystem Path. " alt="" coords="536,70,715,111"/>
-<area shape="rect" id="node6" href="$d3/d65/a00154.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="560,201,691,242"/>
-<area shape="rect" id="node7" href="$d3/d65/a00154.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="763,208,923,235"/>
+<area shape="rect" id="node6" href="$da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="560,201,691,242"/>
+<area shape="rect" id="node7" href="$da/d01/a00153.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="763,208,923,235"/>
 </map>

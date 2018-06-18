@@ -1,9 +1,0 @@
-<map id="protobuf_geogrid_2eproto::InitDefaults" name="protobuf_geogrid_2eproto::InitDefaults">
-<area shape="rect" id="node2" href="$dc/ddf/a00469.html#aba7f6e8ed94859f4b0998ee29f116d15" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid" alt="" coords="239,5,407,46"/>
-<area shape="rect" id="node3" href="$dc/ddf/a00469.html#a50d59069e44637f9a6b8af307ea7910e" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid_Location" alt="" coords="222,70,423,111"/>
-<area shape="rect" id="node4" href="$dc/ddf/a00469.html#a4429c5667e3e5c15529586b3dea3dcaf" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid_Location\l_Commute" alt="" coords="222,135,423,191"/>
-<area shape="rect" id="node5" href="$dc/ddf/a00469.html#aee927ddfc69122c25f092700da48e231" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid_Location\l_ContactCenter" alt="" coords="222,215,423,271"/>
-<area shape="rect" id="node6" href="$dc/ddf/a00469.html#aa4b90e51b8a295ae87da2511f4411fcf" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid_Location\l_ContactCenter_ContactPool" alt="" coords="222,295,423,351"/>
-<area shape="rect" id="node7" href="$dc/ddf/a00469.html#a767666239a509158eb7e118dca268994" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid_Location\l_Coordinate" alt="" coords="222,375,423,431"/>
-<area shape="rect" id="node8" href="$dc/ddf/a00469.html#a7e5e27af9c23f1b7d6f3ac2052e03706" title="protobuf_geogrid_2eproto\l::InitDefaultsGeoGrid_Person" alt="" coords="226,454,419,495"/>
-</map>

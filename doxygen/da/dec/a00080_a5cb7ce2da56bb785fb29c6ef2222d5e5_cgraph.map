@@ -1,4 +1,4 @@
 <map id="Map::ForceUpdateMarkers" name="Map::ForceUpdateMarkers">
-<area shape="rect" id="node2" href="$d8/d84/a00001.html#a6e0af1d3dc19b33a41dec19fe3677fc4" title="Backend::UpdateAllHealth\lColors" alt="" coords="232,5,408,46"/>
+<area shape="rect" id="node2" href="$d8/d84/a00001.html#a6e0af1d3dc19b33a41dec19fe3677fc4" title="Updates all the health colors of the locations to match the current infection rate. " alt="" coords="232,5,408,46"/>
 <area shape="rect" id="node3" href="$d8/d84/a00001.html#ad189839cb6b241f4df550d0e85522aae" title="Updates the health color of the location on the map so it represents the current situation. " alt="" coords="456,12,640,39"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CliViewer.cpp Source File</title>
+<title>Stride Reference Manual: CollegeGenerator.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,90 +109,79 @@ $(document).ready(function(){initNavTree('dd/dc1/a00212_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CliViewer.cpp</div>  </div>
+<div class="title">CollegeGenerator.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/dc1/a00212.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Definition of Observer for SimEvents for commandline interface usage.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/de1/a00213.html">CliViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/de3/a00201.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d56/a00384.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d3d/a00409.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/xml_parser.hpp&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">using namespace </span>stride::sim_event;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<a href="../../dd/dc1/a00212.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/de1/a00213.html">CollegeGenerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/ded/a00211.html">gengeopop/College.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;trng/discrete_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;trng/lcg64.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dd/ded/a00211.html">gengeopop/College.h</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a3ea831d2b6fbbb1187086e4b985daf07">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../db/db2/a00020.html#a3ea831d2b6fbbb1187086e4b985daf07">CollegeGenerator::Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">int</span>  amountOfPupils  = geoGridConfig.<a class="code" href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>.<a class="code" href="../../db/df3/a00034.html#ac24b15bef3c9e7e3c6da15f517af23ac">_1826_years_and_student</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">auto</span> amountOfSchools = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::ceil(amountOfPupils / 3000.0)); <span class="comment">// TODO magic constant</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::vector&lt;std::shared_ptr&lt;Location&gt;&gt; cities = geoGrid-&gt;TopK(10);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">if</span> (cities.empty()) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="comment">// trng can&#39;t handle empty vectors</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> totalCitiesPopulation = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;Location&gt;&amp; loc : cities) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                totalCitiesPopulation += loc-&gt;GetPopulation();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::vector&lt;double&gt; weights;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;Location&gt;&amp; loc : cities) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordtype">double</span> weight =</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(loc-&gt;GetPopulation()) / static_cast&lt;double&gt;((<span class="keywordtype">double</span>)totalCitiesPopulation);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>viewers {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d6/dfb/a00172.html#a9f3a2f9efda499fa6a80f3871c7298d7">   39</a></span>&#160;<span class="keywordtype">void</span> CliViewer::Update(<span class="keyword">const</span> <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">switch</span> (<span class="keywordtype">id</span>) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">case</span> Id::AtStart: {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> sim = m_runner-&gt;GetSim();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                m_logger-&gt;info(<span class="stringliteral">&quot;   SimRunner at start:&quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                ostringstream ss;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                write_xml(ss, m_runner-&gt;GetConfig(), xml_writer_make_settings&lt;ptree::key_type&gt;(<span class="charliteral">&#39; &#39;</span>, 8));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                m_logger-&gt;trace(<span class="stringliteral">&quot;Run config used:\n {}&quot;</span>, ss.str());</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                m_logger-&gt;info(<span class="stringliteral">&quot;      Day: {:4}  Done, infected count: {:7}&quot;</span>, sim-&gt;GetCalendar()-&gt;GetSimulationDay(),</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                               sim-&gt;GetPopulation()-&gt;GetInfectedCount());</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">case</span> Id::Stepped: {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> sim = m_runner-&gt;GetSim();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                m_logger-&gt;info(<span class="stringliteral">&quot;      Day: {:4}  Done, infected count: {:7}&quot;</span>, sim-&gt;GetCalendar()-&gt;GetSimulationDay(),</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                               sim-&gt;GetPopulation()-&gt;GetInfectedCount());</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">case</span> Id::Finished: {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> sim = m_runner-&gt;GetSim();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                m_logger-&gt;info(<span class="stringliteral">&quot;   SimRunner done after: {}&quot;</span>, m_runner-&gt;GetClock().ToString());</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00201_html"><div class="ttname"><a href="../../dd/de3/a00201.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00384_html"><div class="ttname"><a href="../../d2/d56/a00384.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00409_html"><div class="ttname"><a href="../../de/d3d/a00409.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00213_html"><div class="ttname"><a href="../../d1/de1/a00213.html">CliViewer.h</a></div><div class="ttdoc">Observer for SimEvents for commandline interface usage. </div></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <a class="code" href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a>(<span class="stringliteral">&quot;CollegeGenerator&quot;</span>, weight);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                weights.push_back(weight);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">auto</span> dist = <a class="code" href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">m_rnManager</a>.<a class="code" href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::discrete_dist(weights.begin(), weights.end()));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> schoolId = 0; schoolId &lt; amountOfSchools; schoolId++) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordtype">int</span>                       locationId = dist();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::shared_ptr&lt;Location&gt; loc        = cities[locationId];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">auto</span> highschool = std::make_shared&lt;College&gt;(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.<a class="code" href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">contactCenters</a>++);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                highschool-&gt;Fill(geoGrid);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                loc-&gt;AddContactCenter(highschool);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00056_html_a5fc3c56913851b8a3dd6e151d69418c5"><div class="ttname"><a href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">gengeopop::PartialGenerator::m_rnManager</a></div><div class="ttdeci">stride::util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager used by generators. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00026">PartialGenerator.h:26</a></div></div>
+<div class="ttc" id="a00157_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00081">RNManager.h:81</a></div></div>
+<div class="ttc" id="a00034_html_a737d7b1ed78c73a8628b1a938a47475f"><div class="ttname"><a href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">gengeopop::GeoGridConfig::contactCenters</a></div><div class="ttdeci">unsigned int contactCenters</div><div class="ttdoc">The current amount of ContactCenters, used to obtain an Id for a new contactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00108">GeoGridConfig.h:108</a></div></div>
+<div class="ttc" id="a00034_html_a981511c45d99012d50aefe53d08fef7c"><div class="ttname"><a href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@2 generated</div></div>
+<div class="ttc" id="a00056_html_a28a70c98b4b5a47d3b3ca2913601815a"><div class="ttname"><a href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a">gengeopop::PartialGenerator::CheckWeight</a></div><div class="ttdeci">void CheckWeight(const std::string &amp;func, double weight)</div><div class="ttdoc">Make sure we&#39;re using a valid weight for random numbers. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00030">PartialGenerator.h:30</a></div></div>
+<div class="ttc" id="a00034_html_af9610682c3d25a6c5cf4dc0164988a54"><div class="ttname"><a href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">gengeopop::GeoGridConfig::calculated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@1 calculated</div><div class="ttdoc">CALCULATED. </div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00014">GeoGridConfig.h:14</a></div></div>
+<div class="ttc" id="a00213_html"><div class="ttname"><a href="../../d1/de1/a00213.html">CollegeGenerator.h</a></div></div>
+<div class="ttc" id="a00211_html"><div class="ttname"><a href="../../dd/ded/a00211.html">College.h</a></div></div>
+<div class="ttc" id="a00020_html_a3ea831d2b6fbbb1187086e4b985daf07"><div class="ttname"><a href="../../db/db2/a00020.html#a3ea831d2b6fbbb1187086e4b985daf07">gengeopop::CollegeGenerator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Apply this PartialGenerator to the given geogrid, generating ContactCenters. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc1/a00212_source.html#l00012">CollegeGenerator.cpp:12</a></div></div>
+<div class="ttc" id="a00034_html_ac24b15bef3c9e7e3c6da15f517af23ac"><div class="ttname"><a href="../../db/df3/a00034.html#ac24b15bef3c9e7e3c6da15f517af23ac">gengeopop::GeoGridConfig::_1826_years_and_student</a></div><div class="ttdeci">unsigned int _1826_years_and_student</div><div class="ttdoc">Absolute amount of population which are [18, 26) years old and are a student. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00079">GeoGridConfig.h:79</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../dd/dc1/a00212.html">CliViewer.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../dd/dc1/a00212.html">CollegeGenerator.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

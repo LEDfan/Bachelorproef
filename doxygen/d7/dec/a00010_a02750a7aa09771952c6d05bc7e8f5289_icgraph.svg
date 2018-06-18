@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94" target="_top" xlink:title="CommutesListModel::\lSetCommutes">
+<g id="a_node2"><a xlink:href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94" target="_top" xlink:title="Set the commutes we wan to show in this model. ">
 <polygon fill="white" stroke="black" points="150.5,-0 150.5,-30 263.5,-30 263.5,-0 150.5,-0"/>
 <text text-anchor="start" x="158.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">CommutesListModel::</text>
 <text text-anchor="middle" x="207" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">SetCommutes</text>

@@ -1,8 +1,2 @@
-<map id="SummaryFile.h" name="SummaryFile.h">
-<area shape="rect" id="node2" href="$d1/d05/a00423.html" title="Implementation of the SummaryFile class. " alt="" coords="59,80,183,107"/>
-<area shape="rect" id="node3" href="$d7/db9/a00426.html" title="Observer for Persons output. " alt="" coords="207,80,336,107"/>
-<area shape="rect" id="node4" href="$d0/dc5/a00343.html" title="Launcher.cpp" alt="" coords="5,155,104,181"/>
-<area shape="rect" id="node5" href="$d7/d6e/a00190.html" title="Header for the command line controller. " alt="" coords="129,155,263,181"/>
-<area shape="rect" id="node6" href="$da/de7/a00210.html" title="Header for the command line controller. " alt="" coords="287,155,405,181"/>
-<area shape="rect" id="node7" href="$dc/d2f/a00425.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="430,155,572,181"/>
+<map id="TransmissionProfile.h" name="TransmissionProfile.h">
 </map>

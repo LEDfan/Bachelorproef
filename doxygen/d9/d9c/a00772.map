@@ -1,8 +1,6 @@
-<map id="NoLocalInformation.h" name="NoLocalInformation.h">
-<area shape="rect" id="node2" href="$dc/d50/a00332.html" title="Header for the Infector class. " alt="" coords="133,80,209,107"/>
-<area shape="rect" id="node7" href="$d9/de6/a00404.html" title="Implementation for the Simulator class. " alt="" coords="235,80,305,107"/>
-<area shape="rect" id="node3" href="$dd/dbb/a00330.html" title="Implementation of Infector algorithms. " alt="" coords="5,155,96,181"/>
-<area shape="rect" id="node4" href="$da/d75/a00334.html" title="Header for the InfectorMap. " alt="" coords="121,155,223,181"/>
-<area shape="rect" id="node6" href="$db/d10/a00350.html" title="Implementation of Infector algorithms. " alt="" coords="248,155,339,181"/>
-<area shape="rect" id="node5" href="$d1/d8b/a00406.html" title="Implementation for the SimBuilder class. " alt="" coords="117,229,227,256"/>
+<map id="PersonsViewer.h" name="PersonsViewer.h">
+<area shape="rect" id="node2" href="$d4/dce/a00337.html" title="Launcher.cpp" alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$d8/d00/a00186.html" title="Header for the command line controller. " alt="" coords="129,80,263,107"/>
+<area shape="rect" id="node4" href="$d5/df1/a00206.html" title="Header for the command line controller. " alt="" coords="287,80,405,107"/>
+<area shape="rect" id="node5" href="$db/d7e/a00372.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="430,80,564,107"/>
 </map>

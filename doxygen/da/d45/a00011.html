@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -115,27 +115,31 @@ $(document).ready(function(){initNavTree('da/d45/a00011.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d5/dd3/a00902.html">List of all members</a>  </div>
+<a href="../../d3/d50/a00882.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ContactCenterListModel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../da/d2e/a00238_source.html">ContactCenterListModel.h</a>&gt;</code></p>
+<p>A concrete implementation of the <a class="el" href="../../db/dab/a00089.html">QAbstractListModel</a> that implements data setting and fetching to show a list of ContactCenters.  
+ <a href="../../da/d45/a00011.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d6/de1/a00233_source.html">ContactCenterListModel.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ContactCenterListModel:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d1c/a00903.svg" width="192" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/d34/a00883.svg" width="192" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for ContactCenterListModel:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/d0a/a00904.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/d08/a00884.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
 <tr class="memitem:ad6ea6fce74325a70e517015dda4ab366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#ad6ea6fce74325a70e517015dda4ab366">ContactCenterSelected</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d5b/a00026.html">gengeopop::ContactCenter</a> &gt; cc)</td></tr>
+<tr class="memdesc:ad6ea6fce74325a70e517015dda4ab366"><td class="mdescLeft">&#160;</td><td class="mdescRight">This signal is emmited when a Contact Center is selected.  <a href="#ad6ea6fce74325a70e517015dda4ab366">More...</a><br/></td></tr>
 <tr class="separator:ad6ea6fce74325a70e517015dda4ab366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -143,16 +147,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afd29ac646642d1670e1e12098831458d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#afd29ac646642d1670e1e12098831458d">ContactCenterListModel</a> (<a class="el" href="../../d9/dec/a00090.html">QObject</a> *parent=nullptr)</td></tr>
 <tr class="separator:afd29ac646642d1670e1e12098831458d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9227d99891a99ee0d6ee5fccd0766588"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a9227d99891a99ee0d6ee5fccd0766588">data</a> (const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</td></tr>
+<tr class="memdesc:a9227d99891a99ee0d6ee5fccd0766588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data at the given index and the given role.  <a href="#a9227d99891a99ee0d6ee5fccd0766588">More...</a><br/></td></tr>
 <tr class="separator:a9227d99891a99ee0d6ee5fccd0766588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeed07e6f0e731444fcf3954bcb3f7b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#aaeed07e6f0e731444fcf3954bcb3f7b4">rowCount</a> (const QModelIndex &amp;parent=QModelIndex()) const override</td></tr>
+<tr class="memdesc:aaeed07e6f0e731444fcf3954bcb3f7b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of rows, this is the amount of.  <a href="#aaeed07e6f0e731444fcf3954bcb3f7b4">More...</a><br/></td></tr>
 <tr class="separator:aaeed07e6f0e731444fcf3954bcb3f7b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac35e9b703a7cd69e01b07aef1a740ec6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#ac35e9b703a7cd69e01b07aef1a740ec6">columnCount</a> (const QModelIndex &amp;parent=QModelIndex()) const override</td></tr>
+<tr class="memdesc:ac35e9b703a7cd69e01b07aef1a740ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of columns, this is the amount of roles.  <a href="#ac35e9b703a7cd69e01b07aef1a740ec6">More...</a><br/></td></tr>
 <tr class="separator:ac35e9b703a7cd69e01b07aef1a740ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13218781fc6a858d06dda96866260886"><td class="memItemLeft" align="right" valign="top">QHash&lt; int, QByteArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a13218781fc6a858d06dda96866260886">roleNames</a> () const override</td></tr>
 <tr class="separator:a13218781fc6a858d06dda96866260886"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a274b1339d7c42371f90ae180ec3bf8cf"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a274b1339d7c42371f90ae180ec3bf8cf">SetCenters</a> (std::set&lt; std::shared_ptr&lt; <a class="el" href="../../d4/d6d/a00055.html">gengeopop::Location</a> &gt;&gt; locs)</td></tr>
+<tr class="memdesc:a274b1339d7c42371f90ae180ec3bf8cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the centers we want to show.  <a href="#a274b1339d7c42371f90ae180ec3bf8cf">More...</a><br/></td></tr>
 <tr class="separator:a274b1339d7c42371f90ae180ec3bf8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df927d92a946c2eaeafed2395462c37"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a4df927d92a946c2eaeafed2395462c37">HandleClickRow</a> (unsigned int row)</td></tr>
+<tr class="memdesc:a4df927d92a946c2eaeafed2395462c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function should be invoked when a row is to be clicked.  <a href="#a4df927d92a946c2eaeafed2395462c37">More...</a><br/></td></tr>
 <tr class="separator:a4df927d92a946c2eaeafed2395462c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
@@ -171,8 +180,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a093b922938c117bbd5c951a6a7246e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../da/d2e/a00238_source.html#l00008">8</a> of file <a class="el" href="../../da/d2e/a00238_source.html">ContactCenterListModel.h</a>.</p>
+<div class="textblock"><p>A concrete implementation of the <a class="el" href="../../db/dab/a00089.html">QAbstractListModel</a> that implements data setting and fetching to show a list of ContactCenters. </p>
+
+<p>Definition at line <a class="el" href="../../d6/de1/a00233_source.html#l00012">12</a> of file <a class="el" href="../../d6/de1/a00233_source.html">ContactCenterListModel.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a05e0faa6f1216772876b0a2d4f3e1cf0"></a>
 <div class="memitem">
@@ -202,7 +212,7 @@ Private Attributes</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="../../da/d2e/a00238_source.html#l00028">28</a> of file <a class="el" href="../../da/d2e/a00238_source.html">ContactCenterListModel.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/de1/a00233_source.html#l00062">62</a> of file <a class="el" href="../../d6/de1/a00233_source.html">ContactCenterListModel.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +239,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00027">27</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00027">27</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
 
 </div>
 </div>
@@ -266,9 +276,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00012">12</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>Returns the data at the given index and the given role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The row we want data of </td></tr>
+    <tr><td class="paramname">role</td><td>The role/column name we want the data of </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="../../da/d2e/a00238_source.html#l00036">m_centers</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00012">12</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d6/de1/a00233_source.html#l00071">m_centers</a>.</p>
 
 </div>
 </div>
@@ -294,9 +313,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00010">10</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>Returns the amount of rows, this is the amount of. </p>
 
-<p>References <a class="el" href="../../da/d2e/a00238_source.html#l00036">m_centers</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00010">10</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d6/de1/a00233_source.html#l00071">m_centers</a>.</p>
 
 </div>
 </div>
@@ -322,7 +343,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00039">39</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>Returns the amount of columns, this is the amount of roles. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00039">39</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +370,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00029">29</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00029">29</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
 
 </div>
 </div>
@@ -365,9 +388,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00041">41</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>Sets the centers we want to show. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">locs</td><td>The locations we want to show the contactCenters of. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="../../da/d2e/a00238_source.html#l00036">m_centers</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00041">41</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d6/de1/a00233_source.html#l00071">m_centers</a>.</p>
 
 </div>
 </div>
@@ -385,9 +416,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00063">63</a> of file <a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a>.</p>
+<p>This function should be invoked when a row is to be clicked. </p>
+<p>It will then get the data necessary and emit a "ContactCenterSelected" signal with the corresponding ContactCenter. </p>
 
-<p>References <a class="el" href="../../da/d45/a00011.html#ad6ea6fce74325a70e517015dda4ab366">ContactCenterSelected()</a>, and <a class="el" href="../../da/d2e/a00238_source.html#l00036">m_centers</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00063">63</a> of file <a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a>.</p>
+
+<p>References <a class="el" href="../../da/d45/a00011.html#ad6ea6fce74325a70e517015dda4ab366">ContactCenterSelected()</a>, and <a class="el" href="../../d6/de1/a00233_source.html#l00071">m_centers</a>.</p>
 
 </div>
 </div>
@@ -413,7 +447,10 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../d4/d08/a00237_source.html#l00063">HandleClickRow()</a>.</p>
+<p>This signal is emmited when a Contact Center is selected. </p>
+<p>This will be after a HandleClickRow is called. </p>
+
+<p>Referenced by <a class="el" href="../../d0/d53/a00232_source.html#l00063">HandleClickRow()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -443,15 +480,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d2e/a00238_source.html#l00036">36</a> of file <a class="el" href="../../da/d2e/a00238_source.html">ContactCenterListModel.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/de1/a00233_source.html#l00071">71</a> of file <a class="el" href="../../d6/de1/a00233_source.html">ContactCenterListModel.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d08/a00237_source.html#l00012">data()</a>, <a class="el" href="../../d4/d08/a00237_source.html#l00063">HandleClickRow()</a>, <a class="el" href="../../d4/d08/a00237_source.html#l00010">rowCount()</a>, and <a class="el" href="../../d4/d08/a00237_source.html#l00041">SetCenters()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d53/a00232_source.html#l00012">data()</a>, <a class="el" href="../../d0/d53/a00232_source.html#l00063">HandleClickRow()</a>, <a class="el" href="../../d0/d53/a00232_source.html#l00010">rowCount()</a>, and <a class="el" href="../../d0/d53/a00232_source.html#l00041">SetCenters()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../da/d2e/a00238_source.html">ContactCenterListModel.h</a></li>
-<li><a class="el" href="../../d4/d08/a00237_source.html">ContactCenterListModel.cpp</a></li>
+<li><a class="el" href="../../d6/de1/a00233_source.html">ContactCenterListModel.h</a></li>
+<li><a class="el" href="../../d0/d53/a00232_source.html">ContactCenterListModel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -459,7 +496,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d45/a00011.html">ContactCenterListModel</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

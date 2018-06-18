@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PrimaryCommunity.cpp File Reference</title>
+<title>Stride Reference Manual: RNManager.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,32 +109,59 @@ $(document).ready(function(){initNavTree('dd/df5/a00386.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PrimaryCommunity.cpp File Reference</div>  </div>
+<div class="title">RNManager.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/db9/a00387_source.html">PrimaryCommunity.h</a>&quot;</code><br/>
+
+<p>Implementation of RNManager.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/db9/a00387_source.html">RNManager.h</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PrimaryCommunity.cpp:</div>
+Include dependency graph for RNManager.cpp:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../da/db8/a00797.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d45/a00791.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="../../dd/df5/a00386_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d5/d5f/a00461"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5f/a00461.html">gengeopop</a></td></tr>
+<tr class="memitem:db/de0/a00465"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de0/a00465.html">stride</a></td></tr>
+<tr class="memdesc:db/de0/a00465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/db5/a00472"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db5/a00472.html">stride::util</a></td></tr>
+<tr class="memdesc:d7/db5/a00472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1437dc582cd8fb70c6873c692adde468"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1437dc582cd8fb70c6873c692adde468"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db5/a00472.html#a1437dc582cd8fb70c6873c692adde468">stride::util::para_info</a> (stringstream &amp;ss, const vector&lt; T &gt; &amp;engines)</td></tr>
+<tr class="separator:a1437dc582cd8fb70c6873c692adde468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c42ba6e336bed67e5a0bdd053802c2a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0c42ba6e336bed67e5a0bdd053802c2a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db5/a00472.html#a0c42ba6e336bed67e5a0bdd053802c2a">stride::util::para_seed</a> (vector&lt; T &gt; &amp;engines, unsigned int stream_count, unsigned long seed)</td></tr>
+<tr class="separator:a0c42ba6e336bed67e5a0bdd053802c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3457bcd24475b5a21953b08e7137736d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3457bcd24475b5a21953b08e7137736d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db5/a00472.html#a3457bcd24475b5a21953b08e7137736d">stride::util::para_seed</a> (vector&lt; T &gt; &amp;engines, unsigned int stream_count, const string &amp;state)</td></tr>
+<tr class="separator:a3457bcd24475b5a21953b08e7137736d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of RNManager. </p>
+
+<p>Definition in file <a class="el" href="../../dd/df5/a00386_source.html">RNManager.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">PrimaryCommunity.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">RNManager.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

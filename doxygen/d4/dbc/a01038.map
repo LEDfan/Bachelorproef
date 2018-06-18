@@ -1,3 +1,2 @@
-<map id="gengeopop::GeoGridJSONReader" name="gengeopop::GeoGridJSONReader">
-<area shape="rect" id="node2" href="$dd/d32/a00041.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul..." alt="" coords="23,6,205,245"/>
+<map id="gengeopop::GeoGridWriterFactory" name="gengeopop::GeoGridWriterFactory">
 </map>

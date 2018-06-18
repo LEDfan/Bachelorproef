@@ -1,18 +1,14 @@
 var a00151 =
 [
-    [ "CSV", "dd/db2/a00151.html#ac8d180042e0dd5717d655d9cbd1dc59b", null ],
-    [ "CSV", "dd/db2/a00151.html#a46bba243855b4fc66c20bf3bc55fdc95", null ],
-    [ "CSV", "dd/db2/a00151.html#a637e43bf563fb9b4420a2aafd557875a", null ],
-    [ "CSV", "dd/db2/a00151.html#a6aadfb52b95c349f14469a203d21472b", null ],
-    [ "GetColumnCount", "dd/db2/a00151.html#a63ffba1157ea6381bbce102c430e189b", null ],
-    [ "operator==", "dd/db2/a00151.html#a2f700f0aa2b27d664adb69e27a6eb4b1", null ],
-    [ "AddRow", "dd/db2/a00151.html#a1ae467f9599974c0f180c529f8a9f298", null ],
-    [ "AddRow", "dd/db2/a00151.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85", null ],
-    [ "AddRows", "dd/db2/a00151.html#a92b1c16c77b9b5b046a0fecc90ae3c8d", null ],
-    [ "Write", "dd/db2/a00151.html#a11a080486a81df3276cabfac0f7a2b41", null ],
-    [ "GetIndexForLabel", "dd/db2/a00151.html#aed99cf47769a6284b45c2815b08d1bd0", null ],
-    [ "GetLabels", "dd/db2/a00151.html#ad153bb329555a2b114defc97e53793ad", null ],
-    [ "ReadFromStream", "dd/db2/a00151.html#a2f3c33a76164f6cbc6e31aab6f8b560d", null ],
-    [ "labels", "dd/db2/a00151.html#a4298638a8f9c9871d800338bdf77bd50", null ],
-    [ "columnCount", "dd/db2/a00151.html#a598821720121beeaed01a7a7216e5601", null ]
+    [ "CSVRow", "dd/db2/a00151.html#ab60a313ff2e75d0ae07bc7624c27a861", null ],
+    [ "CSVRow", "dd/db2/a00151.html#a63cf8ebc530e40cda52b9f15fb751a6f", null ],
+    [ "operator=", "dd/db2/a00151.html#a6b1014a66c6a3301863d8a35a55b591e", null ],
+    [ "GetValue", "dd/db2/a00151.html#a6462fb781526ce386453ea4ee8e353e5", null ],
+    [ "GetValue", "dd/db2/a00151.html#a70dfc26893fa920410a7e4a049a1578a", null ],
+    [ "operator==", "dd/db2/a00151.html#a8bec120b3295f500c637c4219ec5f873", null ],
+    [ "GetValue", "dd/db2/a00151.html#a65777e0c58ce4632c96009ce1180250a", null ],
+    [ "GetValue", "dd/db2/a00151.html#a03e8149406514c601f7095c55460977d", null ],
+    [ "operator<<", "dd/db2/a00151.html#a0ec2f92503adc2a968a848d3fddf087d", null ],
+    [ "m_parent", "dd/db2/a00151.html#aa89bb5ef10f89f4eae23cc0536bf01c1", null ],
+    [ "m_values", "dd/db2/a00151.html#a6e59d67d64bb1bf8681d7718be92d74f", null ]
 ];

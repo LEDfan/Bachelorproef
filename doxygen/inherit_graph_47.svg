@@ -19,7 +19,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="d8/d84/a00001.html" target="_top" xlink:title="Backend">
+<g id="a_node2"><a xlink:href="d8/d84/a00001.html" target="_top" xlink:title="The backend for the MapViewer qml. ">
 <polygon fill="white" stroke="black" points="137.5,-190.5 137.5,-209.5 192.5,-209.5 192.5,-190.5 137.5,-190.5"/>
 <text text-anchor="middle" x="165" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">Backend</text>
 </a>
@@ -32,7 +32,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="df/d86/a00012.html" target="_top" xlink:title="ContactCenterViewerBackend">
+<g id="a_node3"><a xlink:href="df/d86/a00012.html" target="_top" xlink:title="This backend sets the correct text in the GUI when a new contacteCenter is shown. ...">
 <polygon fill="white" stroke="black" points="90.5,-152.5 90.5,-171.5 239.5,-171.5 239.5,-152.5 90.5,-152.5"/>
 <text text-anchor="middle" x="165" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">ContactCenterViewerBackend</text>
 </a>
@@ -71,7 +71,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="d1/d51/a00079.html" target="_top" xlink:title="LocationViewerBackend">
+<g id="a_node6"><a xlink:href="d1/d51/a00079.html" target="_top" xlink:title="This backend sets the correct info in the GUI of the location that is being shown. ">
 <polygon fill="white" stroke="black" points="104,-38.5 104,-57.5 226,-57.5 226,-38.5 104,-38.5"/>
 <text text-anchor="middle" x="165" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">LocationViewerBackend</text>
 </a>

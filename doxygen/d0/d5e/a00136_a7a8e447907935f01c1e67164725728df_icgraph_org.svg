@@ -96,7 +96,7 @@
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::AssignActive">
+<g id="a_node8"><a xlink:href="../../d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" target="_top" xlink:title="Assign a workplace to an active person. ">
 <polygon fill="white" stroke="black" points="352,-0 352,-30 510,-30 510,-0 352,-0"/>
 <text text-anchor="start" x="360" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="431" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::AssignActive</text>
@@ -110,7 +110,7 @@
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::Apply">
+<g id="a_node9"><a xlink:href="../../d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" target="_top" xlink:title="Populates the workplaces in geogrid with persons. ">
 <polygon fill="white" stroke="black" points="546,-0 546,-30 704,-30 704,-0 546,-0"/>
 <text text-anchor="start" x="554" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="625" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>

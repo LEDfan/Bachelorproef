@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::CalculateWorkplacesInCity">
+<g id="a_node2"><a xlink:href="../../d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" target="_top" xlink:title="Fills the m_workplacesInCity map. ">
 <polygon fill="white" stroke="black" points="170,-0 170,-30 328,-30 328,-0 170,-0"/>
 <text text-anchor="start" x="178" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="249" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::CalculateWorkplacesInCity</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::Apply">
+<g id="a_node3"><a xlink:href="../../d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" target="_top" xlink:title="Populates the workplaces in geogrid with persons. ">
 <polygon fill="white" stroke="black" points="364,-0 364,-30 522,-30 522,-0 364,-0"/>
 <text text-anchor="start" x="372" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="443" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>

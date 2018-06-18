@@ -1,6 +1,7 @@
 var a00249 =
 [
-    [ "IsType", "de/dbc/a00249.html#a1269217f56908f0da981dbe4e43bb73d", null ],
-    [ "ToString", "de/dbc/a00249.html#a0cf9d3425b406cd76acdc02ef9c0286d", null ],
-    [ "ToType", "de/dbc/a00249.html#af529300a78547c29c95b81ad8ac62afe", null ]
+    [ "CSVRow", "dd/db2/a00151.html", "dd/db2/a00151" ],
+    [ "safe_cast", "de/dbc/a00249.html#ab6efe1a2dbf4a57479e8c7faa00e3359", null ],
+    [ "CSVRow::GetValue< std::string >", "de/dbc/a00249.html#a9dce01f32b092253d815beac1cd52010", null ],
+    [ "CSVRow::GetValue< std::string >", "de/dbc/a00249.html#a7c45b2cf6c75aee55004e27edb10e745", null ]
 ];

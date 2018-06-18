@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SurveySeeder.h Source File</title>
+<title>Stride Reference Manual: TransmissionProfile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('d4/dd3/a00428_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SurveySeeder.h</div>  </div>
+<div class="title">TransmissionProfile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d4/dd3/a00428.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -125,58 +125,50 @@ $(document).ready(function(){initNavTree('d4/dd3/a00428_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header file for the SurveySeeder class.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header for the TransmissionProfile class.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da1/a00396.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>Population;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * Seeds the population with survey participants.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/dce/a00143.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/dce/a00143.html">SurveySeeder</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        /// Initialize Seeder.</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        /// \param configPt         Configuration parameters.</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">        /// \param rnManager         Random number manager.</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>        <a class="code" href="../../d7/dce/a00143.html#ac54faf22994cbab9fd2452002a0fcf59">SurveySeeder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; rnManager);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">        /// Seeds the population with survey participants.</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">        /// \param pop               Population.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>        std::shared_ptr&lt;Population&gt; <a class="code" href="../../d7/dce/a00143.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a>(std::shared_ptr&lt;Population&gt; pop);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d7/dce/a00143.html#a8b56b25160ae00196ba33d418e2647a3">   47</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../d7/dce/a00143.html#a8b56b25160ae00196ba33d418e2647a3">m_config_pt</a>;  <span class="comment">///&lt; Run config.</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d7/dce/a00143.html#af3321d86de17f08f6f00c968da18f84e">   48</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp;                   <a class="code" href="../../d7/dce/a00143.html#af3321d86de17f08f6f00c968da18f84e">m_rn_manager</a>; <span class="comment">///&lt; Random number manager.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00143_html_a8b56b25160ae00196ba33d418e2647a3"><div class="ttname"><a href="../../d7/dce/a00143.html#a8b56b25160ae00196ba33d418e2647a3">stride::SurveySeeder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Run config. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00047">SurveySeeder.h:47</a></div></div>
-<div class="ttc" id="a00396_html"><div class="ttname"><a href="../../d9/da1/a00396.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00143_html"><div class="ttname"><a href="../../d7/dce/a00143.html">stride::SurveySeeder</a></div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00034">SurveySeeder.h:34</a></div></div>
-<div class="ttc" id="a00143_html_af3321d86de17f08f6f00c968da18f84e"><div class="ttname"><a href="../../d7/dce/a00143.html#af3321d86de17f08f6f00c968da18f84e">stride::SurveySeeder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00048">SurveySeeder.h:48</a></div></div>
-<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00143_html_a81b191380f9a2c93768ff0efcec47f6b"><div class="ttname"><a href="../../d7/dce/a00143.html#a81b191380f9a2c93768ff0efcec47f6b">stride::SurveySeeder::Seed</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00039">SurveySeeder.cpp:39</a></div></div>
-<div class="ttc" id="a00143_html_ac54faf22994cbab9fd2452002a0fcf59"><div class="ttname"><a href="../../d7/dce/a00143.html#ac54faf22994cbab9fd2452002a0fcf59">stride::SurveySeeder::SurveySeeder</a></div><div class="ttdeci">SurveySeeder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initialize Seeder. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00035">SurveySeeder.cpp:35</a></div></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> * Transmission rates from disease data.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../da/ddb/a00145.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/ddb/a00145.html">TransmissionProfile</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">        /// Initialize.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../da/ddb/a00145.html#a1645757a571f63d0583d54a6838ca1fb">   33</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../da/ddb/a00145.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a>() : <a class="code" href="../../da/ddb/a00145.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a>(0.0) {}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">        /// Return transmission rate.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../da/ddb/a00145.html#a51ffe104253ffd5bcf12ab299fa6f2e2">   36</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="../../da/ddb/a00145.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../da/ddb/a00145.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a>; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        /// Initialize.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../da/ddb/a00145.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <span class="keyword">const</span> boost::property_tree::ptree&amp; diseasePt);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../da/ddb/a00145.html#afbb8227d4d8b61b291fa521f33dce3ce">   42</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../da/ddb/a00145.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00145_html_a51ffe104253ffd5bcf12ab299fa6f2e2"><div class="ttname"><a href="../../da/ddb/a00145.html#a51ffe104253ffd5bcf12ab299fa6f2e2">stride::TransmissionProfile::GetRate</a></div><div class="ttdeci">double GetRate() const </div><div class="ttdoc">Return transmission rate. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00036">TransmissionProfile.h:36</a></div></div>
+<div class="ttc" id="a00145_html_a1645757a571f63d0583d54a6838ca1fb"><div class="ttname"><a href="../../da/ddb/a00145.html#a1645757a571f63d0583d54a6838ca1fb">stride::TransmissionProfile::TransmissionProfile</a></div><div class="ttdeci">TransmissionProfile()</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00033">TransmissionProfile.h:33</a></div></div>
+<div class="ttc" id="a00145_html_afbb8227d4d8b61b291fa521f33dce3ce"><div class="ttname"><a href="../../da/ddb/a00145.html#afbb8227d4d8b61b291fa521f33dce3ce">stride::TransmissionProfile::m_transmission_rate</a></div><div class="ttdeci">double m_transmission_rate</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00042">TransmissionProfile.h:42</a></div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="../../da/ddb/a00145.html">stride::TransmissionProfile</a></div><div class="ttdoc">Transmission rates from disease data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd3/a00428_source.html#l00029">TransmissionProfile.h:29</a></div></div>
+<div class="ttc" id="a00145_html_a5e67e9eab813de18fff32722ee6f1437"><div class="ttname"><a href="../../da/ddb/a00145.html#a5e67e9eab813de18fff32722ee6f1437">stride::TransmissionProfile::Initialize</a></div><div class="ttdeci">void Initialize(const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db6/a00427_source.html#l00030">TransmissionProfile.cpp:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d4/dd3/a00428.html">SurveySeeder.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d4/dd3/a00428.html">TransmissionProfile.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

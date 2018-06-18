@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d8/d84/a00001.html#a6e0af1d3dc19b33a41dec19fe3677fc4" target="_top" xlink:title="Backend::UpdateAllHealth\lColors">
+<g id="a_node2"><a xlink:href="../../d8/d84/a00001.html#a6e0af1d3dc19b33a41dec19fe3677fc4" target="_top" xlink:title="Updates all the health colors of the locations to match the current infection rate. ">
 <polygon fill="white" stroke="black" points="170,-0 170,-30 302,-30 302,-0 170,-0"/>
 <text text-anchor="start" x="178" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">Backend::UpdateAllHealth</text>
 <text text-anchor="middle" x="236" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Colors</text>

@@ -1,10 +1,4 @@
-<map id="Belief.h" name="Belief.h">
-<area shape="rect" id="node2" href="$d0/d61/a00302.html" title="Header file for HBM belief. " alt="" coords="18,80,80,107"/>
-<area shape="rect" id="node3" href="$dd/de2/a00320.html" title="Header file for Imitation belief policy. " alt="" coords="105,80,187,107"/>
-<area shape="rect" id="node8" href="$df/dc2/a00367.html" title="Header file for NoBelief class. " alt="" coords="212,80,293,107"/>
-<area shape="rect" id="node9" href="$dd/d07/a00433.html" title="Header file for Threshold belief policy. " alt="" coords="319,80,409,107"/>
-<area shape="rect" id="node4" href="$dc/d57/a00194.html" title="Header file for the HealthSeeder. " alt="" coords="81,155,188,181"/>
-<area shape="rect" id="node7" href="$da/dee/a00383.html" title="Core Population class. " alt="" coords="213,155,320,181"/>
-<area shape="rect" id="node5" href="$dd/df4/a00193.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,229,125,256"/>
-<area shape="rect" id="node6" href="$d1/d8b/a00406.html" title="Implementation for the SimBuilder class. " alt="" coords="150,229,260,256"/>
+<map id="BoxplotGenerator.h" name="BoxplotGenerator.h">
+<area shape="rect" id="node2" href="$dc/d57/a00194.html" title="BoxplotGenerator.cpp" alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$d7/da0/a00198.html" title="CalibrationRunner.cpp" alt="" coords="177,80,327,107"/>
 </map>

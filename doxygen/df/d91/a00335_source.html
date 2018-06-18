@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: IteratorPair.h Source File</title>
+<title>Stride Reference Manual: K12SchoolPopulator.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,46 +109,38 @@ $(document).ready(function(){initNavTree('df/d91/a00335_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">IteratorPair.h</div>  </div>
+<div class="title">K12SchoolPopulator.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../df/d91/a00335.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/db5/a00365.html">PartialPopulator.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> IteratorType&gt;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d34/a00156.html">IteratorPair</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a66d2b45877e2c569db84ca43a013a392">   10</a></span>&#160;        <a class="code" href="../../d2/d34/a00156.html#a66d2b45877e2c569db84ca43a013a392">IteratorPair</a>(IteratorType <a class="code" href="../../d2/d34/a00156.html#a3cd115cc972347a90d77f4fcb98b4db0">begin</a>, IteratorType <a class="code" href="../../d2/d34/a00156.html#a863428fe8eb9ad893aa3f68615872a74">end</a>) : <a class="code" href="../../d2/d34/a00156.html#a5789f5673335913bc053a29e27376b06">m_begin</a>(begin), <a class="code" href="../../d2/d34/a00156.html#af7476070b5bae056eaddd5a71609e689">m_end</a>(end) {}</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#aa670b00237fb07ef9682846baa9394df">   11</a></span>&#160;        <a class="code" href="../../d2/d34/a00156.html#aa670b00237fb07ef9682846baa9394df">IteratorPair</a>() : <a class="code" href="../../d2/d34/a00156.html#a5789f5673335913bc053a29e27376b06">m_begin</a>(), <a class="code" href="../../d2/d34/a00156.html#af7476070b5bae056eaddd5a71609e689">m_end</a>() {}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a3cd115cc972347a90d77f4fcb98b4db0">   13</a></span>&#160;        IteratorType <a class="code" href="../../d2/d34/a00156.html#a3cd115cc972347a90d77f4fcb98b4db0">begin</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d2/d34/a00156.html#a5789f5673335913bc053a29e27376b06">m_begin</a>; }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a863428fe8eb9ad893aa3f68615872a74">   15</a></span>&#160;        IteratorType <a class="code" href="../../d2/d34/a00156.html#a863428fe8eb9ad893aa3f68615872a74">end</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d2/d34/a00156.html#af7476070b5bae056eaddd5a71609e689">m_end</a>; }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a5789f5673335913bc053a29e27376b06">   18</a></span>&#160;        IteratorType <a class="code" href="../../d2/d34/a00156.html#a5789f5673335913bc053a29e27376b06">m_begin</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#af7476070b5bae056eaddd5a71609e689">   19</a></span>&#160;        IteratorType <a class="code" href="../../d2/d34/a00156.html#af7476070b5bae056eaddd5a71609e689">m_end</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00156_html_a5789f5673335913bc053a29e27376b06"><div class="ttname"><a href="../../d2/d34/a00156.html#a5789f5673335913bc053a29e27376b06">stride::util::IteratorPair::m_begin</a></div><div class="ttdeci">IteratorType m_begin</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00018">IteratorPair.h:18</a></div></div>
-<div class="ttc" id="a00156_html"><div class="ttname"><a href="../../d2/d34/a00156.html">stride::util::IteratorPair</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00007">IteratorPair.h:7</a></div></div>
-<div class="ttc" id="a00156_html_af7476070b5bae056eaddd5a71609e689"><div class="ttname"><a href="../../d2/d34/a00156.html#af7476070b5bae056eaddd5a71609e689">stride::util::IteratorPair::m_end</a></div><div class="ttdeci">IteratorType m_end</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00019">IteratorPair.h:19</a></div></div>
-<div class="ttc" id="a00156_html_a3cd115cc972347a90d77f4fcb98b4db0"><div class="ttname"><a href="../../d2/d34/a00156.html#a3cd115cc972347a90d77f4fcb98b4db0">stride::util::IteratorPair::begin</a></div><div class="ttdeci">IteratorType begin()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00013">IteratorPair.h:13</a></div></div>
-<div class="ttc" id="a00156_html_a66d2b45877e2c569db84ca43a013a392"><div class="ttname"><a href="../../d2/d34/a00156.html#a66d2b45877e2c569db84ca43a013a392">stride::util::IteratorPair::IteratorPair</a></div><div class="ttdeci">IteratorPair(IteratorType begin, IteratorType end)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00010">IteratorPair.h:10</a></div></div>
-<div class="ttc" id="a00156_html_aa670b00237fb07ef9682846baa9394df"><div class="ttname"><a href="../../d2/d34/a00156.html#aa670b00237fb07ef9682846baa9394df">stride::util::IteratorPair::IteratorPair</a></div><div class="ttdeci">IteratorPair()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00011">IteratorPair.h:11</a></div></div>
-<div class="ttc" id="a00156_html_a863428fe8eb9ad893aa3f68615872a74"><div class="ttname"><a href="../../d2/d34/a00156.html#a863428fe8eb9ad893aa3f68615872a74">stride::util::IteratorPair::end</a></div><div class="ttdeci">IteratorType end()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00015">IteratorPair.h:15</a></div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/// Populate K12Schools</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html">    9</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="../../d1/d84/a00052.html">K12SchoolPopulator</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d22/a00057.html">PartialPopulator</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator::PartialPopulator</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d1/d84/a00052.html#a88753abc8ea1c837507c22c8b305cde2">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00014">GeoGridConfig.h:14</a></div></div>
+<div class="ttc" id="a00052_html"><div class="ttname"><a href="../../d1/d84/a00052.html">gengeopop::K12SchoolPopulator</a></div><div class="ttdoc">Populate K12Schools. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d91/a00335_source.html#l00009">K12SchoolPopulator.h:9</a></div></div>
+<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></div><div class="ttdoc">An interface for populators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db5/a00365_source.html#l00013">PartialPopulator.h:13</a></div></div>
+<div class="ttc" id="a00057_html_ab0d36a7eec42c951ab03d32db44566db"><div class="ttname"><a href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">gengeopop::PartialPopulator::PartialPopulator</a></div><div class="ttdeci">PartialPopulator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Construct with a RNManager and a logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00004">PartialPopulator.cpp:4</a></div></div>
+<div class="ttc" id="a00365_html"><div class="ttname"><a href="../../dd/db5/a00365.html">PartialPopulator.h</a></div></div>
+<div class="ttc" id="a00052_html_a88753abc8ea1c837507c22c8b305cde2"><div class="ttname"><a href="../../d1/d84/a00052.html#a88753abc8ea1c837507c22c8b305cde2">gengeopop::K12SchoolPopulator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Populate the given geogrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d75/a00334_source.html#l00014">K12SchoolPopulator.cpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../df/d91/a00335.html">IteratorPair.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../df/d91/a00335.html">K12SchoolPopulator.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

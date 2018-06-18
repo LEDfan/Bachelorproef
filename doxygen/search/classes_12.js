@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vaccination',['Vaccination',['../d5/dcb/a00170.html',1,'stride']]]
+  ['vaccination',['Vaccination',['../d9/d38/a00166.html',1,'stride']]]
 ];

@@ -1,15 +1,4 @@
-<map id="ContactPoolSys.h" name="ContactPoolSys.h">
-<area shape="rect" id="node2" href="$d6/d22/a00245.html" title="Header for the core ContactPool class. " alt="" coords="346,163,479,189"/>
-<area shape="rect" id="node5" href="$d0/da7/a00250.html" title="Definition of ContactPoolType. " alt="" coords="43,245,206,272"/>
-<area shape="rect" id="node13" href="$de/dab/a00319.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="188,80,346,107"/>
-<area shape="rect" id="node17" href="$d6/db8/a00376.html" title="util/pchheader.h" alt="" coords="1011,80,1126,107"/>
-<area shape="rect" id="node3" href="$d6/d82/a00243.html" title="Header for the ContactLogMode class. " alt="" coords="323,245,502,272"/>
-<area shape="rect" id="node18" href="$d1/da8/a00230.html" title="util/ConcatednatedIterators.h" alt="" coords="973,163,1163,189"/>
-<area shape="rect" id="node19" href="$df/d91/a00335.html" title="util/IteratorPair.h" alt="" coords="634,163,752,189"/>
-<area shape="rect" id="node20" href="$dd/db5/a00365.html" title="Interface/Implementation for NestedIterator. " alt="" coords="1316,245,1452,272"/>
-<area shape="rect" id="node24" href="$d5/db5/a00374.html" title="util/PartitionedSegmented\lVector.h" alt="" coords="778,155,948,197"/>
-<area shape="rect" id="node27" href="$d4/d53/a00429.html" title="Interface/Implementation for SVIterator. " alt="" coords="1681,245,1794,272"/>
-<area shape="rect" id="node29" href="$d0/da0/a00403.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1188,163,1346,189"/>
-<area shape="rect" id="node31" href="$db/ddc/a00353.html" title="util/lower_bound.h" alt="" coords="1497,163,1623,189"/>
-<area shape="rect" id="node25" href="$d5/d35/a00266.html" title="Exception.h" alt="" coords="726,245,816,272"/>
+<map id="DaysOffNone.h" name="DaysOffNone.h">
+<area shape="rect" id="node2" href="$de/db1/a00197.html" title="Header file for the Calendar class. " alt="" coords="373,80,512,107"/>
+<area shape="rect" id="node9" href="$d3/d1a/a00251.html" title="Interface for DaysOff classes. " alt="" coords="536,80,723,107"/>
 </map>

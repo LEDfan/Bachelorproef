@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$d8/d84/a00001.html#a12718652247133e7a7dc8fba69fdd56d" title="Removes all locations from selection and unselection + re&#45;render the map. " alt="" coords="231,5,420,46"/>
 <area shape="rect" id="node4" href="$d8/d84/a00001.html#a99bb1003a584e978452b99901fc573ba" title="Adds the location of the marker to the selection. " alt="" coords="219,71,432,97"/>
 <area shape="rect" id="node5" href="$d8/d84/a00001.html#a21d367f733a25f731ee2c9e55a3d796e" title="Handles a click on a marker. " alt="" coords="234,121,417,148"/>
-<area shape="rect" id="node6" href="$d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" title="Backend::SelectAll" alt="" coords="259,172,392,199"/>
+<area shape="rect" id="node6" href="$d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" title="Adds all locations of the grid to the selection and updates the visual appearance of these locations..." alt="" coords="259,172,392,199"/>
 <area shape="rect" id="node7" href="$d8/d84/a00001.html#a74ab20ec1a62676534387b56c2b514d5" title="The Same as SelectArea but does not clear selection first. " alt="" coords="232,223,419,249"/>
 <area shape="rect" id="node3" href="$d8/d84/a00001.html#a6ff4f267985cb8eea228352455ab6b67" title="Backend::SetShowCommutes" alt="" coords="481,12,679,39"/>
 <area shape="rect" id="node8" href="$d8/d84/a00001.html#a902157ea9e4cd13e6a25eed9135115e7" title="Selects all locations in between. " alt="" coords="507,223,653,249"/>

@@ -1,4 +1,2 @@
-<map id="proto::GeoGrid_Location_Coordinate" name="proto::GeoGrid_Location_Coordinate">
-<area shape="rect" id="node2" href="$d9/da5/a00075.html" title="{Message\n||}" alt="" coords="5,5,79,83"/>
-<area shape="rect" id="node3" href="$dd/d9c/a00487.html" title="{double\n||}" alt="" coords="105,5,164,83"/>
+<map id="protobuf_geogrid_2eproto::TableStruct" name="protobuf_geogrid_2eproto::TableStruct">
 </map>

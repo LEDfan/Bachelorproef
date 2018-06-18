@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node3"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="149,-264 149,-294 267,-294 267,-264 149,-264"/>
 <text text-anchor="start" x="157" y="-282" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="208" y="-271" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>
@@ -98,7 +98,7 @@
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d6/d7d/a00161.html#a5a7dc58c76f112c8d808866cac5a272d" target="_top" xlink:title="Randomly shuffle items between iterators using i&#45;th stream of the random engine. ">
+<g id="a_node8"><a xlink:href="../../d1/db7/a00157.html#a5a7dc58c76f112c8d808866cac5a272d" target="_top" xlink:title="Randomly shuffle items between iterators using i&#45;th stream of the random engine. ">
 <polygon fill="white" stroke="black" points="149,-39 149,-69 267,-69 267,-39 149,-39"/>
 <text text-anchor="start" x="157" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="208" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::RandomShuffle</text>

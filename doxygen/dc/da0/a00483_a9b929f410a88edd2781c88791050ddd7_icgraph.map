@@ -1,5 +1,0 @@
-<map id="stride::util::std_::lower_bound" name="stride::util::std_::lower_bound">
-<area shape="rect" id="node2" href="$de/db9/a00159.html#a144fdb4a4e43ba80d09c63ab0be5f0de" title="Find in which partition pos lies. " alt="" coords="166,38,373,79"/>
-<area shape="rect" id="node3" href="$de/db9/a00159.html#aadcef60fdd5d888f86e64a0a892b8c17" title="Gets element at index with range check. " alt="" coords="441,5,591,46"/>
-<area shape="rect" id="node4" href="$de/db9/a00159.html#a9fccbdccfeac3547ef3bb97303358d66" title="Gets const element at index without range check. " alt="" coords="421,70,611,111"/>
-</map>

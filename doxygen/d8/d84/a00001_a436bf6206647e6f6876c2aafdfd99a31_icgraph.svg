@@ -48,7 +48,7 @@ if (edges && edges.length) {
 <script type="text/javascript">
 var viewWidth = 692;
 var viewHeight = 192;
-var sectionId = 'dynsection-21';
+var sectionId = 'dynsection-19';
 </script>
 <script xlink:href="../../svgpan.js"/>
 <svg id="graph" class="graph">
@@ -128,7 +128,7 @@ var sectionId = 'dynsection-21';
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" target="_top" xlink:title="Backend::SelectAll">
+<g id="a_node9"><a xlink:href="../../d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" target="_top" xlink:title="Adds all locations of the grid to the selection and updates the visual appearance of these locations...">
 <polygon fill="white" stroke="black" points="368,-0.5 368,-19.5 468,-19.5 468,-0.5 368,-0.5"/>
 <text text-anchor="middle" x="418" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Backend::SelectAll</text>
 </a>

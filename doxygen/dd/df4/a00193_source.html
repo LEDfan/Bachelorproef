@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BeliefSeeder.cpp Source File</title>
+<title>Stride Reference Manual: BoxplotData.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,94 +109,42 @@ $(document).ready(function(){initNavTree('dd/df4/a00193_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">BeliefSeeder.cpp</div>  </div>
+<div class="title">BoxplotData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/df4/a00193.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Implementation for BeliefSeeder class.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d57/a00194.html">BeliefSeeder.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d56/a00384.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da1/a00396.html">util/RNManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;trng/uniform01_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#pragma clang diagnostic ignored &quot;-Wunused-variable&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#pragma gcc diagnostic ignored &quot;-Wunused-variable&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d1/d84/a00097.html#a10e523b7ce6b4d819812b0a75f1e443b">   38</a></span>&#160;BeliefSeeder::BeliefSeeder(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp;) : m_config_pt(configPt) {}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/d84/a00097.html#a0f7876d2c8d1a4c2bc8057da26f82df5">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d84/a00097.html#a0f7876d2c8d1a4c2bc8057da26f82df5">BeliefSeeder::Seed</a>(std::shared_ptr&lt;stride::Population&gt; pop)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  policy     = <a class="code" href="../../d1/d84/a00097.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.belief_policy.name&quot;</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  num_thrds  = <a class="code" href="../../d1/d84/a00097.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_threads&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d2/df5/a00137.html">Population</a>&amp; population = *pop;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// This gets extended as we add belief policies.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span> (policy == <span class="stringliteral">&quot;NoBelief&quot;</span>) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                pop-&gt;<a class="code" href="../../d2/df5/a00137.html#a452f55c55c494f5db179d36dd7e8161b">InitBeliefPolicy</a>&lt;<a class="code" href="../../d9/d47/a00129.html">NoBelief</a>&gt;();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../d9/d47/a00129.html">NoBelief</a> nob;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="comment">// some randomness in actual seeding; for later on</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#pragma omp parallel for num_threads(num_thrds)</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        pop-&gt;SetBeliefPolicy&lt;<a class="code" href="../../d9/d47/a00129.html">NoBelief</a>&gt;(i, nob);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (policy == <span class="stringliteral">&quot;Imitation&quot;</span>) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                pop-&gt;InitBeliefPolicy&lt;<a class="code" href="../../d2/da3/a00115.html">Imitation</a>&gt;();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="comment">// some randomness in actual seeding; for later on</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../d2/da3/a00115.html">Imitation</a> imi(<a class="code" href="../../d1/d84/a00097.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#pragma omp parallel for num_threads(num_thrds)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        pop-&gt;SetBeliefPolicy&lt;<a class="code" href="../../d2/da3/a00115.html">Imitation</a>&gt;(i, imi);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">throw</span> runtime_error(<span class="keywordtype">string</span>(__func__) + <span class="stringliteral">&quot;Not a valid belief policy!&quot;</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00115_html"><div class="ttname"><a href="../../d2/da3/a00115.html">stride::Imitation</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/de2/a00320_source.html#l00028">Imitation.h:28</a></div></div>
-<div class="ttc" id="a00097_html_a0f7876d2c8d1a4c2bc8057da26f82df5"><div class="ttname"><a href="../../d1/d84/a00097.html#a0f7876d2c8d1a4c2bc8057da26f82df5">stride::BeliefSeeder::Seed</a></div><div class="ttdeci">void Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with Health data. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00040">BeliefSeeder.cpp:40</a></div></div>
-<div class="ttc" id="a00396_html"><div class="ttname"><a href="../../d9/da1/a00396.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00384_html"><div class="ttname"><a href="../../d2/d56/a00384.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00137_html_a452f55c55c494f5db179d36dd7e8161b"><div class="ttname"><a href="../../d2/df5/a00137.html#a452f55c55c494f5db179d36dd7e8161b">stride::Population::InitBeliefPolicy</a></div><div class="ttdeci">void InitBeliefPolicy()</div><div class="ttdoc">Initialize beliefs container (including this in SetBeliefPolicy function slows you down due to guardi...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d56/a00384_source.html#l00128">Population.h:128</a></div></div>
-<div class="ttc" id="a00097_html_ab4d508461f5bd220425e75ee6e6c443c"><div class="ttname"><a href="../../d1/d84/a00097.html#ab4d508461f5bd220425e75ee6e6c443c">stride::BeliefSeeder::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d57/a00194_source.html#l00047">BeliefSeeder.h:47</a></div></div>
-<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da1/a00396_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00129_html"><div class="ttname"><a href="../../d9/d47/a00129.html">stride::NoBelief</a></div><div class="ttdoc">No beliefs w.r.t vaccination. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00029">NoBelief.h:29</a></div></div>
-<div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d56/a00384_source.html#l00054">Population.h:54</a></div></div>
-<div class="ttc" id="a00194_html"><div class="ttname"><a href="../../dc/d57/a00194.html">BeliefSeeder.h</a></div><div class="ttdoc">Header file for the HealthSeeder. </div></div>
+<a href="../../dd/df4/a00193.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>calibration {<span class="comment"></span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/// The data that describes a boxplot</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html">    7</a></span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="../../d0/d0b/a00004.html">BoxplotData</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#ab64fd7e415603011e89bdd453015683b">    9</a></span>&#160;        <a class="code" href="../../d0/d0b/a00004.html#ab64fd7e415603011e89bdd453015683b">BoxplotData</a>() : <a class="code" href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">name</a>(), <a class="code" href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">min_value</a>(), <a class="code" href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">max_value</a>(), <a class="code" href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">median</a>(), <a class="code" href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">lower_quartile</a>(), <a class="code" href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">upper_quartile</a>() {}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">   11</a></span>&#160;        std::string <a class="code" href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">name</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">   12</a></span>&#160;        <span class="keywordtype">double</span>      <a class="code" href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">min_value</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">   13</a></span>&#160;        <span class="keywordtype">double</span>      <a class="code" href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">max_value</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">   14</a></span>&#160;        <span class="keywordtype">double</span>      <a class="code" href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">median</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">   15</a></span>&#160;        <span class="keywordtype">double</span>      <a class="code" href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">lower_quartile</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">   16</a></span>&#160;        <span class="keywordtype">double</span>      <a class="code" href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">upper_quartile</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <span class="comment">// namespace calibration</span></div>
+<div class="ttc" id="a00004_html_a960b021f1a4f6f4f96a07695e703a254"><div class="ttname"><a href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">calibration::BoxplotData::lower_quartile</a></div><div class="ttdeci">double lower_quartile</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00015">BoxplotData.h:15</a></div></div>
+<div class="ttc" id="a00004_html_a008469d5fc5d9abbdc9ad1baab672165"><div class="ttname"><a href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">calibration::BoxplotData::median</a></div><div class="ttdeci">double median</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00014">BoxplotData.h:14</a></div></div>
+<div class="ttc" id="a00004_html_a4ab0898577209988d5139777629652bf"><div class="ttname"><a href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">calibration::BoxplotData::max_value</a></div><div class="ttdeci">double max_value</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00013">BoxplotData.h:13</a></div></div>
+<div class="ttc" id="a00004_html_ab64fd7e415603011e89bdd453015683b"><div class="ttname"><a href="../../d0/d0b/a00004.html#ab64fd7e415603011e89bdd453015683b">calibration::BoxplotData::BoxplotData</a></div><div class="ttdeci">BoxplotData()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00009">BoxplotData.h:9</a></div></div>
+<div class="ttc" id="a00004_html_a72a394df7beccfcfb95e0ead67ff7bbc"><div class="ttname"><a href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">calibration::BoxplotData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00011">BoxplotData.h:11</a></div></div>
+<div class="ttc" id="a00004_html_ac466b65750251938495b974dfc1ed160"><div class="ttname"><a href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">calibration::BoxplotData::min_value</a></div><div class="ttdeci">double min_value</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00012">BoxplotData.h:12</a></div></div>
+<div class="ttc" id="a00004_html_a61c72bd9cca45da1fa59e2739aa00dd9"><div class="ttname"><a href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">calibration::BoxplotData::upper_quartile</a></div><div class="ttdeci">double upper_quartile</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00016">BoxplotData.h:16</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">calibration::BoxplotData</a></div><div class="ttdoc">The data that describes a boxplot. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00007">BoxplotData.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dd/df4/a00193.html">BeliefSeeder.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:56 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../dd/df4/a00193.html">BoxplotData.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

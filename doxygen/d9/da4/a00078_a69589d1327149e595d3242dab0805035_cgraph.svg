@@ -44,7 +44,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d9/d77/a00095.html#ad6ad5a418fa38c9e42fa93f88c522860" target="_top" xlink:title="stride::BaseController\l::GetOutputPrefix">
+<g id="a_node4"><a xlink:href="../../d9/d77/a00095.html#ad6ad5a418fa38c9e42fa93f88c522860" target="_top" xlink:title="Get the prefix path for output files. ">
 <polygon fill="white" stroke="black" points="132.5,-98 132.5,-128 243.5,-128 243.5,-98 132.5,-98"/>
 <text text-anchor="start" x="140.5" y="-116" font-family="Helvetica,sans-Serif" font-size="10.00">stride::BaseController</text>
 <text text-anchor="middle" x="188" y="-105" font-family="Helvetica,sans-Serif" font-size="10.00">::GetOutputPrefix</text>
@@ -58,7 +58,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b" target="_top" xlink:title="stride::BaseController\l::RegisterViewer">
+<g id="a_node5"><a xlink:href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b" target="_top" xlink:title="Register a viewer of type T with given args. ">
 <polygon fill="white" stroke="black" points="132.5,-49 132.5,-79 243.5,-79 243.5,-49 132.5,-49"/>
 <text text-anchor="start" x="140.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">stride::BaseController</text>
 <text text-anchor="middle" x="188" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::RegisterViewer</text>
@@ -72,7 +72,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../dd/da7/a00168.html#a5f6eefbc6871a229b1c45dbbd98b41fe" target="_top" xlink:title="Returns string with the time stamp after eliminating newline. ">
+<g id="a_node6"><a xlink:href="../../db/ddf/a00164.html#a5f6eefbc6871a229b1c45dbbd98b41fe" target="_top" xlink:title="Returns string with the time stamp after eliminating newline. ">
 <polygon fill="white" stroke="black" points="130,-0 130,-30 246,-30 246,-0 130,-0"/>
 <text text-anchor="start" x="138" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::TimeStamp</text>
 <text text-anchor="middle" x="188" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::ToTag</text>

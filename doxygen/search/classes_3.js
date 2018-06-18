@@ -7,6 +7,6 @@ var searchData=
   ['daysoffstandard',['DaysOffStandard',['../df/d98/a00107.html',1,'stride']]],
   ['defaultpopbuilder',['DefaultPopBuilder',['../d1/dd6/a00108.html',1,'stride']]],
   ['dimension_5ftype',['dimension_type',['../d0/dc0/a00033.html',1,'gengeopop::geogrid_detail::KdTree2DPoint']]],
-  ['dirs',['Dirs',['../d3/df8/a00155.html',1,'stride::util::FileSys']]],
+  ['dirs',['Dirs',['../d3/d65/a00154.html',1,'stride::util::FileSys']]],
   ['diseaseseeder',['DiseaseSeeder',['../dd/d42/a00109.html',1,'stride']]]
 ];

@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" target="_top" xlink:title="gengeopop::GeoGridPopulator\l::AddPartialPopulator">
+<g id="a_node2"><a xlink:href="../../d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" target="_top" xlink:title="Add a PartialPopulator to use when populating. ">
 <polygon fill="white" stroke="black" points="202.5,-49 202.5,-79 349.5,-79 349.5,-49 202.5,-49"/>
 <text text-anchor="start" x="210.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridPopulator</text>
 <text text-anchor="middle" x="276" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPartialPopulator</text>

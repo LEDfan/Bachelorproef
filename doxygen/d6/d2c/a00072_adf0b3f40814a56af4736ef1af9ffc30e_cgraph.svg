@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node2"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="194,-0 194,-30 312,-30 312,-0 194,-0"/>
 <text text-anchor="start" x="202" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="253" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>

@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -115,22 +115,25 @@ $(document).ready(function(){initNavTree('d7/dec/a00010.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d3/d8a/a00899.html">List of all members</a>  </div>
+<a href="../../d2/da1/a00879.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CommutesListModel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d9/d01/a00227_source.html">CommutesListModel.h</a>&gt;</code></p>
+<p>A list model that implements data fetching and setting to display a list of commutes.  
+ <a href="../../d7/dec/a00010.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dc/d28/a00223_source.html">CommutesListModel.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for CommutesListModel:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/db0/a00900.svg" width="174" height="288"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d8f/a00880.svg" width="174" height="288"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for CommutesListModel:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/dac/a00901.svg" width="330" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d41/a00881.svg" width="330" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
@@ -152,6 +155,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac08b5d7adbd132da58c5642a278e9ba3"><td class="memItemLeft" align="right" valign="top">QHash&lt; int, QByteArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#ac08b5d7adbd132da58c5642a278e9ba3">roleNames</a> () const override</td></tr>
 <tr class="separator:ac08b5d7adbd132da58c5642a278e9ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5e62c909f419b5468655835e84cdc94"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94">SetCommutes</a> (std::set&lt; std::shared_ptr&lt; <a class="el" href="../../d4/d6d/a00055.html">gengeopop::Location</a> &gt;&gt; locations)</td></tr>
+<tr class="memdesc:af5e62c909f419b5468655835e84cdc94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the commutes we wan to show in this model.  <a href="#af5e62c909f419b5468655835e84cdc94">More...</a><br/></td></tr>
 <tr class="separator:af5e62c909f419b5468655835e84cdc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
@@ -160,6 +164,7 @@ Private Types</h2></td></tr>
 <a class="el" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a15dd321dfe40202ffd59878069d5f663">Destination</a>, 
 <a class="el" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a99110f05482d02c359833ab46278e76d">Amount</a>
  }</td></tr>
+<tr class="memdesc:af9cf45167d2de2d61abd1db74e038bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The roles of the columns in the list.  <a href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0">More...</a><br/></td></tr>
 <tr class="separator:af9cf45167d2de2d61abd1db74e038bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -170,8 +175,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a844fbc5b2a05ea28fc0286ba2400deb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00006">6</a> of file <a class="el" href="../../d9/d01/a00227_source.html">CommutesListModel.h</a>.</p>
+<div class="textblock"><p>A list model that implements data fetching and setting to display a list of commutes. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00009">9</a> of file <a class="el" href="../../dc/d28/a00223_source.html">CommutesListModel.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="af9cf45167d2de2d61abd1db74e038bb0"></a>
 <div class="memitem">
@@ -190,6 +196,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The roles of the columns in the list. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="af9cf45167d2de2d61abd1db74e038bb0a1979a2881f107d162ba8e19bcb200329"></a>IDRole</em>&#160;</td><td class="fielddoc">
 </td></tr>
@@ -199,7 +207,7 @@ Private Attributes</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00028">28</a> of file <a class="el" href="../../d9/d01/a00227_source.html">CommutesListModel.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00045">45</a> of file <a class="el" href="../../dc/d28/a00223_source.html">CommutesListModel.h</a>.</p>
 
 </div>
 </div>
@@ -218,7 +226,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00020">20</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00020">20</a> of file <a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a>.</p>
 
 </div>
 </div>
@@ -255,9 +263,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00009">9</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00009">9</a> of file <a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d9/d01/a00227_source.html#l00035">m_location</a>.</p>
+<p>References <a class="el" href="../../dc/d28/a00223_source.html#l00052">m_location</a>.</p>
 
 </div>
 </div>
@@ -283,9 +291,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00004">4</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00004">4</a> of file <a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d9/d01/a00227_source.html#l00035">m_location</a>.</p>
+<p>References <a class="el" href="../../dc/d28/a00223_source.html#l00052">m_location</a>.</p>
 
 </div>
 </div>
@@ -311,7 +319,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00030">30</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00030">30</a> of file <a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,7 +344,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00022">22</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00022">22</a> of file <a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a>.</p>
 
 </div>
 </div>
@@ -354,9 +362,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00032">32</a> of file <a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a>.</p>
+<p>Set the commutes we wan to show in this model. </p>
 
-<p>References <a class="el" href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">HasCommutes()</a>, and <a class="el" href="../../d9/d01/a00227_source.html#l00035">m_location</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00032">32</a> of file <a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">HasCommutes()</a>, and <a class="el" href="../../dc/d28/a00223_source.html#l00052">m_location</a>.</p>
 
 </div>
 </div>
@@ -391,7 +401,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00032">SetCommutes()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d24/a00222_source.html#l00032">SetCommutes()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -423,15 +433,15 @@ Here is the caller graph for this function:</div>
 
 <p>The location we show the commutes of. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00035">35</a> of file <a class="el" href="../../d9/d01/a00227_source.html">CommutesListModel.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00052">52</a> of file <a class="el" href="../../dc/d28/a00223_source.html">CommutesListModel.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00009">data()</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00004">rowCount()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00032">SetCommutes()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d24/a00222_source.html#l00009">data()</a>, <a class="el" href="../../d0/d24/a00222_source.html#l00004">rowCount()</a>, and <a class="el" href="../../d0/d24/a00222_source.html#l00032">SetCommutes()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d01/a00227_source.html">CommutesListModel.h</a></li>
-<li><a class="el" href="../../dc/d55/a00226_source.html">CommutesListModel.cpp</a></li>
+<li><a class="el" href="../../dc/d28/a00223_source.html">CommutesListModel.h</a></li>
+<li><a class="el" href="../../d0/d24/a00222_source.html">CommutesListModel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -439,7 +449,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/dec/a00010.html">CommutesListModel</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

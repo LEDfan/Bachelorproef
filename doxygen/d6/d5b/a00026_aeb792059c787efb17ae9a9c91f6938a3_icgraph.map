@@ -1,4 +1,4 @@
 <map id="gengeopop::ContactCenter::end" name="gengeopop::ContactCenter::end">
-<area shape="rect" id="node2" href="$d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" title="gengeopop::WorkplacePopulator\l::CalculateWorkplacesInCity" alt="" coords="261,5,472,46"/>
-<area shape="rect" id="node3" href="$d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" title="gengeopop::WorkplacePopulator\l::Apply" alt="" coords="520,5,731,46"/>
+<area shape="rect" id="node2" href="$d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" title="Fills the m_workplacesInCity map. " alt="" coords="261,5,472,46"/>
+<area shape="rect" id="node3" href="$d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" title="Populates the workplaces in geogrid with persons. " alt="" coords="520,5,731,46"/>
 </map>

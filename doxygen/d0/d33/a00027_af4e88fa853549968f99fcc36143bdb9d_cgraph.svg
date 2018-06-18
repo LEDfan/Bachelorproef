@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" target="_top" xlink:title="gengeopop::GeoGridGenerator\l::AddPartialGenerator">
+<g id="a_node2"><a xlink:href="../../d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" target="_top" xlink:title="Add a PartialGenerator to use when generating. ">
 <polygon fill="white" stroke="black" points="202.5,-49 202.5,-79 351.5,-79 351.5,-49 202.5,-49"/>
 <text text-anchor="start" x="210.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridGenerator</text>
 <text text-anchor="middle" x="277" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPartialGenerator</text>

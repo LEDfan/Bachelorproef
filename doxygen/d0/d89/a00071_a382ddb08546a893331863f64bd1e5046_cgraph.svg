@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a" target="_top" xlink:title="gengeopop::PartialGenerator\l::CheckWeight">
+<g id="a_node2"><a xlink:href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a" target="_top" xlink:title="Make sure we&#39;re using a valid weight for random numbers. ">
 <polygon fill="white" stroke="black" points="196,-49 196,-79 336,-79 336,-49 196,-49"/>
 <text text-anchor="start" x="204" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::PartialGenerator</text>
 <text text-anchor="middle" x="266" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::CheckWeight</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node4"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="207,-0 207,-30 325,-30 325,-0 207,-0"/>
 <text text-anchor="start" x="215" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="266" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>
@@ -45,7 +45,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d3/dcc/a00264.html#a53951f1917941ac25ba6508b1b72771f" target="_top" xlink:title="ExcAssert">
+<g id="a_node3"><a xlink:href="../../d0/d2f/a00259.html#a53951f1917941ac25ba6508b1b72771f" target="_top" xlink:title="ExcAssert">
 <polygon fill="white" stroke="black" points="372,-54.5 372,-73.5 434,-73.5 434,-54.5 372,-54.5"/>
 <text text-anchor="middle" x="403" y="-61.5" font-family="Helvetica,sans-Serif" font-size="10.00">ExcAssert</text>
 </a>

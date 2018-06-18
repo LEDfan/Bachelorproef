@@ -1,10 +1,10 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d6/d5b/a00026.html" title="gengeopop::ContactCenter" alt="" coords="5,107,184,133"/>
-<area shape="rect" id="node2" href="$dd/da2/a00019.html" title="gengeopop::College" alt="" coords="243,5,381,32"/>
-<area shape="rect" id="node3" href="$d7/de0/a00022.html" title="gengeopop::Community" alt="" coords="232,56,392,83"/>
-<area shape="rect" id="node6" href="$d6/d97/a00045.html" title="gengeopop::Household" alt="" coords="235,107,389,133"/>
-<area shape="rect" id="node7" href="$d5/de0/a00050.html" title="gengeopop::K12School" alt="" coords="234,157,390,184"/>
-<area shape="rect" id="node8" href="$d2/db1/a00070.html" title="gengeopop::Workplace" alt="" coords="235,208,389,235"/>
-<area shape="rect" id="node4" href="$d3/d8b/a00059.html" title="gengeopop::PrimaryCommunity" alt="" coords="449,31,655,57"/>
-<area shape="rect" id="node5" href="$d1/d6f/a00063.html" title="gengeopop::SecondaryCommunity" alt="" coords="441,81,663,108"/>
+<area shape="rect" id="node1" href="$d6/d5b/a00026.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="5,107,184,133"/>
+<area shape="rect" id="node2" href="$dd/da2/a00019.html" title="Models a College as ContactCenter. " alt="" coords="243,5,381,32"/>
+<area shape="rect" id="node3" href="$d7/de0/a00022.html" title="Models a Community as ContactCenter. " alt="" coords="232,56,392,83"/>
+<area shape="rect" id="node6" href="$d6/d97/a00045.html" title="Models a Household as ContactCenter. " alt="" coords="235,107,389,133"/>
+<area shape="rect" id="node7" href="$d5/de0/a00050.html" title="Models a K12School as ContactCenter. " alt="" coords="234,157,390,184"/>
+<area shape="rect" id="node8" href="$d2/db1/a00070.html" title="Models a Workplace as ContactCenter. " alt="" coords="235,208,389,235"/>
+<area shape="rect" id="node4" href="$d3/d8b/a00059.html" title="A model of a Primary Community (as a ContactCenter) " alt="" coords="449,31,655,57"/>
+<area shape="rect" id="node5" href="$d1/d6f/a00063.html" title="A model of a Secondary Community (as a ContactCenter) " alt="" coords="441,81,663,108"/>
 </map>

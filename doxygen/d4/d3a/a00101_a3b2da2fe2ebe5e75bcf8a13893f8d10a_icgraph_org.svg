@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" target="_top" xlink:title="gengeopop::HouseholdPopulator\l::Apply">
+<g id="a_node2"><a xlink:href="../../d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" target="_top" xlink:title="Populate the given geogrid. ">
 <polygon fill="white" stroke="black" points="140,-147 140,-177 298,-177 298,-147 140,-147"/>
 <text text-anchor="start" x="148" y="-165" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::HouseholdPopulator</text>
 <text text-anchor="middle" x="219" y="-154" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>

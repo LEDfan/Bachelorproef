@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactCenter.h Source File</title>
+<title>Stride Reference Manual: ContactHandler.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,72 +109,88 @@ $(document).ready(function(){initNavTree('d7/d40/a00236_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactCenter.h</div>  </div>
+<div class="title">ContactHandler.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/d40/a00236.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d5e/a00275.html">GeoGrid.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span>GeoGridConfig;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d5b/a00026.html">ContactCenter</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">   11</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a> = std::vector&lt;stride::ContactPool*&gt;::iterator;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d6/d5b/a00026.html#a9aaa45f62fcb16bcd4b6f382a94e5526">ContactCenter</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> std::string  <a class="code" href="../../d6/d5b/a00026.html#a6accccf2036e95ef292fa475e75fa6fc">GetType</a>() <span class="keyword">const</span>                               = 0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d5b/a00026.html#a29071ba50d10e1c2bad9d4ab52cbd561">GetPoolSize</a>() <span class="keyword">const</span>                           = 0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d5b/a00026.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5">GetMaxPools</a>() <span class="keyword">const</span>                           = 0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span>         <a class="code" href="../../d6/d5b/a00026.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff">Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid) = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d5b/a00026.html#a41db67c04a80efb125efdbfa4a39b4ad">GetId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header for the ContactHandler class.</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::pair&lt;unsigned int, unsigned int&gt; <a class="code" href="../../d6/d5b/a00026.html#af8b55f34ee88976dc4e4cd124f508ffa">GetPopulationAndInfectedCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/db9/a00387.html">util/RNManager.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a>(<a class="code" href="../../d4/d3a/a00101.html">stride::ContactPool</a>* pool);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> std::vector&lt;stride::ContactPool*&gt;&amp; <a class="code" href="../../d6/d5b/a00026.html#af52200fb10382cffac4fa67d987f5406">GetPools</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a> <a class="code" href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741">begin</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a> <a class="code" href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3">end</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d6/d5b/a00026.html#ac520d66f2268d03298cb36a47103aa74">~ContactCenter</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">   34</a></span>&#160;        std::vector&lt;stride::ContactPool*&gt; <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a785264e08f004b2e1f51e2fb158c0fdf">   35</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                      <a class="code" href="../../d6/d5b/a00026.html#a785264e08f004b2e1f51e2fb158c0fdf">m_id</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00026_html_a351f15c90b8cb94886b69752960dc741"><div class="ttname"><a href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741">gengeopop::ContactCenter::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00009">ContactCenter.cpp:9</a></div></div>
-<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/a00245_source.html#l00037">ContactPool.h:37</a></div></div>
-<div class="ttc" id="a00026_html_ac520d66f2268d03298cb36a47103aa74"><div class="ttname"><a href="../../d6/d5b/a00026.html#ac520d66f2268d03298cb36a47103aa74">gengeopop::ContactCenter::~ContactCenter</a></div><div class="ttdeci">virtual ~ContactCenter()=default</div></div>
-<div class="ttc" id="a00026_html_a29071ba50d10e1c2bad9d4ab52cbd561"><div class="ttname"><a href="../../d6/d5b/a00026.html#a29071ba50d10e1c2bad9d4ab52cbd561">gengeopop::ContactCenter::GetPoolSize</a></div><div class="ttdeci">virtual unsigned int GetPoolSize() const =0</div></div>
-<div class="ttc" id="a00026_html_aeb792059c787efb17ae9a9c91f6938a3"><div class="ttname"><a href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3">gengeopop::ContactCenter::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00011">ContactCenter.cpp:11</a></div></div>
-<div class="ttc" id="a00026_html_a9aaa45f62fcb16bcd4b6f382a94e5526"><div class="ttname"><a href="../../d6/d5b/a00026.html#a9aaa45f62fcb16bcd4b6f382a94e5526">gengeopop::ContactCenter::ContactCenter</a></div><div class="ttdeci">ContactCenter(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00005">ContactCenter.cpp:5</a></div></div>
-<div class="ttc" id="a00026_html_af52200fb10382cffac4fa67d987f5406"><div class="ttname"><a href="../../d6/d5b/a00026.html#af52200fb10382cffac4fa67d987f5406">gengeopop::ContactCenter::GetPools</a></div><div class="ttdeci">const std::vector&lt; stride::ContactPool * &gt; &amp; GetPools() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00013">ContactCenter.cpp:13</a></div></div>
-<div class="ttc" id="a00026_html_a6accccf2036e95ef292fa475e75fa6fc"><div class="ttname"><a href="../../d6/d5b/a00026.html#a6accccf2036e95ef292fa475e75fa6fc">gengeopop::ContactCenter::GetType</a></div><div class="ttdeci">virtual std::string GetType() const =0</div></div>
-<div class="ttc" id="a00026_html_ac0b05f8789a5272fa8ec5e1113c5b731"><div class="ttname"><a href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">gengeopop::ContactCenter::m_pools</a></div><div class="ttdeci">std::vector&lt; stride::ContactPool * &gt; m_pools</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00034">ContactCenter.h:34</a></div></div>
-<div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00026_html_a7ffc40d11c7c2f8c2a6b012104e38179"><div class="ttname"><a href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">gengeopop::ContactCenter::iterator</a></div><div class="ttdeci">std::vector&lt; stride::ContactPool * &gt;::iterator iterator</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00011">ContactCenter.h:11</a></div></div>
-<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">gengeopop::ContactCenter</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00008">ContactCenter.h:8</a></div></div>
-<div class="ttc" id="a00026_html_af8b55f34ee88976dc4e4cd124f508ffa"><div class="ttname"><a href="../../d6/d5b/a00026.html#af8b55f34ee88976dc4e4cd124f508ffa">gengeopop::ContactCenter::GetPopulationAndInfectedCount</a></div><div class="ttdeci">std::pair&lt; unsigned int, unsigned int &gt; GetPopulationAndInfectedCount() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00017">ContactCenter.cpp:17</a></div></div>
-<div class="ttc" id="a00026_html_a05e2ac775c782a156ad867059f3b5e57"><div class="ttname"><a href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter::AddPool</a></div><div class="ttdeci">void AddPool(stride::ContactPool *pool)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00007">ContactCenter.cpp:7</a></div></div>
-<div class="ttc" id="a00026_html_a785264e08f004b2e1f51e2fb158c0fdf"><div class="ttname"><a href="../../d6/d5b/a00026.html#a785264e08f004b2e1f51e2fb158c0fdf">gengeopop::ContactCenter::m_id</a></div><div class="ttdeci">unsigned int m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00035">ContactCenter.h:35</a></div></div>
-<div class="ttc" id="a00026_html_ae39a8e8f20bebc8c0e2a548dc5a72ce5"><div class="ttname"><a href="../../d6/d5b/a00026.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5">gengeopop::ContactCenter::GetMaxPools</a></div><div class="ttdeci">virtual unsigned int GetMaxPools() const =0</div></div>
-<div class="ttc" id="a00026_html_a4c1b74ce73ad2ae64a4c6bc48238d1ff"><div class="ttname"><a href="../../d6/d5b/a00026.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff">gengeopop::ContactCenter::Fill</a></div><div class="ttdeci">virtual void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid)=0</div></div>
-<div class="ttc" id="a00026_html_a41db67c04a80efb125efdbfa4a39b4ad"><div class="ttname"><a href="../../d6/d5b/a00026.html#a41db67c04a80efb125efdbfa4a39b4ad">gengeopop::ContactCenter::GetId</a></div><div class="ttdeci">unsigned int GetId() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00015">ContactCenter.cpp:15</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * Processes the contacts between persons and determines whether transmission occurs.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d61/a00100.html">ContactHandler</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">        /// Constructor sets the transmission rate and random number generator.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#acd8b09e759ed6049412de25662d1301d">   35</a></span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d0/d61/a00100.html#acd8b09e759ed6049412de25662d1301d">ContactHandler</a>(std::function&lt;<span class="keywordtype">double</span>()&gt; gen) : <a class="code" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>(std::move(gen)) {}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        /// Make a draw on the uniform generator.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#ac03cd0d69d17bb0a97189c24ed537fdf">   38</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="../../d0/d61/a00100.html#ac03cd0d69d17bb0a97189c24ed537fdf">operator()</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>(); }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        /// Check if two individuals have contact and transmission.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#a65ae0c571176ea267cf980ce31408f35">   41</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/a00100.html#a65ae0c571176ea267cf980ce31408f35">HasContactAndTransmission</a>(<span class="keywordtype">double</span> contact_rate, <span class="keywordtype">double</span> transmission_rate)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>() &lt; <a class="code" href="../../d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(transmission_rate * contact_rate);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">        /// Check if two individuals have contact.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#a4a6ef10cff06328c9bc5b7f6337339ad">   47</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/a00100.html#a4a6ef10cff06328c9bc5b7f6337339ad">HasContact</a>(<span class="keywordtype">double</span> contact_rate) { <span class="keywordflow">return</span> <a class="code" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>() &lt; <a class="code" href="../../d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(contact_rate); }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">        /// Check whether transmission occurs.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#a94d8f2bdeff1e99b1e6380060e8fb622">   50</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/a00100.html#a94d8f2bdeff1e99b1e6380060e8fb622">HasTransmission</a>(<span class="keywordtype">double</span> transmission_rate)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>() &lt; <a class="code" href="../../d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(transmission_rate);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">        /// Convert rate into probability</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344">   57</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="../../d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(<span class="keywordtype">double</span> rate) { <span class="keywordflow">return</span> 1.0 - exp(-rate); }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">   60</a></span>&#160;        std::function&lt;double()&gt; <a class="code" href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>; <span class="comment">///&lt; Random number generator: double in [0.0, 1.0)</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00100_html_ac03cd0d69d17bb0a97189c24ed537fdf"><div class="ttname"><a href="../../d0/d61/a00100.html#ac03cd0d69d17bb0a97189c24ed537fdf">stride::ContactHandler::operator()</a></div><div class="ttdeci">double operator()()</div><div class="ttdoc">Make a draw on the uniform generator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00038">ContactHandler.h:38</a></div></div>
+<div class="ttc" id="a00100_html_a65ae0c571176ea267cf980ce31408f35"><div class="ttname"><a href="../../d0/d61/a00100.html#a65ae0c571176ea267cf980ce31408f35">stride::ContactHandler::HasContactAndTransmission</a></div><div class="ttdeci">bool HasContactAndTransmission(double contact_rate, double transmission_rate)</div><div class="ttdoc">Check if two individuals have contact and transmission. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00041">ContactHandler.h:41</a></div></div>
+<div class="ttc" id="a00100_html_a51fd44b433163a1bd2a9fb424a003344"><div class="ttname"><a href="../../d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344">stride::ContactHandler::RateToProbability</a></div><div class="ttdeci">double RateToProbability(double rate)</div><div class="ttdoc">Convert rate into probability. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00057">ContactHandler.h:57</a></div></div>
+<div class="ttc" id="a00100_html_acd8b09e759ed6049412de25662d1301d"><div class="ttname"><a href="../../d0/d61/a00100.html#acd8b09e759ed6049412de25662d1301d">stride::ContactHandler::ContactHandler</a></div><div class="ttdeci">ContactHandler(std::function&lt; double()&gt; gen)</div><div class="ttdoc">Constructor sets the transmission rate and random number generator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00035">ContactHandler.h:35</a></div></div>
+<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00100_html_a94d8f2bdeff1e99b1e6380060e8fb622"><div class="ttname"><a href="../../d0/d61/a00100.html#a94d8f2bdeff1e99b1e6380060e8fb622">stride::ContactHandler::HasTransmission</a></div><div class="ttdeci">bool HasTransmission(double transmission_rate)</div><div class="ttdoc">Check whether transmission occurs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00050">ContactHandler.h:50</a></div></div>
+<div class="ttc" id="a00100_html"><div class="ttname"><a href="../../d0/d61/a00100.html">stride::ContactHandler</a></div><div class="ttdoc">Processes the contacts between persons and determines whether transmission occurs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00031">ContactHandler.h:31</a></div></div>
+<div class="ttc" id="a00100_html_a4a6ef10cff06328c9bc5b7f6337339ad"><div class="ttname"><a href="../../d0/d61/a00100.html#a4a6ef10cff06328c9bc5b7f6337339ad">stride::ContactHandler::HasContact</a></div><div class="ttdeci">bool HasContact(double contact_rate)</div><div class="ttdoc">Check if two individuals have contact. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00047">ContactHandler.h:47</a></div></div>
+<div class="ttc" id="a00100_html_ad89329d01eda188d96ac8fea0386cdc4"><div class="ttname"><a href="../../d0/d61/a00100.html#ad89329d01eda188d96ac8fea0386cdc4">stride::ContactHandler::m_uniform01_generator</a></div><div class="ttdeci">std::function&lt; double()&gt; m_uniform01_generator</div><div class="ttdoc">Random number generator: double in [0.0, 1.0) </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d40/a00236_source.html#l00060">ContactHandler.h:60</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d40/a00236.html">ContactCenter.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d7/d40/a00236.html">ContactHandler.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

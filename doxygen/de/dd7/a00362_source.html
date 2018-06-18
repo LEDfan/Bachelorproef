@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: MapViewer.cpp Source File</title>
+<title>Stride Reference Manual: PartialGenerator.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,61 +109,28 @@ $(document).ready(function(){initNavTree('de/dd7/a00362_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">MapViewer.cpp</div>  </div>
+<div class="title">PartialGenerator.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/dd7/a00362.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d9b/a00363.html">MapViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d3d/a00409.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d8/d89/a00484.html">    7</a></span>&#160;<span class="keyword">namespace </span>viewers {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#a682fd168e97785d7342bc192baeac078">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d8/df1/a00174.html#a682fd168e97785d7342bc192baeac078">MapViewer::Update</a>(<span class="keyword">const</span> <a class="code" href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="comment">/*id*/</span>)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">m_runner</a>-&gt;GetSim() == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">// CHeck if actually initialized</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">while</span> (!<a class="code" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a>-&gt;IsReady()) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">m_first</a>) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <a class="code" href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">m_first</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="comment">// Set the geogrid</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <a class="code" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a>-&gt;SetGeoGrids(<a class="code" href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">m_runner</a>-&gt;GetSim()-&gt;GetPopulation()-&gt;GetGeoGrids());</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <a class="code" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a>-&gt;ForceUpdateMarkers();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="comment">// Update the markers</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <a class="code" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a>-&gt;ForceUpdateMarkers();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">m_logger</a>-&gt;info(<span class="stringliteral">&quot;MapViewer updated&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#a347ee82efaa83090012fa331c855285a">   33</a></span>&#160;<a class="code" href="../../d8/df1/a00174.html#a347ee82efaa83090012fa331c855285a">MapViewer::~MapViewer</a>() {}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00174_html_a086e9f45a7652dbbb2f2b63a790f41d7"><div class="ttname"><a href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">stride::viewers::MapViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdoc">The runner for the current simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00028">MapViewer.h:28</a></div></div>
-<div class="ttc" id="a00174_html_ac76efad12d02ce9ee9f0b8487ff726ec"><div class="ttname"><a href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">stride::viewers::MapViewer::m_first</a></div><div class="ttdeci">bool m_first</div><div class="ttdoc">A variable used to see if it was the first time the &quot;Update&quot; method was called. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00026">MapViewer.h:26</a></div></div>
-<div class="ttc" id="a00363_html"><div class="ttname"><a href="../../d9/d9b/a00363.html">MapViewer.h</a></div></div>
-<div class="ttc" id="a00409_html"><div class="ttname"><a href="../../de/d3d/a00409.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00174_html_a7899a4938e50547e1b14e387255c290a"><div class="ttname"><a href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">stride::viewers::MapViewer::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdoc">The logger used for notifying that the MapViewer was updated. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00025">MapViewer.h:25</a></div></div>
-<div class="ttc" id="a00480_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d9/dc5/a00480.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00174_html_a682fd168e97785d7342bc192baeac078"><div class="ttname"><a href="../../d8/df1/a00174.html#a682fd168e97785d7342bc192baeac078">stride::viewers::MapViewer::Update</a></div><div class="ttdeci">void Update(const sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd7/a00362_source.html#l00009">MapViewer.cpp:9</a></div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00174_html_a347ee82efaa83090012fa331c855285a"><div class="ttname"><a href="../../d8/df1/a00174.html#a347ee82efaa83090012fa331c855285a">stride::viewers::MapViewer::~MapViewer</a></div><div class="ttdeci">~MapViewer()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd7/a00362_source.html#l00033">MapViewer.cpp:33</a></div></div>
-<div class="ttc" id="a00174_html_a611730b84751ab3a6fbf48ff64e7a8c5"><div class="ttname"><a href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">stride::viewers::MapViewer::m_vis</a></div><div class="ttdeci">std::unique_ptr&lt; Map &gt; m_vis</div><div class="ttdoc">The Map to display. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00027">MapViewer.h:27</a></div></div>
+<a href="../../de/dd7/a00362.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d9b/a00363.html">PartialGenerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;spdlog/logger.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">    5</a></span>&#160;<a class="code" href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">PartialGenerator::PartialGenerator</a>(<a class="code" href="../../d1/db7/a00157.html">stride::util::RNManager</a>&amp; rn_manager, std::shared_ptr&lt;spdlog::logger&gt; logger)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    : m_rnManager(rn_manager), m_logger(std::move(logger))</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00056_html_a731cd830897bc6aa1e1026b4fec80cda"><div class="ttname"><a href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">gengeopop::PartialGenerator::PartialGenerator</a></div><div class="ttdeci">PartialGenerator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Constructor with a RNManager and a logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd7/a00362_source.html#l00005">PartialGenerator.cpp:5</a></div></div>
+<div class="ttc" id="a00363_html"><div class="ttname"><a href="../../d9/d9b/a00363.html">PartialGenerator.h</a></div></div>
+<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00041">RNManager.h:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../de/dd7/a00362.html">MapViewer.cpp</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../de/dd7/a00362.html">PartialGenerator.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

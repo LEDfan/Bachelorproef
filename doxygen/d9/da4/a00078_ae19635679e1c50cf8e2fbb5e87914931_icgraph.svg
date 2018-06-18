@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a4568f237cc4481a8e89141cf302c3361" target="_top" xlink:title="Launcher::SaveConfig">
+<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a4568f237cc4481a8e89141cf302c3361" target="_top" xlink:title="Save the configuration stored in the ConfigForm to the provided filename. ">
 <polygon fill="white" stroke="black" points="154.5,-0.5 154.5,-19.5 267.5,-19.5 267.5,-0.5 154.5,-0.5"/>
 <text text-anchor="middle" x="211" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::SaveConfig</text>
 </a>

@@ -1,5 +1,5 @@
 <map id="gengeopop::WorkplacePopulator::CalculateWorkplacesInCity" name="gengeopop::WorkplacePopulator::CalculateWorkplacesInCity">
-<area shape="rect" id="node2" href="$d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" title="gengeopop::ContactCenter\l::begin" alt="" coords="279,5,457,46"/>
-<area shape="rect" id="node3" href="$d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" title="gengeopop::ContactCenter::end" alt="" coords="265,71,471,97"/>
-<area shape="rect" id="node4" href="$d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="289,122,447,163"/>
+<area shape="rect" id="node2" href="$d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" title="Allow range&#45;based iteration. " alt="" coords="279,5,457,46"/>
+<area shape="rect" id="node3" href="$d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" title="Allow range&#45;based iteration. " alt="" coords="265,71,471,97"/>
+<area shape="rect" id="node4" href="$d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="289,122,447,163"/>
 </map>

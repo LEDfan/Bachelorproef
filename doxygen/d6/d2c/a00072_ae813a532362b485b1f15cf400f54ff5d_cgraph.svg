@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" target="_top" xlink:title="gengeopop::ContactCenter\l::begin">
+<g id="a_node2"><a xlink:href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" target="_top" xlink:title="Allow range&#45;based iteration. ">
 <polygon fill="white" stroke="black" points="205,-88 205,-118 339,-118 339,-88 205,-88"/>
 <text text-anchor="start" x="213" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::ContactCenter</text>
 <text text-anchor="middle" x="272" y="-95" font-family="Helvetica,sans-Serif" font-size="10.00">::begin</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" target="_top" xlink:title="gengeopop::ContactCenter::end">
+<g id="a_node3"><a xlink:href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" target="_top" xlink:title="Allow range&#45;based iteration. ">
 <polygon fill="white" stroke="black" points="194.5,-49.5 194.5,-68.5 349.5,-68.5 349.5,-49.5 194.5,-49.5"/>
 <text text-anchor="middle" x="272" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::ContactCenter::end</text>
 </a>
@@ -44,7 +44,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node4"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="213,-0 213,-30 331,-30 331,-0 213,-0"/>
 <text text-anchor="start" x="221" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="272" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>

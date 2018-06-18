@@ -1,4 +1,5 @@
 var a00467 =
 [
-    [ "is_proto_enum< ::proto::GeoGrid_Location_ContactCenter_Type >", "db/db6/a00074.html", null ]
+    [ "IdSubscriptArray", "d1/d09/a00077.html", "d1/d09/a00077" ],
+    [ "IdSubscriptArray< bool >", "d9/dcc/a00102.html", "d9/dcc/a00102" ]
 ];

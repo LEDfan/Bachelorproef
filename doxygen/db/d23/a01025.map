@@ -1,0 +1,23 @@
+<map id="gengeopop::GeoGridProtoReader" name="gengeopop::GeoGridProtoReader">
+<area shape="rect" id="node2" href="$dd/d32/a00041.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul..." alt="" coords="502,1478,684,1629"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="331,1105,421,1183"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="279,774,408,866"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="267,433,420,511"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="271,155,371,232"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="501,272,640,349"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="633,155,748,232"/>
+<area shape="rect" id="node25" title="STL class. " alt="" coords="1653,265,1795,357"/>
+<area shape="rect" id="node27" title="STL class. " alt="" coords="1462,155,1660,232"/>
+<area shape="rect" id="node36" title="STL class. " alt="" coords="2204,155,2327,232"/>
+<area shape="rect" id="node17" href="$d0/d5e/a00136.html" title="Store and handle person data. " alt="" coords="1340,1032,1447,1256"/>
+<area shape="rect" id="node18" href="$d9/d34/a00476.html" title="{double\n||}" alt="" coords="830,781,889,859"/>
+<area shape="rect" id="node19" href="$d4/d3a/a00101.html" title="Represents a group of Persons that potentially have contacts. " alt="" coords="1968,701,2115,939"/>
+<area shape="rect" id="node24" href="$d1/d09/a00077.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="1523,730,1744,910"/>
+<area shape="rect" id="node26" href="$d1/d09/a00077.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="1480,382,1643,562"/>
+<area shape="rect" id="node29" href="$d9/dcc/a00102.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="631,737,805,903"/>
+<area shape="rect" id="node30" title="STL class. " alt="" coords="751,433,937,511"/>
+<area shape="rect" id="node32" href="$d9/df8/a00096.html" title="Base class for all belief policies. " alt="" coords="1271,767,1385,873"/>
+<area shape="rect" id="node33" href="$d3/d00/a00113.html" title="Holds a person&#39;s health data. " alt="" coords="985,686,1175,954"/>
+<area shape="rect" id="node38" title="STL class. " alt="" coords="2405,1328,2484,1405"/>
+<area shape="rect" id="node39" title="STL class. " alt="" coords="2425,1098,2551,1190"/>
+</map>

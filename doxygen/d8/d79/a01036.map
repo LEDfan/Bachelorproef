@@ -1,7 +1,2 @@
-<map id="gengeopop::CommutesReader" name="gengeopop::CommutesReader">
-<area shape="rect" id="node3" title="STL class. " alt="" coords="37,419,128,496"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="18,262,147,354"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="5,133,159,211"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="33,5,132,83"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="153,419,292,496"/>
+<map id="gengeopop::GeoGridWriter" name="gengeopop::GeoGridWriter">
 </map>

@@ -23,7 +23,7 @@
 <area shape="rect" id="node20" href="$df/d5d/a00084.html#a52834c8723f6f469c13bddd262ad01bd" title="proto::GeoGrid_Location\l_ContactCenter::set_type" alt="" coords="793,494,965,535"/>
 <area shape="rect" id="node22" href="$db/d3a/a00040.html#a0551c1ce7927fc90a5dcc38df8980176" title="Create a ProtoBuf ContactPool containing all the information needed to reconstruct a ContactPool..." alt="" coords="775,559,982,601"/>
 <area shape="rect" id="node26" href="$df/d5d/a00084.html#ad60595d25a1d1bd0fde30587f42fb4b0" title="proto::GeoGrid_Location\l_ContactCenter::add_pools" alt="" coords="788,625,969,666"/>
-<area shape="rect" id="node21" href="$df/d38/a00468.html#a34e7d7c47b9a19a58bd24d0522898461" title="proto::GeoGrid_Location\l_ContactCenter_Type_IsValid" alt="" coords="1036,451,1233,493"/>
+<area shape="rect" id="node21" href="$d2/d91/a00459.html#a34e7d7c47b9a19a58bd24d0522898461" title="proto::GeoGrid_Location\l_ContactCenter_Type_IsValid" alt="" coords="1036,451,1233,493"/>
 <area shape="rect" id="node23" href="$df/d13/a00085.html#a3a96e7914b029f35fbb01df4994e19ca" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::set_id" alt="" coords="1038,516,1231,572"/>
 <area shape="rect" id="node24" href="$d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="1067,595,1202,637"/>
 <area shape="rect" id="node25" href="$df/d13/a00085.html#aa0d19e37f4c187d754b71a7696ad32eb" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::add_people" alt="" coords="1038,660,1231,716"/>

@@ -141,7 +141,7 @@ var sectionId = 'dynsection-38';
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" target="_top" xlink:title="Backend::SelectAll">
+<g id="a_node7"><a xlink:href="../../d8/d84/a00001.html#a5c6947858998d7709812d9bf825906dc" target="_top" xlink:title="Adds all locations of the grid to the selection and updates the visual appearance of these locations...">
 <polygon fill="white" stroke="black" points="416,-137.946 416,-156.946 516,-156.946 516,-137.946 416,-137.946"/>
 <text text-anchor="middle" x="466" y="-144.946" font-family="Helvetica,sans-Serif" font-size="10.00">Backend::SelectAll</text>
 </a>

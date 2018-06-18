@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ExcAssert.h File Reference</title>
+<title>Stride Reference Manual: GenGeoPopController.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,84 +109,48 @@ $(document).ready(function(){initNavTree('d3/dcc/a00264.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ExcAssert.h File Reference</div>  </div>
+<div class="title">GenGeoPopController.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;<a class="el" href="../../d5/d35/a00266_source.html">util/Exception.h</a>&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d53/a00265_source.html">GenGeoPopController.h</a>&quot;</code><br/>
+<code>#include &lt;<a class="el" href="../../d1/de1/a00213_source.html">gengeopop/generators/CollegeGenerator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../dd/df3/a00219_source.html">gengeopop/generators/CommunityGenerator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d3/d5e/a00275_source.html">gengeopop/generators/GeoGridGenerator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d0/da2/a00307_source.html">gengeopop/generators/HouseholdGenerator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d2/d0a/a00333_source.html">gengeopop/generators/K12SchoolGenerator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d4/da8/a00437_source.html">gengeopop/generators/WorkplaceGenerator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../da/dee/a00383_source.html">gengeopop/io/ReaderFactory.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d3/dd5/a00215_source.html">gengeopop/populators/CollegePopulator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d2/d04/a00281_source.html">gengeopop/populators/GeoGridPopulator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d2/d71/a00309_source.html">gengeopop/populators/HouseholdPopulator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../df/d91/a00335_source.html">gengeopop/populators/K12SchoolPopulator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d8/ddd/a00380_source.html">gengeopop/populators/PrimaryCommunityPopulator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../da/dbf/a00393_source.html">gengeopop/populators/SecondaryCommunityPopulator.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d9/d3a/a00439_source.html">gengeopop/populators/WorkplacePopulator.h</a>&gt;</code><br/>
+<code>#include &lt;spdlog/logger.h&gt;</code><br/>
+<code>#include &lt;utility&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ExcAssert.h:</div>
+Include dependency graph for GenGeoPopController.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/db1/a00621.svg" width="202" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/db1/a00622.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../db/db5/a00616.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="../../d3/dcc/a00264_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a53951f1917941ac25ba6508b1b72771f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dcc/a00264.html#a53951f1917941ac25ba6508b1b72771f">ExcAssert</a> (bool condition, const std::string &amp;error)</td></tr>
-<tr class="separator:a53951f1917941ac25ba6508b1b72771f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d1/d0b/a00452"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d0b/a00452.html">gengeopop</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a53951f1917941ac25ba6508b1b72771f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ExcAssert </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>condition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>error</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00008">8</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">ExcAssert.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d9a/a00218_source.html#l00015">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../de/d84/a00447_source.html#l00126">gengeopop::WorkplacePopulator::CalculateCommutingLocations()</a>, and <a class="el" href="../../d6/d80/a00371_source.html#l00024">gengeopop::PartialGenerator::CheckWeight()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/dcc/a00264_a53951f1917941ac25ba6508b1b72771f_icgraph.svg" width="619" height="295"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/dcc/a00264.html">ExcAssert.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dcc/a00264.html">GenGeoPopController.cpp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

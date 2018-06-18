@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a69589d1327149e595d3242dab0805035" target="_top" xlink:title="Launcher::Launch">
+<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a69589d1327149e595d3242dab0805035" target="_top" xlink:title="Launch the simulation with the stored configuration. ">
 <polygon fill="white" stroke="black" points="148,-38.5 148,-57.5 242,-57.5 242,-38.5 148,-38.5"/>
 <text text-anchor="middle" x="195" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::Launch</text>
 </a>
@@ -30,7 +30,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../df/d73/a00358.html#a3c04138a5bfe5d72780bb7e82a18e627" target="_top" xlink:title="Main program of the stride simulator. ">
+<g id="a_node5"><a xlink:href="../../d0/d48/a00351.html#a3c04138a5bfe5d72780bb7e82a18e627" target="_top" xlink:title="Main program of the stride simulator. ">
 <polygon fill="white" stroke="black" points="176,-0.5 176,-19.5 214,-19.5 214,-0.5 176,-0.5"/>
 <text text-anchor="middle" x="195" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
 </a>
@@ -43,7 +43,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d6/de1/a00356.html#ae0509bb7817eee297e8f3c9dbd675b00" target="_top" xlink:title="LaunchGui">
+<g id="a_node3"><a xlink:href="../../d7/dfc/a00349.html#ae0509bb7817eee297e8f3c9dbd675b00" target="_top" xlink:title="LaunchGui">
 <polygon fill="white" stroke="black" points="278.5,-38.5 278.5,-57.5 341.5,-57.5 341.5,-38.5 278.5,-38.5"/>
 <text text-anchor="middle" x="310" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">LaunchGui</text>
 </a>
@@ -56,7 +56,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d6/de1/a00356.html#a81ce304348a420752ee080480d2b3095" target="_top" xlink:title="main">
+<g id="a_node4"><a xlink:href="../../d7/dfc/a00349.html#a81ce304348a420752ee080480d2b3095" target="_top" xlink:title="main">
 <polygon fill="white" stroke="black" points="378,-38.5 378,-57.5 416,-57.5 416,-38.5 378,-38.5"/>
 <text text-anchor="middle" x="397" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
 </a>

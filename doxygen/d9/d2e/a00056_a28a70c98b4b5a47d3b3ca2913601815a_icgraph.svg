@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../db/db2/a00020.html#a3ea831d2b6fbbb1187086e4b985daf07" target="_top" xlink:title="gengeopop::CollegeGenerator\l::Apply">
+<g id="a_node2"><a xlink:href="../../db/db2/a00020.html#a3ea831d2b6fbbb1187086e4b985daf07" target="_top" xlink:title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. ">
 <polygon fill="white" stroke="black" points="185,-98 185,-128 331,-128 331,-98 185,-98"/>
 <text text-anchor="start" x="193" y="-116" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::CollegeGenerator</text>
 <text text-anchor="middle" x="258" y="-105" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046" target="_top" xlink:title="gengeopop::WorkplaceGenerator\l::Apply">
+<g id="a_node3"><a xlink:href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046" target="_top" xlink:title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. ">
 <polygon fill="white" stroke="black" points="178.5,-49 178.5,-79 337.5,-79 337.5,-49 178.5,-49"/>
 <text text-anchor="start" x="186.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplaceGenerator</text>
 <text text-anchor="middle" x="258" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>
@@ -45,7 +45,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d3/d52/a00023.html#ab0b32a126df10112d785149cc8dcb7d5" target="_top" xlink:title="gengeopop::CommunityGenerator\l::Apply">
+<g id="a_node4"><a xlink:href="../../d3/d52/a00023.html#ab0b32a126df10112d785149cc8dcb7d5" target="_top" xlink:title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. ">
 <polygon fill="white" stroke="black" points="176.5,-0 176.5,-30 339.5,-30 339.5,-0 176.5,-0"/>
 <text text-anchor="start" x="184.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::CommunityGenerator</text>
 <text text-anchor="middle" x="258" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Apply</text>

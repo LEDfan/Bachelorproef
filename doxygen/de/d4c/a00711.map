@@ -1,4 +1,6 @@
-<map id="Immunizer.h" name="Immunizer.h">
-<area shape="rect" id="node2" href="$d9/da1/a00396.html" title="Interface of RNManager. " alt="" coords="543,88,667,115"/>
-<area shape="rect" id="node3" href="$d9/dad/a00394.html" title="Interface of Random Engine Type. " alt="" coords="5,171,128,197"/>
+<map id="Infector.h" name="Infector.h">
+<area shape="rect" id="node2" href="$de/dc8/a00325.html" title="Implementation of Infector algorithms. " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="$dd/d4e/a00329.html" title="Header for the InfectorMap. " alt="" coords="121,80,223,107"/>
+<area shape="rect" id="node5" href="$d8/d8e/a00344.html" title="Implementation of Infector algorithms. " alt="" coords="248,80,339,107"/>
+<area shape="rect" id="node4" href="$d7/d93/a00397.html" title="Implementation for the SimBuilder class. " alt="" coords="117,155,227,181"/>
 </map>

@@ -1,0 +1,9 @@
+<map id="ExcAssert" name="ExcAssert">
+<area shape="rect" id="node2" href="$de/d11/a00021.html#abc6ecf1b07270c3a1e2152f3be6ffeae" title="Populate the given geogrid. " alt="" coords="145,5,337,46"/>
+<area shape="rect" id="node3" href="$d6/d2c/a00072.html#a9acd5b5f1bbac318795ce674911f8dc8" title="Calculates the workplaces to which persons from m_currentLoc may commute to. " alt="" coords="136,70,347,111"/>
+<area shape="rect" id="node5" href="$d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a" title="Make sure we&#39;re using a valid weight for random numbers. " alt="" coords="148,167,335,209"/>
+<area shape="rect" id="node4" href="$d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" title="Populates the workplaces in geogrid with persons. " alt="" coords="399,53,609,94"/>
+<area shape="rect" id="node6" href="$db/db2/a00020.html#a3ea831d2b6fbbb1187086e4b985daf07" title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. " alt="" coords="407,118,601,159"/>
+<area shape="rect" id="node7" href="$d3/d52/a00023.html#ab0b32a126df10112d785149cc8dcb7d5" title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. " alt="" coords="395,183,613,225"/>
+<area shape="rect" id="node8" href="$d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046" title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. " alt="" coords="398,249,610,290"/>
+</map>

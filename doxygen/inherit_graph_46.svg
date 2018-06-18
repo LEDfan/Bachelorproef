@@ -19,7 +19,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="d7/dec/a00010.html" target="_top" xlink:title="CommutesListModel">
+<g id="a_node2"><a xlink:href="d7/dec/a00010.html" target="_top" xlink:title="A list model that implements data fetching and setting to display a list of commutes. ">
 <polygon fill="white" stroke="black" points="147.5,-76.5 147.5,-95.5 254.5,-95.5 254.5,-76.5 147.5,-76.5"/>
 <text text-anchor="middle" x="201" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommutesListModel</text>
 </a>
@@ -32,7 +32,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="da/d45/a00011.html" target="_top" xlink:title="ContactCenterListModel">
+<g id="a_node3"><a xlink:href="da/d45/a00011.html" target="_top" xlink:title="A concrete implementation of the QAbstractListModel that implements data setting and fetching to show...">
 <polygon fill="white" stroke="black" points="140,-38.5 140,-57.5 262,-57.5 262,-38.5 140,-38.5"/>
 <text text-anchor="middle" x="201" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">ContactCenterListModel</text>
 </a>

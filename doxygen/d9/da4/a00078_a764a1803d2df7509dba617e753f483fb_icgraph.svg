@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a82476e068ca8f3649ed7ed59aaf53e15" target="_top" xlink:title="Launcher::UpdateConfigForm">
+<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#a82476e068ca8f3649ed7ed59aaf53e15" target="_top" xlink:title="Updates the information in the QML forms with what is stored in the Boost Property Tree...">
 <polygon fill="white" stroke="black" points="168.5,-0.5 168.5,-19.5 313.5,-19.5 313.5,-0.5 168.5,-0.5"/>
 <text text-anchor="middle" x="241" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::UpdateConfigForm</text>
 </a>
@@ -29,7 +29,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d9/da4/a00078.html#a73d93a492ebe652b29b3b07f4f418ac4" target="_top" xlink:title="Launcher::SetConfigPath">
+<g id="a_node3"><a xlink:href="../../d9/da4/a00078.html#a73d93a492ebe652b29b3b07f4f418ac4" target="_top" xlink:title="Load the configuration from the provided path. ">
 <polygon fill="white" stroke="black" points="350,-0.5 350,-19.5 476,-19.5 476,-0.5 350,-0.5"/>
 <text text-anchor="middle" x="413" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::SetConfigPath</text>
 </a>

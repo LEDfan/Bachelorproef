@@ -1,6 +1,0 @@
-<map id="stride::util::TrimLeft" name="stride::util::TrimLeft">
-<area shape="rect" id="node2" href="$d3/d58/a00481.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="190,45,303,72"/>
-<area shape="rect" id="node3" href="$dd/db2/a00151.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="stride::util::CSV::\lReadFromStream" alt="" coords="361,5,487,46"/>
-<area shape="rect" id="node5" href="$d7/d9a/a00152.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="353,70,495,111"/>
-<area shape="rect" id="node4" href="$dd/db2/a00151.html#ac8d180042e0dd5717d655d9cbd1dc59b" title="Initialize from file. " alt="" coords="545,12,695,39"/>
-</map>

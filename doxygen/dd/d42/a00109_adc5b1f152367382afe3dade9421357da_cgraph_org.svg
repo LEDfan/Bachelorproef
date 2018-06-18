@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node3"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="521,-344 521,-374 639,-374 639,-344 521,-344"/>
 <text text-anchor="start" x="529" y="-362" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="580" y="-351" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>
@@ -124,7 +124,7 @@
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d3/d58/a00481.html#aa45ab4a5a30f65dcd1bf25c3d095825b" target="_top" xlink:title="Builds a string with lower case characters only. ">
+<g id="a_node10"><a xlink:href="../../d7/db5/a00472.html#aa45ab4a5a30f65dcd1bf25c3d095825b" target="_top" xlink:title="Builds a string with lower case characters only. ">
 <polygon fill="white" stroke="black" points="346.5,-207.5 346.5,-226.5 449.5,-226.5 449.5,-207.5 346.5,-207.5"/>
 <text text-anchor="middle" x="398" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::ToLower</text>
 </a>
@@ -194,7 +194,7 @@
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="../../d6/d7d/a00161.html#a5a7dc58c76f112c8d808866cac5a272d" target="_top" xlink:title="Randomly shuffle items between iterators using i&#45;th stream of the random engine. ">
+<g id="a_node13"><a xlink:href="../../d1/db7/a00157.html#a5a7dc58c76f112c8d808866cac5a272d" target="_top" xlink:title="Randomly shuffle items between iterators using i&#45;th stream of the random engine. ">
 <polygon fill="white" stroke="black" points="521,-295 521,-325 639,-325 639,-295 521,-295"/>
 <text text-anchor="start" x="529" y="-313" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="580" y="-302" font-family="Helvetica,sans-Serif" font-size="10.00">::RandomShuffle</text>

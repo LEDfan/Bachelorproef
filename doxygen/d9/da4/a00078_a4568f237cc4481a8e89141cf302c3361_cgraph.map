@@ -1,4 +1,4 @@
 <map id="Launcher::SaveConfig" name="Launcher::SaveConfig">
-<area shape="rect" id="node2" href="$d9/da4/a00078.html#ae19635679e1c50cf8e2fbb5e87914931" title="Launcher::UpdatePtree" alt="" coords="206,5,362,32"/>
-<area shape="rect" id="node3" href="$d3/d65/a00154.html#a1bc06882ff174f1005045311b714dcfd" title="Write ptree to file at path. " alt="" coords="219,57,349,98"/>
+<area shape="rect" id="node2" href="$d9/da4/a00078.html#ae19635679e1c50cf8e2fbb5e87914931" title="Updates the locally stored Boost Property Tree with the information in the QML forms. " alt="" coords="206,5,362,32"/>
+<area shape="rect" id="node3" href="$da/d01/a00153.html#a1bc06882ff174f1005045311b714dcfd" title="Write ptree to file at path. " alt="" coords="219,57,349,98"/>
 </map>

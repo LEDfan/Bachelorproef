@@ -1,8 +1,12 @@
 var a00162 =
 [
-    [ "Info", "db/d44/a00162.html#a2e5ec406a473f68ca95c7d81651d6aac", null ],
-    [ "m_seed", "db/d44/a00162.html#abefb5eab599569a9ee18079889c2d11b", null ],
-    [ "m_state", "db/d44/a00162.html#ae73dd6b56912771808eeb8d9aa095389", null ],
-    [ "m_stream_count", "db/d44/a00162.html#a2275a26478b89ec7b7d0f02f02b0b0af", null ],
-    [ "m_type", "db/d44/a00162.html#a7280978393526b5420e330cd87888b41", null ]
+    [ "EventType", "db/d44/a00162.html#ac4fa78f455203ba23ab4442d14822895", null ],
+    [ "CallbackType", "db/d44/a00162.html#a3face8040dba107d2ddcfc5f766aa58d", null ],
+    [ "Subject", "db/d44/a00162.html#a4853b1d31d30e83840a9ab9a01d460dd", null ],
+    [ "~Subject", "db/d44/a00162.html#ade16fa2818574a0a42874b5f15b1d3ec", null ],
+    [ "Register", "db/d44/a00162.html#acddc520ab930ec98e120790b91fb8021", null ],
+    [ "Unregister", "db/d44/a00162.html#aaa38f379243ec0d27b47b5bd110ebe75", null ],
+    [ "UnregisterAll", "db/d44/a00162.html#a8e0f20cb6cc045cf215f5d5a0963046f", null ],
+    [ "Notify", "db/d44/a00162.html#a9496d626bbde63eb55836f0af402522c", null ],
+    [ "m_observers", "db/d44/a00162.html#a3d7c672aaa180fc9b0a8c272639bd821", null ]
 ];

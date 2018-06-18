@@ -1,6 +1,6 @@
 <map id="gengeopop::WorkplacePopulator::AssignActive" name="gengeopop::WorkplacePopulator::AssignActive">
-<area shape="rect" id="node2" href="$d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a" title="gengeopop::PartialPopulator\l::MakeChoice" alt="" coords="265,5,450,46"/>
+<area shape="rect" id="node2" href="$d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a" title="Convenience wrapper around m_rnManager. " alt="" coords="265,5,450,46"/>
 <area shape="rect" id="node4" href="$d0/d5e/a00136.html#af901d3a2d62ad342a5067252e7da4608" title="stride::Person::SetWorkId" alt="" coords="271,71,444,97"/>
-<area shape="rect" id="node3" href="$d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="504,5,661,46"/>
+<area shape="rect" id="node3" href="$d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="504,5,661,46"/>
 <area shape="rect" id="node5" href="$d0/d5e/a00136.html#a7a8e447907935f01c1e67164725728df" title="stride::Person::SetPoolId" alt="" coords="499,71,667,97"/>
 </map>

@@ -1,8 +1,0 @@
-<map id="gengeopop::PartialPopulator" name="gengeopop::PartialPopulator">
-<area shape="rect" id="node2" href="$de/d11/a00021.html" title="{gengeopop::CollegePopulator\n||+ Apply()\l}" alt="" coords="5,351,197,428"/>
-<area shape="rect" id="node3" href="$d4/dca/a00048.html" title="{gengeopop::HouseholdPopulator\n||+ Apply()\l}" alt="" coords="221,351,431,428"/>
-<area shape="rect" id="node4" href="$d1/d84/a00052.html" title="{gengeopop::K12SchoolPopulator\n||+ Apply()\l}" alt="" coords="456,351,665,428"/>
-<area shape="rect" id="node5" href="$d9/d73/a00060.html" title="{gengeopop::PrimaryCommunity\lPopulator\n||+ Apply()\l}" alt="" coords="691,343,896,435"/>
-<area shape="rect" id="node6" href="$df/d5f/a00064.html" title="{gengeopop::SecondaryCommunity\lPopulator\n||+ Apply()\l}" alt="" coords="921,343,1143,435"/>
-<area shape="rect" id="node7" href="$d6/d2c/a00072.html" title="{gengeopop::WorkplacePopulator\n|&#45; m_assignedTo0\l&#45; m_assignedCommuting\l&#45; m_assignedNotCommuting\l&#45; m_currentLoc\l&#45; m_geoGrid\l&#45; m_geoGridConfig\l&#45; m_workplacesInCity\l&#45; m_fractionCommutingStudents\l&#45; m_nearByWorkplaces\l&#45; m_distNonCommuting\l&#45; m_commutingLocations\l&#45; m_disCommuting\l|+ WorkplacePopulator()\l+ Apply()\l&#45; CalculateWorkplacesInCity()\l&#45; CalculateFractionCommuting\lStudents()\l&#45; CalculateCommutingLocations()\l&#45; CalculateNearbyWorkspaces()\l&#45; AssignActive()\l}" alt="" coords="1168,219,1384,560"/>
-</map>

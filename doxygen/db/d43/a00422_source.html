@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SubMunicipalitiesReader.h Source File</title>
+<title>Stride Reference Manual: TestCalibrationRunner.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,51 +109,42 @@ $(document).ready(function(){initNavTree('db/d43/a00422_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SubMunicipalitiesReader.h</div>  </div>
+<div class="title">TestCalibrationRunner.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../db/d43/a00422.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d5e/a00275.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d1/dc6/a00347.html">gengeopop/Location.h</a>&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>gengeopop {<span class="comment"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * This can be implemented using different input file types. Currently CSV is implemented.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d9/db3/a00066.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db3/a00066.html">SubMunicipalitiesReader</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">        /// Construct the SubMunicipalitiesReader with an istream containing the file content</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d9/db3/a00066.html#ac94f368c917b043fb11c03cb3db709c2">SubMunicipalitiesReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">        /// Add the found SubMunicipalities to the provided GeoGrid</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/db3/a00066.html#a91c17048ecfd57ffec3412d763a2187d">FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt;) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">        /// Default constructor</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="../../d9/db3/a00066.html#a60cb58aee637fdc6a3f82cdf73891323">~SubMunicipalitiesReader</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d9/db3/a00066.html#ada89d21fe18775d79b9e44ebbcb2c13e">   26</a></span>&#160;        std::unique_ptr&lt;std::istream&gt; <a class="code" href="../../d9/db3/a00066.html#ada89d21fe18775d79b9e44ebbcb2c13e">m_inputStream</a>; <span class="comment">///&lt; The istream containing the file content</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00347_html"><div class="ttname"><a href="../../d1/dc6/a00347.html">Location.h</a></div></div>
-<div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00066_html_ada89d21fe18775d79b9e44ebbcb2c13e"><div class="ttname"><a href="../../d9/db3/a00066.html#ada89d21fe18775d79b9e44ebbcb2c13e">gengeopop::SubMunicipalitiesReader::m_inputStream</a></div><div class="ttdeci">std::unique_ptr&lt; std::istream &gt; m_inputStream</div><div class="ttdoc">The istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00026">SubMunicipalitiesReader.h:26</a></div></div>
-<div class="ttc" id="a00066_html_ac94f368c917b043fb11c03cb3db709c2"><div class="ttname"><a href="../../d9/db3/a00066.html#ac94f368c917b043fb11c03cb3db709c2">gengeopop::SubMunicipalitiesReader::SubMunicipalitiesReader</a></div><div class="ttdeci">SubMunicipalitiesReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the SubMunicipalitiesReader with an istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de1/a00421_source.html#l00005">SubMunicipalitiesReader.cpp:5</a></div></div>
-<div class="ttc" id="a00066_html"><div class="ttname"><a href="../../d9/db3/a00066.html">gengeopop::SubMunicipalitiesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the SubMunicipalities found in a given file...</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00013">SubMunicipalitiesReader.h:13</a></div></div>
-<div class="ttc" id="a00066_html_a60cb58aee637fdc6a3f82cdf73891323"><div class="ttname"><a href="../../d9/db3/a00066.html#a60cb58aee637fdc6a3f82cdf73891323">gengeopop::SubMunicipalitiesReader::~SubMunicipalitiesReader</a></div><div class="ttdeci">virtual ~SubMunicipalitiesReader()=default</div><div class="ttdoc">Default constructor. </div></div>
-<div class="ttc" id="a00066_html_a91c17048ecfd57ffec3412d763a2187d"><div class="ttname"><a href="../../d9/db3/a00066.html#a91c17048ecfd57ffec3412d763a2187d">gengeopop::SubMunicipalitiesReader::FillGeoGrid</a></div><div class="ttdeci">virtual void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt;) const =0</div><div class="ttdoc">Add the found SubMunicipalities to the provided GeoGrid. </div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d72/a00199.html">CalibrationRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/de3/a00201.html">Calibrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>calibration {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * A runner for the Calibration</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/da0/a00009.html">TestCalibrationRunner</a> : <span class="keyword">public</span> <a class="code" href="../../de/d21/a00006.html">CalibrationRunner</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Setup, retrieves the ptrees from the ScenarioData</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <a class="code" href="../../da/da0/a00009.html#a9c0a5e130799c1b1365326c2b63d0e26">TestCalibrationRunner</a>(std::vector&lt;std::string&gt; testcases);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace calibration</span></div>
+<div class="ttc" id="a00009_html_a9c0a5e130799c1b1365326c2b63d0e26"><div class="ttname"><a href="../../da/da0/a00009.html#a9c0a5e130799c1b1365326c2b63d0e26">calibration::TestCalibrationRunner::TestCalibrationRunner</a></div><div class="ttdeci">TestCalibrationRunner(std::vector&lt; std::string &gt; testcases)</div><div class="ttdoc">Setup, retrieves the ptrees from the ScenarioData. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de1/a00421_source.html#l00008">TestCalibrationRunner.cpp:8</a></div></div>
+<div class="ttc" id="a00201_html"><div class="ttname"><a href="../../dd/de3/a00201.html">Calibrator.h</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">calibration::CalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d72/a00199_source.html#l00013">CalibrationRunner.h:13</a></div></div>
+<div class="ttc" id="a00199_html"><div class="ttname"><a href="../../d8/d72/a00199.html">CalibrationRunner.h</a></div></div>
+<div class="ttc" id="a00009_html"><div class="ttname"><a href="../../da/da0/a00009.html">calibration::TestCalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d43/a00422_source.html#l00014">TestCalibrationRunner.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../db/d43/a00422.html">SubMunicipalitiesReader.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../db/d43/a00422.html">TestCalibrationRunner.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

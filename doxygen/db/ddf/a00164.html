@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::SliceIndexer&lt; T &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -111,151 +111,90 @@ $(document).ready(function(){initNavTree('db/ddf/a00164.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/da0/a01341.html">List of all members</a>  </div>
+<a href="../../d5/df4/a01322.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::SliceIndexer&lt; T &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Datastructure to index a container that supports RandomAccessIterators with slices.  
+<p>Provides wall-clock time stamp using the time call.  
  <a href="../../db/ddf/a00164.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::SliceIndexer&lt; T &gt;:</div>
+Collaboration diagram for stride::util::TimeStamp:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/da0/a01342.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/da8/a01323.svg" width="163" height="275"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ae2f8f5fde77de1bb59c21d3b75fb3698"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> = boost::sliced_range&lt; T &gt;</td></tr>
-<tr class="separator:ae2f8f5fde77de1bb59c21d3b75fb3698"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9210f4ffebabcdad9931ad724214b673"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a9210f4ffebabcdad9931ad724214b673">SliceIndexer</a> (T &amp;t)</td></tr>
-<tr class="memdesc:a9210f4ffebabcdad9931ad724214b673"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../db/ddf/a00164.html" title="Datastructure to index a container that supports RandomAccessIterators with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes.  <a href="#a9210f4ffebabcdad9931ad724214b673">More...</a><br/></td></tr>
-<tr class="separator:a9210f4ffebabcdad9931ad724214b673"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a058f206ff2b09de8004fe38737e571af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a058f206ff2b09de8004fe38737e571af">SetSlice</a> (std::size_t ibegin, std::size_t iend, const std::string &amp;name)</td></tr>
-<tr class="memdesc:a058f206ff2b09de8004fe38737e571af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!  <a href="#a058f206ff2b09de8004fe38737e571af">More...</a><br/></td></tr>
-<tr class="separator:a058f206ff2b09de8004fe38737e571af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba8419e386f526d2d8931130434ce649"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#aba8419e386f526d2d8931130434ce649">SetSlice</a> (std::size_t ibegin, const std::string &amp;name)</td></tr>
-<tr class="memdesc:aba8419e386f526d2d8931130434ce649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#aba8419e386f526d2d8931130434ce649">More...</a><br/></td></tr>
-<tr class="separator:aba8419e386f526d2d8931130434ce649"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5cb46ba6c2fec9f7893c138d3300363"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#ae5cb46ba6c2fec9f7893c138d3300363">GetSlice</a> (std::size_t i)</td></tr>
-<tr class="memdesc:ae5cb46ba6c2fec9f7893c138d3300363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a slice by its subscipt in the indexer.  <a href="#ae5cb46ba6c2fec9f7893c138d3300363">More...</a><br/></td></tr>
-<tr class="separator:ae5cb46ba6c2fec9f7893c138d3300363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95272c334500597a9ad20622b16802a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a95272c334500597a9ad20622b16802a6">GetSlice</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a95272c334500597a9ad20622b16802a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a slice by its name.  <a href="#a95272c334500597a9ad20622b16802a6">More...</a><br/></td></tr>
-<tr class="separator:a95272c334500597a9ad20622b16802a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
+<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br/></td></tr>
+<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
+<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br/></td></tr>
+<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
+<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br/></td></tr>
+<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
+<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br/></td></tr>
+<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad9a0900ce547251d9d10a8d2f344d696"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <br class="typebreak"/>
-std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#ad9a0900ce547251d9d10a8d2f344d696">m_map</a></td></tr>
-<tr class="separator:ad9a0900ce547251d9d10a8d2f344d696"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a358f3242544506cc57262021482fa795"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a358f3242544506cc57262021482fa795">m_ranges</a></td></tr>
-<tr class="separator:a358f3242544506cc57262021482fa795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a500a50a442d246c218c26d714ff94480"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a500a50a442d246c218c26d714ff94480">m_t</a></td></tr>
-<tr class="separator:a500a50a442d246c218c26d714ff94480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
+<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T&gt;<br/>
-class stride::util::SliceIndexer&lt; T &gt;</h3>
+<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
+<p>The time is that of the constructor call. </p>
 
-<p>Datastructure to index a container that supports RandomAccessIterators with slices. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type of the container in whom the slices are indexed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00035">35</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="ae2f8f5fde77de1bb59c21d3b75fb3698"></a>
+<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00036">36</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::<a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a> =  boost::sliced_range&lt;T&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00038">38</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9210f4ffebabcdad9931ad724214b673"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::<a class="el" href="../../db/ddf/a00164.html">SliceIndexer</a> </td>
+          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
           <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../db/ddf/a00164.html" title="Datastructure to index a container that supports RandomAccessIterators with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes. </p>
+<p>Constructor marks the time for the time stamp. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00042">42</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00040">40</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a058f206ff2b09de8004fe38737e571af"></a>
+<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a>&amp; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::SetSlice </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ibegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>iend</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -265,39 +204,35 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </p>
+<p>Returns string with the time stamp after eliminating newline. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00045">45</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00043">43</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d72/a00412_source.html#l00079">stride::util::SliceIndexer&lt; T &gt;::m_map</a>, <a class="el" href="../../d9/d72/a00412_source.html#l00080">stride::util::SliceIndexer&lt; T &gt;::m_ranges</a>, and <a class="el" href="../../d9/d72/a00412_source.html#l00081">stride::util::SliceIndexer&lt; T &gt;::m_t</a>.</p>
+<p>References <a class="el" href="../../dc/d2f/a00425_source.html#l00073">m_tp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d2f/a00425_source.html#l00079">stride::util::operator&lt;&lt;()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/ddf/a00164_aea42ff56713aa57c0aafe5efc92f29e5_icgraph.svg" width="366" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aba8419e386f526d2d8931130434ce649"></a>
+<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a>&amp; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::SetSlice </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ibegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -307,29 +242,33 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Set a range, where the end is the end of the container. </p>
+<p>Returns string with the time stamp after eliminating newline. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00057">57</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00052">52</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d72/a00412_source.html#l00079">stride::util::SliceIndexer&lt; T &gt;::m_map</a>, <a class="el" href="../../d9/d72/a00412_source.html#l00080">stride::util::SliceIndexer&lt; T &gt;::m_ranges</a>, and <a class="el" href="../../d9/d72/a00412_source.html#l00081">stride::util::SliceIndexer&lt; T &gt;::m_t</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/dce/a00337_source.html#l00023">Launcher::Launch()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/ddf/a00164_a5f6eefbc6871a229b1c45dbbd98b41fe_icgraph.svg" width="571" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="ae5cb46ba6c2fec9f7893c138d3300363"></a>
+<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a>&amp; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::GetSlice </td>
+          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -339,58 +278,24 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieve reference to a slice by its subscipt in the indexer. </p>
+<p>Returns time stamp as a time_t. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00069">69</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00070">70</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d72/a00412_source.html#l00080">stride::util::SliceIndexer&lt; T &gt;::m_ranges</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a95272c334500597a9ad20622b16802a6"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a>&amp; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::GetSlice </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieve reference to a slice by its name. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00072">72</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d72/a00412_source.html#l00079">stride::util::SliceIndexer&lt; T &gt;::m_map</a>, and <a class="el" href="../../d9/d72/a00412_source.html#l00080">stride::util::SliceIndexer&lt; T &gt;::m_ranges</a>.</p>
+<p>References <a class="el" href="../../dc/d2f/a00425_source.html#l00073">m_tp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad9a0900ce547251d9d10a8d2f344d696"></a>
+<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, std::size_t&gt; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::m_map</td>
+          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
         </tr>
       </table>
   </td>
@@ -400,74 +305,22 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00079">79</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d2f/a00425_source.html#l00073">73</a> of file <a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d72/a00412_source.html#l00072">stride::util::SliceIndexer&lt; T &gt;::GetSlice()</a>, and <a class="el" href="../../d9/d72/a00412_source.html#l00045">stride::util::SliceIndexer&lt; T &gt;::SetSlice()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a358f3242544506cc57262021482fa795"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../db/ddf/a00164.html#ae2f8f5fde77de1bb59c21d3b75fb3698">range_type</a>&gt; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::m_ranges</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00080">80</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d72/a00412_source.html#l00069">stride::util::SliceIndexer&lt; T &gt;::GetSlice()</a>, and <a class="el" href="../../d9/d72/a00412_source.html#l00045">stride::util::SliceIndexer&lt; T &gt;::SetSlice()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a500a50a442d246c218c26d714ff94480"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="../../db/ddf/a00164.html">stride::util::SliceIndexer</a>&lt; T &gt;::m_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d72/a00412_source.html#l00081">81</a> of file <a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d72/a00412_source.html#l00045">stride::util::SliceIndexer&lt; T &gt;::SetSlice()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d2f/a00425_source.html#l00043">ToString()</a>, and <a class="el" href="../../dc/d2f/a00425_source.html#l00070">ToTimeT()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d9/d72/a00412_source.html">SliceIndexer.h</a></li>
+<li><a class="el" href="../../dc/d2f/a00425_source.html">TimeStamp.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d58/a00481.html">util</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00164.html">SliceIndexer</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../db/de0/a00465.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/db5/a00472.html">util</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00164.html">TimeStamp</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

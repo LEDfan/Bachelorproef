@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CommutesListModel.h Source File</title>
+<title>Stride Reference Manual: ConfigFileCalibrationRunner.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -109,68 +109,42 @@ $(document).ready(function(){initNavTree('d9/d01/a00227_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CommutesListModel.h</div>  </div>
+<div class="title">ConfigFileCalibrationRunner.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d01/a00227.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QtCore/QAbstractListModel&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d1/dc6/a00347.html">gengeopop/Location.h</a>&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/dec/a00010.html">CommutesListModel</a> : <span class="keyword">public</span> <a class="code" href="../../db/dab/a00089.html">QAbstractListModel</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        Q_OBJECT</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="../../d7/dec/a00010.html#a5891d584e7ca9ad03db39eb8ced65bd3">CommutesListModel</a>(<a class="code" href="../../d9/dec/a00090.html">QObject</a>* parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        QVariant               <a class="code" href="../../d7/dec/a00010.html#a4ab4d9df0fa03ff99beb406e0f03d2fd">data</a>(<span class="keyword">const</span> QModelIndex&amp; index, <span class="keywordtype">int</span> role = Qt::DisplayRole) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">int</span>                    <a class="code" href="../../d7/dec/a00010.html#ac25d105b266a8e7d1d04039f0b4d35df">rowCount</a>(<span class="keyword">const</span> QModelIndex&amp; parent = QModelIndex()) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">int</span>                    <a class="code" href="../../d7/dec/a00010.html#a4906ceed33b3d98de061c41e0e296063">columnCount</a>(<span class="keyword">const</span> QModelIndex&amp; parent = QModelIndex()) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        QHash&lt;int, QByteArray&gt; <a class="code" href="../../d7/dec/a00010.html#ac08b5d7adbd132da58c5642a278e9ba3">roleNames</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        Q_INVOKABLE</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94">SetCommutes</a>(std::set&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt; locations);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;signals:<span class="comment"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /**</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">         * Sends a signal to listeners whether or not there are commutes.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">         * This can be used to hide a list when nothing needs to be shown for example.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">         * @param status If the model contains commutes</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">HasCommutes</a>(<span class="keywordtype">bool</span> status);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0">   28</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0">Roles</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a1979a2881f107d162ba8e19bcb200329">   30</a></span>&#160;                <a class="code" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a1979a2881f107d162ba8e19bcb200329">IDRole</a> = Qt::UserRole + 1,</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a15dd321dfe40202ffd59878069d5f663">   31</a></span>&#160;                <a class="code" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a15dd321dfe40202ffd59878069d5f663">Destination</a>,</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a99110f05482d02c359833ab46278e76d">   32</a></span>&#160;                <a class="code" href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a99110f05482d02c359833ab46278e76d">Amount</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">   35</a></span>&#160;        std::shared_ptr&lt;gengeopop::Location&gt; <a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a>; <span class="comment">///&lt; The location we show the commutes of</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span>};</div>
-<div class="ttc" id="a00010_html"><div class="ttname"><a href="../../d7/dec/a00010.html">CommutesListModel</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00006">CommutesListModel.h:6</a></div></div>
-<div class="ttc" id="a00010_html_a02750a7aa09771952c6d05bc7e8f5289"><div class="ttname"><a href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">CommutesListModel::HasCommutes</a></div><div class="ttdeci">void HasCommutes(bool status)</div><div class="ttdoc">Sends a signal to listeners whether or not there are commutes. </div></div>
-<div class="ttc" id="a00010_html_af9cf45167d2de2d61abd1db74e038bb0a99110f05482d02c359833ab46278e76d"><div class="ttname"><a href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a99110f05482d02c359833ab46278e76d">CommutesListModel::Amount</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00032">CommutesListModel.h:32</a></div></div>
-<div class="ttc" id="a00010_html_a4906ceed33b3d98de061c41e0e296063"><div class="ttname"><a href="../../d7/dec/a00010.html#a4906ceed33b3d98de061c41e0e296063">CommutesListModel::columnCount</a></div><div class="ttdeci">int columnCount(const QModelIndex &amp;parent=QModelIndex()) const override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00030">CommutesListModel.cpp:30</a></div></div>
-<div class="ttc" id="a00347_html"><div class="ttname"><a href="../../d1/dc6/a00347.html">Location.h</a></div></div>
-<div class="ttc" id="a00010_html_ac25d105b266a8e7d1d04039f0b4d35df"><div class="ttname"><a href="../../d7/dec/a00010.html#ac25d105b266a8e7d1d04039f0b4d35df">CommutesListModel::rowCount</a></div><div class="ttdeci">int rowCount(const QModelIndex &amp;parent=QModelIndex()) const override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00004">CommutesListModel.cpp:4</a></div></div>
-<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
-<div class="ttc" id="a00010_html_ac08b5d7adbd132da58c5642a278e9ba3"><div class="ttname"><a href="../../d7/dec/a00010.html#ac08b5d7adbd132da58c5642a278e9ba3">CommutesListModel::roleNames</a></div><div class="ttdeci">QHash&lt; int, QByteArray &gt; roleNames() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00022">CommutesListModel.cpp:22</a></div></div>
-<div class="ttc" id="a00010_html_af9cf45167d2de2d61abd1db74e038bb0a15dd321dfe40202ffd59878069d5f663"><div class="ttname"><a href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a15dd321dfe40202ffd59878069d5f663">CommutesListModel::Destination</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00031">CommutesListModel.h:31</a></div></div>
-<div class="ttc" id="a00010_html_af9cf45167d2de2d61abd1db74e038bb0"><div class="ttname"><a href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0">CommutesListModel::Roles</a></div><div class="ttdeci">Roles</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00028">CommutesListModel.h:28</a></div></div>
-<div class="ttc" id="a00010_html_a4ab4d9df0fa03ff99beb406e0f03d2fd"><div class="ttname"><a href="../../d7/dec/a00010.html#a4ab4d9df0fa03ff99beb406e0f03d2fd">CommutesListModel::data</a></div><div class="ttdeci">QVariant data(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00009">CommutesListModel.cpp:9</a></div></div>
-<div class="ttc" id="a00089_html"><div class="ttname"><a href="../../db/dab/a00089.html">QAbstractListModel</a></div></div>
-<div class="ttc" id="a00010_html_a844fbc5b2a05ea28fc0286ba2400deb5"><div class="ttname"><a href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">CommutesListModel::m_location</a></div><div class="ttdeci">std::shared_ptr&lt; gengeopop::Location &gt; m_location</div><div class="ttdoc">The location we show the commutes of. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00035">CommutesListModel.h:35</a></div></div>
-<div class="ttc" id="a00010_html_af5e62c909f419b5468655835e84cdc94"><div class="ttname"><a href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94">CommutesListModel::SetCommutes</a></div><div class="ttdeci">Q_INVOKABLE void SetCommutes(std::set&lt; std::shared_ptr&lt; gengeopop::Location &gt;&gt; locations)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00032">CommutesListModel.cpp:32</a></div></div>
-<div class="ttc" id="a00010_html_af9cf45167d2de2d61abd1db74e038bb0a1979a2881f107d162ba8e19bcb200329"><div class="ttname"><a href="../../d7/dec/a00010.html#af9cf45167d2de2d61abd1db74e038bb0a1979a2881f107d162ba8e19bcb200329">CommutesListModel::IDRole</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00030">CommutesListModel.h:30</a></div></div>
-<div class="ttc" id="a00010_html_a5891d584e7ca9ad03db39eb8ced65bd3"><div class="ttname"><a href="../../d7/dec/a00010.html#a5891d584e7ca9ad03db39eb8ced65bd3">CommutesListModel::CommutesListModel</a></div><div class="ttdeci">CommutesListModel(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00020">CommutesListModel.cpp:20</a></div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d72/a00199.html">CalibrationRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/de3/a00201.html">Calibrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>calibration {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * A runner for the Calibration</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">ConfigFileCalibrationRunner</a> : <span class="keyword">public</span> <a class="code" href="../../de/d21/a00006.html">CalibrationRunner</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Setup, creates a ptree based on the filenames in configFiles</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <a class="code" href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">ConfigFileCalibrationRunner</a>(std::vector&lt;std::string&gt; configFiles);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace calibration</span></div>
+<div class="ttc" id="a00008_html_a840ab2341a3e5eca99f3507e9b79da18"><div class="ttname"><a href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">calibration::ConfigFileCalibrationRunner::ConfigFileCalibrationRunner</a></div><div class="ttdeci">ConfigFileCalibrationRunner(std::vector&lt; std::string &gt; configFiles)</div><div class="ttdoc">Setup, creates a ptree based on the filenames in configFiles. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d55/a00226_source.html#l00012">ConfigFileCalibrationRunner.cpp:12</a></div></div>
+<div class="ttc" id="a00201_html"><div class="ttname"><a href="../../dd/de3/a00201.html">Calibrator.h</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">calibration::CalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d72/a00199_source.html#l00013">CalibrationRunner.h:13</a></div></div>
+<div class="ttc" id="a00199_html"><div class="ttname"><a href="../../d8/d72/a00199.html">CalibrationRunner.h</a></div></div>
+<div class="ttc" id="a00008_html"><div class="ttname"><a href="../../d4/dee/a00008.html">calibration::ConfigFileCalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00014">ConfigFileCalibrationRunner.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../dir_606c940184a2c6b7f406a2ac3600b646.html">models</a></li><li class="navelem"><a class="el" href="../../d9/d01/a00227.html">CommutesListModel.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 19:59:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d9/d01/a00227.html">ConfigFileCalibrationRunner.h</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

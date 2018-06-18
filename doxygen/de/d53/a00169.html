@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::TimeToString Struct Reference</title>
+<title>Stride Reference Manual: stride::viewers::InfectedViewer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8226b40</span>
+   &#160;<span id="projectnumber">- generated for commit a66777d</span>
    </div>
   </td>
  </tr>
@@ -111,47 +111,51 @@ $(document).ready(function(){initNavTree('de/d53/a00169.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d4/dad/a01353.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d9/d45/a01332.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::TimeToString Struct Reference</div>  </div>
+<div class="title">stride::viewers::InfectedViewer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities to tag clocks and to reformat number of ticks to a string.  
+<p>Viewer of Simulator for cases output.  
  <a href="../../de/d53/a00169.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::TimeToString:</div>
+Collaboration diagram for stride::viewers::InfectedViewer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/dc4/a01354.svg" width="174" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/d2a/a01333.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6dcc9ca1dfee4746a739175240585ce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a> (std::chrono::minutes d)</td></tr>
-<tr class="memdesc:ad6dcc9ca1dfee4746a739175240585ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#ad6dcc9ca1dfee4746a739175240585ce">More...</a><br/></td></tr>
-<tr class="separator:ad6dcc9ca1dfee4746a739175240585ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4289b5e11499452e2d8257c7c4bf1393"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a> (std::chrono::seconds d)</td></tr>
-<tr class="memdesc:a4289b5e11499452e2d8257c7c4bf1393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#a4289b5e11499452e2d8257c7c4bf1393">More...</a><br/></td></tr>
-<tr class="separator:a4289b5e11499452e2d8257c7c4bf1393"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75cf053eac30cd061369b1b3bc8320e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a> (std::chrono::milliseconds d)</td></tr>
-<tr class="memdesc:a75cf053eac30cd061369b1b3bc8320e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:mus format.  <a href="#a75cf053eac30cd061369b1b3bc8320e2">More...</a><br/></td></tr>
-<tr class="separator:a75cf053eac30cd061369b1b3bc8320e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a> (std::chrono::microseconds d)</td></tr>
-<tr class="memdesc:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus format.  <a href="#a3257445eaf8975e71bd08d8ed6d8dad8">More...</a><br/></td></tr>
-<tr class="separator:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc634d3b69e570aa22d04aab7c94823"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a> (std::chrono::nanoseconds d)</td></tr>
-<tr class="memdesc:a7bc634d3b69e570aa22d04aab7c94823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus:ns format.  <a href="#a7bc634d3b69e570aa22d04aab7c94823">More...</a><br/></td></tr>
-<tr class="separator:a7bc634d3b69e570aa22d04aab7c94823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aae44b0fd20d9193b61d065d08e57e8f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#aae44b0fd20d9193b61d065d08e57e8f3">InfectedViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
+<tr class="memdesc:aae44b0fd20d9193b61d065d08e57e8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#aae44b0fd20d9193b61d065d08e57e8f3">More...</a><br/></td></tr>
+<tr class="separator:aae44b0fd20d9193b61d065d08e57e8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a02401197ff8238052068ecaa10c505"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a0a02401197ff8238052068ecaa10c505">GetInfectionCounts</a> ()</td></tr>
+<tr class="memdesc:a0a02401197ff8238052068ecaa10c505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the vector with the infection counts.  <a href="#a0a02401197ff8238052068ecaa10c505">More...</a><br/></td></tr>
+<tr class="separator:a0a02401197ff8238052068ecaa10c505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac539c7549cc8c19530813f0bdb35a14d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#ac539c7549cc8c19530813f0bdb35a14d">Update</a> (<a class="el" href="../../d4/d4b/a00471.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
+<tr class="memdesc:ac539c7549cc8c19530813f0bdb35a14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#ac539c7549cc8c19530813f0bdb35a14d">More...</a><br/></td></tr>
+<tr class="separator:ac539c7549cc8c19530813f0bdb35a14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a613860070a4a0778c61631fc4f343028"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a613860070a4a0778c61631fc4f343028">m_infected</a></td></tr>
+<tr class="separator:a613860070a4a0778c61631fc4f343028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf3638fe4dad03b5adb58b56ebd8a926"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/a00133.html">output::InfectedFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#abf3638fe4dad03b5adb58b56ebd8a926">m_infected_file</a></td></tr>
+<tr class="separator:abf3638fe4dad03b5adb58b56ebd8a926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b27fd1d407a15fe3b542952168ba33"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d53/a00169.html#a13b27fd1d407a15fe3b542952168ba33">m_runner</a></td></tr>
+<tr class="separator:a13b27fd1d407a15fe3b542952168ba33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities to tag clocks and to reformat number of ticks to a string. </p>
+<div class="textblock"><p>Viewer of Simulator for cases output. </p>
 
-<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00035">35</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6dcc9ca1dfee4746a739175240585ce"></a>
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00033">33</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aae44b0fd20d9193b61d065d08e57e8f3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -159,36 +163,97 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname">stride::viewers::InfectedViewer::InfectedViewer </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::minutes&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramname"><em>runner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Instantiate cases viewer. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00037">37</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0a02401197ff8238052068ecaa10c505"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;unsigned int&gt;&amp; stride::viewers::InfectedViewer::GetInfectionCounts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss format. </p>
+<p>Access the vector with the infection counts. </p>
 
-<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00038">38</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00043">43</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d9c/a00413_source.html#l00093">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
+<p>References <a class="el" href="../../d4/d8f/a00324_source.html#l00049">m_infected</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac539c7549cc8c19530813f0bdb35a14d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::viewers::InfectedViewer::Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d4b/a00471.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Let viewer perform update. </p>
+
+<p>Definition at line <a class="el" href="../../de/d55/a00323_source.html#l00033">33</a> of file <a class="el" href="../../de/d55/a00323_source.html">InfectedViewer.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/db1/a00200_source.html#l00042">calibration::Calibrator::RunMultiple()</a>, and <a class="el" href="../../d3/db1/a00200_source.html#l00019">calibration::Calibrator::RunSingle()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d53/a00169_ad6dcc9ca1dfee4746a739175240585ce_icgraph.svg" width="374" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d53/a00169_ac539c7549cc8c19530813f0bdb35a14d_icgraph.svg" width="568" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a4289b5e11499452e2d8257c7c4bf1393"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a613860070a4a0778c61631fc4f343028"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -196,27 +261,23 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::seconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::vector&lt;unsigned int&gt; stride::viewers::InfectedViewer::m_infected</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss format. </p>
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00049">49</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00053">53</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d8f/a00324_source.html#l00043">GetInfectionCounts()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a75cf053eac30cd061369b1b3bc8320e2"></a>
+<a class="anchor" id="abf3638fe4dad03b5adb58b56ebd8a926"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -224,27 +285,21 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::milliseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="../../d0/de8/a00133.html">output::InfectedFile</a> stride::viewers::InfectedViewer::m_infected_file</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:mus format. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00069">69</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00050">50</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3257445eaf8975e71bd08d8ed6d8dad8"></a>
+<a class="anchor" id="a13b27fd1d407a15fe3b542952168ba33"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -252,64 +307,31 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::microseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d5/d4e/a00141.html">SimRunner</a>&gt; stride::viewers::InfectedViewer::m_runner</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:ms:mus format. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00086">86</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00051">51</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7bc634d3b69e570aa22d04aab7c94823"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::nanoseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce string in hh:mm:ss:ms:mus:ns format. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00104">104</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d0/dc5/a00435_source.html">TimeToString.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d4/d8f/a00324_source.html">InfectedViewer.h</a></li>
+<li><a class="el" href="../../de/d55/a00323_source.html">InfectedViewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d5/d26/a00474.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d58/a00481.html">util</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">TimeToString</a></li>
-    <li class="footer">Generated on Sun Jun 17 2018 20:00:00 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../db/de0/a00465.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d8e/a00473.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">InfectedViewer</a></li>
+    <li class="footer">Generated on Mon Jun 18 2018 13:55:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,9 +1,3 @@
-<map id="gengeopop::ContactCenter" name="gengeopop::ContactCenter">
-<area shape="rect" id="node2" href="$dd/da2/a00019.html" title="{gengeopop::College\n||+ College()\l+ GetType()\l+ GetPoolSize()\l+ GetMaxPools()\l+ Fill()\l}" alt="" coords="5,331,141,467"/>
-<area shape="rect" id="node3" href="$d7/de0/a00022.html" title="{gengeopop::Community\n||+ Community()\l+ AddHouseHold()\l+ GetType()\l+ GetPoolSize()\l+ GetMaxPools()\l}" alt="" coords="167,331,325,467"/>
-<area shape="rect" id="node6" href="$d6/d97/a00045.html" title="{gengeopop::Household\n||+ Household()\l+ Household()\l+ GetType()\l+ GetMaxPools()\l+ GetPoolSize()\l+ Fill()\l}" alt="" coords="351,323,504,474"/>
-<area shape="rect" id="node7" href="$d5/de0/a00050.html" title="{gengeopop::K12School\n||+ K12School()\l+ GetType()\l+ GetMaxPools()\l+ GetPoolSize()\l+ Fill()\l}" alt="" coords="530,331,685,467"/>
-<area shape="rect" id="node8" href="$d2/db1/a00070.html" title="{gengeopop::Workplace\n||+ Workplace()\l+ GetPoolSize()\l+ GetMaxPools()\l+ GetType()\l+ Fill()\l}" alt="" coords="711,331,864,467"/>
-<area shape="rect" id="node4" href="$d3/d8b/a00059.html" title="{gengeopop::PrimaryCommunity\n||+ PrimaryCommunity()\l+ GetType()\l+ Fill()\l}" alt="" coords="25,523,231,629"/>
-<area shape="rect" id="node5" href="$d1/d6f/a00063.html" title="{gengeopop::SecondaryCommunity\n||+ SecondaryCommunity()\l+ GetType()\l+ Fill()\l}" alt="" coords="255,523,477,629"/>
+<map id="gengeopop::WorkplaceGenerator" name="gengeopop::WorkplaceGenerator">
+<area shape="rect" id="node2" href="$d9/d2e/a00056.html" title="An interface for generators that provide a partial solution. " alt="" coords="17,5,204,141"/>
 </map>

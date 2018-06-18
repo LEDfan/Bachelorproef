@@ -1,14 +1,14 @@
 <map id="gengeopop::WorkplacePopulator::Apply" name="gengeopop::WorkplacePopulator::Apply">
-<area shape="rect" id="node2" href="$d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" title="gengeopop::WorkplacePopulator\l::AssignActive" alt="" coords="284,34,495,75"/>
-<area shape="rect" id="node3" href="$d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a" title="gengeopop::PartialPopulator\l::MakeChoice" alt="" coords="574,57,759,98"/>
-<area shape="rect" id="node7" href="$d6/d2c/a00072.html#a9acd5b5f1bbac318795ce674911f8dc8" title="gengeopop::WorkplacePopulator\l::CalculateCommutingLocations" alt="" coords="284,151,495,193"/>
-<area shape="rect" id="node9" href="$d6/d2c/a00072.html#aea8236e442390e7e3156849c584160f9" title="gengeopop::WorkplacePopulator\l::CalculateFractionCommutingStudents" alt="" coords="264,347,515,389"/>
-<area shape="rect" id="node10" href="$d6/d2c/a00072.html#adf0b3f40814a56af4736ef1af9ffc30e" title="gengeopop::WorkplacePopulator\l::CalculateNearbyWorkspaces" alt="" coords="284,217,495,258"/>
-<area shape="rect" id="node11" href="$d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" title="gengeopop::WorkplacePopulator\l::CalculateWorkplacesInCity" alt="" coords="284,282,495,323"/>
+<area shape="rect" id="node2" href="$d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" title="Assign a workplace to an active person. " alt="" coords="284,34,495,75"/>
+<area shape="rect" id="node3" href="$d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a" title="Convenience wrapper around m_rnManager. " alt="" coords="574,57,759,98"/>
+<area shape="rect" id="node7" href="$d6/d2c/a00072.html#a9acd5b5f1bbac318795ce674911f8dc8" title="Calculates the workplaces to which persons from m_currentLoc may commute to. " alt="" coords="284,151,495,193"/>
+<area shape="rect" id="node9" href="$d6/d2c/a00072.html#aea8236e442390e7e3156849c584160f9" title="Calculates m_fractionCommutingStudents. " alt="" coords="264,347,515,389"/>
+<area shape="rect" id="node10" href="$d6/d2c/a00072.html#adf0b3f40814a56af4736ef1af9ffc30e" title="Calculates the workplaces which are nearby to m_currentLoc. " alt="" coords="284,217,495,258"/>
+<area shape="rect" id="node11" href="$d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" title="Fills the m_workplacesInCity map. " alt="" coords="284,282,495,323"/>
 <area shape="rect" id="node5" href="$d0/d5e/a00136.html#af901d3a2d62ad342a5067252e7da4608" title="stride::Person::SetWorkId" alt="" coords="580,5,753,32"/>
-<area shape="rect" id="node4" href="$d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="824,191,981,233"/>
+<area shape="rect" id="node4" href="$d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="824,191,981,233"/>
 <area shape="rect" id="node6" href="$d0/d5e/a00136.html#a7a8e447907935f01c1e67164725728df" title="stride::Person::SetPoolId" alt="" coords="819,5,987,32"/>
-<area shape="rect" id="node8" href="$d3/dcc/a00264.html#a53951f1917941ac25ba6508b1b72771f" title="ExcAssert" alt="" coords="625,123,708,149"/>
-<area shape="rect" id="node12" href="$d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" title="gengeopop::ContactCenter\l::begin" alt="" coords="577,326,756,367"/>
-<area shape="rect" id="node13" href="$d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" title="gengeopop::ContactCenter::end" alt="" coords="563,392,770,419"/>
+<area shape="rect" id="node8" href="$d0/d2f/a00259.html#a53951f1917941ac25ba6508b1b72771f" title="ExcAssert" alt="" coords="625,123,708,149"/>
+<area shape="rect" id="node12" href="$d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" title="Allow range&#45;based iteration. " alt="" coords="577,326,756,367"/>
+<area shape="rect" id="node13" href="$d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" title="Allow range&#45;based iteration. " alt="" coords="563,392,770,419"/>
 </map>

@@ -1,4 +1,6 @@
-<map id="stride::util::Exception" name="stride::util::Exception">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="15,131,139,208"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="25,5,129,83"/>
+<map id="stride::util::SliceIndexer&lt; T &gt;" name="stride::util::SliceIndexer&lt; T &gt;">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,163,120,240"/>
+<area shape="rect" id="node11" title="STL class. " alt="" coords="337,163,460,240"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="487,163,565,240"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="463,6,589,98"/>
 </map>

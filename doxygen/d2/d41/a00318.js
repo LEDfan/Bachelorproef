@@ -1,15 +1,11 @@
 var a00318 =
 [
-    [ "Id", "d2/d41/a00318.html#ab046b05654e26ef19fd5e4e46c16e836", [
-      [ "AtStart", "d2/d41/a00318.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe", null ],
-      [ "Stepped", "d2/d41/a00318.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568", null ],
-      [ "Finished", "d2/d41/a00318.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b", null ],
-      [ "SetupBegin", "d2/d41/a00318.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac", null ],
-      [ "SetupEnd", "d2/d41/a00318.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe", null ]
-    ] ],
-    [ "NumOfTypes", "d2/d41/a00318.html#afd464f4ca1769b7880cb27383a3cafd2", null ],
-    [ "IsType", "d2/d41/a00318.html#a43c0310b3eef6024b540ffaa5c4c39b2", null ],
-    [ "ToSizeT", "d2/d41/a00318.html#acdde1acea1c3f4536af74bb4b126a739", null ],
-    [ "ToString", "d2/d41/a00318.html#aaa54357f0c5b3af4e7905ed503167ede", null ],
-    [ "ToType", "d2/d41/a00318.html#ac81b85da174b73232cac26f53bd6d3a0", null ]
+    [ "Immunizer", "d4/d3e/a00116.html", "d4/d3e/a00116" ],
+    [ "Immunizer< ImmunizationProfile::Random >", "d8/d87/a00118.html", "d8/d87/a00118" ],
+    [ "Immunizer< ImmunizationProfile::Cocoon >", "d9/d4b/a00117.html", "d9/d4b/a00117" ],
+    [ "ImmunizationProfile", "d2/d41/a00318.html#add8b5ebb9e886c003bf194783b4dd7fe", [
+      [ "None", "d2/d41/a00318.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "Random", "d2/d41/a00318.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23", null ],
+      [ "Cocoon", "d2/d41/a00318.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae", null ]
+    ] ]
 ];

@@ -1,8 +1,7 @@
-<map id="QObject" name="QObject">
-<area shape="rect" id="node2" href="$d8/d84/a00001.html" title="{Backend\n|&#45; m_colorExponent\l&#45; m_map\l&#45; m_grids\l&#45; m_markers\l&#45; m_commutes\l&#45; m_showCommutes\l&#45; m_selection\l&#45; m_unselection\l|+ Backend()\l+ Backend()\l+ operator=()\l+ LoadGeoGridFromFile()\l+ SetGeoGrids()\l+ SaveMarker()\l+ LoadGeoGridFromCommandLine()\l+ SetObjects()\l+ OnMarkerClicked()\l+ OnExtraMarkerClicked()\land 10 more...\l&#45; PlaceMarker()\l&#45; PlaceMarkers()\l&#45; UpdateColorOfMarkers()\l&#45; EmitLocations()\l&#45; ToggleSelectionOfLocation()\l&#45; AddCommuteLine()\l&#45; HideCommuteLine()\l&#45; HideCommuteBetween()\l&#45; ShowCommute()\l&#45; SetHealthColorOf()\l&#45; GetLocationInRegion()\l}" alt="" coords="5,175,237,663"/>
-<area shape="rect" id="node3" href="$df/d86/a00012.html" title="{ContactCenterViewerBackend\n||+ ContactCenterViewerBackend()\l+ ShowContactCenter()\l}" alt="" coords="261,373,480,465"/>
-<area shape="rect" id="node4" href="$db/df8/a00076.html" title="A class used as a backend for the QML to provide simulation functionality. " alt="" coords="505,321,681,516"/>
-<area shape="rect" id="node5" href="$d9/da4/a00078.html" title="Represents the current set data for the launch. " alt="" coords="706,131,880,707"/>
-<area shape="rect" id="node6" href="$d1/d51/a00079.html" title="{LocationViewerBackend\n|&#45; m_locations\l|+ LocationViewerBackend()\l+ ShowLocations()\l+ UpdateInfected()\l&#45; NISToProvince()\l}" alt="" coords="905,358,1087,479"/>
-<area shape="rect" id="node7" href="$d2/d82/a00142.html" title="A worker class used to perform 1 step of the simulation on a different thread. " alt="" coords="1111,373,1237,465"/>
+<map id="calibration::CalibrationRunner" name="calibration::CalibrationRunner">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="349,155,464,232"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="824,512,947,589"/>
+<area shape="rect" id="node6" href="$de/d5e/a00007.html" title="A calibration tool used to calibrate the Stride scenario tests. " alt="" coords="146,691,344,944"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="487,512,565,589"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="497,341,623,433"/>
 </map>

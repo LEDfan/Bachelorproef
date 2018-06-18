@@ -129,7 +129,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" target="_top" xlink:title="gengeopop::GeoGridGenerator\l::AddPartialGenerator">
+<g id="a_node4"><a xlink:href="../../d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" target="_top" xlink:title="Add a PartialGenerator to use when generating. ">
 <polygon fill="white" stroke="black" points="497.5,-790 497.5,-820 646.5,-820 646.5,-790 497.5,-790"/>
 <text text-anchor="start" x="505.5" y="-808" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridGenerator</text>
 <text text-anchor="middle" x="572" y="-797" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPartialGenerator</text>
@@ -157,7 +157,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" target="_top" xlink:title="gengeopop::GeoGridPopulator\l::AddPartialPopulator">
+<g id="a_node7"><a xlink:href="../../d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" target="_top" xlink:title="Add a PartialPopulator to use when populating. ">
 <polygon fill="white" stroke="black" points="498.5,-692 498.5,-722 645.5,-722 645.5,-692 498.5,-692"/>
 <text text-anchor="start" x="506.5" y="-710" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridPopulator</text>
 <text text-anchor="middle" x="572" y="-699" font-family="Helvetica,sans-Serif" font-size="10.00">::AddPartialPopulator</text>
@@ -185,7 +185,7 @@
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="../../db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" target="_top" xlink:title="gengeopop::GeoGridConfig\l::Calculate">
+<g id="a_node11"><a xlink:href="../../db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" target="_top" xlink:title="Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid...">
 <polygon fill="white" stroke="black" points="505,-594 505,-624 639,-624 639,-594 505,-594"/>
 <text text-anchor="start" x="513" y="-612" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridConfig</text>
 <text text-anchor="middle" x="572" y="-601" font-family="Helvetica,sans-Serif" font-size="10.00">::Calculate</text>
@@ -269,7 +269,7 @@
 </g>
 <!-- Node15 -->
 <g id="node15" class="node"><title>Node15</title>
-<g id="a_node15"><a xlink:href="../../d3/d65/a00154.html#aafd39e698c442fd0917915d085c9aa1a" target="_top" xlink:title="/// Return data dir (only relevant when use_install_dirs mode is active) ">
+<g id="a_node15"><a xlink:href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a" target="_top" xlink:title="/// Return data dir (only relevant when use_install_dirs mode is active) ">
 <polygon fill="white" stroke="black" points="706,-447 706,-477 804,-477 804,-447 706,-447"/>
 <text text-anchor="start" x="714" y="-465" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys</text>
 <text text-anchor="middle" x="755" y="-454" font-family="Helvetica,sans-Serif" font-size="10.00">::GetDataDir</text>
@@ -283,7 +283,7 @@
 </g>
 <!-- Node16 -->
 <g id="node16" class="node"><title>Node16</title>
-<g id="a_node16"><a xlink:href="../../d3/d65/a00154.html#a811a1d113f57785952045d9541c95db5" target="_top" xlink:title="Return paths. ">
+<g id="a_node16"><a xlink:href="../../da/d01/a00153.html#a811a1d113f57785952045d9541c95db5" target="_top" xlink:title="Return paths. ">
 <polygon fill="white" stroke="black" points="858,-452.5 858,-471.5 978,-471.5 978,-452.5 858,-452.5"/>
 <text text-anchor="middle" x="918" y="-459.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys::Get</text>
 </a>
@@ -362,7 +362,7 @@
 </g>
 <!-- Node26 -->
 <g id="node26" class="node"><title>Node26</title>
-<g id="a_node26"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node26"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="513,-251 513,-281 631,-281 631,-251 513,-251"/>
 <text text-anchor="start" x="521" y="-269" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="572" y="-258" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>

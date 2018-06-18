@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::AssignActive">
+<g id="a_node2"><a xlink:href="../../d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" target="_top" xlink:title="Assign a workplace to an active person. ">
 <polygon fill="white" stroke="black" points="209,-258 209,-288 367,-288 367,-258 209,-258"/>
 <text text-anchor="start" x="217" y="-276" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="288" y="-265" font-family="Helvetica,sans-Serif" font-size="10.00">::AssignActive</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a" target="_top" xlink:title="gengeopop::PartialPopulator\l::MakeChoice">
+<g id="a_node3"><a xlink:href="../../d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a" target="_top" xlink:title="Convenience wrapper around m_rnManager. ">
 <polygon fill="white" stroke="black" points="426.5,-241 426.5,-271 565.5,-271 565.5,-241 426.5,-241"/>
 <text text-anchor="start" x="434.5" y="-259" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::PartialPopulator</text>
 <text text-anchor="middle" x="496" y="-248" font-family="Helvetica,sans-Serif" font-size="10.00">::MakeChoice</text>
@@ -45,7 +45,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d6/d2c/a00072.html#a9acd5b5f1bbac318795ce674911f8dc8" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::CalculateCommutingLocations">
+<g id="a_node7"><a xlink:href="../../d6/d2c/a00072.html#a9acd5b5f1bbac318795ce674911f8dc8" target="_top" xlink:title="Calculates the workplaces to which persons from m_currentLoc may commute to. ">
 <polygon fill="white" stroke="black" points="209,-170 209,-200 367,-200 367,-170 209,-170"/>
 <text text-anchor="start" x="217" y="-188" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="288" y="-177" font-family="Helvetica,sans-Serif" font-size="10.00">::CalculateCommutingLocations</text>
@@ -59,7 +59,7 @@
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d6/d2c/a00072.html#aea8236e442390e7e3156849c584160f9" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::CalculateFractionCommutingStudents">
+<g id="a_node9"><a xlink:href="../../d6/d2c/a00072.html#aea8236e442390e7e3156849c584160f9" target="_top" xlink:title="Calculates m_fractionCommutingStudents. ">
 <polygon fill="white" stroke="black" points="194,-23 194,-53 382,-53 382,-23 194,-23"/>
 <text text-anchor="start" x="202" y="-41" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="288" y="-30" font-family="Helvetica,sans-Serif" font-size="10.00">::CalculateFractionCommutingStudents</text>
@@ -73,7 +73,7 @@
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d6/d2c/a00072.html#adf0b3f40814a56af4736ef1af9ffc30e" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::CalculateNearbyWorkspaces">
+<g id="a_node10"><a xlink:href="../../d6/d2c/a00072.html#adf0b3f40814a56af4736ef1af9ffc30e" target="_top" xlink:title="Calculates the workplaces which are nearby to m_currentLoc. ">
 <polygon fill="white" stroke="black" points="209,-121 209,-151 367,-151 367,-121 209,-121"/>
 <text text-anchor="start" x="217" y="-139" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="288" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">::CalculateNearbyWorkspaces</text>
@@ -87,7 +87,7 @@
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="../../d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" target="_top" xlink:title="gengeopop::WorkplacePopulator\l::CalculateWorkplacesInCity">
+<g id="a_node11"><a xlink:href="../../d6/d2c/a00072.html#ae813a532362b485b1f15cf400f54ff5d" target="_top" xlink:title="Fills the m_workplacesInCity map. ">
 <polygon fill="white" stroke="black" points="209,-72 209,-102 367,-102 367,-72 209,-72"/>
 <text text-anchor="start" x="217" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::WorkplacePopulator</text>
 <text text-anchor="middle" x="288" y="-79" font-family="Helvetica,sans-Serif" font-size="10.00">::CalculateWorkplacesInCity</text>
@@ -119,7 +119,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node4"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="614,-140 614,-170 732,-170 732,-140 614,-140"/>
 <text text-anchor="start" x="622" y="-158" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="673" y="-147" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>
@@ -151,7 +151,7 @@
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d3/dcc/a00264.html#a53951f1917941ac25ba6508b1b72771f" target="_top" xlink:title="ExcAssert">
+<g id="a_node8"><a xlink:href="../../d0/d2f/a00259.html#a53951f1917941ac25ba6508b1b72771f" target="_top" xlink:title="ExcAssert">
 <polygon fill="white" stroke="black" points="465,-202.5 465,-221.5 527,-221.5 527,-202.5 465,-202.5"/>
 <text text-anchor="middle" x="496" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">ExcAssert</text>
 </a>
@@ -174,7 +174,7 @@
 </g>
 <!-- Node12 -->
 <g id="node12" class="node"><title>Node12</title>
-<g id="a_node12"><a xlink:href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" target="_top" xlink:title="gengeopop::ContactCenter\l::begin">
+<g id="a_node12"><a xlink:href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741" target="_top" xlink:title="Allow range&#45;based iteration. ">
 <polygon fill="white" stroke="black" points="429,-39 429,-69 563,-69 563,-39 429,-39"/>
 <text text-anchor="start" x="437" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::ContactCenter</text>
 <text text-anchor="middle" x="496" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::begin</text>
@@ -188,7 +188,7 @@
 </g>
 <!-- Node13 -->
 <g id="node13" class="node"><title>Node13</title>
-<g id="a_node13"><a xlink:href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" target="_top" xlink:title="gengeopop::ContactCenter::end">
+<g id="a_node13"><a xlink:href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3" target="_top" xlink:title="Allow range&#45;based iteration. ">
 <polygon fill="white" stroke="black" points="418.5,-0.5 418.5,-19.5 573.5,-19.5 573.5,-0.5 418.5,-0.5"/>
 <text text-anchor="middle" x="496" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::ContactCenter::end</text>
 </a>

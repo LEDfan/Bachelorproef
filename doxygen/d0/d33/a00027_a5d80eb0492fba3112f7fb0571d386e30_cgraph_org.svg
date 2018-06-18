@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" target="_top" xlink:title="gengeopop::GeoGridConfig\l::Calculate">
+<g id="a_node2"><a xlink:href="../../db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" target="_top" xlink:title="Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid...">
 <polygon fill="white" stroke="black" points="215,-196 215,-226 349,-226 349,-196 215,-196"/>
 <text text-anchor="start" x="223" y="-214" font-family="Helvetica,sans-Serif" font-size="10.00">gengeopop::GeoGridConfig</text>
 <text text-anchor="middle" x="282" y="-203" font-family="Helvetica,sans-Serif" font-size="10.00">::Calculate</text>
@@ -101,7 +101,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d3/d65/a00154.html#aafd39e698c442fd0917915d085c9aa1a" target="_top" xlink:title="/// Return data dir (only relevant when use_install_dirs mode is active) ">
+<g id="a_node6"><a xlink:href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a" target="_top" xlink:title="/// Return data dir (only relevant when use_install_dirs mode is active) ">
 <polygon fill="white" stroke="black" points="416,-49 416,-79 514,-79 514,-49 416,-49"/>
 <text text-anchor="start" x="424" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys</text>
 <text text-anchor="middle" x="465" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">::GetDataDir</text>
@@ -115,7 +115,7 @@
 </g>
 <!-- Node7 -->
 <g id="node7" class="node"><title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d3/d65/a00154.html#a811a1d113f57785952045d9541c95db5" target="_top" xlink:title="Return paths. ">
+<g id="a_node7"><a xlink:href="../../da/d01/a00153.html#a811a1d113f57785952045d9541c95db5" target="_top" xlink:title="Return paths. ">
 <polygon fill="white" stroke="black" points="568,-54.5 568,-73.5 688,-73.5 688,-54.5 568,-54.5"/>
 <text text-anchor="middle" x="628" y="-61.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys::Get</text>
 </a>

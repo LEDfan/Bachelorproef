@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#ae19635679e1c50cf8e2fbb5e87914931" target="_top" xlink:title="Launcher::UpdatePtree">
+<g id="a_node2"><a xlink:href="../../d9/da4/a00078.html#ae19635679e1c50cf8e2fbb5e87914931" target="_top" xlink:title="Updates the locally stored Boost Property Tree with the information in the QML forms. ">
 <polygon fill="white" stroke="black" points="150.5,-49.5 150.5,-68.5 267.5,-68.5 267.5,-49.5 150.5,-49.5"/>
 <text text-anchor="middle" x="209" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Launcher::UpdatePtree</text>
 </a>
@@ -29,7 +29,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d3/d65/a00154.html#a1bc06882ff174f1005045311b714dcfd" target="_top" xlink:title="Write ptree to file at path. ">
+<g id="a_node3"><a xlink:href="../../da/d01/a00153.html#a1bc06882ff174f1005045311b714dcfd" target="_top" xlink:title="Write ptree to file at path. ">
 <polygon fill="white" stroke="black" points="160,-0 160,-30 258,-30 258,-0 160,-0"/>
 <text text-anchor="start" x="168" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FileSys</text>
 <text text-anchor="middle" x="209" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::WritePtreeFile</text>

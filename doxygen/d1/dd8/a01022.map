@@ -1,3 +1,16 @@
-<map id="gengeopop::CitiesCSVReader" name="gengeopop::CitiesCSVReader">
-<area shape="rect" id="node2" href="$d4/d51/a00017.html" title="Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. " alt="" coords="19,5,188,112"/>
+<map id="gengeopop::GeoGridJSONWriter" name="gengeopop::GeoGridJSONWriter">
+<area shape="rect" id="node2" href="$d6/d42/a00043.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf..." alt="" coords="432,1318,608,1410"/>
+<area shape="rect" id="node4" href="$d0/d5e/a00136.html" title="Store and handle person data. " alt="" coords="677,1016,784,1240"/>
+<area shape="rect" id="node5" href="$d9/d34/a00476.html" title="{double\n||}" alt="" coords="599,765,659,843"/>
+<area shape="rect" id="node6" href="$d4/d3a/a00101.html" title="Represents a group of Persons that potentially have contacts. " alt="" coords="1187,1475,1333,1714"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="973,256,1088,333"/>
+<area shape="rect" id="node14" title="STL class. " alt="" coords="523,249,665,341"/>
+<area shape="rect" id="node16" title="STL class. " alt="" coords="365,147,563,224"/>
+<area shape="rect" id="node13" href="$d1/d09/a00077.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="353,714,575,894"/>
+<area shape="rect" id="node15" href="$d1/d09/a00077.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="383,366,545,546"/>
+<area shape="rect" id="node18" href="$d9/dcc/a00102.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="754,721,928,887"/>
+<area shape="rect" id="node19" title="STL class. " alt="" coords="748,417,935,495"/>
+<area shape="rect" id="node21" href="$d9/df8/a00096.html" title="Base class for all belief policies. " alt="" coords="953,751,1068,857"/>
+<area shape="rect" id="node22" href="$d3/d00/a00113.html" title="Holds a person&#39;s health data. " alt="" coords="67,670,257,938"/>
+<area shape="rect" id="node25" title="STL class. " alt="" coords="63,1089,161,1167"/>
 </map>

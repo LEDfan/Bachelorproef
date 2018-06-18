@@ -1,21 +1,19 @@
-<map id="Immunizer.cpp" name="Immunizer.cpp">
-<area shape="rect" id="node2" href="$de/de9/a00322.html" title="Header for the Immunizer class. " alt="" coords="1159,80,1253,107"/>
-<area shape="rect" id="node30" href="$d7/d08/a00378.html" title="Header file for the Person class. " alt="" coords="1727,80,1825,107"/>
-<area shape="rect" id="node37" href="$d9/da1/a00396.html" title="Interface of RNManager. " alt="" coords="2253,245,2376,272"/>
-<area shape="rect" id="node3" href="$d6/d22/a00245.html" title="Header for the core ContactPool class. " alt="" coords="1303,245,1436,272"/>
-<area shape="rect" id="node14" href="$d5/db5/a00374.html" title="util/PartitionedSegmented\lVector.h" alt="" coords="621,155,792,197"/>
-<area shape="rect" id="node4" href="$d6/d82/a00243.html" title="Header for the ContactLogMode class. " alt="" coords="1828,320,2007,347"/>
-<area shape="rect" id="node6" href="$d0/da7/a00250.html" title="Definition of ContactPoolType. " alt="" coords="1641,320,1804,347"/>
-<area shape="rect" id="node15" href="$d5/d35/a00266.html" title="Exception.h" alt="" coords="97,245,188,272"/>
-<area shape="rect" id="node17" href="$d6/db8/a00376.html" title="util/pchheader.h" alt="" coords="649,245,764,272"/>
-<area shape="rect" id="node18" href="$d1/da8/a00230.html" title="util/ConcatednatedIterators.h" alt="" coords="853,320,1043,347"/>
-<area shape="rect" id="node19" href="$df/d91/a00335.html" title="util/IteratorPair.h" alt="" coords="497,320,615,347"/>
-<area shape="rect" id="node20" href="$dd/db5/a00365.html" title="Interface/Implementation for NestedIterator. " alt="" coords="691,320,828,347"/>
-<area shape="rect" id="node24" href="$d4/d53/a00429.html" title="Interface/Implementation for SVIterator. " alt="" coords="186,395,299,421"/>
-<area shape="rect" id="node26" href="$d0/da0/a00403.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="314,320,472,347"/>
-<area shape="rect" id="node28" href="$db/ddc/a00353.html" title="util/lower_bound.h" alt="" coords="631,395,757,421"/>
-<area shape="rect" id="node31" href="$d8/d17/a00304.html" title="Header for the Health class. " alt="" coords="1865,163,1985,189"/>
-<area shape="rect" id="node32" href="$de/dab/a00319.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1473,163,1631,189"/>
-<area shape="rect" id="node35" href="$d9/d3a/a00439.html" title="pool/TravellerProfile.h" alt="" coords="1187,163,1335,189"/>
-<area shape="rect" id="node38" href="$d9/dad/a00394.html" title="Interface of Random Engine Type. " alt="" coords="2316,320,2439,347"/>
+<map id="Infector.cpp" name="Infector.cpp">
+<area shape="rect" id="node2" href="$d8/dfc/a00327.html" title="Header for the Infector class. " alt="" coords="821,155,897,181"/>
+<area shape="rect" id="node9" href="$de/db1/a00197.html" title="Header file for the Calendar class. " alt="" coords="105,237,244,264"/>
+<area shape="rect" id="node33" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="1375,237,1508,264"/>
+<area shape="rect" id="node35" href="$df/dee/a00369.html" title="Header file for the Person class. " alt="" coords="1833,80,1932,107"/>
+<area shape="rect" id="node3" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="1234,328,1365,355"/>
+<area shape="rect" id="node5" href="$d4/dd3/a00428.html" title="Header for the TransmissionProfile class. " alt="" coords="545,237,692,264"/>
+<area shape="rect" id="node7" href="$d0/d01/a00339.html" title="Header file for LocalDiscussion info policy. " alt="" coords="855,230,1039,271"/>
+<area shape="rect" id="node8" href="$d7/ddb/a00361.html" title="behaviour/information\l_policies/NoLocalInformation.h" alt="" coords="319,230,520,271"/>
+<area shape="rect" id="node15" href="$d8/d64/a00181.html" title="Contact profile. " alt="" coords="1164,237,1351,264"/>
+<area shape="rect" id="node22" href="$d7/d40/a00236.html" title="Header for the ContactHandler class. " alt="" coords="2039,237,2209,264"/>
+<area shape="rect" id="node16" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="1540,328,1703,355"/>
+<area shape="rect" id="node20" href="$db/dd9/a00179.html" title="Helpers for age. " alt="" coords="1129,328,1209,355"/>
+<area shape="rect" id="node23" href="$db/db9/a00387.html" title="Interface of RNManager. " alt="" coords="2194,328,2317,355"/>
+<area shape="rect" id="node24" href="$d5/d05/a00385.html" title="Interface of Random Engine Type. " alt="" coords="1929,411,2052,437"/>
+<area shape="rect" id="node36" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="2089,155,2209,181"/>
+<area shape="rect" id="node37" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1639,155,1797,181"/>
+<area shape="rect" id="node41" href="$dc/d0c/a00430.html" title="pool/TravellerProfile.h" alt="" coords="2234,237,2381,264"/>
 </map>

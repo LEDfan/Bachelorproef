@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d7/d46/a00002.html" title="gengeopop::kd::BaseNode\&lt; P \&gt;" alt="" coords="6,45,215,72"/>
+<area shape="rect" id="node1" href="$d7/d46/a00002.html" title="A base class for all instanciations of a Node with D. " alt="" coords="6,45,215,72"/>
 <area shape="rect" id="node2" href="$dc/dee/a00053.html" title="A node in the KdTree. " alt="" coords="264,5,411,46"/>
 <area shape="rect" id="node3" href="$dc/dee/a00053.html" title="gengeopop::kd::Node\l\&lt; P, 0 \&gt;" alt="" coords="264,70,411,111"/>
 </map>
