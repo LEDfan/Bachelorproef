@@ -192,7 +192,7 @@ void Backend::ClearSelectionAndRender()
 {
         for (std::pair<int, int> locIDs : m_selection) {
                 auto* marker = m_markers[locIDs];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "#5d00ff"));
         }
         for (const auto& locIDs : m_unselection) {
                 auto* marker = m_markers[locIDs];
@@ -297,7 +297,7 @@ void Backend::UpdateColorOfMarkers()
         m_unselection.clear();
         for (const auto& locID : m_selection) {
                 auto* marker = m_markers[locID];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "#5d00ff"));
                 // Show the commutes
                 auto loc = GetLocationInRegion(locID);
                 if (m_showCommutes) {
@@ -426,14 +426,14 @@ void Backend::OnMarkerHovered(int region, unsigned int idOfHover)
 
         if (m_selection.find({region, idOfHover}) == m_selection.end()) {
                 QObject* marker = m_markers[{region, loc->GetID()}];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "blue"));
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "#FFFFFF"));
 
                 // Change colors of submunicipalities
                 const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
                 for (const auto& mun : sub) {
                         QObject* markerMun = m_markers[{region, mun->GetID()}];
                         QMetaObject::invokeMethod(markerMun, "setBorder", Qt::DirectConnection,
-                                                  Q_ARG(QVariant, "blue"));
+                                                  Q_ARG(QVariant, "#FFFFFF"));
                 }
         }
 }
@@ -456,7 +456,7 @@ void Backend::OnMarkerHoveredOff(int region, unsigned int idOfHover)
                         } else {
                                 // Back to selection color
                                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
-                                                          Q_ARG(QVariant, "purple"));
+                                                          Q_ARG(QVariant, "#5d00ff"));
                         }
                 }
         }

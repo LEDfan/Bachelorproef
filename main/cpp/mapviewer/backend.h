@@ -34,15 +34,6 @@ public:
 
         Q_INVOKABLE
         /**
-         * Save the marker of the location in a region so we can edit it later.
-         * @param region The region of the location marker we are saving
-         * @param id the location id
-         * @param marker the pointer to the CustomMarker object in the MapViewer
-         */
-        void SaveMarker(int region, int id, QObject* marker);
-
-        Q_INVOKABLE
-        /**
          * Load a GeoGrid from JSON file, specified in the command line arguments
          */
         void LoadGeoGridFromCommandLine(const QStringList& args);
@@ -127,6 +118,14 @@ public:
          * @param fileLoc File to save the JSON to.
          */
         void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
+
+        Q_INVOKABLE
+        /**
+         * Saves the CustomMarker QObject of a specific location so we can modify it later.
+         * @param region the region of the location
+         * @param id the id of the location
+         */
+        void SaveMarker(int region, int id, QObject* marker);
 
 signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
