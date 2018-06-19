@@ -25,7 +25,8 @@ Dialog {
                 Ctrl + A can be used to select all cities.
                 Ctrl + F can be used to fit the viewport of the map so all cities are visible.
 
-                To show commutes of a city, first enable the "View -> Show Commutes" option and then select a city.
+                To show commutes of a city, first enable the "View -> Show Commutes".
+                The commutes between the selected cities will be shown.
 
                 While simulating the color a blue markers indicated that no one is infected at that location.
                 As soon as some people get infected the marker will become green, to eventually become red
