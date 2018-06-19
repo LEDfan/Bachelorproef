@@ -3,6 +3,8 @@
 #include <QtCore/QVariant>
 #include <iostream>
 
+LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent), m_locations() {}
+
 void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Location>> locations)
 {
         m_locations         = locations;
@@ -64,8 +66,6 @@ void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Lo
 }
 
 void LocationViewerBackend::UpdateInfected() { ShowLocations(m_locations); }
-
-LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent), m_locations() {}
 
 QString LocationViewerBackend::NISToProvince(unsigned int id)
 {

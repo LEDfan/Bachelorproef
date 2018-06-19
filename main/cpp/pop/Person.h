@@ -55,7 +55,6 @@ public:
                                            workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true), m_belief(bp)
         {
-                // TODO m_in_pools: shouldn't this check if every id is not 0?
         }
 
         /// Is this person not equal to the given person?
@@ -114,58 +113,56 @@ public:
 
         void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
 
-        unsigned int GetK12SchoolId() const
-        {
-                // TODO highschool vs not highschool
-                return GetPoolId(ContactPoolType::Id::K12School);
-        }
+        /// Returns the id of the K12School CP
+        unsigned int GetK12SchoolId() const { return GetPoolId(ContactPoolType::Id::K12School); }
 
-        void SetK12SchoolId(unsigned int school_id)
-        {
-                // TODO highschool vs not highschool
-                SetPoolId(ContactPoolType::Id::K12School, school_id);
-        }
+        /// Sets the id of the K12School CP
+        void SetK12SchoolId(unsigned int k12school_id) { SetPoolId(ContactPoolType::Id::K12School, k12school_id); }
 
-        unsigned int GetCollegeId() const
-        {
-                // TODO highschool vs not highschool
-                return GetPoolId(ContactPoolType::Id::College);
-        }
+        /// Returns the id of the College CP
+        unsigned int GetCollegeId() const { return GetPoolId(ContactPoolType::Id::College); }
 
-        void SetCollegeId(unsigned int highschool_id)
-        {
-                // TODO highschool vs not highschool
-                SetPoolId(ContactPoolType::Id::College, highschool_id);
-        }
+        /// Sets the id of the College CP
+        void SetCollegeId(unsigned int college_id) { SetPoolId(ContactPoolType::Id::College, college_id); }
 
+        /// Gets the id of the Work CP
         unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }
 
+        /// Sets the id of the Work CP
         void SetWorkId(unsigned int work_id) { SetPoolId(ContactPoolType::Id::Work, work_id); }
 
+        /// Returns the id of the PrimaryCommunity CP
         unsigned int GetPrimaryCommunityId() const { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
 
+        /// Sets the id of the PrimaryCommunity CP
         void SetPrimaryCommunityId(unsigned int primary_community_id)
         {
                 SetPoolId(ContactPoolType::Id::PrimaryCommunity, primary_community_id);
         }
 
+        /// Returns the id of the SecondaryCommunity CP
         unsigned int GetSecondaryCommunityId() const { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
 
+        /// Sets the id of the SecondaryCommunity CP
         void SetSecondaryCommunityId(unsigned int secondary_community_id)
         {
                 SetPoolId(ContactPoolType::Id::SecondaryCommunity, secondary_community_id);
         }
 
+        /// Sets the id of the \p type CP
         void SetPoolId(ContactPoolType::Id type, unsigned int poolId)
         {
                 m_pool_ids[type] = poolId;
                 m_in_pools[type] = poolId != 0;
         }
 
+        /// Returns whether this person may be a K12School student
         bool IsStudentCandidate() const { return m_age < 18 && m_age >= 6; }
 
+        /// Returns whether this person may be a college student
         bool IsCollegeStudentCandidate() const { return m_age >= 18 && m_age < 26; }
 
+        /// Returns whether this person may be a college worker
         bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
         /// Returns whether this person is travelling

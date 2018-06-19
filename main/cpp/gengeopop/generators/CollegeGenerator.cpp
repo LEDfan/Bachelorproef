@@ -12,7 +12,7 @@ namespace gengeopop {
 void CollegeGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         int  amountOfPupils  = geoGridConfig.calculated._1826_years_and_student;
-        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 3000.0)); // TODO magic constant
+        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / geoGridConfig.constants.meanCollegeSize));
 
         std::vector<std::shared_ptr<Location>> cities = geoGrid->TopK(10);
 

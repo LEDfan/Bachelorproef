@@ -54,10 +54,10 @@ public:
         explicit CliController(const boost::property_tree::ptree& configPt);
 
         /// Virtual desctructor for overloading
-        virtual ~CliController() = default;
+        ~CliController() override = default;
 
         /// Actual run of the simulator.
-        void Control();
+        void Control() override;
 };
 
 } // namespace stride

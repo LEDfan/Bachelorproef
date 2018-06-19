@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Implementation for HelthSeeder class.
+ * Implementation for HealthSeeder class.
  */
 
 #include "HealthSeeder.h"

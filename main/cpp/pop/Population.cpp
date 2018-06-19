@@ -133,8 +133,7 @@ std::shared_ptr<Population> Population::Create()
         struct make_shared_enabler : public Population
         {
         };
-        auto r = make_shared<make_shared_enabler>();
-        r->m_belief_pt.add("name", "NoBelief");
+        auto r                  = make_shared<make_shared_enabler>();
         r->m_regions["Default"] = 0;
         r->m_regionTravellerIndex.emplace_back();
         return r;

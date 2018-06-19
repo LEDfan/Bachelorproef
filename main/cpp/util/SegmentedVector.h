@@ -84,7 +84,7 @@ public:
         explicit SegmentedVector(size_type i, const value_type& value) : m_blocks(), m_size(0) { resize(i, value); }
 
         /// Copy constructor.
-        explicit SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
+        SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
         {
                 for (const auto& elem : other) {
                         push_back(elem);
@@ -94,7 +94,7 @@ public:
         }
 
         /// Move constructor.
-        explicit SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
@@ -283,7 +283,7 @@ public:
         T* emplace(size_type pos, Args&&... args)
         {
                 assert(0 <= pos && pos < m_size);
-                T* memory = static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
+                auto memory = static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
                 return new (memory) T(std::forward<Args>(args)...); // construct new object
         }
 
