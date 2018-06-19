@@ -1,0 +1,16 @@
+<map id="stride::Person::GetPoolId" name="stride::Person::GetPoolId">
+<area shape="rect" id="node2" href="$d2/df5/a00137.html#a805778c8c80ec8523a60cae01947b02a" title="Returns the id of the College CP. " alt="" coords="235,5,421,32"/>
+<area shape="rect" id="node5" href="$d2/df5/a00137.html#abd8a6126416c2ba2542014e63d99b887" title="stride::Person::GetHouseholdId" alt="" coords="225,56,431,83"/>
+<area shape="rect" id="node6" href="$d2/df5/a00137.html#a137c47d3d0e8bc1221bc2123477941a1" title="Returns the id of the K12School CP. " alt="" coords="225,107,431,133"/>
+<area shape="rect" id="node7" href="$d2/df5/a00137.html#ab66a63b8c275eb20a5f33147d9eee77f" title="Returns the id of the PrimaryCommunity CP. " alt="" coords="239,158,417,199"/>
+<area shape="rect" id="node8" href="$d2/df5/a00137.html#a43a13b12121574fe063e6f8b8dbe0c4a" title="Returns the id of the SecondaryCommunity CP. " alt="" coords="231,223,425,265"/>
+<area shape="rect" id="node9" href="$d2/df5/a00137.html#a8d484ccde416208ee213b9d9763c4367" title="Gets the id of the Work CP. " alt="" coords="241,289,415,316"/>
+<area shape="rect" id="node11" href="$da/ddb/a00145.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="256,341,400,382"/>
+<area shape="rect" id="node13" href="$d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c" title="Swaps persons in m_members with the given index and updates the expats data if necessary. " alt="" coords="261,406,395,447"/>
+<area shape="rect" id="node3" href="$d1/dc6/a00037.html#a0e11b2f67f86e812421761f61fd7274f" title="Create a Boost Property Tree containing all the information needed to reconstruct a Person..." alt="" coords="481,129,693,170"/>
+<area shape="rect" id="node4" href="$d1/dc6/a00037.html#a06da89c72da72992bbd517973c9513eb" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="742,129,954,170"/>
+<area shape="rect" id="node10" href="$d9/d7d/a00150.html#a7b1219dfa5bb3b91d0603cac0a22b8ae" title="Based on the profile determines if a person will travel and handle when it effectively travels..." alt="" coords="512,275,661,317"/>
+<area shape="rect" id="node12" href="$dd/d42/a00109.html#ae3494b202df19d6ff1aee50fce84e2cd" title="Build Population and return it afterwards. " alt="" coords="503,341,670,382"/>
+<area shape="rect" id="node14" href="$d4/d3a/a00101.html#a6c90e9734ee7c6566bdf1f4416e99fd8" title="Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. " alt="" coords="519,406,654,447"/>
+<area shape="rect" id="node15" href="$df/dc8/a00122.html#a3e10dc57119090c30ba818420bbd7b94" title="stride::Infector\&lt; LL,\l TIC, NoLocalInformation,\l true \&gt;::Exec" alt="" coords="761,399,935,455"/>
+</map>

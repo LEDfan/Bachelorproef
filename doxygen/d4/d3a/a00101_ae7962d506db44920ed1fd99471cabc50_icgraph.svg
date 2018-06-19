@@ -48,7 +48,7 @@ if (edges && edges.length) {
 <script type="text/javascript">
 var viewWidth = 674;
 var viewHeight = 38;
-var sectionId = 'dynsection-2';
+var sectionId = 'dynsection-4';
 </script>
 <script xlink:href="../../svgpan.js"/>
 <svg id="graph" class="graph">
@@ -63,7 +63,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d4/d3e/a00116.html#a8188dc69064103c5ac7e95193356a0c3" target="_top" xlink:title="Random immunization. ">
+<g id="a_node2"><a xlink:href="../../d9/d4b/a00117.html#a8188dc69064103c5ac7e95193356a0c3" target="_top" xlink:title="Random immunization. ">
 <polygon fill="white" stroke="black" points="138,-0 138,-30 236,-30 236,-0 138,-0"/>
 <text text-anchor="start" x="146" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Immunizer::</text>
 <text text-anchor="middle" x="187" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Random</text>
@@ -77,7 +77,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../dd/d42/a00109.html#accb4b7832c08a4cc98973caf5aebf7f5" target="_top" xlink:title="Seed for vaccination/natural immunity. ">
+<g id="a_node3"><a xlink:href="../../d4/d81/a00110.html#accb4b7832c08a4cc98973caf5aebf7f5" target="_top" xlink:title="Seed for vaccination/natural immunity. ">
 <polygon fill="white" stroke="black" points="272.5,-0 272.5,-30 385.5,-30 385.5,-0 272.5,-0"/>
 <text text-anchor="start" x="280.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::DiseaseSeeder</text>
 <text text-anchor="middle" x="329" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Vaccinate</text>
@@ -91,7 +91,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../dd/d42/a00109.html#adc5b1f152367382afe3dade9421357da" target="_top" xlink:title="Build the simulator. ">
+<g id="a_node4"><a xlink:href="../../d4/d81/a00110.html#adc5b1f152367382afe3dade9421357da" target="_top" xlink:title="Build the simulator. ">
 <polygon fill="white" stroke="black" points="422.5,-0 422.5,-30 535.5,-30 535.5,-0 422.5,-0"/>
 <text text-anchor="start" x="430.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::DiseaseSeeder</text>
 <text text-anchor="middle" x="479" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Seed</text>
@@ -105,7 +105,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444" target="_top" xlink:title="Build the simulator and return it afterwards. ">
+<g id="a_node5"><a xlink:href="../../d2/d82/a00142.html#a94ce5fb3cae915f0bdb261498f31c444" target="_top" xlink:title="Build the simulator and return it afterwards. ">
 <polygon fill="white" stroke="black" points="572,-0 572,-30 666,-30 666,-0 572,-0"/>
 <text text-anchor="start" x="580" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::SimBuilder</text>
 <text text-anchor="middle" x="619" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Build</text>

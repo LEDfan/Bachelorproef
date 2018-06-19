@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: LogUtils.h Source File</title>
+<title>Stride Reference Manual: LocationViewerBackend.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,76 +109,103 @@ $(document).ready(function(){initNavTree('d2/daf/a00346_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">LogUtils.h</div>  </div>
+<div class="title">LocationViewerBackend.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d2/daf/a00346.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Logging (spdlog) utilities.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * Utilities for logging (spdlog).</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d3/df8/a00155.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/df8/a00155.html">LogUtils</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">        /// Return a (not-yet-registered) commandline logger, without registering it.</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        /// Throws iff logger already registered or if spdlog throws.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d3/df8/a00155.html#a106af93dd3f814adf8b87ffaaf3ef3bb">CreateCliLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                               <span class="keyword">const</span> std::string&amp; file_name);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        /// Return a (not-yet-registered) commandline logger, without registering it.</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">        /// Throws iff logger already registered or if spdlog throws.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d3/df8/a00155.html#a52920faed22a1733b580a42ea065ed0d">CreateFileLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                                                <span class="keyword">const</span> std::string&amp; file_name);<span class="comment"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">        /// Return a (not-yet-registered) null logger, without registering it.</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">        /// Throws iff logger already registered or if spdlog throws.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d3/df8/a00155.html#ab89be4aea714eff74a2d4143023840a6">CreateNullLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">        /// Return a (not-yet-registered) rotating logger, without registering it.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">        /// Throws iff logger already registered or if spdlog throws.</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d3/df8/a00155.html#a137e01100d0d79b122f731bb1292179d">CreateRotatingLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                                                    <span class="keyword">const</span> std::string&amp; file_name);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">stride::util::LogUtils</a></div><div class="ttdoc">Utilities for logging (spdlog). </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/a00346_source.html#l00032">LogUtils.h:32</a></div></div>
-<div class="ttc" id="a00155_html_a106af93dd3f814adf8b87ffaaf3ef3bb"><div class="ttname"><a href="../../d3/df8/a00155.html#a106af93dd3f814adf8b87ffaaf3ef3bb">stride::util::LogUtils::CreateCliLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateCliLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) commandline logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d48/a00345_source.html#l00032">LogUtils.cpp:32</a></div></div>
-<div class="ttc" id="a00155_html_ab89be4aea714eff74a2d4143023840a6"><div class="ttname"><a href="../../d3/df8/a00155.html#ab89be4aea714eff74a2d4143023840a6">stride::util::LogUtils::CreateNullLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateNullLogger(const std::string &amp;logger_name)</div><div class="ttdoc">Return a (not-yet-registered) null logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d48/a00345_source.html#l00071">LogUtils.cpp:71</a></div></div>
-<div class="ttc" id="a00155_html_a52920faed22a1733b580a42ea065ed0d"><div class="ttname"><a href="../../d3/df8/a00155.html#a52920faed22a1733b580a42ea065ed0d">stride::util::LogUtils::CreateFileLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateFileLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) commandline logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d48/a00345_source.html#l00053">LogUtils.cpp:53</a></div></div>
-<div class="ttc" id="a00155_html_a137e01100d0d79b122f731bb1292179d"><div class="ttname"><a href="../../d3/df8/a00155.html#a137e01100d0d79b122f731bb1292179d">stride::util::LogUtils::CreateRotatingLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateRotatingLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) rotating logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d48/a00345_source.html#l00088">LogUtils.cpp:88</a></div></div>
+<a href="../../d2/daf/a00346.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/dc6/a00347.html">LocationViewerBackend.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;QTableView&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QtCore/QVariant&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#a9e50571e40362735858272a1dc4fb09d">    6</a></span>&#160;<a class="code" href="../../d1/d51/a00079.html#a9e50571e40362735858272a1dc4fb09d">LocationViewerBackend::LocationViewerBackend</a>(<a class="code" href="../../d9/dec/a00090.html">QObject</a>* parent) : <a class="code" href="../../d9/dec/a00090.html">QObject</a>(parent), m_locations() {}</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#a35ef7f08b66b7585b76e2b8bae6a48ac">    8</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d51/a00079.html#a35ef7f08b66b7585b76e2b8bae6a48ac">LocationViewerBackend::ShowLocations</a>(std::set&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt; locations)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="../../d1/d51/a00079.html#af801953032ac45bbdf78029c96bcf0a0">m_locations</a>         = locations;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">auto</span> nameText       = parent()-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textName&quot;</span>));</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">auto</span> provinceText   = parent()-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textProvince&quot;</span>));</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">auto</span> idText         = parent()-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textID&quot;</span>));</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">auto</span> populationText = parent()-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textPopulation&quot;</span>));</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">auto</span> infectedText   = parent()-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(QString(<span class="stringliteral">&quot;textInfected&quot;</span>));</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        QString nameString(<span class="stringliteral">&quot;Name: &quot;</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        QString provinceString(<span class="stringliteral">&quot;Province: &quot;</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        QString idString(<span class="stringliteral">&quot;ID: &quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        QString populationString(<span class="stringliteral">&quot;Population: &quot;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        QString infectedString(<span class="stringliteral">&quot;Infected: &quot;</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">int</span> maxChars = 30;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; location : locations) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="comment">// Handle situation when too much is selected to be shown fully</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                QString provinceName = <a class="code" href="../../d1/d51/a00079.html#a2f1ba8805af02f700fd132ddb519af9a">NISToProvince</a>(location-&gt;GetProvince());</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">if</span> (nameString.length() + QString::fromStdString(location-&gt;GetName()).length() &gt; maxChars ||</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    provinceString.length() + provinceName.length() &gt; maxChars ||</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                    idString.length() + QString::number(location-&gt;GetID()).length() &gt; maxChars) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                        nameString += <span class="stringliteral">&quot;...&quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                        provinceString += <span class="stringliteral">&quot;...&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        idString += <span class="stringliteral">&quot;...&quot;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">if</span> (first) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        first = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        nameString += QString(<span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        provinceString += QString(<span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        idString += QString(<span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                nameString += QString::fromStdString(location-&gt;GetName());</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                provinceString += provinceName;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                idString += QString::number(location-&gt;GetID());</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">// Calculate aggregated population</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> totalPopulation = 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> totalInfected   = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; location : locations) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                totalPopulation += location-&gt;GetSimulationPopulation();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                totalInfected += location-&gt;GetInfectedCount();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        populationString += QString::number(totalPopulation);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        infectedString += QString::number(totalInfected);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        nameText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, nameString);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        provinceText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, provinceString);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        idText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, idString);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        populationText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, populationString);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        infectedText-&gt;setProperty(<span class="stringliteral">&quot;text&quot;</span>, infectedString);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#af06b901d153e1a1d4d00df48bd5e39c7">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d51/a00079.html#af06b901d153e1a1d4d00df48bd5e39c7">LocationViewerBackend::UpdateInfected</a>() { <a class="code" href="../../d1/d51/a00079.html#a35ef7f08b66b7585b76e2b8bae6a48ac">ShowLocations</a>(<a class="code" href="../../d1/d51/a00079.html#af801953032ac45bbdf78029c96bcf0a0">m_locations</a>); }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#a2f1ba8805af02f700fd132ddb519af9a">   70</a></span>&#160;QString <a class="code" href="../../d1/d51/a00079.html#a2f1ba8805af02f700fd132ddb519af9a">LocationViewerBackend::NISToProvince</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">switch</span> (<span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Antwerpen&quot;</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Vlaams-Brabant&quot;</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">case</span> 3: <span class="keywordflow">return</span> <span class="stringliteral">&quot;West-Vlaanderen&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">case</span> 4: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Oost-Vlaanderen&quot;</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">case</span> 7: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Limburg&quot;</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">return</span> <span class="stringliteral">&quot;Onbekend&quot;</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="ttc" id="a00347_html"><div class="ttname"><a href="../../d1/dc6/a00347.html">LocationViewerBackend.h</a></div></div>
+<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
+<div class="ttc" id="a00079_html_a9e50571e40362735858272a1dc4fb09d"><div class="ttname"><a href="../../d1/d51/a00079.html#a9e50571e40362735858272a1dc4fb09d">LocationViewerBackend::LocationViewerBackend</a></div><div class="ttdeci">LocationViewerBackend(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/a00346_source.html#l00006">LocationViewerBackend.cpp:6</a></div></div>
+<div class="ttc" id="a00079_html_a2f1ba8805af02f700fd132ddb519af9a"><div class="ttname"><a href="../../d1/d51/a00079.html#a2f1ba8805af02f700fd132ddb519af9a">LocationViewerBackend::NISToProvince</a></div><div class="ttdeci">QString NISToProvince(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/a00346_source.html#l00070">LocationViewerBackend.cpp:70</a></div></div>
+<div class="ttc" id="a00079_html_a35ef7f08b66b7585b76e2b8bae6a48ac"><div class="ttname"><a href="../../d1/d51/a00079.html#a35ef7f08b66b7585b76e2b8bae6a48ac">LocationViewerBackend::ShowLocations</a></div><div class="ttdeci">Q_INVOKABLE void ShowLocations(std::set&lt; std::shared_ptr&lt; gengeopop::Location &gt;&gt; location)</div><div class="ttdoc">Adapts the text and tableView model to show the correct info about the location. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/a00346_source.html#l00008">LocationViewerBackend.cpp:8</a></div></div>
+<div class="ttc" id="a00079_html_af06b901d153e1a1d4d00df48bd5e39c7"><div class="ttname"><a href="../../d1/d51/a00079.html#af06b901d153e1a1d4d00df48bd5e39c7">LocationViewerBackend::UpdateInfected</a></div><div class="ttdeci">Q_INVOKABLE void UpdateInfected()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/a00346_source.html#l00068">LocationViewerBackend.cpp:68</a></div></div>
+<div class="ttc" id="a00079_html_af801953032ac45bbdf78029c96bcf0a0"><div class="ttname"><a href="../../d1/d51/a00079.html#af801953032ac45bbdf78029c96bcf0a0">LocationViewerBackend::m_locations</a></div><div class="ttdeci">std::set&lt; std::shared_ptr&lt; gengeopop::Location &gt; &gt; m_locations</div><div class="ttdoc">The locations we are displaying. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc6/a00347_source.html#l00040">LocationViewerBackend.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/daf/a00346.html">LogUtils.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../dir_72f029039fb3dc01bf2697144f25fede.html">backends</a></li><li class="navelem"><a class="el" href="../../d2/daf/a00346.html">LocationViewerBackend.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

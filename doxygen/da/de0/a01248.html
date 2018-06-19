@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d5/db1/a00140.html','../../');});
+$(document).ready(function(){initNavTree('dd/d6d/a00111.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -111,23 +111,24 @@ $(document).ready(function(){initNavTree('d5/db1/a00140.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::SimBuilder Member List</div>  </div>
+<div class="title">stride::GenPopBuilder Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d5/db1/a00140.html">stride::SimBuilder</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../dd/d6d/a00111.html">stride::GenPopBuilder</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a>(std::shared_ptr&lt; Sim &gt; sim, std::shared_ptr&lt; Population &gt; pop)</td><td class="entry"><a class="el" href="../../d5/db1/a00140.html">stride::SimBuilder</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d5/db1/a00140.html#a24875cf5b77b860f11ed1327d71dce5f">m_config_pt</a></td><td class="entry"><a class="el" href="../../d5/db1/a00140.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d5/db1/a00140.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a>()</td><td class="entry"><a class="el" href="../../d5/db1/a00140.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d5/db1/a00140.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a>()</td><td class="entry"><a class="el" href="../../d5/db1/a00140.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d5/db1/a00140.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a>(const boost::property_tree::ptree &amp;configPt)</td><td class="entry"><a class="el" href="../../d5/db1/a00140.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a71a53948acc3676803feff7586d1d195">AbstractPopBuilder</a>(const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;regionPt, util::RNManager &amp;rnManager)</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../dd/d6d/a00111.html#a788b0ff4e222be4a8ec8b598b99e5b8a">Build</a>(std::shared_ptr&lt; Population &gt; pop, std::size_t regionId, std::string regionName) override</td><td class="entry"><a class="el" href="../../dd/d6d/a00111.html">stride::GenPopBuilder</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#aa8c77e5698556a6545bccce54550e3d5">m_region_pt</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#af54ded40bb19a7927e8215884956c5fc">m_rn_manager</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a>()=default</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

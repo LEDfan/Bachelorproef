@@ -1,2 +1,5 @@
-<map id="CallbackType" name="CallbackType">
+<map id="Launcher" name="Launcher">
+<area shape="rect" id="node2" href="$d9/dec/a00090.html" title="{QObject\n||}" alt="" coords="5,151,75,228"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="625,151,704,228"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="602,6,728,98"/>
 </map>

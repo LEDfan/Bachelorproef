@@ -3,7 +3,7 @@ var searchData=
   ['latitude',['latitude',['../da/d2a/a00086.html#a6bc5976b2e0d0f05f1a134544844b6bc',1,'proto::GeoGrid_Location_Coordinate']]],
   ['launch',['Launch',['../d9/da4/a00078.html#a69589d1327149e595d3242dab0805035',1,'Launcher']]],
   ['launcher',['Launcher',['../d9/da4/a00078.html#a7be10dda45e4e1704c05b6284b60f9c5',1,'Launcher::Launcher()'],['../d9/da4/a00078.html#a1fd8b38599f6cd9fdc9a1f850cd74760',1,'Launcher::Launcher(const Launcher &amp;b)=delete']]],
-  ['launchgui',['LaunchGui',['../d7/dfc/a00349.html#ae0509bb7817eee297e8f3c9dbd675b00',1,'main.cpp']]],
+  ['launchgui',['LaunchGui',['../db/ddc/a00353.html#ae0509bb7817eee297e8f3c9dbd675b00',1,'main.cpp']]],
   ['loadcombobox',['LoadComboBox',['../d9/da4/a00078.html#a764a1803d2df7509dba617e753f483fb',1,'Launcher']]],
   ['loadgeogridfromcommandline',['LoadGeoGridFromCommandLine',['../d8/d84/a00001.html#a4c68caab686f34853c326b801fbadf4b',1,'Backend']]],
   ['loadgeogridfromfile',['LoadGeoGridFromFile',['../d8/d84/a00001.html#a76b9d9ea83aa45c28655644598ce1b27',1,'Backend']]],

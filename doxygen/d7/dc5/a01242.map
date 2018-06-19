@@ -1,7 +1,0 @@
-<map id="stride::BaseController" name="stride::BaseController">
-<area shape="rect" id="node3" href="$d1/db7/a00157.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="675,462,832,671"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="567,155,683,232"/>
-<area shape="rect" id="node24" href="$d6/d7d/a00161.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="1356,477,1537,657"/>
-<area shape="rect" id="node22" title="STL class. " alt="" coords="1588,312,1667,389"/>
-<area shape="rect" id="node23" title="STL class. " alt="" coords="1565,147,1691,239"/>
-</map>

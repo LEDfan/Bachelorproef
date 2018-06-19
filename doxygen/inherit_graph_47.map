@@ -5,5 +5,5 @@
 <area shape="rect" id="node4" href="$db/df8/a00076.html" title="A class used as a backend for the QML to provide simulation functionality. " alt="" coords="151,107,300,133"/>
 <area shape="rect" id="node5" href="$d9/da4/a00078.html" title="Represents the current set data for the launch. " alt="" coords="188,157,263,184"/>
 <area shape="rect" id="node6" href="$d1/d51/a00079.html" title="This backend sets the correct info in the GUI of the location that is being shown. " alt="" coords="144,208,307,235"/>
-<area shape="rect" id="node7" href="$d2/d82/a00142.html" title="A worker class used to perform 1 step of the simulation on a different thread. " alt="" coords="162,259,289,285"/>
+<area shape="rect" id="node7" href="$d5/da7/a00144.html" title="A worker class used to perform 1 step of the simulation on a different thread. " alt="" coords="162,259,289,285"/>
 </map>

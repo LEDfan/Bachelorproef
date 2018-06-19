@@ -1,2 +1,9 @@
-<map id="InfectorExec.h" name="InfectorExec.h">
+<map id="InfectedFile.h" name="InfectedFile.h">
+<area shape="rect" id="node2" href="$de/dc8/a00325.html" title="Implementation of the CasesFile class. " alt="" coords="124,80,239,107"/>
+<area shape="rect" id="node3" href="$d4/db5/a00328.html" title="Observer for Cases output. " alt="" coords="263,80,383,107"/>
+<area shape="rect" id="node4" href="$d1/d72/a00204.html" title="Calibrator.cpp" alt="" coords="5,155,107,181"/>
+<area shape="rect" id="node5" href="$d3/d93/a00341.html" title="Launcher.cpp" alt="" coords="131,155,231,181"/>
+<area shape="rect" id="node6" href="$d7/d6e/a00190.html" title="Header for the command line controller. " alt="" coords="256,155,389,181"/>
+<area shape="rect" id="node7" href="$da/de7/a00210.html" title="Header for the command line controller. " alt="" coords="414,155,532,181"/>
+<area shape="rect" id="node8" href="$d8/dfc/a00327.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="557,155,691,181"/>
 </map>

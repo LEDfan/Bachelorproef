@@ -1,7 +1,9 @@
-<map id="RunConfigManager.h" name="RunConfigManager.h">
-<area shape="rect" id="node2" href="$dc/d55/a00226.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="5,80,215,107"/>
-<area shape="rect" id="node3" href="$db/d7e/a00372.html" title="Core Population class. " alt="" coords="241,80,348,107"/>
-<area shape="rect" id="node4" href="$d0/d48/a00351.html" title="Main program: command line handling. " alt="" coords="373,80,447,107"/>
-<area shape="rect" id="node5" href="$da/dbf/a00393.html" title="Implementation for the Simulator class. " alt="" coords="473,80,543,107"/>
-<area shape="rect" id="node6" href="$dd/df5/a00386.html" title="Implementation of ptree utils. " alt="" coords="567,80,725,107"/>
+<map id="RegionSlicer.h" name="RegionSlicer.h">
+<area shape="rect" id="node2" href="$d6/d08/a00244.html" title="Header for the core ContactPool class. " alt="" coords="313,163,447,189"/>
+<area shape="rect" id="node14" href="$d2/d41/a00318.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="539,80,697,107"/>
+<area shape="rect" id="node18" href="$d3/d45/a00382.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="1031,80,1165,107"/>
+<area shape="rect" id="node23" href="$d7/d93/a00397.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1575,163,1733,189"/>
+<area shape="rect" id="node3" href="$d2/dc8/a00242.html" title="Header for the ContactLogMode class. " alt="" coords="5,245,184,272"/>
+<area shape="rect" id="node5" href="$de/dbc/a00249.html" title="Definition of ContactPoolType. " alt="" coords="563,245,725,272"/>
+<area shape="rect" id="node24" href="$d1/d05/a00423.html" title="Interface/Implementation for SVIterator. " alt="" coords="1693,245,1784,272"/>
 </map>

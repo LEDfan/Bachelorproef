@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" target="_top" xlink:title="Get the pool id. ">
+<g id="a_node3"><a xlink:href="../../d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0" target="_top" xlink:title="Get the pool id. ">
 <polygon fill="white" stroke="black" points="392.5,-0 392.5,-30 493.5,-30 493.5,-0 392.5,-0"/>
 <text text-anchor="start" x="400.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::ContactPool</text>
 <text text-anchor="middle" x="443" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::GetId</text>

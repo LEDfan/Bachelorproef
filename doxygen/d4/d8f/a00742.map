@@ -1,30 +1,4 @@
-<map id="main.cpp" name="main.cpp">
-<area shape="rect" id="node5" href="$d0/dc3/a00354.html" title="Map.h" alt="" coords="3175,80,3232,107"/>
-<area shape="rect" id="node6" href="$dc/d28/a00223.html" title="models/CommutesListModel.h" alt="" coords="3037,163,3235,189"/>
-<area shape="rect" id="node19" href="$d6/de1/a00233.html" title="models/ContactCenterList\lModel.h" alt="" coords="3575,155,3749,197"/>
-<area shape="rect" id="node21" href="$d9/d2a/a00270.html" title="GeoGrid.h" alt="" coords="3622,320,3703,347"/>
-<area shape="rect" id="node82" href="$d2/dc8/a00242.html" title="models/ContactPoolListModel.h" alt="" coords="2806,163,3012,189"/>
-<area shape="rect" id="node8" href="$d3/d93/a00341.html" title="gengeopop/Location.h" alt="" coords="3411,493,3559,520"/>
-<area shape="rect" id="node20" href="$df/d17/a00231.html" title="gengeopop/ContactCenter.h" alt="" coords="3570,245,3755,272"/>
-<area shape="rect" id="node24" href="$dc/de3/a00373.html" title="Header file for the core Population class. " alt="" coords="1771,403,1889,429"/>
-<area shape="rect" id="node33" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="1900,675,2033,701"/>
-<area shape="rect" id="node72" href="$dd/d1d/a00336.html" title="KdTree.h" alt="" coords="4027,675,4100,701"/>
-<area shape="rect" id="node79" href="$db/d12/a00268.html" title="GeoAggregator.h" alt="" coords="3923,403,4043,429"/>
-<area shape="rect" id="node25" href="$d8/df1/a00174.html" title="Base Class for PopBuilders. " alt="" coords="2886,584,3031,611"/>
-<area shape="rect" id="node28" href="$dd/de2/a00320.html" title="Initialize populations. " alt="" coords="2643,493,2776,520"/>
-<area shape="rect" id="node32" href="$d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1811,493,1967,520"/>
-<area shape="rect" id="node37" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1927,584,2085,611"/>
-<area shape="rect" id="node41" href="$d4/d27/a00392.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1615,675,1773,701"/>
-<area shape="rect" id="node47" href="$d0/def/a00256.html" title="Initialize populations. " alt="" coords="3123,493,3285,520"/>
-<area shape="rect" id="node48" href="$d1/dd4/a00267.html" title="Initialize populations. " alt="" coords="2851,493,2996,520"/>
-<area shape="rect" id="node49" href="$df/dc2/a00367.html" title="Header file for the Person class. " alt="" coords="2089,493,2188,520"/>
-<area shape="rect" id="node53" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="789,675,912,701"/>
-<area shape="rect" id="node63" href="$dc/d52/a00183.html" title="Interface/Implementation of Any. " alt="" coords="279,675,355,701"/>
-<area shape="rect" id="node67" href="$d8/d95/a00379.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="859,493,993,520"/>
-<area shape="rect" id="node29" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="2300,757,2463,784"/>
-<area shape="rect" id="node34" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="2047,757,2225,784"/>
-<area shape="rect" id="node42" href="$de/df7/a00418.html" title="Interface/Implementation for SVIterator. " alt="" coords="1173,757,1264,784"/>
-<area shape="rect" id="node50" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="2283,584,2403,611"/>
-<area shape="rect" id="node51" href="$d4/dd3/a00428.html" title="pool/TravellerProfile.h" alt="" coords="2110,584,2257,611"/>
-<area shape="rect" id="node54" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="1289,757,1412,784"/>
+<map id="LocationViewerBackend.h" name="LocationViewerBackend.h">
+<area shape="rect" id="node2" href="$d2/daf/a00346.html" title="LocationViewerBackend.cpp" alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node3" href="$df/df1/a00357.html" title="Map.cpp" alt="" coords="216,80,288,107"/>
 </map>

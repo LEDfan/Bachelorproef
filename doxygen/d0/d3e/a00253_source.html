@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DaysOffSchool.h Source File</title>
+<title>Stride Reference Manual: CSVRow.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('d0/d3e/a00253_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DaysOffSchool.h</div>  </div>
+<div class="title">CSVRow.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/d3e/a00253.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -130,49 +130,124 @@ $(document).ready(function(){initNavTree('d0/d3e/a00253_source.html','../../');}
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * DaysOffAll class: everybody gets the day off.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header file of base class for config that needs to be read from a file.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/db1/a00197.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d1a/a00251.html">calendar/DaysOffInterface.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * Schools closed.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d7/d70/a00106.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d70/a00106.html">DaysOffSchool</a> : <span class="keyword">public</span> <a class="code" href="../../d0/dc2/a00104.html">DaysOffInterface</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        /// Initialize calendar.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/d70/a00106.html#ab77c78d8d9b00fe50c8f845fe459a657">   34</a></span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d7/d70/a00106.html#ab77c78d8d9b00fe50c8f845fe459a657">DaysOffSchool</a>(std::shared_ptr&lt;Calendar&gt; cal) : <a class="code" href="../../d7/d70/a00106.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>(std::move(cal)) {}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        /// See DaysOffInterface.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/d70/a00106.html#a633453bbe4892b56891c42a4f4ac72fd">   37</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d7/d70/a00106.html#a633453bbe4892b56891c42a4f4ac72fd">IsWorkOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d7/d70/a00106.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>-&gt;IsWeekend() || <a class="code" href="../../d7/d70/a00106.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>-&gt;IsHoliday(); }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">        /// See DaysOffInterface.</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/d70/a00106.html#a709acf6d0cec5722e20760a797ae35bb">   40</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d7/d70/a00106.html#a709acf6d0cec5722e20760a797ae35bb">IsSchoolOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/d70/a00106.html#a5ac5b045ac4db6ae397d91d7dd663784">   43</a></span>&#160;        std::shared_ptr&lt;Calendar&gt; <a class="code" href="../../d7/d70/a00106.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>; <span class="comment">///&lt; Management of calendar.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00106_html_a709acf6d0cec5722e20760a797ae35bb"><div class="ttname"><a href="../../d7/d70/a00106.html#a709acf6d0cec5722e20760a797ae35bb">stride::DaysOffSchool::IsSchoolOff</a></div><div class="ttdeci">bool IsSchoolOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00040">DaysOffSchool.h:40</a></div></div>
-<div class="ttc" id="a00106_html"><div class="ttname"><a href="../../d7/d70/a00106.html">stride::DaysOffSchool</a></div><div class="ttdoc">Schools closed. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00030">DaysOffSchool.h:30</a></div></div>
-<div class="ttc" id="a00106_html_ab77c78d8d9b00fe50c8f845fe459a657"><div class="ttname"><a href="../../d7/d70/a00106.html#ab77c78d8d9b00fe50c8f845fe459a657">stride::DaysOffSchool::DaysOffSchool</a></div><div class="ttdeci">DaysOffSchool(std::shared_ptr&lt; Calendar &gt; cal)</div><div class="ttdoc">Initialize calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00034">DaysOffSchool.h:34</a></div></div>
-<div class="ttc" id="a00251_html"><div class="ttname"><a href="../../d3/d1a/a00251.html">DaysOffInterface.h</a></div><div class="ttdoc">Interface for DaysOff classes. </div></div>
-<div class="ttc" id="a00106_html_a5ac5b045ac4db6ae397d91d7dd663784"><div class="ttname"><a href="../../d7/d70/a00106.html#a5ac5b045ac4db6ae397d91d7dd663784">stride::DaysOffSchool::m_calendar</a></div><div class="ttdeci">std::shared_ptr&lt; Calendar &gt; m_calendar</div><div class="ttdoc">Management of calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00043">DaysOffSchool.h:43</a></div></div>
-<div class="ttc" id="a00104_html"><div class="ttname"><a href="../../d0/dc2/a00104.html">stride::DaysOffInterface</a></div><div class="ttdoc">Interface definition. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d1a/a00251_source.html#l00027">DaysOffInterface.h:27</a></div></div>
-<div class="ttc" id="a00197_html"><div class="ttname"><a href="../../de/db1/a00197.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00106_html_a633453bbe4892b56891c42a4f4ac72fd"><div class="ttname"><a href="../../d7/d70/a00106.html#a633453bbe4892b56891c42a4f4ac72fd">stride::DaysOffSchool::IsWorkOff</a></div><div class="ttdeci">bool IsWorkOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00037">DaysOffSchool.h:37</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dea/a00408.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>CSV;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> * Row in CSV file.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d3/df8/a00155.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/df8/a00155.html">CSVRow</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        /// CSVRow initialized with values. Should no be called by user code. CSV has convenience functions.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span>        <a class="code" href="../../d3/df8/a00155.html#ab60a313ff2e75d0ae07bc7624c27a861">CSVRow</a>(<span class="keyword">const</span> <a class="code" href="../../d3/d65/a00154.html">CSV</a>* parent, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; values);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d3/df8/a00155.html#ab60a313ff2e75d0ae07bc7624c27a861">CSVRow</a>(<span class="keyword">const</span> <a class="code" href="../../d3/df8/a00155.html">CSVRow</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d3/df8/a00155.html">CSVRow</a>&amp; <a class="code" href="../../d3/df8/a00155.html#a6b1014a66c6a3301863d8a35a55b591e">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d3/df8/a00155.html">stride::util::CSVRow</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">        /// Get value at index. When T is specified, StringUtils are used to try to convert the value to type T.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::<span class="keywordtype">string</span>&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        T <a class="code" href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a>(<span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">        /// Get value based on label. Note this is slower than using the index.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::<span class="keywordtype">string</span>&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        T <a class="code" href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a>(<span class="keyword">const</span> std::string&amp; label) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">        /// Compare operator.</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d3/df8/a00155.html#a8bec120b3295f500c637c4219ec5f873">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d3/df8/a00155.html">CSVRow</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">        /// Print to stream.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span>        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../d3/df8/a00155.html#a0ec2f92503adc2a968a848d3fddf087d">operator&lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../d3/df8/a00155.html">CSVRow</a>&amp; row);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d3/df8/a00155.html#aa89bb5ef10f89f4eae23cc0536bf01c1">   61</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d65/a00154.html">CSV</a>*               <a class="code" href="../../d3/df8/a00155.html#aa89bb5ef10f89f4eae23cc0536bf01c1">m_parent</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d3/df8/a00155.html#a6e59d67d64bb1bf8681d7718be92d74f">   62</a></span>&#160;        std::vector&lt;std::string&gt; <a class="code" href="../../d3/df8/a00155.html#a6e59d67d64bb1bf8681d7718be92d74f">m_values</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> * Converts a string to an arithmetic type, in a safe manner.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> * @throws bad_lexical_cast if \p val can&#39;t be converted to a double or int</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> * @throws bad_numeric_cast if \p val can&#39;t be converted to T</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> * @tparam T the type to safe cast to</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> * @param val the value to cast</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> * @return</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;template &lt;typename T, std::enable_if_t&lt;std::is_arithmetic&lt;T&gt;::value, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d9/dea/a00478.html#ab6efe1a2dbf4a57479e8c7faa00e3359">   74</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d9/dea/a00478.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>(<span class="keyword">const</span> std::string&amp; val)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (std::is_floating_point&lt;T&gt;::value) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> boost::numeric_cast&lt;T&gt;(boost::lexical_cast&lt;<span class="keywordtype">double</span>&gt;(val));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> boost::numeric_cast&lt;T&gt;(boost::lexical_cast&lt;<span class="keywordtype">long</span> <span class="keywordtype">long</span>&gt;(val));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> * Converts a string to a type.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> * @throws bad_lexical_cast if \p val can&#39;t be converted to T</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> * @tparam T the type to safe cast to</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> * @param val the value to cast</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * @return</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;template &lt;typename T, std::enable_if_t&lt;!std::is_arithmetic&lt;T&gt;::value, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d9/dea/a00478.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>(<span class="keyword">const</span> std::string&amp; val)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> boost::lexical_cast&lt;T&gt;(val);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/// Declaration of specialization</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;std::string CSVRow::GetValue&lt;std::string&gt;(<span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/// Declaration of specialization</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;std::string CSVRow::GetValue&lt;std::string&gt;(<span class="keyword">const</span> std::string&amp; label) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">///</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">  105</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">CSVRow::GetValue</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d9/dea/a00478.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>&lt;T&gt;(GetValue&lt;std::string&gt;(index));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">///</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d3/df8/a00155.html#a70dfc26893fa920410a7e4a049a1578a">  112</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">CSVRow::GetValue</a>(<span class="keyword">const</span> std::string&amp; label)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d9/dea/a00478.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>&lt;T&gt;(GetValue&lt;std::string&gt;(label));</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00155_html_a0ec2f92503adc2a968a848d3fddf087d"><div class="ttname"><a href="../../d3/df8/a00155.html#a0ec2f92503adc2a968a848d3fddf087d">stride::util::CSVRow::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const CSVRow &amp;row)</div><div class="ttdoc">Print to stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ded/a00252_source.html#l00069">CSVRow.cpp:69</a></div></div>
+<div class="ttc" id="a00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00037">CSVRow.h:37</a></div></div>
+<div class="ttc" id="a00155_html_ab60a313ff2e75d0ae07bc7624c27a861"><div class="ttname"><a href="../../d3/df8/a00155.html#ab60a313ff2e75d0ae07bc7624c27a861">stride::util::CSVRow::CSVRow</a></div><div class="ttdeci">CSVRow(const CSV *parent, const std::vector&lt; std::string &gt; &amp;values)</div><div class="ttdoc">CSVRow initialized with values. Should no be called by user code. CSV has convenience functions...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ded/a00252_source.html#l00038">CSVRow.cpp:38</a></div></div>
+<div class="ttc" id="a00155_html_a6e59d67d64bb1bf8681d7718be92d74f"><div class="ttname"><a href="../../d3/df8/a00155.html#a6e59d67d64bb1bf8681d7718be92d74f">stride::util::CSVRow::m_values</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_values</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00062">CSVRow.h:62</a></div></div>
+<div class="ttc" id="a00155_html_a6b1014a66c6a3301863d8a35a55b591e"><div class="ttname"><a href="../../d3/df8/a00155.html#a6b1014a66c6a3301863d8a35a55b591e">stride::util::CSVRow::operator=</a></div><div class="ttdeci">CSVRow &amp; operator=(const stride::util::CSVRow &amp;)=default</div></div>
+<div class="ttc" id="a00154_html"><div class="ttname"><a href="../../d3/d65/a00154.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d1a/a00251_source.html#l00037">CSV.h:37</a></div></div>
+<div class="ttc" id="a00155_html_a8bec120b3295f500c637c4219ec5f873"><div class="ttname"><a href="../../d3/df8/a00155.html#a8bec120b3295f500c637c4219ec5f873">stride::util::CSVRow::operator==</a></div><div class="ttdeci">bool operator==(const CSVRow &amp;other) const </div><div class="ttdoc">Compare operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ded/a00252_source.html#l00067">CSVRow.cpp:67</a></div></div>
+<div class="ttc" id="a00155_html_aa89bb5ef10f89f4eae23cc0536bf01c1"><div class="ttname"><a href="../../d3/df8/a00155.html#aa89bb5ef10f89f4eae23cc0536bf01c1">stride::util::CSVRow::m_parent</a></div><div class="ttdeci">const CSV * m_parent</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00061">CSVRow.h:61</a></div></div>
+<div class="ttc" id="a00408_html"><div class="ttname"><a href="../../dd/dea/a00408.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
+<div class="ttc" id="a00478_html_ab6efe1a2dbf4a57479e8c7faa00e3359"><div class="ttname"><a href="../../d9/dea/a00478.html#ab6efe1a2dbf4a57479e8c7faa00e3359">stride::util::safe_cast</a></div><div class="ttdeci">T safe_cast(const std::string &amp;val)</div><div class="ttdoc">Converts a string to an arithmetic type, in a safe manner. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00074">CSVRow.h:74</a></div></div>
+<div class="ttc" id="a00155_html_a6462fb781526ce386453ea4ee8e353e5"><div class="ttname"><a href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">stride::util::CSVRow::GetValue</a></div><div class="ttdeci">T GetValue(size_t index) const </div><div class="ttdoc">Get value at index. When T is specified, StringUtils are used to try to convert the value to type T...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00105">CSVRow.h:105</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d0/d3e/a00253.html">DaysOffSchool.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d3e/a00253.html">CSVRow.h</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

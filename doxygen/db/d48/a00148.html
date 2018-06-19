@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::Any Class Reference</title>
+<title>Stride Reference Manual: stride::TravellerIndex Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -111,260 +111,170 @@ $(document).ready(function(){initNavTree('db/d48/a00148.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d85/a01273.html">List of all members</a>  </div>
+<a href="../../d6/da1/a01233.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Any Class Reference</div>  </div>
+<div class="title">stride::TravellerIndex Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A RAII void*, for type erasure, that can point to anything.  
+<p>Stores the information about travels.  
  <a href="../../db/d48/a00148.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/d07/a00433_source.html">TravellerIndex.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::Any:</div>
+Collaboration diagram for stride::TravellerIndex:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d33/a01274.svg" width="210" height="318"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/dad/a01235.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d1e/a00149.html">TravellerInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information stored for a travel.  <a href="../../da/d1e/a00149.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a78136d1eb13e5df0bd7f8043adff152a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a> ()</td></tr>
-<tr class="separator:a78136d1eb13e5df0bd7f8043adff152a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1330eaf1df07a82065354e88a87a6fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#ad1330eaf1df07a82065354e88a87a6fd">operator=</a> (const <a class="el" href="../../db/d48/a00148.html">Any</a> &amp;)=delete</td></tr>
-<tr class="separator:ad1330eaf1df07a82065354e88a87a6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa37a30a7324377f7afe3b614d3c8f1eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#aa37a30a7324377f7afe3b614d3c8f1eb">Any</a> (<a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:aa37a30a7324377f7afe3b614d3c8f1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac5387b1910deeba0f0fb319c8a6e710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#aac5387b1910deeba0f0fb319c8a6e710">operator=</a> (<a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:aac5387b1910deeba0f0fb319c8a6e710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memTemplParams" colspan="2">template&lt;typename T , class... Args&gt; </td></tr>
-<tr class="memitem:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a8aee74d02cb317ad6a8212f9a84c9254">emplace</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="separator:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25363f8f215051caae46e3094da0bff8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a25363f8f215051caae46e3094da0bff8"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a25363f8f215051caae46e3094da0bff8">cast</a> () const </td></tr>
-<tr class="separator:a25363f8f215051caae46e3094da0bff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60543e81cc55aee3d0a2d8e02779825b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a60543e81cc55aee3d0a2d8e02779825b">operator bool</a> () const </td></tr>
-<tr class="separator:a60543e81cc55aee3d0a2d8e02779825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f7abcf71390d8198d5da76c5523eb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#ac3f7abcf71390d8198d5da76c5523eb8">TravellerIndex</a> ()</td></tr>
+<tr class="memdesc:ac3f7abcf71390d8198d5da76c5523eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#ac3f7abcf71390d8198d5da76c5523eb8">More...</a><br/></td></tr>
+<tr class="separator:ac3f7abcf71390d8198d5da76c5523eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3ea8982180232be8593d7fdcf80f37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a2a3ea8982180232be8593d7fdcf80f37">StartTravel</a> (unsigned int from, <a class="el" href="../../d4/d3a/a00101.html">ContactPool</a> *to, <a class="el" href="../../d2/df5/a00137.html">Person</a> *, std::size_t leaveDay, <a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type)</td></tr>
+<tr class="memdesc:a2a3ea8982180232be8593d7fdcf80f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the information when the travel is started.  <a href="#a2a3ea8982180232be8593d7fdcf80f37">More...</a><br/></td></tr>
+<tr class="separator:a2a3ea8982180232be8593d7fdcf80f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae00519895ddcbbe9a683856d8bdd0ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#ae00519895ddcbbe9a683856d8bdd0ab4">ReturnTravelers</a> (std::size_t currentDay)</td></tr>
+<tr class="memdesc:ae00519895ddcbbe9a683856d8bdd0ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the travels at the given day.  <a href="#ae00519895ddcbbe9a683856d8bdd0ab4">More...</a><br/></td></tr>
+<tr class="separator:ae00519895ddcbbe9a683856d8bdd0ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a581dd8c8a98e7470e351687980a7f41d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a></td></tr>
-<tr class="separator:a581dd8c8a98e7470e351687980a7f41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43e14abfb952e01348cb11cb50649daf"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a></td></tr>
-<tr class="separator:a43e14abfb952e01348cb11cb50649daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef9d853aab4055c3541c08380ab2f547"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#aef9d853aab4055c3541c08380ab2f547">m_travelLogger</a></td></tr>
+<tr class="memdesc:aef9d853aab4055c3541c08380ab2f547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger to which the travel information will be logged.  <a href="#aef9d853aab4055c3541c08380ab2f547">More...</a><br/></td></tr>
+<tr class="separator:aef9d853aab4055c3541c08380ab2f547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae05dd5f1ca7466396f49a84fdb239e8b"><td class="memItemLeft" align="right" valign="top">std::priority_queue<br class="typebreak"/>
+&lt; <a class="el" href="../../da/d1e/a00149.html">TravellerInfo</a>, std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../da/d1e/a00149.html">TravellerInfo</a> &gt;<br class="typebreak"/>
+, std::greater&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d48/a00148.html#ae05dd5f1ca7466396f49a84fdb239e8b">m_data</a></td></tr>
+<tr class="memdesc:ae05dd5f1ca7466396f49a84fdb239e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">min-heap to efficiently store the persons which are travelling.  <a href="#ae05dd5f1ca7466396f49a84fdb239e8b">More...</a><br/></td></tr>
+<tr class="separator:ae05dd5f1ca7466396f49a84fdb239e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A RAII void*, for type erasure, that can point to anything. </p>
-<p><a class="el" href="../../db/d48/a00148.html" title="A RAII void*, for type erasure, that can point to anything. ">Any</a> owns the pointer, and cleans up with a custom destructor. Does type verification when NDEBUG is not set. </p>
+<div class="textblock"><p>Stores the information about travels. </p>
+<p>One <a class="el" href="../../db/d48/a00148.html" title="Stores the information about travels. ">TravellerIndex</a> stores information for a specific region. (i.e. all persons stored are from the same region). To have the code which handles the start and return of a person in the same location this class also handles that. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00036">36</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d07/a00433_source.html#l00016">16</a> of file <a class="el" href="../../dd/d07/a00433_source.html">TravellerIndex.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a78136d1eb13e5df0bd7f8043adff152a"></a>
+<a class="anchor" id="ac3f7abcf71390d8198d5da76c5523eb8"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::Any::Any </td>
+          <td class="memname">stride::TravellerIndex::TravellerIndex </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00040">40</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
+<p>Default constructor. </p>
 
-</div>
-</div>
-<a class="anchor" id="aa37a30a7324377f7afe3b614d3c8f1eb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::Any::Any </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00008">8</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">TravellerIndex.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad1330eaf1df07a82065354e88a87a6fd"></a>
+<a class="anchor" id="a2a3ea8982180232be8593d7fdcf80f37"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d48/a00148.html">Any</a>&amp; stride::util::Any::operator= </td>
+          <td class="memname">void stride::TravellerIndex::StartTravel </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aac5387b1910deeba0f0fb319c8a6e710"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d48/a00148.html">Any</a>&amp; stride::util::Any::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d48/a00148.html">Any</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/a00101.html">stride::ContactPool</a> *&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8aee74d02cb317ad6a8212f9a84c9254"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , class... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void stride::util::Any::emplace </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/df5/a00137.html">stride::Person</a> *&#160;</td>
+          <td class="paramname"><em>person</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>leaveDay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00060">60</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
+<p>Stores the information when the travel is started. </p>
+<p>F <code>from</code> is the original contactPool (type is <code>type</code>) <code>to</code> is the foreign contactPool (same type as from) <code>leaveDay</code> is the day at which the person will return <code>type</code> is the type of the travel Work or PrimaryCommunity (i.e. recreational) </p>
 
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00090">m_destroy</a>, and <a class="el" href="../../dc/d52/a00183_source.html#l00089">m_ptr</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00045">45</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">TravellerIndex.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00128">stride::Population::InitBeliefPolicy()</a>.</p>
+<p>References <a class="el" href="../../d6/d82/a00243_source.html#l00121">stride::ContactPool::AddExpat()</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00038">stride::TravellerIndex::TravellerInfo::from</a>, <a class="el" href="../../d6/d82/a00243_source.html#l00081">stride::ContactPool::GetId()</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00085">stride::Person::GetId()</a>, <a class="el" href="../../de/dbc/a00249_source.html#l00074">stride::ContactPoolType::IdList</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00051">m_data</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00189">stride::Person::m_in_pools</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00186">stride::Person::m_pool_ids</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00047">m_travelLogger</a>, <a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::PrimaryCommunity</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00047">stride::ContactPoolType::ToString()</a>, and <a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Work</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d48/a00148_a8aee74d02cb317ad6a8212f9a84c9254_icgraph.svg" width="659" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d48/a00148_a2a3ea8982180232be8593d7fdcf80f37_cgraph.svg" width="550" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a25363f8f215051caae46e3094da0bff8"></a>
+<a class="anchor" id="ae00519895ddcbbe9a683856d8bdd0ab4"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T* stride::util::Any::cast </td>
+          <td class="memname">void stride::TravellerIndex::ReturnTravelers </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>currentDay</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00072">72</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
+<p>Returns the travels at the given day. </p>
 
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00089">m_ptr</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd5/a00432_source.html#l00010">10</a> of file <a class="el" href="../../d9/dd5/a00432_source.html">TravellerIndex.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00144">stride::Population::SetBeliefPolicy()</a>.</p>
+<p>References <a class="el" href="../../dd/d07/a00433_source.html#l00038">stride::TravellerIndex::TravellerInfo::from</a>, <a class="el" href="../../d6/d82/a00243_source.html#l00081">stride::ContactPool::GetId()</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00085">stride::Person::GetId()</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00041">stride::TravellerIndex::TravellerInfo::leaveDay</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00051">m_data</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00189">stride::Person::m_in_pools</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00192">stride::Person::m_isTravelling</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00186">stride::Person::m_pool_ids</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00047">m_travelLogger</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00043">stride::TravellerIndex::TravellerInfo::original_in_pools</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00040">stride::TravellerIndex::TravellerInfo::person</a>, <a class="el" href="../../d6/d82/a00243_source.html#l00129">stride::ContactPool::RemoveExpat()</a>, <a class="el" href="../../dd/d07/a00433_source.html#l00039">stride::TravellerIndex::TravellerInfo::to</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00047">stride::ContactPoolType::ToString()</a>, and <a class="el" href="../../dd/d07/a00433_source.html#l00042">stride::TravellerIndex::TravellerInfo::type</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d48/a00148_a25363f8f215051caae46e3094da0bff8_icgraph.svg" width="326" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d48/a00148_ae00519895ddcbbe9a683856d8bdd0ab4_cgraph.svg" width="608" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="a60543e81cc55aee3d0a2d8e02779825b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::Any::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00086">86</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
-
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00089">m_ptr</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a581dd8c8a98e7470e351687980a7f41d"></a>
+<a class="anchor" id="aef9d853aab4055c3541c08380ab2f547"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -372,7 +282,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void* stride::util::Any::m_ptr</td>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::TravellerIndex::m_travelLogger</td>
         </tr>
       </table>
   </td>
@@ -382,13 +292,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00089">89</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
+<p>Logger to which the travel information will be logged. </p>
 
-<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00072">cast()</a>, <a class="el" href="../../dc/d52/a00183_source.html#l00060">emplace()</a>, and <a class="el" href="../../dc/d52/a00183_source.html#l00086">operator bool()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d07/a00433_source.html#l00047">47</a> of file <a class="el" href="../../dd/d07/a00433_source.html">TravellerIndex.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dd5/a00432_source.html#l00010">ReturnTravelers()</a>, and <a class="el" href="../../d9/dd5/a00432_source.html#l00045">StartTravel()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a43e14abfb952e01348cb11cb50649daf"></a>
+<a class="anchor" id="ae05dd5f1ca7466396f49a84fdb239e8b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -396,7 +308,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;void()&gt; stride::util::Any::m_destroy</td>
+          <td class="memname">std::priority_queue&lt;<a class="el" href="../../da/d1e/a00149.html">TravellerInfo</a>, std::vector&lt;<a class="el" href="../../da/d1e/a00149.html">TravellerInfo</a>&gt;, std::greater&lt;&gt; &gt; stride::TravellerIndex::m_data</td>
         </tr>
       </table>
   </td>
@@ -406,22 +318,26 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00090">90</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Any.h</a>.</p>
+<p>min-heap to efficiently store the persons which are travelling. </p>
+<p>Indexed by the day they return (lowest first). </p>
 
-<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00060">emplace()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d07/a00433_source.html#l00051">51</a> of file <a class="el" href="../../dd/d07/a00433_source.html">TravellerIndex.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dd5/a00432_source.html#l00010">ReturnTravelers()</a>, and <a class="el" href="../../d9/dd5/a00432_source.html#l00045">StartTravel()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d52/a00183_source.html">Any.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../dd/d07/a00433_source.html">TravellerIndex.h</a></li>
+<li><a class="el" href="../../d9/dd5/a00432_source.html">TravellerIndex.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d29/a00470.html">util</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">Any</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">TravellerIndex</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

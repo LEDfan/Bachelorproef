@@ -1,4 +1,4 @@
-<map id="gengeopop::kd::Node&lt; P, D &gt;" name="gengeopop::kd::Node&lt; P, D &gt;">
-<area shape="rect" id="node2" href="$d7/d46/a00002.html" title="A base class for all instanciations of a Node with D. " alt="" coords="150,6,359,157"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,265,144,343"/>
+<map id="gengeopop::SecondaryCommunity" name="gengeopop::SecondaryCommunity">
+<area shape="rect" id="node2" href="$d7/de0/a00022.html" title="Models a Community as ContactCenter. " alt="" coords="36,323,195,459"/>
+<area shape="rect" id="node3" href="$d6/d5b/a00026.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="23,6,209,274"/>
 </map>

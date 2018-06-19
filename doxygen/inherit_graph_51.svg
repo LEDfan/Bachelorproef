@@ -19,7 +19,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="db/d57/a00112.html" target="_top" xlink:title="stride::HBM">
+<g id="a_node2"><a xlink:href="d3/d00/a00113.html" target="_top" xlink:title="stride::HBM">
 <polygon fill="white" stroke="black" points="118.5,-114.5 118.5,-133.5 187.5,-133.5 187.5,-114.5 118.5,-114.5"/>
 <text text-anchor="middle" x="153" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::HBM</text>
 </a>
@@ -32,7 +32,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="d2/da3/a00115.html" target="_top" xlink:title="stride::Imitation">
+<g id="a_node3"><a xlink:href="d4/d3e/a00116.html" target="_top" xlink:title="stride::Imitation">
 <polygon fill="white" stroke="black" points="111,-76.5 111,-95.5 195,-95.5 195,-76.5 111,-76.5"/>
 <text text-anchor="middle" x="153" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Imitation</text>
 </a>
@@ -45,7 +45,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="d9/d47/a00129.html" target="_top" xlink:title="No beliefs w.r.t vaccination. ">
+<g id="a_node4"><a xlink:href="d6/db3/a00130.html" target="_top" xlink:title="No beliefs w.r.t vaccination. ">
 <polygon fill="white" stroke="black" points="111,-38.5 111,-57.5 195,-57.5 195,-38.5 111,-38.5"/>
 <text text-anchor="middle" x="153" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::NoBelief</text>
 </a>
@@ -58,7 +58,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="d5/da7/a00144.html" target="_top" xlink:title="stride::Threshold">
+<g id="a_node5"><a xlink:href="d9/db6/a00146.html" target="_top" xlink:title="stride::Threshold">
 <polygon fill="white" stroke="black" points="108.5,-0.5 108.5,-19.5 197.5,-19.5 197.5,-0.5 108.5,-0.5"/>
 <text text-anchor="middle" x="153" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Threshold</text>
 </a>

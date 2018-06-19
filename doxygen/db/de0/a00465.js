@@ -1,5 +1,4 @@
 var a00465 =
 [
-    [ "IdSubscriptArray", "d1/d09/a00077.html", "d1/d09/a00077" ],
-    [ "IdSubscriptArray< bool >", "d9/dcc/a00102.html", "d9/dcc/a00102" ]
+    [ "TableStruct", "db/ddf/a00088.html", "db/ddf/a00088" ]
 ];

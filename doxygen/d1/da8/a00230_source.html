@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactCenter.cpp Source File</title>
+<title>Stride Reference Manual: ConfigFileCalibrationRunner.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,59 +109,56 @@ $(document).ready(function(){initNavTree('d1/da8/a00230_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactCenter.cpp</div>  </div>
+<div class="title">ConfigFileCalibrationRunner.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/da8/a00230.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d17/a00231.html">ContactCenter.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a9aaa45f62fcb16bcd4b6f382a94e5526">    5</a></span>&#160;<a class="code" href="../../d6/d5b/a00026.html#a9aaa45f62fcb16bcd4b6f382a94e5526">ContactCenter::ContactCenter</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : m_pools(), m_id(id) {}</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">    7</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">ContactCenter::AddPool</a>(<a class="code" href="../../d4/d3a/a00101.html">stride::ContactPool</a>* pool) { <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>.emplace_back(pool); }</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741">    9</a></span>&#160;<a class="code" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">ContactCenter::iterator</a> <a class="code" href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741">ContactCenter::begin</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>.begin(); }</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3">   11</a></span>&#160;<a class="code" href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">ContactCenter::iterator</a> <a class="code" href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3">ContactCenter::end</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>.end(); }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#af52200fb10382cffac4fa67d987f5406">   13</a></span>&#160;<span class="keyword">const</span> std::vector&lt;stride::ContactPool*&gt;&amp; <a class="code" href="../../d6/d5b/a00026.html#af52200fb10382cffac4fa67d987f5406">ContactCenter::GetPools</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>; }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a41db67c04a80efb125efdbfa4a39b4ad">   15</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d5b/a00026.html#a41db67c04a80efb125efdbfa4a39b4ad">ContactCenter::GetId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d5b/a00026.html#a785264e08f004b2e1f51e2fb158c0fdf">m_id</a>; }</div>
+<a href="../../d1/da8/a00230.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d17/a00231.html">ConfigFileCalibrationRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../../test/cpp/gtester/ScenarioData.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">Boxplot.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d13/a00205.html">Calibrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/dd4/a00267.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d27/a00392.html">util/RunConfigManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>calibration {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">   12</a></span>&#160;<a class="code" href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">ConfigFileCalibrationRunner::ConfigFileCalibrationRunner</a>(std::vector&lt;std::string&gt; configFiles) : <a class="code" href="../../de/d21/a00006.html">CalibrationRunner</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> config : configFiles) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                boost::property_tree::ptree configPt;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#af8b55f34ee88976dc4e4cd124f508ffa">   17</a></span>&#160;std::pair&lt;unsigned int, unsigned int&gt; <a class="code" href="../../d6/d5b/a00026.html#af8b55f34ee88976dc4e4cd124f508ffa">ContactCenter::GetPopulationAndInfectedCount</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> population = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> infected   = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="../../d4/d3a/a00101.html">stride::ContactPool</a>* pool : <a class="code" href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a>) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keyword">auto</span> poolR = pool-&gt;GetPopulationAndInfectedCount();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                population += poolR.first;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                infected += poolR.second;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="keywordflow">if</span> (regex_search(config, std::regex(<span class="stringliteral">&quot;^name=&quot;</span>))) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                        config   = regex_replace(config, std::regex(std::string(<span class="stringliteral">&quot;^name=&quot;</span>)), std::string(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                        configPt = <a class="code" href="../../dd/dae/a00163.html#ab4007f793a1924a65458824fef455208">stride::util::RunConfigManager::Create</a>(config);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                        config = regex_replace(config, std::regex(std::string(<span class="stringliteral">&quot;^file=&quot;</span>)), std::string(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                        <span class="keyword">const</span> boost::filesystem::path configPath = <a class="code" href="../../d1/db7/a00157.html#aacc5928eeee467f5e0c21c7ec5aaaf5a">stride::util::FileSys::GetConfigDir</a>() / config;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        configPt                                 = <a class="code" href="../../d1/db7/a00157.html#a2e80d7e6f1045279269a967ad8476422">stride::util::FileSys::ReadPtreeFile</a>(configPath);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <a class="code" href="../../de/d21/a00006.html#a419082164b3f4f27abc7ddc4f65663e9">configs</a>.emplace_back(configPt, config);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> {population, infected};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00026_html_a351f15c90b8cb94886b69752960dc741"><div class="ttname"><a href="../../d6/d5b/a00026.html#a351f15c90b8cb94886b69752960dc741">gengeopop::ContactCenter::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdoc">Allow range-based iteration. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00009">ContactCenter.cpp:9</a></div></div>
-<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d21/a00240_source.html#l00037">ContactPool.h:37</a></div></div>
-<div class="ttc" id="a00026_html_aeb792059c787efb17ae9a9c91f6938a3"><div class="ttname"><a href="../../d6/d5b/a00026.html#aeb792059c787efb17ae9a9c91f6938a3">gengeopop::ContactCenter::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdoc">Allow range-based iteration. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00011">ContactCenter.cpp:11</a></div></div>
-<div class="ttc" id="a00026_html_a9aaa45f62fcb16bcd4b6f382a94e5526"><div class="ttname"><a href="../../d6/d5b/a00026.html#a9aaa45f62fcb16bcd4b6f382a94e5526">gengeopop::ContactCenter::ContactCenter</a></div><div class="ttdeci">ContactCenter(unsigned int id)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00005">ContactCenter.cpp:5</a></div></div>
-<div class="ttc" id="a00026_html_af52200fb10382cffac4fa67d987f5406"><div class="ttname"><a href="../../d6/d5b/a00026.html#af52200fb10382cffac4fa67d987f5406">gengeopop::ContactCenter::GetPools</a></div><div class="ttdeci">const std::vector&lt; stride::ContactPool * &gt; &amp; GetPools() const </div><div class="ttdoc">Get the pools. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00013">ContactCenter.cpp:13</a></div></div>
-<div class="ttc" id="a00026_html_ac0b05f8789a5272fa8ec5e1113c5b731"><div class="ttname"><a href="../../d6/d5b/a00026.html#ac0b05f8789a5272fa8ec5e1113c5b731">gengeopop::ContactCenter::m_pools</a></div><div class="ttdeci">std::vector&lt; stride::ContactPool * &gt; m_pools</div><div class="ttdoc">Our pools. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00051">ContactCenter.h:51</a></div></div>
-<div class="ttc" id="a00026_html_a7ffc40d11c7c2f8c2a6b012104e38179"><div class="ttname"><a href="../../d6/d5b/a00026.html#a7ffc40d11c7c2f8c2a6b012104e38179">gengeopop::ContactCenter::iterator</a></div><div class="ttdeci">std::vector&lt; stride::ContactPool * &gt;::iterator iterator</div><div class="ttdoc">Allow range-based iteration. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00013">ContactCenter.h:13</a></div></div>
-<div class="ttc" id="a00026_html_af8b55f34ee88976dc4e4cd124f508ffa"><div class="ttname"><a href="../../d6/d5b/a00026.html#af8b55f34ee88976dc4e4cd124f508ffa">gengeopop::ContactCenter::GetPopulationAndInfectedCount</a></div><div class="ttdeci">std::pair&lt; unsigned int, unsigned int &gt; GetPopulationAndInfectedCount() const </div><div class="ttdoc">Get a count of total population (first) and total number of infections (second) </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00017">ContactCenter.cpp:17</a></div></div>
-<div class="ttc" id="a00026_html_a05e2ac775c782a156ad867059f3b5e57"><div class="ttname"><a href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter::AddPool</a></div><div class="ttdeci">void AddPool(stride::ContactPool *pool)</div><div class="ttdoc">Add a ContactPool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00007">ContactCenter.cpp:7</a></div></div>
-<div class="ttc" id="a00231_html"><div class="ttname"><a href="../../df/d17/a00231.html">ContactCenter.h</a></div></div>
-<div class="ttc" id="a00026_html_a785264e08f004b2e1f51e2fb158c0fdf"><div class="ttname"><a href="../../d6/d5b/a00026.html#a785264e08f004b2e1f51e2fb158c0fdf">gengeopop::ContactCenter::m_id</a></div><div class="ttdeci">unsigned int m_id</div><div class="ttdoc">The id of this ContactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00052">ContactCenter.h:52</a></div></div>
-<div class="ttc" id="a00026_html_a41db67c04a80efb125efdbfa4a39b4ad"><div class="ttname"><a href="../../d6/d5b/a00026.html#a41db67c04a80efb125efdbfa4a39b4ad">gengeopop::ContactCenter::GetId</a></div><div class="ttdeci">unsigned int GetId() const </div><div class="ttdoc">Get the ID back. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00015">ContactCenter.cpp:15</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace calibration</span></div>
+<div class="ttc" id="a00008_html_a840ab2341a3e5eca99f3507e9b79da18"><div class="ttname"><a href="../../d4/dee/a00008.html#a840ab2341a3e5eca99f3507e9b79da18">calibration::ConfigFileCalibrationRunner::ConfigFileCalibrationRunner</a></div><div class="ttdeci">ConfigFileCalibrationRunner(std::vector&lt; std::string &gt; configFiles)</div><div class="ttdoc">Setup, creates a ptree based on the filenames in configFiles. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da8/a00230_source.html#l00012">ConfigFileCalibrationRunner.cpp:12</a></div></div>
+<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">Boxplot.h</a></div></div>
+<div class="ttc" id="a00267_html"><div class="ttname"><a href="../../d1/dd4/a00267.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00163_html_ab4007f793a1924a65458824fef455208"><div class="ttname"><a href="../../dd/dae/a00163.html#ab4007f793a1924a65458824fef455208">stride::util::RunConfigManager::Create</a></div><div class="ttdeci">static boost::property_tree::ptree Create(const std::string &amp;configName)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d95/a00391_source.html#l00048">RunConfigManager.cpp:48</a></div></div>
+<div class="ttc" id="a00157_html_a2e80d7e6f1045279269a967ad8476422"><div class="ttname"><a href="../../d1/db7/a00157.html#a2e80d7e6f1045279269a967ad8476422">stride::util::FileSys::ReadPtreeFile</a></div><div class="ttdeci">static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path &amp;f_p)</div><div class="ttdoc">Read ptree from file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d35/a00266_source.html#l00200">FileSys.cpp:200</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">calibration::CalibrationRunner</a></div><div class="ttdoc">A runner for the Calibration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d79/a00203_source.html#l00013">CalibrationRunner.h:13</a></div></div>
+<div class="ttc" id="a00157_html_aacc5928eeee467f5e0c21c7ec5aaaf5a"><div class="ttname"><a href="../../d1/db7/a00157.html#aacc5928eeee467f5e0c21c7ec5aaaf5a">stride::util::FileSys::GetConfigDir</a></div><div class="ttdeci">static boost::filesystem::path GetConfigDir()</div><div class="ttdoc">Return config dir (only relevant when use_install_dirs mode is active) </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dd4/a00267_source.html#l00074">FileSys.h:74</a></div></div>
+<div class="ttc" id="a00205_html"><div class="ttname"><a href="../../d5/d13/a00205.html">Calibrator.h</a></div></div>
+<div class="ttc" id="a00231_html"><div class="ttname"><a href="../../df/d17/a00231.html">ConfigFileCalibrationRunner.h</a></div></div>
+<div class="ttc" id="a00392_html"><div class="ttname"><a href="../../d4/d27/a00392.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
+<div class="ttc" id="a00006_html_a419082164b3f4f27abc7ddc4f65663e9"><div class="ttname"><a href="../../de/d21/a00006.html#a419082164b3f4f27abc7ddc4f65663e9">calibration::CalibrationRunner::configs</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; boost::property_tree::ptree, std::string &gt; &gt; configs</div><div class="ttdoc">The configs for the testcases. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d79/a00203_source.html#l00035">CalibrationRunner.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">ContactCenter.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">ConfigFileCalibrationRunner.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

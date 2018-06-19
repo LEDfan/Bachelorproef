@@ -1,7 +1,6 @@
 <map id="gengeopop::ReaderFactory::CreateCitiesReader" name="gengeopop::ReaderFactory::CreateCitiesReader">
 <area shape="rect" id="node2" href="$df/d03/a00062.html#a76eb18fa73415d684668d13833ba13c1" title="Create a CitiesReader based on the filename of the input file, relative to the data directory..." alt="" coords="253,5,432,46"/>
 <area shape="rect" id="node3" href="$d0/d33/a00027.html#a5d80eb0492fba3112f7fb0571d386e30" title="Reads the data files. " alt="" coords="233,70,453,111"/>
-<area shape="rect" id="node4" href="$d4/d81/a00110.html#a1a9f0c9424522454bc5f99419734993c" title="Creates a population by generating it. " alt="" coords="501,41,651,82"/>
-<area shape="rect" id="node6" href="$df/d03/a00348.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="551,107,601,133"/>
-<area shape="rect" id="node5" href="$d2/df5/a00137.html#ac9658f1a5fa801de6742a46efb85fb9c" title="Create a Population for the given region parameters. " alt="" coords="699,41,821,82"/>
+<area shape="rect" id="node4" href="$dd/d6d/a00111.html#a788b0ff4e222be4a8ec8b598b99e5b8a" title="Creates a population by generating it. " alt="" coords="501,41,651,82"/>
+<area shape="rect" id="node5" href="$d6/d9c/a00352.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="551,107,601,133"/>
 </map>

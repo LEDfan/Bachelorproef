@@ -1,3 +1,13 @@
-<map id="CommutesListModel.h" name="CommutesListModel.h">
-<area shape="rect" id="node3" href="$d3/d93/a00341.html" title="gengeopop/Location.h" alt="" coords="352,80,500,107"/>
+<map id="Community.h" name="Community.h">
+<area shape="rect" id="node2" href="$d5/d0b/a00220.html" title="Community.cpp" alt="" coords="389,80,504,107"/>
+<area shape="rect" id="node3" href="$d8/d95/a00379.html" title="PrimaryCommunity.h" alt="" coords="766,80,911,107"/>
+<area shape="rect" id="node5" href="$d0/dcd/a00280.html" title="GeoGridJSONReader.cpp" alt="" coords="655,155,828,181"/>
+<area shape="rect" id="node6" href="$d5/d7b/a00286.html" title="GeoGridProtoReader.cpp" alt="" coords="852,155,1020,181"/>
+<area shape="rect" id="node9" href="$d9/dad/a00394.html" title="SecondaryCommunity.h" alt="" coords="528,80,691,107"/>
+<area shape="rect" id="node12" href="$d6/d9c/a00352.html" title="main.cpp" alt="" coords="987,80,1060,107"/>
+<area shape="rect" id="node4" href="$d0/d24/a00222.html" title="CommunityGenerator.cpp" alt="" coords="460,155,631,181"/>
+<area shape="rect" id="node7" href="$d8/ddd/a00380.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="1045,155,1259,181"/>
+<area shape="rect" id="node8" href="$d7/d08/a00378.html" title="PrimaryCommunity.cpp" alt="" coords="1283,155,1441,181"/>
+<area shape="rect" id="node10" href="$db/dbc/a00395.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="5,155,235,181"/>
+<area shape="rect" id="node11" href="$da/dbf/a00393.html" title="SecondaryCommunity.cpp" alt="" coords="260,155,436,181"/>
 </map>

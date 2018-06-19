@@ -5,6 +5,6 @@
 <area shape="rect" id="node8" href="$df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5" title="Create a HouseholdReader based on the filename of the input file, relative to the data directory..." alt="" coords="292,201,471,242"/>
 <area shape="rect" id="node9" href="$df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8" title="Create a SubMunicipalitiesReader based on the filename of the input file, relative to the data direct..." alt="" coords="275,266,488,307"/>
 <area shape="rect" id="node4" href="$df/d03/a00062.html#a301c922d893444c635c375f4c0326568" title="Create an istream based on the provided Boost Filesystem Path. " alt="" coords="536,70,715,111"/>
-<area shape="rect" id="node6" href="$da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="560,201,691,242"/>
-<area shape="rect" id="node7" href="$da/d01/a00153.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="763,208,923,235"/>
+<area shape="rect" id="node6" href="$d1/db7/a00157.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="560,201,691,242"/>
+<area shape="rect" id="node7" href="$d1/db7/a00157.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="763,208,923,235"/>
 </map>

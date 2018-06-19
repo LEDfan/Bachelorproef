@@ -1,0 +1,19 @@
+<map id="stride::ContactPool::GetId" name="stride::ContactPool::GetId">
+<area shape="rect" id="node2" href="$d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" title="Populate the given geogrid. " alt="" coords="192,5,403,46"/>
+<area shape="rect" id="node3" href="$d8/dfa/a00121.html#a45b455fb644270329ae1d53aad9de4db" title="stride::Infector::Exec" alt="" coords="225,71,369,97"/>
+<area shape="rect" id="node4" href="$df/dc8/a00122.html#a3e10dc57119090c30ba818420bbd7b94" title="stride::Infector\&lt; LL,\l TIC, NoLocalInformation,\l true \&gt;::Exec" alt="" coords="211,121,384,177"/>
+<area shape="rect" id="node5" href="$d3/de7/a00039.html#a19e0ff14a2aef228d926d53132fa767b" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="190,201,405,242"/>
+<area shape="rect" id="node9" href="$db/d48/a00148.html#ae00519895ddcbbe9a683856d8bdd0ab4" title="Returns the travels at the given day. " alt="" coords="225,266,369,307"/>
+<area shape="rect" id="node10" href="$db/d48/a00148.html#a2a3ea8982180232be8593d7fdcf80f37" title="Stores the information when the travel is started. " alt="" coords="225,331,369,373"/>
+<area shape="rect" id="node11" href="$db/d3a/a00040.html#a0551c1ce7927fc90a5dcc38df8980176" title="Create a ProtoBuf ContactPool containing all the information needed to reconstruct a ContactPool..." alt="" coords="194,397,401,438"/>
+<area shape="rect" id="node15" href="$d1/dc6/a00037.html#a0943d6e4e335053ba2e5dff6cbca187c" title="Create a Boost Property Tree containing all the information needed to reconstruct a ContactPool..." alt="" coords="191,462,403,503"/>
+<area shape="rect" id="node6" href="$d3/de7/a00039.html#a351fab1f7eb8f7035fa432b2a3d7c104" title="Create a ContactCenter based on the provided protobuf ContactCenter. " alt="" coords="454,201,669,242"/>
+<area shape="rect" id="node7" href="$d3/de7/a00039.html#a0adca811808bc9edf494cd38b6ca0bae" title="Create a Location based on the provided protobuf Location. " alt="" coords="718,201,933,242"/>
+<area shape="rect" id="node8" href="$d3/de7/a00039.html#ad9d1285450862c08629d6f8456976413" title="Actually perform the read and return the GeoGrid. " alt="" coords="982,201,1197,242"/>
+<area shape="rect" id="node12" href="$db/d3a/a00040.html#a1235f787a58d45e623cf5bf21819ccc1" title="Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter..." alt="" coords="458,397,665,438"/>
+<area shape="rect" id="node13" href="$db/d3a/a00040.html#a2b0641108a2e713aa25c5969939a3c14" title="Create a ProtoBuf Location containing all the information needed to reconstruct a Location..." alt="" coords="722,397,929,438"/>
+<area shape="rect" id="node14" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="986,397,1193,438"/>
+<area shape="rect" id="node16" href="$d1/dc6/a00037.html#a09ef74af7673c46cc0a14338ec9f2d89" title="Create a Boost Property Tree containing all the information needed to reconstruct a ContactCenter..." alt="" coords="455,462,667,503"/>
+<area shape="rect" id="node17" href="$d1/dc6/a00037.html#a1d075fff537fe69d2d626483f539387e" title="Create a Boost Property Tree containing all the information needed to reconstruct a Location..." alt="" coords="719,462,931,503"/>
+<area shape="rect" id="node18" href="$d1/dc6/a00037.html#a06da89c72da72992bbd517973c9513eb" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="983,462,1195,503"/>
+</map>

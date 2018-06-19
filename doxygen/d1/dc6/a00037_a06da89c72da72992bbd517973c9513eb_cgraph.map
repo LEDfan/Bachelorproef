@@ -4,15 +4,15 @@
 <area shape="rect" id="node3" href="$d1/dc6/a00037.html#ac5545a046c71d35be38df00f73c87235" title="Create a Boost Property Tree containing all the information needed to reconstruct a Coordinate..." alt="" coords="529,5,741,46"/>
 <area shape="rect" id="node4" href="$d1/dc6/a00037.html#a09ef74af7673c46cc0a14338ec9f2d89" title="Create a Boost Property Tree containing all the information needed to reconstruct a ContactCenter..." alt="" coords="529,70,741,111"/>
 <area shape="rect" id="node5" href="$d1/dc6/a00037.html#a0943d6e4e335053ba2e5dff6cbca187c" title="Create a Boost Property Tree containing all the information needed to reconstruct a ContactPool..." alt="" coords="790,70,1002,111"/>
-<area shape="rect" id="node6" href="$d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="1051,70,1186,111"/>
-<area shape="rect" id="node8" href="$d0/d5e/a00136.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="563,136,706,163"/>
-<area shape="rect" id="node9" href="$d0/d5e/a00136.html#ad85ecf5500764ae2c025f7e2aab8003c" title="Get the age. " alt="" coords="557,187,712,213"/>
-<area shape="rect" id="node10" href="$d0/d5e/a00136.html#ada6071b93ce9d5b5611a2151e14d0740" title="Return person&#39;s gender. " alt="" coords="547,237,722,264"/>
-<area shape="rect" id="node11" href="$d0/d5e/a00136.html#a137c47d3d0e8bc1221bc2123477941a1" title="stride::Person::GetK12SchoolId" alt="" coords="531,288,738,315"/>
-<area shape="rect" id="node13" href="$d0/d5e/a00136.html#a805778c8c80ec8523a60cae01947b02a" title="stride::Person::GetCollegeId" alt="" coords="541,339,728,365"/>
-<area shape="rect" id="node14" href="$d0/d5e/a00136.html#abd8a6126416c2ba2542014e63d99b887" title="stride::Person::GetHouseholdId" alt="" coords="532,389,737,416"/>
-<area shape="rect" id="node15" href="$d0/d5e/a00136.html#a8d484ccde416208ee213b9d9763c4367" title="stride::Person::GetWorkId" alt="" coords="547,440,722,467"/>
-<area shape="rect" id="node16" href="$d0/d5e/a00136.html#ab66a63b8c275eb20a5f33147d9eee77f" title="stride::Person::GetPrimary\lCommunityId" alt="" coords="546,491,723,533"/>
-<area shape="rect" id="node17" href="$d0/d5e/a00136.html#a43a13b12121574fe063e6f8b8dbe0c4a" title="stride::Person::GetSecondary\lCommunityId" alt="" coords="537,557,732,598"/>
-<area shape="rect" id="node12" href="$d0/d5e/a00136.html#ace277043dfb3a2052adf508dd0179567" title="Get ID of contactpool_type. " alt="" coords="811,415,981,441"/>
+<area shape="rect" id="node6" href="$d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0" title="Get the pool id. " alt="" coords="1051,70,1186,111"/>
+<area shape="rect" id="node8" href="$d2/df5/a00137.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="563,136,706,163"/>
+<area shape="rect" id="node9" href="$d2/df5/a00137.html#ad85ecf5500764ae2c025f7e2aab8003c" title="Get the age. " alt="" coords="557,187,712,213"/>
+<area shape="rect" id="node10" href="$d2/df5/a00137.html#ada6071b93ce9d5b5611a2151e14d0740" title="Return person&#39;s gender. " alt="" coords="547,237,722,264"/>
+<area shape="rect" id="node11" href="$d2/df5/a00137.html#a137c47d3d0e8bc1221bc2123477941a1" title="Returns the id of the K12School CP. " alt="" coords="531,288,738,315"/>
+<area shape="rect" id="node13" href="$d2/df5/a00137.html#a805778c8c80ec8523a60cae01947b02a" title="Returns the id of the College CP. " alt="" coords="541,339,728,365"/>
+<area shape="rect" id="node14" href="$d2/df5/a00137.html#abd8a6126416c2ba2542014e63d99b887" title="stride::Person::GetHouseholdId" alt="" coords="532,389,737,416"/>
+<area shape="rect" id="node15" href="$d2/df5/a00137.html#a8d484ccde416208ee213b9d9763c4367" title="Gets the id of the Work CP. " alt="" coords="547,440,722,467"/>
+<area shape="rect" id="node16" href="$d2/df5/a00137.html#ab66a63b8c275eb20a5f33147d9eee77f" title="Returns the id of the PrimaryCommunity CP. " alt="" coords="546,491,723,533"/>
+<area shape="rect" id="node17" href="$d2/df5/a00137.html#a43a13b12121574fe063e6f8b8dbe0c4a" title="Returns the id of the SecondaryCommunity CP. " alt="" coords="537,557,732,598"/>
+<area shape="rect" id="node12" href="$d2/df5/a00137.html#ace277043dfb3a2052adf508dd0179567" title="Get ID of contactpool_type. " alt="" coords="811,415,981,441"/>
 </map>

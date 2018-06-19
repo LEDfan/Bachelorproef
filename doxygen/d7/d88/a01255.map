@@ -1,5 +1,11 @@
-<map id="stride::ContactPoolType::IdSubscriptArray&lt; T &gt;" name="stride::ContactPoolType::IdSubscriptArray&lt; T &gt;">
-<area shape="rect" id="node3" href="$d1/d09/a00077.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="5,386,227,566"/>
-<area shape="rect" id="node4" href="$d1/d09/a00077.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; AgeContact\lProfile \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="251,379,459,573"/>
-<area shape="rect" id="node2" title="STL class. " alt="" coords="135,5,333,83"/>
+<map id="stride::Person" name="stride::Person">
+<area shape="rect" id="node2" href="$db/d8e/a00482.html" title="{double\n||}" alt="" coords="5,779,64,856"/>
+<area shape="rect" id="node3" href="$d1/d09/a00077.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="89,720,311,915"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="65,249,207,341"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="171,147,369,224"/>
+<area shape="rect" id="node6" href="$d1/d09/a00077.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="185,365,348,560"/>
+<area shape="rect" id="node9" href="$d5/d1e/a00103.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="406,735,580,900"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="400,424,587,501"/>
+<area shape="rect" id="node13" href="$d9/df8/a00096.html" title="Base class for all belief policies. " alt="" coords="739,764,853,871"/>
+<area shape="rect" id="node14" href="$d8/d17/a00114.html" title="Holds a person&#39;s health data. " alt="" coords="878,683,1068,951"/>
 </map>

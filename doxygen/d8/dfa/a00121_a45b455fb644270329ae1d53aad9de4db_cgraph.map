@@ -1,0 +1,9 @@
+<map id="stride::Infector::Exec" name="stride::Infector::Exec">
+<area shape="rect" id="node2" href="$d2/df5/a00137.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="201,5,372,32"/>
+<area shape="rect" id="node3" href="$d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0" title="Get the pool id. " alt="" coords="219,57,354,98"/>
+<area shape="rect" id="node4" href="$d0/d4a/a00147.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="198,122,375,163"/>
+<area shape="rect" id="node5" href="$d0/d61/a00100.html#a4a6ef10cff06328c9bc5b7f6337339ad" title="Check if two individuals have contact. " alt="" coords="210,187,363,229"/>
+<area shape="rect" id="node7" href="$d0/d61/a00100.html#a94d8f2bdeff1e99b1e6380060e8fb622" title="Check whether transmission occurs. " alt="" coords="210,253,363,294"/>
+<area shape="rect" id="node8" href="$d2/df5/a00137.html#aa012c938a22523d590f38ebc052a2471" title="Check if a person is present today in a given contactpool. " alt="" coords="207,319,366,345"/>
+<area shape="rect" id="node6" href="$d0/d61/a00100.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="425,221,578,262"/>
+</map>

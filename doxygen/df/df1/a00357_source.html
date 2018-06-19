@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: namespaces.doxy Source File</title>
+<title>Stride Reference Manual: Map.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,49 +109,119 @@ $(document).ready(function(){initNavTree('df/df1/a00357_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">namespaces.doxy</div>  </div>
+<div class="title">Map.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/df1/a00357.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Willem L, Kuylen E, Stijven S &amp; Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*!</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> \file</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> \brief Documentation on namespace.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> \namespace stride</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">                \brief Main namespace for the project.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> \namespace stride::ContactPoolType</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">         \brief Namespace to manage types of ContactPool.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> \namespace stride::output</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">                \brief Utilities for the output files.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  \namespace stride::RNEngineType</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">                \brief Namespace to manage types of random engines.</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> \namespace stride::sim_event</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">                \brief Namespace to manage events signalled by the SimRunner.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> \namespace stride::util</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">                \brief Utilities for the project.       </span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">  \namespace stride::viewers</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">                \brief Namespace for MVC-viewers that may be registered with SimRunner.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> */</span></div>
+<a href="../../df/df1/a00357.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d73/a00358.html">Map.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/deb/a00189.html">backend.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/dc6/a00347.html">backends/LocationViewerBackend.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d01/a00227.html">models/CommutesListModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d08/a00237.html">models/ContactCenterListModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d9a/a00246.html">models/ContactPoolListModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/d27/a00239.html">mapviewer/backends/ContactCenterViewerBackend.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QtGui/QGuiApplication&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QtQml/QQmlApplicationEngine&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QtQml/QtQml&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;Q_DECLARE_METATYPE(std::shared_ptr&lt;gengeopop::Location&gt;)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;Q_DECLARE_METATYPE(std::shared_ptr&lt;gengeopop::GeoGrid&gt;)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;Q_DECLARE_METATYPE(std::set&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt;)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;Q_DECLARE_METATYPE(std::shared_ptr&lt;gengeopop::ContactCenter&gt;)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../da/dec/a00080.html#a63b19f2dce5829fbc31dc4ae72f42a69">   19</a></span>&#160;<a class="code" href="../../da/dec/a00080.html">Map</a>::<a class="code" href="../../da/dec/a00080.html">Map</a>(QQmlApplicationEngine* engine)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    : m_rootContext(<span class="keywordtype">nullptr</span>), m_thread(<span class="keywordtype">nullptr</span>), m_setGrid(false), m_engine(engine), m_ccModel(<span class="keywordtype">nullptr</span>),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      m_cpModel(<span class="keywordtype">nullptr</span>), m_commutesModel(<span class="keywordtype">nullptr</span>)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        RegisterQML();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../da/dec/a00080.html#a23e333cf68b215cc63f474585c7e9c0e">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dec/a00080.html#a23e333cf68b215cc63f474585c7e9c0e">Map::RegisterQML</a>()</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        qmlRegisterType&lt;Backend&gt;(<span class="stringliteral">&quot;io.bistromatics.backend&quot;</span>, 1, 0, <span class="stringliteral">&quot;Backend&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        qmlRegisterType&lt;LocationViewerBackend&gt;(<span class="stringliteral">&quot;io.bistromatics.locationviewerbackend&quot;</span>, 1, 0, <span class="stringliteral">&quot;LocationViewerBackend&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        qmlRegisterType&lt;ContactCenterViewerBackend&gt;(<span class="stringliteral">&quot;io.bistromatics.contactcenterviewerbackend&quot;</span>, 1, 0,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                                    <span class="stringliteral">&quot;ContactCenterViewerBackend&quot;</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        qmlRegisterType&lt;ContactCenterListModel&gt;(<span class="stringliteral">&quot;io.bistromatics.contactcenterlistmodel&quot;</span>, 1, 0,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                                <span class="stringliteral">&quot;ContactCenterListModel&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        qRegisterMetaType&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt;();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        qRegisterMetaType&lt;std::shared_ptr&lt;gengeopop::GeoGrid&gt;&gt;();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        qRegisterMetaType&lt;std::vector&lt;std::shared_ptr&lt;gengeopop::ContactCenter&gt;&gt;&gt;();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        qRegisterMetaType&lt;std::set&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt;&gt;();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../da/dec/a00080.html#afbaab362fb4657009f00eca6bf961a0b">m_ccModel</a>       = std::make_shared&lt;ContactCenterListModel&gt;();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../da/dec/a00080.html#afd3e2759a5f6d6a0409c64ea498be54c">m_cpModel</a>       = std::make_shared&lt;ContactPoolListModel&gt;();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../da/dec/a00080.html#ac8647647528cc586d80a1452501b1f57">m_commutesModel</a> = std::make_shared&lt;CommutesListModel&gt;();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">m_engine</a>-&gt;rootContext()-&gt;setContextProperty(<span class="stringliteral">&quot;ccModel&quot;</span>, m_ccModel.get());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">m_engine</a>-&gt;rootContext()-&gt;setContextProperty(<span class="stringliteral">&quot;cpModel&quot;</span>, m_cpModel.get());</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">m_engine</a>-&gt;rootContext()-&gt;setContextProperty(<span class="stringliteral">&quot;commutesModel&quot;</span>, m_commutesModel.get());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">m_engine</a>-&gt;load(QUrl(QStringLiteral(<span class="stringliteral">&quot;qrc:/main.qml&quot;</span>)));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// Save the root context</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">int</span> offset    = <a class="code" href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">m_engine</a>-&gt;rootObjects().size() - 1;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="../../da/dec/a00080.html#a1d87df00763782e3913a54c361e674df">m_rootContext</a> = <a class="code" href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">m_engine</a>-&gt;rootObjects()[offset];</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="../../da/dec/a00080.html#a77d2af43feda08172094d1b1944ac2a8">m_qmlBackend</a>  = <a class="code" href="../../da/dec/a00080.html#a1d87df00763782e3913a54c361e674df">m_rootContext</a>-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(<span class="stringliteral">&quot;backend&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../da/dec/a00080.html#a5cb7ce2da56bb785fb29c6ef2222d5e5">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dec/a00080.html#a5cb7ce2da56bb785fb29c6ef2222d5e5">Map::ForceUpdateMarkers</a>()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="../../d9/dec/a00090.html">QObject</a>* backend = <a class="code" href="../../da/dec/a00080.html#a1d87df00763782e3913a54c361e674df">m_rootContext</a>-&gt;findChild&lt;<a class="code" href="../../d9/dec/a00090.html">QObject</a>*&gt;(<span class="stringliteral">&quot;backend&quot;</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span> (backend != <span class="keyword">nullptr</span> &amp;&amp; <a class="code" href="../../da/dec/a00080.html#a65d42a83408a241d1e74a242d6a3464a">m_setGrid</a>) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="../../d8/d84/a00001.html">Backend</a>* backendClass = qobject_cast&lt;<a class="code" href="../../d8/d84/a00001.html">Backend</a>*&gt;(backend);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                backendClass-&gt;<a class="code" href="../../d8/d84/a00001.html#a6e0af1d3dc19b33a41dec19fe3677fc4">UpdateAllHealthColors</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../da/dec/a00080.html#a13cbf50eb92e9c512412e2da30a313b8">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dec/a00080.html#a13cbf50eb92e9c512412e2da30a313b8">Map::SetGeoGrids</a>(std::vector&lt;std::shared_ptr&lt;gengeopop::GeoGrid&gt;&gt; grids)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../da/dec/a00080.html#a77d2af43feda08172094d1b1944ac2a8">m_qmlBackend</a> != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <a class="code" href="../../d8/d84/a00001.html">Backend</a>* backendClass = qobject_cast&lt;<a class="code" href="../../d8/d84/a00001.html">Backend</a>*&gt;(<a class="code" href="../../da/dec/a00080.html#a77d2af43feda08172094d1b1944ac2a8">m_qmlBackend</a>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                backendClass-&gt;<a class="code" href="../../d8/d84/a00001.html#acb9ec493bbac930f2c20e69963459770">SetGeoGrids</a>(grids);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="../../da/dec/a00080.html#a65d42a83408a241d1e74a242d6a3464a">m_setGrid</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../da/dec/a00080.html#af6215f3426807a0496eb2b29b3083729">   72</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../da/dec/a00080.html#af6215f3426807a0496eb2b29b3083729">Map::IsReady</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../da/dec/a00080.html#a1d87df00763782e3913a54c361e674df">m_rootContext</a> != <span class="keyword">nullptr</span> &amp;&amp; <a class="code" href="../../da/dec/a00080.html#a77d2af43feda08172094d1b1944ac2a8">m_qmlBackend</a> != <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../da/dec/a00080.html#aa403fbe09394ccf39747588f5168e3b2">   74</a></span>&#160;<a class="code" href="../../da/dec/a00080.html#aa403fbe09394ccf39747588f5168e3b2">Map::~Map</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../da/dec/a00080.html#a8362b03536510c56f6ffcd02945b14fc">m_thread</a>)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="../../da/dec/a00080.html#a8362b03536510c56f6ffcd02945b14fc">m_thread</a>-&gt;join();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="ttc" id="a00080_html_afbaab362fb4657009f00eca6bf961a0b"><div class="ttname"><a href="../../da/dec/a00080.html#afbaab362fb4657009f00eca6bf961a0b">Map::m_ccModel</a></div><div class="ttdeci">std::shared_ptr&lt; ContactCenterListModel &gt; m_ccModel</div><div class="ttdoc">A QML model for displaying the ContactCenters. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00043">Map.h:43</a></div></div>
+<div class="ttc" id="a00239_html"><div class="ttname"><a href="../../d0/d27/a00239.html">ContactCenterViewerBackend.h</a></div></div>
+<div class="ttc" id="a00227_html"><div class="ttname"><a href="../../d9/d01/a00227.html">CommutesListModel.h</a></div></div>
+<div class="ttc" id="a00080_html_a77d2af43feda08172094d1b1944ac2a8"><div class="ttname"><a href="../../da/dec/a00080.html#a77d2af43feda08172094d1b1944ac2a8">Map::m_qmlBackend</a></div><div class="ttdeci">QObject * m_qmlBackend</div><div class="ttdoc">The root context of the main QML file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00039">Map.h:39</a></div></div>
+<div class="ttc" id="a00080_html_a8362b03536510c56f6ffcd02945b14fc"><div class="ttname"><a href="../../da/dec/a00080.html#a8362b03536510c56f6ffcd02945b14fc">Map::m_thread</a></div><div class="ttdeci">std::unique_ptr&lt; std::thread &gt; m_thread</div><div class="ttdoc">The thread that the mapviewer QT application is run on. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00040">Map.h:40</a></div></div>
+<div class="ttc" id="a00001_html"><div class="ttname"><a href="../../d8/d84/a00001.html">Backend</a></div><div class="ttdoc">The backend for the MapViewer qml. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/deb/a00189_source.html#l00012">backend.h:12</a></div></div>
+<div class="ttc" id="a00347_html"><div class="ttname"><a href="../../d1/dc6/a00347.html">LocationViewerBackend.h</a></div></div>
+<div class="ttc" id="a00001_html_a6e0af1d3dc19b33a41dec19fe3677fc4"><div class="ttname"><a href="../../d8/d84/a00001.html#a6e0af1d3dc19b33a41dec19fe3677fc4">Backend::UpdateAllHealthColors</a></div><div class="ttdeci">Q_INVOKABLE void UpdateAllHealthColors()</div><div class="ttdoc">Updates all the health colors of the locations to match the current infection rate. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d15/a00188_source.html#l00379">backend.cpp:379</a></div></div>
+<div class="ttc" id="a00080_html_a1d87df00763782e3913a54c361e674df"><div class="ttname"><a href="../../da/dec/a00080.html#a1d87df00763782e3913a54c361e674df">Map::m_rootContext</a></div><div class="ttdeci">QObject * m_rootContext</div><div class="ttdoc">The root context of the main QML file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00038">Map.h:38</a></div></div>
+<div class="ttc" id="a00080_html_aa403fbe09394ccf39747588f5168e3b2"><div class="ttname"><a href="../../da/dec/a00080.html#aa403fbe09394ccf39747588f5168e3b2">Map::~Map</a></div><div class="ttdeci">~Map()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00357_source.html#l00074">Map.cpp:74</a></div></div>
+<div class="ttc" id="a00080_html_a65d42a83408a241d1e74a242d6a3464a"><div class="ttname"><a href="../../da/dec/a00080.html#a65d42a83408a241d1e74a242d6a3464a">Map::m_setGrid</a></div><div class="ttdeci">bool m_setGrid</div><div class="ttdoc">If the grid was set for the mapviewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00041">Map.h:41</a></div></div>
+<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
+<div class="ttc" id="a00080_html_a5cb7ce2da56bb785fb29c6ef2222d5e5"><div class="ttname"><a href="../../da/dec/a00080.html#a5cb7ce2da56bb785fb29c6ef2222d5e5">Map::ForceUpdateMarkers</a></div><div class="ttdeci">void ForceUpdateMarkers()</div><div class="ttdoc">Force the markers on the map to be updated. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00357_source.html#l00054">Map.cpp:54</a></div></div>
+<div class="ttc" id="a00358_html"><div class="ttname"><a href="../../df/d73/a00358.html">Map.h</a></div></div>
+<div class="ttc" id="a00246_html"><div class="ttname"><a href="../../d4/d9a/a00246.html">ContactPoolListModel.h</a></div></div>
+<div class="ttc" id="a00080_html_a533c0093361f0b50e72ebf9c29e9a17d"><div class="ttname"><a href="../../da/dec/a00080.html#a533c0093361f0b50e72ebf9c29e9a17d">Map::m_engine</a></div><div class="ttdeci">QQmlApplicationEngine * m_engine</div><div class="ttdoc">The engine used to load the QML. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00042">Map.h:42</a></div></div>
+<div class="ttc" id="a00237_html"><div class="ttname"><a href="../../d4/d08/a00237.html">ContactCenterListModel.h</a></div></div>
+<div class="ttc" id="a00001_html_acb9ec493bbac930f2c20e69963459770"><div class="ttname"><a href="../../d8/d84/a00001.html#acb9ec493bbac930f2c20e69963459770">Backend::SetGeoGrids</a></div><div class="ttdeci">Q_INVOKABLE void SetGeoGrids(std::vector&lt; std::shared_ptr&lt; gengeopop::GeoGrid &gt;&gt; grids)</div><div class="ttdoc">Changes the geogrid to the given one. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d15/a00188_source.html#l00055">backend.cpp:55</a></div></div>
+<div class="ttc" id="a00080_html_ac8647647528cc586d80a1452501b1f57"><div class="ttname"><a href="../../da/dec/a00080.html#ac8647647528cc586d80a1452501b1f57">Map::m_commutesModel</a></div><div class="ttdeci">std::shared_ptr&lt; CommutesListModel &gt; m_commutesModel</div><div class="ttdoc">A QML model for displaying the Commutes. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00045">Map.h:45</a></div></div>
+<div class="ttc" id="a00080_html_a13cbf50eb92e9c512412e2da30a313b8"><div class="ttname"><a href="../../da/dec/a00080.html#a13cbf50eb92e9c512412e2da30a313b8">Map::SetGeoGrids</a></div><div class="ttdeci">void SetGeoGrids(std::vector&lt; std::shared_ptr&lt; gengeopop::GeoGrid &gt;&gt; grid)</div><div class="ttdoc">Shows the given geogrid in the mapviewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00357_source.html#l00063">Map.cpp:63</a></div></div>
+<div class="ttc" id="a00080_html_a23e333cf68b215cc63f474585c7e9c0e"><div class="ttname"><a href="../../da/dec/a00080.html#a23e333cf68b215cc63f474585c7e9c0e">Map::RegisterQML</a></div><div class="ttdeci">void RegisterQML()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00357_source.html#l00026">Map.cpp:26</a></div></div>
+<div class="ttc" id="a00080_html_af6215f3426807a0496eb2b29b3083729"><div class="ttname"><a href="../../da/dec/a00080.html#af6215f3426807a0496eb2b29b3083729">Map::IsReady</a></div><div class="ttdeci">bool IsReady() const </div><div class="ttdoc">Returns if the Gui Application is successfully started on a different thread, only used when no exist...</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df1/a00357_source.html#l00072">Map.cpp:72</a></div></div>
+<div class="ttc" id="a00189_html"><div class="ttname"><a href="../../da/deb/a00189.html">backend.h</a></div></div>
+<div class="ttc" id="a00080_html"><div class="ttname"><a href="../../da/dec/a00080.html">Map</a></div><div class="ttdoc">A geographical map used for showing in the MapViewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00012">Map.h:12</a></div></div>
+<div class="ttc" id="a00080_html_afd3e2759a5f6d6a0409c64ea498be54c"><div class="ttname"><a href="../../da/dec/a00080.html#afd3e2759a5f6d6a0409c64ea498be54c">Map::m_cpModel</a></div><div class="ttdeci">std::shared_ptr&lt; ContactPoolListModel &gt; m_cpModel</div><div class="ttdoc">A QML model for displaying the ContactPools. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d73/a00358_source.html#l00044">Map.h:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_e68e8157741866f444e17edd764ebbae.html">doc</a></li><li class="navelem"><a class="el" href="../../dir_04f2ecc425faf0d475a3caf484e551f3.html">doxygen</a></li><li class="navelem"><a class="el" href="../../dir_164fa6aa65476c57de29bc86e7aa64f0.html">additional_input</a></li><li class="navelem"><a class="el" href="../../df/df1/a00357.html">namespaces.doxy</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../df/df1/a00357.html">Map.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

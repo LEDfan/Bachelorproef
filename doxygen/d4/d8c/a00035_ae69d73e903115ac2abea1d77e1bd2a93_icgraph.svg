@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 636;
+var viewWidth = 508;
 var viewHeight = 38;
 var sectionId = 'dynsection-2';
 </script>
@@ -54,7 +54,7 @@ var sectionId = 'dynsection-2';
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>gengeopop::GeoGridGenerator::GenerateGeoGrid</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-34 632,-34 632,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-34 504,-34 504,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
 <polygon fill="#bfbfbf" stroke="black" points="0.5,-0 0.5,-30 149.5,-30 149.5,-0 0.5,-0"/>
@@ -77,7 +77,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d4/d81/a00110.html#a1a9f0c9424522454bc5f99419734993c" target="_top" xlink:title="Creates a population by generating it. ">
+<g id="a_node3"><a xlink:href="../../dd/d6d/a00111.html#a788b0ff4e222be4a8ec8b598b99e5b8a" target="_top" xlink:title="Creates a population by generating it. ">
 <polygon fill="white" stroke="black" points="388,-0 388,-30 500,-30 500,-0 388,-0"/>
 <text text-anchor="start" x="396" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::GenPopBuilder</text>
 <text text-anchor="middle" x="444" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Build</text>
@@ -88,20 +88,6 @@ var sectionId = 'dynsection-2';
 <g id="edge2" class="edge"><title>Node2&#45;&gt;Node3</title>
 <path fill="none" stroke="midnightblue" d="M361.743,-15C370.64,-15 379.463,-15 387.833,-15"/>
 <polygon fill="midnightblue" stroke="midnightblue" points="361.687,-11.5001 351.687,-15 361.687,-18.5001 361.687,-11.5001"/>
-</g>
-<!-- Node4 -->
-<g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d2/df5/a00137.html#ac9658f1a5fa801de6742a46efb85fb9c" target="_top" xlink:title="Create a Population for the given region parameters. ">
-<polygon fill="white" stroke="black" points="536,-0 536,-30 628,-30 628,-0 536,-0"/>
-<text text-anchor="start" x="544" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Population</text>
-<text text-anchor="middle" x="582" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::CreateRegion</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3" class="edge"><title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M510.336,-15C518.922,-15 527.564,-15 535.714,-15"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="510.316,-11.5001 500.316,-15 510.316,-18.5001 510.316,-11.5001"/>
 </g>
 </g>
 </svg>

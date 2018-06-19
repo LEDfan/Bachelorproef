@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d2/df5/a00137.html#a7cfcedae698db0dc471770044de4834d" target="_top" xlink:title="Create an empty Population with NoBelief policy, used in gengeopop. ">
+<g id="a_node2"><a xlink:href="../../d4/ddd/a00138.html#a7cfcedae698db0dc471770044de4834d" target="_top" xlink:title="Create an empty Population with NoBelief policy, used in gengeopop. ">
 <polygon fill="white" stroke="black" points="161,-66 161,-96 253,-96 253,-66 161,-66"/>
 <text text-anchor="start" x="169" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Population</text>
 <text text-anchor="middle" x="207" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">::Create</text>
@@ -31,7 +31,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d1/db7/a00157.html#a8c78f40f38b8a3fc25e2c21be2de505a" target="_top" xlink:title="Initalize with data in Info. ">
+<g id="a_node3"><a xlink:href="../../d6/d7d/a00161.html#a8c78f40f38b8a3fc25e2c21be2de505a" target="_top" xlink:title="Initalize with data in Info. ">
 <polygon fill="white" stroke="black" points="148,-17 148,-47 266,-47 266,-17 148,-17"/>
 <text text-anchor="start" x="156" y="-35" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="207" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">::Initialize</text>
@@ -45,7 +45,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../db/de0/a00465.html#af529300a78547c29c95b81ad8ac62afe" target="_top" xlink:title="Converts a string with name to Id. ">
+<g id="a_node4"><a xlink:href="../../dc/d8e/a00473.html#af529300a78547c29c95b81ad8ac62afe" target="_top" xlink:title="Converts a string with name to Id. ">
 <polygon fill="white" stroke="black" points="302,-39 302,-69 424,-69 424,-39 302,-39"/>
 <text text-anchor="start" x="310" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">stride::ContactPoolType</text>
 <text text-anchor="middle" x="363" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">::ToType</text>
@@ -59,7 +59,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d0/d29/a00470.html#a0c42ba6e336bed67e5a0bdd053802c2a" target="_top" xlink:title="stride::util::para_seed">
+<g id="a_node5"><a xlink:href="../../d9/dea/a00478.html#a0c42ba6e336bed67e5a0bdd053802c2a" target="_top" xlink:title="stride::util::para_seed">
 <polygon fill="white" stroke="black" points="308,-0.5 308,-19.5 418,-19.5 418,-0.5 308,-0.5"/>
 <text text-anchor="middle" x="363" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::para_seed</text>
 </a>

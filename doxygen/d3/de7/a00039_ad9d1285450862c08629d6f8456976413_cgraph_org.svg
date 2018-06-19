@@ -45,7 +45,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d0/d5e/a00136.html#afab3ab2a1a33004f9e25d4873c3c1921" target="_top" xlink:title="Get the id. ">
+<g id="a_node4"><a xlink:href="../../d2/df5/a00137.html#afab3ab2a1a33004f9e25d4873c3c1921" target="_top" xlink:title="Get the id. ">
 <polygon fill="white" stroke="black" points="225.5,-496.5 225.5,-515.5 332.5,-515.5 332.5,-496.5 225.5,-496.5"/>
 <text text-anchor="middle" x="279" y="-503.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Person::GetId</text>
 </a>
@@ -489,7 +489,7 @@
 </g>
 <!-- Node27 -->
 <g id="node27" class="node"><title>Node27</title>
-<g id="a_node27"><a xlink:href="../../d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" target="_top" xlink:title="Get the pool id. ">
+<g id="a_node27"><a xlink:href="../../d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0" target="_top" xlink:title="Get the pool id. ">
 <polygon fill="white" stroke="black" points="814.5,-197 814.5,-227 915.5,-227 915.5,-197 814.5,-197"/>
 <text text-anchor="start" x="822.5" y="-215" font-family="Helvetica,sans-Serif" font-size="10.00">stride::ContactPool</text>
 <text text-anchor="middle" x="865" y="-204" font-family="Helvetica,sans-Serif" font-size="10.00">::GetId</text>

@@ -11,9 +11,9 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-24 136,-24 136,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<g id="a_node1"><a xlink:href="d5/deb/a00132.html" target="_top" xlink:title="Produces a file with daily count of person having adopted a belief. ">
+<g id="a_node1"><a xlink:href="d5/deb/a00132.html" target="_top" xlink:title="No information about beliefs or health status is exchanged upon contact. ">
 <polygon fill="white" stroke="black" points="0.5,-0.5 0.5,-19.5 131.5,-19.5 131.5,-0.5 0.5,-0.5"/>
-<text text-anchor="middle" x="66" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::output::AdoptedFile</text>
+<text text-anchor="middle" x="66" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::NoLocalInformation</text>
 </a>
 </g>
 </g>

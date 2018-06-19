@@ -1,7 +1,33 @@
-<map id="GuiControllerBackend.h" name="GuiControllerBackend.h">
-<area shape="rect" id="node2" href="$d4/d5b/a00294.html" title="GuiController.h" alt="" coords="148,80,257,107"/>
-<area shape="rect" id="node6" href="$d9/d5e/a00295.html" title="GuiControllerBackend.cpp" alt="" coords="282,80,456,107"/>
-<area shape="rect" id="node3" href="$d6/d82/a00293.html" title="GuiController.cpp" alt="" coords="5,155,128,181"/>
-<area shape="rect" id="node4" href="$d4/dce/a00337.html" title="Launcher.cpp" alt="" coords="153,155,252,181"/>
-<area shape="rect" id="node5" href="$d0/d48/a00351.html" title="Main program: command line handling. " alt="" coords="276,155,349,181"/>
+<map id="GeoGridWriterFactory.cpp" name="GeoGridWriterFactory.cpp">
+<area shape="rect" id="node2" href="$db/d7b/a00296.html" title="GeoGridWriterFactory.h" alt="" coords="1872,80,2031,107"/>
+<area shape="rect" id="node79" href="$dd/dfe/a00283.html" title="GeoGridJSONWriter.h" alt="" coords="1067,80,1219,107"/>
+<area shape="rect" id="node81" href="$d4/d66/a00289.html" title="GeoGridProtoWriter.h" alt="" coords="1243,80,1390,107"/>
+<area shape="rect" id="node96" href="$da/d53/a00265.html" title="util/Exception.h" alt="" coords="743,163,854,189"/>
+<area shape="rect" id="node3" href="$d4/d5b/a00294.html" title="gengeopop/io/GeoGridWriter.h" alt="" coords="1854,163,2051,189"/>
+<area shape="rect" id="node4" href="$dd/d56/a00274.html" title="../GeoGrid.h" alt="" coords="2354,253,2447,280"/>
+<area shape="rect" id="node8" href="$d4/d13/a00377.html" title="Header file for the core Population class. " alt="" coords="2341,344,2459,371"/>
+<area shape="rect" id="node20" href="$d6/d08/a00244.html" title="Header for the core ContactPool class. " alt="" coords="2294,707,2427,733"/>
+<area shape="rect" id="node65" href="$df/df1/a00340.html" title="KdTree.h" alt="" coords="2195,707,2268,733"/>
+<area shape="rect" id="node67" href="$d9/d48/a00345.html" title="Location.h" alt="" coords="3526,435,3607,461"/>
+<area shape="rect" id="node75" href="$d9/dd6/a00272.html" title="GeoAggregator.h" alt="" coords="3526,344,3646,371"/>
+<area shape="rect" id="node9" href="$d9/d90/a00178.html" title="Base Class for PopBuilders. " alt="" coords="2697,525,2842,552"/>
+<area shape="rect" id="node13" href="$d4/d8f/a00324.html" title="Initialize populations. " alt="" coords="2334,435,2467,461"/>
+<area shape="rect" id="node19" href="$d0/d1f/a00247.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1546,525,1702,552"/>
+<area shape="rect" id="node25" href="$d2/d41/a00318.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1605,616,1763,643"/>
+<area shape="rect" id="node29" href="$d7/d93/a00397.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1190,616,1348,643"/>
+<area shape="rect" id="node35" href="$dd/df5/a00386.html" title="pool/RegionSlicer.h" alt="" coords="1336,525,1470,552"/>
+<area shape="rect" id="node36" href="$d3/d45/a00382.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="658,616,792,643"/>
+<area shape="rect" id="node41" href="$dd/d07/a00433.html" title="pool/TravellerIndex.h" alt="" coords="2182,525,2324,552"/>
+<area shape="rect" id="node43" href="$dd/dd7/a00260.html" title="Initialize populations. " alt="" coords="2763,435,2926,461"/>
+<area shape="rect" id="node44" href="$dd/d86/a00271.html" title="Initialize populations. " alt="" coords="2950,435,3095,461"/>
+<area shape="rect" id="node45" href="$d6/d80/a00371.html" title="Header file for the Person class. " alt="" coords="2003,435,2102,461"/>
+<area shape="rect" id="node49" href="$d9/d0a/a00390.html" title="Interface of RNManager. " alt="" coords="2806,707,2930,733"/>
+<area shape="rect" id="node59" href="$d6/daa/a00187.html" title="Interface/Implementation of Any. " alt="" coords="4000,707,4076,733"/>
+<area shape="rect" id="node14" href="$de/dbc/a00249.html" title="Definition of ContactPoolType. " alt="" coords="1702,789,1864,816"/>
+<area shape="rect" id="node21" href="$d2/dc8/a00242.html" title="Header for the ContactLogMode class. " alt="" coords="2323,789,2502,816"/>
+<area shape="rect" id="node30" href="$d1/d05/a00423.html" title="Interface/Implementation for SVIterator. " alt="" coords="936,707,1027,733"/>
+<area shape="rect" id="node46" href="$dc/d0f/a00303.html" title="Header for the Health class. " alt="" coords="1987,525,2107,552"/>
+<area shape="rect" id="node47" href="$d0/dc5/a00435.html" title="pool/TravellerProfile.h" alt="" coords="2585,616,2732,643"/>
+<area shape="rect" id="node50" href="$d9/dc1/a00388.html" title="Interface of Random Engine Type. " alt="" coords="3659,789,3782,816"/>
+<area shape="rect" id="node82" href="$d3/d5e/a00275.html" title="proto/geogrid.pb.h" alt="" coords="3630,163,3756,189"/>
 </map>

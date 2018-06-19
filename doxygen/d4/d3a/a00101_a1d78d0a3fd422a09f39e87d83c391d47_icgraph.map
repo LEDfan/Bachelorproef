@@ -1,8 +1,10 @@
 <map id="stride::ContactPool::AddMember" name="stride::ContactPool::AddMember">
-<area shape="rect" id="node2" href="$d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" title="Populate the given geogrid. " alt="" coords="197,5,408,46"/>
-<area shape="rect" id="node3" href="$d3/dea/a00046.html#a977c1f083a3ac0f06f5fa22ef9937e77" title="Construct the HouseholdCSVReader with an istream containing the CSV data. " alt="" coords="190,70,415,111"/>
-<area shape="rect" id="node4" href="$d3/de7/a00039.html#a19e0ff14a2aef228d926d53132fa767b" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="195,135,410,177"/>
-<area shape="rect" id="node5" href="$d3/de7/a00039.html#a351fab1f7eb8f7035fa432b2a3d7c104" title="Create a ContactCenter based on the provided protobuf ContactCenter. " alt="" coords="465,135,679,177"/>
-<area shape="rect" id="node6" href="$d3/de7/a00039.html#a0adca811808bc9edf494cd38b6ca0bae" title="Create a Location based on the provided protobuf Location. " alt="" coords="729,135,943,177"/>
-<area shape="rect" id="node7" href="$d3/de7/a00039.html#ad9d1285450862c08629d6f8456976413" title="Actually perform the read and return the GeoGrid. " alt="" coords="993,135,1207,177"/>
+<area shape="rect" id="node2" href="$d4/d3a/a00101.html#ad3651d6f186ce2ea7e0f7a746a2d4f94" title="Add the given Person as an expat. " alt="" coords="235,5,370,46"/>
+<area shape="rect" id="node4" href="$d4/dca/a00048.html#a47168ca7f0ce73610734befed56f0ae7" title="Populate the given geogrid. " alt="" coords="197,70,408,111"/>
+<area shape="rect" id="node5" href="$d3/dea/a00046.html#a977c1f083a3ac0f06f5fa22ef9937e77" title="Construct the HouseholdCSVReader with an istream containing the CSV data. " alt="" coords="190,135,415,177"/>
+<area shape="rect" id="node6" href="$d3/de7/a00039.html#a19e0ff14a2aef228d926d53132fa767b" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="195,201,410,242"/>
+<area shape="rect" id="node3" href="$db/d48/a00148.html#a2a3ea8982180232be8593d7fdcf80f37" title="Stores the information when the travel is started. " alt="" coords="500,5,644,46"/>
+<area shape="rect" id="node7" href="$d3/de7/a00039.html#a351fab1f7eb8f7035fa432b2a3d7c104" title="Create a ContactCenter based on the provided protobuf ContactCenter. " alt="" coords="465,201,679,242"/>
+<area shape="rect" id="node8" href="$d3/de7/a00039.html#a0adca811808bc9edf494cd38b6ca0bae" title="Create a Location based on the provided protobuf Location. " alt="" coords="729,201,943,242"/>
+<area shape="rect" id="node9" href="$d3/de7/a00039.html#ad9d1285450862c08629d6f8456976413" title="Actually perform the read and return the GeoGrid. " alt="" coords="993,201,1207,242"/>
 </map>

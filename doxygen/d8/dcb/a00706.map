@@ -1,19 +1,4 @@
-<map id="Infector.cpp" name="Infector.cpp">
-<area shape="rect" id="node2" href="$d8/dfc/a00327.html" title="Header for the Infector class. " alt="" coords="821,155,897,181"/>
-<area shape="rect" id="node9" href="$de/db1/a00197.html" title="Header file for the Calendar class. " alt="" coords="105,237,244,264"/>
-<area shape="rect" id="node33" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="1375,237,1508,264"/>
-<area shape="rect" id="node35" href="$df/dc2/a00367.html" title="Header file for the Person class. " alt="" coords="1833,80,1932,107"/>
-<area shape="rect" id="node3" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="1234,328,1365,355"/>
-<area shape="rect" id="node5" href="$d7/db9/a00426.html" title="Header for the TransmissionProfile class. " alt="" coords="545,237,692,264"/>
-<area shape="rect" id="node7" href="$d0/d01/a00339.html" title="Header file for LocalDiscussion info policy. " alt="" coords="855,230,1039,271"/>
-<area shape="rect" id="node8" href="$d7/ddb/a00361.html" title="behaviour/information\l_policies/NoLocalInformation.h" alt="" coords="319,230,520,271"/>
-<area shape="rect" id="node15" href="$d8/d64/a00181.html" title="Contact profile. " alt="" coords="1164,237,1351,264"/>
-<area shape="rect" id="node22" href="$d7/d40/a00236.html" title="Header for the ContactHandler class. " alt="" coords="2039,237,2209,264"/>
-<area shape="rect" id="node16" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="1540,328,1703,355"/>
-<area shape="rect" id="node20" href="$db/dd9/a00179.html" title="Helpers for age. " alt="" coords="1129,328,1209,355"/>
-<area shape="rect" id="node23" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="2194,328,2317,355"/>
-<area shape="rect" id="node24" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="1929,411,2052,437"/>
-<area shape="rect" id="node36" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="2089,155,2209,181"/>
-<area shape="rect" id="node37" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1639,155,1797,181"/>
-<area shape="rect" id="node41" href="$d4/dd3/a00428.html" title="pool/TravellerProfile.h" alt="" coords="2234,237,2381,264"/>
+<map id="ImportPopBuilder.h" name="ImportPopBuilder.h">
+<area shape="rect" id="node2" href="$d9/d90/a00178.html" title="Base Class for PopBuilders. " alt="" coords="147,80,292,107"/>
+<area shape="rect" id="node6" href="$de/dbc/a00249.html" title="Definition of ContactPoolType. " alt="" coords="472,80,635,107"/>
 </map>

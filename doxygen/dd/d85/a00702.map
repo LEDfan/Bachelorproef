@@ -1,9 +1,7 @@
-<map id="InfectedFile.h" name="InfectedFile.h">
-<area shape="rect" id="node2" href="$db/d53/a00321.html" title="Implementation of the CasesFile class. " alt="" coords="124,80,239,107"/>
-<area shape="rect" id="node3" href="$d4/d8f/a00324.html" title="Observer for Cases output. " alt="" coords="263,80,383,107"/>
-<area shape="rect" id="node4" href="$d3/db1/a00200.html" title="Calibrator.cpp" alt="" coords="5,155,107,181"/>
-<area shape="rect" id="node5" href="$d4/dce/a00337.html" title="Launcher.cpp" alt="" coords="131,155,231,181"/>
-<area shape="rect" id="node6" href="$d8/d00/a00186.html" title="Header for the command line controller. " alt="" coords="256,155,389,181"/>
-<area shape="rect" id="node7" href="$d5/df1/a00206.html" title="Header for the command line controller. " alt="" coords="414,155,532,181"/>
-<area shape="rect" id="node8" href="$de/d55/a00323.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="557,155,691,181"/>
+<map id="Immunizer.h" name="Immunizer.h">
+<area shape="rect" id="node2" href="$d6/d08/a00244.html" title="Header for the core ContactPool class. " alt="" coords="396,80,529,107"/>
+<area shape="rect" id="node14" href="$d7/d93/a00397.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="970,80,1128,107"/>
+<area shape="rect" id="node3" href="$d2/dc8/a00242.html" title="Header for the ContactLogMode class. " alt="" coords="38,155,217,181"/>
+<area shape="rect" id="node5" href="$de/dbc/a00249.html" title="Definition of ContactPoolType. " alt="" coords="721,155,884,181"/>
+<area shape="rect" id="node15" href="$d1/d05/a00423.html" title="Interface/Implementation for SVIterator. " alt="" coords="1138,155,1229,181"/>
 </map>

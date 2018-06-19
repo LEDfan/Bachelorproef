@@ -1,2 +1,5 @@
-<map id="gengeopop::GeoAggregator&lt; Policy, F &gt;" name="gengeopop::GeoAggregator&lt; Policy, F &gt;">
+<map id="gengeopop::HouseholdGenerator" name="gengeopop::HouseholdGenerator">
+<area shape="rect" id="node2" href="$d9/d2e/a00056.html" title="An interface for generators that provide a partial solution. " alt="" coords="468,721,655,842"/>
+<area shape="rect" id="node4" href="$d6/d7d/a00161.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="587,446,744,655"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="607,147,723,224"/>
 </map>

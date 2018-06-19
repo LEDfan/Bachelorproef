@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactPoolSys.h Source File</title>
+<title>Stride Reference Manual: ContactPool.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,56 +109,197 @@ $(document).ready(function(){initNavTree('d6/d82/a00243_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactPoolSys.h</div>  </div>
+<div class="title">ContactPool.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/d82/a00243.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Container for the contact pools of various type (household, work, ...)..</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d21/a00240.html">pool/ContactPool.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d22/a00245.html">pool/ContactPoolType.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d39/a00314.html">pool/IdSubscriptArray.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d4/d27/a00392.html">util/SegmentedVector.h</a>&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/// ContactPoolSys contains for each of the type of pools (household, school, ...)</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/// a util::PartitionedSegmentedVector with for each region a util::SegmentedVector with all contactpools.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/// The ContactPoolSys container is an std::array extended to be subscriptable</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/// with the enum class of the pool types.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/d5d/a00463.html#a49dce703c45af99fbc6215835b94327d">   33</a></span>&#160;<span class="comment"></span><span class="keyword">using</span> <a class="code" href="../../d1/d09/a00077.html">ContactPoolSys</a> = <a class="code" href="../../d1/d09/a00077.html">ContactPoolType::IdSubscriptArray&lt;util::SegmentedVector&lt;ContactPool&gt;</a>&gt;;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00314_html"><div class="ttname"><a href="../../d0/d39/a00314.html">IdSubscriptArray.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
-<div class="ttc" id="a00240_html"><div class="ttname"><a href="../../d9/d21/a00240.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
-<div class="ttc" id="a00245_html"><div class="ttname"><a href="../../d6/d22/a00245.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
-<div class="ttc" id="a00077_html"><div class="ttname"><a href="../../d1/d09/a00077.html">stride::ContactPoolType::IdSubscriptArray</a></div><div class="ttdoc">An std::array modified to enable subscripting with the constact pool type indentifiers. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d39/a00314_source.html#l00048">IdSubscriptArray.h:48</a></div></div>
-<div class="ttc" id="a00392_html"><div class="ttname"><a href="../../d4/d27/a00392.html">SegmentedVector.h</a></div><div class="ttdoc">Interface and implementation for SegmentedVector class. </div></div>
+<a href="../../d6/d82/a00243.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Implementation for the core ContcatPool class.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d08/a00244.html">ContactPool.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d52/a00183.html">pop/Age.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d80/a00371.html">pop/Person.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a8823b3c4a242f11f02e8c41b03ccd032">   32</a></span>&#160;<a class="code" href="../../d4/d3a/a00101.html#ac1d1d703237b056dc9d27d4814240eb5">ContactPool::ContactPool</a>(std::size_t pool_id, <a class="code" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity(), m_expats()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#ac1d1d703237b056dc9d27d4814240eb5">   37</a></span>&#160;<a class="code" href="../../d4/d3a/a00101.html#ac1d1d703237b056dc9d27d4814240eb5">ContactPool::ContactPool</a>() : m_pool_id(), m_pool_type(), m_index_immune(0), m_members(), m_capacity(), m_expats() {}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47">ContactPool::AddMember</a>(<span class="keyword">const</span> <a class="code" href="../../d2/df5/a00137.html">Person</a>* p)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.emplace_back(const_cast&lt;Person*&gt;(p));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d4/d3a/a00101.html#a62c93d5ae7d1981ca160bb01b543ee93">m_index_immune</a>++;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a6c90e9734ee7c6566bdf1f4416e99fd8">   45</a></span>&#160;std::tuple&lt;bool, size_t&gt; <a class="code" href="../../d4/d3a/a00101.html#a6c90e9734ee7c6566bdf1f4416e99fd8">ContactPool::SortMembers</a>()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">bool</span>   infectious_cases = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">size_t</span> num_cases        = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i_member = 0; i_member &lt; <a class="code" href="../../d4/d3a/a00101.html#a62c93d5ae7d1981ca160bb01b543ee93">m_index_immune</a>; i_member++) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="comment">// if immune, move to back</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member]-&gt;GetHealth().IsImmune()) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        <span class="keywordtype">bool</span>   swapped   = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        <span class="keywordtype">size_t</span> new_place = m_index_immune - 1;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        m_index_immune--;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        <span class="keywordflow">while</span> (!swapped &amp;&amp; new_place &gt; i_member) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[new_place]-&gt;GetHealth().IsImmune()) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                        m_index_immune--;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                        new_place--;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                        <a class="code" href="../../d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c">Swap</a>(i_member, new_place);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                        swapped = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="comment">// else, if not susceptible, move to front</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member]-&gt;GetHealth().IsSusceptible()) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="keywordflow">if</span> (!infectious_cases &amp;&amp; <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member]-&gt;GetHealth().IsInfectious()) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                infectious_cases = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="keywordflow">if</span> (i_member &gt; num_cases) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                <a class="code" href="../../d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c">Swap</a>(i_member, num_cases);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        num_cases++;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> std::make_tuple(infectious_cases, num_cases);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0">   81</a></span>&#160;std::size_t <a class="code" href="../../d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0">ContactPool::GetId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d4/d3a/a00101.html#a2b89a6990328cbbb99d580e1a716da08">m_pool_id</a>; }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a54e2cdaef8e05390ae669c39929cb24e">   83</a></span>&#160;std::size_t <a class="code" href="../../d4/d3a/a00101.html#a54e2cdaef8e05390ae669c39929cb24e">ContactPool::GetCapacity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d4/d3a/a00101.html#aeb7fa9c397515aa692b3c8a070f30acb">m_capacity</a>; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a396fd702ad552e5bce70941b78247a11">   85</a></span>&#160;std::size_t <a class="code" href="../../d4/d3a/a00101.html#a396fd702ad552e5bce70941b78247a11">ContactPool::GetUsedCapacity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.size(); }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a0eb4aec21b54382b50fac756306193d5">   87</a></span>&#160;std::pair&lt;std::size_t, std::size_t&gt; <a class="code" href="../../d4/d3a/a00101.html#a0eb4aec21b54382b50fac756306193d5">ContactPool::GetPopulationAndInfectedCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> infected = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="../../d2/df5/a00137.html">stride::Person</a>* person : <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">if</span> (person-&gt;GetHealth().IsInfected()) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        infected++;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> {m_members.size(), infected};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a15d2b3e8df0d100b0ef8279912b277da">   99</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3a/a00101.html#a15d2b3e8df0d100b0ef8279912b277da">ContactPool::RemoveMember</a>(<a class="code" href="../../d2/df5/a00137.html">Person</a>* person)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// use std::find and not std::remove since we need the original position to update the expats</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// note that a person shouldn&#39;t be added to a CP more than once</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">auto</span> it = std::find(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.begin(), <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.end(), person);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">if</span> (it != <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.end()) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.erase(it);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <a class="code" href="../../d4/d3a/a00101.html#aee9017051ee9365c0de4acd9272bcdbc">UpdateExpatsAfterRemoval</a>(it);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#aee9017051ee9365c0de4acd9272bcdbc">  110</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3a/a00101.html#aee9017051ee9365c0de4acd9272bcdbc">ContactPool::UpdateExpatsAfterRemoval</a>(std::vector&lt;Person*&gt;::iterator itAfterRemovedPerson)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">long</span> index = itAfterRemovedPerson - <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.begin();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">for</span> (std::pair&lt;const Person* const, std::size_t&gt;&amp; expat : <a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">if</span> (expat.second &gt;= static_cast&lt;std::size_t&gt;(index)) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                        expat.second--;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                assert(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[m_expats[expat.first]] == expat.first);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#ad3651d6f186ce2ea7e0f7a746a2d4f94">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3a/a00101.html#ad3651d6f186ce2ea7e0f7a746a2d4f94">ContactPool::AddExpat</a>(<span class="keyword">const</span> <a class="code" href="../../d2/df5/a00137.html">Person</a>* p)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="../../d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47">AddMember</a>(p);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        std::size_t index = <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.size() - 1;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>[p]       = index;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        assert(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[<a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>[p]] == p);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a106d5c1481ce4a17ae661deaec39f015">  129</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3a/a00101.html#a106d5c1481ce4a17ae661deaec39f015">ContactPool::RemoveExpat</a>(<a class="code" href="../../d2/df5/a00137.html">Person</a>* person)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        std::size_t index = <a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>.at(person);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        assert(person == <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[index]);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">auto</span> it = <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.erase(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.begin() + index);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>.erase(person);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <a class="code" href="../../d4/d3a/a00101.html#aee9017051ee9365c0de4acd9272bcdbc">UpdateExpatsAfterRemoval</a>(it);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="../../d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c">  139</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c">ContactPool::Swap</a>(std::size_t person1, std::size_t person2)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;{</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        std::swap(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[person1], <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[person2]);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="../../d2/df5/a00137.html">Person</a>* pPerson1 = <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[person1];</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">if</span> (pPerson1-&gt;<a class="code" href="../../d2/df5/a00137.html#aee5a60d1b3990a334dcb20c318f8929e">IsTravelling</a>() &amp;&amp; pPerson1-&gt;<a class="code" href="../../d2/df5/a00137.html#ace277043dfb3a2052adf508dd0179567">GetPoolId</a>(<a class="code" href="../../d4/d3a/a00101.html#a7f177c0e74c8749112841384c640c749">m_pool_type</a>) == <a class="code" href="../../d4/d3a/a00101.html#a2b89a6990328cbbb99d580e1a716da08">m_pool_id</a>) {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="comment">// m_members[i_member] is an expat -&gt; update map</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>[pPerson1] = person1;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                assert(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[<a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>[pPerson1]] == pPerson1);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <a class="code" href="../../d2/df5/a00137.html">Person</a>* pPerson2 = <a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[person2];</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">if</span> (pPerson2-&gt;<a class="code" href="../../d2/df5/a00137.html#aee5a60d1b3990a334dcb20c318f8929e">IsTravelling</a>() &amp;&amp; pPerson2-&gt;<a class="code" href="../../d2/df5/a00137.html#ace277043dfb3a2052adf508dd0179567">GetPoolId</a>(<a class="code" href="../../d4/d3a/a00101.html#a7f177c0e74c8749112841384c640c749">m_pool_type</a>) == <a class="code" href="../../d4/d3a/a00101.html#a2b89a6990328cbbb99d580e1a716da08">m_pool_id</a>) {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                <span class="comment">// m_members[i_member] is an expat -&gt; update map</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>[pPerson2] = person2;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                assert(<a class="code" href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[<a class="code" href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">m_expats</a>[pPerson2]] == pPerson2);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00101_html_a106d5c1481ce4a17ae661deaec39f015"><div class="ttname"><a href="../../d4/d3a/a00101.html#a106d5c1481ce4a17ae661deaec39f015">stride::ContactPool::RemoveExpat</a></div><div class="ttdeci">void RemoveExpat(Person *Person)</div><div class="ttdoc">Remove an expat from the contactpool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00129">ContactPool.cpp:129</a></div></div>
+<div class="ttc" id="a00101_html_a2b89a6990328cbbb99d580e1a716da08"><div class="ttname"><a href="../../d4/d3a/a00101.html#a2b89a6990328cbbb99d580e1a716da08">stride::ContactPool::m_pool_id</a></div><div class="ttdeci">std::size_t m_pool_id</div><div class="ttdoc">The ID of the ContactPool (for logging purposes). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00112">ContactPool.h:112</a></div></div>
+<div class="ttc" id="a00101_html_aee9017051ee9365c0de4acd9272bcdbc"><div class="ttname"><a href="../../d4/d3a/a00101.html#aee9017051ee9365c0de4acd9272bcdbc">stride::ContactPool::UpdateExpatsAfterRemoval</a></div><div class="ttdeci">void UpdateExpatsAfterRemoval(std::vector&lt; Person * &gt;::iterator itAfterRemovedPerson)</div><div class="ttdoc">Update the m_expats data after removing a element from m_members itAfterRemovedPerson is the iterator...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00110">ContactPool.cpp:110</a></div></div>
+<div class="ttc" id="a00137_html_aee5a60d1b3990a334dcb20c318f8929e"><div class="ttname"><a href="../../d2/df5/a00137.html#aee5a60d1b3990a334dcb20c318f8929e">stride::Person::IsTravelling</a></div><div class="ttdeci">bool IsTravelling() const </div><div class="ttdoc">Returns whether this person is travelling. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00169">Person.h:169</a></div></div>
+<div class="ttc" id="a00101_html_a396fd702ad552e5bce70941b78247a11"><div class="ttname"><a href="../../d4/d3a/a00101.html#a396fd702ad552e5bce70941b78247a11">stride::ContactPool::GetUsedCapacity</a></div><div class="ttdeci">std::size_t GetUsedCapacity() const </div><div class="ttdoc">Get the pool used capacity, i.e. amount of members. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00085">ContactPool.cpp:85</a></div></div>
+<div class="ttc" id="a00244_html"><div class="ttname"><a href="../../d6/d08/a00244.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
+<div class="ttc" id="a00101_html_a690eb0c37e24595ecb92b04003afa546"><div class="ttname"><a href="../../d4/d3a/a00101.html#a690eb0c37e24595ecb92b04003afa546">stride::ContactPool::m_expats</a></div><div class="ttdeci">std::unordered_map&lt; const Person *, std::size_t &gt; m_expats</div><div class="ttdoc">Helper data structure for fast deletions of expats from m_members Can&#39;t keep them in the end of m_mem...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00122">ContactPool.h:122</a></div></div>
+<div class="ttc" id="a00101_html_a0eb4aec21b54382b50fac756306193d5"><div class="ttname"><a href="../../d4/d3a/a00101.html#a0eb4aec21b54382b50fac756306193d5">stride::ContactPool::GetPopulationAndInfectedCount</a></div><div class="ttdeci">std::pair&lt; std::size_t, std::size_t &gt; GetPopulationAndInfectedCount() const </div><div class="ttdoc">Returns the amount of persons and amount of infected persons in this pool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00087">ContactPool.cpp:87</a></div></div>
+<div class="ttc" id="a00101_html_a0a6552a6767ab8c31913a5907d6b1b1c"><div class="ttname"><a href="../../d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c">stride::ContactPool::Swap</a></div><div class="ttdeci">void Swap(std::size_t person1, std::size_t person2)</div><div class="ttdoc">Swaps persons in m_members with the given index and updates the expats data if necessary. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00139">ContactPool.cpp:139</a></div></div>
+<div class="ttc" id="a00137_html_ace277043dfb3a2052adf508dd0179567"><div class="ttname"><a href="../../d2/df5/a00137.html#ace277043dfb3a2052adf508dd0179567">stride::Person::GetPoolId</a></div><div class="ttdeci">unsigned int GetPoolId(const ContactPoolType::Id &amp;poolType) const </div><div class="ttdoc">Get ID of contactpool_type. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00073">Person.h:73</a></div></div>
+<div class="ttc" id="a00101_html_a1d78d0a3fd422a09f39e87d83c391d47"><div class="ttname"><a href="../../d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47">stride::ContactPool::AddMember</a></div><div class="ttdeci">void AddMember(const Person *p)</div><div class="ttdoc">Add the given Person. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00039">ContactPool.cpp:39</a></div></div>
+<div class="ttc" id="a00183_html"><div class="ttname"><a href="../../dc/d52/a00183.html">Age.h</a></div><div class="ttdoc">Helpers for age. </div></div>
+<div class="ttc" id="a00101_html_a62c93d5ae7d1981ca160bb01b543ee93"><div class="ttname"><a href="../../d4/d3a/a00101.html#a62c93d5ae7d1981ca160bb01b543ee93">stride::ContactPool::m_index_immune</a></div><div class="ttdeci">std::size_t m_index_immune</div><div class="ttdoc">Index of the first immune member in the ContactPool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00114">ContactPool.h:114</a></div></div>
+<div class="ttc" id="a00101_html_ab0f72fc64a2ccb4885b91680def969e0"><div class="ttname"><a href="../../d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0">stride::ContactPool::GetId</a></div><div class="ttdeci">std::size_t GetId() const </div><div class="ttdoc">Get the pool id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00081">ContactPool.cpp:81</a></div></div>
+<div class="ttc" id="a00101_html_a6c90e9734ee7c6566bdf1f4416e99fd8"><div class="ttname"><a href="../../d4/d3a/a00101.html#a6c90e9734ee7c6566bdf1f4416e99fd8">stride::ContactPool::SortMembers</a></div><div class="ttdeci">std::tuple&lt; bool, size_t &gt; SortMembers()</div><div class="ttdoc">Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00045">ContactPool.cpp:45</a></div></div>
+<div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00039">Person.h:39</a></div></div>
+<div class="ttc" id="a00101_html_ad3651d6f186ce2ea7e0f7a746a2d4f94"><div class="ttname"><a href="../../d4/d3a/a00101.html#ad3651d6f186ce2ea7e0f7a746a2d4f94">stride::ContactPool::AddExpat</a></div><div class="ttdeci">void AddExpat(const Person *p)</div><div class="ttdoc">Add the given Person as an expat. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00121">ContactPool.cpp:121</a></div></div>
+<div class="ttc" id="a00101_html_a672b69837fbd57d9a61f8acb18fec82e"><div class="ttname"><a href="../../d4/d3a/a00101.html#a672b69837fbd57d9a61f8acb18fec82e">stride::ContactPool::m_members</a></div><div class="ttdeci">std::vector&lt; Person * &gt; m_members</div><div class="ttdoc">Pointers to contactpool members (raw pointers intentional). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00115">ContactPool.h:115</a></div></div>
+<div class="ttc" id="a00101_html_ac1d1d703237b056dc9d27d4814240eb5"><div class="ttname"><a href="../../d4/d3a/a00101.html#ac1d1d703237b056dc9d27d4814240eb5">stride::ContactPool::ContactPool</a></div><div class="ttdeci">ContactPool()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00037">ContactPool.cpp:37</a></div></div>
+<div class="ttc" id="a00101_html_a7f177c0e74c8749112841384c640c749"><div class="ttname"><a href="../../d4/d3a/a00101.html#a7f177c0e74c8749112841384c640c749">stride::ContactPool::m_pool_type</a></div><div class="ttdeci">ContactPoolType::Id m_pool_type</div><div class="ttdoc">The type of the ContactPool (for logging purposes). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00113">ContactPool.h:113</a></div></div>
+<div class="ttc" id="a00101_html_a54e2cdaef8e05390ae669c39929cb24e"><div class="ttname"><a href="../../d4/d3a/a00101.html#a54e2cdaef8e05390ae669c39929cb24e">stride::ContactPool::GetCapacity</a></div><div class="ttdeci">std::size_t GetCapacity() const </div><div class="ttdoc">Get the pool capacity. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00083">ContactPool.cpp:83</a></div></div>
+<div class="ttc" id="a00101_html_aeb7fa9c397515aa692b3c8a070f30acb"><div class="ttname"><a href="../../d4/d3a/a00101.html#aeb7fa9c397515aa692b3c8a070f30acb">stride::ContactPool::m_capacity</a></div><div class="ttdeci">std::size_t m_capacity</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00116">ContactPool.h:116</a></div></div>
+<div class="ttc" id="a00101_html_a15d2b3e8df0d100b0ef8279912b277da"><div class="ttname"><a href="../../d4/d3a/a00101.html#a15d2b3e8df0d100b0ef8279912b277da">stride::ContactPool::RemoveMember</a></div><div class="ttdeci">void RemoveMember(Person *pPerson)</div><div class="ttdoc">Remove a member from the contactpool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d82/a00243_source.html#l00099">ContactPool.cpp:99</a></div></div>
+<div class="ttc" id="a00473_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00371_html"><div class="ttname"><a href="../../d6/d80/a00371.html">Person.h</a></div><div class="ttdoc">Header file for the Person class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d6/d82/a00243.html">ContactPoolSys.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d6/d82/a00243.html">ContactPool.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,3 +1,8 @@
-<map id="gengeopop::CollegeGenerator" name="gengeopop::CollegeGenerator">
-<area shape="rect" id="node2" href="$d9/d2e/a00056.html" title="An interface for generators that provide a partial solution. " alt="" coords="9,5,196,141"/>
+<map id="calibration::ConfigFileCalibrationRunner" name="calibration::ConfigFileCalibrationRunner">
+<area shape="rect" id="node2" href="$de/d21/a00006.html" title="A runner for the Calibration. " alt="" coords="271,1008,421,1173"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="349,155,464,232"/>
+<area shape="rect" id="node14" title="STL class. " alt="" coords="824,512,947,589"/>
+<area shape="rect" id="node7" href="$de/d5e/a00007.html" title="A calibration tool used to calibrate the Stride scenario tests. " alt="" coords="146,691,344,944"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="487,512,565,589"/>
+<area shape="rect" id="node11" title="STL class. " alt="" coords="497,341,623,433"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::CSV Class Reference</title>
+<title>Stride Reference Manual: stride::TravellerProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -112,104 +112,107 @@ $(document).ready(function(){initNavTree('d9/d7d/a00150.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="../../d2/d1d/a01277.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d8/ddf/a01238.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::CSV Class Reference</div>  </div>
+<div class="title">stride::TravellerProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A collection of <a class="el" href="../../dd/db2/a00151.html" title="Row in CSV file. ">CSVRow</a> elements.  
+<p>Holds the information about travels.  
  <a href="../../d9/d7d/a00150.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::CSV:</div>
+Collaboration diagram for stride::TravellerProfile:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d10/a01278.svg" width="174" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::CSV:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/de7/a01279.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d7/dbf/a01239.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac8d180042e0dd5717d655d9cbd1dc59b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#ac8d180042e0dd5717d655d9cbd1dc59b">CSV</a> (const boost::filesystem::path &amp;path, std::initializer_list&lt; std::string &gt; optLabels={})</td></tr>
-<tr class="memdesc:ac8d180042e0dd5717d655d9cbd1dc59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from file.  <a href="#ac8d180042e0dd5717d655d9cbd1dc59b">More...</a><br/></td></tr>
-<tr class="separator:ac8d180042e0dd5717d655d9cbd1dc59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46bba243855b4fc66c20bf3bc55fdc95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a46bba243855b4fc66c20bf3bc55fdc95">CSV</a> (std::istream &amp;inputStream)</td></tr>
-<tr class="memdesc:a46bba243855b4fc66c20bf3bc55fdc95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that uses a stream as input.  <a href="#a46bba243855b4fc66c20bf3bc55fdc95">More...</a><br/></td></tr>
-<tr class="separator:a46bba243855b4fc66c20bf3bc55fdc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a637e43bf563fb9b4420a2aafd557875a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a637e43bf563fb9b4420a2aafd557875a">CSV</a> (std::initializer_list&lt; std::string &gt; <a class="el" href="../../d9/d7d/a00150.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>)</td></tr>
-<tr class="memdesc:a637e43bf563fb9b4420a2aafd557875a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with header.  <a href="#a637e43bf563fb9b4420a2aafd557875a">More...</a><br/></td></tr>
-<tr class="separator:a637e43bf563fb9b4420a2aafd557875a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aadfb52b95c349f14469a203d21472b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a6aadfb52b95c349f14469a203d21472b">CSV</a> ()=default</td></tr>
-<tr class="memdesc:a6aadfb52b95c349f14469a203d21472b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Mainly used for swig.  <a href="#a6aadfb52b95c349f14469a203d21472b">More...</a><br/></td></tr>
-<tr class="separator:a6aadfb52b95c349f14469a203d21472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63ffba1157ea6381bbce102c430e189b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d34/a00476.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a63ffba1157ea6381bbce102c430e189b">GetColumnCount</a> () const </td></tr>
-<tr class="memdesc:a63ffba1157ea6381bbce102c430e189b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of columns in the <a class="el" href="../../d9/d7d/a00150.html" title="A collection of CSVRow elements. ">CSV</a>.  <a href="#a63ffba1157ea6381bbce102c430e189b">More...</a><br/></td></tr>
-<tr class="separator:a63ffba1157ea6381bbce102c430e189b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f700f0aa2b27d664adb69e27a6eb4b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a2f700f0aa2b27d664adb69e27a6eb4b1">operator==</a> (const <a class="el" href="../../d9/d7d/a00150.html">CSV</a> &amp;other) const </td></tr>
-<tr class="memdesc:a2f700f0aa2b27d664adb69e27a6eb4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare operator.  <a href="#a2f700f0aa2b27d664adb69e27a6eb4b1">More...</a><br/></td></tr>
-<tr class="separator:a2f700f0aa2b27d664adb69e27a6eb4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae467f9599974c0f180c529f8a9f298"><td class="memTemplParams" colspan="2">template&lt;typename... T&gt; </td></tr>
-<tr class="memitem:a1ae467f9599974c0f180c529f8a9f298"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a> (const T &amp;...values)</td></tr>
-<tr class="memdesc:a1ae467f9599974c0f180c529f8a9f298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row of values. Will all be converted to string with StringUtils::ToString.  <a href="#a1ae467f9599974c0f180c529f8a9f298">More...</a><br/></td></tr>
-<tr class="separator:a1ae467f9599974c0f180c529f8a9f298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d1cfbbd18fc4fc40db7ae51a0aaa85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85">AddRow</a> (std::vector&lt; std::string &gt; values)</td></tr>
-<tr class="memdesc:a85d1cfbbd18fc4fc40db7ae51a0aaa85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row of string values.  <a href="#a85d1cfbbd18fc4fc40db7ae51a0aaa85">More...</a><br/></td></tr>
-<tr class="separator:a85d1cfbbd18fc4fc40db7ae51a0aaa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92b1c16c77b9b5b046a0fecc90ae3c8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a92b1c16c77b9b5b046a0fecc90ae3c8d">AddRows</a> (std::vector&lt; std::vector&lt; std::string &gt;&gt; &amp;rows)</td></tr>
-<tr class="memdesc:a92b1c16c77b9b5b046a0fecc90ae3c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a collection of rows.  <a href="#a92b1c16c77b9b5b046a0fecc90ae3c8d">More...</a><br/></td></tr>
-<tr class="separator:a92b1c16c77b9b5b046a0fecc90ae3c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11a080486a81df3276cabfac0f7a2b41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a11a080486a81df3276cabfac0f7a2b41">Write</a> (const boost::filesystem::path &amp;path) const </td></tr>
-<tr class="memdesc:a11a080486a81df3276cabfac0f7a2b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write <a class="el" href="../../d9/d7d/a00150.html" title="A collection of CSVRow elements. ">CSV</a> to file.  <a href="#a11a080486a81df3276cabfac0f7a2b41">More...</a><br/></td></tr>
-<tr class="separator:a11a080486a81df3276cabfac0f7a2b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed99cf47769a6284b45c2815b08d1bd0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#aed99cf47769a6284b45c2815b08d1bd0">GetIndexForLabel</a> (const std::string &amp;label) const </td></tr>
-<tr class="memdesc:aed99cf47769a6284b45c2815b08d1bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert label to index for more user friendly and robuust implementation.  <a href="#aed99cf47769a6284b45c2815b08d1bd0">More...</a><br/></td></tr>
-<tr class="separator:aed99cf47769a6284b45c2815b08d1bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad153bb329555a2b114defc97e53793ad"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#ad153bb329555a2b114defc97e53793ad">GetLabels</a> () const </td></tr>
-<tr class="separator:ad153bb329555a2b114defc97e53793ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a4298638a8f9c9871d800338bdf77bd50"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a4298638a8f9c9871d800338bdf77bd50">labels</a></td></tr>
-<tr class="separator:a4298638a8f9c9871d800338bdf77bd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a598821720121beeaed01a7a7216e5601"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d34/a00476.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a598821720121beeaed01a7a7216e5601">columnCount</a> = 0</td></tr>
-<tr class="separator:a598821720121beeaed01a7a7216e5601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf43310777f148c6a80e51a39aced746"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#adf43310777f148c6a80e51a39aced746">TravellerProfile</a> (std::size_t amountOfRegions, <a class="el" href="../../db/d8e/a00482.html">double</a> amountOfTravel, <a class="el" href="../../db/d8e/a00482.html">double</a> fractionWork, <a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager, std::size_t maxDays)</td></tr>
+<tr class="memdesc:adf43310777f148c6a80e51a39aced746"><td class="mdescLeft">&#160;</td><td class="mdescRight">AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel fractionWork indicates the amount of work travel.  <a href="#adf43310777f148c6a80e51a39aced746">More...</a><br/></td></tr>
+<tr class="separator:adf43310777f148c6a80e51a39aced746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091b01535ec4d3a7233909380955ce2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a091b01535ec4d3a7233909380955ce2b">TravellerProfile</a> (<a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager)</td></tr>
+<tr class="separator:a091b01535ec4d3a7233909380955ce2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810f4044c50a8341090834bd75253357"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a810f4044c50a8341090834bd75253357">AddTravelRecreation</a> (std::size_t from, std::size_t to, <a class="el" href="../../db/d8e/a00482.html">double</a> relativePopulation)</td></tr>
+<tr class="memdesc:a810f4044c50a8341090834bd75253357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a travel record to the recreation profile.  <a href="#a810f4044c50a8341090834bd75253357">More...</a><br/></td></tr>
+<tr class="separator:a810f4044c50a8341090834bd75253357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8da1f66852e62002ada510e95e5ada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a5a8da1f66852e62002ada510e95e5ada">AddTravelWork</a> (std::size_t from, std::size_t to, <a class="el" href="../../db/d8e/a00482.html">double</a> relativePopulation)</td></tr>
+<tr class="memdesc:a5a8da1f66852e62002ada510e95e5ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a travel record to the work profile.  <a href="#a5a8da1f66852e62002ada510e95e5ada">More...</a><br/></td></tr>
+<tr class="separator:a5a8da1f66852e62002ada510e95e5ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b1219dfa5bb3b91d0603cac0a22b8ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a7b1219dfa5bb3b91d0603cac0a22b8ae">PersonWillTravel</a> (<a class="el" href="../../d8/d89/a00484.html">size_t</a> currentRegion, std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt; ptr, <a class="el" href="../../d2/df5/a00137.html">Person</a> *person, std::size_t currentDay)</td></tr>
+<tr class="memdesc:a7b1219dfa5bb3b91d0603cac0a22b8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Based on the profile determines if a person will travel and handle when it effectively travels.  <a href="#a7b1219dfa5bb3b91d0603cac0a22b8ae">More...</a><br/></td></tr>
+<tr class="separator:a7b1219dfa5bb3b91d0603cac0a22b8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a2f3c33a76164f6cbc6e31aab6f8b560d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a2f3c33a76164f6cbc6e31aab6f8b560d">ReadFromStream</a> (std::istream &amp;inputStream)</td></tr>
-<tr class="separator:a2f3c33a76164f6cbc6e31aab6f8b560d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9f4b79657eabfff845b4fd8eed603cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#ab9f4b79657eabfff845b4fd8eed603cb">MakeChoice</a> (<a class="el" href="../../db/d8e/a00482.html">double</a> fraction)</td></tr>
+<tr class="memdesc:ab9f4b79657eabfff845b4fd8eed603cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to make a random choice based on a fraction.  <a href="#ab9f4b79657eabfff845b4fd8eed603cb">More...</a><br/></td></tr>
+<tr class="separator:ab9f4b79657eabfff845b4fd8eed603cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab85cd366fb4ad5d449bcac8dd0e22680"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../db/d8e/a00482.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a></td></tr>
+<tr class="memdesc:ab85cd366fb4ad5d449bcac8dd0e22680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the actual travelling profile used to "generate" trips From region, to region, relative amount of people.  <a href="#ab85cd366fb4ad5d449bcac8dd0e22680">More...</a><br/></td></tr>
+<tr class="separator:ab85cd366fb4ad5d449bcac8dd0e22680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089c66f906b78f748d73de4d107fc96d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; <a class="el" href="../../db/d8e/a00482.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a></td></tr>
+<tr class="memdesc:a089c66f906b78f748d73de4d107fc96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the actual travelling profile used to "generate" trips From region, to region, relative amount of people.  <a href="#a089c66f906b78f748d73de4d107fc96d">More...</a><br/></td></tr>
+<tr class="separator:a089c66f906b78f748d73de4d107fc96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4d2c976a3b840cd9322098e1459527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a5c4d2c976a3b840cd9322098e1459527">m_amountOfTravel</a></td></tr>
+<tr class="memdesc:a5c4d2c976a3b840cd9322098e1459527"><td class="mdescLeft">&#160;</td><td class="mdescRight">A fraction 0-1 which indicates the change for a person to travel.  <a href="#a5c4d2c976a3b840cd9322098e1459527">More...</a><br/></td></tr>
+<tr class="separator:a5c4d2c976a3b840cd9322098e1459527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af617090f0723c7e5125df8f6f1200474"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#af617090f0723c7e5125df8f6f1200474">m_fractionWork</a></td></tr>
+<tr class="memdesc:af617090f0723c7e5125df8f6f1200474"><td class="mdescLeft">&#160;</td><td class="mdescRight">A fraction 0-1 which indicates whether it's work travel or recreation.  <a href="#af617090f0723c7e5125df8f6f1200474">More...</a><br/></td></tr>
+<tr class="separator:af617090f0723c7e5125df8f6f1200474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05f8820a7b048409b5df0ef3a5c6a6f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a></td></tr>
+<tr class="separator:a05f8820a7b048409b5df0ef3a5c6a6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4e33ed521c19e6ccee9f55f20b2f55"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/a00150.html#a3a4e33ed521c19e6ccee9f55f20b2f55">m_maxDays</a></td></tr>
+<tr class="memdesc:a3a4e33ed521c19e6ccee9f55f20b2f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum amount of days to travel.  <a href="#a3a4e33ed521c19e6ccee9f55f20b2f55">More...</a><br/></td></tr>
+<tr class="separator:a3a4e33ed521c19e6ccee9f55f20b2f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A collection of <a class="el" href="../../dd/db2/a00151.html" title="Row in CSV file. ">CSVRow</a> elements. </p>
-<p>Iterate with begin and end like STL containers. </p>
+<div class="textblock"><p>Holds the information about travels. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00037">37</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00015">15</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac8d180042e0dd5717d655d9cbd1dc59b"></a>
+<a class="anchor" id="adf43310777f148c6a80e51a39aced746"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
+          <td class="memname">stride::TravellerProfile::TravellerProfile </td>
           <td>(</td>
-          <td class="paramtype">const boost::filesystem::path &amp;&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>amountOfRegions</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::initializer_list&lt; std::string &gt;&#160;</td>
-          <td class="paramname"><em>optLabels</em> = <code>{}</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td>
+          <td class="paramname"><em>amountOfTravel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td>
+          <td class="paramname"><em>fractionWork</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>maxDays</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -217,30 +220,17 @@ Private Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Initialize from file. </p>
-<p>If optLabels not specied, the file is required. Otherwise initialize like second constructor. </p>
+<p>AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel fractionWork indicates the amount of work travel. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00051">51</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d7e/a00434_source.html#l00009">9</a> of file <a class="el" href="../../d1/d7e/a00434_source.html">TravellerProfile.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00088">columnCount</a>, <a class="el" href="../../d0/d1f/a00247_source.html#l00087">labels</a>, and <a class="el" href="../../d4/d9a/a00246_source.html#l00123">ReadFromStream()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_ac8d180042e0dd5717d655d9cbd1dc59b_cgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
+<p>References <a class="el" href="../../d0/dc5/a00435_source.html#l00040">m_data_recreation</a>, and <a class="el" href="../../d0/dc5/a00435_source.html#l00044">m_data_work</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a46bba243855b4fc66c20bf3bc55fdc95"></a>
+<a class="anchor" id="a091b01535ec4d3a7233909380955ce2b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -248,312 +238,171 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
+          <td class="memname">stride::TravellerProfile::TravellerProfile </td>
           <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor that uses a stream as input. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00074">74</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d9a/a00246_source.html#l00123">ReadFromStream()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a46bba243855b4fc66c20bf3bc55fdc95_cgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a637e43bf563fb9b4420a2aafd557875a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramtype">std::initializer_list&lt; std::string &gt;&#160;</td>
-          <td class="paramname"><em>labels</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize with header. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00076">76</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6aadfb52b95c349f14469a203d21472b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default constructor. Mainly used for swig. </p>
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00023">23</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a63ffba1157ea6381bbce102c430e189b"></a>
+<a class="anchor" id="a810f4044c50a8341090834bd75253357"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d34/a00476.html">size_t</a> stride::util::CSV::GetColumnCount </td>
+          <td class="memname">void stride::TravellerProfile::AddTravelRecreation </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td>
+          <td class="paramname"><em>relativePopulation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Amount of columns in the <a class="el" href="../../d9/d7d/a00150.html" title="A collection of CSVRow elements. ">CSV</a>. </p>
+<p>Add a travel record to the recreation profile. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00059">59</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d7e/a00434_source.html#l00020">20</a> of file <a class="el" href="../../d1/d7e/a00434_source.html">TravellerProfile.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00088">columnCount</a>.</p>
+<p>References <a class="el" href="../../d0/dc5/a00435_source.html#l00040">m_data_recreation</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/dd7/a00248_source.html#l00038">stride::util::CSVRow::CSVRow()</a>, and <a class="el" href="../../d5/d0b/a00220_source.html#l00059">gengeopop::CommutesCSVReader::FillGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d82/a00436_source.html#l00043">stride::TravellerProfileBuilder::Build()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a63ffba1157ea6381bbce102c430e189b_icgraph.svg" width="408" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a810f4044c50a8341090834bd75253357_icgraph.svg" width="534" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a2f700f0aa2b27d664adb69e27a6eb4b1"></a>
+<a class="anchor" id="a5a8da1f66852e62002ada510e95e5ada"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::util::CSV::operator== </td>
+          <td class="memname">void stride::TravellerProfile::AddTravelWork </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/d7d/a00150.html">CSV</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compare operator. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00078">78</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00087">labels</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1ae467f9599974c0f180c529f8a9f298"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void stride::util::CSV::AddRow </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;...&#160;</td>
-          <td class="paramname"><em>values</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td>
+          <td class="paramname"><em>relativePopulation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Add row of values. Will all be converted to string with StringUtils::ToString. </p>
+<p>Add a travel record to the work profile. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00092">92</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d7e/a00434_source.html#l00025">25</a> of file <a class="el" href="../../d1/d7e/a00434_source.html">TravellerProfile.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/da0/a00403_source.html#l00078">stride::util::ToString()</a>.</p>
+<p>References <a class="el" href="../../d0/dc5/a00435_source.html#l00044">m_data_work</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d9a/a00246_source.html#l00083">AddRows()</a>, and <a class="el" href="../../d4/d9a/a00246_source.html#l00123">ReadFromStream()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d82/a00436_source.html#l00043">stride::TravellerProfileBuilder::Build()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a5a8da1f66852e62002ada510e95e5ada_icgraph.svg" width="531" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b1219dfa5bb3b91d0603cac0a22b8ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::TravellerProfile::PersonWillTravel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d89/a00484.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>currentRegion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/df5/a00137.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>person</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>currentDay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Based on the profile determines if a person will travel and handle when it effectively travels. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d7e/a00434_source.html#l00030">30</a> of file <a class="el" href="../../d1/d7e/a00434_source.html">TravellerProfile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d0a/a00390_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00129">stride::Person::GetWorkId()</a>, <a class="el" href="../../d0/dc5/a00435_source.html#l00047">m_amountOfTravel</a>, <a class="el" href="../../d0/dc5/a00435_source.html#l00040">m_data_recreation</a>, <a class="el" href="../../d0/dc5/a00435_source.html#l00044">m_data_work</a>, <a class="el" href="../../d0/dc5/a00435_source.html#l00050">m_fractionWork</a>, <a class="el" href="../../d0/dc5/a00435_source.html#l00055">m_maxDays</a>, <a class="el" href="../../d0/dc5/a00435_source.html#l00052">m_rnManager</a>, <a class="el" href="../../d1/d7e/a00434_source.html#l00074">MakeChoice()</a>, <a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::PrimaryCommunity</a>, and <a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Work</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a1ae467f9599974c0f180c529f8a9f298_cgraph.svg" width="318" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a1ae467f9599974c0f180c529f8a9f298_icgraph.svg" width="507" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a7b1219dfa5bb3b91d0603cac0a22b8ae_cgraph.svg" width="603" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a85d1cfbbd18fc4fc40db7ae51a0aaa85"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::AddRow </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
-          <td class="paramname"><em>values</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add row of string values. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00147">147</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a92b1c16c77b9b5b046a0fecc90ae3c8d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::AddRows </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; std::string &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>rows</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add a collection of rows. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00083">83</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00092">AddRow()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a92b1c16c77b9b5b046a0fecc90ae3c8d_cgraph.svg" width="488" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a11a080486a81df3276cabfac0f7a2b41"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::Write </td>
-          <td>(</td>
-          <td class="paramtype">const boost::filesystem::path &amp;&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write <a class="el" href="../../d9/d7d/a00150.html" title="A collection of CSVRow elements. ">CSV</a> to file. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00099">99</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00087">labels</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aed99cf47769a6284b45c2815b08d1bd0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t stride::util::CSV::GetIndexForLabel </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>label</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert label to index for more user friendly and robuust implementation. </p>
-<p>This level of indirection does introduce a perfomance tradeoff. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00090">90</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00087">labels</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad153bb329555a2b114defc97e53793ad"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; std::string &gt; &amp; stride::util::CSV::GetLabels </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00153">153</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00087">labels</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d0b/a00220_source.html#l00059">gengeopop::CommutesCSVReader::FillGeoGrid()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_ad153bb329555a2b114defc97e53793ad_icgraph.svg" width="408" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a2f3c33a76164f6cbc6e31aab6f8b560d"></a>
+<a class="anchor" id="ab9f4b79657eabfff845b4fd8eed603cb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -561,10 +410,10 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::CSV::ReadFromStream </td>
+          <td class="memname">bool stride::TravellerProfile::MakeChoice </td>
           <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../db/d8e/a00482.html">double</a>&#160;</td>
+          <td class="paramname"><em>fraction</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -575,30 +424,32 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00123">123</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a>.</p>
+<p>Helper function to make a random choice based on a fraction. </p>
 
-<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00092">AddRow()</a>, <a class="el" href="../../d0/d1f/a00247_source.html#l00088">columnCount</a>, <a class="el" href="../../d0/d1f/a00247_source.html#l00087">labels</a>, <a class="el" href="../../d0/da0/a00403_source.html#l00046">stride::util::Split()</a>, and <a class="el" href="../../d0/da0/a00403_source.html#l00127">stride::util::Trim()</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d7e/a00434_source.html#l00074">74</a> of file <a class="el" href="../../d1/d7e/a00434_source.html">TravellerProfile.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d9a/a00246_source.html#l00051">CSV()</a>.</p>
+<p>References <a class="el" href="../../d9/d0a/a00390_source.html#l00081">stride::util::RNManager::GetGenerator()</a>, and <a class="el" href="../../d0/dc5/a00435_source.html#l00052">m_rnManager</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a2f3c33a76164f6cbc6e31aab6f8b560d_cgraph.svg" width="499" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_ab9f4b79657eabfff845b4fd8eed603cb_cgraph.svg" width="366" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_a2f3c33a76164f6cbc6e31aab6f8b560d_icgraph.svg" width="336" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d7d/a00150_ab9f4b79657eabfff845b4fd8eed603cb_icgraph.svg" width="358" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a4298638a8f9c9871d800338bdf77bd50"></a>
+<a class="anchor" id="ab85cd366fb4ad5d449bcac8dd0e22680"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -606,23 +457,25 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::string&gt; stride::util::CSV::labels</td>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="../../db/d8e/a00482.html">double</a>&gt; &gt; stride::TravellerProfile::m_data_recreation</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00087">87</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a>.</p>
+<p>Holds the actual travelling profile used to "generate" trips From region, to region, relative amount of people. </p>
 
-<p>Referenced by <a class="el" href="../../d4/d9a/a00246_source.html#l00051">CSV()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00090">GetIndexForLabel()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00153">GetLabels()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00078">operator==()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00123">ReadFromStream()</a>, and <a class="el" href="../../d4/d9a/a00246_source.html#l00099">Write()</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00040">40</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00020">AddTravelRecreation()</a>, <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>, and <a class="el" href="../../d1/d7e/a00434_source.html#l00009">TravellerProfile()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a598821720121beeaed01a7a7216e5601"></a>
+<a class="anchor" id="a089c66f906b78f748d73de4d107fc96d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -630,33 +483,137 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d34/a00476.html">size_t</a> stride::util::CSV::columnCount = 0</td>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="../../db/d8e/a00482.html">double</a>&gt; &gt; stride::TravellerProfile::m_data_work</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00088">88</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a>.</p>
+<p>Holds the actual travelling profile used to "generate" trips From region, to region, relative amount of people. </p>
 
-<p>Referenced by <a class="el" href="../../d4/d9a/a00246_source.html#l00051">CSV()</a>, <a class="el" href="../../d0/d1f/a00247_source.html#l00059">GetColumnCount()</a>, and <a class="el" href="../../d4/d9a/a00246_source.html#l00123">ReadFromStream()</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00044">44</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00025">AddTravelWork()</a>, <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>, and <a class="el" href="../../d1/d7e/a00434_source.html#l00009">TravellerProfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c4d2c976a3b840cd9322098e1459527"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d8e/a00482.html">double</a> stride::TravellerProfile::m_amountOfTravel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A fraction 0-1 which indicates the change for a person to travel. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00047">47</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af617090f0723c7e5125df8f6f1200474"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d8e/a00482.html">double</a> stride::TravellerProfile::m_fractionWork</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A fraction 0-1 which indicates whether it's work travel or recreation. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00050">50</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05f8820a7b048409b5df0ef3a5c6a6f3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; stride::TravellerProfile::m_rnManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00052">52</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00074">MakeChoice()</a>, and <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a4e33ed521c19e6ccee9f55f20b2f55"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t stride::TravellerProfile::m_maxDays</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum amount of days to travel. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00435_source.html#l00055">55</a> of file <a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d7e/a00434_source.html#l00030">PersonWillTravel()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/d1f/a00247_source.html">CSV.h</a></li>
-<li><a class="el" href="../../d4/d9a/a00246_source.html">CSV.cpp</a></li>
+<li><a class="el" href="../../d0/dc5/a00435_source.html">TravellerProfile.h</a></li>
+<li><a class="el" href="../../d1/d7e/a00434_source.html">TravellerProfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d29/a00470.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d7d/a00150.html">CSV</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/d7d/a00150.html">TravellerProfile</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

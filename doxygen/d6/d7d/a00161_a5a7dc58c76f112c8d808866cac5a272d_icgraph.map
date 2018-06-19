@@ -1,0 +1,6 @@
+<map id="stride::util::RNManager::RandomShuffle" name="stride::util::RNManager::RandomShuffle">
+<area shape="rect" id="node2" href="$d9/d4b/a00117.html#a8188dc69064103c5ac7e95193356a0c3" title="Random immunization. " alt="" coords="211,5,341,46"/>
+<area shape="rect" id="node3" href="$d4/d81/a00110.html#accb4b7832c08a4cc98973caf5aebf7f5" title="Seed for vaccination/natural immunity. " alt="" coords="390,5,541,46"/>
+<area shape="rect" id="node4" href="$d4/d81/a00110.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="590,5,741,46"/>
+<area shape="rect" id="node5" href="$d2/d82/a00142.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="789,5,915,46"/>
+</map>

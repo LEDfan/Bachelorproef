@@ -1,5 +1,0 @@
-<map id="stride::Sim::TimeStep" name="stride::Sim::TimeStep">
-<area shape="rect" id="node2" href="$d2/df5/a00137.html#a314f886a6abeb0e08aac8fee085e76bd" title="stride::Population\l::GetContactLogger" alt="" coords="231,5,367,46"/>
-<area shape="rect" id="node3" href="$d2/df5/a00137.html#a7ba18751ce5eb62217b105e716e61d63" title="The ContactPoolSys of the simulator. " alt="" coords="225,70,372,111"/>
-<area shape="rect" id="node4" href="$d1/dc1/a00092.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="203,135,394,177"/>
-</map>

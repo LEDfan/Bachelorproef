@@ -1,5 +1,3 @@
-<map id="stride::viewers::MapViewer" name="stride::viewers::MapViewer">
-<area shape="rect" id="node4" href="$da/dec/a00080.html" title="A geographical map used for showing in the MapViewer. " alt="" coords="482,459,645,639"/>
-<area shape="rect" id="node11" title="STL class. " alt="" coords="239,147,323,224"/>
-<area shape="rect" id="node12" title="STL class. " alt="" coords="54,147,193,224"/>
+<map id="stride::util::RNManager" name="stride::util::RNManager">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="607,147,723,224"/>
 </map>

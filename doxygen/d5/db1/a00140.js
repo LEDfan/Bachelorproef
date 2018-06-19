@@ -1,8 +1,9 @@
 var a00140 =
 [
-    [ "SimBuilder", "d5/db1/a00140.html#ada7d6656e97857b9bacd2285f7784021", null ],
-    [ "Build", "d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444", null ],
-    [ "ReadAgeContactPtree", "d5/db1/a00140.html#ad551b02c507948570f07af10d85d29ce", null ],
-    [ "ReadDiseasePtree", "d5/db1/a00140.html#adffa42c6b8b171616fcdfb4805260c92", null ],
-    [ "m_config_pt", "d5/db1/a00140.html#a24875cf5b77b860f11ed1327d71dce5f", null ]
+    [ "Result", "d5/db1/a00140.html#aa5b6ef8977de9fc1d73f0b0f319b8220", null ],
+    [ "Ranges", "d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412", null ],
+    [ "RegionSlicer", "d5/db1/a00140.html#acd689ce61c3cacf2c2c8d45c76298796", null ],
+    [ "operator[]", "d5/db1/a00140.html#ab28e16ded343ec9a8161249649c2e6db", null ],
+    [ "m_region_id", "d5/db1/a00140.html#a98f7889a4fc7c367181cfc00e16a72e9", null ],
+    [ "m_pool_sys_regions", "d5/db1/a00140.html#a9ce98d61449fdc172944dcc46801b9cb", null ]
 ];

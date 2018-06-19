@@ -1,0 +1,9 @@
+<map id="LaunchGui" name="LaunchGui">
+<area shape="rect" id="node2" href="$d9/da4/a00078.html#a69589d1327149e595d3242dab0805035" title="Launch the simulation with the stored configuration. " alt="" coords="161,143,287,169"/>
+<area shape="rect" id="node8" href="$d9/da4/a00078.html#ad2ccb8d2bf932012100890a1f3e5311c" title="Set the Qt RootObject. " alt="" coords="139,193,309,220"/>
+<area shape="rect" id="node3" href="$dd/da7/a00168.html#a5f6eefbc6871a229b1c45dbbd98b41fe" title="Returns string with the time stamp after eliminating newline. " alt="" coords="357,5,512,46"/>
+<area shape="rect" id="node4" href="$d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b" title="Register a viewer of type T with given args. " alt="" coords="361,70,509,111"/>
+<area shape="rect" id="node5" href="$d9/d77/a00095.html#ad6ad5a418fa38c9e42fa93f88c522860" title="Get the prefix path for output files. " alt="" coords="361,135,509,177"/>
+<area shape="rect" id="node6" href="$d9/d77/a00095.html#aeeb79289441333395c55b949a8c775dd" title="Returns the logger. " alt="" coords="361,201,509,242"/>
+<area shape="rect" id="node7" href="$d9/d77/a00095.html#a69f449954b557b6418f36996253034a0" title="Actual run of the simulator. " alt="" coords="361,266,509,307"/>
+</map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactCenterListModel.cpp Source File</title>
+<title>Stride Reference Manual: ConfigInfo.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,99 +109,74 @@ $(document).ready(function(){initNavTree('d0/d53/a00232_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactCenterListModel.cpp</div>  </div>
+<div class="title">ConfigInfo.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/d53/a00232.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by niels on 15.03.18.</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/de1/a00233.html">ContactCenterListModel.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d93/a00341.html">gengeopop/Location.h</a>&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#aaeed07e6f0e731444fcf3954bcb3f7b4">   10</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/d45/a00011.html#aaeed07e6f0e731444fcf3954bcb3f7b4">ContactCenterListModel::rowCount</a>(<span class="keyword">const</span> QModelIndex&amp; <span class="comment">/*parent*/</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.size(); }</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a9227d99891a99ee0d6ee5fccd0766588">   12</a></span>&#160;QVariant <a class="code" href="../../da/d45/a00011.html#a9227d99891a99ee0d6ee5fccd0766588">ContactCenterListModel::data</a>(<span class="keyword">const</span> QModelIndex&amp; index, <span class="keywordtype">int</span> role)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">auto</span> center = <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>[index.row()];</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">switch</span> (role) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">case</span> Roles::IDRole: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">case</span> Roles::TypeRole: <span class="keywordflow">return</span> QString::fromStdString(center-&gt;GetType());</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">case</span> Roles::PoolSize: <span class="keywordflow">return</span> QString::number(center-&gt;GetPoolSize());</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">case</span> Roles::MaxPools: <span class="keywordflow">return</span> QString::number(center-&gt;GetMaxPools());</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> QVariant();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<a href="../../d0/d53/a00232.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Info on configuration..</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/de1/a00233.html">ConfigInfo.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#afd29ac646642d1670e1e12098831458d">   27</a></span>&#160;<a class="code" href="../../da/d45/a00011.html#afd29ac646642d1670e1e12098831458d">ContactCenterListModel::ContactCenterListModel</a>(<a class="code" href="../../d9/dec/a00090.html">QObject</a>* parent) : <a class="code" href="../../db/dab/a00089.html">QAbstractListModel</a>(parent), m_centers() {}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a13218781fc6a858d06dda96866260886">   29</a></span>&#160;QHash&lt;int, QByteArray&gt; <a class="code" href="../../da/d45/a00011.html#a13218781fc6a858d06dda96866260886">ContactCenterListModel::roleNames</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        QHash&lt;int, QByteArray&gt; roles;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        roles[Roles::IDRole]   = <span class="stringliteral">&quot;id&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        roles[Roles::TypeRole] = <span class="stringliteral">&quot;type&quot;</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        roles[Roles::PoolSize] = <span class="stringliteral">&quot;poolSize&quot;</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        roles[Roles::MaxPools] = <span class="stringliteral">&quot;maxPools&quot;</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> roles;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#ac35e9b703a7cd69e01b07aef1a740ec6">   39</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/d45/a00011.html#ac35e9b703a7cd69e01b07aef1a740ec6">ContactCenterListModel::columnCount</a>(<span class="keyword">const</span> QModelIndex&amp; <span class="comment">/*parent*/</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 2; }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a274b1339d7c42371f90ae180ec3bf8cf">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d45/a00011.html#a274b1339d7c42371f90ae180ec3bf8cf">ContactCenterListModel::SetCenters</a>(std::set&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt; locs)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> oldAmtRows = <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.size();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.clear();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> loc : locs) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">auto</span> centers = loc-&gt;GetContactCenters();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> center : centers) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.push_back(center);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d0/d53/a00232.html#a6df1d22fb5f09eccc23b9f399670cfd7">   27</a></span>&#160;<span class="preprocessor">#define STRINGIFY(x) #x</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d0/d53/a00232.html#a9063e80f8777300c93afde6e6f4c9cea">   28</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TOSTRING(x) STRINGIFY(x)</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../da/d01/a00153.html#aea2c9d397f10f54b7ae47f4b0f181799">   33</a></span>&#160;std::string <a class="code" href="../../da/d01/a00153.html#aea2c9d397f10f54b7ae47f4b0f181799">ConfigInfo::GitRevision</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d0/d53/a00232.html#a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</a>(STRIDE_GIT_HASH); }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../da/d01/a00153.html#a502bd4410a3e77792ea575f77f470d41">   35</a></span>&#160;std::string <a class="code" href="../../da/d01/a00153.html#a502bd4410a3e77792ea575f77f470d41">ConfigInfo::GetHostname</a>()</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">char</span> hostname[40];</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        gethostname(hostname, 40);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> hostname;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../da/d01/a00153.html#a6b4240ce29160e778c69f9e246e1747d">   42</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../da/d01/a00153.html#a6b4240ce29160e778c69f9e246e1747d">ConfigInfo::NumberAvailableThreads</a>()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1U;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#pragma omp parallel</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span>        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                i = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(omp_get_num_threads());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> i;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">int</span> diff = <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.size() - oldAmtRows;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (diff &lt; 0) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                beginRemoveRows(QModelIndex(), 0, -diff - 1);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                endRemoveRows();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (diff &gt; 0) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                beginInsertRows(QModelIndex(), 0, diff - 1);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                endInsertRows();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        dataChanged(createIndex(0, 0), createIndex(<a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.size(), 2));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a4df927d92a946c2eaeafed2395462c37">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d45/a00011.html#a4df927d92a946c2eaeafed2395462c37">ContactCenterListModel::HandleClickRow</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> row)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keyword">auto</span> cc = <a class="code" href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">m_centers</a>.at(row);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                emit <a class="code" href="../../da/d45/a00011.html#ad6ea6fce74325a70e517015dda4ab366">ContactCenterSelected</a>(cc);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        } <span class="keywordflow">catch</span> (std::exception&amp; e) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="ttc" id="a00011_html_a13218781fc6a858d06dda96866260886"><div class="ttname"><a href="../../da/d45/a00011.html#a13218781fc6a858d06dda96866260886">ContactCenterListModel::roleNames</a></div><div class="ttdeci">QHash&lt; int, QByteArray &gt; roleNames() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00029">ContactCenterListModel.cpp:29</a></div></div>
-<div class="ttc" id="a00011_html_aaeed07e6f0e731444fcf3954bcb3f7b4"><div class="ttname"><a href="../../da/d45/a00011.html#aaeed07e6f0e731444fcf3954bcb3f7b4">ContactCenterListModel::rowCount</a></div><div class="ttdeci">int rowCount(const QModelIndex &amp;parent=QModelIndex()) const override</div><div class="ttdoc">Returns the amount of rows, this is the amount of. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00010">ContactCenterListModel.cpp:10</a></div></div>
-<div class="ttc" id="a00011_html_ad6ea6fce74325a70e517015dda4ab366"><div class="ttname"><a href="../../da/d45/a00011.html#ad6ea6fce74325a70e517015dda4ab366">ContactCenterListModel::ContactCenterSelected</a></div><div class="ttdeci">void ContactCenterSelected(std::shared_ptr&lt; gengeopop::ContactCenter &gt; cc)</div><div class="ttdoc">This signal is emmited when a Contact Center is selected. </div></div>
-<div class="ttc" id="a00341_html"><div class="ttname"><a href="../../d3/d93/a00341.html">Location.h</a></div></div>
-<div class="ttc" id="a00011_html_a9227d99891a99ee0d6ee5fccd0766588"><div class="ttname"><a href="../../da/d45/a00011.html#a9227d99891a99ee0d6ee5fccd0766588">ContactCenterListModel::data</a></div><div class="ttdeci">QVariant data(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</div><div class="ttdoc">Returns the data at the given index and the given role. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00012">ContactCenterListModel.cpp:12</a></div></div>
-<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
-<div class="ttc" id="a00011_html_afd29ac646642d1670e1e12098831458d"><div class="ttname"><a href="../../da/d45/a00011.html#afd29ac646642d1670e1e12098831458d">ContactCenterListModel::ContactCenterListModel</a></div><div class="ttdeci">ContactCenterListModel(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00027">ContactCenterListModel.cpp:27</a></div></div>
-<div class="ttc" id="a00011_html_a093b922938c117bbd5c951a6a7246e5a"><div class="ttname"><a href="../../da/d45/a00011.html#a093b922938c117bbd5c951a6a7246e5a">ContactCenterListModel::m_centers</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; gengeopop::ContactCenter &gt; &gt; m_centers</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00233_source.html#l00071">ContactCenterListModel.h:71</a></div></div>
-<div class="ttc" id="a00233_html"><div class="ttname"><a href="../../d6/de1/a00233.html">ContactCenterListModel.h</a></div></div>
-<div class="ttc" id="a00089_html"><div class="ttname"><a href="../../db/dab/a00089.html">QAbstractListModel</a></div></div>
-<div class="ttc" id="a00011_html_a4df927d92a946c2eaeafed2395462c37"><div class="ttname"><a href="../../da/d45/a00011.html#a4df927d92a946c2eaeafed2395462c37">ContactCenterListModel::HandleClickRow</a></div><div class="ttdeci">Q_INVOKABLE void HandleClickRow(unsigned int row)</div><div class="ttdoc">This function should be invoked when a row is to be clicked. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00063">ContactCenterListModel.cpp:63</a></div></div>
-<div class="ttc" id="a00011_html_ac35e9b703a7cd69e01b07aef1a740ec6"><div class="ttname"><a href="../../da/d45/a00011.html#ac35e9b703a7cd69e01b07aef1a740ec6">ContactCenterListModel::columnCount</a></div><div class="ttdeci">int columnCount(const QModelIndex &amp;parent=QModelIndex()) const override</div><div class="ttdoc">Returns the amount of columns, this is the amount of roles. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00039">ContactCenterListModel.cpp:39</a></div></div>
-<div class="ttc" id="a00011_html_a274b1339d7c42371f90ae180ec3bf8cf"><div class="ttname"><a href="../../da/d45/a00011.html#a274b1339d7c42371f90ae180ec3bf8cf">ContactCenterListModel::SetCenters</a></div><div class="ttdeci">Q_INVOKABLE void SetCenters(std::set&lt; std::shared_ptr&lt; gengeopop::Location &gt;&gt; locs)</div><div class="ttdoc">Sets the centers we want to show. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00041">ContactCenterListModel.cpp:41</a></div></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00153_html_aea2c9d397f10f54b7ae47f4b0f181799"><div class="ttname"><a href="../../da/d01/a00153.html#aea2c9d397f10f54b7ae47f4b0f181799">stride::util::ConfigInfo::GitRevision</a></div><div class="ttdeci">static std::string GitRevision()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00033">ConfigInfo.cpp:33</a></div></div>
+<div class="ttc" id="a00153_html_a502bd4410a3e77792ea575f77f470d41"><div class="ttname"><a href="../../da/d01/a00153.html#a502bd4410a3e77792ea575f77f470d41">stride::util::ConfigInfo::GetHostname</a></div><div class="ttdeci">static std::string GetHostname()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00035">ConfigInfo.cpp:35</a></div></div>
+<div class="ttc" id="a00232_html_a9063e80f8777300c93afde6e6f4c9cea"><div class="ttname"><a href="../../d0/d53/a00232.html#a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</a></div><div class="ttdeci">#define TOSTRING(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00028">ConfigInfo.cpp:28</a></div></div>
+<div class="ttc" id="a00233_html"><div class="ttname"><a href="../../d6/de1/a00233.html">ConfigInfo.h</a></div><div class="ttdoc">Info on configuration. </div></div>
+<div class="ttc" id="a00153_html_a6b4240ce29160e778c69f9e246e1747d"><div class="ttname"><a href="../../da/d01/a00153.html#a6b4240ce29160e778c69f9e246e1747d">stride::util::ConfigInfo::NumberAvailableThreads</a></div><div class="ttdeci">static unsigned int NumberAvailableThreads()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d53/a00232_source.html#l00042">ConfigInfo.cpp:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../dir_606c940184a2c6b7f406a2ac3600b646.html">models</a></li><li class="navelem"><a class="el" href="../../d0/d53/a00232.html">ContactCenterListModel.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d53/a00232.html">ConfigInfo.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

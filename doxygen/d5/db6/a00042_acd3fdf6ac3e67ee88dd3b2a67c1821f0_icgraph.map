@@ -1,6 +1,5 @@
 <map id="gengeopop::GeoGridReaderFactory::CreateReader" name="gengeopop::GeoGridReaderFactory::CreateReader">
-<area shape="rect" id="node2" href="$df/d6a/a00119.html#a1ebe3b9029f30d9cfb5fb1aef47360a9" title="Creates a population by importing it. " alt="" coords="260,5,423,46"/>
-<area shape="rect" id="node4" href="$d8/d84/a00001.html#a4c68caab686f34853c326b801fbadf4b" title="Load a GeoGrid from JSON file, specified in the command line arguments. " alt="" coords="248,70,435,111"/>
-<area shape="rect" id="node5" href="$d8/d84/a00001.html#a76b9d9ea83aa45c28655644598ce1b27" title="Loads a GeoGrid from JSON file. " alt="" coords="237,136,445,163"/>
-<area shape="rect" id="node3" href="$d2/df5/a00137.html#ac9658f1a5fa801de6742a46efb85fb9c" title="Create a Population for the given region parameters. " alt="" coords="493,5,616,46"/>
+<area shape="rect" id="node2" href="$d4/d98/a00120.html#a5cc36e0664a78a3e6d0765408a3730ad" title="Creates a population by importing it. " alt="" coords="260,5,423,46"/>
+<area shape="rect" id="node3" href="$d8/d84/a00001.html#a4c68caab686f34853c326b801fbadf4b" title="Load a GeoGrid from JSON file, specified in the command line arguments. " alt="" coords="248,70,435,111"/>
+<area shape="rect" id="node4" href="$d8/d84/a00001.html#a76b9d9ea83aa45c28655644598ce1b27" title="Loads a GeoGrid from JSON file. " alt="" coords="237,136,445,163"/>
 </map>

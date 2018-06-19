@@ -1,7 +1,8 @@
 var a00171 =
 [
-    [ "PersonsViewer", "d1/d0d/a00171.html#a942188b53eccb181ceb8be3866fe64c6", null ],
-    [ "Update", "d1/d0d/a00171.html#a6b1d3096869e9ed29d62eaec72a0a89c", null ],
-    [ "m_persons_file", "d1/d0d/a00171.html#a0aaa0c2c54d02a2d034c4667612f6be3", null ],
-    [ "m_runner", "d1/d0d/a00171.html#a67f4020c05e62dae36e8f6422dcc5c80", null ]
+    [ "AdoptedViewer", "d1/d0d/a00171.html#ab738a150c36440e77462aa81e7c61542", null ],
+    [ "Update", "d1/d0d/a00171.html#ac36ba5df119a6774611d57cbc47657f1", null ],
+    [ "m_adopted", "d1/d0d/a00171.html#a174d3d560614d28923c90dfe9ce23d1b", null ],
+    [ "m_adopted_file", "d1/d0d/a00171.html#a7de96aa3b18fbd439033e4ac4a51e806", null ],
+    [ "m_runner", "d1/d0d/a00171.html#ae6a20e953d090b14fb0a093a3b04d408", null ]
 ];

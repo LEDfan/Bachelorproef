@@ -1,15 +1,4 @@
-<map id="LogPolicy.h" name="LogPolicy.h">
-<area shape="rect" id="node2" href="$d8/dfc/a00327.html" title="Header for the Infector class. " alt="" coords="849,80,925,107"/>
-<area shape="rect" id="node9" href="$de/db1/a00197.html" title="Header file for the Calendar class. " alt="" coords="151,163,289,189"/>
-<area shape="rect" id="node33" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="1567,163,1700,189"/>
-<area shape="rect" id="node3" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="1673,253,1804,280"/>
-<area shape="rect" id="node5" href="$d7/db9/a00426.html" title="Header for the TransmissionProfile class. " alt="" coords="509,163,656,189"/>
-<area shape="rect" id="node7" href="$d0/d01/a00339.html" title="Header file for LocalDiscussion info policy. " alt="" coords="732,155,916,197"/>
-<area shape="rect" id="node8" href="$d7/ddb/a00361.html" title="behaviour/information\l_policies/NoLocalInformation.h" alt="" coords="991,155,1192,197"/>
-<area shape="rect" id="node15" href="$d8/d64/a00181.html" title="Contact profile. " alt="" coords="1217,163,1404,189"/>
-<area shape="rect" id="node22" href="$d7/d40/a00236.html" title="Header for the ContactHandler class. " alt="" coords="313,163,484,189"/>
-<area shape="rect" id="node16" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="1411,253,1573,280"/>
-<area shape="rect" id="node20" href="$db/dd9/a00179.html" title="Helpers for age. " alt="" coords="1179,253,1260,280"/>
-<area shape="rect" id="node23" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="559,253,683,280"/>
-<area shape="rect" id="node24" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="985,336,1108,363"/>
+<map id="Launcher.h" name="Launcher.h">
+<area shape="rect" id="node2" href="$d3/d93/a00341.html" title="Launcher.cpp" alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$db/ddc/a00353.html" title="main.cpp" alt="" coords="128,80,201,107"/>
 </map>

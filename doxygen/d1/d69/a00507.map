@@ -1,2 +1,9 @@
-<map id="BoxplotData.h" name="BoxplotData.h">
+<map id="BaseController.h" name="BaseController.h">
+<area shape="rect" id="node2" href="$d9/d0d/a00298.html" title="GuiController.h" alt="" coords="117,80,227,107"/>
+<area shape="rect" id="node4" href="$d3/d93/a00341.html" title="Launcher.cpp" alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node5" href="$d3/dc9/a00355.html" title="Main program: command line handling. " alt="" coords="276,155,349,181"/>
+<area shape="rect" id="node6" href="$d7/d6e/a00190.html" title="Header for the command line controller. " alt="" coords="432,80,565,107"/>
+<area shape="rect" id="node7" href="$dd/ded/a00211.html" title="Header for the command line controller. " alt="" coords="251,80,356,107"/>
+<area shape="rect" id="node3" href="$d3/d4a/a00297.html" title="GuiController.cpp" alt="" coords="129,155,252,181"/>
+<area shape="rect" id="node8" href="$da/de7/a00210.html" title="Header for the command line controller. " alt="" coords="374,155,492,181"/>
 </map>

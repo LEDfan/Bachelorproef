@@ -1,5 +1,4 @@
-<map id="Calibrator.h" name="Calibrator.h">
-<area shape="rect" id="node4" href="$d2/daf/a00346.html" title="Logging (spdlog) utilities. " alt="" coords="234,88,336,115"/>
-<area shape="rect" id="node8" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="798,88,921,115"/>
-<area shape="rect" id="node9" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="373,171,496,197"/>
+<map id="BoxplotGenerator.h" name="BoxplotGenerator.h">
+<area shape="rect" id="node2" href="$d7/da0/a00198.html" title="BoxplotGenerator.cpp" alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$db/d53/a00202.html" title="CalibrationRunner.cpp" alt="" coords="177,80,327,107"/>
 </map>

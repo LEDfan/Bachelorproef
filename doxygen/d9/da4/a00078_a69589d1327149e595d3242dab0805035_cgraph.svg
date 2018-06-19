@@ -72,7 +72,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../db/ddf/a00164.html#a5f6eefbc6871a229b1c45dbbd98b41fe" target="_top" xlink:title="Returns string with the time stamp after eliminating newline. ">
+<g id="a_node6"><a xlink:href="../../dd/da7/a00168.html#a5f6eefbc6871a229b1c45dbbd98b41fe" target="_top" xlink:title="Returns string with the time stamp after eliminating newline. ">
 <polygon fill="white" stroke="black" points="130,-0 130,-30 246,-30 246,-0 130,-0"/>
 <text text-anchor="start" x="138" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::TimeStamp</text>
 <text text-anchor="middle" x="188" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::ToTag</text>

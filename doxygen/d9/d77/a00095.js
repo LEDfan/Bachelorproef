@@ -13,8 +13,6 @@ var a00095 =
     [ "CheckOutputPrefix", "d9/d77/a00095.html#a0837ea00e86c16aa6e7e7fa6d31d5a57", null ],
     [ "LogSetup", "d9/d77/a00095.html#ad3e11456e1c2d064aa7307045761ca04", null ],
     [ "MakeLogger", "d9/d77/a00095.html#a2d12c22b23e4f38dc6ce483e0edcee84", null ],
-    [ "PatchConfig", "d9/d77/a00095.html#a939613d6334e50ba91e96f92bd013204", null ],
-    [ "ReadConfigFile", "d9/d77/a00095.html#aeb3cf705a4906867e3e63d2c430a7f52", null ],
     [ "m_config_pt", "d9/d77/a00095.html#a168454c784330f99397bac8249d7c1f4", null ],
     [ "m_output_prefix", "d9/d77/a00095.html#a353127db697307bd1851455813269695", null ],
     [ "m_run_clock", "d9/d77/a00095.html#a02262faead2ab4d3f9c65616d6a6e0e1", null ],

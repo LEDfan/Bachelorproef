@@ -73,7 +73,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d0/d5e/a00136.html#a3629c9dae12f241933ae2649205767af" target="_top" xlink:title="Set the age of the person. ">
+<g id="a_node6"><a xlink:href="../../d2/df5/a00137.html#a3629c9dae12f241933ae2649205767af" target="_top" xlink:title="Set the age of the person. ">
 <polygon fill="white" stroke="black" points="220,-0.5 220,-19.5 336,-19.5 336,-0.5 220,-0.5"/>
 <text text-anchor="middle" x="278" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Person::SetAge</text>
 </a>

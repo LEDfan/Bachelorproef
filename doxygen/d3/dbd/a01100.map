@@ -1,0 +1,18 @@
+<map id="gengeopop::WorkplacePopulator" name="gengeopop::WorkplacePopulator">
+<area shape="rect" id="node2" href="$d1/d22/a00057.html" title="An interface for populators that provide a partial solution. " alt="" coords="892,2025,1089,2175"/>
+<area shape="rect" id="node4" href="$d6/d7d/a00161.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="912,1729,1069,1938"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="909,1103,1024,1180"/>
+<area shape="rect" id="node26" title="STL class. " alt="" coords="3001,1095,3137,1187"/>
+<area shape="rect" id="node33" title="STL class. " alt="" coords="2574,249,2716,341"/>
+<area shape="rect" id="node35" title="STL class. " alt="" coords="2681,147,2879,224"/>
+<area shape="rect" id="node29" href="$d4/d3a/a00101.html" title="Represents a group of Persons that potentially have contacts. " alt="" coords="1741,1707,1941,1960"/>
+<area shape="rect" id="node31" href="$d2/df5/a00137.html" title="Store and handle person data. " alt="" coords="2424,1029,2531,1253"/>
+<area shape="rect" id="node49" href="$db/df3/a00034.html" title="Configuration data when generating a GeoGrid. " alt="" coords="2409,1787,2588,1879"/>
+<area shape="rect" id="node22" href="$db/d8e/a00482.html" title="{double\n||}" alt="" coords="3235,779,3295,856"/>
+<area shape="rect" id="node32" href="$d1/d09/a00077.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="2605,720,2827,915"/>
+<area shape="rect" id="node34" href="$d1/d09/a00077.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="2692,365,2855,560"/>
+<area shape="rect" id="node37" href="$d5/d1e/a00103.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="2922,735,3096,900"/>
+<area shape="rect" id="node38" title="STL class. " alt="" coords="2900,424,3087,501"/>
+<area shape="rect" id="node40" href="$d9/df8/a00096.html" title="Base class for all belief policies. " alt="" coords="2172,764,2287,871"/>
+<area shape="rect" id="node41" href="$d8/d17/a00114.html" title="Holds a person&#39;s health data. " alt="" coords="2311,683,2501,951"/>
+</map>

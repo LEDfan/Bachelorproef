@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::SimBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::RegionSlicer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -111,109 +111,105 @@ $(document).ready(function(){initNavTree('d5/db1/a00140.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../da/de0/a01248.html">List of all members</a>  </div>
+<a href="../../d0/d88/a01231.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SimBuilder Class Reference</div>  </div>
+<div class="title">stride::RegionSlicer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds a simulator based a configuration property tree.  
+<p>A class that allows to index contactpools by region and contact pool type.  
  <a href="../../d5/db1/a00140.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/da1/a00396_source.html">SimBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SimBuilder:</div>
+Collaboration diagram for stride::RegionSlicer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d7b/a01249.svg" width="179" height="275"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d67/a01232.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa5b6ef8977de9fc1d73f0b0f319b8220"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#aa5b6ef8977de9fc1d73f0b0f319b8220">Result</a> = boost::sub_range&lt; <a class="el" href="../../d1/dc1/a00092.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d4/d3a/a00101.html">ContactPool</a> &gt;&gt;</td></tr>
+<tr class="memdesc:aa5b6ef8977de9fc1d73f0b0f319b8220"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result when finally indexing.  <a href="#aa5b6ef8977de9fc1d73f0b0f319b8220">More...</a><br/></td></tr>
+<tr class="separator:aa5b6ef8977de9fc1d73f0b0f319b8220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c412934f16bbd51637a30cfcca8412"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412">Ranges</a> = <a class="el" href="../../d1/d09/a00077.html">ContactPoolType::IdSubscriptArray</a>&lt; <a class="el" href="../../da/d82/a00091.html">util::RangeIndexer</a>&lt; <a class="el" href="../../d1/dc1/a00092.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d4/d3a/a00101.html">ContactPool</a> &gt;, std::size_t &gt;&gt;</td></tr>
+<tr class="memdesc:a37c412934f16bbd51637a30cfcca8412"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type for the ranges that can be indexed: first indexed by type, then by region id.  <a href="#a37c412934f16bbd51637a30cfcca8412">More...</a><br/></td></tr>
+<tr class="separator:a37c412934f16bbd51637a30cfcca8412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada7d6656e97857b9bacd2285f7784021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ada7d6656e97857b9bacd2285f7784021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../d5/db1/a00140.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>.  <a href="#ada7d6656e97857b9bacd2285f7784021">More...</a><br/></td></tr>
-<tr class="separator:ada7d6656e97857b9bacd2285f7784021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94ce5fb3cae915f0bdb261498f31c444"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d14/a00139.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a> (std::shared_ptr&lt; <a class="el" href="../../de/d14/a00139.html">Sim</a> &gt; sim, std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a94ce5fb3cae915f0bdb261498f31c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator and return it afterwards.  <a href="#a94ce5fb3cae915f0bdb261498f31c444">More...</a><br/></td></tr>
-<tr class="separator:a94ce5fb3cae915f0bdb261498f31c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ad551b02c507948570f07af10d85d29ce"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a> ()</td></tr>
-<tr class="memdesc:ad551b02c507948570f07af10d85d29ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contact configuration data.  <a href="#ad551b02c507948570f07af10d85d29ce">More...</a><br/></td></tr>
-<tr class="separator:ad551b02c507948570f07af10d85d29ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adffa42c6b8b171616fcdfb4805260c92"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a> ()</td></tr>
-<tr class="memdesc:adffa42c6b8b171616fcdfb4805260c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease configuration data.  <a href="#adffa42c6b8b171616fcdfb4805260c92">More...</a><br/></td></tr>
-<tr class="separator:adffa42c6b8b171616fcdfb4805260c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd689ce61c3cacf2c2c8d45c76298796"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#acd689ce61c3cacf2c2c8d45c76298796">RegionSlicer</a> (std::size_t region_id, <a class="el" href="../../d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412">Ranges</a> &amp;pool_sys_regions)</td></tr>
+<tr class="memdesc:acd689ce61c3cacf2c2c8d45c76298796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, with region id and a Ranges (where to index) Make sure that <code>pool_sys_regions</code> is still alive as long as you want to index this object.  <a href="#acd689ce61c3cacf2c2c8d45c76298796">More...</a><br/></td></tr>
+<tr class="separator:acd689ce61c3cacf2c2c8d45c76298796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28e16ded343ec9a8161249649c2e6db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/db1/a00140.html#aa5b6ef8977de9fc1d73f0b0f319b8220">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#ab28e16ded343ec9a8161249649c2e6db">operator[]</a> (<a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type) const </td></tr>
+<tr class="memdesc:ab28e16ded343ec9a8161249649c2e6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index on contact pool type, the region id is given in the constructor Returns a range with all ContactPools of that type in that region.  <a href="#ab28e16ded343ec9a8161249649c2e6db">More...</a><br/></td></tr>
+<tr class="separator:ab28e16ded343ec9a8161249649c2e6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24875cf5b77b860f11ed1327d71dce5f"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#a24875cf5b77b860f11ed1327d71dce5f">m_config_pt</a></td></tr>
-<tr class="memdesc:a24875cf5b77b860f11ed1327d71dce5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config in ptree.  <a href="#a24875cf5b77b860f11ed1327d71dce5f">More...</a><br/></td></tr>
-<tr class="separator:a24875cf5b77b860f11ed1327d71dce5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f7889a4fc7c367181cfc00e16a72e9"><td class="memItemLeft" align="right" valign="top">const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#a98f7889a4fc7c367181cfc00e16a72e9">m_region_id</a></td></tr>
+<tr class="memdesc:a98f7889a4fc7c367181cfc00e16a72e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keep track of the region until the final index.  <a href="#a98f7889a4fc7c367181cfc00e16a72e9">More...</a><br/></td></tr>
+<tr class="separator:a98f7889a4fc7c367181cfc00e16a72e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce98d61449fdc172944dcc46801b9cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412">Ranges</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#a9ce98d61449fdc172944dcc46801b9cb">m_pool_sys_regions</a></td></tr>
+<tr class="memdesc:a9ce98d61449fdc172944dcc46801b9cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">What to index on, should be still alive.  <a href="#a9ce98d61449fdc172944dcc46801b9cb">More...</a><br/></td></tr>
+<tr class="separator:a9ce98d61449fdc172944dcc46801b9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds a simulator based a configuration property tree. </p>
-<p>It </p>
-<ul>
-<li>reads any additional configuration files (disease, contact, ...) </li>
-<li>initializes calendar and random number manager for the simulator </li>
-<li>builds a population and contact pool system (<dl class="section see"><dt>See Also</dt><dd>PopulationBuilder) </dd></dl>
-</li>
-<li>deals with health and immunity (<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d8/d17/a00114.html" title="Seeds the population with Health data. ">HealthSeeder</a>, </dd>
-<dd>
-DiseaseBuilder) </dd></dl>
-</li>
-</ul>
+<div class="textblock"><p>A class that allows to index contactpools by region and contact pool type. </p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00038">38</a> of file <a class="el" href="../../d9/da1/a00396_source.html">SimBuilder.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada7d6656e97857b9bacd2285f7784021"></a>
+<p>Definition at line <a class="el" href="../../dd/df5/a00386_source.html#l00013">13</a> of file <a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="aa5b6ef8977de9fc1d73f0b0f319b8220"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimBuilder::SimBuilder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="../../d5/db1/a00140.html#aa5b6ef8977de9fc1d73f0b0f319b8220">stride::RegionSlicer::Result</a> =  boost::sub_range&lt;<a class="el" href="../../d1/dc1/a00092.html">util::SegmentedVector</a>&lt;<a class="el" href="../../d4/d3a/a00101.html">ContactPool</a>&gt;&gt;</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Initializing <a class="el" href="../../d5/db1/a00140.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>. </p>
+<p>The result when finally indexing. </p>
 
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00042">42</a> of file <a class="el" href="../../db/dbc/a00395_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/df5/a00386_source.html#l00017">17</a> of file <a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a94ce5fb3cae915f0bdb261498f31c444"></a>
+<a class="anchor" id="a37c412934f16bbd51637a30cfcca8412"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../de/d14/a00139.html">Sim</a> &gt; stride::SimBuilder::Build </td>
+          <td class="memname">using <a class="el" href="../../d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412">stride::RegionSlicer::Ranges</a> =  <a class="el" href="../../d1/d09/a00077.html">ContactPoolType::IdSubscriptArray</a>&lt;<a class="el" href="../../da/d82/a00091.html">util::RangeIndexer</a>&lt;<a class="el" href="../../d1/dc1/a00092.html">util::SegmentedVector</a>&lt;<a class="el" href="../../d4/d3a/a00101.html">ContactPool</a>&gt;, std::size_t&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type for the ranges that can be indexed: first indexed by type, then by region id. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df5/a00386_source.html#l00021">21</a> of file <a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="acd689ce61c3cacf2c2c8d45c76298796"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::RegionSlicer::RegionSlicer </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d14/a00139.html">Sim</a> &gt;&#160;</td>
-          <td class="paramname"><em>sim</em>, </td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>region_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d2/df5/a00137.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412">RegionSlicer::Ranges</a> &amp;&#160;</td>
+          <td class="paramname"><em>pool_sys_regions</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -223,113 +219,38 @@ DiseaseBuilder) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Build the simulator and return it afterwards. </p>
+<p>Constructor, with region id and a Ranges (where to index) Make sure that <code>pool_sys_regions</code> is still alive as long as you want to index this object. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d4/ddd/a00138.html#a61753680e9f0473a13ecb9d1e19f7288" title="Create a new RegionSlicer for the given region id. ">Population::SliceOnRegion</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00044">44</a> of file <a class="el" href="../../db/dbc/a00395_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d53/a00429_source.html#l00020">stride::TravellerProfileBuilder::Build()</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00059">stride::ContactPoolType::IdList</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00055">m_config_pt</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00105">ReadAgeContactPtree()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00112">ReadDiseasePtree()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00040">stride::BeliefSeeder::Seed()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00046">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../db/da2/a00300_source.html#l00074">stride::HealthSeeder::Seed()</a>, and <a class="el" href="../../d4/d08/a00237_source.html#l00039">stride::ContactLogMode::ToMode()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/db1/a00140_a94ce5fb3cae915f0bdb261498f31c444_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00005">5</a> of file <a class="el" href="../../d5/d05/a00385_source.html">RegionSlicer.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad551b02c507948570f07af10d85d29ce"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab28e16ded343ec9a8161249649c2e6db"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadAgeContactPtree </td>
+          <td class="memname"><a class="el" href="../../d5/db1/a00140.html#aa5b6ef8977de9fc1d73f0b0f319b8220">RegionSlicer::Result</a> stride::RegionSlicer::operator[] </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Get the contact configuration data. </p>
+<p>Index on contact pool type, the region id is given in the constructor Returns a range with all ContactPools of that type in that region. </p>
 
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00105">105</a> of file <a class="el" href="../../db/dbc/a00395_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00010">10</a> of file <a class="el" href="../../d5/d05/a00385_source.html">RegionSlicer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../df/da9/a00263_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../d9/d8d/a00262_source.html#l00200">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/dbc/a00395_source.html#l00044">Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/db1/a00140_ad551b02c507948570f07af10d85d29ce_cgraph.svg" width="560" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/db1/a00140_ad551b02c507948570f07af10d85d29ce_icgraph.svg" width="347" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="adffa42c6b8b171616fcdfb4805260c92"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadDiseasePtree </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the disease configuration data. </p>
-
-<p>Definition at line <a class="el" href="../../db/dbc/a00395_source.html#l00112">112</a> of file <a class="el" href="../../db/dbc/a00395_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/da9/a00263_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d9/da1/a00396_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../d9/d8d/a00262_source.html#l00200">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/dbc/a00395_source.html#l00044">Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/db1/a00140_adffa42c6b8b171616fcdfb4805260c92_cgraph.svg" width="539" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/db1/a00140_adffa42c6b8b171616fcdfb4805260c92_icgraph.svg" width="326" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
+<p>References <a class="el" href="../../dd/df5/a00386_source.html#l00034">m_pool_sys_regions</a>, and <a class="el" href="../../dd/df5/a00386_source.html#l00033">m_region_id</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a24875cf5b77b860f11ed1327d71dce5f"></a>
+<a class="anchor" id="a98f7889a4fc7c367181cfc00e16a72e9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -337,7 +258,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::SimBuilder::m_config_pt</td>
+          <td class="memname">const std::size_t stride::RegionSlicer::m_region_id</td>
         </tr>
       </table>
   </td>
@@ -347,25 +268,51 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Run config in ptree. </p>
+<p>Keep track of the region until the final index. </p>
 
-<p>Definition at line <a class="el" href="../../d9/da1/a00396_source.html#l00055">55</a> of file <a class="el" href="../../d9/da1/a00396_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/df5/a00386_source.html#l00033">33</a> of file <a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/dbc/a00395_source.html#l00044">Build()</a>, <a class="el" href="../../db/dbc/a00395_source.html#l00105">ReadAgeContactPtree()</a>, and <a class="el" href="../../db/dbc/a00395_source.html#l00112">ReadDiseasePtree()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d05/a00385_source.html#l00010">operator[]()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ce98d61449fdc172944dcc46801b9cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/db1/a00140.html#a37c412934f16bbd51637a30cfcca8412">Ranges</a>&amp; stride::RegionSlicer::m_pool_sys_regions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>What to index on, should be still alive. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df5/a00386_source.html#l00034">34</a> of file <a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d05/a00385_source.html#l00010">operator[]()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/da1/a00396_source.html">SimBuilder.h</a></li>
-<li><a class="el" href="../../db/dbc/a00395_source.html">SimBuilder.cpp</a></li>
+<li><a class="el" href="../../dd/df5/a00386_source.html">RegionSlicer.h</a></li>
+<li><a class="el" href="../../d5/d05/a00385_source.html">RegionSlicer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/db1/a00140.html">SimBuilder</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/db1/a00140.html">RegionSlicer</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

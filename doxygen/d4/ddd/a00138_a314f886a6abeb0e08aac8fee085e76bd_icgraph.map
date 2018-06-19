@@ -1,0 +1,5 @@
+<map id="stride::Population::GetContactLogger" name="stride::Population::GetContactLogger">
+<area shape="rect" id="node2" href="$da/ddb/a00145.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="192,5,336,46"/>
+<area shape="rect" id="node4" href="$d5/d4e/a00141.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="189,71,339,97"/>
+<area shape="rect" id="node3" href="$dd/d42/a00109.html#ae3494b202df19d6ff1aee50fce84e2cd" title="Build Population and return it afterwards. " alt="" coords="387,5,554,46"/>
+</map>

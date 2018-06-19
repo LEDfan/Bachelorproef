@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CommutesReader.h Source File</title>
+<title>Stride Reference Manual: CommutesCSVReader.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,52 +109,68 @@ $(document).ready(function(){initNavTree('dc/d98/a00225_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CommutesReader.h</div>  </div>
+<div class="title">CommutesCSVReader.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dc/d98/a00225.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d2a/a00270.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d93/a00341.html">gengeopop/Location.h</a>&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2d/a00229.html">CommutesReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d48/a00345.html">gengeopop/Location.h</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * This can be implemented using different input file types. Currently CSV is implemented.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d1a/a00251.html">util/CSV.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Create a Reader which fills a GeoGrid with the Commutes found in a given CSV file</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/dfe/a00025.html">CommutesReader</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/de2/a00024.html">CommutesCSVReader</a> : <span class="keyword">public</span> <a class="code" href="../../d3/dfe/a00025.html">CommutesReader</a></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Construct the CommutesReader with an istream containing the file content</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../d3/dfe/a00025.html#a51b15bad7efe54c1e35a21271b5c6dda">CommutesReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">        /// Construct the CommutesCSVReader with an istream containing the CSV data</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <span class="keyword">explicit</span> <a class="code" href="../../dc/de2/a00024.html#a8c565acac71b6daea9342132f36fd35c">CommutesCSVReader</a>(std::unique_ptr&lt;std::istream&gt; istream);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// Add the found Commutes to the provided GeoGrid</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dfe/a00025.html#ad60a7f16bdd36bffc1f1ee859a0f2920">FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt;) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">        /// Default destructor</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <a class="code" href="../../d3/dfe/a00025.html#a205f22dd3728b0732139155437410faf">~CommutesReader</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#ad400fd1d400ef2d1e014b97328a2ddf5">   27</a></span>&#160;        std::unique_ptr&lt;std::istream&gt; <a class="code" href="../../d3/dfe/a00025.html#ad400fd1d400ef2d1e014b97328a2ddf5">m_inputStream</a>; <span class="comment">///&lt; The istream containing the file content</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00025_html_a205f22dd3728b0732139155437410faf"><div class="ttname"><a href="../../d3/dfe/a00025.html#a205f22dd3728b0732139155437410faf">gengeopop::CommutesReader::~CommutesReader</a></div><div class="ttdeci">virtual ~CommutesReader()=default</div><div class="ttdoc">Default destructor. </div></div>
-<div class="ttc" id="a00270_html"><div class="ttname"><a href="../../d9/d2a/a00270.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00341_html"><div class="ttname"><a href="../../d3/d93/a00341.html">Location.h</a></div></div>
-<div class="ttc" id="a00025_html_a51b15bad7efe54c1e35a21271b5c6dda"><div class="ttname"><a href="../../d3/dfe/a00025.html#a51b15bad7efe54c1e35a21271b5c6dda">gengeopop::CommutesReader::CommutesReader</a></div><div class="ttdeci">CommutesReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CommutesReader with an istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00007">CommutesReader.cpp:7</a></div></div>
-<div class="ttc" id="a00025_html_ad400fd1d400ef2d1e014b97328a2ddf5"><div class="ttname"><a href="../../d3/dfe/a00025.html#ad400fd1d400ef2d1e014b97328a2ddf5">gengeopop::CommutesReader::m_inputStream</a></div><div class="ttdeci">std::unique_ptr&lt; std::istream &gt; m_inputStream</div><div class="ttdoc">The istream containing the file content. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d98/a00225_source.html#l00027">CommutesReader.h:27</a></div></div>
-<div class="ttc" id="a00025_html"><div class="ttname"><a href="../../d3/dfe/a00025.html">gengeopop::CommutesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d98/a00225_source.html#l00014">CommutesReader.h:14</a></div></div>
-<div class="ttc" id="a00025_html_ad60a7f16bdd36bffc1f1ee859a0f2920"><div class="ttname"><a href="../../d3/dfe/a00025.html#ad60a7f16bdd36bffc1f1ee859a0f2920">gengeopop::CommutesReader::FillGeoGrid</a></div><div class="ttdeci">virtual void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt;) const =0</div><div class="ttdoc">Add the found Commutes to the provided GeoGrid. </div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dc/de2/a00024.html#a50eaa47a39752b6388d031767f81d40b">FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        /// Find the relative total populution in the submunicipalities. If it doesn&#39;t have any, it will return 0.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="../../dc/de2/a00024.html#aacda603127a4a37fbb57ea3c454479c5">MunicipalityTotal</a>(std::shared_ptr&lt;Location&gt; loc) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">        /// Add the provided commute symmetrically to the locations</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dc/de2/a00024.html#ac1bf33d26337d5de5769f3c300490679">AddCommute</a>(std::shared_ptr&lt;Location&gt; from, std::shared_ptr&lt;Location&gt; to, <span class="keywordtype">double</span> proportion) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        /// Add commutes by splitting the &#39;from&#39; into submunicipalities if necessary.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span>        <span class="comment">// This will call AddCommuteTo with the submunicipality and the provided &#39;to&#39;.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dc/de2/a00024.html#a0a423b912a592057bfbd5cac7e5db771">AddCommuteFrom</a>(std::shared_ptr&lt;Location&gt; from, std::shared_ptr&lt;Location&gt; to, <span class="keywordtype">double</span> proportion) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">        /// Add commutes by splitting the &#39;to&#39; into submunicipalities if necessary.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../dc/de2/a00024.html#aee4d79ece3826cb5230b42cc3dee21ca">AddCommuteTo</a>(std::shared_ptr&lt;Location&gt; from, std::shared_ptr&lt;Location&gt; to, <span class="keywordtype">double</span> proportion) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a1081f188d50877b688741c5266921787">   37</a></span>&#160;        <a class="code" href="../../d3/d65/a00154.html">stride::util::CSV</a> <a class="code" href="../../dc/de2/a00024.html#a1081f188d50877b688741c5266921787">m_reader</a>; <span class="comment">///&lt; The pure CSV reader</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00024_html_a50eaa47a39752b6388d031767f81d40b"><div class="ttname"><a href="../../dc/de2/a00024.html#a50eaa47a39752b6388d031767f81d40b">gengeopop::CommutesCSVReader::FillGeoGrid</a></div><div class="ttdeci">void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt; geoGrid) const override</div><div class="ttdoc">Add the found Commutes to the provided GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00059">CommutesCSVReader.cpp:59</a></div></div>
+<div class="ttc" id="a00024_html"><div class="ttname"><a href="../../dc/de2/a00024.html">gengeopop::CommutesCSVReader</a></div><div class="ttdoc">Create a Reader which fills a GeoGrid with the Commutes found in a given CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d98/a00225_source.html#l00014">CommutesCSVReader.h:14</a></div></div>
+<div class="ttc" id="a00024_html_aee4d79ece3826cb5230b42cc3dee21ca"><div class="ttname"><a href="../../dc/de2/a00024.html#aee4d79ece3826cb5230b42cc3dee21ca">gengeopop::CommutesCSVReader::AddCommuteTo</a></div><div class="ttdeci">void AddCommuteTo(std::shared_ptr&lt; Location &gt; from, std::shared_ptr&lt; Location &gt; to, double proportion) const </div><div class="ttdoc">Add commutes by splitting the &#39;to&#39; into submunicipalities if necessary. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00040">CommutesCSVReader.cpp:40</a></div></div>
+<div class="ttc" id="a00024_html_a8c565acac71b6daea9342132f36fd35c"><div class="ttname"><a href="../../dc/de2/a00024.html#a8c565acac71b6daea9342132f36fd35c">gengeopop::CommutesCSVReader::CommutesCSVReader</a></div><div class="ttdeci">CommutesCSVReader(std::unique_ptr&lt; std::istream &gt; istream)</div><div class="ttdoc">Construct the CommutesCSVReader with an istream containing the CSV data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00008">CommutesCSVReader.cpp:8</a></div></div>
+<div class="ttc" id="a00024_html_a1081f188d50877b688741c5266921787"><div class="ttname"><a href="../../dc/de2/a00024.html#a1081f188d50877b688741c5266921787">gengeopop::CommutesCSVReader::m_reader</a></div><div class="ttdeci">stride::util::CSV m_reader</div><div class="ttdoc">The pure CSV reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d98/a00225_source.html#l00037">CommutesCSVReader.h:37</a></div></div>
+<div class="ttc" id="a00024_html_ac1bf33d26337d5de5769f3c300490679"><div class="ttname"><a href="../../dc/de2/a00024.html#ac1bf33d26337d5de5769f3c300490679">gengeopop::CommutesCSVReader::AddCommute</a></div><div class="ttdeci">void AddCommute(std::shared_ptr&lt; Location &gt; from, std::shared_ptr&lt; Location &gt; to, double proportion) const </div><div class="ttdoc">Add the provided commute symmetrically to the locations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00022">CommutesCSVReader.cpp:22</a></div></div>
+<div class="ttc" id="a00229_html"><div class="ttname"><a href="../../dd/d2d/a00229.html">CommutesReader.h</a></div></div>
+<div class="ttc" id="a00025_html"><div class="ttname"><a href="../../d3/dfe/a00025.html">gengeopop::CommutesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2d/a00229_source.html#l00014">CommutesReader.h:14</a></div></div>
+<div class="ttc" id="a00154_html"><div class="ttname"><a href="../../d3/d65/a00154.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d1a/a00251_source.html#l00037">CSV.h:37</a></div></div>
+<div class="ttc" id="a00345_html"><div class="ttname"><a href="../../d9/d48/a00345.html">Location.h</a></div></div>
+<div class="ttc" id="a00024_html_a0a423b912a592057bfbd5cac7e5db771"><div class="ttname"><a href="../../dc/de2/a00024.html#a0a423b912a592057bfbd5cac7e5db771">gengeopop::CommutesCSVReader::AddCommuteFrom</a></div><div class="ttdeci">void AddCommuteFrom(std::shared_ptr&lt; Location &gt; from, std::shared_ptr&lt; Location &gt; to, double proportion) const </div><div class="ttdoc">Add commutes by splitting the &#39;from&#39; into submunicipalities if necessary. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00029">CommutesCSVReader.cpp:29</a></div></div>
+<div class="ttc" id="a00251_html"><div class="ttname"><a href="../../d3/d1a/a00251.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
+<div class="ttc" id="a00024_html_aacda603127a4a37fbb57ea3c454479c5"><div class="ttname"><a href="../../dc/de2/a00024.html#aacda603127a4a37fbb57ea3c454479c5">gengeopop::CommutesCSVReader::MunicipalityTotal</a></div><div class="ttdeci">double MunicipalityTotal(std::shared_ptr&lt; Location &gt; loc) const </div><div class="ttdoc">Find the relative total populution in the submunicipalities. If it doesn&#39;t have any, it will return 0. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00013">CommutesCSVReader.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../dc/d98/a00225.html">CommutesReader.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../dc/d98/a00225.html">CommutesCSVReader.h</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

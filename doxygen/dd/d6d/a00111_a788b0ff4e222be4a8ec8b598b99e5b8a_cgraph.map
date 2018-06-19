@@ -1,0 +1,19 @@
+<map id="stride::GenPopBuilder::Build" name="stride::GenPopBuilder::Build">
+<area shape="rect" id="node2" href="$d0/d33/a00027.html#af4e88fa853549968f99fcc36143bdb9d" title="Generate and store the Geo part of the GeoGrid. " alt="" coords="203,70,423,111"/>
+<area shape="rect" id="node5" href="$d0/d33/a00027.html#a6bde216b89db11c44c7bf05468973e96" title="Populate and store the Pop part of the GeoGrid. " alt="" coords="203,201,423,242"/>
+<area shape="rect" id="node8" href="$d0/d33/a00027.html#a6604a432e13d491593bd2a996fba8ab9" title="Get the generated GeoGrid. " alt="" coords="203,266,423,307"/>
+<area shape="rect" id="node9" href="$d0/d33/a00027.html#a5d80eb0492fba3112f7fb0571d386e30" title="Reads the data files. " alt="" coords="203,331,423,373"/>
+<area shape="rect" id="node18" href="$d0/d33/a00027.html#a9cf6765fbb7556eca86a128311e25939" title="Use the given Population storage during generation. " alt="" coords="203,397,423,438"/>
+<area shape="rect" id="node3" href="$d4/d8c/a00035.html#a6737fcd21eb9c18d2e3f910891b88fca" title="Add a PartialGenerator to use when generating. " alt="" coords="479,5,678,46"/>
+<area shape="rect" id="node4" href="$d4/d8c/a00035.html#ae69d73e903115ac2abea1d77e1bd2a93" title="gengeopop::GeoGridGenerator\l::GenerateGeoGrid" alt="" coords="479,70,678,111"/>
+<area shape="rect" id="node6" href="$d8/d41/a00038.html#a68e37467896ed3bc3cddf201282585ad" title="Add a PartialPopulator to use when populating. " alt="" coords="481,135,677,177"/>
+<area shape="rect" id="node7" href="$d8/d41/a00038.html#a1fa2934bb8d3335c17883c56887da917" title="gengeopop::GeoGridPopulator\l::PopulateGeoGrid" alt="" coords="481,201,677,242"/>
+<area shape="rect" id="node10" href="$db/df3/a00034.html#ae840dd7732fd6c16ab759adacdd7c35a" title="Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid..." alt="" coords="489,266,668,307"/>
+<area shape="rect" id="node11" href="$df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755" title="Create a CitiesReader based on an absolute Boost Filesystem Path pointing to the input file..." alt="" coords="489,331,668,373"/>
+<area shape="rect" id="node13" href="$df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71" title="Create a CommutesReader based on an absolute Boost Filesystem Path pointing to the input file..." alt="" coords="489,397,668,438"/>
+<area shape="rect" id="node16" href="$df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5" title="Create a HouseholdReader based on the filename of the input file, relative to the data directory..." alt="" coords="489,462,668,503"/>
+<area shape="rect" id="node17" href="$df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8" title="Create a SubMunicipalitiesReader based on the filename of the input file, relative to the data direct..." alt="" coords="472,527,685,569"/>
+<area shape="rect" id="node12" href="$df/d03/a00062.html#a301c922d893444c635c375f4c0326568" title="Create an istream based on the provided Boost Filesystem Path. " alt="" coords="733,331,912,373"/>
+<area shape="rect" id="node14" href="$d1/db7/a00157.html#aafd39e698c442fd0917915d085c9aa1a" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="757,462,888,503"/>
+<area shape="rect" id="node15" href="$d1/db7/a00157.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="960,469,1120,496"/>
+</map>

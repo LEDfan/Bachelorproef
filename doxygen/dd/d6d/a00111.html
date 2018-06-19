@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::GuiController Class Reference</title>
+<title>Stride Reference Manual: stride::GenPopBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -112,139 +112,58 @@ $(document).ready(function(){initNavTree('dd/d6d/a00111.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d61/a01205.html">List of all members</a>  </div>
+<a href="../../da/de0/a01248.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::GuiController Class Reference</div>  </div>
+<div class="title">stride::GenPopBuilder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A controller for the simulation that uses Qt to give the user the ability of controlling the steps.  
+<p>Initializes <a class="el" href="../../d4/ddd/a00138.html" title="Container for persons in population. ">Population</a> objects.  
  <a href="../../dd/d6d/a00111.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/d86/a00271_source.html">GenPopBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::GuiController:</div>
+Inheritance diagram for stride::GenPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dc/d9e/a01206.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d7b/a01249.svg" width="184" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::GuiController:</div>
+Collaboration diagram for stride::GenPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/dad/a01207.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d4/d22/a01250.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a264c5b8d0317ff9ac2909e5c450a648e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a264c5b8d0317ff9ac2909e5c450a648e">GuiController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a264c5b8d0317ff9ac2909e5c450a648e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the controller with a ptree containing the configuration, this contains the information needed to construct the <a class="el" href="../../d9/d77/a00095.html" title="A base class for Controllers in the MVC model. ">BaseController</a>.  <a href="#a264c5b8d0317ff9ac2909e5c450a648e">More...</a><br/></td></tr>
-<tr class="separator:a264c5b8d0317ff9ac2909e5c450a648e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a717f87bbb0a74caf3c65e8b1039a4dc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a717f87bbb0a74caf3c65e8b1039a4dc5">GuiController</a> (const <a class="el" href="../../dd/d6d/a00111.html">GuiController</a> &amp;b)=delete</td></tr>
-<tr class="separator:a717f87bbb0a74caf3c65e8b1039a4dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9549db2c1d92fbfd650d031f64fa42e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d6d/a00111.html">GuiController</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#ac9549db2c1d92fbfd650d031f64fa42e">operator=</a> (const <a class="el" href="../../dd/d6d/a00111.html">GuiController</a> &amp;b)=delete</td></tr>
-<tr class="separator:ac9549db2c1d92fbfd650d031f64fa42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae1fb2220c3ffd7b589d6ccbefab299"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a1ae1fb2220c3ffd7b589d6ccbefab299">~GuiController</a> ()</td></tr>
-<tr class="separator:a1ae1fb2220c3ffd7b589d6ccbefab299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af99fbfe3cc3bcb48d94aafa00c2cb164"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#af99fbfe3cc3bcb48d94aafa00c2cb164">Control</a> () override</td></tr>
-<tr class="memdesc:af99fbfe3cc3bcb48d94aafa00c2cb164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the Gui.  <a href="#af99fbfe3cc3bcb48d94aafa00c2cb164">More...</a><br/></td></tr>
-<tr class="separator:af99fbfe3cc3bcb48d94aafa00c2cb164"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4745f5e03356071307ad95ca4291ddb8"><td class="memItemLeft" align="right" valign="top">QQmlApplicationEngine *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a4745f5e03356071307ad95ca4291ddb8">GetEngine</a> ()</td></tr>
-<tr class="memdesc:a4745f5e03356071307ad95ca4291ddb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the QQmlApplicationEngine used to construct the Gui, so other Gui components can register themselves on the same engine.  <a href="#a4745f5e03356071307ad95ca4291ddb8">More...</a><br/></td></tr>
-<tr class="separator:a4745f5e03356071307ad95ca4291ddb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00095"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00095')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/d77/a00095.html">stride::BaseController</a></td></tr>
-<tr class="memitem:aced90d12fa58af5a489032f4d8124239 inherit pub_methods_a00095"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#aced90d12fa58af5a489032f4d8124239">BaseController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:aced90d12fa58af5a489032f4d8124239 inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#aced90d12fa58af5a489032f4d8124239">More...</a><br/></td></tr>
-<tr class="separator:aced90d12fa58af5a489032f4d8124239 inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a402d80b213280b46fdda6713c5734389 inherit pub_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a402d80b213280b46fdda6713c5734389">~BaseController</a> ()=default</td></tr>
-<tr class="memdesc:a402d80b213280b46fdda6713c5734389 inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual desctructor for overloading.  <a href="#a402d80b213280b46fdda6713c5734389">More...</a><br/></td></tr>
-<tr class="separator:a402d80b213280b46fdda6713c5734389 inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c522f31ad7520a8d8da979a453ed921 inherit pub_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a5c522f31ad7520a8d8da979a453ed921">GetSimRunner</a> ()</td></tr>
-<tr class="memdesc:a5c522f31ad7520a8d8da979a453ed921 inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d5/d4e/a00141.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a> that is used.  <a href="#a5c522f31ad7520a8d8da979a453ed921">More...</a><br/></td></tr>
-<tr class="separator:a5c522f31ad7520a8d8da979a453ed921 inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a904f58a60d934c8726f100a820c5322b inherit pub_methods_a00095"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Targs&gt; </td></tr>
-<tr class="memitem:a904f58a60d934c8726f100a820c5322b inherit pub_methods_a00095"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b">RegisterViewer</a> (Targs &amp;&amp;...args)</td></tr>
-<tr class="memdesc:a904f58a60d934c8726f100a820c5322b inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a viewer of type T with given args.  <a href="#a904f58a60d934c8726f100a820c5322b">More...</a><br/></td></tr>
-<tr class="separator:a904f58a60d934c8726f100a820c5322b inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbdf31ef7f947010a3c1cba494aa7fd0 inherit pub_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#acbdf31ef7f947010a3c1cba494aa7fd0">RegisterViewers</a> ()</td></tr>
-<tr class="memdesc:acbdf31ef7f947010a3c1cba494aa7fd0 inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../d5/d4e/a00141.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#acbdf31ef7f947010a3c1cba494aa7fd0">More...</a><br/></td></tr>
-<tr class="separator:acbdf31ef7f947010a3c1cba494aa7fd0 inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb79289441333395c55b949a8c775dd inherit pub_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#aeeb79289441333395c55b949a8c775dd">GetLogger</a> () const </td></tr>
-<tr class="memdesc:aeeb79289441333395c55b949a8c775dd inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the logger.  <a href="#aeeb79289441333395c55b949a8c775dd">More...</a><br/></td></tr>
-<tr class="separator:aeeb79289441333395c55b949a8c775dd inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ad5a418fa38c9e42fa93f88c522860 inherit pub_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ad6ad5a418fa38c9e42fa93f88c522860">GetOutputPrefix</a> ()</td></tr>
-<tr class="memdesc:ad6ad5a418fa38c9e42fa93f88c522860 inherit pub_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the prefix path for output files.  <a href="#ad6ad5a418fa38c9e42fa93f88c522860">More...</a><br/></td></tr>
-<tr class="separator:ad6ad5a418fa38c9e42fa93f88c522860 inherit pub_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:af8ee2c666be0831c8593b7d1229f8c11"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#af8ee2c666be0831c8593b7d1229f8c11">m_argc</a></td></tr>
-<tr class="memdesc:af8ee2c666be0831c8593b7d1229f8c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for initializing m_app, is always 0.  <a href="#af8ee2c666be0831c8593b7d1229f8c11">More...</a><br/></td></tr>
-<tr class="separator:af8ee2c666be0831c8593b7d1229f8c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10295746c4926950d50cc2c6a8de3af9"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; QGuiApplication &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a10295746c4926950d50cc2c6a8de3af9">m_app</a></td></tr>
-<tr class="memdesc:a10295746c4926950d50cc2c6a8de3af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main application that is used for the event loop.  <a href="#a10295746c4926950d50cc2c6a8de3af9">More...</a><br/></td></tr>
-<tr class="separator:a10295746c4926950d50cc2c6a8de3af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f5c908dacb5f26b5a533174778ff63b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
-&lt; QQmlApplicationEngine &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a3f5c908dacb5f26b5a533174778ff63b">m_engine</a></td></tr>
-<tr class="memdesc:a3f5c908dacb5f26b5a533174778ff63b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The engine used to register QML files.  <a href="#a3f5c908dacb5f26b5a533174778ff63b">More...</a><br/></td></tr>
-<tr class="separator:a3f5c908dacb5f26b5a533174778ff63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15b6b5485c19a9d4ee67c49cf22b2bda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/df8/a00076.html">GuiControllerBackend</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a15b6b5485c19a9d4ee67c49cf22b2bda">m_backend</a></td></tr>
-<tr class="memdesc:a15b6b5485c19a9d4ee67c49cf22b2bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">The backend used in the QML to control the behaviour of the simulation.  <a href="#a15b6b5485c19a9d4ee67c49cf22b2bda">More...</a><br/></td></tr>
-<tr class="separator:a15b6b5485c19a9d4ee67c49cf22b2bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a788b0ff4e222be4a8ec8b598b99e5b8a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a788b0ff4e222be4a8ec8b598b99e5b8a">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt; pop, std::size_t regionId, std::string regionName) override</td></tr>
+<tr class="memdesc:a788b0ff4e222be4a8ec8b598b99e5b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a population by generating it.  <a href="#a788b0ff4e222be4a8ec8b598b99e5b8a">More...</a><br/></td></tr>
+<tr class="separator:a788b0ff4e222be4a8ec8b598b99e5b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00093"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00093')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:a71a53948acc3676803feff7586d1d195 inherit pub_methods_a00093"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a71a53948acc3676803feff7586d1d195">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;regionPt, <a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;rnManager)</td></tr>
+<tr class="memdesc:a71a53948acc3676803feff7586d1d195 inherit pub_methods_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a71a53948acc3676803feff7586d1d195">More...</a><br/></td></tr>
+<tr class="separator:a71a53948acc3676803feff7586d1d195 inherit pub_methods_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00093"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
+<tr class="separator:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00095"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00095')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d9/d77/a00095.html">stride::BaseController</a></td></tr>
-<tr class="memitem:a9837dd9796e5b2a40c37984537c1375f inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a9837dd9796e5b2a40c37984537c1375f">BaseController</a> ()</td></tr>
-<tr class="memdesc:a9837dd9796e5b2a40c37984537c1375f inherit pro_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as taget for delegation.  <a href="#a9837dd9796e5b2a40c37984537c1375f">More...</a><br/></td></tr>
-<tr class="separator:a9837dd9796e5b2a40c37984537c1375f inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab018c0bad76fb740e98203ca2d432a26 inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ab018c0bad76fb740e98203ca2d432a26">CheckEnv</a> ()</td></tr>
-<tr class="memdesc:ab018c0bad76fb740e98203ca2d432a26 inherit pro_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#ab018c0bad76fb740e98203ca2d432a26">More...</a><br/></td></tr>
-<tr class="separator:ab018c0bad76fb740e98203ca2d432a26 inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0837ea00e86c16aa6e7e7fa6d31d5a57 inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a0837ea00e86c16aa6e7e7fa6d31d5a57">CheckOutputPrefix</a> ()</td></tr>
-<tr class="separator:a0837ea00e86c16aa6e7e7fa6d31d5a57 inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e11456e1c2d064aa7307045761ca04 inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ad3e11456e1c2d064aa7307045761ca04">LogSetup</a> ()</td></tr>
-<tr class="memdesc:ad3e11456e1c2d064aa7307045761ca04 inherit pro_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#ad3e11456e1c2d064aa7307045761ca04">More...</a><br/></td></tr>
-<tr class="separator:ad3e11456e1c2d064aa7307045761ca04 inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d12c22b23e4f38dc6ce483e0edcee84 inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a2d12c22b23e4f38dc6ce483e0edcee84">MakeLogger</a> ()</td></tr>
-<tr class="memdesc:a2d12c22b23e4f38dc6ce483e0edcee84 inherit pro_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a2d12c22b23e4f38dc6ce483e0edcee84">More...</a><br/></td></tr>
-<tr class="separator:a2d12c22b23e4f38dc6ce483e0edcee84 inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939613d6334e50ba91e96f92bd013204 inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a939613d6334e50ba91e96f92bd013204">PatchConfig</a> ()</td></tr>
-<tr class="memdesc:a939613d6334e50ba91e96f92bd013204 inherit pro_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Patch run configuration with cli overrides and defaults.  <a href="#a939613d6334e50ba91e96f92bd013204">More...</a><br/></td></tr>
-<tr class="separator:a939613d6334e50ba91e96f92bd013204 inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb3cf705a4906867e3e63d2c430a7f52 inherit pro_methods_a00095"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#aeb3cf705a4906867e3e63d2c430a7f52">ReadConfigFile</a> ()</td></tr>
-<tr class="memdesc:aeb3cf705a4906867e3e63d2c430a7f52 inherit pro_methods_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read configuration file.  <a href="#aeb3cf705a4906867e3e63d2c430a7f52">More...</a><br/></td></tr>
-<tr class="separator:aeb3cf705a4906867e3e63d2c430a7f52 inherit pro_methods_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00095"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00095')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d9/d77/a00095.html">stride::BaseController</a></td></tr>
-<tr class="memitem:a168454c784330f99397bac8249d7c1f4 inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a168454c784330f99397bac8249d7c1f4">m_config_pt</a></td></tr>
-<tr class="memdesc:a168454c784330f99397bac8249d7c1f4 inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#a168454c784330f99397bac8249d7c1f4">More...</a><br/></td></tr>
-<tr class="separator:a168454c784330f99397bac8249d7c1f4 inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a353127db697307bd1851455813269695 inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a353127db697307bd1851455813269695">m_output_prefix</a></td></tr>
-<tr class="memdesc:a353127db697307bd1851455813269695 inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#a353127db697307bd1851455813269695">More...</a><br/></td></tr>
-<tr class="separator:a353127db697307bd1851455813269695 inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02262faead2ab4d3f9c65616d6a6e0e1 inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a02262faead2ab4d3f9c65616d6a6e0e1">m_run_clock</a></td></tr>
-<tr class="memdesc:a02262faead2ab4d3f9c65616d6a6e0e1 inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#a02262faead2ab4d3f9c65616d6a6e0e1">More...</a><br/></td></tr>
-<tr class="separator:a02262faead2ab4d3f9c65616d6a6e0e1 inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cdffe733cbad2794e23eb82606c8b5c inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a7cdffe733cbad2794e23eb82606c8b5c">m_stride_logger</a></td></tr>
-<tr class="memdesc:a7cdffe733cbad2794e23eb82606c8b5c inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#a7cdffe733cbad2794e23eb82606c8b5c">More...</a><br/></td></tr>
-<tr class="separator:a7cdffe733cbad2794e23eb82606c8b5c inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae430f32baafa359df7630e93466cb595 inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ae430f32baafa359df7630e93466cb595">m_use_install_dirs</a></td></tr>
-<tr class="memdesc:ae430f32baafa359df7630e93466cb595 inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working dir or install dir mode.  <a href="#ae430f32baafa359df7630e93466cb595">More...</a><br/></td></tr>
-<tr class="separator:ae430f32baafa359df7630e93466cb595 inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab18dbcda248fedfaeae623a2503ec1ab inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">m_runner</a></td></tr>
-<tr class="memdesc:ab18dbcda248fedfaeae623a2503ec1ab inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d5/d4e/a00141.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#ab18dbcda248fedfaeae623a2503ec1ab">More...</a><br/></td></tr>
-<tr class="separator:ab18dbcda248fedfaeae623a2503ec1ab inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb4597d6e5cd9192060281895542847d inherit pro_attribs_a00095"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/db7/a00157.html">util::RNManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#abb4597d6e5cd9192060281895542847d">m_rn_manager</a></td></tr>
-<tr class="memdesc:abb4597d6e5cd9192060281895542847d inherit pro_attribs_a00095"><td class="mdescLeft">&#160;</td><td class="mdescRight">The manager for random numbers.  <a href="#abb4597d6e5cd9192060281895542847d">More...</a><br/></td></tr>
-<tr class="separator:abb4597d6e5cd9192060281895542847d inherit pro_attribs_a00095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00093"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00093')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d4/d7d/a00093.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00093"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td></tr>
+<tr class="memdesc:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#ae531cd041f5d2a849258039f820f9c9a">More...</a><br/></td></tr>
+<tr class="separator:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c77e5698556a6545bccce54550e3d5 inherit pro_attribs_a00093"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#aa8c77e5698556a6545bccce54550e3d5">m_region_pt</a></td></tr>
+<tr class="memdesc:aa8c77e5698556a6545bccce54550e3d5 inherit pro_attribs_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree of the region.  <a href="#aa8c77e5698556a6545bccce54550e3d5">More...</a><br/></td></tr>
+<tr class="separator:aa8c77e5698556a6545bccce54550e3d5 inherit pro_attribs_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af54ded40bb19a7927e8215884956c5fc inherit pro_attribs_a00093"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d7d/a00161.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#af54ded40bb19a7927e8215884956c5fc">m_rn_manager</a></td></tr>
+<tr class="memdesc:af54ded40bb19a7927e8215884956c5fc inherit pro_attribs_a00093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#af54ded40bb19a7927e8215884956c5fc">More...</a><br/></td></tr>
+<tr class="separator:af54ded40bb19a7927e8215884956c5fc inherit pro_attribs_a00093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A controller for the simulation that uses Qt to give the user the ability of controlling the steps. </p>
+<div class="textblock"><p>Initializes <a class="el" href="../../d4/ddd/a00138.html" title="Container for persons in population. ">Population</a> objects. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00017">17</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a264c5b8d0317ff9ac2909e5c450a648e"></a>
+<p>Definition at line <a class="el" href="../../dd/d86/a00271_source.html#l00036">36</a> of file <a class="el" href="../../dd/d86/a00271_source.html">GenPopBuilder.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a788b0ff4e222be4a8ec8b598b99e5b8a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -252,113 +171,27 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::GuiController::GuiController </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt; stride::GenPopBuilder::Build </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/ddd/a00138.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct the controller with a ptree containing the configuration, this contains the information needed to construct the <a class="el" href="../../d9/d77/a00095.html" title="A base class for Controllers in the MVC model. ">BaseController</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00010">10</a> of file <a class="el" href="../../d6/d82/a00293_source.html">GuiController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d5b/a00294_source.html#l00039">m_backend</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00038">m_engine</a>, <a class="el" href="../../d6/daa/a00187_source.html#l00094">stride::BaseController::m_runner</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00010">GuiControllerBackend::SetRunner()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d6d/a00111_a264c5b8d0317ff9ac2909e5c450a648e_cgraph.svg" width="347" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a717f87bbb0a74caf3c65e8b1039a4dc5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">stride::GuiController::GuiController </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d6d/a00111.html">GuiController</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>regionId</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1ae1fb2220c3ffd7b589d6ccbefab299"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">stride::GuiController::~GuiController </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>regionName</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00027">27</a> of file <a class="el" href="../../d6/d82/a00293_source.html">GuiController.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac9549db2c1d92fbfd650d031f64fa42e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/d6d/a00111.html">GuiController</a>&amp; stride::GuiController::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d6d/a00111.html">GuiController</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af99fbfe3cc3bcb48d94aafa00c2cb164"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::GuiController::Control </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -368,151 +201,34 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Start the Gui. </p>
+<p>Creates a population by generating it. </p>
 
-<p>Implements <a class="el" href="../../d9/d77/a00095.html#a69f449954b557b6418f36996253034a0">stride::BaseController</a>.</p>
+<p>Implements <a class="el" href="../../d4/d7d/a00093.html#ad985ef83434157d439ff1a15f051c488">stride::AbstractPopBuilder</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00025">25</a> of file <a class="el" href="../../d6/d82/a00293_source.html">GuiController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00044">44</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">GenPopBuilder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d4/d5b/a00294_source.html#l00037">m_app</a>.</p>
+<p>References <a class="el" href="../../db/d12/a00268_source.html#l00078">gengeopop::GenGeoPopController::GenGeo()</a>, <a class="el" href="../../db/d12/a00268_source.html#l00089">gengeopop::GenGeoPopController::GenPop()</a>, <a class="el" href="../../db/d12/a00268_source.html#l00101">gengeopop::GenGeoPopController::GetGeoGrid()</a>, <a class="el" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, <a class="el" href="../../d6/d4b/a00277_source.html#l00044">gengeopop::GeoGridConfig::populationSize</a>, <a class="el" href="../../db/d12/a00268_source.html#l00032">gengeopop::GenGeoPopController::ReadDataFiles()</a>, and <a class="el" href="../../db/d12/a00268_source.html#l00103">gengeopop::GenGeoPopController::UsePopulation()</a>.</p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../dd/d6d/a00111_a788b0ff4e222be4a8ec8b598b99e5b8a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div>
-<a class="anchor" id="a4745f5e03356071307ad95ca4291ddb8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QQmlApplicationEngine * stride::GuiController::GetEngine </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the QQmlApplicationEngine used to construct the Gui, so other Gui components can register themselves on the same engine. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00029">29</a> of file <a class="el" href="../../d6/d82/a00293_source.html">GuiController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d5b/a00294_source.html#l00038">m_engine</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af8ee2c666be0831c8593b7d1229f8c11"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;int&gt; stride::GuiController::m_argc</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Used for initializing m_app, is always 0. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00036">36</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a10295746c4926950d50cc2c6a8de3af9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;QGuiApplication&gt; stride::GuiController::m_app</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The main application that is used for the event loop. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00037">37</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00025">Control()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3f5c908dacb5f26b5a533174778ff63b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;QQmlApplicationEngine&gt; stride::GuiController::m_engine</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The engine used to register QML files. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00038">38</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00029">GetEngine()</a>, and <a class="el" href="../../d6/d82/a00293_source.html#l00010">GuiController()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a15b6b5485c19a9d4ee67c49cf22b2bda"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/df8/a00076.html">GuiControllerBackend</a>* stride::GuiController::m_backend</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The backend used in the QML to control the behaviour of the simulation. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00039">39</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00010">GuiController()</a>.</p>
+</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d4/d5b/a00294_source.html">GuiController.h</a></li>
-<li><a class="el" href="../../d6/d82/a00293_source.html">GuiController.cpp</a></li>
+<li><a class="el" href="../../dd/d86/a00271_source.html">GenPopBuilder.h</a></li>
+<li><a class="el" href="../../d9/d2a/a00270_source.html">GenPopBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/d6d/a00111.html">GuiController</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/d6d/a00111.html">GenPopBuilder</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

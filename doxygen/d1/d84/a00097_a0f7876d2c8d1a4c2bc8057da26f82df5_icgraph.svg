@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444" target="_top" xlink:title="Build the simulator and return it afterwards. ">
+<g id="a_node2"><a xlink:href="../../d2/d82/a00142.html#a94ce5fb3cae915f0bdb261498f31c444" target="_top" xlink:title="Build the simulator and return it afterwards. ">
 <polygon fill="white" stroke="black" points="138,-0 138,-30 232,-30 232,-0 138,-0"/>
 <text text-anchor="start" x="146" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::SimBuilder</text>
 <text text-anchor="middle" x="185" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::Build</text>

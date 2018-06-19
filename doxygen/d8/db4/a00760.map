@@ -1,10 +1,8 @@
-<map id="Person.h" name="Person.h">
-<area shape="rect" id="node2" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="5,88,125,115"/>
-<area shape="rect" id="node3" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="427,245,589,272"/>
-<area shape="rect" id="node9" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="438,88,596,115"/>
-<area shape="rect" id="node18" href="$d4/dd3/a00428.html" title="pool/TravellerProfile.h" alt="" coords="1559,88,1707,115"/>
-<area shape="rect" id="node10" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="665,171,799,197"/>
-<area shape="rect" id="node11" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="781,245,960,272"/>
-<area shape="rect" id="node20" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="1571,171,1695,197"/>
-<area shape="rect" id="node21" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="1523,245,1645,272"/>
+<map id="NoLocalInformation.h" name="NoLocalInformation.h">
+<area shape="rect" id="node2" href="$d8/df7/a00331.html" title="Header for the Infector class. " alt="" coords="133,80,209,107"/>
+<area shape="rect" id="node7" href="$d9/dd1/a00398.html" title="Implementation for the Simulator class. " alt="" coords="235,80,305,107"/>
+<area shape="rect" id="node3" href="$dd/d4e/a00329.html" title="Implementation of Infector algorithms. " alt="" coords="5,155,96,181"/>
+<area shape="rect" id="node4" href="$d2/d0a/a00333.html" title="Header for the InfectorMap. " alt="" coords="121,155,223,181"/>
+<area shape="rect" id="node6" href="$df/d03/a00348.html" title="Implementation of Infector algorithms. " alt="" coords="248,155,339,181"/>
+<area shape="rect" id="node5" href="$d9/d95/a00400.html" title="Implementation for the SimBuilder class. " alt="" coords="117,229,227,256"/>
 </map>

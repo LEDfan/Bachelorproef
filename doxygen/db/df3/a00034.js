@@ -19,5 +19,10 @@ var a00034 =
     [ "contactPools", "db/df3/a00034.html#a90f5ed4ddabd82da2713fe68f6c1bd6c", null ],
     [ "contactCenters", "db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f", null ],
     [ "household_types", "db/df3/a00034.html#a56c54e65b247d0b49962a00f382e8912", null ],
-    [ "generated", "db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c", null ]
+    [ "generated", "db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c", null ],
+    [ "meanCollegeSize", "db/df3/a00034.html#a1811a952ecb5b6e9043e845cff9f2234", null ],
+    [ "meanCommunitySize", "db/df3/a00034.html#aa71b5402529c5ae2dc2acc30f186fd47", null ],
+    [ "meanK12SchoolSize", "db/df3/a00034.html#a379e3f07ea36ff40b12a69fb05822a11", null ],
+    [ "meanWorkplaceSchoolSize", "db/df3/a00034.html#a7a8aa6cce07959cac4b85e80b487af5d", null ],
+    [ "constants", "db/df3/a00034.html#a2ef783a0eb04a2a0dfc164b72f2c4503", null ]
 ];

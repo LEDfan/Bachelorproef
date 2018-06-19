@@ -1,2 +1,7 @@
-<map id="SimBuilder.h" name="SimBuilder.h">
+<map id="SecondaryCommunity.h" name="SecondaryCommunity.h">
+<area shape="rect" id="node2" href="$d0/d24/a00222.html" title="CommunityGenerator.cpp" alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node3" href="$d0/dcd/a00280.html" title="GeoGridJSONReader.cpp" alt="" coords="200,80,373,107"/>
+<area shape="rect" id="node4" href="$d5/d7b/a00286.html" title="GeoGridProtoReader.cpp" alt="" coords="397,80,565,107"/>
+<area shape="rect" id="node5" href="$db/dbc/a00395.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="590,80,820,107"/>
+<area shape="rect" id="node6" href="$da/dbf/a00393.html" title="SecondaryCommunity.cpp" alt="" coords="845,80,1021,107"/>
 </map>

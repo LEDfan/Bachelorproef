@@ -1,0 +1,5 @@
+<map id="stride::Person::IsTravelling" name="stride::Person::IsTravelling">
+<area shape="rect" id="node2" href="$d4/d3a/a00101.html#a0a6552a6767ab8c31913a5907d6b1b1c" title="Swaps persons in m_members with the given index and updates the expats data if necessary. " alt="" coords="233,11,367,53"/>
+<area shape="rect" id="node3" href="$d4/d3a/a00101.html#a6c90e9734ee7c6566bdf1f4416e99fd8" title="Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. " alt="" coords="417,11,551,53"/>
+<area shape="rect" id="node4" href="$df/dc8/a00122.html#a3e10dc57119090c30ba818420bbd7b94" title="stride::Infector\&lt; LL,\l TIC, NoLocalInformation,\l true \&gt;::Exec" alt="" coords="600,4,773,60"/>
+</map>

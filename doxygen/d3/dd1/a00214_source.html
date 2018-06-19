@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CollegePopulator.cpp Source File</title>
+<title>Stride Reference Manual: College.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,140 +109,47 @@ $(document).ready(function(){initNavTree('d3/dd1/a00214_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CollegePopulator.cpp</div>  </div>
+<div class="title">College.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d3/dd1/a00214.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dd5/a00215.html">CollegePopulator.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/ded/a00211.html">gengeopop/College.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;trng/discrete_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;trng/lcg64.hpp&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;trng/uniform_int_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dd/ded/a00211.html">gengeopop/College.h</a>&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/d19/a00273.html">gengeopop/GeoGridConfig.h</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/dc2/a00367.html">pop/Person.h</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/d2f/a00259.html">util/ExcAssert.h</a>&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#abc6ecf1b07270c3a1e2152f3be6ffeae">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#abc6ecf1b07270c3a1e2152f3be6ffeae">CollegePopulator::Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a>-&gt;info(<span class="stringliteral">&quot;Starting to populate Colleges&quot;</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::set&lt;stride::ContactPool*&gt; found;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                   students  = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                   commuting = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">// for every location</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;Location&gt;&amp; loc : *geoGrid) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">if</span> (loc-&gt;GetPopulation() == 0) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="comment">// 1. find all highschools in an area of 10-k*10 km</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keyword">const</span> std::vector&lt;stride::ContactPool*&gt;&amp; nearByHighSchools =</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    GetContactPoolInIncreasingRadius&lt;College&gt;(geoGrid, loc);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="../../d0/d2f/a00259.html#a53951f1917941ac25ba6508b1b72771f">ExcAssert</a>(!nearByHighSchools.empty(),</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                          <span class="stringliteral">&quot;Did not find any HighSchool due to invalid input data in HighSchoolPopulator&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keyword">auto</span> distNonCommuting = <a class="code" href="../../d1/d22/a00057.html#abac3795203d9926b6c5dee1090a2de2c">m_rnManager</a>.<a class="code" href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    0, static_cast&lt;trng::uniform_int_dist::result_type&gt;(nearByHighSchools.size())));</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="comment">// 2. find all highschools were students from this location commute to</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                std::vector&lt;std::shared_ptr&lt;Location&gt;&gt; commutingHighSchools;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                std::vector&lt;double&gt;                    commutingWeights;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> std::pair&lt;std::shared_ptr&lt;Location&gt;, <span class="keywordtype">double</span>&gt;&amp; commute : loc-&gt;GetOutgoingCommuningCities()) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; highSchools = commute.first-&gt;GetContactCentersOfType&lt;<a class="code" href="../../dd/da2/a00019.html">College</a>&gt;();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                        <span class="keywordflow">if</span> (!highSchools.empty()) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                commutingHighSchools.push_back(commute.first);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                commutingWeights.push_back(commute.second);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                std::function&lt;trng::discrete_dist::result_type()&gt; disCommuting;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> (!commutingWeights.empty()) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        disCommuting = <a class="code" href="../../d1/d22/a00057.html#abac3795203d9926b6c5dee1090a2de2c">m_rnManager</a>.<a class="code" href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                            trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="comment">// 2. for every student assign a class</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;ContactCenter&gt;&amp; household : loc-&gt;GetContactCentersOfType&lt;<a class="code" href="../../d6/d97/a00045.html">Household</a>&gt;()) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <a class="code" href="../../d4/d3a/a00101.html">stride::ContactPool</a>* contactPool = household-&gt;GetPools()[0];</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                        found.insert(contactPool);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keywordflow">for</span> (<a class="code" href="../../d0/d5e/a00136.html">stride::Person</a>* person : *contactPool) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                <span class="keywordflow">if</span> (person-&gt;IsCollegeStudentCandidate() &amp;&amp;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                    <a class="code" href="../../d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a>(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#a9a3f4f357cef24a66d3c9dcdc58f7b5b">fraction_1826_years_WhichAreStudents</a>)) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                        students++;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                        <span class="comment">// this person is a student</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                        <span class="keywordflow">if</span> (!commutingHighSchools.empty() &amp;&amp;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                            <a class="code" href="../../d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a>(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#a78e9f4c58c365259d7d080dabc329f96">fraction_student_commutingPeople</a>)) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                                <span class="comment">// this person is commuting</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                                commuting++;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                <span class="comment">// id of the location this person is commuting to</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                                <span class="keyword">auto</span> locationId = disCommuting();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                                <span class="comment">// create a list of ContactPools (i.e. classes) for each of highschool</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                                <span class="comment">// of this location</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; highSchools = commutingHighSchools[locationId]</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                                                              -&gt;GetContactCentersOfType&lt;<a class="code" href="../../dd/da2/a00019.html">College</a>&gt;();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                                std::vector&lt;stride::ContactPool*&gt; contactPools;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; highSchool : highSchools) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                                        contactPools.insert(contactPools.end(), highSchool-&gt;begin(),</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                                                            highSchool-&gt;end());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                                }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                <span class="keyword">auto</span> disPools = <a class="code" href="../../d1/d22/a00057.html#abac3795203d9926b6c5dee1090a2de2c">m_rnManager</a>.<a class="code" href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                                    0, static_cast&lt;trng::uniform_int_dist::result_type&gt;(</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                                           contactPools.size())));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                                <span class="keyword">auto</span> <span class="keywordtype">id</span> = disPools();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                                contactPools[id]-&gt;AddMember(person);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                                person-&gt;SetCollegeId(contactPools[<span class="keywordtype">id</span>]-&gt;GetId());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                                <span class="keyword">auto</span> <span class="keywordtype">id</span> = distNonCommuting();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                                nearByHighSchools[id]-&gt;AddMember(person);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                                person-&gt;SetCollegeId(nearByHighSchools[<span class="keywordtype">id</span>]-&gt;GetId());</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a>-&gt;info(<span class="stringliteral">&quot;Finished populating Colleges&quot;</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a>-&gt;info(<span class="stringliteral">&quot;Used {} different classes&quot;</span>, found.size());</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="../../d1/d22/a00057.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a>-&gt;info(<span class="stringliteral">&quot;Placed {} students in Colleges, {} of whom are commuting to a different location&quot;</span>, students,</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                       commuting);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00034_html_a932e91e15c65933abb7934ecace53f35"><div class="ttname"><a href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@0 input</div><div class="ttdoc">INPUT. </div></div>
-<div class="ttc" id="a00215_html"><div class="ttname"><a href="../../d3/dd5/a00215.html">CollegePopulator.h</a></div></div>
-<div class="ttc" id="a00157_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00081">RNManager.h:81</a></div></div>
-<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d21/a00240_source.html#l00037">ContactPool.h:37</a></div></div>
-<div class="ttc" id="a00259_html"><div class="ttname"><a href="../../d0/d2f/a00259.html">ExcAssert.h</a></div></div>
-<div class="ttc" id="a00259_html_a53951f1917941ac25ba6508b1b72771f"><div class="ttname"><a href="../../d0/d2f/a00259.html#a53951f1917941ac25ba6508b1b72771f">ExcAssert</a></div><div class="ttdeci">void ExcAssert(bool condition, const std::string &amp;error)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d2f/a00259_source.html#l00008">ExcAssert.h:8</a></div></div>
-<div class="ttc" id="a00367_html"><div class="ttname"><a href="../../df/dc2/a00367.html">Person.h</a></div><div class="ttdoc">Header file for the Person class. </div></div>
-<div class="ttc" id="a00034_html_a9a3f4f357cef24a66d3c9dcdc58f7b5b"><div class="ttname"><a href="../../db/df3/a00034.html#a9a3f4f357cef24a66d3c9dcdc58f7b5b">gengeopop::GeoGridConfig::fraction_1826_years_WhichAreStudents</a></div><div class="ttdeci">double fraction_1826_years_WhichAreStudents</div><div class="ttdoc">Fraction of calc_fraction_1826 which are students. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00033">GeoGridConfig.h:33</a></div></div>
-<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00014">GeoGridConfig.h:14</a></div></div>
-<div class="ttc" id="a00034_html_a78e9f4c58c365259d7d080dabc329f96"><div class="ttname"><a href="../../db/df3/a00034.html#a78e9f4c58c365259d7d080dabc329f96">gengeopop::GeoGridConfig::fraction_student_commutingPeople</a></div><div class="ttdeci">double fraction_student_commutingPeople</div><div class="ttdoc">Fraction of fraction_1826_years_WhichAreStudents which commute. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00043">GeoGridConfig.h:43</a></div></div>
-<div class="ttc" id="a00057_html_a7c9b69f1083ed1016458ccaaa8e53964"><div class="ttname"><a href="../../d1/d22/a00057.html#a7c9b69f1083ed1016458ccaaa8e53964">gengeopop::PartialPopulator::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdoc">Logger used by populators. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db5/a00365_source.html#l00027">PartialPopulator.h:27</a></div></div>
-<div class="ttc" id="a00021_html_abc6ecf1b07270c3a1e2152f3be6ffeae"><div class="ttname"><a href="../../de/d11/a00021.html#abc6ecf1b07270c3a1e2152f3be6ffeae">gengeopop::CollegePopulator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Populate the given geogrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd1/a00214_source.html#l00015">CollegePopulator.cpp:15</a></div></div>
-<div class="ttc" id="a00211_html"><div class="ttname"><a href="../../dd/ded/a00211.html">College.h</a></div></div>
-<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">gengeopop::Household</a></div><div class="ttdoc">Models a Household as ContactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0f/a00303_source.html#l00008">Household.h:8</a></div></div>
-<div class="ttc" id="a00057_html_abac3795203d9926b6c5dee1090a2de2c"><div class="ttname"><a href="../../d1/d22/a00057.html#abac3795203d9926b6c5dee1090a2de2c">gengeopop::PartialPopulator::m_rnManager</a></div><div class="ttdeci">stride::util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager used by populators. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db5/a00365_source.html#l00026">PartialPopulator.h:26</a></div></div>
-<div class="ttc" id="a00057_html_ad18d65985647c2afb90627fa7048be6a"><div class="ttname"><a href="../../d1/d22/a00057.html#ad18d65985647c2afb90627fa7048be6a">gengeopop::PartialPopulator::MakeChoice</a></div><div class="ttdeci">bool MakeChoice(double fraction)</div><div class="ttdoc">Convenience wrapper around m_rnManager. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00009">PartialPopulator.cpp:9</a></div></div>
-<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">gengeopop::College</a></div><div class="ttdoc">Models a College as ContactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/ded/a00211_source.html#l00008">College.h:8</a></div></div>
-<div class="ttc" id="a00273_html"><div class="ttname"><a href="../../d0/d19/a00273.html">GeoGridConfig.h</a></div></div>
-<div class="ttc" id="a00136_html"><div class="ttname"><a href="../../d0/d5e/a00136.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00038">Person.h:38</a></div></div>
+<a href="../../d3/dd1/a00214.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dd5/a00215.html">College.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d4b/a00277.html">GeoGridConfig.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d1/dbd/a00457.html">    6</a></span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a4c4cfbf6cdec574798f3cdbcbf19fcf2">    8</a></span>&#160;<a class="code" href="../../dd/da2/a00019.html#a4c4cfbf6cdec574798f3cdbcbf19fcf2">College::College</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) : <a class="code" href="../../d6/d5b/a00026.html">ContactCenter</a>(id) {}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a89ecb95547bda6b23726fc82f60760c2">   10</a></span>&#160;std::string <a class="code" href="../../dd/da2/a00019.html#a89ecb95547bda6b23726fc82f60760c2">College::GetType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;College&quot;</span>; }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a77035ed2452bb47c763282b46233f9e9">   12</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/da2/a00019.html#a77035ed2452bb47c763282b46233f9e9">College::GetMaxPools</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 20; }</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a62977caa888aff35af48443e3ce890c2">   14</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/da2/a00019.html#a62977caa888aff35af48443e3ce890c2">College::GetPoolSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 150; }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../dd/da2/a00019.html#a754f1a7c9921e9a397ad1c9331db10e2">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/da2/a00019.html#a754f1a7c9921e9a397ad1c9331db10e2">College::Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; <a class="code" href="../../dd/da2/a00019.html#a77035ed2452bb47c763282b46233f9e9">GetMaxPools</a>(); ++i) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <a class="code" href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a>(geoGrid-&gt;CreateContactPool(Id::College));</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00215_html"><div class="ttname"><a href="../../d3/dd5/a00215.html">College.h</a></div></div>
+<div class="ttc" id="a00019_html_a77035ed2452bb47c763282b46233f9e9"><div class="ttname"><a href="../../dd/da2/a00019.html#a77035ed2452bb47c763282b46233f9e9">gengeopop::College::GetMaxPools</a></div><div class="ttdeci">unsigned int GetMaxPools() const override</div><div class="ttdoc">Get the maximal number of pools for this center. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd1/a00214_source.html#l00012">College.cpp:12</a></div></div>
+<div class="ttc" id="a00019_html_a62977caa888aff35af48443e3ce890c2"><div class="ttname"><a href="../../dd/da2/a00019.html#a62977caa888aff35af48443e3ce890c2">gengeopop::College::GetPoolSize</a></div><div class="ttdeci">unsigned int GetPoolSize() const override</div><div class="ttdoc">Get the size of a pool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd1/a00214_source.html#l00014">College.cpp:14</a></div></div>
+<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">gengeopop::ContactCenter</a></div><div class="ttdoc">A ContactCenter contains multiple ContactPools. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d42/a00235_source.html#l00009">ContactCenter.h:9</a></div></div>
+<div class="ttc" id="a00019_html_a4c4cfbf6cdec574798f3cdbcbf19fcf2"><div class="ttname"><a href="../../dd/da2/a00019.html#a4c4cfbf6cdec574798f3cdbcbf19fcf2">gengeopop::College::College</a></div><div class="ttdeci">College(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd1/a00214_source.html#l00008">College.cpp:8</a></div></div>
+<div class="ttc" id="a00026_html_a05e2ac775c782a156ad867059f3b5e57"><div class="ttname"><a href="../../d6/d5b/a00026.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter::AddPool</a></div><div class="ttdeci">void AddPool(stride::ContactPool *pool)</div><div class="ttdoc">Add a ContactPool. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d31/a00234_source.html#l00007">ContactCenter.cpp:7</a></div></div>
+<div class="ttc" id="a00019_html_a754f1a7c9921e9a397ad1c9331db10e2"><div class="ttname"><a href="../../dd/da2/a00019.html#a754f1a7c9921e9a397ad1c9331db10e2">gengeopop::College::Fill</a></div><div class="ttdeci">void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid) override</div><div class="ttdoc">Apply this ContactCenter to the GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd1/a00214_source.html#l00016">College.cpp:16</a></div></div>
+<div class="ttc" id="a00277_html"><div class="ttname"><a href="../../d6/d4b/a00277.html">GeoGridConfig.h</a></div></div>
+<div class="ttc" id="a00019_html_a89ecb95547bda6b23726fc82f60760c2"><div class="ttname"><a href="../../dd/da2/a00019.html#a89ecb95547bda6b23726fc82f60760c2">gengeopop::College::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdoc">Get the name of the type of contact center (e.g. College) </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd1/a00214_source.html#l00010">College.cpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d3/dd1/a00214.html">CollegePopulator.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dd1/a00214.html">College.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

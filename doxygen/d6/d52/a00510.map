@@ -1,4 +1,7 @@
-<map id="BoxplotGenerator.h" name="BoxplotGenerator.h">
-<area shape="rect" id="node4" href="$d2/daf/a00346.html" title="Logging (spdlog) utilities. " alt="" coords="339,80,441,107"/>
-<area shape="rect" id="node8" href="$dd/df4/a00193.html" title="BoxplotData.h" alt="" coords="127,80,232,107"/>
+<map id="BeliefSeeder.h" name="BeliefSeeder.h">
+<area shape="rect" id="node2" href="$de/dab/a00319.html" title="Header file for Imitation belief policy. " alt="" coords="193,81,356,122"/>
+<area shape="rect" id="node5" href="$d9/d9b/a00363.html" title="Header file for NoBelief class. " alt="" coords="5,81,168,122"/>
+<area shape="rect" id="node6" href="$d9/d0a/a00390.html" title="Interface of RNManager. " alt="" coords="755,88,879,115"/>
+<area shape="rect" id="node3" href="$dd/da2/a00192.html" title="Header file for Belief. " alt="" coords="5,171,168,213"/>
+<area shape="rect" id="node7" href="$d9/dc1/a00388.html" title="Interface of Random Engine Type. " alt="" coords="352,179,475,205"/>
 </map>

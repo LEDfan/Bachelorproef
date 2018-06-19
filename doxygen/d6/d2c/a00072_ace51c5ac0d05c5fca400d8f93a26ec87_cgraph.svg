@@ -152,7 +152,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d0/d5e/a00136.html#af901d3a2d62ad342a5067252e7da4608" target="_top" xlink:title="stride::Person::SetWorkId">
+<g id="a_node5"><a xlink:href="../../d2/df5/a00137.html#af901d3a2d62ad342a5067252e7da4608" target="_top" xlink:title="Sets the id of the Work CP. ">
 <polygon fill="white" stroke="black" points="431,-290.5 431,-309.5 561,-309.5 561,-290.5 431,-290.5"/>
 <text text-anchor="middle" x="496" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Person::SetWorkId</text>
 </a>
@@ -165,7 +165,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
+<g id="a_node4"><a xlink:href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" target="_top" xlink:title="Produce a random generator out of a distribution bound to sim&#39;s random engine. ">
 <polygon fill="white" stroke="black" points="614,-140 614,-170 732,-170 732,-140 614,-140"/>
 <text text-anchor="start" x="622" y="-158" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::RNManager</text>
 <text text-anchor="middle" x="673" y="-147" font-family="Helvetica,sans-Serif" font-size="10.00">::GetGenerator</text>
@@ -179,7 +179,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d0/d5e/a00136.html#a7a8e447907935f01c1e67164725728df" target="_top" xlink:title="stride::Person::SetPoolId">
+<g id="a_node6"><a xlink:href="../../d2/df5/a00137.html#a7a8e447907935f01c1e67164725728df" target="_top" xlink:title="Sets the id of the type CP. ">
 <polygon fill="white" stroke="black" points="610,-290.5 610,-309.5 736,-309.5 736,-290.5 610,-290.5"/>
 <text text-anchor="middle" x="673" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::Person::SetPoolId</text>
 </a>
@@ -197,7 +197,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d0/d2f/a00259.html#a53951f1917941ac25ba6508b1b72771f" target="_top" xlink:title="ExcAssert">
+<g id="a_node8"><a xlink:href="../../df/da9/a00263.html#a53951f1917941ac25ba6508b1b72771f" target="_top" xlink:title="ExcAssert">
 <polygon fill="white" stroke="black" points="465,-202.5 465,-221.5 527,-221.5 527,-202.5 465,-202.5"/>
 <text text-anchor="middle" x="496" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">ExcAssert</text>
 </a>

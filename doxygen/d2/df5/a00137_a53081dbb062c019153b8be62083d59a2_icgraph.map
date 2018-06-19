@@ -1,0 +1,9 @@
+<map id="stride::Person::GetHealth" name="stride::Person::GetHealth">
+<area shape="rect" id="node2" href="$df/dcd/a00127.html#a027a20be44f26ed2efddc2198158cc04" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::Susceptibles \&gt;::Contact" alt="" coords="225,5,396,61"/>
+<area shape="rect" id="node3" href="$d8/dfa/a00121.html#a45b455fb644270329ae1d53aad9de4db" title="stride::Infector::Exec" alt="" coords="239,85,383,112"/>
+<area shape="rect" id="node4" href="$df/dc8/a00122.html#a3e10dc57119090c30ba818420bbd7b94" title="stride::Infector\&lt; LL,\l TIC, NoLocalInformation,\l true \&gt;::Exec" alt="" coords="224,136,397,192"/>
+<area shape="rect" id="node5" href="$d9/d4b/a00117.html#a8188dc69064103c5ac7e95193356a0c3" title="Random immunization. " alt="" coords="245,215,376,257"/>
+<area shape="rect" id="node7" href="$d4/d81/a00110.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="646,245,797,286"/>
+<area shape="rect" id="node6" href="$d4/d81/a00110.html#accb4b7832c08a4cc98973caf5aebf7f5" title="Seed for vaccination/natural immunity. " alt="" coords="446,215,597,257"/>
+<area shape="rect" id="node8" href="$d2/d82/a00142.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="845,245,971,286"/>
+</map>

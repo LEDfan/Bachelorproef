@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: NoGlobalInformation.h Source File</title>
+<title>Stride Reference Manual: MapViewer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,52 +109,61 @@ $(document).ready(function(){initNavTree('d0/d65/a00360_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">NoGlobalInformation.h</div>  </div>
+<div class="title">MapViewer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/d65/a00360.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @file Header for NoGlobalInformation policy</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span>Person;<span class="comment"></span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * No global information about the disease, number of infected,... .</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/db3/a00130.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/db3/a00130.html">NoGlobalInformation</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d6/db3/a00130.html#ae8df514c2c3f876dc620c2423091967c">   30</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/db3/a00130.html#ae8df514c2c3f876dc620c2423091967c">Update</a>(<a class="code" href="../../d0/d5e/a00136.html">Person</a>* p1, <a class="code" href="../../d0/d5e/a00136.html">Person</a>* p2) {}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00130_html"><div class="ttname"><a href="../../d6/db3/a00130.html">stride::NoGlobalInformation</a></div><div class="ttdoc">No global information about the disease, number of infected,... </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00027">NoGlobalInformation.h:27</a></div></div>
-<div class="ttc" id="a00130_html_ae8df514c2c3f876dc620c2423091967c"><div class="ttname"><a href="../../d6/db3/a00130.html#ae8df514c2c3f876dc620c2423091967c">stride::NoGlobalInformation::Update</a></div><div class="ttdeci">static void Update(Person *p1, Person *p2)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00030">NoGlobalInformation.h:30</a></div></div>
-<div class="ttc" id="a00136_html"><div class="ttname"><a href="../../d0/d5e/a00136.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00038">Person.h:38</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/d73/a00358.html">mapviewer/Map.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/da0/a00403.html">sim/SimRunner.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;spdlog/logger.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/// A Viewer that visually shows the GeoGrids and associated information with Qt</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html">   11</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="../../d8/df1/a00174.html">MapViewer</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        /// Instantiate cli viewer.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#a354bb93b86fe6ab7d88188f3e66cc8e8">   15</a></span>&#160;<span class="comment"></span>        <a class="code" href="../../d8/df1/a00174.html#a354bb93b86fe6ab7d88188f3e66cc8e8">MapViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, std::shared_ptr&lt;spdlog::logger&gt; logger,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                  QQmlApplicationEngine* engine = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            : <a class="code" href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">m_logger</a>(logger), <a class="code" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a>{std::make_unique&lt;Map&gt;(engine)}, <a class="code" href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">m_runner</a>(std::move(runner))</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">        /// Destructor</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>        <a class="code" href="../../d8/df1/a00174.html#a347ee82efaa83090012fa331c855285a">~MapViewer</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        /// Let viewer perform update.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d8/df1/a00174.html#a682fd168e97785d7342bc192baeac078">Update</a>(<span class="keyword">const</span> <a class="code" href="../../d9/dca/a00477.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">   28</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">m_logger</a>; <span class="comment">///&lt; The logger used for notifying that the MapViewer was updated</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">   29</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">m_first</a> = <span class="keyword">true</span>; <span class="comment">///&lt; A variable used to see if it was the first time the &quot;Update&quot; method was called</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">   30</a></span>&#160;<span class="comment"></span>        std::unique_ptr&lt;Map&gt;       <a class="code" href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a>;    <span class="comment">///&lt; The Map to display</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">   31</a></span>&#160;<span class="comment"></span>        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">m_runner</a>; <span class="comment">///&lt; The runner for the current simulation</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span>};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00174_html_a086e9f45a7652dbbb2f2b63a790f41d7"><div class="ttname"><a href="../../d8/df1/a00174.html#a086e9f45a7652dbbb2f2b63a790f41d7">stride::viewers::MapViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdoc">The runner for the current simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00031">MapViewer.h:31</a></div></div>
+<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="ttc" id="a00174_html_ac76efad12d02ce9ee9f0b8487ff726ec"><div class="ttname"><a href="../../d8/df1/a00174.html#ac76efad12d02ce9ee9f0b8487ff726ec">stride::viewers::MapViewer::m_first</a></div><div class="ttdeci">bool m_first</div><div class="ttdoc">A variable used to see if it was the first time the &quot;Update&quot; method was called. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00029">MapViewer.h:29</a></div></div>
+<div class="ttc" id="a00477_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d9/dca/a00477.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/a00317_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00174_html_a354bb93b86fe6ab7d88188f3e66cc8e8"><div class="ttname"><a href="../../d8/df1/a00174.html#a354bb93b86fe6ab7d88188f3e66cc8e8">stride::viewers::MapViewer::MapViewer</a></div><div class="ttdeci">MapViewer(std::shared_ptr&lt; SimRunner &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger, QQmlApplicationEngine *engine=nullptr)</div><div class="ttdoc">Instantiate cli viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00015">MapViewer.h:15</a></div></div>
+<div class="ttc" id="a00174_html_a7899a4938e50547e1b14e387255c290a"><div class="ttname"><a href="../../d8/df1/a00174.html#a7899a4938e50547e1b14e387255c290a">stride::viewers::MapViewer::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdoc">The logger used for notifying that the MapViewer was updated. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00028">MapViewer.h:28</a></div></div>
+<div class="ttc" id="a00358_html"><div class="ttname"><a href="../../df/d73/a00358.html">Map.h</a></div></div>
+<div class="ttc" id="a00174_html_a682fd168e97785d7342bc192baeac078"><div class="ttname"><a href="../../d8/df1/a00174.html#a682fd168e97785d7342bc192baeac078">stride::viewers::MapViewer::Update</a></div><div class="ttdeci">void Update(const sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/def/a00359_source.html#l00009">MapViewer.cpp:9</a></div></div>
+<div class="ttc" id="a00174_html_a347ee82efaa83090012fa331c855285a"><div class="ttname"><a href="../../d8/df1/a00174.html#a347ee82efaa83090012fa331c855285a">stride::viewers::MapViewer::~MapViewer</a></div><div class="ttdeci">~MapViewer()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/def/a00359_source.html#l00033">MapViewer.cpp:33</a></div></div>
+<div class="ttc" id="a00174_html"><div class="ttname"><a href="../../d8/df1/a00174.html">stride::viewers::MapViewer</a></div><div class="ttdoc">A Viewer that visually shows the GeoGrids and associated information with Qt. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00011">MapViewer.h:11</a></div></div>
+<div class="ttc" id="a00174_html_a611730b84751ab3a6fbf48ff64e7a8c5"><div class="ttname"><a href="../../d8/df1/a00174.html#a611730b84751ab3a6fbf48ff64e7a8c5">stride::viewers::MapViewer::m_vis</a></div><div class="ttdeci">std::unique_ptr&lt; Map &gt; m_vis</div><div class="ttdoc">The Map to display. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d65/a00360_source.html#l00030">MapViewer.h:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_697403cd96b9981a35e127a5a5c069d8.html">information_policies</a></li><li class="navelem"><a class="el" href="../../d0/d65/a00360.html">NoGlobalInformation.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../d0/d65/a00360.html">MapViewer.h</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

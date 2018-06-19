@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CommutesListModel.cpp Source File</title>
+<title>Stride Reference Manual: CommunityGenerator.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,84 +109,86 @@ $(document).ready(function(){initNavTree('d0/d24/a00222_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CommutesListModel.cpp</div>  </div>
+<div class="title">CommunityGenerator.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/d24/a00222.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d28/a00223.html">CommutesListModel.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#ac25d105b266a8e7d1d04039f0b4d35df">    4</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/dec/a00010.html#ac25d105b266a8e7d1d04039f0b4d35df">CommutesListModel::rowCount</a>(<span class="keyword">const</span> QModelIndex&amp; <span class="comment">/*parent*/</span>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        <span class="keywordflow">return</span> ((<a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a> != <span class="keyword">nullptr</span>) ? static_cast&lt;int&gt;(<a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a>-&gt;GetOutgoingCommuningCities().size()) : 0);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a4ab4d9df0fa03ff99beb406e0f03d2fd">    9</a></span>&#160;QVariant <a class="code" href="../../d7/dec/a00010.html#a4ab4d9df0fa03ff99beb406e0f03d2fd">CommutesListModel::data</a>(<span class="keyword">const</span> QModelIndex&amp; index, <span class="keywordtype">int</span> role)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">auto</span> commute = <a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a>-&gt;GetOutgoingCommuningCities()[index.row()];</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">switch</span> (role) {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">case</span> Roles::Destination: <span class="keywordflow">return</span> QString::fromStdString(commute.first-&gt;GetName());</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">case</span> Roles::Amount: <span class="keywordflow">return</span> QString::number(commute.second);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> QVariant();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<a href="../../d0/d24/a00222.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d28/a00223.html">CommunityGenerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../PrimaryCommunity.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../SecondaryCommunity.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;trng/discrete_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;trng/lcg64.hpp&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d6/d4b/a00277.html">gengeopop/GeoGridConfig.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d3/d52/a00023.html#ab0b32a126df10112d785149cc8dcb7d5">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d52/a00023.html#ab0b32a126df10112d785149cc8dcb7d5">CommunityGenerator::Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">         * 1. calculate amount of communities, each community has average 2000 persons</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">         * 2. assign communities to a location by using a discrete distribution which reflects the relative amount of</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">         * people for that location</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">         */</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a5891d584e7ca9ad03db39eb8ced65bd3">   20</a></span>&#160;<a class="code" href="../../d7/dec/a00010.html#a5891d584e7ca9ad03db39eb8ced65bd3">CommutesListModel::CommutesListModel</a>(<a class="code" href="../../d9/dec/a00090.html">QObject</a>* parent) : <a class="code" href="../../db/dab/a00089.html">QAbstractListModel</a>(parent), m_location(nullptr) {}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#ac08b5d7adbd132da58c5642a278e9ba3">   22</a></span>&#160;QHash&lt;int, QByteArray&gt; <a class="code" href="../../d7/dec/a00010.html#ac08b5d7adbd132da58c5642a278e9ba3">CommutesListModel::roleNames</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        QHash&lt;int, QByteArray&gt; roles;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        roles[Roles::Destination] = <span class="stringliteral">&quot;destination&quot;</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        roles[Roles::Amount]      = <span class="stringliteral">&quot;amount&quot;</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> roles;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span>  populationSize = geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#ae5b9fde4c7f1f62339043b23f91850f5">populationSize</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">auto</span> amountOfCommunities =</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::ceil(populationSize / geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a2ef783a0eb04a2a0dfc164b72f2c4503">constants</a>.<a class="code" href="../../db/df3/a00034.html#aa71b5402529c5ae2dc2acc30f186fd47">meanCommunitySize</a>));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;double&gt; weights;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;Location&gt;&amp; loc : *geoGrid) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordtype">double</span> weight =</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(loc-&gt;GetPopulation()) / static_cast&lt;double&gt;(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">input</a>.<a class="code" href="../../db/df3/a00034.html#ae5b9fde4c7f1f62339043b23f91850f5">populationSize</a>);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a4906ceed33b3d98de061c41e0e296063">   30</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/dec/a00010.html#a4906ceed33b3d98de061c41e0e296063">CommutesListModel::columnCount</a>(<span class="keyword">const</span> QModelIndex&amp; <span class="comment">/*parent*/</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 2; }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <a class="code" href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a>(<span class="stringliteral">&quot;CommunityGenerator&quot;</span>, weight);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94">CommutesListModel::SetCommutes</a>(std::set&lt;std::shared_ptr&lt;gengeopop::Location&gt;&gt; locations)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">auto</span> oldAmtRows = <a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a> == <span class="keyword">nullptr</span> ? 0 : <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a>-&gt;GetOutgoingCommuningCities().size());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (locations.size() != 1) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                beginRemoveRows(QModelIndex(), 0, oldAmtRows);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                endRemoveRows();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <a class="code" href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">HasCommutes</a>(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a> = *locations.begin();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// Signal if the commutes need to be shown.</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// If there are no commutes other components may want to adapt to this</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">HasCommutes</a>(<a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a>-&gt;GetOutgoingCommuningCities().size() &gt; 0);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">int</span> newAmount = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code" href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">m_location</a>-&gt;GetOutgoingCommuningCities().size());</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">int</span> diff      = newAmount - oldAmtRows;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> (diff &lt; 0) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                beginRemoveRows(QModelIndex(), 0, -diff);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                endRemoveRows();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (diff &gt; 0) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                beginInsertRows(QModelIndex(), 0, diff - 1);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                endInsertRows();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        dataChanged(createIndex(0, 0), createIndex(newAmount - 1, 2));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="ttc" id="a00010_html_a02750a7aa09771952c6d05bc7e8f5289"><div class="ttname"><a href="../../d7/dec/a00010.html#a02750a7aa09771952c6d05bc7e8f5289">CommutesListModel::HasCommutes</a></div><div class="ttdeci">void HasCommutes(bool status)</div><div class="ttdoc">Sends a signal to listeners whether or not there are commutes. </div></div>
-<div class="ttc" id="a00010_html_a4906ceed33b3d98de061c41e0e296063"><div class="ttname"><a href="../../d7/dec/a00010.html#a4906ceed33b3d98de061c41e0e296063">CommutesListModel::columnCount</a></div><div class="ttdeci">int columnCount(const QModelIndex &amp;parent=QModelIndex()) const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00030">CommutesListModel.cpp:30</a></div></div>
-<div class="ttc" id="a00223_html"><div class="ttname"><a href="../../dc/d28/a00223.html">CommutesListModel.h</a></div></div>
-<div class="ttc" id="a00010_html_ac25d105b266a8e7d1d04039f0b4d35df"><div class="ttname"><a href="../../d7/dec/a00010.html#ac25d105b266a8e7d1d04039f0b4d35df">CommutesListModel::rowCount</a></div><div class="ttdeci">int rowCount(const QModelIndex &amp;parent=QModelIndex()) const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00004">CommutesListModel.cpp:4</a></div></div>
-<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">QObject</a></div></div>
-<div class="ttc" id="a00010_html_ac08b5d7adbd132da58c5642a278e9ba3"><div class="ttname"><a href="../../d7/dec/a00010.html#ac08b5d7adbd132da58c5642a278e9ba3">CommutesListModel::roleNames</a></div><div class="ttdeci">QHash&lt; int, QByteArray &gt; roleNames() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00022">CommutesListModel.cpp:22</a></div></div>
-<div class="ttc" id="a00010_html_a4ab4d9df0fa03ff99beb406e0f03d2fd"><div class="ttname"><a href="../../d7/dec/a00010.html#a4ab4d9df0fa03ff99beb406e0f03d2fd">CommutesListModel::data</a></div><div class="ttdeci">QVariant data(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00009">CommutesListModel.cpp:9</a></div></div>
-<div class="ttc" id="a00089_html"><div class="ttname"><a href="../../db/dab/a00089.html">QAbstractListModel</a></div></div>
-<div class="ttc" id="a00010_html_a844fbc5b2a05ea28fc0286ba2400deb5"><div class="ttname"><a href="../../d7/dec/a00010.html#a844fbc5b2a05ea28fc0286ba2400deb5">CommutesListModel::m_location</a></div><div class="ttdeci">std::shared_ptr&lt; gengeopop::Location &gt; m_location</div><div class="ttdoc">The location we show the commutes of. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d28/a00223_source.html#l00052">CommutesListModel.h:52</a></div></div>
-<div class="ttc" id="a00010_html_af5e62c909f419b5468655835e84cdc94"><div class="ttname"><a href="../../d7/dec/a00010.html#af5e62c909f419b5468655835e84cdc94">CommutesListModel::SetCommutes</a></div><div class="ttdeci">Q_INVOKABLE void SetCommutes(std::set&lt; std::shared_ptr&lt; gengeopop::Location &gt;&gt; locations)</div><div class="ttdoc">Set the commutes we wan to show in this model. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00032">CommutesListModel.cpp:32</a></div></div>
-<div class="ttc" id="a00010_html_a5891d584e7ca9ad03db39eb8ced65bd3"><div class="ttname"><a href="../../d7/dec/a00010.html#a5891d584e7ca9ad03db39eb8ced65bd3">CommutesListModel::CommutesListModel</a></div><div class="ttdeci">CommutesListModel(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00020">CommutesListModel.cpp:20</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                weights.push_back(weight);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (weights.empty()) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="comment">// trng can&#39;t handle empty vectors</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">auto</span> dist = <a class="code" href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">m_rnManager</a>.<a class="code" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::discrete_dist(weights.begin(), weights.end()));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> communityId = 0; communityId &lt; amountOfCommunities * 2; communityId++) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordtype">int</span>                       locationId = dist();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                std::shared_ptr&lt;Location&gt; loc        = (*geoGrid)[locationId];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> (communityId &lt; amountOfCommunities) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        <span class="keyword">auto</span> community = std::make_shared&lt;PrimaryCommunity&gt;(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.<a class="code" href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">contactCenters</a>++);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        community-&gt;Fill(geoGrid);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        loc-&gt;AddContactCenter(community);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        <span class="keyword">auto</span> community = std::make_shared&lt;SecondaryCommunity&gt;(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.<a class="code" href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">contactCenters</a>++);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        community-&gt;Fill(geoGrid);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        loc-&gt;AddContactCenter(community);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00034_html_a932e91e15c65933abb7934ecace53f35"><div class="ttname"><a href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@0 input</div></div>
+<div class="ttc" id="a00056_html_a5fc3c56913851b8a3dd6e151d69418c5"><div class="ttname"><a href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">gengeopop::PartialGenerator::m_rnManager</a></div><div class="ttdeci">stride::util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager used by generators. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00026">PartialGenerator.h:26</a></div></div>
+<div class="ttc" id="a00034_html_a2ef783a0eb04a2a0dfc164b72f2c4503"><div class="ttname"><a href="../../db/df3/a00034.html#a2ef783a0eb04a2a0dfc164b72f2c4503">gengeopop::GeoGridConfig::constants</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@3 constants</div></div>
+<div class="ttc" id="a00223_html"><div class="ttname"><a href="../../dc/d28/a00223.html">CommunityGenerator.h</a></div></div>
+<div class="ttc" id="a00034_html_a737d7b1ed78c73a8628b1a938a47475f"><div class="ttname"><a href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">gengeopop::GeoGridConfig::contactCenters</a></div><div class="ttdeci">unsigned int contactCenters</div><div class="ttdoc">The current amount of ContactCenters, used to obtain an Id for a new contactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00082">GeoGridConfig.h:82</a></div></div>
+<div class="ttc" id="a00034_html_aa71b5402529c5ae2dc2acc30f186fd47"><div class="ttname"><a href="../../db/df3/a00034.html#aa71b5402529c5ae2dc2acc30f186fd47">gengeopop::GeoGridConfig::meanCommunitySize</a></div><div class="ttdeci">double meanCommunitySize</div><div class="ttdoc">Size used to calculate the amount of Communities (double to prevent extra cast) </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00097">GeoGridConfig.h:97</a></div></div>
+<div class="ttc" id="a00034_html_a981511c45d99012d50aefe53d08fef7c"><div class="ttname"><a href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@2 generated</div></div>
+<div class="ttc" id="a00056_html_a28a70c98b4b5a47d3b3ca2913601815a"><div class="ttname"><a href="../../d9/d2e/a00056.html#a28a70c98b4b5a47d3b3ca2913601815a">gengeopop::PartialGenerator::CheckWeight</a></div><div class="ttdeci">void CheckWeight(const std::string &amp;func, double weight)</div><div class="ttdoc">Make sure we&#39;re using a valid weight for random numbers. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00030">PartialGenerator.h:30</a></div></div>
+<div class="ttc" id="a00023_html_ab0b32a126df10112d785149cc8dcb7d5"><div class="ttname"><a href="../../d3/d52/a00023.html#ab0b32a126df10112d785149cc8dcb7d5">gengeopop::CommunityGenerator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Apply this PartialGenerator to the given geogrid, generating ContactCenters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00012">CommunityGenerator.cpp:12</a></div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00014">GeoGridConfig.h:14</a></div></div>
+<div class="ttc" id="a00161_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0a/a00390_source.html#l00081">RNManager.h:81</a></div></div>
+<div class="ttc" id="a00034_html_ae5b9fde4c7f1f62339043b23f91850f5"><div class="ttname"><a href="../../db/df3/a00034.html#ae5b9fde4c7f1f62339043b23f91850f5">gengeopop::GeoGridConfig::populationSize</a></div><div class="ttdeci">unsigned int populationSize</div><div class="ttdoc">Absolute size of the population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00044">GeoGridConfig.h:44</a></div></div>
+<div class="ttc" id="a00277_html"><div class="ttname"><a href="../../d6/d4b/a00277.html">GeoGridConfig.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../dir_606c940184a2c6b7f406a2ac3600b646.html">models</a></li><li class="navelem"><a class="el" href="../../d0/d24/a00222.html">CommutesListModel.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d0/d24/a00222.html">CommunityGenerator.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

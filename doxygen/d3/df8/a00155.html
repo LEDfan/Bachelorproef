@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::LogUtils Class Reference</title>
+<title>Stride Reference Manual: stride::util::CSVRow Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -111,65 +111,87 @@ $(document).ready(function(){initNavTree('d3/df8/a00155.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d4/da0/a01291.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="../../d6/d07/a01303.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::LogUtils Class Reference</div>  </div>
+<div class="title">stride::util::CSVRow Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for logging (spdlog).  
+<p>Row in <a class="el" href="../../d3/d65/a00154.html" title="A collection of CSVRow elements. ">CSV</a> file.  
  <a href="../../d3/df8/a00155.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d2/daf/a00346_source.html">LogUtils.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::LogUtils:</div>
+Collaboration diagram for stride::util::CSVRow:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d7a/a01292.svg" width="179" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d6/dae/a01304.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a106af93dd3f814adf8b87ffaaf3ef3bb">CreateCliLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline logger, without registering it.  <a href="#a106af93dd3f814adf8b87ffaaf3ef3bb">More...</a><br/></td></tr>
-<tr class="separator:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52920faed22a1733b580a42ea065ed0d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a52920faed22a1733b580a42ea065ed0d">CreateFileLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a52920faed22a1733b580a42ea065ed0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline logger, without registering it.  <a href="#a52920faed22a1733b580a42ea065ed0d">More...</a><br/></td></tr>
-<tr class="separator:a52920faed22a1733b580a42ea065ed0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab89be4aea714eff74a2d4143023840a6"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#ab89be4aea714eff74a2d4143023840a6">CreateNullLogger</a> (const std::string &amp;logger_name)</td></tr>
-<tr class="memdesc:ab89be4aea714eff74a2d4143023840a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) null logger, without registering it.  <a href="#ab89be4aea714eff74a2d4143023840a6">More...</a><br/></td></tr>
-<tr class="separator:ab89be4aea714eff74a2d4143023840a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137e01100d0d79b122f731bb1292179d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a137e01100d0d79b122f731bb1292179d">CreateRotatingLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a137e01100d0d79b122f731bb1292179d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) rotating logger, without registering it.  <a href="#a137e01100d0d79b122f731bb1292179d">More...</a><br/></td></tr>
-<tr class="separator:a137e01100d0d79b122f731bb1292179d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab60a313ff2e75d0ae07bc7624c27a861"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#ab60a313ff2e75d0ae07bc7624c27a861">CSVRow</a> (const <a class="el" href="../../d3/d65/a00154.html">CSV</a> *parent, const std::vector&lt; std::string &gt; &amp;values)</td></tr>
+<tr class="memdesc:ab60a313ff2e75d0ae07bc7624c27a861"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d3/df8/a00155.html" title="Row in CSV file. ">CSVRow</a> initialized with values. Should no be called by user code. <a class="el" href="../../d3/d65/a00154.html" title="A collection of CSVRow elements. ">CSV</a> has convenience functions.  <a href="#ab60a313ff2e75d0ae07bc7624c27a861">More...</a><br/></td></tr>
+<tr class="separator:ab60a313ff2e75d0ae07bc7624c27a861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cf8ebc530e40cda52b9f15fb751a6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a63cf8ebc530e40cda52b9f15fb751a6f">CSVRow</a> (const <a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;)=default</td></tr>
+<tr class="separator:a63cf8ebc530e40cda52b9f15fb751a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b1014a66c6a3301863d8a35a55b591e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a6b1014a66c6a3301863d8a35a55b591e">operator=</a> (const <a class="el" href="../../d3/df8/a00155.html">stride::util::CSVRow</a> &amp;)=default</td></tr>
+<tr class="separator:a6b1014a66c6a3301863d8a35a55b591e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6462fb781526ce386453ea4ee8e353e5"><td class="memTemplParams" colspan="2">template&lt;typename T  = std::string&gt; </td></tr>
+<tr class="memitem:a6462fb781526ce386453ea4ee8e353e5"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a> (<a class="el" href="../../d8/d89/a00484.html">size_t</a> index) const </td></tr>
+<tr class="memdesc:a6462fb781526ce386453ea4ee8e353e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value at index. When T is specified, StringUtils are used to try to convert the value to type T.  <a href="#a6462fb781526ce386453ea4ee8e353e5">More...</a><br/></td></tr>
+<tr class="separator:a6462fb781526ce386453ea4ee8e353e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70dfc26893fa920410a7e4a049a1578a"><td class="memTemplParams" colspan="2">template&lt;typename T  = std::string&gt; </td></tr>
+<tr class="memitem:a70dfc26893fa920410a7e4a049a1578a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a70dfc26893fa920410a7e4a049a1578a">GetValue</a> (const std::string &amp;label) const </td></tr>
+<tr class="memdesc:a70dfc26893fa920410a7e4a049a1578a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value based on label. Note this is slower than using the index.  <a href="#a70dfc26893fa920410a7e4a049a1578a">More...</a><br/></td></tr>
+<tr class="separator:a70dfc26893fa920410a7e4a049a1578a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bec120b3295f500c637c4219ec5f873"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a8bec120b3295f500c637c4219ec5f873">operator==</a> (const <a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;other) const </td></tr>
+<tr class="memdesc:a8bec120b3295f500c637c4219ec5f873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare operator.  <a href="#a8bec120b3295f500c637c4219ec5f873">More...</a><br/></td></tr>
+<tr class="separator:a8bec120b3295f500c637c4219ec5f873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65777e0c58ce4632c96009ce1180250a"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a65777e0c58ce4632c96009ce1180250a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a65777e0c58ce4632c96009ce1180250a">GetValue</a> (<a class="el" href="../../d8/d89/a00484.html">size_t</a> index) const </td></tr>
+<tr class="memdesc:a65777e0c58ce4632c96009ce1180250a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of specialization.  <a href="#a65777e0c58ce4632c96009ce1180250a">More...</a><br/></td></tr>
+<tr class="separator:a65777e0c58ce4632c96009ce1180250a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e8149406514c601f7095c55460977d"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a03e8149406514c601f7095c55460977d"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a03e8149406514c601f7095c55460977d">GetValue</a> (const std::string &amp;label) const </td></tr>
+<tr class="memdesc:a03e8149406514c601f7095c55460977d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of specialization.  <a href="#a03e8149406514c601f7095c55460977d">More...</a><br/></td></tr>
+<tr class="separator:a03e8149406514c601f7095c55460977d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aa89bb5ef10f89f4eae23cc0536bf01c1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d3/d65/a00154.html">CSV</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#aa89bb5ef10f89f4eae23cc0536bf01c1">m_parent</a></td></tr>
+<tr class="separator:aa89bb5ef10f89f4eae23cc0536bf01c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e59d67d64bb1bf8681d7718be92d74f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a6e59d67d64bb1bf8681d7718be92d74f">m_values</a></td></tr>
+<tr class="separator:a6e59d67d64bb1bf8681d7718be92d74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0ec2f92503adc2a968a848d3fddf087d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df8/a00155.html#a0ec2f92503adc2a968a848d3fddf087d">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;row)</td></tr>
+<tr class="memdesc:a0ec2f92503adc2a968a848d3fddf087d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print to stream.  <a href="#a0ec2f92503adc2a968a848d3fddf087d">More...</a><br/></td></tr>
+<tr class="separator:a0ec2f92503adc2a968a848d3fddf087d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for logging (spdlog). </p>
+<div class="textblock"><p>Row in <a class="el" href="../../d3/d65/a00154.html" title="A collection of CSVRow elements. ">CSV</a> file. </p>
 
-<p>Definition at line <a class="el" href="../../d2/daf/a00346_source.html#l00032">32</a> of file <a class="el" href="../../d2/daf/a00346_source.html">LogUtils.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a106af93dd3f814adf8b87ffaaf3ef3bb"></a>
+<p>Definition at line <a class="el" href="../../d0/d3e/a00253_source.html#l00037">37</a> of file <a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab60a313ff2e75d0ae07bc7624c27a861"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::util::LogUtils::CreateCliLogger </td>
+          <td class="memname">stride::util::CSVRow::CSVRow </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
+          <td class="paramtype">const <a class="el" href="../../d3/d65/a00154.html">CSV</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -177,30 +199,24 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p><a class="el" href="../../d3/df8/a00155.html" title="Row in CSV file. ">CSVRow</a> initialized with values. Should no be called by user code. <a class="el" href="../../d3/d65/a00154.html" title="A collection of CSVRow elements. ">CSV</a> has convenience functions. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00032">32</a> of file <a class="el" href="../../d9/d48/a00345_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/ded/a00252_source.html#l00038">38</a> of file <a class="el" href="../../dc/ded/a00252_source.html">CSVRow.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../df/d03/a00348_source.html#l00034">main()</a>, and <a class="el" href="../../d8/d00/a00186_source.html#l00102">stride::BaseController::MakeLogger()</a>.</p>
+<p>References <a class="el" href="../../d3/d1a/a00251_source.html#l00059">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../d0/d3e/a00253_source.html#l00062">m_values</a>, <a class="el" href="../../dd/dea/a00408_source.html#l00078">stride::util::ToString()</a>, and <a class="el" href="../../dd/dea/a00408_source.html#l00127">stride::util::Trim()</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/df8/a00155_a106af93dd3f814adf8b87ffaaf3ef3bb_icgraph.svg" width="344" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/df8/a00155_ab60a313ff2e75d0ae07bc7624c27a861_cgraph.svg" width="531" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a52920faed22a1733b580a42ea065ed0d"></a>
+<a class="anchor" id="a63cf8ebc530e40cda52b9f15fb751a6f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -208,16 +224,206 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::util::LogUtils::CreateFileLogger </td>
+          <td class="memname">stride::util::CSVRow::CSVRow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6b1014a66c6a3301863d8a35a55b591e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/df8/a00155.html">CSVRow</a>&amp; stride::util::CSVRow::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/df8/a00155.html">stride::util::CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6462fb781526ce386453ea4ee8e353e5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d89/a00484.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get value at index. When T is specified, StringUtils are used to try to convert the value to type T. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d3e/a00253_source.html#l00105">105</a> of file <a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/d3e/a00253_source.html#l00074">stride::util::safe_cast()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/df8/a00155_a6462fb781526ce386453ea4ee8e353e5_cgraph.svg" width="347" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a70dfc26893fa920410a7e4a049a1578a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T stride::util::CSVRow::GetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
+          <td class="paramname"><em>label</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get value based on label. Note this is slower than using the index. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d3e/a00253_source.html#l00112">112</a> of file <a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/d3e/a00253_source.html#l00074">stride::util::safe_cast()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/df8/a00155_a70dfc26893fa920410a7e4a049a1578a_cgraph.svg" width="347" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bec120b3295f500c637c4219ec5f873"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::util::CSVRow::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare operator. </p>
+
+<p>Definition at line <a class="el" href="../../dc/ded/a00252_source.html#l00067">67</a> of file <a class="el" href="../../dc/ded/a00252_source.html">CSVRow.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d0/d3e/a00253_source.html#l00062">m_values</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65777e0c58ce4632c96009ce1180250a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d89/a00484.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Declaration of specialization. </p>
+
+</div>
+</div>
+<a class="anchor" id="a03e8149406514c601f7095c55460977d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>label</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Declaration of specialization. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a0ec2f92503adc2a968a848d3fddf087d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d3/df8/a00155.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"><em>row</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -227,19 +433,19 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Print to stream. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00053">53</a> of file <a class="el" href="../../d9/d48/a00345_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/ded/a00252_source.html#l00069">69</a> of file <a class="el" href="../../dc/ded/a00252_source.html">CSVRow.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab89be4aea714eff74a2d4143023840a6"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa89bb5ef10f89f4eae23cc0536bf01c1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -247,28 +453,21 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateNullLogger </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em></td><td>)</td>
-          <td></td>
+          <td class="memname">const <a class="el" href="../../d3/d65/a00154.html">CSV</a>* stride::util::CSVRow::m_parent</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) null logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00071">71</a> of file <a class="el" href="../../d9/d48/a00345_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d3e/a00253_source.html#l00061">61</a> of file <a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a137e01100d0d79b122f731bb1292179d"></a>
+<a class="anchor" id="a6e59d67d64bb1bf8681d7718be92d74f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -276,48 +475,33 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateRotatingLogger </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">std::vector&lt;std::string&gt; stride::util::CSVRow::m_values</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) rotating logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Definition at line <a class="el" href="../../d0/d3e/a00253_source.html#l00062">62</a> of file <a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00088">88</a> of file <a class="el" href="../../d9/d48/a00345_source.html">LogUtils.cpp</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00038">CSVRow()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00069">stride::util::operator&lt;&lt;()</a>, and <a class="el" href="../../dc/ded/a00252_source.html#l00067">operator==()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d2/daf/a00346_source.html">LogUtils.h</a></li>
-<li><a class="el" href="../../d9/d48/a00345_source.html">LogUtils.cpp</a></li>
+<li><a class="el" href="../../d0/d3e/a00253_source.html">CSVRow.h</a></li>
+<li><a class="el" href="../../dc/ded/a00252_source.html">CSVRow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d29/a00470.html">util</a></li><li class="navelem"><a class="el" href="../../d3/df8/a00155.html">LogUtils</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/dea/a00478.html">util</a></li><li class="navelem"><a class="el" href="../../d3/df8/a00155.html">CSVRow</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

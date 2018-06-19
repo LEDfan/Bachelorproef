@@ -1,5 +1,0 @@
-<map id="stride::SimRunner::Run" name="stride::SimRunner::Run">
-<area shape="rect" id="node2" href="$db/d44/a00162.html#a9496d626bbde63eb55836f0af402522c" title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::Notify" alt="" coords="217,5,359,61"/>
-<area shape="rect" id="node3" href="$d6/d7d/a00161.html#acaf0b5f9f645a7dd6420420443de5a96" title="Starts stopwatch if it was stopped. " alt="" coords="213,85,363,126"/>
-<area shape="rect" id="node4" href="$d6/d7d/a00161.html#a4b6145f590e94467a0048817f348ac75" title="Stops the stopwatch if it was running. " alt="" coords="213,150,363,191"/>
-</map>

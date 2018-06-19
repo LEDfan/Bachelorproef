@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::Threshold Class Reference</title>
+<title>Stride Reference Manual: stride::SimWorker Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -111,64 +111,61 @@ $(document).ready(function(){initNavTree('d5/da7/a00144.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-slots">Public Slots</a> &#124;
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d8/ddb/a01147.html">List of all members</a>  </div>
+<a href="../../de/d7e/a01222.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Threshold Class Reference</div>  </div>
+<div class="title">stride::SimWorker Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>&gt;</code></p>
+<p>A worker class used to perform 1 step of the simulation on a different thread.  
+ <a href="../../d5/da7/a00144.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../de/de8/a00405_source.html">SimWorker.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::Threshold:</div>
+Inheritance diagram for stride::SimWorker:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d17/a01148.svg" width="192" height="318"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/ddd/a01223.svg" width="136" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::Threshold:</div>
+Collaboration diagram for stride::SimWorker:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d02/a01149.svg" width="600" height="288"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d8e/a01224.svg" width="231" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public Slots</h2></td></tr>
+<tr class="memitem:ac7ca560af4b686acd9e403fe182861f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#ac7ca560af4b686acd9e403fe182861f6">Work</a> ()</td></tr>
+<tr class="memdesc:ac7ca560af4b686acd9e403fe182861f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the actual step if we are not at the end of the sim.  <a href="#ac7ca560af4b686acd9e403fe182861f6">More...</a><br/></td></tr>
+<tr class="separator:ac7ca560af4b686acd9e403fe182861f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:abfc68e11e3746597ef229bc2a446b290"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#abfc68e11e3746597ef229bc2a446b290">Worked</a> (unsigned int infectedCount)</td></tr>
+<tr class="memdesc:abfc68e11e3746597ef229bc2a446b290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let the caller know that the simulation was completely run and give the current infected count.  <a href="#abfc68e11e3746597ef229bc2a446b290">More...</a><br/></td></tr>
+<tr class="separator:abfc68e11e3746597ef229bc2a446b290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8da3ada04e2f53f0d6a8424c58e0065f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a8da3ada04e2f53f0d6a8424c58e0065f">Threshold</a> ()</td></tr>
-<tr class="separator:a8da3ada04e2f53f0d6a8424c58e0065f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00096"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00096')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d9/df8/a00096.html">stride::Belief</a></td></tr>
-<tr class="memitem:a4c6ab9b7c9f11aa7651337c30aa50dc8 inherit pub_methods_a00096"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a4c6ab9b7c9f11aa7651337c30aa50dc8">Belief</a> ()=default</td></tr>
-<tr class="separator:a4c6ab9b7c9f11aa7651337c30aa50dc8 inherit pub_methods_a00096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ced869d4ea27db2c4120a068750248 inherit pub_methods_a00096"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a48ced869d4ea27db2c4120a068750248">~Belief</a> ()=default</td></tr>
-<tr class="separator:a48ced869d4ea27db2c4120a068750248 inherit pub_methods_a00096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e01f1bfbad7923d1dff35558e47887f inherit pub_methods_a00096"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a4e01f1bfbad7923d1dff35558e47887f">HasAdopted</a> () const </td></tr>
-<tr class="separator:a4e01f1bfbad7923d1dff35558e47887f inherit pub_methods_a00096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0875edd265908fc98c009a0734559b7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a0875edd265908fc98c009a0734559b7c">SimWorker</a> (std::shared_ptr&lt; <a class="el" href="../../d7/dce/a00143.html">SimRunner</a> &gt; runner)</td></tr>
+<tr class="memdesc:a0875edd265908fc98c009a0734559b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Simworker with the <a class="el" href="../../d7/dce/a00143.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a> it has to perform a step for.  <a href="#a0875edd265908fc98c009a0734559b7c">More...</a><br/></td></tr>
+<tr class="separator:a0875edd265908fc98c009a0734559b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac4b88b840219d9df9585234a67cb7240"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#ac4b88b840219d9df9585234a67cb7240">m_is_aware</a></td></tr>
-<tr class="memdesc:ac4b88b840219d9df9585234a67cb7240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the person is aware of the current epidemic.  <a href="#ac4b88b840219d9df9585234a67cb7240">More...</a><br/></td></tr>
-<tr class="separator:ac4b88b840219d9df9585234a67cb7240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ae3466c106da6e6f9e074d6b0841e86"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a4ae3466c106da6e6f9e074d6b0841e86">m_num_contacts</a></td></tr>
-<tr class="memdesc:a4ae3466c106da6e6f9e074d6b0841e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of contacts the person has had.  <a href="#a4ae3466c106da6e6f9e074d6b0841e86">More...</a><br/></td></tr>
-<tr class="separator:a4ae3466c106da6e6f9e074d6b0841e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6f98311139eaa035d84d2c6d951f7f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a3c6f98311139eaa035d84d2c6d951f7f">m_num_contacts_infected</a></td></tr>
-<tr class="memdesc:a3c6f98311139eaa035d84d2c6d951f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of contacts that is symptomatic.  <a href="#a3c6f98311139eaa035d84d2c6d951f7f">More...</a><br/></td></tr>
-<tr class="separator:a3c6f98311139eaa035d84d2c6d951f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a788abd97461a417f3acf3db796c62514"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a788abd97461a417f3acf3db796c62514">m_num_contacts_adopted</a></td></tr>
-<tr class="memdesc:a788abd97461a417f3acf3db796c62514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of contacts that have adopted the behaviour.  <a href="#a788abd97461a417f3acf3db796c62514">More...</a><br/></td></tr>
-<tr class="separator:a788abd97461a417f3acf3db796c62514"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fcb580f7bc164aceb380a3ccb71b337"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d26/a00474.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a9fcb580f7bc164aceb380a3ccb71b337">m_threshold_infected</a></td></tr>
-<tr class="memdesc:a9fcb580f7bc164aceb380a3ccb71b337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of contacts that needs to be infected to adopt behaviour.  <a href="#a9fcb580f7bc164aceb380a3ccb71b337">More...</a><br/></td></tr>
-<tr class="separator:a9fcb580f7bc164aceb380a3ccb71b337"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae2cf98f557c4be064d719fc3e6caaba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d26/a00474.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#aae2cf98f557c4be064d719fc3e6caaba">m_threshold_adopted</a></td></tr>
-<tr class="memdesc:aae2cf98f557c4be064d719fc3e6caaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of contacts that needs to have adopted to adopt behaviour.  <a href="#aae2cf98f557c4be064d719fc3e6caaba">More...</a><br/></td></tr>
-<tr class="separator:aae2cf98f557c4be064d719fc3e6caaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7128f5bad9e29fcfeeaded32724ec7c7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d7/dce/a00143.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da7/a00144.html#a7128f5bad9e29fcfeeaded32724ec7c7">m_runner</a></td></tr>
+<tr class="memdesc:a7128f5bad9e29fcfeeaded32724ec7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The runner used to perform a step.  <a href="#a7128f5bad9e29fcfeeaded32724ec7c7">More...</a><br/></td></tr>
+<tr class="separator:a7128f5bad9e29fcfeeaded32724ec7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00026">26</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
+<div class="textblock"><p>A worker class used to perform 1 step of the simulation on a different thread. </p>
+
+<p>Definition at line <a class="el" href="../../de/de8/a00405_source.html#l00011">11</a> of file <a class="el" href="../../de/de8/a00405_source.html">SimWorker.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8da3ada04e2f53f0d6a8424c58e0065f"></a>
+<a class="anchor" id="a0875edd265908fc98c009a0734559b7c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -176,7 +173,36 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Threshold::Threshold </td>
+          <td class="memname">stride::SimWorker::SimWorker </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d7/dce/a00143.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramname"><em>runner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct the Simworker with the <a class="el" href="../../d7/dce/a00143.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a> it has to perform a step for. </p>
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00006">6</a> of file <a class="el" href="../../d9/de6/a00404_source.html">SimWorker.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac7ca560af4b686acd9e403fe182861f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimWorker::Work </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -184,17 +210,65 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00029">29</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
+<p>Perform the actual step if we are not at the end of the sim. </p>
+
+<p>Definition at line <a class="el" href="../../d9/de6/a00404_source.html#l00008">8</a> of file <a class="el" href="../../d9/de6/a00404_source.html">SimWorker.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/de8/a00405_source.html#l00025">m_runner</a>, and <a class="el" href="../../d5/da7/a00144.html#abfc68e11e3746597ef229bc2a446b290">Worked()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00012">GuiControllerBackend::StepDay()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/da7/a00144_ac7ca560af4b686acd9e403fe182861f6_icgraph.svg" width="376" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abfc68e11e3746597ef229bc2a446b290"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimWorker::Worked </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>infectedCount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Let the caller know that the simulation was completely run and give the current infected count. </p>
+
+<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00012">GuiControllerBackend::StepDay()</a>, and <a class="el" href="../../d9/de6/a00404_source.html#l00008">Work()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/da7/a00144_abfc68e11e3746597ef229bc2a446b290_icgraph.svg" width="560" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ac4b88b840219d9df9585234a67cb7240"></a>
+<a class="anchor" id="a7128f5bad9e29fcfeeaded32724ec7c7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -202,7 +276,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::Threshold::m_is_aware</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d7/dce/a00143.html">SimRunner</a>&gt; stride::SimWorker::m_runner</td>
         </tr>
       </table>
   </td>
@@ -212,142 +286,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether the person is aware of the current epidemic. </p>
+<p>The runner used to perform a step. </p>
 
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00036">36</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/de8/a00405_source.html#l00025">25</a> of file <a class="el" href="../../de/de8/a00405_source.html">SimWorker.h</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a4ae3466c106da6e6f9e074d6b0841e86"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Threshold::m_num_contacts</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The total number of contacts the person has had. </p>
-
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00037">37</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/de6/a00404_source.html#l00008">Work()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3c6f98311139eaa035d84d2c6d951f7f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Threshold::m_num_contacts_infected</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of contacts that is symptomatic. </p>
-
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00038">38</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a788abd97461a417f3acf3db796c62514"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Threshold::m_num_contacts_adopted</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of contacts that have adopted the behaviour. </p>
-
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00039">39</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9fcb580f7bc164aceb380a3ccb71b337"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d26/a00474.html">double</a> stride::Threshold::m_threshold_infected</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fraction of contacts that needs to be infected to adopt behaviour. </p>
-
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00040">40</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aae2cf98f557c4be064d719fc3e6caaba"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d26/a00474.html">double</a> stride::Threshold::m_threshold_adopted</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fraction of contacts that needs to have adopted to adopt behaviour. </p>
-
-<p>Definition at line <a class="el" href="../../db/d43/a00422_source.html#l00041">41</a> of file <a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../db/d43/a00422_source.html">Threshold.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../de/de8/a00405_source.html">SimWorker.h</a></li>
+<li><a class="el" href="../../d9/de6/a00404_source.html">SimWorker.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/da7/a00144.html">Threshold</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/da7/a00144.html">SimWorker</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

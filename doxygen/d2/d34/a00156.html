@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::RangeIndexer&lt; T, std::size_t &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::Exception Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -111,302 +111,77 @@ $(document).ready(function(){initNavTree('d2/d34/a00156.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d4/d64/a01296.html">List of all members</a>  </div>
+<a href="../../dc/d9e/a01305.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RangeIndexer&lt; T, std::size_t &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::Exception Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Datastructure to index a container that supports RandomAccessIterators with subranges.  
+<p>Basic exception class.  
  <a href="../../d2/d34/a00156.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/d53/a00265_source.html">Exception.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RangeIndexer&lt; T, std::size_t &gt;:</div>
+Inheritance diagram for stride::util::Exception:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d8c/a01297.svg" width="247" height="587"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d56/a01308.svg" width="155" height="339"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::util::Exception:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d4b/a01309.svg" width="155" height="339"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa40c399685b42d5a3d8d870b5f63512f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> = boost::sub_range&lt; T &gt;</td></tr>
-<tr class="separator:aa40c399685b42d5a3d8d870b5f63512f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e6ba7e87da7c4e816e9889ea89e1d1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#a8e6ba7e87da7c4e816e9889ea89e1d1e">RangeIndexer</a> (T &amp;t)</td></tr>
-<tr class="memdesc:a8e6ba7e87da7c4e816e9889ea89e1d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d82/a00091.html" title="Datastructure to index a container that supports RandomAccessIterators with subranges. ">RangeIndexer</a> holds a reference to the conatiner that it indexes.  <a href="#a8e6ba7e87da7c4e816e9889ea89e1d1e">More...</a><br/></td></tr>
-<tr class="separator:a8e6ba7e87da7c4e816e9889ea89e1d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b0566a8eb6d02f9f2ad9545533944df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#a6b0566a8eb6d02f9f2ad9545533944df">SetRange</a> (std::size_t ibegin, std::size_t iend, const std::size_t &amp;id)</td></tr>
-<tr class="memdesc:a6b0566a8eb6d02f9f2ad9545533944df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!  <a href="#a6b0566a8eb6d02f9f2ad9545533944df">More...</a><br/></td></tr>
-<tr class="separator:a6b0566a8eb6d02f9f2ad9545533944df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a570288b736c62a3d6100ffbe386bc2f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#a570288b736c62a3d6100ffbe386bc2f4">SetRange</a> (std::size_t ibegin, const std::size_t &amp;id)</td></tr>
-<tr class="memdesc:a570288b736c62a3d6100ffbe386bc2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#a570288b736c62a3d6100ffbe386bc2f4">More...</a><br/></td></tr>
-<tr class="separator:a570288b736c62a3d6100ffbe386bc2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a143e3f699c7f2304c1231b07870386d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#a143e3f699c7f2304c1231b07870386d7">GetRange</a> (std::size_t i)</td></tr>
-<tr class="memdesc:a143e3f699c7f2304c1231b07870386d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a range by its subscipt in the indexer.  <a href="#a143e3f699c7f2304c1231b07870386d7">More...</a><br/></td></tr>
-<tr class="separator:a143e3f699c7f2304c1231b07870386d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a6082bd44bb292de4e7f1c101d8accbd1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#a6082bd44bb292de4e7f1c101d8accbd1">m_ranges</a></td></tr>
-<tr class="memdesc:a6082bd44bb292de4e7f1c101d8accbd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the ranges.  <a href="#a6082bd44bb292de4e7f1c101d8accbd1">More...</a><br/></td></tr>
-<tr class="separator:a6082bd44bb292de4e7f1c101d8accbd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a93a169646ca225e9d843e324b20ef2"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#a8a93a169646ca225e9d843e324b20ef2">m_t</a></td></tr>
-<tr class="memdesc:a8a93a169646ca225e9d843e324b20ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">refers to container in which ranges are defined.  <a href="#a8a93a169646ca225e9d843e324b20ef2">More...</a><br/></td></tr>
-<tr class="separator:a8a93a169646ca225e9d843e324b20ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3f2f4a87be564f7f77fbc8cb64bfe1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d34/a00156.html#afa3f2f4a87be564f7f77fbc8cb64bfe1">Exception</a> (const std::string &amp;msg)</td></tr>
+<tr class="separator:afa3f2f4a87be564f7f77fbc8cb64bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T&gt;<br/>
-class stride::util::RangeIndexer&lt; T, std::size_t &gt;</h3>
+<div class="textblock"><p>Basic exception class. </p>
+<p>Needed to prevent clang-tidy warning: "thrown exception type is not nothrow copy
+constructible" </p>
 
-<p>Datastructure to index a container that supports RandomAccessIterators with subranges. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type of the container in whom the subranges are indexed </td></tr>
-    <tr><td class="paramname">Key</td><td>Type of the key to access the subranges </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00091">91</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="aa40c399685b42d5a3d8d870b5f63512f"></a>
+<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00011">11</a> of file <a class="el" href="../../da/d53/a00265_source.html">Exception.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afa3f2f4a87be564f7f77fbc8cb64bfe1"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::<a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a> =  boost::sub_range&lt;T&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00094">94</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8e6ba7e87da7c4e816e9889ea89e1d1e"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::<a class="el" href="../../da/d82/a00091.html">RangeIndexer</a> </td>
+          <td class="memname">stride::util::Exception::Exception </td>
           <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../da/d82/a00091.html" title="Datastructure to index a container that supports RandomAccessIterators with subranges. ">RangeIndexer</a> holds a reference to the conatiner that it indexes. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00098">98</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00006">6</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">Exception.cpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6b0566a8eb6d02f9f2ad9545533944df"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::SetRange </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ibegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>iend</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::size_t &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </p>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00101">101</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379_source.html#l00081">stride::util::RangeIndexer&lt; T, Key &gt;::m_ranges</a>, and <a class="el" href="../../d8/d95/a00379_source.html#l00082">stride::util::RangeIndexer&lt; T, Key &gt;::m_t</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a570288b736c62a3d6100ffbe386bc2f4"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::SetRange </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ibegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::size_t &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set a range, where the end is the end of the container. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00111">111</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379_source.html#l00081">stride::util::RangeIndexer&lt; T, Key &gt;::m_ranges</a>, and <a class="el" href="../../d8/d95/a00379_source.html#l00082">stride::util::RangeIndexer&lt; T, Key &gt;::m_t</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a143e3f699c7f2304c1231b07870386d7"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::GetRange </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieve reference to a range by its subscipt in the indexer. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00121">121</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379_source.html#l00081">stride::util::RangeIndexer&lt; T, Key &gt;::m_ranges</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a6082bd44bb292de4e7f1c101d8accbd1"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d2/d34/a00156.html#aa40c399685b42d5a3d8d870b5f63512f">range_type</a>&gt; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::m_ranges</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Holds the ranges. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00124">124</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8a93a169646ca225e9d843e324b20ef2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="../../da/d82/a00091.html">stride::util::RangeIndexer</a>&lt; T, std::size_t &gt;::m_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>refers to container in which ranges are defined. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d95/a00379_source.html#l00125">125</a> of file <a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d8/d95/a00379_source.html">RangeIndexer.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../da/d53/a00265_source.html">Exception.h</a></li>
+<li><a class="el" href="../../d3/dcc/a00264_source.html">Exception.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d29/a00470.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d34/a00156.html">RangeIndexer< T, std::size_t ></a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/dea/a00478.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d34/a00156.html">Exception</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:58 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

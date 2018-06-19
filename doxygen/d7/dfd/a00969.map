@@ -1,8 +1,5 @@
-<map id="gengeopop::GenGeoPopController" name="gengeopop::GenGeoPopController">
-<area shape="rect" id="node7" href="$d1/db7/a00157.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="891,622,1048,831"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="753,155,868,232"/>
-<area shape="rect" id="node28" href="$db/df3/a00034.html" title="Configuration data when generating a GeoGrid. " alt="" coords="1232,681,1411,773"/>
-<area shape="rect" id="node25" title="STL class. " alt="" coords="1435,688,1513,765"/>
-<area shape="rect" id="node26" title="STL class. " alt="" coords="1931,318,2057,410"/>
-<area shape="rect" id="node29" href="$d5/d26/a00474.html" title="{double\n||}" alt="" coords="1363,325,1423,403"/>
+<map id="gengeopop::GeoGridGenerator" name="gengeopop::GeoGridGenerator">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="329,155,444,232"/>
+<area shape="rect" id="node7" href="$db/df3/a00034.html" title="Configuration data when generating a GeoGrid. " alt="" coords="311,635,489,727"/>
+<area shape="rect" id="node8" href="$db/d8e/a00482.html" title="{double\n||}" alt="" coords="814,325,873,403"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: HouseholdReader.cpp Source File</title>
+<title>Stride Reference Manual: HouseholdGenerator.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,63 +109,59 @@ $(document).ready(function(){initNavTree('d1/d67/a00310_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">HouseholdReader.cpp</div>  </div>
+<div class="title">HouseholdGenerator.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d1/d67/a00310.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d5d/a00311.html">HouseholdReader.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a17cbd8636b5149fcada7cbe211d8426d">    5</a></span>&#160;<a class="code" href="../../d2/dee/a00049.html#a17cbd8636b5149fcada7cbe211d8426d">HouseholdReader::HouseholdReader</a>() : m_households() {}</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#aa302816610f03f3a13a9d852df00d5da">    7</a></span>&#160;<span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Household&gt;&gt;&amp; <a class="code" href="../../d2/dee/a00049.html#aa302816610f03f3a13a9d852df00d5da">gengeopop::HouseholdReader::GetHouseHolds</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keywordflow">return</span> m_households;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a161db2d7207f8290e4713cdeb765f5e1">   12</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/dee/a00049.html#a161db2d7207f8290e4713cdeb765f5e1">HouseholdReader::GetTotalPersonsInHouseholds</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d2/dee/a00049.html#aecfe2659d2826af0a8329955d430d820">m_total</a>; }</div>
+<a href="../../d1/d67/a00310.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d5d/a00311.html">HouseholdGenerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d91/a00335.html">gengeopop/K12School.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;trng/discrete_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;trng/lcg64.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a7285f9c244780890b889405a99814a53">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d2d/a00047.html#a7285f9c244780890b889405a99814a53">HouseholdGenerator::Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        std::vector&lt;double&gt; weights;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a36694a79fc20fd388f880436226b57a7">   14</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d2/dee/a00049.html#a36694a79fc20fd388f880436226b57a7">HouseholdReader::AverageHouseholdSize</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code" href="../../d2/dee/a00049.html#aecfe2659d2826af0a8329955d430d820">m_total</a>) / static_cast&lt;double&gt;(<a class="code" href="../../d2/dee/a00049.html#ab16da3ff1106f39edc59727239e9f702">m_households</a>.size());</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a9daac5241b155fe7f18c2e926f63f408">   19</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d2/dee/a00049.html#a9daac5241b155fe7f18c2e926f63f408">HouseholdReader::GetFraction1826Years</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code" href="../../d2/dee/a00049.html#afb5c2dc8db97ae641b34ea3d5223ff5d">m_total1826Years</a>) / static_cast&lt;double&gt;(<a class="code" href="../../d2/dee/a00049.html#aecfe2659d2826af0a8329955d430d820">m_total</a>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#aabc5667ac72b37e9be4dfc727c20889b">   24</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d2/dee/a00049.html#aabc5667ac72b37e9be4dfc727c20889b">HouseholdReader::GetFractionCompulsoryPupils</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code" href="../../d2/dee/a00049.html#a9c24be8765eb962d1e0d3735f0187f5d">m_totalCompulsory</a>) / static_cast&lt;double&gt;(<a class="code" href="../../d2/dee/a00049.html#aecfe2659d2826af0a8329955d430d820">m_total</a>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a8c68d034fb29714ef0fbe932296b6188">   29</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d2/dee/a00049.html#a8c68d034fb29714ef0fbe932296b6188">HouseholdReader::GetFraction1865Years</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code" href="../../d2/dee/a00049.html#a331adedaab261aad7c89f273e9037a1d">m_total1865Years</a>) / static_cast&lt;double&gt;(<a class="code" href="../../d2/dee/a00049.html#aecfe2659d2826af0a8329955d430d820">m_total</a>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00049_html_aecfe2659d2826af0a8329955d430d820"><div class="ttname"><a href="../../d2/dee/a00049.html#aecfe2659d2826af0a8329955d430d820">gengeopop::HouseholdReader::m_total</a></div><div class="ttdeci">unsigned int m_total</div><div class="ttdoc">The total population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5d/a00311_source.html#l00048">HouseholdReader.h:48</a></div></div>
-<div class="ttc" id="a00049_html_a331adedaab261aad7c89f273e9037a1d"><div class="ttname"><a href="../../d2/dee/a00049.html#a331adedaab261aad7c89f273e9037a1d">gengeopop::HouseholdReader::m_total1865Years</a></div><div class="ttdeci">unsigned int m_total1865Years</div><div class="ttdoc">The total amount of people between 18 and 65 years of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5d/a00311_source.html#l00046">HouseholdReader.h:46</a></div></div>
-<div class="ttc" id="a00049_html_a9daac5241b155fe7f18c2e926f63f408"><div class="ttname"><a href="../../d2/dee/a00049.html#a9daac5241b155fe7f18c2e926f63f408">gengeopop::HouseholdReader::GetFraction1826Years</a></div><div class="ttdeci">double GetFraction1826Years() const </div><div class="ttdoc">Returns the fraction of the population which are between 18 and 26 years of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00019">HouseholdReader.cpp:19</a></div></div>
-<div class="ttc" id="a00049_html_aabc5667ac72b37e9be4dfc727c20889b"><div class="ttname"><a href="../../d2/dee/a00049.html#aabc5667ac72b37e9be4dfc727c20889b">gengeopop::HouseholdReader::GetFractionCompulsoryPupils</a></div><div class="ttdeci">double GetFractionCompulsoryPupils() const </div><div class="ttdoc">Returns the fraction of the population which are still of an age where they attend school...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00024">HouseholdReader.cpp:24</a></div></div>
-<div class="ttc" id="a00049_html_a17cbd8636b5149fcada7cbe211d8426d"><div class="ttname"><a href="../../d2/dee/a00049.html#a17cbd8636b5149fcada7cbe211d8426d">gengeopop::HouseholdReader::HouseholdReader</a></div><div class="ttdeci">HouseholdReader()</div><div class="ttdoc">Construct the HouseholdReader. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00005">HouseholdReader.cpp:5</a></div></div>
-<div class="ttc" id="a00049_html_a8c68d034fb29714ef0fbe932296b6188"><div class="ttname"><a href="../../d2/dee/a00049.html#a8c68d034fb29714ef0fbe932296b6188">gengeopop::HouseholdReader::GetFraction1865Years</a></div><div class="ttdeci">double GetFraction1865Years() const </div><div class="ttdoc">Returns the fraction of the population which are between 18 and 65 years of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00029">HouseholdReader.cpp:29</a></div></div>
-<div class="ttc" id="a00049_html_a161db2d7207f8290e4713cdeb765f5e1"><div class="ttname"><a href="../../d2/dee/a00049.html#a161db2d7207f8290e4713cdeb765f5e1">gengeopop::HouseholdReader::GetTotalPersonsInHouseholds</a></div><div class="ttdeci">unsigned int GetTotalPersonsInHouseholds() const </div><div class="ttdoc">Returns the total amount of people in the found Households. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00012">HouseholdReader.cpp:12</a></div></div>
-<div class="ttc" id="a00049_html_aa302816610f03f3a13a9d852df00d5da"><div class="ttname"><a href="../../d2/dee/a00049.html#aa302816610f03f3a13a9d852df00d5da">gengeopop::HouseholdReader::GetHouseHolds</a></div><div class="ttdeci">const std::vector&lt; std::shared_ptr&lt; Household &gt; &gt; &amp; GetHouseHolds() const </div><div class="ttdoc">Return the Households found in the inputfile. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00007">HouseholdReader.cpp:7</a></div></div>
-<div class="ttc" id="a00049_html_a36694a79fc20fd388f880436226b57a7"><div class="ttname"><a href="../../d2/dee/a00049.html#a36694a79fc20fd388f880436226b57a7">gengeopop::HouseholdReader::AverageHouseholdSize</a></div><div class="ttdeci">double AverageHouseholdSize() const </div><div class="ttdoc">Returns the average size of a Household. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00014">HouseholdReader.cpp:14</a></div></div>
-<div class="ttc" id="a00049_html_ab16da3ff1106f39edc59727239e9f702"><div class="ttname"><a href="../../d2/dee/a00049.html#ab16da3ff1106f39edc59727239e9f702">gengeopop::HouseholdReader::m_households</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; Household &gt; &gt; m_households</div><div class="ttdoc">The households which are (being) found. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5d/a00311_source.html#l00043">HouseholdReader.h:43</a></div></div>
-<div class="ttc" id="a00311_html"><div class="ttname"><a href="../../d1/d5d/a00311.html">HouseholdReader.h</a></div></div>
-<div class="ttc" id="a00049_html_a9c24be8765eb962d1e0d3735f0187f5d"><div class="ttname"><a href="../../d2/dee/a00049.html#a9c24be8765eb962d1e0d3735f0187f5d">gengeopop::HouseholdReader::m_totalCompulsory</a></div><div class="ttdeci">unsigned int m_totalCompulsory</div><div class="ttdoc">The total amount of compulsory pupils. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5d/a00311_source.html#l00044">HouseholdReader.h:44</a></div></div>
-<div class="ttc" id="a00049_html_afb5c2dc8db97ae641b34ea3d5223ff5d"><div class="ttname"><a href="../../d2/dee/a00049.html#afb5c2dc8db97ae641b34ea3d5223ff5d">gengeopop::HouseholdReader::m_total1826Years</a></div><div class="ttdeci">unsigned int m_total1826Years</div><div class="ttdoc">The total amount of people between 18 and 26 years of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d5d/a00311_source.html#l00045">HouseholdReader.h:45</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::shared_ptr&lt;Location&gt;&amp; loc : *geoGrid) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                weights.push_back(loc-&gt;GetRelativePopulationSize());</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> (weights.empty()) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="comment">// trng can&#39;t handle empty vectors</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">auto</span> loc_dist = <a class="code" href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">m_rnManager</a>.<a class="code" href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::discrete_dist(weights.begin(), weights.end()));</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> householdId = 0; householdId &lt; geoGridConfig.<a class="code" href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>.<a class="code" href="../../db/df3/a00034.html#a6c12e7a934465249adfaf5b476d62eaf">households</a>; householdId++) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordtype">int</span>                       locationId = loc_dist();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                std::shared_ptr&lt;Location&gt; loc        = (*geoGrid)[locationId];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keyword">auto</span> household = std::make_shared&lt;Household&gt;(geoGridConfig.<a class="code" href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.<a class="code" href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">contactCenters</a>++);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                household-&gt;Fill(geoGrid);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                loc-&gt;AddContactCenter(household);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00056_html_a5fc3c56913851b8a3dd6e151d69418c5"><div class="ttname"><a href="../../d9/d2e/a00056.html#a5fc3c56913851b8a3dd6e151d69418c5">gengeopop::PartialGenerator::m_rnManager</a></div><div class="ttdeci">stride::util::RNManager &amp; m_rnManager</div><div class="ttdoc">RnManager used by generators. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc2/a00367_source.html#l00026">PartialGenerator.h:26</a></div></div>
+<div class="ttc" id="a00047_html_a7285f9c244780890b889405a99814a53"><div class="ttname"><a href="../../d6/d2d/a00047.html#a7285f9c244780890b889405a99814a53">gengeopop::HouseholdGenerator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Apply this PartialGenerator to the given geogrid, generating ContactCenters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d67/a00310_source.html#l00010">HouseholdGenerator.cpp:10</a></div></div>
+<div class="ttc" id="a00335_html"><div class="ttname"><a href="../../df/d91/a00335.html">K12School.h</a></div></div>
+<div class="ttc" id="a00034_html_a737d7b1ed78c73a8628b1a938a47475f"><div class="ttname"><a href="../../db/df3/a00034.html#a737d7b1ed78c73a8628b1a938a47475f">gengeopop::GeoGridConfig::contactCenters</a></div><div class="ttdeci">unsigned int contactCenters</div><div class="ttdoc">The current amount of ContactCenters, used to obtain an Id for a new contactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00082">GeoGridConfig.h:82</a></div></div>
+<div class="ttc" id="a00034_html_a981511c45d99012d50aefe53d08fef7c"><div class="ttname"><a href="../../db/df3/a00034.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@2 generated</div></div>
+<div class="ttc" id="a00034_html_a6c12e7a934465249adfaf5b476d62eaf"><div class="ttname"><a href="../../db/df3/a00034.html#a6c12e7a934465249adfaf5b476d62eaf">gengeopop::GeoGridConfig::households</a></div><div class="ttdeci">unsigned int households</div><div class="ttdoc">The number of households needed with this population size and these types of households. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00068">GeoGridConfig.h:68</a></div></div>
+<div class="ttc" id="a00034_html_af9610682c3d25a6c5cf4dc0164988a54"><div class="ttname"><a href="../../db/df3/a00034.html#af9610682c3d25a6c5cf4dc0164988a54">gengeopop::GeoGridConfig::calculated</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@1 calculated</div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d4b/a00277_source.html#l00014">GeoGridConfig.h:14</a></div></div>
+<div class="ttc" id="a00161_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0a/a00390_source.html#l00081">RNManager.h:81</a></div></div>
+<div class="ttc" id="a00311_html"><div class="ttname"><a href="../../d1/d5d/a00311.html">HouseholdGenerator.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d1/d67/a00310.html">HouseholdReader.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d1/d67/a00310.html">HouseholdGenerator.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

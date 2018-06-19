@@ -1,5 +1,4 @@
-<map id="gengeopop::Community" name="gengeopop::Community">
-<area shape="rect" id="node3" href="$d3/d8b/a00059.html" title="A model of a Primary Community (as a ContactCenter) " alt="" coords="5,507,211,613"/>
-<area shape="rect" id="node4" href="$d1/d6f/a00063.html" title="A model of a Secondary Community (as a ContactCenter) " alt="" coords="235,507,457,613"/>
-<area shape="rect" id="node2" href="$d6/d5b/a00026.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="133,6,320,274"/>
+<map id="calibration::CalibrationRunner" name="calibration::CalibrationRunner">
+<area shape="rect" id="node2" href="$d4/dee/a00008.html" title="A runner for the Calibration. " alt="" coords="5,265,215,357"/>
+<area shape="rect" id="node3" href="$da/da0/a00009.html" title="A runner for the Calibration. " alt="" coords="241,265,417,357"/>
 </map>

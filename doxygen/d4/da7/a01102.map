@@ -1,2 +1,4 @@
-<map id="gengeopop::kd::BaseNode&lt; P &gt;" name="gengeopop::kd::BaseNode&lt; P &gt;">
+<map id="gengeopop::PrimaryCommunity" name="gengeopop::PrimaryCommunity">
+<area shape="rect" id="node2" href="$d7/de0/a00022.html" title="Models a Community as ContactCenter. " alt="" coords="28,323,187,459"/>
+<area shape="rect" id="node3" href="$d6/d5b/a00026.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="15,6,201,274"/>
 </map>

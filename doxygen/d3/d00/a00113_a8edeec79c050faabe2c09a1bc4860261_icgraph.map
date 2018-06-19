@@ -1,6 +1,0 @@
-<map id="stride::Health::SetSusceptible" name="stride::Health::SetSusceptible">
-<area shape="rect" id="node2" href="$d4/d3e/a00116.html#a8188dc69064103c5ac7e95193356a0c3" title="Random immunization. " alt="" coords="251,5,381,46"/>
-<area shape="rect" id="node3" href="$dd/d42/a00109.html#accb4b7832c08a4cc98973caf5aebf7f5" title="Seed for vaccination/natural immunity. " alt="" coords="430,5,581,46"/>
-<area shape="rect" id="node4" href="$dd/d42/a00109.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="630,5,781,46"/>
-<area shape="rect" id="node5" href="$d5/db1/a00140.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="829,5,955,46"/>
-</map>

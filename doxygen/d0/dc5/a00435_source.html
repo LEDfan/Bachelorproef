@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: WorkplaceGenerator.h Source File</title>
+<title>Stride Reference Manual: TravellerProfile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,38 +109,94 @@ $(document).ready(function(){initNavTree('d0/dc5/a00435_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">WorkplaceGenerator.h</div>  </div>
+<div class="title">TravellerProfile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/dc5/a00435.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d9b/a00363.html">PartialGenerator.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/// Generate Workplaces</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d0/d89/a00071.html">    9</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="../../d0/d89/a00071.html">WorkplaceGenerator</a> : <span class="keyword">public</span> <a class="code" href="../../d9/d2e/a00056.html">PartialGenerator</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">PartialGenerator::PartialGenerator</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00071_html_a382ddb08546a893331863f64bd1e5046"><div class="ttname"><a href="../../d0/d89/a00071.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Apply this PartialGenerator to the given geogrid, generating ContactCenters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7e/a00434_source.html#l00011">WorkplaceGenerator.cpp:11</a></div></div>
-<div class="ttc" id="a00056_html_a731cd830897bc6aa1e1026b4fec80cda"><div class="ttname"><a href="../../d9/d2e/a00056.html#a731cd830897bc6aa1e1026b4fec80cda">gengeopop::PartialGenerator::PartialGenerator</a></div><div class="ttdeci">PartialGenerator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Constructor with a RNManager and a logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd7/a00362_source.html#l00005">PartialGenerator.cpp:5</a></div></div>
-<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">gengeopop::PartialGenerator</a></div><div class="ttdoc">An interface for generators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9b/a00363_source.html#l00013">PartialGenerator.h:13</a></div></div>
-<div class="ttc" id="a00363_html"><div class="ttname"><a href="../../d9/d9b/a00363.html">PartialGenerator.h</a></div></div>
-<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00014">GeoGridConfig.h:14</a></div></div>
-<div class="ttc" id="a00071_html"><div class="ttname"><a href="../../d0/d89/a00071.html">gengeopop::WorkplaceGenerator</a></div><div class="ttdoc">Generate Workplaces. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00009">WorkplaceGenerator.h:9</a></div></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d08/a00244.html">ContactPool.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;trng/discrete_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d0a/a00390.html">util/RNManager.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>Population;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * Holds the information about travels</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d7d/a00150.html">TravellerProfile</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">        /// AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">        /// fractionWork indicates the amount of work travel</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>        <a class="code" href="../../d9/d7d/a00150.html#adf43310777f148c6a80e51a39aced746">TravellerProfile</a>(std::size_t amountOfRegions, <span class="keywordtype">double</span> amountOfTravel, <span class="keywordtype">double</span> fractionWork,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                         <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; rnManager, std::size_t maxDays);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a091b01535ec4d3a7233909380955ce2b">   23</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d9/d7d/a00150.html#a091b01535ec4d3a7233909380955ce2b">TravellerProfile</a>(<a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; rnManager)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            : <a class="code" href="../../d9/d7d/a00150.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a>(), <a class="code" href="../../d9/d7d/a00150.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a>(), <a class="code" href="../../d9/d7d/a00150.html#a5c4d2c976a3b840cd9322098e1459527">m_amountOfTravel</a>(), <a class="code" href="../../d9/d7d/a00150.html#af617090f0723c7e5125df8f6f1200474">m_fractionWork</a>(), <a class="code" href="../../d9/d7d/a00150.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a>(rnManager),</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;              <a class="code" href="../../d9/d7d/a00150.html#a3a4e33ed521c19e6ccee9f55f20b2f55">m_maxDays</a>(){};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">        /// Add a travel record to the recreation profile</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d9/d7d/a00150.html#a810f4044c50a8341090834bd75253357">AddTravelRecreation</a>(std::size_t from, std::size_t to, <span class="keywordtype">double</span> relativePopulation);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        /// Add a travel record to the work profile</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d9/d7d/a00150.html#a5a8da1f66852e62002ada510e95e5ada">AddTravelWork</a>(std::size_t from, std::size_t to, <span class="keywordtype">double</span> relativePopulation);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        /// Based on the profile determines if a person will travel and handle when it effectively travels</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d9/d7d/a00150.html#a7b1219dfa5bb3b91d0603cac0a22b8ae">PersonWillTravel</a>(<span class="keywordtype">size_t</span> currentRegion, std::shared_ptr&lt;Population&gt; ptr, <a class="code" href="../../d2/df5/a00137.html">Person</a>* person,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                              std::size_t currentDay);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        /// Holds the actual travelling profile used to &quot;generate&quot; trips</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">        /// From region, to region, relative amount of people</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#ab85cd366fb4ad5d449bcac8dd0e22680">   40</a></span>&#160;<span class="comment"></span>        std::vector&lt;std::vector&lt;double&gt;&gt; <a class="code" href="../../d9/d7d/a00150.html#ab85cd366fb4ad5d449bcac8dd0e22680">m_data_recreation</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">        /// Holds the actual travelling profile used to &quot;generate&quot; trips</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">        /// From region, to region, relative amount of people</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a089c66f906b78f748d73de4d107fc96d">   44</a></span>&#160;<span class="comment"></span>        std::vector&lt;std::vector&lt;double&gt;&gt; <a class="code" href="../../d9/d7d/a00150.html#a089c66f906b78f748d73de4d107fc96d">m_data_work</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">        /// A fraction 0-1 which indicates the change for a person to travel</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a5c4d2c976a3b840cd9322098e1459527">   47</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="../../d9/d7d/a00150.html#a5c4d2c976a3b840cd9322098e1459527">m_amountOfTravel</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">        /// A fraction 0-1 which indicates whether it&#39;s work travel or recreation</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#af617090f0723c7e5125df8f6f1200474">   50</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="../../d9/d7d/a00150.html#af617090f0723c7e5125df8f6f1200474">m_fractionWork</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a05f8820a7b048409b5df0ef3a5c6a6f3">   52</a></span>&#160;        <a class="code" href="../../d6/d7d/a00161.html">util::RNManager</a>&amp; <a class="code" href="../../d9/d7d/a00150.html#a05f8820a7b048409b5df0ef3a5c6a6f3">m_rnManager</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">        /// Maximum amount of days to travel</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a3a4e33ed521c19e6ccee9f55f20b2f55">   55</a></span>&#160;<span class="comment"></span>        std::size_t <a class="code" href="../../d9/d7d/a00150.html#a3a4e33ed521c19e6ccee9f55f20b2f55">m_maxDays</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">        /// Helper function to make a random choice based on a fraction</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code" href="../../d9/d7d/a00150.html#ab9f4b79657eabfff845b4fd8eed603cb">MakeChoice</a>(<span class="keywordtype">double</span> fraction);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00150_html_a5c4d2c976a3b840cd9322098e1459527"><div class="ttname"><a href="../../d9/d7d/a00150.html#a5c4d2c976a3b840cd9322098e1459527">stride::TravellerProfile::m_amountOfTravel</a></div><div class="ttdeci">double m_amountOfTravel</div><div class="ttdoc">A fraction 0-1 which indicates the change for a person to travel. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00047">TravellerProfile.h:47</a></div></div>
+<div class="ttc" id="a00244_html"><div class="ttname"><a href="../../d6/d08/a00244.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
+<div class="ttc" id="a00150_html_a5a8da1f66852e62002ada510e95e5ada"><div class="ttname"><a href="../../d9/d7d/a00150.html#a5a8da1f66852e62002ada510e95e5ada">stride::TravellerProfile::AddTravelWork</a></div><div class="ttdeci">void AddTravelWork(std::size_t from, std::size_t to, double relativePopulation)</div><div class="ttdoc">Add a travel record to the work profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7e/a00434_source.html#l00025">TravellerProfile.cpp:25</a></div></div>
+<div class="ttc" id="a00150_html_a3a4e33ed521c19e6ccee9f55f20b2f55"><div class="ttname"><a href="../../d9/d7d/a00150.html#a3a4e33ed521c19e6ccee9f55f20b2f55">stride::TravellerProfile::m_maxDays</a></div><div class="ttdeci">std::size_t m_maxDays</div><div class="ttdoc">Maximum amount of days to travel. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00055">TravellerProfile.h:55</a></div></div>
+<div class="ttc" id="a00150_html_adf43310777f148c6a80e51a39aced746"><div class="ttname"><a href="../../d9/d7d/a00150.html#adf43310777f148c6a80e51a39aced746">stride::TravellerProfile::TravellerProfile</a></div><div class="ttdeci">TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork, util::RNManager &amp;rnManager, std::size_t maxDays)</div><div class="ttdoc">AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel fractionWork indic...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7e/a00434_source.html#l00009">TravellerProfile.cpp:9</a></div></div>
+<div class="ttc" id="a00150_html"><div class="ttname"><a href="../../d9/d7d/a00150.html">stride::TravellerProfile</a></div><div class="ttdoc">Holds the information about travels. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00015">TravellerProfile.h:15</a></div></div>
+<div class="ttc" id="a00150_html_a7b1219dfa5bb3b91d0603cac0a22b8ae"><div class="ttname"><a href="../../d9/d7d/a00150.html#a7b1219dfa5bb3b91d0603cac0a22b8ae">stride::TravellerProfile::PersonWillTravel</a></div><div class="ttdeci">bool PersonWillTravel(size_t currentRegion, std::shared_ptr&lt; Population &gt; ptr, Person *person, std::size_t currentDay)</div><div class="ttdoc">Based on the profile determines if a person will travel and handle when it effectively travels...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7e/a00434_source.html#l00030">TravellerProfile.cpp:30</a></div></div>
+<div class="ttc" id="a00390_html"><div class="ttname"><a href="../../d9/d0a/a00390.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0a/a00390_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00150_html_a091b01535ec4d3a7233909380955ce2b"><div class="ttname"><a href="../../d9/d7d/a00150.html#a091b01535ec4d3a7233909380955ce2b">stride::TravellerProfile::TravellerProfile</a></div><div class="ttdeci">TravellerProfile(util::RNManager &amp;rnManager)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00023">TravellerProfile.h:23</a></div></div>
+<div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00039">Person.h:39</a></div></div>
+<div class="ttc" id="a00150_html_ab9f4b79657eabfff845b4fd8eed603cb"><div class="ttname"><a href="../../d9/d7d/a00150.html#ab9f4b79657eabfff845b4fd8eed603cb">stride::TravellerProfile::MakeChoice</a></div><div class="ttdeci">bool MakeChoice(double fraction)</div><div class="ttdoc">Helper function to make a random choice based on a fraction. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7e/a00434_source.html#l00074">TravellerProfile.cpp:74</a></div></div>
+<div class="ttc" id="a00150_html_ab85cd366fb4ad5d449bcac8dd0e22680"><div class="ttname"><a href="../../d9/d7d/a00150.html#ab85cd366fb4ad5d449bcac8dd0e22680">stride::TravellerProfile::m_data_recreation</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; m_data_recreation</div><div class="ttdoc">Holds the actual travelling profile used to &quot;generate&quot; trips From region, to region, relative amount of people. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00040">TravellerProfile.h:40</a></div></div>
+<div class="ttc" id="a00150_html_a810f4044c50a8341090834bd75253357"><div class="ttname"><a href="../../d9/d7d/a00150.html#a810f4044c50a8341090834bd75253357">stride::TravellerProfile::AddTravelRecreation</a></div><div class="ttdeci">void AddTravelRecreation(std::size_t from, std::size_t to, double relativePopulation)</div><div class="ttdoc">Add a travel record to the recreation profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7e/a00434_source.html#l00020">TravellerProfile.cpp:20</a></div></div>
+<div class="ttc" id="a00150_html_af617090f0723c7e5125df8f6f1200474"><div class="ttname"><a href="../../d9/d7d/a00150.html#af617090f0723c7e5125df8f6f1200474">stride::TravellerProfile::m_fractionWork</a></div><div class="ttdeci">double m_fractionWork</div><div class="ttdoc">A fraction 0-1 which indicates whether it&#39;s work travel or recreation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00050">TravellerProfile.h:50</a></div></div>
+<div class="ttc" id="a00150_html_a089c66f906b78f748d73de4d107fc96d"><div class="ttname"><a href="../../d9/d7d/a00150.html#a089c66f906b78f748d73de4d107fc96d">stride::TravellerProfile::m_data_work</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; m_data_work</div><div class="ttdoc">Holds the actual travelling profile used to &quot;generate&quot; trips From region, to region, relative amount of people. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00044">TravellerProfile.h:44</a></div></div>
+<div class="ttc" id="a00150_html_a05f8820a7b048409b5df0ef3a5c6a6f3"><div class="ttname"><a href="../../d9/d7d/a00150.html#a05f8820a7b048409b5df0ef3a5c6a6f3">stride::TravellerProfile::m_rnManager</a></div><div class="ttdeci">util::RNManager &amp; m_rnManager</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc5/a00435_source.html#l00052">TravellerProfile.h:52</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00435.html">WorkplaceGenerator.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00435.html">TravellerProfile.h</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,5 +1,5 @@
 var a00123 =
 [
-    [ "Update", "de/d36/a00123.html#ae927760d0eb3e5a3114305c53ebe70e3", null ],
-    [ "m_discussion_probability", "de/d36/a00123.html#abec64aa38907d3ffde96d9f848bd1d0d", null ]
+    [ "InfectorMap", "de/d36/a00123.html#a389bcbbddf547f27cb2e60feadca12af", null ],
+    [ "Add", "de/d36/a00123.html#a2abaaf56ff495aa37bfead7eea5405de", null ]
 ];

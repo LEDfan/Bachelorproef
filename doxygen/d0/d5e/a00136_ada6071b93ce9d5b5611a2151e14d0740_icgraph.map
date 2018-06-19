@@ -1,9 +1,0 @@
-<map id="stride::Person::GetGender" name="stride::Person::GetGender">
-<area shape="rect" id="node2" href="$d7/dce/a00143.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="264,5,408,46"/>
-<area shape="rect" id="node5" href="$d1/dc6/a00037.html#a0e11b2f67f86e812421761f61fd7274f" title="Create a Boost Property Tree containing all the information needed to reconstruct a Person..." alt="" coords="230,70,442,111"/>
-<area shape="rect" id="node7" href="$db/d3a/a00040.html#aeeb27df99670bf86ed6564b1affdd986" title="Create a ProtoBuf Person containing all the information needed to reconstruct a Person. " alt="" coords="233,135,439,177"/>
-<area shape="rect" id="node3" href="$d1/dd6/a00108.html#a98f2494729bf1d46e947b302f3e1b3b1" title="Build Population and return it afterwards. " alt="" coords="514,5,681,46"/>
-<area shape="rect" id="node4" href="$d2/df5/a00137.html#ac9658f1a5fa801de6742a46efb85fb9c" title="Create a Population for the given region parameters. " alt="" coords="752,5,875,46"/>
-<area shape="rect" id="node6" href="$d1/dc6/a00037.html#a06da89c72da72992bbd517973c9513eb" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="491,70,703,111"/>
-<area shape="rect" id="node8" href="$db/d3a/a00040.html#a3163b8464f599d204597a01dfc47f08f" title="Write the provided GeoGrid to the proved ostream in Protobuf format. " alt="" coords="494,135,701,177"/>
-</map>

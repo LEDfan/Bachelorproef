@@ -1,8 +1,7 @@
 var a00147 =
 [
-    [ "TravellerProfileBuilder", "d0/d4a/a00147.html#a92a979fcc9126020bb317ea37d26296f", null ],
-    [ "Build", "d0/d4a/a00147.html#a054950caec73fe87d50736d61377d182", null ],
-    [ "m_configPt", "d0/d4a/a00147.html#a3f7685d5081a50a71241c36279c02858", null ],
-    [ "m_rnManager", "d0/d4a/a00147.html#aad912ff7f64511bae926e1eb87cfe946", null ],
-    [ "m_pop", "d0/d4a/a00147.html#ae183a7f7ec1e3f6a1ee8b1a9e1e41f49", null ]
+    [ "TransmissionProfile", "d0/d4a/a00147.html#a1645757a571f63d0583d54a6838ca1fb", null ],
+    [ "GetRate", "d0/d4a/a00147.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
+    [ "Initialize", "d0/d4a/a00147.html#a5e67e9eab813de18fff32722ee6f1437", null ],
+    [ "m_transmission_rate", "d0/d4a/a00147.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
 ];

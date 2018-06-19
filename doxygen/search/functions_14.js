@@ -7,5 +7,5 @@ var searchData=
   ['initdefaultsgeogrid_5flocationimpl',['InitDefaultsGeoGrid_LocationImpl',['../d4/d63/a00082.html#a9f2c2e2d8205b79370dc692e195d28ab',1,'proto::GeoGrid_Location']]],
   ['initdefaultsgeogrid_5fpersonimpl',['InitDefaultsGeoGrid_PersonImpl',['../d1/d1e/a00087.html#a6d83f7e8c8a8c5bd8611f5cb0bdcb3e7',1,'proto::GeoGrid_Person']]],
   ['initdefaultsgeogridimpl',['InitDefaultsGeoGridImpl',['../d8/d53/a00081.html#a961025dbd53e459b5657e0d517aa7f9f',1,'proto::GeoGrid']]],
-  ['vaccinate',['Vaccinate',['../dd/d42/a00109.html#accb4b7832c08a4cc98973caf5aebf7f5',1,'stride::DiseaseSeeder']]]
+  ['vaccinate',['Vaccinate',['../d4/d81/a00110.html#accb4b7832c08a4cc98973caf5aebf7f5',1,'stride::DiseaseSeeder']]]
 ];

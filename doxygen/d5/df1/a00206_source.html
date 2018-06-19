@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CliController.cpp Source File</title>
+<title>Stride Reference Manual: CitiesCSVReader.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,91 +109,63 @@ $(document).ready(function(){initNavTree('d5/df1/a00206_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CliController.cpp</div>  </div>
+<div class="title">CitiesCSVReader.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d5/df1/a00206.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @file</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * Header for the command line controller.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dd2/a00207.html">sim/CliController.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de3/a00373.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd1/a00398.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2d/a00229.html">util/ConfigInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/da9/a00263.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/daf/a00346.html">util/LogUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d05/a00423.html">util/TimeStamp.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d90/a00178.html">viewers/AdoptedViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/de5/a00209.html">viewers/CliViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d8f/a00324.html">viewers/InfectedViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d80/a00371.html">viewers/PersonsViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dd6/a00415.html">viewers/SummaryViewer.h</a>&quot;</span></div>
+<a href="../../d5/df1/a00206.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dd2/a00207.html">CitiesCSVReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../../util/CSV.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../../util/CSVRow.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">    7</a></span>&#160;<a class="code" href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">CitiesCSVReader::CitiesCSVReader</a>(std::unique_ptr&lt;std::istream&gt; inputStream)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    : <a class="code" href="../../d4/d51/a00017.html">CitiesReader</a>(std::move(inputStream)), m_reader(*(m_inputStream.get()))</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">CitiesCSVReader::FillGeoGrid</a>(std::shared_ptr&lt;GeoGrid&gt; geoGrid)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="comment">// cols: id     province        population      x_coord         y_coord         latitude        longitude</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">// name</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::vector&lt;std::pair&lt;std::shared_ptr&lt;Location&gt;, <span class="keywordtype">int</span>&gt;&gt; addedLocations;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> totalPopulation = 0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../d3/df8/a00155.html">stride::util::CSVRow</a>&amp; row : <a class="code" href="../../d7/d7a/a00016.html#a763c671bb5318d5c69a566ac7aeab038">m_reader</a>) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="keyword">auto</span> <span class="keywordtype">id</span>       = row.GetValue&lt;<span class="keywordtype">int</span>&gt;(0);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keyword">auto</span> location = std::make_shared&lt;Location&gt;(id,                   <span class="comment">// id</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                           row.GetValue&lt;<span class="keywordtype">int</span>&gt;(1), <span class="comment">// province</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                           <span class="comment">// ignore x and y, not sure what they actually do</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                           <a class="code" href="../../d1/dbd/a00457.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(row.GetValue&lt;<span class="keywordtype">double</span>&gt;(6), <span class="comment">// longtitude</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                      row.GetValue&lt;<span class="keywordtype">double</span>&gt;(5)  <span class="comment">// latitude</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                                      ),</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                           row.GetValue(7));</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                geoGrid-&gt;AddLocation(location);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                addedLocations.emplace_back(location, row.GetValue&lt;<span class="keywordtype">int</span>&gt;(2));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                totalPopulation += row.GetValue&lt;<span class="keywordtype">int</span>&gt;(2);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/xml_parser.hpp&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d2a/a00270.html">gengeopop/GeoGrid.h</a>&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">using namespace </span>boost::filesystem;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">using namespace </span>boost::property_tree::xml_parser;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../da/d74/a00099.html#a6c1780a5ff62df746e6f8328c16a3c62">   46</a></span>&#160;CliController::CliController(<span class="keyword">const</span> ptree&amp; config_pt) : <a class="code" href="../../d9/d77/a00095.html">BaseController</a>(config_pt) {}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../da/d74/a00099.html#a126fe70ea36234d7db97a53db9912338">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d74/a00099.html#a126fe70ea36234d7db97a53db9912338">CliController::Control</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="comment">// Build population, instantiate SimRunner &amp; register viewers &amp; run.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">m_runner</a>-&gt;Run();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="../../d9/d77/a00095.html#a7cdffe733cbad2794e23eb82606c8b5c">m_stride_logger</a>-&gt;info(<span class="stringliteral">&quot;CliController shutting down.&quot;</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        spdlog::drop_all();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00324_html"><div class="ttname"><a href="../../d4/d8f/a00324.html">InfectedViewer.h</a></div><div class="ttdoc">Observer for Cases output. </div></div>
-<div class="ttc" id="a00415_html"><div class="ttname"><a href="../../d0/dd6/a00415.html">SummaryViewer.h</a></div><div class="ttdoc">Observer for Persons output. </div></div>
-<div class="ttc" id="a00423_html"><div class="ttname"><a href="../../d1/d05/a00423.html">TimeStamp.h</a></div><div class="ttdoc">TimeStamp class. </div></div>
-<div class="ttc" id="a00099_html_a126fe70ea36234d7db97a53db9912338"><div class="ttname"><a href="../../da/d74/a00099.html#a126fe70ea36234d7db97a53db9912338">stride::CliController::Control</a></div><div class="ttdeci">void Control()</div><div class="ttdoc">Actual run of the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00048">CliController.cpp:48</a></div></div>
-<div class="ttc" id="a00270_html"><div class="ttname"><a href="../../d9/d2a/a00270.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
-<div class="ttc" id="a00209_html"><div class="ttname"><a href="../../d3/de5/a00209.html">CliViewer.h</a></div><div class="ttdoc">Observer for SimEvents for commandline interface usage. </div></div>
-<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">stride::BaseController</a></div><div class="ttdoc">A base class for Controllers in the MVC model. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/a00187_source.html#l00034">BaseController.h:34</a></div></div>
-<div class="ttc" id="a00229_html"><div class="ttname"><a href="../../dd/d2d/a00229.html">ConfigInfo.h</a></div><div class="ttdoc">Info on configuration. </div></div>
-<div class="ttc" id="a00346_html"><div class="ttname"><a href="../../d2/daf/a00346.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
-<div class="ttc" id="a00178_html"><div class="ttname"><a href="../../d9/d90/a00178.html">AdoptedViewer.h</a></div><div class="ttdoc">Observer for Adopted output. </div></div>
-<div class="ttc" id="a00095_html_ab18dbcda248fedfaeae623a2503ec1ab"><div class="ttname"><a href="../../d9/d77/a00095.html#ab18dbcda248fedfaeae623a2503ec1ab">stride::BaseController::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdoc">The SimRunner. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/a00187_source.html#l00094">BaseController.h:94</a></div></div>
-<div class="ttc" id="a00398_html"><div class="ttname"><a href="../../d9/dd1/a00398.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00095_html_a7cdffe733cbad2794e23eb82606c8b5c"><div class="ttname"><a href="../../d9/d77/a00095.html#a7cdffe733cbad2794e23eb82606c8b5c">stride::BaseController::m_stride_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_stride_logger</div><div class="ttdoc">General logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/a00187_source.html#l00092">BaseController.h:92</a></div></div>
-<div class="ttc" id="a00373_html"><div class="ttname"><a href="../../dc/de3/a00373.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00371_html"><div class="ttname"><a href="../../d6/d80/a00371.html">PersonsViewer.h</a></div><div class="ttdoc">Observer for Persons output. </div></div>
-<div class="ttc" id="a00207_html"><div class="ttname"><a href="../../de/dd2/a00207.html">CliController.h</a></div><div class="ttdoc">Header for the command line controller. </div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; loc : addedLocations) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                loc.first-&gt;SetRelativePopulation(static_cast&lt;double&gt;(loc.second) /</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                                 static_cast&lt;double&gt;(totalPopulation));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00457_html_a787d85bc4a485c85bc62824e3434b953"><div class="ttname"><a href="../../d1/dbd/a00457.html#a787d85bc4a485c85bc62824e3434b953">gengeopop::Coordinate</a></div><div class="ttdeci">boost::geometry::model::point&lt; double, 2, boost::geometry::cs::geographic&lt; boost::geometry::degree &gt;&gt; Coordinate</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d48/a00345_source.html#l00017">Location.h:17</a></div></div>
+<div class="ttc" id="a00016_html_ad26e6eacb61c4c71b400aa371ed54db9"><div class="ttname"><a href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">gengeopop::CitiesCSVReader::CitiesCSVReader</a></div><div class="ttdeci">CitiesCSVReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CitiesCSVReader with an istream containing the CSV data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00007">CitiesCSVReader.cpp:7</a></div></div>
+<div class="ttc" id="a00016_html_afe702a1c1bd6e6d0313611e749ecac89"><div class="ttname"><a href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">gengeopop::CitiesCSVReader::FillGeoGrid</a></div><div class="ttdeci">void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt; geoGrid) const override</div><div class="ttdoc">Add the found Locations to the provided GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00012">CitiesCSVReader.cpp:12</a></div></div>
+<div class="ttc" id="a00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d3e/a00253_source.html#l00037">CSVRow.h:37</a></div></div>
+<div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">gengeopop::CitiesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/de5/a00209_source.html#l00014">CitiesReader.h:14</a></div></div>
+<div class="ttc" id="a00016_html_a763c671bb5318d5c69a566ac7aeab038"><div class="ttname"><a href="../../d7/d7a/a00016.html#a763c671bb5318d5c69a566ac7aeab038">gengeopop::CitiesCSVReader::m_reader</a></div><div class="ttdeci">stride::util::CSV m_reader</div><div class="ttdoc">The pure CSV reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00021">CitiesCSVReader.h:21</a></div></div>
+<div class="ttc" id="a00207_html"><div class="ttname"><a href="../../de/dd2/a00207.html">CitiesCSVReader.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">CliController.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">CitiesCSVReader.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

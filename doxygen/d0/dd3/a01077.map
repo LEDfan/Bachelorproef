@@ -1,4 +1,8 @@
-<map id="gengeopop::PartialPopulator" name="gengeopop::PartialPopulator">
-<area shape="rect" id="node3" href="$d1/db7/a00157.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="587,446,744,655"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="607,147,723,224"/>
+<map id="gengeopop::Location" name="gengeopop::Location">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="751,161,867,239"/>
+<area shape="rect" id="node11" title="STL class. " alt="" coords="358,354,495,446"/>
+<area shape="rect" id="node6" href="$db/d8e/a00482.html" title="{double\n||}" alt="" coords="143,569,203,647"/>
+<area shape="rect" id="node14" title="STL class. " alt="" coords="216,361,315,439"/>
+<area shape="rect" id="node15" title="STL class. " alt="" coords="1361,569,1440,647"/>
+<area shape="rect" id="node16" title="STL class. " alt="" coords="1338,354,1464,446"/>
 </map>

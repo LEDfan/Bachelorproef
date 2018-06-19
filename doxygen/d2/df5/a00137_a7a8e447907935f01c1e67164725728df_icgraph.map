@@ -1,0 +1,10 @@
+<map id="stride::Person::SetPoolId" name="stride::Person::SetPoolId">
+<area shape="rect" id="node2" href="$d2/df5/a00137.html#a6522ed455ea5da06d506db88020b2e5b" title="Sets the id of the College CP. " alt="" coords="231,5,417,32"/>
+<area shape="rect" id="node3" href="$d2/df5/a00137.html#a6681529e309d84e7c42fe82562f1fdb4" title="stride::Person::SetHouseholdId" alt="" coords="222,56,426,83"/>
+<area shape="rect" id="node4" href="$d2/df5/a00137.html#a6abf487d6d0c95b8bb760c3deb506b62" title="Sets the id of the K12School CP. " alt="" coords="221,107,427,133"/>
+<area shape="rect" id="node5" href="$d2/df5/a00137.html#a6a1adcd3372fc02c20c2b93f741dd732" title="Sets the id of the PrimaryCommunity CP. " alt="" coords="236,158,412,199"/>
+<area shape="rect" id="node6" href="$d2/df5/a00137.html#a4e09e3947655fde28c4d29c1e32b35c7" title="Sets the id of the SecondaryCommunity CP. " alt="" coords="227,223,421,265"/>
+<area shape="rect" id="node7" href="$d2/df5/a00137.html#af901d3a2d62ad342a5067252e7da4608" title="Sets the id of the Work CP. " alt="" coords="237,289,411,316"/>
+<area shape="rect" id="node8" href="$d6/d2c/a00072.html#a5ad89eccae3e00345e123b1e65ec7ebe" title="Assign a workplace to an active person. " alt="" coords="475,282,685,323"/>
+<area shape="rect" id="node9" href="$d6/d2c/a00072.html#ace51c5ac0d05c5fca400d8f93a26ec87" title="Populates the workplaces in geogrid with persons. " alt="" coords="733,282,944,323"/>
+</map>

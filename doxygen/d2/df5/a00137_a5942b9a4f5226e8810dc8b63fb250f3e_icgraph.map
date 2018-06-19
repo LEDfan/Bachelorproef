@@ -1,0 +1,6 @@
+<map id="stride::Person::IsSurveyParticipant" name="stride::Person::IsSurveyParticipant">
+<area shape="rect" id="node2" href="$d7/d12/a00126.html#ac571c931677ef5dd82de6cc46a085dbd" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::All \&gt;::Contact" alt="" coords="225,5,377,61"/>
+<area shape="rect" id="node3" href="$df/dcd/a00127.html#a027a20be44f26ed2efddc2198158cc04" title="stride::LOG_POLICY\l\&lt; ContactLogMode::Id\l::Susceptibles \&gt;::Contact" alt="" coords="216,85,387,141"/>
+<area shape="rect" id="node4" href="$da/ddb/a00145.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="229,165,373,206"/>
+<area shape="rect" id="node5" href="$dd/d42/a00109.html#ae3494b202df19d6ff1aee50fce84e2cd" title="Build Population and return it afterwards. " alt="" coords="435,165,602,206"/>
+</map>

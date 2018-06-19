@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Workplace.h Source File</title>
+<title>Stride Reference Manual: TravellerIndex.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -109,42 +109,87 @@ $(document).ready(function(){initNavTree('dd/d07/a00433_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Workplace.h</div>  </div>
+<div class="title">TravellerIndex.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/d07/a00433.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d17/a00231.html">ContactCenter.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d2a/a00270.html">GeoGrid.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/// Models a Workplace as ContactCenter</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html">    8</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="../../d2/db1/a00070.html">Workplace</a> : <span class="keyword">public</span> <a class="code" href="../../d6/d5b/a00026.html">ContactCenter</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d2/db1/a00070.html#a2a5776adcfa1badbfb93f59dfa61137f">Workplace</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db1/a00070.html#a2a15bafc9cd5009f0a5fdf37c3098d5c">GetPoolSize</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db1/a00070.html#a707de3229c14c3486a4ad16972ff85f7">GetMaxPools</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        std::string  <a class="code" href="../../d2/db1/a00070.html#af3f4050abcabf657c120225725c1f8d5">GetType</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span>         <a class="code" href="../../d2/db1/a00070.html#a2389c1fe82dc8221ad2f6fdb216e04af">Fill</a>(<span class="keyword">const</span> std::shared_ptr&lt;GeoGrid&gt;&amp; geoGrid) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00070_html_a2a15bafc9cd5009f0a5fdf37c3098d5c"><div class="ttname"><a href="../../d2/db1/a00070.html#a2a15bafc9cd5009f0a5fdf37c3098d5c">gengeopop::Workplace::GetPoolSize</a></div><div class="ttdeci">unsigned int GetPoolSize() const override</div><div class="ttdoc">Get the size of a pool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00012">Workplace.cpp:12</a></div></div>
-<div class="ttc" id="a00070_html_a707de3229c14c3486a4ad16972ff85f7"><div class="ttname"><a href="../../d2/db1/a00070.html#a707de3229c14c3486a4ad16972ff85f7">gengeopop::Workplace::GetMaxPools</a></div><div class="ttdeci">unsigned int GetMaxPools() const override</div><div class="ttdoc">Get the maximal number of pools for this center. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00014">Workplace.cpp:14</a></div></div>
-<div class="ttc" id="a00070_html"><div class="ttname"><a href="../../d2/db1/a00070.html">gengeopop::Workplace</a></div><div class="ttdoc">Models a Workplace as ContactCenter. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00008">Workplace.h:8</a></div></div>
-<div class="ttc" id="a00270_html"><div class="ttname"><a href="../../d9/d2a/a00270.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">gengeopop::ContactCenter</a></div><div class="ttdoc">A ContactCenter contains multiple ContactPools. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d17/a00231_source.html#l00009">ContactCenter.h:9</a></div></div>
-<div class="ttc" id="a00070_html_af3f4050abcabf657c120225725c1f8d5"><div class="ttname"><a href="../../d2/db1/a00070.html#af3f4050abcabf657c120225725c1f8d5">gengeopop::Workplace::GetType</a></div><div class="ttdeci">std::string GetType() const override</div><div class="ttdoc">Get the name of the type of contact center (e.g. College) </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00010">Workplace.cpp:10</a></div></div>
-<div class="ttc" id="a00070_html_a2389c1fe82dc8221ad2f6fdb216e04af"><div class="ttname"><a href="../../d2/db1/a00070.html#a2389c1fe82dc8221ad2f6fdb216e04af">gengeopop::Workplace::Fill</a></div><div class="ttdeci">void Fill(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid) override</div><div class="ttdoc">Apply this ContactCenter to the GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00016">Workplace.cpp:16</a></div></div>
-<div class="ttc" id="a00070_html_a2a5776adcfa1badbfb93f59dfa61137f"><div class="ttname"><a href="../../d2/db1/a00070.html#a2a5776adcfa1badbfb93f59dfa61137f">gengeopop::Workplace::Workplace</a></div><div class="ttdeci">Workplace(unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00008">Workplace.cpp:8</a></div></div>
-<div class="ttc" id="a00231_html"><div class="ttname"><a href="../../df/d17/a00231.html">ContactCenter.h</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d08/a00244.html">ContactPool.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d41/a00318.html">IdSubscriptArray.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;spdlog/logger.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Stores the information about travels. One TravellerIndex stores information for a specific region. (i.e. all persons</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * stored are from the same region).</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * To have the code which handles the start and return of a person in the same location this class also handles that.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d48/a00148.html">TravellerIndex</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">        /// Default constructor</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>        <a class="code" href="../../db/d48/a00148.html#ac3f7abcf71390d8198d5da76c5523eb8">TravellerIndex</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">        /// Stores the information when the travel is started. F</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">        /// \p from is the original contactPool (type is \p type)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        /// \p to is the foreign contactPool (same type as from)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">        /// \p leaveDay is the day at which the person will return</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">        /// \p type is the type of the travel Work or PrimaryCommunity (i.e. recreational)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../db/d48/a00148.html#a2a3ea8982180232be8593d7fdcf80f37">StartTravel</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> from, <a class="code" href="../../d4/d3a/a00101.html">ContactPool</a>* to, <a class="code" href="../../d2/df5/a00137.html">Person</a>*, std::size_t leaveDay, <a class="code" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">        /// Returns the travels at the given day</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../db/d48/a00148.html#ae00519895ddcbbe9a683856d8bdd0ab4">ReturnTravelers</a>(std::size_t currentDay);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        /**</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">         * Information stored for a travel.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html">   36</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../da/d1e/a00149.html">TravellerInfo</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#ada53be3bcc1ac0af2b2b0b1d8f3e6bee">   38</a></span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                            from{};</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a70bdf593077311085d869c2a0b3ad118">   39</a></span>&#160;                <a class="code" href="../../d4/d3a/a00101.html">ContactPool</a>*                            to{};</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#af4ef8d5e213175ec088d18219d7c9479">   40</a></span>&#160;                <a class="code" href="../../d2/df5/a00137.html">Person</a>*                                 <a class="code" href="../../da/d1e/a00149.html#af4ef8d5e213175ec088d18219d7c9479">person</a>{};</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#abeb5f8930b5bd8f4940f9e939314651f">   41</a></span>&#160;                std::size_t                             leaveDay{};</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a7e3403739842157642e5eaf63e5f5de6">   42</a></span>&#160;                <a class="code" href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>                     type{};</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#acad3644a8effcc94168b1c352d587131">   43</a></span>&#160;                <a class="code" href="../../d5/d1e/a00103.html">ContactPoolType::IdSubscriptArray&lt;bool&gt;</a> <a class="code" href="../../da/d1e/a00149.html#acad3644a8effcc94168b1c352d587131">original_in_pools</a>{};</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../da/d1e/a00149.html#a30a2668362a01a2ed452e49e92edc581">   44</a></span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="../../da/d1e/a00149.html#a30a2668362a01a2ed452e49e92edc581">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="../../da/d1e/a00149.html">TravellerInfo</a>&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> leaveDay &gt; other.<a class="code" href="../../da/d1e/a00149.html#abeb5f8930b5bd8f4940f9e939314651f">leaveDay</a>; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        };</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html#aef9d853aab4055c3541c08380ab2f547">   47</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../db/d48/a00148.html#aef9d853aab4055c3541c08380ab2f547">m_travelLogger</a>; <span class="comment">///&lt; Logger to which the travel information will be logged</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">        /// min-heap to efficiently store the persons which are travelling. Indexed by the day they return (lowest</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">        /// first).</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../db/d48/a00148.html#ae05dd5f1ca7466396f49a84fdb239e8b">   51</a></span>&#160;<span class="comment"></span>        std::priority_queue&lt;TravellerInfo, std::vector&lt;TravellerInfo&gt;, std::greater&lt;&gt;&gt; <a class="code" href="../../db/d48/a00148.html#ae05dd5f1ca7466396f49a84fdb239e8b">m_data</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00149_html_abeb5f8930b5bd8f4940f9e939314651f"><div class="ttname"><a href="../../da/d1e/a00149.html#abeb5f8930b5bd8f4940f9e939314651f">stride::TravellerIndex::TravellerInfo::leaveDay</a></div><div class="ttdeci">std::size_t leaveDay</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00041">TravellerIndex.h:41</a></div></div>
+<div class="ttc" id="a00244_html"><div class="ttname"><a href="../../d6/d08/a00244.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
+<div class="ttc" id="a00103_html"><div class="ttname"><a href="../../d5/d1e/a00103.html">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</a></div><div class="ttdoc">Specialisation of IdSubscriptArray foor booleans. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00133">IdSubscriptArray.h:133</a></div></div>
+<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00038">ContactPool.h:38</a></div></div>
+<div class="ttc" id="a00148_html_ae05dd5f1ca7466396f49a84fdb239e8b"><div class="ttname"><a href="../../db/d48/a00148.html#ae05dd5f1ca7466396f49a84fdb239e8b">stride::TravellerIndex::m_data</a></div><div class="ttdeci">std::priority_queue&lt; TravellerInfo, std::vector&lt; TravellerInfo &gt;, std::greater&lt;&gt; &gt; m_data</div><div class="ttdoc">min-heap to efficiently store the persons which are travelling. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00051">TravellerIndex.h:51</a></div></div>
+<div class="ttc" id="a00149_html_acad3644a8effcc94168b1c352d587131"><div class="ttname"><a href="../../da/d1e/a00149.html#acad3644a8effcc94168b1c352d587131">stride::TravellerIndex::TravellerInfo::original_in_pools</a></div><div class="ttdeci">ContactPoolType::IdSubscriptArray&lt; bool &gt; original_in_pools</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00043">TravellerIndex.h:43</a></div></div>
+<div class="ttc" id="a00318_html"><div class="ttname"><a href="../../d2/d41/a00318.html">IdSubscriptArray.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
+<div class="ttc" id="a00148_html_ae00519895ddcbbe9a683856d8bdd0ab4"><div class="ttname"><a href="../../db/d48/a00148.html#ae00519895ddcbbe9a683856d8bdd0ab4">stride::TravellerIndex::ReturnTravelers</a></div><div class="ttdeci">void ReturnTravelers(std::size_t currentDay)</div><div class="ttdoc">Returns the travels at the given day. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00010">TravellerIndex.cpp:10</a></div></div>
+<div class="ttc" id="a00149_html_af4ef8d5e213175ec088d18219d7c9479"><div class="ttname"><a href="../../da/d1e/a00149.html#af4ef8d5e213175ec088d18219d7c9479">stride::TravellerIndex::TravellerInfo::person</a></div><div class="ttdeci">Person * person</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00040">TravellerIndex.h:40</a></div></div>
+<div class="ttc" id="a00148_html_a2a3ea8982180232be8593d7fdcf80f37"><div class="ttname"><a href="../../db/d48/a00148.html#a2a3ea8982180232be8593d7fdcf80f37">stride::TravellerIndex::StartTravel</a></div><div class="ttdeci">void StartTravel(unsigned int from, ContactPool *to, Person *, std::size_t leaveDay, ContactPoolType::Id type)</div><div class="ttdoc">Stores the information when the travel is started. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00045">TravellerIndex.cpp:45</a></div></div>
+<div class="ttc" id="a00148_html_ac3f7abcf71390d8198d5da76c5523eb8"><div class="ttname"><a href="../../db/d48/a00148.html#ac3f7abcf71390d8198d5da76c5523eb8">stride::TravellerIndex::TravellerIndex</a></div><div class="ttdeci">TravellerIndex()</div><div class="ttdoc">Default constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd5/a00432_source.html#l00008">TravellerIndex.cpp:8</a></div></div>
+<div class="ttc" id="a00149_html_a30a2668362a01a2ed452e49e92edc581"><div class="ttname"><a href="../../da/d1e/a00149.html#a30a2668362a01a2ed452e49e92edc581">stride::TravellerIndex::TravellerInfo::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const TravellerInfo &amp;other) const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00044">TravellerIndex.h:44</a></div></div>
+<div class="ttc" id="a00149_html"><div class="ttname"><a href="../../da/d1e/a00149.html">stride::TravellerIndex::TravellerInfo</a></div><div class="ttdoc">Information stored for a travel. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00036">TravellerIndex.h:36</a></div></div>
+<div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d80/a00371_source.html#l00039">Person.h:39</a></div></div>
+<div class="ttc" id="a00148_html_aef9d853aab4055c3541c08380ab2f547"><div class="ttname"><a href="../../db/d48/a00148.html#aef9d853aab4055c3541c08380ab2f547">stride::TravellerIndex::m_travelLogger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_travelLogger</div><div class="ttdoc">Logger to which the travel information will be logged. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00047">TravellerIndex.h:47</a></div></div>
+<div class="ttc" id="a00473_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../dc/d8e/a00473.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00148_html"><div class="ttname"><a href="../../db/d48/a00148.html">stride::TravellerIndex</a></div><div class="ttdoc">Stores the information about travels. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/a00433_source.html#l00016">TravellerIndex.h:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dd/d07/a00433.html">Workplace.h</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../dd/d07/a00433.html">TravellerIndex.h</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

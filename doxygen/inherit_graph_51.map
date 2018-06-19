@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$d9/df8/a00096.html" title="Base class for all belief policies. " alt="" coords="6,81,101,108"/>
-<area shape="rect" id="node2" href="$db/d57/a00112.html" title="stride::HBM" alt="" coords="163,5,255,32"/>
-<area shape="rect" id="node3" href="$d2/da3/a00115.html" title="stride::Imitation" alt="" coords="153,56,265,83"/>
-<area shape="rect" id="node4" href="$d9/d47/a00129.html" title="No beliefs w.r.t vaccination. " alt="" coords="153,107,265,133"/>
-<area shape="rect" id="node5" href="$d5/da7/a00144.html" title="stride::Threshold" alt="" coords="150,157,269,184"/>
+<area shape="rect" id="node2" href="$d3/d00/a00113.html" title="stride::HBM" alt="" coords="163,5,255,32"/>
+<area shape="rect" id="node3" href="$d4/d3e/a00116.html" title="stride::Imitation" alt="" coords="153,56,265,83"/>
+<area shape="rect" id="node4" href="$d6/db3/a00130.html" title="No beliefs w.r.t vaccination. " alt="" coords="153,107,265,133"/>
+<area shape="rect" id="node5" href="$d9/db6/a00146.html" title="stride::Threshold" alt="" coords="150,157,269,184"/>
 </map>

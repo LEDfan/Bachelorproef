@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::viewers::MapViewer Class Reference</title>
+<title>Stride Reference Manual: stride::Vaccination&lt; belief_policy &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
+   &#160;<span id="projectnumber">- generated for commit f62d9df</span>
    </div>
   </td>
  </tr>
@@ -111,285 +111,104 @@ $(document).ready(function(){initNavTree('d5/dcb/a00170.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/d5c/a01321.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d8/ddb/a01147.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::MapViewer Class Reference</div>  </div>
+<div class="title">stride::Vaccination&lt; belief_policy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A Viewer that visually shows the GeoGrids and associated information with Qt.  
+<p><a class="el" href="../../d5/dcb/a00170.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual.  
  <a href="../../d5/dcb/a00170.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/dfd/a00438_source.html">Vaccination.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::viewers::MapViewer:</div>
+Collaboration diagram for stride::Vaccination&lt; belief_policy &gt;:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d5/df4/a01322.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d17/a01148.svg" width="206" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a354bb93b86fe6ab7d88188f3e66cc8e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a354bb93b86fe6ab7d88188f3e66cc8e8">MapViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger, QQmlApplicationEngine *engine=nullptr)</td></tr>
-<tr class="memdesc:a354bb93b86fe6ab7d88188f3e66cc8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cli viewer.  <a href="#a354bb93b86fe6ab7d88188f3e66cc8e8">More...</a><br/></td></tr>
-<tr class="separator:a354bb93b86fe6ab7d88188f3e66cc8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347ee82efaa83090012fa331c855285a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a347ee82efaa83090012fa331c855285a">~MapViewer</a> ()</td></tr>
-<tr class="memdesc:a347ee82efaa83090012fa331c855285a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a347ee82efaa83090012fa331c855285a">More...</a><br/></td></tr>
-<tr class="separator:a347ee82efaa83090012fa331c855285a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a682fd168e97785d7342bc192baeac078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a682fd168e97785d7342bc192baeac078">Update</a> (const <a class="el" href="../../dc/ddf/a00469.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a682fd168e97785d7342bc192baeac078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a682fd168e97785d7342bc192baeac078">More...</a><br/></td></tr>
-<tr class="separator:a682fd168e97785d7342bc192baeac078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a7899a4938e50547e1b14e387255c290a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a7899a4938e50547e1b14e387255c290a">m_logger</a></td></tr>
-<tr class="memdesc:a7899a4938e50547e1b14e387255c290a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The logger used for notifying that the <a class="el" href="../../d5/dcb/a00170.html" title="A Viewer that visually shows the GeoGrids and associated information with Qt. ">MapViewer</a> was updated.  <a href="#a7899a4938e50547e1b14e387255c290a">More...</a><br/></td></tr>
-<tr class="separator:a7899a4938e50547e1b14e387255c290a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac76efad12d02ce9ee9f0b8487ff726ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#ac76efad12d02ce9ee9f0b8487ff726ec">m_first</a> = true</td></tr>
-<tr class="memdesc:ac76efad12d02ce9ee9f0b8487ff726ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">A variable used to see if it was the first time the "Update" method was called.  <a href="#ac76efad12d02ce9ee9f0b8487ff726ec">More...</a><br/></td></tr>
-<tr class="separator:ac76efad12d02ce9ee9f0b8487ff726ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611730b84751ab3a6fbf48ff64e7a8c5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../da/dec/a00080.html">Map</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a611730b84751ab3a6fbf48ff64e7a8c5">m_vis</a></td></tr>
-<tr class="memdesc:a611730b84751ab3a6fbf48ff64e7a8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../da/dec/a00080.html" title="A geographical map used for showing in the MapViewer. ">Map</a> to display.  <a href="#a611730b84751ab3a6fbf48ff64e7a8c5">More...</a><br/></td></tr>
-<tr class="separator:a611730b84751ab3a6fbf48ff64e7a8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086e9f45a7652dbbb2f2b63a790f41d7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a086e9f45a7652dbbb2f2b63a790f41d7">m_runner</a></td></tr>
-<tr class="memdesc:a086e9f45a7652dbbb2f2b63a790f41d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The runner for the current simulation.  <a href="#a086e9f45a7652dbbb2f2b63a790f41d7">More...</a><br/></td></tr>
-<tr class="separator:a086e9f45a7652dbbb2f2b63a790f41d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8dcb01be7e194bb29d6a379322781a14"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a8dcb01be7e194bb29d6a379322781a14">PracticesSocialDistancing</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
+<tr class="separator:a8dcb01be7e194bb29d6a379322781a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db3031aaeba5b0de11bd821ece9adbe"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dcb/a00170.html#a4db3031aaeba5b0de11bd821ece9adbe">PracticesVaccination</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
+<tr class="separator:a4db3031aaeba5b0de11bd821ece9adbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A Viewer that visually shows the GeoGrids and associated information with Qt. </p>
+<div class="textblock"><h3>template&lt;typename belief_policy&gt;<br/>
+class stride::Vaccination&lt; belief_policy &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00011">11</a> of file <a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a354bb93b86fe6ab7d88188f3e66cc8e8"></a>
+<p><a class="el" href="../../d5/dcb/a00170.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00024">24</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">Vaccination.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8dcb01be7e194bb29d6a379322781a14"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::viewers::MapViewer::MapViewer </td>
+          <td class="memname">static bool <a class="el" href="../../d5/dcb/a00170.html">stride::Vaccination</a>&lt; belief_policy &gt;::PracticesSocialDistancing </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d4e/a00141.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
+          <td class="paramname"><em>belief_data</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QQmlApplicationEngine *&#160;</td>
-          <td class="paramname"><em>engine</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Instantiate cli viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00015">15</a> of file <a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../d6/de1/a00356_source.html#l00031">m_runner</a>, <a class="el" href="../../d3/dc9/a00355_source.html#l00009">Update()</a>, and <a class="el" href="../../d3/dc9/a00355_source.html#l00033">~MapViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/dcb/a00170_a354bb93b86fe6ab7d88188f3e66cc8e8_cgraph.svg" width="422" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00027">27</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">Vaccination.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a347ee82efaa83090012fa331c855285a"></a>
+<a class="anchor" id="a4db3031aaeba5b0de11bd821ece9adbe"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename belief_policy &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::viewers::MapViewer::~MapViewer </td>
+          <td class="memname">static bool <a class="el" href="../../d5/dcb/a00170.html">stride::Vaccination</a>&lt; belief_policy &gt;::PracticesVaccination </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
+          <td class="paramname"><em>belief_data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
-
-<p>Definition at line <a class="el" href="../../d3/dc9/a00355_source.html#l00033">33</a> of file <a class="el" href="../../d3/dc9/a00355_source.html">MapViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/de1/a00356_source.html#l00015">MapViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/dcb/a00170_a347ee82efaa83090012fa331c855285a_icgraph.svg" width="422" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a682fd168e97785d7342bc192baeac078"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::MapViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/ddf/a00469.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../d3/dc9/a00355_source.html#l00009">9</a> of file <a class="el" href="../../d3/dc9/a00355_source.html">MapViewer.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d6/de1/a00356_source.html#l00029">m_first</a>, <a class="el" href="../../d6/de1/a00356_source.html#l00028">m_logger</a>, <a class="el" href="../../d6/de1/a00356_source.html#l00031">m_runner</a>, and <a class="el" href="../../d6/de1/a00356_source.html#l00030">m_vis</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/de1/a00356_source.html#l00015">MapViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/dcb/a00170_a682fd168e97785d7342bc192baeac078_icgraph.svg" width="422" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a7899a4938e50547e1b14e387255c290a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::viewers::MapViewer::m_logger</td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The logger used for notifying that the <a class="el" href="../../d5/dcb/a00170.html" title="A Viewer that visually shows the GeoGrids and associated information with Qt. ">MapViewer</a> was updated. </p>
-
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00028">28</a> of file <a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dc9/a00355_source.html#l00009">Update()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dfd/a00438_source.html#l00029">29</a> of file <a class="el" href="../../dd/dfd/a00438_source.html">Vaccination.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac76efad12d02ce9ee9f0b8487ff726ec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::viewers::MapViewer::m_first = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A variable used to see if it was the first time the "Update" method was called. </p>
-
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00029">29</a> of file <a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dc9/a00355_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a611730b84751ab3a6fbf48ff64e7a8c5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../da/dec/a00080.html">Map</a>&gt; stride::viewers::MapViewer::m_vis</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../da/dec/a00080.html" title="A geographical map used for showing in the MapViewer. ">Map</a> to display. </p>
-
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00030">30</a> of file <a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dc9/a00355_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a086e9f45a7652dbbb2f2b63a790f41d7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d5/d4e/a00141.html">SimRunner</a>&gt; stride::viewers::MapViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The runner for the current simulation. </p>
-
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00031">31</a> of file <a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/de1/a00356_source.html#l00015">MapViewer()</a>, and <a class="el" href="../../d3/dc9/a00355_source.html#l00009">Update()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d6/de1/a00356_source.html">MapViewer.h</a></li>
-<li><a class="el" href="../../d3/dc9/a00355_source.html">MapViewer.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/dfd/a00438_source.html">Vaccination.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d4b/a00471.html">viewers</a></li><li class="navelem"><a class="el" href="../../d5/dcb/a00170.html">MapViewer</a></li>
-    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d29/a00470.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/dcb/a00170.html">Vaccination</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 16:34:57 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

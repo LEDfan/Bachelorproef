@@ -1,8 +1,11 @@
 var a00158 =
 [
-    [ "Info", "d6/db8/a00158.html#a2e5ec406a473f68ca95c7d81651d6aac", null ],
-    [ "m_seed", "d6/db8/a00158.html#abefb5eab599569a9ee18079889c2d11b", null ],
-    [ "m_state", "d6/db8/a00158.html#ae73dd6b56912771808eeb8d9aa095389", null ],
-    [ "m_stream_count", "d6/db8/a00158.html#a2275a26478b89ec7b7d0f02f02b0b0af", null ],
-    [ "m_type", "d6/db8/a00158.html#a7280978393526b5420e330cd87888b41", null ]
+    [ "Dirs", "d6/db8/a00158.html#a5c0e642aa05f9c73a9d5edb298b7fa1c", null ],
+    [ "m_current_dir", "d6/db8/a00158.html#a0f2510f1e56e9702540ae0ee41ae082a", null ],
+    [ "m_exec_path", "d6/db8/a00158.html#af9e0a5016367c19e14e102efcbf6ff4b", null ],
+    [ "m_bin_dir", "d6/db8/a00158.html#aa84e5bea799040c78f75190d7fa242e9", null ],
+    [ "m_config_dir", "d6/db8/a00158.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef", null ],
+    [ "m_data_dir", "d6/db8/a00158.html#ad844a270ca421636f164982233789d2f", null ],
+    [ "m_root_dir", "d6/db8/a00158.html#a02d39f43d1e81ea01c51c6715c4b7041", null ],
+    [ "m_tests_dir", "d6/db8/a00158.html#a7b91aab4bd5ca85b91fad338a228b7b9", null ]
 ];

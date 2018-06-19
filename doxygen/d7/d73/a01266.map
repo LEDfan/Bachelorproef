@@ -1,7 +1,8 @@
-<map id="stride::output::InfectedFile" name="stride::output::InfectedFile">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="43,549,141,627"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="23,406,160,498"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="25,262,159,354"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="15,133,168,211"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="42,5,141,83"/>
+<map id="stride::CliController" name="stride::CliController">
+<area shape="rect" id="node2" href="$d9/d77/a00095.html" title="A base class for Controllers in the MVC model. " alt="" coords="1371,736,1523,989"/>
+<area shape="rect" id="node4" href="$d6/d7d/a00161.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="675,462,832,671"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="567,155,683,232"/>
+<area shape="rect" id="node25" href="$d0/d48/a00165.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="1356,477,1537,657"/>
+<area shape="rect" id="node23" title="STL class. " alt="" coords="1588,312,1667,389"/>
+<area shape="rect" id="node24" title="STL class. " alt="" coords="1565,147,1691,239"/>
 </map>

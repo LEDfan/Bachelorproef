@@ -1,5 +1,5 @@
 <map id="gengeopop::HouseholdPopulator::Apply" name="gengeopop::HouseholdPopulator::Apply">
 <area shape="rect" id="node2" href="$d4/d3a/a00101.html#a1d78d0a3fd422a09f39e87d83c391d47" title="Add the given Person. " alt="" coords="275,5,410,46"/>
-<area shape="rect" id="node3" href="$d1/db7/a00157.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="264,70,421,111"/>
-<area shape="rect" id="node4" href="$d4/d3a/a00101.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="275,135,410,177"/>
+<area shape="rect" id="node3" href="$d6/d7d/a00161.html#a6508932485d419a6e7ab3cac60754ae6" title="Produce a random generator out of a distribution bound to sim&#39;s random engine. " alt="" coords="264,70,421,111"/>
+<area shape="rect" id="node4" href="$d4/d3a/a00101.html#ab0f72fc64a2ccb4885b91680def969e0" title="Get the pool id. " alt="" coords="275,135,410,177"/>
 </map>
