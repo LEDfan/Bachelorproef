@@ -116,6 +116,14 @@ public:
          */
         void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
 
+        Q_INVOKABLE
+        /**
+         * Saves the CustomMarker QObject of a specific location so we can modify it later.
+         * @param region the region of the location
+         * @param id the id of the location
+         */
+        void SaveMarker(int region, int id, QObject* marker);
+
 signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
@@ -156,15 +164,6 @@ private:
          * Removes all locations from selection and unselection + re-render the map.
          */
         void ClearSelectionAndRender();
-
-        Q_INVOKABLE
-        /**
-         * Saves the CustomMarker QObject of a specific location so we can modify it later.
-         * @param region the region of the location
-         * @param id the id of the location
-         */
-        void SaveMarker(int region, int id, QObject* marker);
-
         /**
          * Update colors of Markers based on the value of m_selection and m_unselection.
          * Won't loop over every marker or location.
