@@ -31,3 +31,4 @@ Tobia De Koninck
 - [GitHub](https://github.com/LEDfan/Bachelorproef)
 - [Test Results](test-results)
 - [Hosted doxygen documentation for master](doxygen)
+- [User Manual](assets/UserManual.pdf)
