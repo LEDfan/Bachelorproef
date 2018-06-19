@@ -8,11 +8,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Workspace}
 
-By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}). 
+By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}).
 Compilation and installation of the software will create the following files and directories:
 
 \begin{compactitem}
-    \item Binaries 
+    \item Binaries
     		in directory \texttt{<project\_dir>/bin}
       	\begin{itemize}
         		\item $stride$: executable.
@@ -21,7 +21,7 @@ Compilation and installation of the software will create the following files and
                 \item $guilauncher$: tool to edit a simulation configuration and execute it
                 \item $mapviewer$: tool to visualize the population and geographical grid, can be directly used from $stride$ and $guilauncher$.
                 \item $calibration$: tool to run the simulator multiple times to generate statistical data. This can be used to calibrate test outcomes.
-        		\item $wrapper\_sim.py$: Python simulation wrapper  		
+        		\item $wrapper\_sim.py$: Python simulation wrapper
         \end{itemize}
     \item Configuration files (xml and json)
       	in directory \texttt{<project\_dir>/config}
@@ -45,9 +45,9 @@ Compilation and installation of the software will create the following files and
 		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
 		\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
 		\item $holidays\_xxx$: Holiday characteristics for xxx.
-		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}. 
+		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}.
 		\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
-		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011. 
+		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011.
 
         \item $DE\_cities.csv$: German cities, fetched from \footnote{\url{}}.
         \item $FR\_cities.csv$: French cities, fetched from \footnote{\url{}}.
@@ -87,7 +87,7 @@ From the workspace directory, the simulator can be started with default configur
 From the workspace directory, the generation of a population and geographical grid (sometimes called GeoGrid) can be started with the default configuration using the command \mbox{``\texttt{./bin/gengeopop}''}. The following configuration options are available:
 
 \begin{description}
-    \item[\texttt{--populationSize}] \ \\ 
+    \item[\texttt{--populationSize}] \ \\
         The size of the population to generate. By default a population of \texttt{6000000} is generated.
     \item[\texttt{--fracActive}] \ \\
         The fraction of people who are active, i.e. who are employed or students. By default \texttt{0.75} is used.
@@ -113,7 +113,7 @@ From the workspace directory, the generation of a population and geographical gr
         The type of random engine to use by default \texttt{mrg2} is used. Available options are: \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2}, \texttt{yarn3}, \texttt{lgc64} and \texttt{lgc64\_shift}.
     \item[\texttt{--seed}] \ \\
         The seed to be used for the random engine. The default is \texttt{0}.
-    \item[\texttt{--loglevel}] \ \\ 
+    \item[\texttt{--loglevel}] \ \\
         The loglevel to use, by default this is \texttt{info}.
 \end{description}
 
@@ -170,7 +170,9 @@ The following configuration options are available:
     \item[\texttt{--single}]\ \\
         Run the simulations with the fixed seeds to determine the exact values.
     \item[\texttt{--output}]\ \\
-        Write the results of the calibration to a file with given filename. This resulting file contains ...
+        Write the results of the calibration to a file with given filename.
+        This resulting file contains for each configuration and each step in the simulation the mean, standard deviation, exact value using the default seed and the values found with other seeds.
+        These values depend on the selected options, specifically \texttt{--multiple} and \texttt{--single}.
     \item[\texttt{--write}]\ \\
         Write boxplots to files in the current directory. This creates an image for each config or testcase.
     \item[\texttt{--display}]\ \\
@@ -198,8 +200,8 @@ To run the testcase \texttt{influenza\_a} 10 times, write the results to a file 
 % Sim Wrapper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Python Wrapper}
-A Python wrapper is provided to perform multiple runs with the C++ executable. 
-The wrapper is designed to be used with .json configuration files and examples are provided with the source code. 
+A Python wrapper is provided to perform multiple runs with the C++ executable.
+The wrapper is designed to be used with .json configuration files and examples are provided with the source code.
 For example: \\ \\
 \centerline{\texttt{./bin/wrapper\_sim --config ./config/wrapper\_default.json}} \\ \\
 will start the simulator with each configuration in the file.
