@@ -35,12 +35,12 @@ private:
          */
         struct TravellerInfo
         {
-                unsigned int                            from;
-                ContactPool*                            to;
-                Person*                                 person;
-                std::size_t                             leaveDay;
-                ContactPoolType::Id                     type;
-                ContactPoolType::IdSubscriptArray<bool> original_in_pools;
+                unsigned int                            from{};
+                ContactPool*                            to{};
+                Person*                                 person{};
+                std::size_t                             leaveDay{};
+                ContactPoolType::Id                     type{};
+                ContactPoolType::IdSubscriptArray<bool> original_in_pools{};
                 bool operator>(const TravellerInfo& other) const { return leaveDay > other.leaveDay; }
         };
 
