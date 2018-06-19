@@ -2868,6 +2868,11 @@
       "name": "linux-clang-5",
       "href": "https://ledfan.github.io/Bachelorproef/test_results/master/959.3-linux-clang-5.html",
       "build_id": "959.3"
+    },
+    {
+      "href": "https://ledfan.github.io/Bachelorproef/test_results/master/959.4-osx-8.3-apple-clang.html",
+      "name": "osx-8.3-apple-clang",
+      "build_id": "959.4"
     }
   ]
 }
