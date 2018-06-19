@@ -8,7 +8,7 @@ Dialog {
 
      contentItem: Text {
         text: "
-                To open a file use the "File -> Open" menu.\n
+                To open a file use the 'File -> Open' menu.\n
 
                 Cities are represented by markers. Circular markers are cities and sub-municipalities.
                 The (virtual) parent city of sub-municipalities is shown as a square. By clicking this
@@ -25,7 +25,7 @@ Dialog {
                 Ctrl + A can be used to select all cities.
                 Ctrl + F can be used to fit the viewport of the map so all cities are visible.
 
-                To show commutes of a city, first enable the "View -> Show Commutes".
+                To show commutes of a city, first enable the 'View -> Show Commutes'.
                 The commutes between the selected cities will be shown.
 
                 While simulating the color a blue markers indicated that no one is infected at that location.
