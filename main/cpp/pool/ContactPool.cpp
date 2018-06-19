@@ -77,7 +77,7 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
         return std::make_tuple(infectious_cases, num_cases);
 }
 
-unsigned int ContactPool::GetId() const { return m_pool_id; }
+std::size_t ContactPool::GetId() const { return m_pool_id; }
 
 std::size_t ContactPool::GetCapacity() const { return m_capacity; }
 

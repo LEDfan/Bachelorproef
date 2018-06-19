@@ -54,8 +54,6 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
         }
 
-        pop->m_belief_pt = configPt.get_child("run.belief_policy");
-
         auto stride_logger = spdlog::get("stride_logger");
 
         boost::optional<const ptree&> regions = configPt.get_child_optional("run.regions");
@@ -100,8 +98,7 @@ std::shared_ptr<Population> Population::Create()
         struct make_shared_enabler : public Population
         {
         };
-        auto r = make_shared<make_shared_enabler>();
-        r->m_belief_pt.add("name", "NoBelief");
+        auto r                  = make_shared<make_shared_enabler>();
         r->m_regions["Default"] = 0;
         return r;
 }

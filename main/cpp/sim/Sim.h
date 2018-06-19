@@ -68,7 +68,7 @@ public:
 
 private:
         /// Constructor for empty Simulator.
-        Sim(util::RNManager&);
+        explicit Sim(util::RNManager&);
 
         /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;

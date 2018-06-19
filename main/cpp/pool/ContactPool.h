@@ -61,7 +61,7 @@ public:
         std::size_t GetSize() const { return m_members.size(); }
 
         /// Get the pool id
-        unsigned int GetId() const;
+        std::size_t GetId() const;
 
         /// Get the pool capacity
         std::size_t GetCapacity() const;
@@ -72,7 +72,7 @@ public:
         /// Get the type of ContactPool, used for logging and tests
         ContactPoolType::Id GetType() const { return m_pool_type; }
 
-        /// Returns the amount of perons and amount of infected perons in this pol
+        /// Returns the amount of persons and amount of infected persons in this pool
         std::pair<std::size_t, std::size_t> GetPopulationAndInfectedCount() const;
 
         /// Iterator to first person
@@ -102,7 +102,7 @@ private:
         friend class Infector;
 
 private:
-        unsigned int         m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
         ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).

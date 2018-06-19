@@ -44,13 +44,13 @@ public:
         /// Read ptree from file at path.
         static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path& f_p);
 
-        /// Read ptree from file specifified by name string.
+        /// Read ptree from file specified by name string.
         static boost::property_tree::ptree ReadPtreeFile(const std::string& f_n);
 
         /// Write ptree to file at path.
         static void WritePtreeFile(const boost::filesystem::path& f_p, const boost::property_tree::ptree& pt);
 
-        /// Write ptree to file specifified by name string.
+        /// Write ptree to file specified by name string.
         static void WritePtreeFile(const std::string& f_n, const boost::property_tree::ptree& pt);
 
 public:
@@ -63,7 +63,7 @@ public:
 public:
         /// Verify that current dir is root dir and all install dirs are present.
         /// \param logger       logger verification finds failures; defaults to no-op.
-        /// \return             staus true iff everything verifies ok.
+        /// \return             status true iff everything verifies ok.
         static bool CheckInstallEnv(
             std::function<void(const std::string&)> logger = std::function<void(const std::string&)>());
 

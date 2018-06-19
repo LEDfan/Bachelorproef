@@ -57,7 +57,7 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerP
         }
 
         /**
-         * This must be refactored to increase the performance and incorporate the prorposal from the documents.
+         * This must be refactored to increase the performance and incorporate the proposal from the documents.
          */
         if (m_isTravelling) {
                 m_travelDaysRemaining--;
