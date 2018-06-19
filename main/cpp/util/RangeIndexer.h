@@ -120,6 +120,12 @@ public:
         /// Retrieve reference to a range by its subscipt in the indexer.
         range_type& GetRange(std::size_t i) { return m_ranges.at(i); }
 
+        /// Retrieve reference to a range by its subscipt in the indexer.
+        const range_type& GetRange(std::size_t i) const { return m_ranges.at(i); }
+
+        /// Extend the (currently) last range to the right by `amount`
+        void ExtendLast(std::size_t amount) { m_ranges.at(m_ranges.size() - 1).advance_end(amount); }
+
 private:
         std::vector<range_type> m_ranges; ///< Holds the ranges.
         T&                      m_t;      ///< refers to container in which ranges are defined.

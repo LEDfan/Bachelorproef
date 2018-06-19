@@ -31,7 +31,7 @@ using namespace std;
 using namespace stride::ContactPoolType;
 
 void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerProfile> travellerProfile,
-                    std::shared_ptr<Population> population)
+                    std::shared_ptr<Population> population, std::size_t currentDay)
 {
         m_health.Update();
 
@@ -56,36 +56,8 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, std::shared_ptr<TravellerP
                 m_in_pools[Id::SecondaryCommunity] = true;
         }
 
-        /**
-         * This must be refactored to increase the performance and incorporate the proposal from the documents.
-         */
-        if (m_isTravelling) {
-                m_travelDaysRemaining--;
-                if (m_travelDaysRemaining == 0) {
-                        m_isTravelling = false;
-                        if (m_visitingContactPool) {
-                                m_visitingContactPool->RemoveMember(this);
-                        }
-                }
-        } else {
-                const auto& travelData = travellerProfile->PersonWillTravel(m_region);
-                if (std::get<0>(travelData)) {
-                        m_in_pools[Id::K12School]          = false;
-                        m_in_pools[Id::College]            = false;
-                        m_in_pools[Id::Work]               = false;
-                        m_in_pools[Id::PrimaryCommunity]   = false;
-                        m_in_pools[Id::SecondaryCommunity] = false;
-                        if (std::get<1>(travelData)) {
-                                // work
-                                m_visitingContactPool = population->GetWorkInRegion(std::get<2>(travelData));
-                        } else {
-                                // not work
-                                m_visitingContactPool =
-                                    population->GetPrimaryCommunityInRegion(std::get<2>(travelData));
-                        }
-                        m_isTravelling        = true;
-                        m_travelDaysRemaining = std::get<3>(travelData);
-                }
+        if (!m_isTravelling) {
+                m_isTravelling = travellerProfile->PersonWillTravel(m_region, population, this, currentDay);
         }
 }
 
@@ -95,5 +67,24 @@ void Person::Update(Person*)
 }
 
 void Person::SetAge(unsigned int newAge) { m_age = newAge; }
+
+void Person::SetTravelling(bool travelling) { m_isTravelling = travelling; }
+
+bool Person::IsInPool(const ContactPoolType::Id poolType, unsigned int poolId) const
+{
+        /**
+         * When travelling we can't remove this person from it's original CP, since there is no efficient way
+         * to get a CP by its id. Hence this person will be in two CP's of type Work or PrimaryCommunity.
+         * When travelling the m_pool_ids[Work] or m_pool_ids[PrimaryCommunity] will be updated to the new CP
+         * in the other region. The m_in_pools will be set to false for all other CP's. This way the normal
+         * behaviour for m_in_pools can be used for Work or PrimaryCommunity. In order to simulate the removal
+         * of the original CP for work and PrimaryCommunity it's checked that the the CP is the CP this person
+         * is currently in. (Thus when travelling at the other region)
+         */
+        if (poolId != m_pool_ids[poolType]) {
+                return false;
+        }
+        return m_in_pools[poolType];
+}
 
 } // namespace stride
