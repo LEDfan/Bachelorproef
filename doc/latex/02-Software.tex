@@ -9,13 +9,13 @@
 \section{System Requirements}
 \label{section:system}
 
-Stride is written in C++ and portable over all platforms that have the GNU C++ compiler. 
+Stride is written in C++ and portable over all platforms that have a sufficiently recent version of the GNU C++ compiler. 
 The following tools needs to be installed:
 \begin{compactitem}
     \item g++
     \item make
     \item CMake (\textgreater = v3.10)
-    \item Boost
+    \item Boost (\textgreater = 1.66 is known to work)
     \item Qt (\textgreater = 5.9, optional, for visualization)
     \item Python (optional, for automatization)
     \item Doxygen (optional, for documentation)
@@ -43,7 +43,7 @@ More details on building the software can be found in ``INSTALL.txt'' in the sou
 \label{section:documentation}
 
 The Application Programmer Interface (API) documentation is generated automatically 
-using the Doxygen tool ((see \url{www.doxygen.org}) from documentation instructions 
+using the Doxygen tool (see \url{www.doxygen.org}) from documentation instructions 
 embedded in the code . 
 
 The user manual distributed with the source code has been written in \LaTeX (see \url{www.latex-project.org}).
@@ -56,19 +56,19 @@ The user manual distributed with the source code has been written in \LaTeX (see
 \section{Directory layout}
 
 The project directory structure is very systematic.
-Everything used to build the software is stored in the directory \texttt{./src}:
+Everything used to build the software is stored in the root directory:
 \begin{compactitem}
-    \item \texttt{src/main}: Code related files (sources, third party libraries and headers, ...)
+    \item \texttt{main}: Code related files (sources, third party libraries and headers, ...)
       	\begin{itemize}
-        		\item \texttt{src/main/<language>}: source code, per coding language: cpp (for C++), python, R,   
-        		\item \texttt{src/main/resources}: third party resources included in the project: 
+        		\item \texttt{main/<language>}: source code, per coding language: cpp (for C++), python, R,   
+        		\item \texttt{main/resources}: third party resources included in the project: 
         \end{itemize}
-    \item \texttt{src/doc}: documentation files (API, manual, ...)
+    \item \texttt{doc}: documentation files (API, manual, ...)
       	\begin{itemize}
-        		\item \texttt{src/doc/doxygen\_ref\_man}: files needed to generate the reference documentation with Doxygen
-        		\item \texttt{src/doc/latex\_man}: files needed to generate the user manual with Latex
+        		\item \texttt{doc/doxygen\_ref\_man}: files needed to generate the reference documentation with Doxygen
+        		\item \texttt{doc/latex\_man}: files needed to generate the user manual with Latex
         \end{itemize}
-    \item \texttt{src/test}: test related files (scripts, regression files, ...)
+    \item \texttt{test}: test related files (scripts, regression files, ...)
 \end{compactitem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
