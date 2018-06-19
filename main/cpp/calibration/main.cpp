@@ -2,6 +2,7 @@
 #include "ConfigFileCalibrationRunner.h"
 #include "TestCalibrationRunner.h"
 #include <tclap/CmdLine.h>
+#include <util/LogUtils.h>
 
 using namespace calibration;
 using namespace TCLAP;
@@ -41,6 +42,9 @@ int main(int argc, char* argv[])
 
         MultiArg<std::string> configArg("c", "config", sc, false, "RUN CONFIGURATION", cmd);
         cmd.parse(argc, static_cast<const char* const*>(argv));
+
+        // Register travel logger here to avoid race conditions later
+        spdlog::register_logger(stride::util::LogUtils::CreateNullLogger("travel_logger"));
 
         // -----------------------------------------------------------------------------------------
         // Validate provided options & setup calibrationRunner.
