@@ -10,12 +10,13 @@
 \label{section:system}
 
 Stride is written in C++ and portable over all platforms that have the GNU C++ compiler. 
-To use the visualization tools Qt is needed (at least version 5.9), besides that the following tools needs to be installed:
+The following tools needs to be installed:
 \begin{compactitem}
     \item g++
     \item make
     \item CMake (\textgreater = v3.10)
     \item Boost
+    \item Qt (\textgreater = 5.9, optional, for visualization)
     \item Python (optional, for automatization)
     \item Doxygen (optional, for documentation)
     \item LaTeX (optional, for documentation)
@@ -28,8 +29,7 @@ To use the visualization tools Qt is needed (at least version 5.9), besides that
 \section{Installation}
 \label{section:Installation}
 
-To install the project, first obtain the source code by cloning the repository to a directory or download a zip file with all project
-material from the GitHub website and de-compress the archive. 
+To install the project, first obtain the source code by cloning the repository to a directory .
 The build system for Stride uses the CMake tool. This is used to build and install the software at a high level of abstraction and almost platform independent (see \url{http://www.cmake.org/}). 
 The project includes the conventional make targets to ``build'', ``install'', ``test'' and ``clean'' the project. There is one additional target ``configure'' to set up the CMake/make structure that will actually do all the work.
 For those users that do not have a working knowledge of CMake, a front end Makefile has been provided that invokes the appropriate CMake commands.

@@ -49,11 +49,11 @@ Compilation and installation of the software will create the following files and
 		\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
 		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011.
 
-        \item $DE\_cities.csv$: German cities, fetched from \footnote{\url{}}.
-        \item $FR\_cities.csv$: French cities, fetched from \footnote{\url{}}.
-        \item $NL\_cities.csv$: Dutch cities, fetched from \footnote{\url{}}.
-        \item $wallonia\_cities.csv$: Wallonia cities, fetched from \footnote{\url{}}.
-        \item $submunicipalities.csv$: Belgian sub-municipalities, fetched from \footnote{\url{}}.
+        \item $DE\_cities.csv$: German cities, fetched from \footnote{\url{https://en.wikipedia.org/wiki/List\_of\_cities\_and\_towns\_in\_Germany}}.
+        \item $FR\_cities.csv$: French cities, fetched from \footnote{\url{https://en.wikipedia.org/wiki/List\_of\_arrondissements\_of\_France}}.
+        \item $NL\_cities.csv$: Dutch cities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Tabel\_van\_Nederlandse\_gemeenten}}.
+        \item $wallonia\_cities.csv$: Walloon cities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Lijst\_van\_gemeenten\_in\_het\_Waals\_Gewest}}.
+        \item $submunicipalities.csv$: Belgian sub-municipalities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Lijst\_van\_gemeenten\_in\_het\_Vlaams\_Gewest}}.
         \end{itemize}
     \item Documentation files
       	in directory \texttt{./target/installed/doc}
@@ -160,8 +160,8 @@ The following configuration options are available:
     \item[\texttt{--config}] \ \\
         Specifies the run configuration parameters to be used for the simulation.
         If this is provided multiple times, the calibration is performed on all given simulations.
-        It may be either -c file= \textless file \textgreater or -c name= \textless name \textgreater .
-        The first option can be shortened to -c \textless file \textgreater , the second option accepts \texttt{TestsInfluenza}, \texttt{TestsMeasles} or \texttt{BenchMeasles} as  \textless name \textgreater .
+        It may be either \texttt{-c file=<file>} \texttt{or -c name=<name>}.
+        The first option can be shortened to \texttt{-c <file>}, the second option accepts \texttt{TestsInfluenza}, \texttt{TestsMeasles} or \texttt{BenchMeasles} as  \texttt{<name}.
     \item[\texttt{--testcases}] \ \\
         Instead of providing the configuration files, you can also select multiple testcases to use for the simulation runs.
         The default is \texttt{influenza\_a, influenza\_b, influenza\_c, measles\_16} and \texttt{r0\_12}.
