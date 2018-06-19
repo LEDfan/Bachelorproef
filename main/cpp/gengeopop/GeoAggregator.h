@@ -166,14 +166,14 @@ private:
 class PolygonPolicy
 {
 public:
-        using Args = boost::geometry::model::polygon<geogrid_detail::BoostPoint, true>;
+        using Args = boost::geometry::model::polygon<Coordinate, true>;
 
         PolygonPolicy(Args args) : m_poly(std::move(args)) {}
 
         AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
                 namespace geo = boost::geometry;
-                AABB<geogrid_detail::BoostPoint> boostbox;
+                AABB<Coordinate> boostbox;
                 geo::envelope(m_poly, boostbox);
                 AABB<geogrid_detail::KdTree2DPoint> box{{geo::get<0>(boostbox.lower), geo::get<1>(boostbox.lower)},
                                                         {geo::get<0>(boostbox.upper), geo::get<1>(boostbox.upper)}};
@@ -182,7 +182,7 @@ public:
 
         bool Contains(const geogrid_detail::KdTree2DPoint& pt) const
         {
-                return boost::geometry::within(pt.AsBoostPoint(), m_poly);
+                return boost::geometry::within(pt.GetPoint(), m_poly);
         }
 
 private:

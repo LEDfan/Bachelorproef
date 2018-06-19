@@ -6,6 +6,9 @@
 #include <set>
 #include <unordered_map>
 
+/**
+ * The backend for the MapViewer qml
+ */
 class Backend : public QObject
 {
         Q_OBJECT
@@ -28,23 +31,11 @@ public:
          * @param grid The grid we want to change to.
          */
         void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids);
-
-        Q_INVOKABLE
-        void SaveMarker(int region, int id, QObject* marker);
-
         Q_INVOKABLE
         /**
          * Load a GeoGrid from JSON file, specified in the command line arguments
          */
         void LoadGeoGridFromCommandLine(const QStringList& args);
-
-        Q_INVOKABLE
-        /**
-         * Places the locations of the current GeoGrid on the map.
-         * @param map: Instance of the Map QObject
-         */
-        void SetObjects(QObject* map);
-
         Q_INVOKABLE
         /**
          * Handles a click on a marker. Will emit a locationSelected signal with the correct location
@@ -75,12 +66,6 @@ public:
 
         Q_INVOKABLE
         /**
-         * Removes all locations from selection and unselection + re-render the map.
-         */
-        void ClearSelectionAndRender();
-
-        Q_INVOKABLE
-        /**
          * Removes all locations from selection and unselection but don't re-render the map.
          */
         void ClearSelection();
@@ -100,6 +85,9 @@ public:
         void SelectExtraInArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
+        /**
+         * Adds all locations of the grid to the selection and updates the visual appearance of these locations.
+         */
         void SelectAll();
 
         Q_INVOKABLE
@@ -109,7 +97,17 @@ public:
         void SetShowCommutes(bool value);
 
         Q_INVOKABLE
+        /**
+         * Updates all the health colors of the locations to match the current infection rate.
+         */
         void UpdateAllHealthColors();
+
+        Q_INVOKABLE
+        /**
+         * Places the locations of the current GeoGrid on the map.
+         * @param map: Instance of the Map QObject
+         */
+        void SetObjects(QObject* map);
 
         Q_INVOKABLE
         /**
@@ -122,8 +120,11 @@ signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
         void LocationsSelected(std::set<std::shared_ptr<gengeopop::Location>> locations);
 
+        /// Emits a signal that the infected count should be updated
+        void UpdateInfected();
+
 private:
-        double   m_colorExponent = 0.15;    ///< We use this exponent to make the color change not linear
+        double   m_colorExponent = 0.1;     ///< We use this exponent to make the color change not linear
         QObject* m_map           = nullptr; ///< The QML Map the info is displayed on
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_grids;
         std::map<std::tuple<int, int>, QObject*> m_markers; ///< Reference to the markers so we do not need to search
@@ -141,7 +142,7 @@ private:
          * Places a marker at the given coordinate
          * @Param specialmarker Whether or not to display a special marker
          */
-        void PlaceMarker(Coordinate coordinate, int region, int id, unsigned int population, bool selected,
+        void PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected,
                          bool specialmarker);
 
         /**
@@ -149,6 +150,20 @@ private:
          * @Pre: m_map is initialized correctly and holds the map we want to place markers on
          */
         void PlaceMarkers();
+
+        Q_INVOKABLE
+        /**
+         * Removes all locations from selection and unselection + re-render the map.
+         */
+        void ClearSelectionAndRender();
+
+        Q_INVOKABLE
+        /**
+         * Saves the CustomMarker QObject of a specific location so we can modify it later.
+         * @param region the region of the location
+         * @param id the id of the location
+         */
+        void SaveMarker(int region, int id, QObject* marker);
 
         /**
          * Update colors of Markers based on the value of m_selection and m_unselection.
@@ -174,7 +189,7 @@ private:
          * @param toLatitude
          * @param toLongitude
          */
-        QObject* AddCommuteLine(Coordinate from, Coordinate to, double amount);
+        QObject* AddCommuteLine(gengeopop::Coordinate from, gengeopop::Coordinate to, double amount);
 
         /**
          * Hides the commute line on the map.

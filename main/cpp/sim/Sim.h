@@ -68,7 +68,7 @@ public:
 
 private:
         /// Constructor for empty Simulator.
-        Sim(util::RNManager&);
+        explicit Sim(util::RNManager&);
 
         /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;
@@ -87,7 +87,7 @@ private:
         std::shared_ptr<Population>       m_population;       ///< Pointer to the Population.
         util::RNManager&                  m_rn_manager;       ///< Random numbere generation management.
         TransmissionProfile               m_transmission_profile; ///< Profile of disease.
-        std::shared_ptr<TravellerProfile> m_travellerProfile;
+        std::shared_ptr<TravellerProfile> m_travellerProfile;     ///< Profile of Traveller information
 };
 
 } // namespace stride

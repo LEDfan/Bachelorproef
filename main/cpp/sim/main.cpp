@@ -134,12 +134,12 @@ int main(int argc, char** argv)
                                         Q_INIT_RESOURCE(qml);
                                         int             i = 0;
                                         QGuiApplication app(i, nullptr);
-                                        auto            engine = std::make_unique<QQmlApplicationEngine>();
+                                        auto            localEngine = std::make_unique<QQmlApplicationEngine>();
                                         controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(),
-                                                                                       engine.get());
+                                                                                       localEngine.get());
                                         thread =
                                             std::make_unique<std::thread>([&controller]() { controller->Control(); });
-                                        app.exec();
+                                        QGuiApplication::exec();
                                 } else {
                                         controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
                                 }
@@ -152,12 +152,6 @@ int main(int argc, char** argv)
                         } else {
                                 controller->Control();
                         }
-                }
-                // -----------------------------------------------------------------------------------------
-                // If geopop ...
-                // -----------------------------------------------------------------------------------------
-                else if (execArg.getValue() == "geopop") {
-                        cout << "Not implented here yet ..." << endl; // TODO
                 }
                 // -----------------------------------------------------------------------------------------
                 // If clean/dump ...

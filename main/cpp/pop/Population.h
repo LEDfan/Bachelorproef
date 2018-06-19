@@ -22,11 +22,13 @@
 #include "AbstractPopBuilder.h"
 #include "ImportPopBuilder.h"
 #include "pool/ContactPoolSys.h"
+#include "pool/RegionSlicer.h"
+#include "pool/TravellerIndex.h"
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
 #include "util/Any.h"
-#include "util/pchheader.h"
+#include "util/SegmentedVector.h"
 
 #include "util/RNManager.h"
 #include <boost/property_tree/ptree.hpp>
@@ -81,48 +83,34 @@ public:
 
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> GetGeoGrids() const { return m_geoGrids; }
 
-        /// New Person in the population.
+        /// New Person in the population, the region should be at least the previous region (starting at 0) and at most
+        /// 1 larger.
         void CreatePerson(std::size_t regionId, unsigned int id, double age, unsigned int householdId,
                           unsigned int k12SchoolId, unsigned int college, unsigned int workId,
                           unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
+        /// Add a new contact pool of a given type in in the given region, the same constraints on the region apply as
+        /// for CreatePerson
         ContactPool* CreateContactPool(std::size_t regionId, ContactPoolType::Id typeId);
 
+        /// Get the region identifiers: name -> id
         const std::unordered_map<std::string, std::size_t>& GetRegionIdentifiers() const;
 
-        /// TODO replace me by more efficient system
-        ContactPool* GetWorkInRegion(std::size_t regionId)
-        {
-                // ugly hack to get a contactpool fast
-                return m_work[regionId];
-        }
+        /// Create a new RegionSlicer for the given region id
+        RegionSlicer SliceOnRegion(std::size_t region_id);
 
-        /// TODO replace me by more efficient system
-        ContactPool* GetPrimaryCommunityInRegion(std::size_t regionId)
-        {
-                // ugly hack to get a contactpool fast
-                return m_primaryCommunities[regionId];
-        }
+        //// Get the TravellerIndex for the given region
+        TravellerIndex& GetTravellerIndex(std::size_t regionId);
 
-        //        util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
-        //        ContactPoolType::IdSubscriptArray> GetContactPools(const std::size_t& region) {
-        //                util::ConcatenatedIterators<ContactPool, util::SegmentedVector<ContactPool>::iterator,
-        //                ContactPoolType::IdSubscriptArray> res; for (ContactPoolType::Id typ :
-        //                ContactPoolType::IdList) {
-        //                        res[typ] =
-        //                        util::IteratorPair<util::SegmentedVector<ContactPool>::iterator>(m_pool_sys[typ].GetPartition(region).begin(),
-        //                        m_pool_sys[typ].GetPartition(region).end());
-        //                }
-        //                return res;
-        //        };
+        /// Let the travelling persons return to home
+        void ReturnTravellers(std::size_t currentDay);
 
 private:
-        Population()
-            : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(),
-              m_regionRanges(*this), m_work(), m_primaryCommunities(){};
+        /// Constructor, to be called by create
+        Population();
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
-        /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
+        /// due to guarding against data races in parallel use of SetBeliefPolicy. The DoubleChecked
         /// locking did not work in OpenMP parallel for's on Mac OSX.
         template <typename BeliefPolicy>
         void InitBeliefPolicy()
@@ -136,7 +124,7 @@ private:
 
         /// Assign the belief policy.
         /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
-        /// \param belief        belief object that wille be associated with the person
+        /// \param belief        belief object that will be associated with the person
         /// \param i             subscript to person associated with this belief object
         // Cannot follow my preference for declaration of required explicit specializations, because SWIG
         // does not like that. Hence include of the template method definition in the header file.
@@ -151,28 +139,34 @@ private:
                                  const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
                                  const std::string& name, stride::util::RNManager& rnManager);
 
+        /// Update m_currentRegionId and create new ranges in m_pool_sys_regions and m_regionRanges
+        void UpdateRegion(std::size_t region_id);
+
         friend class DefaultPopBuilder;
         friend class GenPopBuilder;
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
-        boost::property_tree::ptree     m_belief_pt;
-        util::Any                       m_beliefs;        ///< Holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids; ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
-        std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
+        // Placed separately to avoid overly long declarations
+        using ContactPoolSysRanges =
+            ContactPoolType::IdSubscriptArray<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
 
-        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;
+        boost::property_tree::ptree m_belief_pt;        ///< Belief configuration
+        util::Any                   m_beliefs;          ///< Holds belief data for the persons.
+        ContactPoolSys              m_pool_sys;         ///< Holds vector of ContactPools of different types.
+        ContactPoolSysRanges        m_pool_sys_regions; ///< Holds sub_ranges for region indexin, by contactpool type
+        std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
+        std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
+        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
+            m_regionRanges; ///< Ranges over the people in different regions
+        std::vector<TravellerIndex>
+                                                     m_regionTravellerIndex; ///< For each region keep a TravellerIndex which holds the travelling information
+        std::unordered_map<std::string, std::size_t> m_regions; ///< Regios
 
-        // tmp
-        std::map<std::size_t, ContactPool*> m_work;
-        std::map<std::size_t, ContactPool*> m_primaryCommunities;
-
-        std::size_t m_currentRegionId      = 0;
-        std::size_t m_currentStart         = 0;
-        std::size_t m_currentContactPoolId = 1;
+        // Cannot make negative because size_t is unsigned, special check needed in the Create methods
+        std::size_t m_currentRegionId      = 0;     ///< Keep track of the last seen region id
+        bool        m_have_inserted        = false; ///< Keep track whether the first Region was created yet
+        std::size_t m_currentContactPoolId = 1;     ///< The current contact pool id, assigns in increasing order
 };
 
 } // namespace stride

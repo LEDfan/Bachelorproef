@@ -271,6 +271,7 @@ private:
  ***************************************/
 namespace kd {
 
+/// A base class for all instanciations of a Node with D
 template <typename P>
 class BaseNode
 {

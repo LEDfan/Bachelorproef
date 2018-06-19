@@ -158,7 +158,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
         for (size_t i_person1 = 0; i_person1 < pSize; i_person1++) {
                 // check if member is present today
                 const auto p1 = pMembers[i_person1];
-                if (p1->IsInPool(pType)) {
+                if (p1->IsInPool(pType, pool.GetId())) {
                         const double c_rate = GetContactRate(profile, p1, pSize);
                         // loop over possible contacts (contacts can be initiated by each member)
                         for (size_t i_person2 = 0; i_person2 < pSize; i_person2++) {
@@ -166,7 +166,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
                                 if (i_person1 != i_person2) {
                                         // check if member is present today
                                         const auto p2 = pMembers[i_person2];
-                                        if (p2->IsInPool(pType)) {
+                                        if (p2->IsInPool(pType, pool.GetId())) {
                                                 // check for contact
                                                 if (cHandler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
@@ -235,7 +235,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
         for (size_t i_infected = 0; i_infected < num_cases; i_infected++) {
                 // check if member is present today
                 const auto p1 = c_members[i_infected];
-                if (p1->IsInPool(c_type)) {
+                if (p1->IsInPool(c_type, pool.GetId())) {
                         auto& h1 = p1->GetHealth();
                         if (h1.IsInfectious()) {
                                 const double c_rate_p1 = GetContactRate(profile, p1, c_size);
@@ -243,7 +243,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
                                 for (size_t i_contact = num_cases; i_contact < c_immune; i_contact++) {
                                         // check if member is present today
                                         const auto p2 = c_members[i_contact];
-                                        if (p2->IsInPool(c_type)) {
+                                        if (p2->IsInPool(c_type, pool.GetId())) {
                                                 const double c_rate_p2 = GetContactRate(profile, p2, c_size);
                                                 if (cHandler.HasContactAndTransmission(c_rate_p1, t_rate) ||
                                                     cHandler.HasContactAndTransmission(c_rate_p2, t_rate)) {

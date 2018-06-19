@@ -3,10 +3,15 @@
 #include "PartialGenerator.h"
 
 namespace gengeopop {
+
+/// Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator)
 class GeoGridGenerator
 {
 public:
+        /// Construct with a config and a target GeoGrid
         GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
+
+        /// Add a PartialGenerator to use when generating
         void AddPartialGenerator(std::shared_ptr<PartialGenerator> gen);
 
         /**
@@ -15,11 +20,12 @@ public:
          */
         void GenerateGeoGrid();
 
+        /// Get the target GeoGrid
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
-        std::vector<std::shared_ptr<PartialGenerator>> m_partialGenerators;
-        std::shared_ptr<GeoGrid>                       m_geoGrid; // FIXME unique pointer?
-        GeoGridConfig&                                 m_geoGridConfig;
+        std::vector<std::shared_ptr<PartialGenerator>> m_partialGenerators; ///< Our PartialGenerators
+        std::shared_ptr<GeoGrid>                       m_geoGrid;           ///< The target
+        GeoGridConfig&                                 m_geoGridConfig;     ///< The config
 };
 } // namespace gengeopop

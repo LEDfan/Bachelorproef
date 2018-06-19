@@ -4,6 +4,7 @@
 
 namespace gengeopop {
 
+/// Models a Household as ContactCenter
 class Household : public ContactCenter
 {
 public:

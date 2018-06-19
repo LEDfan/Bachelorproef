@@ -37,7 +37,7 @@ namespace util {
 class CSV : protected std::vector<CSVRow>
 {
 public:
-        /// Initialize from file. If optLabels not specied, the file is required. Otherwise initialize like second
+        /// Initialize from file. If optLabels not specifed, the file is required. Otherwise initialize like second
         /// constructor.
         explicit CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
 
@@ -74,8 +74,8 @@ public:
         /// Write CSV to file.
         void Write(const boost::filesystem::path& path) const;
 
-        /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
-        /// introduce a perfomance tradeoff.
+        /// Convert label to index for more user friendly and robust implementation. This level of indirection does
+        /// introduce a performance trade-off.
         size_t GetIndexForLabel(const std::string& label) const;
 
         const std::vector<std::string>& GetLabels() const;

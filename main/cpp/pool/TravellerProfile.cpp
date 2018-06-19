@@ -1,11 +1,13 @@
 #include "TravellerProfile.h"
+#include "ContactPoolType.h"
 #include <trng/uniform_int_dist.hpp>
 #include <iostream>
+#include <pop/Population.h>
 
 namespace stride {
 
 TravellerProfile::TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork,
-                                   util::RNManager& rnManager, unsigned int maxDays)
+                                   util::RNManager& rnManager, std::size_t maxDays)
     : m_data_recreation(amountOfRegions), m_data_work(amountOfRegions), m_amountOfTravel(amountOfTravel),
       m_fractionWork(fractionWork), m_rnManager(rnManager), m_maxDays(maxDays)
 {
@@ -25,36 +27,58 @@ void TravellerProfile::AddTravelWork(std::size_t from, std::size_t to, double re
         m_data_work.at(from).at(to) = relativePopulation;
 }
 
-std::tuple<bool, bool, std::size_t, unsigned int> TravellerProfile::PersonWillTravel(std::size_t currentRegion)
+bool TravellerProfile::PersonWillTravel(size_t currentRegion, std::shared_ptr<stride::Population> population,
+                                        Person* person, std::size_t currentDay)
 {
-        if (m_data_work.size() > 1 && m_data_recreation.size() > 1 && MakeChoice(m_amountOfTravel)) {
-                std::size_t destination = 0;
-                bool        work;
-                if (MakeChoice(m_fractionWork)) {
-                        // Work travel
-                        work = true;
+        if ((m_data_work.size() > 1 || m_data_recreation.size() > 1) && m_amountOfTravel > 0 &&
+            MakeChoice(m_amountOfTravel)) {
+                auto durationDist = m_rnManager.GetGenerator(
+                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_maxDays)));
+                std::size_t duration = static_cast<unsigned int>(durationDist());
 
-                        auto dist = m_rnManager.GetGenerator(trng::uniform_int_dist(
-                            0, static_cast<trng::uniform_int_dist::result_type>(m_data_work[currentRegion].size())));
+                std::size_t leaveDay = currentDay + duration;
 
-                        destination = static_cast<size_t>(dist());
-                } else {
-                        // Recreation travel
-                        work = false;
+                std::function<trng::uniform_int_dist::result_type()> distRegion;
 
-                        auto dist = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                bool tripIsWork = MakeChoice(m_fractionWork);
+
+                ContactPoolType::Id type;
+                if (m_data_work.empty() || !tripIsWork) {
+                        type       = ContactPoolType::Id::PrimaryCommunity;
+                        distRegion = m_rnManager.GetGenerator(trng::uniform_int_dist(
                             0,
                             static_cast<trng::uniform_int_dist::result_type>(m_data_recreation[currentRegion].size())));
-
-                        destination = static_cast<size_t>(dist());
+                } else {
+                        type       = ContactPoolType::Id::Work;
+                        distRegion = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                            0, static_cast<trng::uniform_int_dist::result_type>(m_data_work[currentRegion].size())));
                 }
 
-                auto durationDist = m_rnManager.GetGenerator(trng::uniform_int_dist(0, m_maxDays));
-                auto duration     = static_cast<unsigned int>(durationDist());
+                auto destinationRegion = static_cast<std::size_t>(distRegion());
 
-                return {true, work, destination, duration};
+                auto pools = population->SliceOnRegion(destinationRegion)[type];
+
+                auto distLocation = m_rnManager.GetGenerator(
+                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
+
+                ContactPool* destinationCp = &pools[distLocation()];
+
+                population->GetTravellerIndex(destinationRegion)
+                    .StartTravel(person->GetWorkId(), destinationCp, person, leaveDay, type);
+
+                return true;
         }
-        return {false, false, 0, 0};
+        return false;
+}
+
+bool TravellerProfile::MakeChoice(double fraction)
+{
+        std::vector<double> weights;
+        weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
+        weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
+
+        auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
+        return static_cast<bool>(dist());
 }
 
 } // namespace stride

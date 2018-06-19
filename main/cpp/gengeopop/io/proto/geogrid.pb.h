@@ -207,40 +207,22 @@ class GeoGrid_Location_Coordinate : public ::google::protobuf::Message /* @@prot
 
   // accessors -------------------------------------------------------
 
-  // required double x = 1;
-  bool has_x() const;
-  void clear_x();
-  static const int kXFieldNumber = 1;
-  double x() const;
-  void set_x(double value);
-
-  // required double y = 2;
-  bool has_y() const;
-  void clear_y();
-  static const int kYFieldNumber = 2;
-  double y() const;
-  void set_y(double value);
-
-  // required double longitude = 3;
+  // required double longitude = 1;
   bool has_longitude() const;
   void clear_longitude();
-  static const int kLongitudeFieldNumber = 3;
+  static const int kLongitudeFieldNumber = 1;
   double longitude() const;
   void set_longitude(double value);
 
-  // required double latitude = 4;
+  // required double latitude = 2;
   bool has_latitude() const;
   void clear_latitude();
-  static const int kLatitudeFieldNumber = 4;
+  static const int kLatitudeFieldNumber = 2;
   double latitude() const;
   void set_latitude(double value);
 
   // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.Coordinate)
  private:
-  void set_has_x();
-  void clear_has_x();
-  void set_has_y();
-  void clear_has_y();
   void set_has_longitude();
   void clear_has_longitude();
   void set_has_latitude();
@@ -252,8 +234,6 @@ class GeoGrid_Location_Coordinate : public ::google::protobuf::Message /* @@prot
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  double x_;
-  double y_;
   double longitude_;
   double latitude_;
   friend struct ::protobuf_geogrid_2eproto::TableStruct;
@@ -1166,63 +1146,15 @@ class GeoGrid : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 #endif  // __GNUC__
 // GeoGrid_Location_Coordinate
 
-// required double x = 1;
-inline bool GeoGrid_Location_Coordinate::has_x() const {
+// required double longitude = 1;
+inline bool GeoGrid_Location_Coordinate::has_longitude() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void GeoGrid_Location_Coordinate::set_has_x() {
+inline void GeoGrid_Location_Coordinate::set_has_longitude() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void GeoGrid_Location_Coordinate::clear_has_x() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void GeoGrid_Location_Coordinate::clear_x() {
-  x_ = 0;
-  clear_has_x();
-}
-inline double GeoGrid_Location_Coordinate::x() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.x)
-  return x_;
-}
-inline void GeoGrid_Location_Coordinate::set_x(double value) {
-  set_has_x();
-  x_ = value;
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.x)
-}
-
-// required double y = 2;
-inline bool GeoGrid_Location_Coordinate::has_y() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void GeoGrid_Location_Coordinate::set_has_y() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void GeoGrid_Location_Coordinate::clear_has_y() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void GeoGrid_Location_Coordinate::clear_y() {
-  y_ = 0;
-  clear_has_y();
-}
-inline double GeoGrid_Location_Coordinate::y() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.Coordinate.y)
-  return y_;
-}
-inline void GeoGrid_Location_Coordinate::set_y(double value) {
-  set_has_y();
-  y_ = value;
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.y)
-}
-
-// required double longitude = 3;
-inline bool GeoGrid_Location_Coordinate::has_longitude() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void GeoGrid_Location_Coordinate::set_has_longitude() {
-  _has_bits_[0] |= 0x00000004u;
-}
 inline void GeoGrid_Location_Coordinate::clear_has_longitude() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void GeoGrid_Location_Coordinate::clear_longitude() {
   longitude_ = 0;
@@ -1238,15 +1170,15 @@ inline void GeoGrid_Location_Coordinate::set_longitude(double value) {
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.Coordinate.longitude)
 }
 
-// required double latitude = 4;
+// required double latitude = 2;
 inline bool GeoGrid_Location_Coordinate::has_latitude() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void GeoGrid_Location_Coordinate::set_has_latitude() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void GeoGrid_Location_Coordinate::clear_has_latitude() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void GeoGrid_Location_Coordinate::clear_latitude() {
   latitude_ = 0;

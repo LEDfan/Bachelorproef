@@ -21,6 +21,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <vector>
 
 namespace stride {
 namespace python {

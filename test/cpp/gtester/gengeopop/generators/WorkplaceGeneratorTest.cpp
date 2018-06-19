@@ -50,7 +50,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
                                134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
         for (int size : sizes) {
                 geoGrid->AddLocation(
-                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
+                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + std::to_string(size)));
         }
 
         workplaceGenerator.Apply(geoGrid, config);
@@ -88,7 +88,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
                                134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
         for (int size : sizes) {
                 geoGrid->AddLocation(
-                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
+                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + std::to_string(size)));
         }
 
         // 10% of the pop of loc0 is commuting to loc1 = 12.833 people
@@ -140,7 +140,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
                                134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
         for (int size : sizes) {
                 geoGrid->AddLocation(
-                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
+                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + std::to_string(size)));
         }
 
         std::vector<std::tuple<size_t, size_t, double>> commuting{

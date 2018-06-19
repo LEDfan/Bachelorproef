@@ -28,13 +28,13 @@ set(EXEC gtester)
 set(SRC
         BatchRuns.cpp
         CSVTest.cpp
-        PartitionedSegmentedVector.cpp
         ScenarioData.cpp
         UnitRange.cpp
         UnitSVIterator.cpp
         UnitSegmentedVector.cpp
         UnitSlice.cpp
         createlogger.h
+        ContactPool.cpp
         gengeopop/generators/CollegeGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp

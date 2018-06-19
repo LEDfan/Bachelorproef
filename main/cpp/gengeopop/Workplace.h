@@ -4,6 +4,7 @@
 
 namespace gengeopop {
 
+/// Models a Workplace as ContactCenter
 class Workplace : public ContactCenter
 {
 public:
