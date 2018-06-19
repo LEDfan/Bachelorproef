@@ -4,7 +4,7 @@ namespace gengeopop {
 
 using stride::util::intToDottedString;
 
-GeoGridConfig::GeoGridConfig() : input{}, calculated{}, generated{} {}
+GeoGridConfig::GeoGridConfig() : input{}, calculated{}, generated{}, constants{} {}
 
 void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader)
 {

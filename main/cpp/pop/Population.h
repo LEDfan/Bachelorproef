@@ -118,11 +118,11 @@ public:
 
 private:
         Population()
-            : m_belief_pt(), m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(),
-              m_regionRanges(*this), m_work(), m_primaryCommunities(){};
+            : m_beliefs(), m_pool_sys(), m_contact_logger(), m_geoGrids(), m_regions(), m_regionRanges(*this), m_work(),
+              m_primaryCommunities(){};
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
-        /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
+        /// due to guarding against data races in parallel use of SetBeliefPolicy. The DoubleChecked
         /// locking did not work in OpenMP parallel for's on Mac OSX.
         template <typename BeliefPolicy>
         void InitBeliefPolicy()
@@ -136,7 +136,7 @@ private:
 
         /// Assign the belief policy.
         /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
-        /// \param belief        belief object that wille be associated with the person
+        /// \param belief        belief object that will be associated with the person
         /// \param i             subscript to person associated with this belief object
         // Cannot follow my preference for declaration of required explicit specializations, because SWIG
         // does not like that. Hence include of the template method definition in the header file.
@@ -156,12 +156,11 @@ private:
         friend class ImportPopBuilder;
         friend class BeliefSeeder;
 
-        boost::property_tree::ptree     m_belief_pt;
         util::Any                       m_beliefs;        ///< Holds belief data for the persons.
         ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids; ///< Associated geoGrid may be nullptr
-        std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regios
+        std::unordered_map<std::string, std::size_t>     m_regions;  ///< Regions
         std::size_t m_lastRegionId = 0; ///< Used to keep track from which region the last inserted person was
 
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t> m_regionRanges;

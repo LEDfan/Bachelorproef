@@ -30,7 +30,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #elif defined(__linux__)
-#include <limits.h>
+#include <climits>
 #include <unistd.h>
 #elif defined(__APPLE__)
 #include <mach-o/dyld.h>
@@ -52,7 +52,7 @@ boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, con
 {
         boost::filesystem::path p = output_prefix;
         if (FileSys::IsDirectoryString(output_prefix)) {
-                // file <filename> in dircetory <output_prefix>
+                // file <filename> in directory <output_prefix>
                 p /= filename;
         } else {
                 // full name is <output_prefix><filename>
@@ -114,8 +114,8 @@ FileSys::Dirs FileSys::Initialize()
                         dirs.m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__linux__)
-                char   exePath[PATH_MAX];
-                size_t size = ::readlink("/proc/self/exe", exePath, sizeof(exePath));
+                char exePath[PATH_MAX];
+                auto size = static_cast<std::size_t>(::readlink("/proc/self/exe", exePath, sizeof(exePath)));
                 if (size > 0 && size < sizeof(exePath)) {
                         exePath[size]    = '\0';
                         dirs.m_exec_path = canonical(system_complete(exePath));
