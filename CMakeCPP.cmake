@@ -43,7 +43,7 @@ set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas -Wno-unknown-warning-option -Wno-unevaluated-expression")
-set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wno-array-bounds -Wno-missing-braces")
+set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
 set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g"   )
 # Prevents (static) libraries having a double "lib" prefix (when they are named libxxx).
