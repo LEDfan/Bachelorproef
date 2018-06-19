@@ -25,6 +25,7 @@
 #include <array>
 #include <memory>
 #include <tuple>
+#include <unordered_map>
 #include <vector>
 
 namespace stride {
@@ -48,11 +49,17 @@ public:
         /// Add the given Person.
         void AddMember(const Person* p);
 
+        /// Add the given Person as an expat.
+        void AddExpat(const Person* p);
+
         /// Get member at index.
         Person* GetMember(unsigned int index) const { return m_members[index]; }
 
         /// Remove a member from the contactpool
         void RemoveMember(Person* pPerson);
+
+        /// Remove an expat from the contactpool
+        void RemoveExpat(Person* Person);
 
         /// Get the entire pool of members.
         const std::vector<Person*>& GetPool() const { return m_members; }
@@ -61,7 +68,7 @@ public:
         std::size_t GetSize() const { return m_members.size(); }
 
         /// Get the pool id
-        unsigned int GetId() const;
+        std::size_t GetId() const;
 
         /// Get the pool capacity
         std::size_t GetCapacity() const;
@@ -72,7 +79,7 @@ public:
         /// Get the type of ContactPool, used for logging and tests
         ContactPoolType::Id GetType() const { return m_pool_type; }
 
-        /// Returns the amount of perons and amount of infected perons in this pol
+        /// Returns the amount of persons and amount of infected persons in this pool
         std::pair<std::size_t, std::size_t> GetPopulationAndInfectedCount() const;
 
         /// Iterator to first person
@@ -93,20 +100,33 @@ public:
         /// Iterator to end of persons
         const_iterator cend() const { return m_members.cend(); }
 
-private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, size_t> SortMembers();
 
+public:
         /// Infector calculates contacts and transmissions.
         template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
         friend class Infector;
 
 private:
-        unsigned int         m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
         ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
         std::size_t          m_capacity;
+
+        /// Helper data structure for fast deletions of expats from m_members
+        /// Can't keep them in the end of m_members and do a pop_back() since \ref SortMembers will sort the members.
+        /// Also can't prevent this from happening in SortMembers, since this would break the logic in \ref Infector
+        /// Will be updated in \ref SortMembers.
+        std::unordered_map<const Person*, std::size_t> m_expats;
+
+        /// Update the m_expats data after removing a element from m_members
+        /// \p itAfterRemovedPerson is the iterator returned by std::find or std::erase
+        void UpdateExpatsAfterRemoval(std::vector<Person*>::iterator itAfterRemovedPerson);
+
+        /// Swaps persons in m_members with the given index and updates the expats data if necessary
+        void Swap(std::size_t person1, std::size_t person2);
 };
 
 } // namespace stride

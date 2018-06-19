@@ -27,7 +27,7 @@ using namespace std;
 
 namespace {
 
-/// Checks if there is a file with "filename" relative to the exectution path.
+/// Checks if there is a file with "filename" relative to the execution path.
 /// @param filename filename to check.
 /// @param root root of the path.
 /// @return the full path to the file if it exists

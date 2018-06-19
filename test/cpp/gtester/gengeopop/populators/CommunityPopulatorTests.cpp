@@ -32,7 +32,7 @@ protected:
                 person->SetId(42);
                 contactPool->AddMember(person.get());
                 household->AddPool(contactPool);
-                location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
+                location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
                 location->AddContactCenter(household);
                 geoGrid = std::make_shared<GeoGrid>();
                 geoGrid->AddLocation(location);
@@ -65,7 +65,7 @@ protected:
         void EmptyLocationTest()
         {
                 geoGrid  = std::make_shared<GeoGrid>();
-                location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Antwerpen");
+                location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
                 location->AddContactCenter(community);
                 geoGrid->AddLocation(location);
                 geoGrid->Finalize();
@@ -76,7 +76,7 @@ protected:
         {
                 location->AddContactCenter(community);
 
-                auto location2 = std::make_shared<Location>(2, 5, 1500, Coordinate(1, 1, 1, 1), "Brussel");
+                auto location2 = std::make_shared<Location>(2, 5, 1500, Coordinate(1, 1), "Brussel");
 
                 auto community2 = std::make_shared<PrimaryCommunity>(1);
                 auto pool       = new stride::ContactPool();
@@ -103,7 +103,7 @@ protected:
 
         void OtherLocationTest()
         {
-                auto location2 = std::make_shared<Location>(2, 5, 1500, Coordinate(1, 1, 1, 1), "Brussel");
+                auto location2 = std::make_shared<Location>(2, 5, 1500, Coordinate(1, 1), "Brussel");
                 location2->AddContactCenter(community);
                 geoGrid->AddLocation(location2);
                 geoGrid->Finalize();

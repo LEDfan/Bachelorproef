@@ -29,8 +29,8 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU STRIDE_GENERATE_COVERAGE=True BUILD_NAME="linux-gcc-6"
-      addons: { apt: { packages: [*default_packages, g++-6, lcov], sources: [*default_sources]} }
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU STRIDE_GENERATE_COVERAGE=True BUILD_NAME="linux-gcc-6" COMMIT_DOCS=YES
+      addons: { apt: { packages: [*default_packages, g++-6, lcov, doxygen, graphviz], sources: [*default_sources]} }
 
     - os: linux
       compiler: gcc
@@ -94,7 +94,7 @@ install:
     export PATH=/usr/local/bin:$PATH # use version installed using pip
     export BOOST_ROOT=$HOME/deps/boost_1_66_0
     export BOOST_NO_SYSTEM_PATHS=ON
-    if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
+    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
       cd /tmp/
       wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
@@ -114,7 +114,7 @@ script:
   #         CMAKE_BUILD_TYPE: enable assertions
   #         STRIDE_GENERATE_COVERAGE: enable coverage -- set in `matrix`
   - |
-      if [ "$TRAVIS_BRANCH" = "master" ]; then
+      if [ "$TRAVIS_BRANCH" = "master" -a "$COMMIT_DOCS" = "YES" ]; then
         export STRIDE_INCLUDE_DOC=YES
       fi
       CMAKE_BUILD_TYPE=Debug make all
@@ -149,7 +149,7 @@ after_script:
     ./generate.py render > test-results.md
     git add test_results/* test-results.md test_results.json
     git commit -m "Publish test results @ $LINK"
-    if [ "$TRAVIS_BRANCH" = "master" ]; then
+    if [ "$TRAVIS_BRANCH" = "master" -a "$COMMIT_DOCS" = "YES" ]; then
         rm -rf doxygen
         mv cmake-build-debug/doc/doxygen/html doxygen
         git add doxygen

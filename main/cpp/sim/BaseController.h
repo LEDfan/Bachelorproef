@@ -30,6 +30,7 @@ namespace stride {
 
 class SimRunner;
 
+/// A base class for Controllers in the MVC model
 class BaseController
 {
 public:
@@ -45,6 +46,7 @@ public:
         /// Returns the SimRunner that is used
         virtual std::shared_ptr<SimRunner> GetSimRunner();
 
+        /// Register a viewer of type T with given args
         template <typename T, typename... Targs>
         void RegisterViewer(Targs&&... args)
         {
@@ -58,6 +60,7 @@ public:
         /// Returns the logger
         virtual std::shared_ptr<spdlog::logger> GetLogger() const;
 
+        /// Get the prefix path for output files
         virtual std::string GetOutputPrefix();
 
 protected:
@@ -77,19 +80,13 @@ protected:
         /// Make the appropriate logger for cli environment and register as stride_logger.
         virtual void MakeLogger();
 
-        /// Patch run configuration with cli overrides and defaults.
-        void PatchConfig();
-
-        /// Read configuration file.
-        void ReadConfigFile();
-
         boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
         std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; ///< Working dir or install dir mode.
-        std::shared_ptr<SimRunner>      m_runner;
-        util::RNManager                 m_rn_manager;
+        std::shared_ptr<SimRunner>      m_runner;           ///< The SimRunner
+        util::RNManager                 m_rn_manager;       ///< The manager for random numbers
 };
 
 } // namespace stride

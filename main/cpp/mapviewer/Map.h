@@ -8,6 +8,7 @@
 #include <gengeopop/GeoGrid.h>
 #include <thread>
 
+/// A geographical map used for showing in the MapViewer
 class Map
 {
 public:

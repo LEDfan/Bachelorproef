@@ -2,7 +2,6 @@
 # Sources.
 #============================================================================
 set(GENGEOPOP_LIB
-        Coordinate.cpp
         Community.cpp
         PrimaryCommunity.cpp
         SecondaryCommunity.cpp

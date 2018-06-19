@@ -3,6 +3,7 @@
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <cmath>
+#include <gengeopop/GeoGridConfig.h>
 #include <gengeopop/Workplace.h>
 #include <iostream>
 
@@ -19,8 +20,9 @@ void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          * 5. assign each workplace to a location
          */
 
-        auto amountOfEmployees  = geoGridConfig.calculated._1865_and_years_active;
-        auto amountOfWorkplaces = static_cast<int>(std::ceil(amountOfEmployees / 20.0)); // TODO magic constant
+        auto amountOfEmployees = geoGridConfig.calculated._1865_and_years_active;
+        auto amountOfWorkplaces =
+            static_cast<int>(std::ceil(amountOfEmployees / geoGridConfig.constants.meanWorkplaceSchoolSize));
 
         std::vector<double>
             weights; // = for each location #residents + #incoming commuting people - #outgoing commuting people

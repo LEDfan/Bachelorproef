@@ -4,6 +4,7 @@
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <cmath>
+#include <gengeopop/GeoGridConfig.h>
 #include <iostream>
 
 namespace gengeopop {
@@ -16,8 +17,9 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          * people for that location
          */
 
-        int  populationSize      = geoGridConfig.input.populationSize;
-        auto amountOfCommunities = static_cast<int>(std::ceil(populationSize / 2000.0)); // TODO magic constant
+        int  populationSize = geoGridConfig.input.populationSize;
+        auto amountOfCommunities =
+            static_cast<int>(std::ceil(populationSize / geoGridConfig.constants.meanCommunitySize));
 
         std::vector<double> weights;
 

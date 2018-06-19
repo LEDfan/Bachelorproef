@@ -10,16 +10,19 @@
 #include <boost/filesystem.hpp>
 #include <boost/format.hpp>
 
+#include <QtCore/QTimer>
+#include <QtQuick/QQuickItem>
 #include <cmath>
-#include <iostream>
-
 #include <gengeopop/College.h>
 #include <gengeopop/K12School.h>
+#include <gengeopop/Location.h>
 #include <gengeopop/Workplace.h>
 #include <gengeopop/io/GeoGridProtoReader.h>
 #include <gengeopop/io/GeoGridReaderFactory.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
+#include <iostream>
 #include <util/Stopwatch.h>
+#include <utility>
 
 Backend::Backend(QObject* parent)
     : QObject(parent), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection()
@@ -51,8 +54,8 @@ void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 
 void Backend::SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids)
 {
-        m_grids = grids;
-        for (auto grid : m_grids) {
+        m_grids = std::move(grids);
+        for (const auto& grid : m_grids) {
                 grid->Finalize();
         }
         m_selection.clear();
@@ -137,13 +140,14 @@ void Backend::SetObjects(QObject* map)
         PlaceMarkers();
 }
 
-void Backend::PlaceMarker(Coordinate coordinate, int region, int id, unsigned int population, bool selected,
+void Backend::PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected,
                           bool specialmarker)
 {
+        using boost::geometry::get;
         QVariant returnVal;
         double   size = std::min(50.0, 10 + population * 0.0015);
-        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, coordinate.latitude),
-                                  Q_ARG(QVariant, coordinate.longitude), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
+        QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, get<1>(coordinate)),
+                                  Q_ARG(QVariant, get<0>(coordinate)), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
                                   Q_ARG(QVariant, size), Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
         // Save the marker so we can edit it's color etc later
         SaveMarker(region, id, qvariant_cast<QObject*>(returnVal));
@@ -307,17 +311,20 @@ void Backend::UpdateColorOfMarkers()
         }
 }
 
-QObject* Backend::AddCommuteLine(Coordinate from, Coordinate to, double /* amount */)
+QObject* Backend::AddCommuteLine(gengeopop::Coordinate from, gengeopop::Coordinate to, double /* amount */)
 {
+        using boost::geometry::get;
         QVariant retVal;
         QMetaObject::invokeMethod(m_map, "addCommute", Qt::DirectConnection, Q_RETURN_ARG(QVariant, retVal),
-                                  Q_ARG(QVariant, from.latitude), Q_ARG(QVariant, from.longitude),
-                                  Q_ARG(QVariant, to.latitude), Q_ARG(QVariant, to.longitude));
+                                  Q_ARG(QVariant, get<1>(from)), Q_ARG(QVariant, get<0>(from)),
+                                  Q_ARG(QVariant, get<1>(to)), Q_ARG(QVariant, get<0>(to)));
         return qvariant_cast<QObject*>(retVal);
 }
 
 void Backend::SelectAll()
 {
+        m_unselection.clear();
+
         int i = 0;
         for (auto grid : m_grids) {
                 for (const auto& it : *grid) {
@@ -326,8 +333,8 @@ void Backend::SelectAll()
                 i++;
         }
 
+        UpdateColorOfMarkers();
         EmitLocations();
-        PlaceMarkers();
 }
 
 void Backend::HideCommuteLine(QObject* line)
@@ -380,7 +387,8 @@ void Backend::SaveMarker(int region, int id, QObject* marker) { m_markers[{regio
 
 void Backend::UpdateAllHealthColors()
 {
-        int i = 0;
+        emit UpdateInfected();
+        int  i = 0;
         for (auto grid : m_grids) {
                 for (auto loc : *grid) {
                         SetHealthColorOf(i, loc);
@@ -403,17 +411,11 @@ void Backend::SetHealthColorOf(int region, const std::shared_ptr<gengeopop::Loca
         colorRatio        = std::max(0.0, colorRatio);
         colorRatio        = std::min(1.0, colorRatio);
 
-        std::string color = (boost::format("#%02x%02x00") % static_cast<int>(colorRatio * 255) %
-                             static_cast<int>((1 - colorRatio) * 255))
-                                .str();
+        double startHue = 250; // Green
+        double endHue   = 0;
+        double hue      = (startHue - (startHue - endHue) * colorRatio) / 360.0;
 
-        if (color.length() != 7) {
-                std::cout << "Wrong color " << color << std::endl;
-                return;
-        }
-
-        QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection,
-                                  Q_ARG(QVariant, QString::fromStdString(color)));
+        QMetaObject::invokeMethod(marker, "setColor", Qt::QueuedConnection, Q_ARG(QVariant, hue));
 }
 
 void Backend::OnMarkerHovered(int region, unsigned int idOfHover)
