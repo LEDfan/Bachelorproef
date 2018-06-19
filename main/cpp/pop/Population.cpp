@@ -175,15 +175,22 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
 
 void Population::UpdateRegion(std::size_t regionId)
 {
-        if (m_currentRegionId != regionId || (!m_have_inserted && m_currentRegionId == 0)) {
-                assert(regionId == m_currentRegionId + 1 || (!m_have_inserted && m_currentRegionId == 0 &&
-                                                             regionId == 0)); // TODO: what about empty regions?
+        auto update = [this](std::size_t regionId) {
                 m_regionRanges.SetRange(size(), regionId);
                 for (auto id : ContactPoolType::IdList) {
                         m_pool_sys_regions[id].SetRange(m_pool_sys[id].size(), regionId);
                 }
                 m_currentRegionId = regionId;
                 m_have_inserted   = true;
+        };
+
+        if (m_currentRegionId != regionId || (!m_have_inserted && m_currentRegionId == 0)) {
+                if (!m_have_inserted) {
+                        update(0);
+                }
+                for (std::size_t regId = m_currentRegionId + 1; regId <= regionId; regId++) {
+                        update(regId);
+                }
         }
 }
 
@@ -194,7 +201,7 @@ RegionSlicer Population::SliceOnRegion(std::size_t region_id) { return RegionSli
 Population::Population()
     : m_belief_pt(), m_beliefs(), m_pool_sys(),
       m_pool_sys_regions(BuildPoolSysRegions(ContactPoolType::IdPack, m_pool_sys)), m_contact_logger(), m_geoGrids(),
-      m_regions(), m_regionRanges(*this)
+      m_regionRanges(*this), m_regions()
 {
 }
 
