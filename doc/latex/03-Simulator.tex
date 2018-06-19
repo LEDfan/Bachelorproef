@@ -9,39 +9,51 @@
 \section{Workspace}
 
 By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}). 
-Compilation and installation of the software will create the following files and directories: (illustrated in Figure \ref{fig:workspace}):
+Compilation and installation of the software will create the following files and directories:
 
 \begin{compactitem}
     \item Binaries 
     		in directory \texttt{<project\_dir>/bin}
       	\begin{itemize}
         		\item $stride$: executable.
-		\item $gtester$: regression tests for the sequential code.
+        		\item $gtester$: regression tests for the sequential code.
+                \item $gengeopop$: generates the population and geographical grid.
+                \item $guilauncher$: tool to edit a simulation configuration and execute it
+                \item $mapviewer$: tool to visualize the population and geographical grid, can be directly used from $stride$ and $guilauncher$.
+                \item $calibration$: tool to run the simulator multiple times to generate statistical data. This can be used to calibrate test outcomes.
         		\item $wrapper\_sim.py$: Python simulation wrapper  		
         \end{itemize}
     \item Configuration files (xml and json)
       	in directory \texttt{<project\_dir>/config}
       	\begin{itemize}
 		\item $run\_default.xml$: default configuration file for Stride to perform a Nassau simulation.
-        		\item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
-		\item $wrapper_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
-		\item ...
+        \item $run\_generate\_default.xml$: default configuration file for Stride to first generate a population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_import\_default.xml$: default configuration file for Stride to first import a population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_regions\_default.xml$: default configuration file for Stride to first generate several regions with their own population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_regions\_import.xml$: default configuration file for Stride to first import several regions with their own population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
+		\item $wrapper\_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
+        \item \ldots
         \end{itemize}
     \item Data files (csv)
       	in directory \texttt{<project\_dir>/data}
       	\begin{itemize}
-        		\item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
+        \item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
 		\item $belgium\_population$: Relative Belgian population per city. Details are provided for all cities and for 13 major cities.
-		\item $contact\_matrix_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
-		\item $contact\_matrix_week$: Social contact rates, given the cluster type. Community clusters have week rates.
-		\item $contact\_matrix_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
+		\item $contact\_matrix\_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
+		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Community clusters have week rates.
+		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
 		\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
 		\item $holidays\_xxx$: Holiday characteristics for xxx.
 		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}. 
 		\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
 		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011. 
 
-		
+        \item $DE\_cities.csv$: German cities, fetched from \footnote{\url{}}.
+        \item $FR\_cities.csv$: French cities, fetched from \footnote{\url{}}.
+        \item $NL\_cities.csv$: Dutch cities, fetched from \footnote{\url{}}.
+        \item $wallonia\_cities.csv$: Wallonia cities, fetched from \footnote{\url{}}.
+        \item $submunicipalities.csv$: Belgian sub-municipalities, fetched from \footnote{\url{}}.
         \end{itemize}
     \item Documentation files
       	in directory \texttt{./target/installed/doc}
@@ -68,6 +80,57 @@ From the workspace directory, the simulator can be started with default configur
 \item \texttt{-r} or \texttt{{-}-r0}: To obtain the basic reproduction number, no tertiary infections.
 
 \end{compactitem}
+
+\section{Generating a population and geographical grid}
+
+
+From the workspace directory, the generation of a population and geographical grid (sometimes called GeoGrid) can be started with the default configuration using the command \mbox{``\texttt{./bin/gengeopop}''}. The following configuration options are available:
+
+\begin{description}
+    \item[\texttt{--populationSize}] \ \\ 
+        The size of the population to generate. By default a population of \texttt{6000000} is generated.
+    \item[\texttt{--fracActive}] \ \\
+        The fraction of people who are active, i.e. who are employed or students. By default \tetttt{0.75} is used.
+    \item[\texttt{--fracStudentCommuting}] \ \\
+        The fraction of students commuting. By default \texttt{0.5} is used.
+    \item[\texttt{--fracActiveCommuting}] \ \\
+        The fraction of active people who commutes. By default \textt{0.5} is used.
+    \item[\texttt{--frac1826Students}] \ \\
+        The fraction of 1826 years which are students. By default \textt{0.5} is used.
+    \item[\texttt{--household}] \ \\
+        The file to read the household profiles from.
+    \item[\texttt{--commuting}] \ \\
+        The file to read the commuting information from.
+    \item[\texttt{--cities}] \ \\
+        The file to read the cities from.
+    \item[\texttt{--subMinicipalities}] \ \\
+        The file to read the sub-municipalities from.
+    \item[\texttt{--output}] \ \\
+        The file to write the GeoGrid to. By default this is \texttt{gengeopop.proto}
+    \item[\texttt{--state}] \ \\
+        The state to be used for initializing the random engine. This can be used to continue with the same state when generating multiple regions.
+    \item[\texttt{--rng\_type}] \ \\
+        The type of random engine to use by default \texttt{mrg2} is used. Available options are: \texttt{mrg2}, \textt{mrg3}, \textt{yarn2}, \texttt{yarn3}, \texttt{lgc64} and \texttt{lgc64\_shift}.
+    \item[\texttt{--seed}] \ \\
+        The seed to be used for the random engine. The default is \texttt{0}.
+    \item[\texttt{--loglevel}] \ \\ 
+        The loglevel to use, by default this is \texttt{info}.
+\end{description}
+
+\section{Using the MapViewer}
+
+The MapViewer component can be used to explore a generated GeoGrid.
+From the workspace directory, the MapViewer can be started by using \mbox{``\texttt{./bin/mapviewer}''}. No additional command line options are available.
+To open a GeoGrid use the menu options \texttt{File -> Open}. After loading the file, the viewport can be changed so that all markers are visible (\texttt{View -> Fit viewport}).
+The circular markers indicate a city or sub-municipality. The square markers indicate the ``parent'' city of sub-municipalities, they don't have a population.
+By clicking on the square marker, all the sub-municipalities will be selected.
+When one ore more cities is selected the details are shown in the right sidebar. For example the ContactCenters are listed, when a ContactCenter is clicked, the ContactPools of the clicked ContactCenter will be shown.
+
+Multiple cities can be selected by holding the control key and left mouse button and selecting a rectangle.
+
+The visible area of a map can be exported to an image file using \texttt{File -> Export to image}.
+
+% TODO continue
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sim Wrapper

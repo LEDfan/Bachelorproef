@@ -10,11 +10,11 @@
 \label{section:system}
 
 Stride is written in C++ and portable over all platforms that have the GNU C++ compiler. 
-De software has no dependencies on external libraries. The following tools needs to be installed:
+To use the visualization tools Qt is needed (at least version 5.9), besides that the following tools needs to be installed:
 \begin{compactitem}
     \item g++
     \item make
-    \item CMake
+    \item CMake (>= v3.10)
     \item Boost
     \item Python (optional, for automatization)
     \item Doxygen (optional, for documentation)
@@ -29,7 +29,7 @@ De software has no dependencies on external libraries. The following tools needs
 \label{section:Installation}
 
 To install the project, first obtain the source code by cloning the repository to a directory or download a zip file with all project
-material from the Bitbucket website and de-compress the archive. 
+material from the GitHub website and de-compress the archive. 
 The build system for Stride uses the CMake tool. This is used to build and install the software at a high level of abstraction and almost platform independent (see \url{http://www.cmake.org/}). 
 The project includes the conventional make targets to ``build'', ``install'', ``test'' and ``clean'' the project. There is one additional target ``configure'' to set up the CMake/make structure that will actually do all the work.
 For those users that do not have a working knowledge of CMake, a front end Makefile has been provided that invokes the appropriate CMake commands.
@@ -89,6 +89,8 @@ The Stride software supports different file formats:
 	Text files, for the logger. 
 	\item [XML] \ \\
 	Extensible Markup Language, a markup language (both human-readable and machine-readable) that defines a set of rules for encoding documents.
+    \item [Proto] \ \\
+    Protocol Buffers, used for exporting and importing the generated population and geographical grid.
 \end{description}
 
 
@@ -117,7 +119,12 @@ The software can generates different output files:
 	Individual details on infection characteristics.
 	\item [logfile.txt] \ \\
 	Details on transmission and/or social contacts events.
+    \item [gengeopop.proto] \ \\
+    Generated population and geographical grid.
+    \item [map.png] \ \\
+    Image of the map shown in the MapViewer component.
+    \item [calibration\_data.json] \ \\
+    Results of the calibration component.
 \end{description}	
-	
 	
 	

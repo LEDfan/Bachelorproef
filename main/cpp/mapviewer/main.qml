@@ -61,7 +61,7 @@ ApplicationWindow {
                         shortcut: "Ctrl+s"
                       }
             MenuItem {
-                        text: "&Export to PNG"
+                        text: "&Export to image"
                         onTriggered: savePNGSelector.open()
                         shortcut: "Shift+Ctrl+E"
                       }
