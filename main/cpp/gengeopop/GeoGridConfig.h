@@ -101,7 +101,6 @@ public:
 
                 /// Size used to calculate the amount of Workplaces (double to prevent extra cast)
                 double meanWorkplaceSchoolSize = 20.0;
-
         } constants;
 };
 
