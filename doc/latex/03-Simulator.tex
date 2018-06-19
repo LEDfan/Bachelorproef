@@ -90,13 +90,13 @@ From the workspace directory, the generation of a population and geographical gr
     \item[\texttt{--populationSize}] \ \\ 
         The size of the population to generate. By default a population of \texttt{6000000} is generated.
     \item[\texttt{--fracActive}] \ \\
-        The fraction of people who are active, i.e. who are employed or students. By default \tetttt{0.75} is used.
+        The fraction of people who are active, i.e. who are employed or students. By default \texttt{0.75} is used.
     \item[\texttt{--fracStudentCommuting}] \ \\
         The fraction of students commuting. By default \texttt{0.5} is used.
     \item[\texttt{--fracActiveCommuting}] \ \\
-        The fraction of active people who commutes. By default \textt{0.5} is used.
+        The fraction of active people who commutes. By default \texttt{0.5} is used.
     \item[\texttt{--frac1826Students}] \ \\
-        The fraction of 1826 years which are students. By default \textt{0.5} is used.
+        The fraction of 1826 years which are students. By default \texttt{0.5} is used.
     \item[\texttt{--household}] \ \\
         The file to read the household profiles from.
     \item[\texttt{--commuting}] \ \\
@@ -110,7 +110,7 @@ From the workspace directory, the generation of a population and geographical gr
     \item[\texttt{--state}] \ \\
         The state to be used for initializing the random engine. This can be used to continue with the same state when generating multiple regions.
     \item[\texttt{--rng\_type}] \ \\
-        The type of random engine to use by default \texttt{mrg2} is used. Available options are: \texttt{mrg2}, \textt{mrg3}, \textt{yarn2}, \texttt{yarn3}, \texttt{lgc64} and \texttt{lgc64\_shift}.
+        The type of random engine to use by default \texttt{mrg2} is used. Available options are: \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2}, \texttt{yarn3}, \texttt{lgc64} and \texttt{lgc64\_shift}.
     \item[\texttt{--seed}] \ \\
         The seed to be used for the random engine. The default is \texttt{0}.
     \item[\texttt{--loglevel}] \ \\ 
@@ -121,16 +121,35 @@ From the workspace directory, the generation of a population and geographical gr
 
 The MapViewer component can be used to explore a generated GeoGrid.
 From the workspace directory, the MapViewer can be started by using \mbox{``\texttt{./bin/mapviewer}''}. No additional command line options are available.
-To open a GeoGrid use the menu options \texttt{File -> Open}. After loading the file, the viewport can be changed so that all markers are visible (\texttt{View -> Fit viewport}).
+To open a GeoGrid use the menu option \texttt{File -> Open}. After loading the file, the viewport can be changed so that all markers are visible (\texttt{View -> Fit viewport}).
 The circular markers indicate a city or sub-municipality. The square markers indicate the ``parent'' city of sub-municipalities, they don't have a population.
 By clicking on the square marker, all the sub-municipalities will be selected.
-When one ore more cities is selected the details are shown in the right sidebar. For example the ContactCenters are listed, when a ContactCenter is clicked, the ContactPools of the clicked ContactCenter will be shown.
-
-Multiple cities can be selected by holding the control key and left mouse button and selecting a rectangle.
-
+When one ore more cities is selected the details are shown in the right sidebar. For example a list of ContacCenters in the current selected Location. When a ContactCenter is clicked, the ContactPools of the clicked ContactCenter will be shown.
+When holding the Ctrl key and clicking multiple markers all clicked markers will be selected.  Multiple cities in a rectangle can be selected by holding the control key and left mouse button while dragging. Clicking on the map will deselect all cities. Hold the Alt key while panning the map to prevent deselection.
+Ctrl+ A can be used to select all cities, while Ctrl + F can be used to fit the viewport of the map so all cities are visible.
+To show commutes of a city, first enable the \texttt{View -> Show Commutes} option and then select a city.
+While simulating a blue marker indicates that no one is infected at that location. As soon as some people get infected the marker will become green, to eventually become red when more people are infected.
 The visible area of a map can be exported to an image file using \texttt{File -> Export to image}.
 
-% TODO continue
+When using the main Stride executable the mapviewer can be opened by passing the \texttt{-v} option.
+
+\section{Using the GuiLauncher}
+
+With the GuiLauncher component one can open a configuration file, change the parameters and then run the simulator. It's also possible to select which viewers to use (e.g. the MapViewer) and whether to use the GuiContrller (\ref{sec:guicontroller}). The changed configuration file can also be saved.
+
+From the workspace directory, the GuiLauncher can be started by using \mbox{``\texttt{./bin/mapviewer}''}. No additional command line options are available.
+The GuiLauncher should be straightforward to use.
+
+\section{Using the GuiController}
+\label{sec:guicontroller}
+
+The GuiController can be started when using the GuiLauncher. It makes it possible to control the simulation run.
+After clicking the ``Start`` button the simulation will start. The time between each simulated day can be changed by editing the value of the input field. The default is two seconds.
+It is also possible to advance the simulation multiple days, by choosing the amount of days and clicking the ``Multi-Step`` button.
+The ``Step`` button will always simulate one day.
+
+\section{Using the Calibrator}
+\label{sec:calibrator}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sim Wrapper

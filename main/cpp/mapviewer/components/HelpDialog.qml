@@ -7,24 +7,29 @@ Dialog {
     title: "Help"
 
      contentItem: Text {
-        text: "Open a file using the context menu.\n
-                Select a single marker: Click on the marker
-                Select extra marker: Hold Control and press the marker.
-                Select Area: Hold control and drag over the area you want to select.
-                Select Extra Area: Hold Ctrl+Shift and drag of the area.
+        text: "
+                To open a file use the "File -> Open" menu.\n
 
-                Pan the map without deselecting: Hold Alt while panning.
+                Cities are represented by markers. Circular markers are cities and sub-municipalities.
+                The (virtual) parent city of sub-municipalities is shown as a square. By clicking this
+                square all sub-municipalities of this parent city will be selected.
 
-                Select All: Ctrl + A
+                Click on a marker to select it.
+                Hold the Ctrl key while clicking on markers to select multiple.
+                Hold the Ctrl key while dragging to select all the cities in a rectangle.
+                Hold the Ctrl and Shift key while dragging to select an additional rectangle.
 
-                Show commutes: Click checkbox 'View > Show Commutes' then select cities.
-                The commutes between them will be shown
+                Markers can be deselected by clicking on the map.
+                Hold the Alt key while panning the map to prevent deselection.
 
-                Color coding:
-                Blue = No infected people at this location.
-                When the infected rate goes up it will first start turning green then yellow and finally red.
+                Ctrl + A can be used to select all cities.
+                Ctrl + F can be used to fit the viewport of the map so all cities are visible.
 
-                Ctrl+F will fit the viewport of the map.
+                To show commutes of a city, first enable the "View -> Show Commutes" option and then select a city.
+
+                While simulating the color a blue markers indicated that no one is infected at that location.
+                As soon as some people get infected the marker will become green, to eventually become red
+                when more people are infected.
                 "
         anchors.centerIn: parent
     }
