@@ -30,7 +30,7 @@ namespace stride {
 using namespace std;
 
 ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity()
+    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity(), m_expats()
 {
 }
 
@@ -111,7 +111,7 @@ void ContactPool::UpdateExpatsAfterRemoval(std::vector<Person*>::iterator itAfte
 {
         long index = itAfterRemovedPerson - m_members.begin();
         for (std::pair<const Person* const, std::size_t>& expat : m_expats) {
-                if (expat.second >= index) {
+                if (expat.second >= static_cast<std::size_t>(index)) {
                         expat.second--;
                 }
                 assert(m_members[m_expats[expat.first]] == expat.first);
@@ -140,13 +140,13 @@ void ContactPool::Swap(std::size_t person1, std::size_t person2)
 {
         std::swap(m_members[person1], m_members[person2]);
         Person* pPerson1 = m_members[person1];
-        if (m_expats.count(pPerson1) > 0) {
+        if (pPerson1->IsTravelling() && pPerson1->GetPoolId(m_pool_type) == m_pool_id) {
                 // m_members[i_member] is an expat -> update map
                 m_expats[pPerson1] = person1;
                 assert(m_members[m_expats[pPerson1]] == pPerson1);
         }
         Person* pPerson2 = m_members[person2];
-        if (m_expats.count(pPerson2) > 0) {
+        if (pPerson2->IsTravelling() && pPerson2->GetPoolId(m_pool_type) == m_pool_id) {
                 // m_members[i_member] is an expat -> update map
                 m_expats[pPerson2] = person2;
                 assert(m_members[m_expats[pPerson2]] == pPerson2);

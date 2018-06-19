@@ -125,7 +125,7 @@ private:
         /// \p itAfterRemovedPerson is the iterator returned by std::find or std::erase
         void UpdateExpatsAfterRemoval(std::vector<Person*>::iterator itAfterRemovedPerson);
 
-        /// Swaps persons in m_members with the gevinde index and updates the expats data if necessary
+        /// Swaps persons in m_members with the given index and updates the expats data if necessary
         void Swap(std::size_t person1, std::size_t person2);
 };
 

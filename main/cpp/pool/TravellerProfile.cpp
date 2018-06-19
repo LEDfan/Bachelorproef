@@ -38,19 +38,23 @@ bool TravellerProfile::PersonWillTravel(size_t currentRegion, std::shared_ptr<st
 
                 std::size_t leaveDay = currentDay + duration;
 
-                auto distRegion = m_rnManager.GetGenerator(trng::uniform_int_dist(
-                    0, static_cast<trng::uniform_int_dist::result_type>(m_data_work[currentRegion].size())));
+                std::function<trng::uniform_int_dist::result_type()> distRegion;
 
-                auto destinationRegion = static_cast<std::size_t>(distRegion());
+                bool tripIsWork = MakeChoice(m_fractionWork);
 
                 ContactPoolType::Id type;
-                if (m_data_work.empty()) {
-                        type = ContactPoolType::Id::PrimaryCommunity;
-                } else if (MakeChoice(m_fractionWork)) {
-                        type = ContactPoolType::Id::Work;
+                if (m_data_work.empty() || !tripIsWork) {
+                        type       = ContactPoolType::Id::PrimaryCommunity;
+                        distRegion = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                            0,
+                            static_cast<trng::uniform_int_dist::result_type>(m_data_recreation[currentRegion].size())));
                 } else {
-                        type = ContactPoolType::Id::PrimaryCommunity;
+                        type       = ContactPoolType::Id::Work;
+                        distRegion = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                            0, static_cast<trng::uniform_int_dist::result_type>(m_data_work[currentRegion].size())));
                 }
+
+                auto destinationRegion = static_cast<std::size_t>(distRegion());
 
                 auto pools = population->SliceOnRegion(destinationRegion)[type];
 
@@ -60,7 +64,7 @@ bool TravellerProfile::PersonWillTravel(size_t currentRegion, std::shared_ptr<st
                 ContactPool* destinationCp = &pools[distLocation()];
 
                 population->GetTravellerIndex(destinationRegion)
-                    .StartTravel(person->GetWorkId(), destinationCp, person, leaveDay, ContactPoolType::Id::Work);
+                    .StartTravel(person->GetWorkId(), destinationCp, person, leaveDay, type);
 
                 return true;
         }
