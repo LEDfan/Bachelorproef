@@ -61,7 +61,7 @@ public:
         std::size_t GetSize() const { return m_members.size(); }
 
         /// Get the pool id
-        unsigned int GetId() const;
+        std::size_t GetId() const;
 
         /// Get the pool capacity
         std::size_t GetCapacity() const;

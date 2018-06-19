@@ -126,7 +126,7 @@ void RNManager::Initialize(const Info& info)
 
 void RNManager::Initialize(std::string type, unsigned long seed, std::string state, unsigned int stream_count)
 {
-        Initialize(Info(type, seed, state, stream_count));
+        Initialize(Info(std::move(type), seed, std::move(state), stream_count));
 }
 
 } // namespace util
