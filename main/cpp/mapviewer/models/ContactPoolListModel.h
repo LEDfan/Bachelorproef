@@ -39,7 +39,6 @@ private:
         enum Roles
         {
                 IDRole = Qt::UserRole + 1,
-                Capacity,
                 UsedCapacity
         };
 

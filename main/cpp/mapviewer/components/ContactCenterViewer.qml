@@ -35,14 +35,9 @@ ColumnLayout {
         model: cpModel
 
         TableViewColumn {
-            role: "capacity"
-            title: "Capacity"
-            width: 100
-        }
-        TableViewColumn {
             role: "usedCapacity"
             title: "Used Capacity"
-            width: 150
+            width: 250
         }
     }
 
