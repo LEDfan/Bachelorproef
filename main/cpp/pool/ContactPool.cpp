@@ -30,11 +30,11 @@ namespace stride {
 using namespace std;
 
 ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity()
+    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(), m_capacity(), m_expats()
 {
 }
 
-ContactPool::ContactPool() : m_pool_id(), m_pool_type(), m_index_immune(0), m_members(), m_capacity() {}
+ContactPool::ContactPool() : m_pool_id(), m_pool_type(), m_index_immune(0), m_members(), m_capacity(), m_expats() {}
 
 void ContactPool::AddMember(const Person* p)
 {
@@ -58,7 +58,7 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                                         m_index_immune--;
                                         new_place--;
                                 } else {
-                                        swap(m_members[i_member], m_members[new_place]);
+                                        Swap(i_member, new_place);
                                         swapped = true;
                                 }
                         }
@@ -69,15 +69,16 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                                 infectious_cases = true;
                         }
                         if (i_member > num_cases) {
-                                swap(m_members[i_member], m_members[num_cases]);
+                                Swap(i_member, num_cases);
                         }
                         num_cases++;
                 }
         }
+
         return std::make_tuple(infectious_cases, num_cases);
 }
 
-unsigned int ContactPool::GetId() const { return m_pool_id; }
+std::size_t ContactPool::GetId() const { return m_pool_id; }
 
 std::size_t ContactPool::GetCapacity() const { return m_capacity; }
 
@@ -97,7 +98,59 @@ std::pair<std::size_t, std::size_t> ContactPool::GetPopulationAndInfectedCount()
 
 void ContactPool::RemoveMember(Person* person)
 {
-        m_members.erase(std::remove(m_members.begin(), m_members.end(), person), m_members.end());
+        // use std::find and not std::remove since we need the original position to update the expats
+        // note that a person shouldn't be added to a CP more than once
+        auto it = std::find(m_members.begin(), m_members.end(), person);
+        if (it != m_members.end()) {
+                m_members.erase(it);
+                UpdateExpatsAfterRemoval(it);
+        }
+}
+
+void ContactPool::UpdateExpatsAfterRemoval(std::vector<Person*>::iterator itAfterRemovedPerson)
+{
+        long index = itAfterRemovedPerson - m_members.begin();
+        for (std::pair<const Person* const, std::size_t>& expat : m_expats) {
+                if (expat.second >= static_cast<std::size_t>(index)) {
+                        expat.second--;
+                }
+                assert(m_members[m_expats[expat.first]] == expat.first);
+        }
+}
+
+void ContactPool::AddExpat(const Person* p)
+{
+        AddMember(p);
+        std::size_t index = m_members.size() - 1;
+        m_expats[p]       = index;
+        assert(m_members[m_expats[p]] == p);
+}
+
+void ContactPool::RemoveExpat(Person* person)
+{
+        std::size_t index = m_expats.at(person);
+        assert(person == m_members[index]);
+        auto it = m_members.erase(m_members.begin() + index);
+        m_expats.erase(person);
+
+        UpdateExpatsAfterRemoval(it);
+}
+
+void ContactPool::Swap(std::size_t person1, std::size_t person2)
+{
+        std::swap(m_members[person1], m_members[person2]);
+        Person* pPerson1 = m_members[person1];
+        if (pPerson1->IsTravelling() && pPerson1->GetPoolId(m_pool_type) == m_pool_id) {
+                // m_members[i_member] is an expat -> update map
+                m_expats[pPerson1] = person1;
+                assert(m_members[m_expats[pPerson1]] == pPerson1);
+        }
+        Person* pPerson2 = m_members[person2];
+        if (pPerson2->IsTravelling() && pPerson2->GetPoolId(m_pool_type) == m_pool_id) {
+                // m_members[i_member] is an expat -> update map
+                m_expats[pPerson2] = person2;
+                assert(m_members[m_expats[pPerson2]] == pPerson2);
+        }
 }
 
 } // namespace stride

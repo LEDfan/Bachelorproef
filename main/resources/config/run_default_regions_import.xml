@@ -64,4 +64,7 @@
             <geopop_import_file>grid_region_VL.proto</geopop_import_file>
         </region>
     </regions>
+    <traveller_amount>0.00001</traveller_amount>
+    <traveller_fraction_work_travel>0.5</traveller_fraction_work_travel>
+    <traveller_max_duration>21</traveller_max_duration>
 </run>

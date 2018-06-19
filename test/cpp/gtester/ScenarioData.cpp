@@ -72,22 +72,22 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
         if (tag == "r0_4") {
                 pt.put("run.r0", 4.0);
                 target = 39080U;
-                sigma  = target * 0.1; // TODO this is the same margin as in upstream, but is not sigma
+                sigma  = target * 0.1;
         }
         if (tag == "r0_8") {
                 pt.put("run.r0", 8.0);
                 target = 110884U;
-                sigma  = target * 0.1; // TODO this is the same margin as in upstream, but is not sigma
+                sigma  = target * 0.1;
         }
         if (tag == "r0_12") {
                 pt.put("run.r0", 12.0);
                 target = 118342U;
-                sigma  = target * 0.1; // TODO this is the same margin as in upstream, but is not sigma
+                sigma  = target * 0.1;
         }
         if (tag == "r0_16") {
                 pt.put("run.r0", 16.0);
                 target = 119459;
-                sigma  = target * 0.1; // TODO this is the same margin as in upstream, but is not sigma
+                sigma  = target * 0.1;
         }
         return make_tuple(pt, target, sigma);
 }

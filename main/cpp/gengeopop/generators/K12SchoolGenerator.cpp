@@ -3,6 +3,7 @@
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <cmath>
+#include <gengeopop/GeoGridConfig.h>
 #include <iostream>
 
 namespace gengeopop {
@@ -16,7 +17,7 @@ void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          */
 
         int  amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;
-        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / 500.0)); // TODO magic constant
+        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / geoGridConfig.constants.meanK12SchoolSize));
 
         std::vector<double> weights;
 

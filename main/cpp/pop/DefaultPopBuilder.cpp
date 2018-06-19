@@ -42,7 +42,7 @@ using namespace boost::property_tree;
 shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
-        // Read persosns from file.
+        // Read persons from file.
         //------------------------------------------------
         const auto file_name        = m_config_pt.get<string>("run.population_file");
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
@@ -119,7 +119,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(std::shared_ptr<Population> pop,
         // cannot belong to both, or e.g. out-of-work).
         //
         // Pools are uniquely identified by (typ, subscript) and a Person
-        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
+        // belongs, for typ, to pool with subscript p.GetPoolId(typ).
         // Defensive measure: we have a pool for Id 0 and leave it empty.
         // --------------------------------------------------------------
         for (auto& p : *pop) {

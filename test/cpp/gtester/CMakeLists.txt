@@ -34,6 +34,7 @@ set(SRC
         UnitSegmentedVector.cpp
         UnitSlice.cpp
         createlogger.h
+        ContactPool.cpp
         gengeopop/generators/CollegeGeneratorTest.cpp
         gengeopop/generators/CommunityGeneratorTest.cpp
         gengeopop/generators/HouseholdGeneratorTest.cpp

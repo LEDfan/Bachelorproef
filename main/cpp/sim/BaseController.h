@@ -80,12 +80,6 @@ protected:
         /// Make the appropriate logger for cli environment and register as stride_logger.
         virtual void MakeLogger();
 
-        /// Patch run configuration with cli overrides and defaults.
-        void PatchConfig();
-
-        /// Read configuration file.
-        void ReadConfigFile();
-
         boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
         std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
