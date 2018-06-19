@@ -23,6 +23,7 @@
 using namespace stride;
 using namespace stride::util;
 %}
+%include "pool/RegionSlicer.h"
 
 %include <std_vector.i>
 %include <std_string.i>

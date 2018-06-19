@@ -49,7 +49,7 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, sh
 {
         struct make_shared_enabler : public Sim
         {
-                make_shared_enabler(util::RNManager& rnManager) : Sim(rnManager) {}
+                explicit make_shared_enabler(util::RNManager& rnManager) : Sim(rnManager) {}
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
         SimBuilder(configPt).Build(sim, std::move(pop));
@@ -82,7 +82,8 @@ void Sim::TimeStep()
         // depending on health status, work/school day.
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
-                        population[i].Update(isWorkOff, isSchoolOff, m_travellerProfile, m_population);
+                        population[i].Update(isWorkOff, isSchoolOff, m_travellerProfile, m_population,
+                                             m_calendar->GetDay());
                 }
 
                 // Infector updates individuals for contacts & transmission within each pool.
@@ -102,6 +103,7 @@ void Sim::TimeStep()
                 }
         }
 
+        m_population->ReturnTravellers(m_calendar->GetDay());
         m_population->GetContactLogger()->flush();
         m_calendar->AdvanceDay();
 }

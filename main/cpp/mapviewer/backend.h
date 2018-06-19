@@ -6,6 +6,9 @@
 #include <set>
 #include <unordered_map>
 
+/**
+ * The backend for the MapViewer qml
+ */
 class Backend : public QObject
 {
         Q_OBJECT
@@ -30,21 +33,10 @@ public:
         void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids);
 
         Q_INVOKABLE
-        void SaveMarker(int region, int id, QObject* marker);
-
-        Q_INVOKABLE
         /**
          * Load a GeoGrid from JSON file, specified in the command line arguments
          */
         void LoadGeoGridFromCommandLine(const QStringList& args);
-
-        Q_INVOKABLE
-        /**
-         * Places the locations of the current GeoGrid on the map.
-         * @param map: Instance of the Map QObject
-         */
-        void SetObjects(QObject* map);
-
         Q_INVOKABLE
         /**
          * Handles a click on a marker. Will emit a locationSelected signal with the correct location
@@ -75,12 +67,6 @@ public:
 
         Q_INVOKABLE
         /**
-         * Removes all locations from selection and unselection + re-render the map.
-         */
-        void ClearSelectionAndRender();
-
-        Q_INVOKABLE
-        /**
          * Removes all locations from selection and unselection but don't re-render the map.
          */
         void ClearSelection();
@@ -95,11 +81,16 @@ public:
          */
         void SelectArea(double slat, double slong, double elat, double elong);
 
-        /// The Same as SelectArea but does not clear selection first.
         Q_INVOKABLE
+        /**
+         * The Same as SelectArea but does not clear selection first.
+         */
         void SelectExtraInArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
+        /**
+         * Adds all locations of the grid to the selection and updates the visual appearance of these locations.
+         */
         void SelectAll();
 
         Q_INVOKABLE
@@ -109,7 +100,17 @@ public:
         void SetShowCommutes(bool value);
 
         Q_INVOKABLE
+        /**
+         * Updates all the health colors of the locations to match the current infection rate.
+         */
         void UpdateAllHealthColors();
+
+        Q_INVOKABLE
+        /**
+         * Places the locations of the current GeoGrid on the map.
+         * @param map: Instance of the Map QObject
+         */
+        void SetObjects(QObject* map);
 
         Q_INVOKABLE
         /**
@@ -117,6 +118,14 @@ public:
          * @param fileLoc File to save the JSON to.
          */
         void SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog);
+
+        Q_INVOKABLE
+        /**
+         * Saves the CustomMarker QObject of a specific location so we can modify it later.
+         * @param region the region of the location
+         * @param id the id of the location
+         */
+        void SaveMarker(int region, int id, QObject* marker);
 
 signals:
         /// Emits the locations that are selected. Other components can connect to this to be notified.
@@ -152,6 +161,12 @@ private:
          * @Pre: m_map is initialized correctly and holds the map we want to place markers on
          */
         void PlaceMarkers();
+
+        Q_INVOKABLE
+        /**
+         * Removes all locations from selection and unselection + re-render the map.
+         */
+        void ClearSelectionAndRender();
 
         /**
          * Update colors of Markers based on the value of m_selection and m_unselection.

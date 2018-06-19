@@ -143,7 +143,7 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                 typeId = stride::ContactPoolType::Id::K12School;
         } else if (type == "College") {
                 result = std::make_shared<College>(id);
-                typeId = stride::ContactPoolType::Id::College; // TODO
+                typeId = stride::ContactPoolType::Id::College;
         } else if (type == "Household") {
                 result = std::make_shared<Household>(id);
                 typeId = stride::ContactPoolType::Id::Household;

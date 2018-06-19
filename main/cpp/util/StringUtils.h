@@ -134,8 +134,8 @@ inline std::string intToDottedString(const T& value)
 {
         std::string valueStr = std::to_string(value);
 
-        std::string res  = "";
-        int         rest = valueStr.length() % 3;
+        std::string res;
+        std::size_t rest = valueStr.length() % 3;
 
         res += valueStr.substr(0, rest);
 

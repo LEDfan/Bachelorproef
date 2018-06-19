@@ -123,9 +123,13 @@ void Backend::OnMarkerClicked(int region, unsigned int idOfClicked)
 {
         auto loc = m_grids[region]->GetById(idOfClicked);
 
+        // When a marker is clicked the current selection needs to be cleared.
         ClearSelection();
+
+        // Select the location
         ToggleSelectionOfLocation(region, loc);
 
+        // Notify the viewer
         EmitLocations();
         UpdateColorOfMarkers();
 }
@@ -145,7 +149,8 @@ void Backend::PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, 
         QMetaObject::invokeMethod(m_map, "addMarker", Qt::QueuedConnection, Q_ARG(QVariant, get<1>(coordinate)),
                                   Q_ARG(QVariant, get<0>(coordinate)), Q_ARG(QVariant, region), Q_ARG(QVariant, id),
                                   Q_ARG(QVariant, size), Q_ARG(QVariant, selected), Q_ARG(QVariant, specialmarker));
-        m_markers[{region, id}] = qvariant_cast<QObject*>(returnVal);
+        // Save the marker so we can edit it's color etc later
+        SaveMarker(region, id, qvariant_cast<QObject*>(returnVal));
 }
 
 void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
@@ -154,6 +159,7 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
                 QUrl                            info(fileLoc);
                 std::string                     filename = info.toLocalFile().toStdString();
                 gengeopop::GeoGridWriterFactory geoGridWriterFactory;
+                // We possibly have multiple grids, so we save them in their respective files.
                 for (const auto& grid : m_grids) {
                         boost::filesystem::path filePath = filename;
                         filePath /= boost::filesystem::path(std::string("grid_region_") + grid->GetRegionName() +
@@ -165,6 +171,7 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
                         outputFile.close();
                 }
         } catch (const std::exception& e) {
+                // Open the error dialog with the exception
                 QMetaObject::invokeMethod(errorDialog, "open");
                 QQmlProperty(errorDialog, "text").write(QString("Error: ") + e.what());
         }
@@ -173,8 +180,10 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
 void Backend::ClearSelection()
 {
         m_unselection.clear();
+        // The currently selected items need to be deselected (Change bordor color etc.)
         m_unselection.insert(m_selection.begin(), m_selection.end());
         m_selection.clear();
+        // Update the collor according to the deselection
         UpdateColorOfMarkers();
         m_unselection.clear();
 }
@@ -183,7 +192,7 @@ void Backend::ClearSelectionAndRender()
 {
         for (std::pair<int, int> locIDs : m_selection) {
                 auto* marker = m_markers[locIDs];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "#5d00ff"));
         }
         for (const auto& locIDs : m_unselection) {
                 auto* marker = m_markers[locIDs];
@@ -288,7 +297,7 @@ void Backend::UpdateColorOfMarkers()
         m_unselection.clear();
         for (const auto& locID : m_selection) {
                 auto* marker = m_markers[locID];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "purple"));
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "#5d00ff"));
                 // Show the commutes
                 auto loc = GetLocationInRegion(locID);
                 if (m_showCommutes) {
@@ -337,9 +346,14 @@ void Backend::HideCommuteLine(QObject* line)
 void Backend::SetShowCommutes(bool value)
 {
         m_showCommutes = value;
-        // Re render
-        ClearSelectionAndRender();
-        PlaceMarkers();
+        if (!value) {
+                for (auto& commuteLine : m_commutes) {
+                        // Hide and delete
+                        HideCommuteLine(commuteLine.second);
+                }
+                m_commutes.clear();
+        }
+        ClearSelection();
 }
 
 void Backend::HideCommuteBetween(int region, const std::shared_ptr<gengeopop::Location>& loc1,
@@ -417,14 +431,14 @@ void Backend::OnMarkerHovered(int region, unsigned int idOfHover)
 
         if (m_selection.find({region, idOfHover}) == m_selection.end()) {
                 QObject* marker = m_markers[{region, loc->GetID()}];
-                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "blue"));
+                QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection, Q_ARG(QVariant, "#FFFFFF"));
 
                 // Change colors of submunicipalities
                 const std::set<std::shared_ptr<gengeopop::Location>> sub = loc->GetSubMunicipalities();
                 for (const auto& mun : sub) {
                         QObject* markerMun = m_markers[{region, mun->GetID()}];
                         QMetaObject::invokeMethod(markerMun, "setBorder", Qt::DirectConnection,
-                                                  Q_ARG(QVariant, "blue"));
+                                                  Q_ARG(QVariant, "#FFFFFF"));
                 }
         }
 }
@@ -447,7 +461,7 @@ void Backend::OnMarkerHoveredOff(int region, unsigned int idOfHover)
                         } else {
                                 // Back to selection color
                                 QMetaObject::invokeMethod(marker, "setBorder", Qt::DirectConnection,
-                                                          Q_ARG(QVariant, "purple"));
+                                                          Q_ARG(QVariant, "#5d00ff"));
                         }
                 }
         }

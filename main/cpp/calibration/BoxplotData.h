@@ -3,6 +3,7 @@
 #include <string>
 
 namespace calibration {
+/// The data that describes a boxplot
 struct BoxplotData
 {
         BoxplotData() : name(), min_value(), max_value(), median(), lower_quartile(), upper_quartile() {}

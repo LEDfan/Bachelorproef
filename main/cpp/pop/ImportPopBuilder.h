@@ -41,7 +41,7 @@ public:
 
         /// Creates a population by importing it
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
-                                          std::string regionName);
+                                          std::string regionName) override;
 };
 
 } // namespace stride

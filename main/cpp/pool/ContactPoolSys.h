@@ -22,7 +22,7 @@
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
-#include <util/pchheader.h>
+#include <util/SegmentedVector.h>
 
 namespace stride {
 
