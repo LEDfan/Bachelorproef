@@ -71,4 +71,6 @@ void Person::Update(Person*)
 
 void Person::SetAge(unsigned int newAge) { m_age = newAge; }
 
+void Person::SetTravelling(bool travelling) { m_isTravelling = travelling; }
+
 } // namespace stride

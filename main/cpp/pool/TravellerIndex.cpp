@@ -12,25 +12,31 @@ void TravellerIndex::ReturnTravelers(std::size_t currentDay)
         m_travelLogger->info("Checking if travellers need to return on day {}", currentDay);
 
         while (!m_data.empty()) {
-                const TravellerInfo& travellerInfo = m_data.top();
+                TravellerInfo travellerInfo = m_data.top();
                 assert(travellerInfo.leaveDay >= currentDay);
-                if (travellerInfo.leaveDay > currentDay) {
-                        break;
+                if (travellerInfo.leaveDay != currentDay) {
+                        return;
                 }
+                assert(travellerInfo.leaveDay == currentDay);
+
                 m_data.pop();
                 Person* person = travellerInfo.person;
 
+                m_travelLogger->flush();
+
                 // restore to original pool id
-                person->m_pool_ids[travellerInfo.type] = travellerInfo.to->GetId();
+                person->m_pool_ids[travellerInfo.type] = travellerInfo.from;
 
                 // remove person from foreign CP
-                travellerInfo.to->RemoveMember(person);
+                travellerInfo.to->RemoveExpat(person);
+
+                person->m_isTravelling = false;
 
                 // m_in_pools should not be changed
-                m_travelLogger->info(
-                    "Person[{}] returns from travel, home_cp: {}, foreign_cp {}, type of travel was: {}",
-                    person->GetId(), travellerInfo.from, travellerInfo.to->GetId(),
-                    ContactPoolType::ToString(travellerInfo.type));
+                m_travelLogger->info("Person[{}] returns from travel, home_cp: {}, foreign_cp {}, type of travel was: "
+                                     "{}, should return on {}, today is  {}",
+                                     person->GetId(), travellerInfo.from, travellerInfo.to->GetId(),
+                                     ContactPoolType::ToString(travellerInfo.type), travellerInfo.leaveDay, currentDay);
         }
 }
 
@@ -50,7 +56,7 @@ void TravellerIndex::StartTravel(unsigned int from, stride::ContactPool* to, str
         // update the new id
         person->m_pool_ids[type] = to->GetId();
         // add person to the foreign CP
-        to->AddMember(person);
+        to->AddExpat(person);
 
         // reset all in_pools except for the Work or PrimaryCommunity
         bool originInPool = person->m_in_pools[type];

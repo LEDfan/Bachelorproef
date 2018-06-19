@@ -183,7 +183,13 @@ public:
 
         bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
+        /// Returns whether this person is travelling
+        bool IsTravelling() const { return m_isTravelling; };
+
         friend TravellerIndex;
+
+        /// Set the whether the person is travelling
+        void SetTravelling(bool travelling);
 
 private:
         unsigned int m_id;             ///< The id.
