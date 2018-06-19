@@ -19,10 +19,10 @@
  * Container for the contact pools of various type (household, work, ...)..
  */
 
+#include <util/SegmentedVector.h>
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
-#include <util/pchheader.h>
 
 namespace stride {
 

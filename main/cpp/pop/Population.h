@@ -26,7 +26,7 @@
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
 #include "util/Any.h"
-#include "util/pchheader.h"
+#include "util/SegmentedVector.h"
 
 #include "util/RNManager.h"
 #include <boost/property_tree/ptree.hpp>
