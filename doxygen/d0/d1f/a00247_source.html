@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('d0/d1f/a00247_source.html','../../');}
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dbc/a00249.html">CSVRow.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">util/StringUtils.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/operations.hpp&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
@@ -205,19 +205,19 @@ $(document).ready(function(){initNavTree('d0/d1f/a00247_source.html','../../');}
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... T&gt;</div>
 <div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d9/d7d/a00150.html#a1ae467f9599974c0f180c529f8a9f298">   92</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d7d/a00150.html#a1ae467f9599974c0f180c529f8a9f298">CSV::AddRow</a>(<span class="keyword">const</span> T&amp;... values)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="../../d9/d7d/a00150.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a>({<a class="code" href="../../d7/db5/a00472.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(values)...});</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="../../d9/d7d/a00150.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a>({<a class="code" href="../../d0/d29/a00470.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(values)...});</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace util</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00472_html_a256d75fffdad0f4f49c6e58c69f76e20"><div class="ttname"><a href="../../d7/db5/a00472.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;value)</div><div class="ttdoc">Builds a string representation of a value of type T. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/de8/a00405_source.html#l00078">StringUtils.h:78</a></div></div>
 <div class="ttc" id="a00150_html_aed99cf47769a6284b45c2815b08d1bd0"><div class="ttname"><a href="../../d9/d7d/a00150.html#aed99cf47769a6284b45c2815b08d1bd0">stride::util::CSV::GetIndexForLabel</a></div><div class="ttdeci">size_t GetIndexForLabel(const std::string &amp;label) const </div><div class="ttdoc">Convert label to index for more user friendly and robuust implementation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9a/a00246_source.html#l00090">CSV.cpp:90</a></div></div>
+<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 <div class="ttc" id="a00150_html_ad153bb329555a2b114defc97e53793ad"><div class="ttname"><a href="../../d9/d7d/a00150.html#ad153bb329555a2b114defc97e53793ad">stride::util::CSV::GetLabels</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; &amp; GetLabels() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9a/a00246_source.html#l00153">CSV.cpp:153</a></div></div>
 <div class="ttc" id="a00150_html"><div class="ttname"><a href="../../d9/d7d/a00150.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d1f/a00247_source.html#l00037">CSV.h:37</a></div></div>
 <div class="ttc" id="a00150_html_a6aadfb52b95c349f14469a203d21472b"><div class="ttname"><a href="../../d9/d7d/a00150.html#a6aadfb52b95c349f14469a203d21472b">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV()=default</div><div class="ttdoc">Default constructor. Mainly used for swig. </div></div>
 <div class="ttc" id="a00150_html_a92b1c16c77b9b5b046a0fecc90ae3c8d"><div class="ttname"><a href="../../d9/d7d/a00150.html#a92b1c16c77b9b5b046a0fecc90ae3c8d">stride::util::CSV::AddRows</a></div><div class="ttdeci">void AddRows(std::vector&lt; std::vector&lt; std::string &gt;&gt; &amp;rows)</div><div class="ttdoc">Add a collection of rows. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9a/a00246_source.html#l00083">CSV.cpp:83</a></div></div>
 <div class="ttc" id="a00150_html_a63ffba1157ea6381bbce102c430e189b"><div class="ttname"><a href="../../d9/d7d/a00150.html#a63ffba1157ea6381bbce102c430e189b">stride::util::CSV::GetColumnCount</a></div><div class="ttdeci">size_t GetColumnCount() const </div><div class="ttdoc">Amount of columns in the CSV. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d1f/a00247_source.html#l00059">CSV.h:59</a></div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
+<div class="ttc" id="a00470_html_a256d75fffdad0f4f49c6e58c69f76e20"><div class="ttname"><a href="../../d0/d29/a00470.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;value)</div><div class="ttdoc">Builds a string representation of a value of type T. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00078">StringUtils.h:78</a></div></div>
 <div class="ttc" id="a00150_html_a4298638a8f9c9871d800338bdf77bd50"><div class="ttname"><a href="../../d9/d7d/a00150.html#a4298638a8f9c9871d800338bdf77bd50">stride::util::CSV::labels</a></div><div class="ttdeci">std::vector&lt; std::string &gt; labels</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d1f/a00247_source.html#l00087">CSV.h:87</a></div></div>
 <div class="ttc" id="a00150_html_a2f700f0aa2b27d664adb69e27a6eb4b1"><div class="ttname"><a href="../../d9/d7d/a00150.html#a2f700f0aa2b27d664adb69e27a6eb4b1">stride::util::CSV::operator==</a></div><div class="ttdeci">bool operator==(const CSV &amp;other) const </div><div class="ttdoc">Compare operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9a/a00246_source.html#l00078">CSV.cpp:78</a></div></div>
 <div class="ttc" id="a00249_html"><div class="ttname"><a href="../../de/dbc/a00249.html">CSVRow.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('d0/d1f/a00247_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d1f/a00247.html">CSV.h</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

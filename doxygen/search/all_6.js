@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectiveage',['EffectiveAge',['../db/de0/a00465.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
+  ['effectiveage',['EffectiveAge',['../d3/d5d/a00463.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
   ['emitlocations',['EmitLocations',['../d8/d84/a00001.html#a613fb0cc751f55a428c18156fae84d15',1,'Backend']]],
   ['emplace',['emplace',['../db/d48/a00148.html#a8aee74d02cb317ad6a8212f9a84c9254',1,'stride::util::Any::emplace()'],['../d1/dc1/a00092.html#aadda0fa9cba3c25598d83fc335dab5e4',1,'stride::util::SegmentedVector::emplace()']]],
   ['emplace_5fback',['emplace_back',['../d1/dc1/a00092.html#a2cd11f9b95b20b69378fc9268c380096',1,'stride::util::SegmentedVector']]],
@@ -15,5 +15,5 @@ var searchData=
   ['exception_2ecpp',['Exception.cpp',['../dd/dd7/a00260.html',1,'']]],
   ['exception_2eh',['Exception.h',['../dc/d6a/a00261.html',1,'']]],
   ['exec',['Exec',['../d4/d98/a00120.html#a45b455fb644270329ae1d53aad9de4db',1,'stride::Infector::Exec()'],['../d8/dfa/a00121.html#a3e10dc57119090c30ba818420bbd7b94',1,'stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()']]],
-  ['exposed',['Exposed',['../db/de0/a00465.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a',1,'stride']]]
+  ['exposed',['Exposed',['../d3/d5d/a00463.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a',1,'stride']]]
 ];

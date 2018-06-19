@@ -1,2 +1,26 @@
-<map id="Location.h" name="Location.h">
+<map id="LocationViewerBackend.cpp" name="LocationViewerBackend.cpp">
+<area shape="rect" id="node2" href="$d0/dc5/a00343.html" title="LocationViewerBackend.h" alt="" coords="5157,80,5330,107"/>
+<area shape="rect" id="node5" href="$d9/d2a/a00270.html" title="gengeopop/GeoGrid.h" alt="" coords="4369,155,4517,181"/>
+<area shape="rect" id="node9" href="$dc/de3/a00373.html" title="Header file for the core Population class. " alt="" coords="2279,237,2397,264"/>
+<area shape="rect" id="node21" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="2217,509,2350,536"/>
+<area shape="rect" id="node63" href="$dd/d1d/a00336.html" title="KdTree.h" alt="" coords="4249,509,4322,536"/>
+<area shape="rect" id="node66" href="$d3/d93/a00341.html" title="Location.h" alt="" coords="3793,328,3874,355"/>
+<area shape="rect" id="node74" href="$db/d12/a00268.html" title="GeoAggregator.h" alt="" coords="4185,237,4305,264"/>
+<area shape="rect" id="node10" href="$d8/df1/a00174.html" title="Base Class for PopBuilders. " alt="" coords="2587,419,2731,445"/>
+<area shape="rect" id="node14" href="$dd/de2/a00320.html" title="Initialize populations. " alt="" coords="3081,328,3214,355"/>
+<area shape="rect" id="node20" href="$d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2015,328,2170,355"/>
+<area shape="rect" id="node25" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1941,419,2099,445"/>
+<area shape="rect" id="node29" href="$d4/d27/a00392.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1631,509,1789,536"/>
+<area shape="rect" id="node35" href="$d0/def/a00256.html" title="Initialize populations. " alt="" coords="2467,328,2630,355"/>
+<area shape="rect" id="node36" href="$d1/dd4/a00267.html" title="Initialize populations. " alt="" coords="2297,328,2442,355"/>
+<area shape="rect" id="node37" href="$df/dc2/a00367.html" title="Header file for the Person class. " alt="" coords="1655,328,1754,355"/>
+<area shape="rect" id="node41" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="649,509,773,536"/>
+<area shape="rect" id="node51" href="$dc/d52/a00183.html" title="Interface/Implementation of Any. " alt="" coords="1155,509,1231,536"/>
+<area shape="rect" id="node56" href="$d8/d95/a00379.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="3239,328,3373,355"/>
+<area shape="rect" id="node15" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="2341,592,2503,619"/>
+<area shape="rect" id="node22" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="2087,592,2266,619"/>
+<area shape="rect" id="node30" href="$de/df7/a00418.html" title="Interface/Implementation for SVIterator. " alt="" coords="1667,592,1758,619"/>
+<area shape="rect" id="node38" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="1639,419,1759,445"/>
+<area shape="rect" id="node39" href="$d4/dd3/a00428.html" title="pool/TravellerProfile.h" alt="" coords="1467,419,1614,445"/>
+<area shape="rect" id="node42" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="34,592,157,619"/>
 </map>

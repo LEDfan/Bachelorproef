@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('d6/d82/a00243_source.html','../../');}
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d21/a00240.html">pool/ContactPool.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d22/a00245.html">pool/ContactPoolType.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d39/a00314.html">pool/IdSubscriptArray.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/dc2/a00367.html">util/pchheader.h</a>&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d4/d27/a00392.html">util/SegmentedVector.h</a>&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
@@ -144,21 +144,21 @@ $(document).ready(function(){initNavTree('d6/d82/a00243_source.html','../../');}
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/// a util::PartitionedSegmentedVector with for each region a util::SegmentedVector with all contactpools.</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/// The ContactPoolSys container is an std::array extended to be subscriptable</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/// with the enum class of the pool types.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../db/de0/a00465.html#a49dce703c45af99fbc6215835b94327d">   33</a></span>&#160;<span class="comment"></span><span class="keyword">using</span> <a class="code" href="../../d1/d09/a00077.html">ContactPoolSys</a> = <a class="code" href="../../d1/d09/a00077.html">ContactPoolType::IdSubscriptArray&lt;util::SegmentedVector&lt;ContactPool&gt;</a>&gt;;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/d5d/a00463.html#a49dce703c45af99fbc6215835b94327d">   33</a></span>&#160;<span class="comment"></span><span class="keyword">using</span> <a class="code" href="../../d1/d09/a00077.html">ContactPoolSys</a> = <a class="code" href="../../d1/d09/a00077.html">ContactPoolType::IdSubscriptArray&lt;util::SegmentedVector&lt;ContactPool&gt;</a>&gt;;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00367_html"><div class="ttname"><a href="../../df/dc2/a00367.html">pchheader.h</a></div></div>
 <div class="ttc" id="a00314_html"><div class="ttname"><a href="../../d0/d39/a00314.html">IdSubscriptArray.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
 <div class="ttc" id="a00240_html"><div class="ttname"><a href="../../d9/d21/a00240.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
 <div class="ttc" id="a00245_html"><div class="ttname"><a href="../../d6/d22/a00245.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
 <div class="ttc" id="a00077_html"><div class="ttname"><a href="../../d1/d09/a00077.html">stride::ContactPoolType::IdSubscriptArray</a></div><div class="ttdoc">An std::array modified to enable subscripting with the constact pool type indentifiers. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d39/a00314_source.html#l00048">IdSubscriptArray.h:48</a></div></div>
+<div class="ttc" id="a00392_html"><div class="ttname"><a href="../../d4/d27/a00392.html">SegmentedVector.h</a></div><div class="ttdoc">Interface and implementation for SegmentedVector class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d6/d82/a00243.html">ContactPoolSys.h</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

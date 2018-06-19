@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('d6/de1/a00356_source.html','../../');}
 <a href="../../d6/de1/a00356.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/dc3/a00354.html">mapviewer/Map.h</a>&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d95/a00400.html">sim/SimRunner.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/dd1/a00398.html">sim/SimRunner.h</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;spdlog/logger.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>stride {</div>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('d6/de1/a00356_source.html','../../');}
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>        <a class="code" href="../../d5/dcb/a00170.html#a347ee82efaa83090012fa331c855285a">~MapViewer</a>();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        /// Let viewer perform update.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d5/dcb/a00170.html#a682fd168e97785d7342bc192baeac078">Update</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d4b/a00471.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="../../d5/dcb/a00170.html#a682fd168e97785d7342bc192baeac078">Update</a>(<span class="keyword">const</span> <a class="code" href="../../dc/ddf/a00469.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/dcb/a00170.html#a7899a4938e50547e1b14e387255c290a">   28</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d5/dcb/a00170.html#a7899a4938e50547e1b14e387255c290a">m_logger</a>; <span class="comment">///&lt; The logger used for notifying that the MapViewer was updated</span></div>
@@ -150,12 +150,12 @@ $(document).ready(function(){initNavTree('d6/de1/a00356_source.html','../../');}
 <div class="ttc" id="a00170_html_ac76efad12d02ce9ee9f0b8487ff726ec"><div class="ttname"><a href="../../d5/dcb/a00170.html#ac76efad12d02ce9ee9f0b8487ff726ec">stride::viewers::MapViewer::m_first</a></div><div class="ttdeci">bool m_first</div><div class="ttdoc">A variable used to see if it was the first time the &quot;Update&quot; method was called. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00029">MapViewer.h:29</a></div></div>
 <div class="ttc" id="a00170_html"><div class="ttname"><a href="../../d5/dcb/a00170.html">stride::viewers::MapViewer</a></div><div class="ttdoc">A Viewer that visually shows the GeoGrids and associated information with Qt. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00011">MapViewer.h:11</a></div></div>
 <div class="ttc" id="a00170_html_a086e9f45a7652dbbb2f2b63a790f41d7"><div class="ttname"><a href="../../d5/dcb/a00170.html#a086e9f45a7652dbbb2f2b63a790f41d7">stride::viewers::MapViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdoc">The runner for the current simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00031">MapViewer.h:31</a></div></div>
-<div class="ttc" id="a00400_html"><div class="ttname"><a href="../../d9/d95/a00400.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
 <div class="ttc" id="a00170_html_a682fd168e97785d7342bc192baeac078"><div class="ttname"><a href="../../d5/dcb/a00170.html#a682fd168e97785d7342bc192baeac078">stride::viewers::MapViewer::Update</a></div><div class="ttdeci">void Update(const sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc9/a00355_source.html#l00009">MapViewer.cpp:9</a></div></div>
 <div class="ttc" id="a00170_html_a7899a4938e50547e1b14e387255c290a"><div class="ttname"><a href="../../d5/dcb/a00170.html#a7899a4938e50547e1b14e387255c290a">stride::viewers::MapViewer::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdoc">The logger used for notifying that the MapViewer was updated. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00028">MapViewer.h:28</a></div></div>
 <div class="ttc" id="a00354_html"><div class="ttname"><a href="../../d0/dc3/a00354.html">Map.h</a></div></div>
+<div class="ttc" id="a00398_html"><div class="ttname"><a href="../../d9/dd1/a00398.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
 <div class="ttc" id="a00170_html_a611730b84751ab3a6fbf48ff64e7a8c5"><div class="ttname"><a href="../../d5/dcb/a00170.html#a611730b84751ab3a6fbf48ff64e7a8c5">stride::viewers::MapViewer::m_vis</a></div><div class="ttdeci">std::unique_ptr&lt; Map &gt; m_vis</div><div class="ttdoc">The Map to display. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00030">MapViewer.h:30</a></div></div>
-<div class="ttc" id="a00471_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d4/d4b/a00471.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db3/a00313_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00469_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../dc/ddf/a00469.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db3/a00313_source.html#l00029">Id.h:29</a></div></div>
 <div class="ttc" id="a00170_html_a347ee82efaa83090012fa331c855285a"><div class="ttname"><a href="../../d5/dcb/a00170.html#a347ee82efaa83090012fa331c855285a">stride::viewers::MapViewer::~MapViewer</a></div><div class="ttdeci">~MapViewer()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc9/a00355_source.html#l00033">MapViewer.cpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('d6/de1/a00356_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_7c1ec81938689281765afd67c588f2a7.html">mapviewer</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">MapViewer.h</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

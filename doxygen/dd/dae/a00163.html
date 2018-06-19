@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('dd/dae/a00163.html','../../');});
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
-<a href="../../d1/d72/a01319.html">List of all members</a>  </div>
+<a href="../../d9/de6/a01314.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
@@ -126,16 +126,16 @@ $(document).ready(function(){initNavTree('dd/dae/a00163.html','../../');});
 <p>Implementation of iterator for <a class="el" href="../../d1/dc1/a00092.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>.  
  <a href="../../dd/dae/a00163.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/dec/a01320.svg" width="179" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/d8e/a01315.svg" width="179" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d5c/a01321.svg" width="331" height="467"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d4/d49/a01316.svg" width="331" height="467"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -241,7 +241,7 @@ class stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;</h3>
 <p>Possible states for the iterator are: (a) Default constructed: m_c == nullptr &amp;&amp; m_p == 0. This is the singular state in which the iterator can be assigned, but not incremented or compared. (b) Past-the-end: m_c != nullptr &amp;&amp; m_p == m_c-&gt;size(). The iterator cannot be dereferenced. (c) Dereferencable: m_c != nullptr &amp;&amp; m_p &lt; mc-&gt;size(). Notice that m_p is of type size_t and hence always non-negative. Thus the above reuires !m_c-&gt;empty().</p>
 <p>Template parameters: T value type of iterator and of its container. N block size of its container P pointer-to-T type (can be const qualified). R reference-to-T type (can be const qualified). is_const_iterator to make it a const_iterator </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00056">56</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00056">56</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="acf4391226c3334af2ab02fdbfcbe81c8"></a>
 <div class="memitem">
@@ -255,7 +255,7 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00064">64</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00064">64</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
@@ -281,7 +281,7 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Type of pointer-to-container (i.e. its const qualification). </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00228">228</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00228">228</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
@@ -311,7 +311,7 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Default constructor. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00070">70</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00070">70</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +341,7 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Copy constructor. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00073">73</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00073">73</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
@@ -381,7 +381,7 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Private constructor, currently only container itself can create iterators. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00232">232</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00232">232</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
@@ -411,9 +411,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Element access. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00080">80</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00080">80</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -442,9 +442,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Member of element access. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00088">88</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00088">88</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -473,11 +473,11 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Pre-increment (returns position after increment) </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00095">95</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00095">95</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d4f/a00420_source.html#l00105">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/df7/a00418_source.html#l00105">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -514,9 +514,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Post-increment (returns position prior to increment) </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00105">105</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00105">105</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00095">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00095">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -552,11 +552,11 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Pre-decrement (returns position after decrement) </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00113">113</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00113">113</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d4f/a00420_source.html#l00123">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/df7/a00418_source.html#l00123">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -593,9 +593,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Pre-increment (returns position after decrement) </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00123">123</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00123">123</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00113">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00113">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -632,9 +632,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Iterator equality. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00131">131</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00131">131</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -664,9 +664,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Iterator inequality. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00134">134</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00134">134</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -696,9 +696,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Direct access to n-th element. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00141">141</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00141">141</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -728,9 +728,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Set iterator to n-th next element. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00148">148</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00148">148</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -760,9 +760,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Set iterator to n-th previous element. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00157">157</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00157">157</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -792,9 +792,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Return iterator pointing to n-th next element. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00167">167</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00167">167</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -824,9 +824,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Return iterator pointing to n-th previous element. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00175">175</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00175">175</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -856,9 +856,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Return distance between iterators. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00183">183</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00183">183</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -888,9 +888,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Returns whether iterator is before other. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00191">191</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00191">191</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -920,9 +920,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Returns whether iterator is not after other. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00199">199</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00199">199</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -952,9 +952,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Returns whether iterator is after other. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00207">207</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00207">207</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -984,9 +984,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Returns whether iterator is not after other. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00215">215</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00215">215</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d4f/a00420_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+<p>References <a class="el" href="../../de/df7/a00418_source.html#l00236">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00235">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
 
 </div>
 </div>
@@ -1011,7 +1011,7 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00223">223</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00223">223</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
@@ -1038,9 +1038,9 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Current iterator position in the container. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00235">235</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00235">235</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d4f/a00420_source.html#l00134">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00080">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator*()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00167">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00095">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00148">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00175">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00113">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00157">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00088">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt;()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00191">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00199">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00131">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator==()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00207">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00215">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;=()</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00141">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/df7/a00418_source.html#l00134">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00080">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator*()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00167">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00095">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00148">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00175">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00113">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00157">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00088">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt;()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00191">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00199">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00131">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator==()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00207">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00215">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;=()</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00141">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
 
 </div>
 </div>
@@ -1066,22 +1066,22 @@ template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typenam
 
 <p>Container that the iterator points into. </p>
 
-<p>Definition at line <a class="el" href="../../db/d4f/a00420_source.html#l00236">236</a> of file <a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df7/a00418_source.html#l00236">236</a> of file <a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d4f/a00420_source.html#l00134">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00080">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator*()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00167">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00095">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00148">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00175">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00113">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00157">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00088">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt;()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00191">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00199">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;=()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00131">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator==()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00207">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;()</a>, <a class="el" href="../../db/d4f/a00420_source.html#l00215">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;=()</a>, and <a class="el" href="../../db/d4f/a00420_source.html#l00141">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/df7/a00418_source.html#l00134">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00080">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator*()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00167">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00095">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00148">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00175">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00113">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00157">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00088">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt;()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00191">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00199">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;=()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00131">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator==()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00207">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;()</a>, <a class="el" href="../../de/df7/a00418_source.html#l00215">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;=()</a>, and <a class="el" href="../../de/df7/a00418_source.html#l00141">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../db/d4f/a00420_source.html">SVIterator.h</a></li>
+<li><a class="el" href="../../de/df7/a00418_source.html">SVIterator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../db/de0/a00465.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/db5/a00472.html">util</a></li><li class="navelem"><a class="el" href="../../dd/dae/a00163.html">SVIterator</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:43 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d5d/a00463.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d29/a00470.html">util</a></li><li class="navelem"><a class="el" href="../../dd/dae/a00163.html">SVIterator</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:15 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,7 +1,2 @@
-<map id="InfectedViewer.h" name="InfectedViewer.h">
-<area shape="rect" id="node2" href="$d3/db1/a00200.html" title="Calibrator.cpp" alt="" coords="5,80,107,107"/>
-<area shape="rect" id="node3" href="$d4/dce/a00337.html" title="Launcher.cpp" alt="" coords="131,80,231,107"/>
-<area shape="rect" id="node4" href="$d8/d00/a00186.html" title="Header for the command line controller. " alt="" coords="256,80,389,107"/>
-<area shape="rect" id="node5" href="$d5/df1/a00206.html" title="Header for the command line controller. " alt="" coords="414,80,532,107"/>
-<area shape="rect" id="node6" href="$de/d55/a00323.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="557,80,691,107"/>
+<map id="Infector.cpp" name="Infector.cpp">
 </map>

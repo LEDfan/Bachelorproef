@@ -18,11 +18,11 @@ var searchData=
   ['noglobalinformation_2eh',['NoGlobalInformation.h',['../d0/d65/a00360.html',1,'']]],
   ['nolocalinformation',['NoLocalInformation',['../d7/d06/a00131.html',1,'stride']]],
   ['nolocalinformation_2eh',['NoLocalInformation.h',['../d7/ddb/a00361.html',1,'']]],
-  ['none',['None',['../db/d2c/a00466.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode::None()'],['../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754',1,'stride::None()']]],
+  ['none',['None',['../d2/d9d/a00464.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode::None()'],['../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754',1,'stride::None()']]],
   ['notify',['Notify',['../d4/ddd/a00138.html#a05aaf77e0b2520924f86a8b39c5a9f02',1,'stride::python::Subject::Notify()'],['../db/d44/a00162.html#a9496d626bbde63eb55836f0af402522c',1,'stride::util::Subject::Notify()']]],
   ['numberavailablethreads',['NumberAvailableThreads',['../da/d1e/a00149.html#a6b4240ce29160e778c69f9e246e1747d',1,'stride::util::ConfigInfo']]],
   ['numberparticipantssurvey',['numberParticipantsSurvey',['../d9/da4/a00078.html#a217dcec91e703973b6716daf006259f8',1,'Launcher']]],
   ['numdays',['numDays',['../d9/da4/a00078.html#a3ade0347f418d4556dd3a9f0d5e15525',1,'Launcher']]],
-  ['numoftypes',['NumOfTypes',['../d7/d5e/a00467.html#af724b7d598645a8c1054b66306dee629',1,'stride::ContactPoolType::NumOfTypes()'],['../d4/d4b/a00471.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]],
+  ['numoftypes',['NumOfTypes',['../db/de0/a00465.html#af724b7d598645a8c1054b66306dee629',1,'stride::ContactPoolType::NumOfTypes()'],['../dc/ddf/a00469.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]],
   ['numthreads',['numThreads',['../d9/da4/a00078.html#a66573c2e2d4c527ef49aff06e460a1ef',1,'Launcher']]]
 ];

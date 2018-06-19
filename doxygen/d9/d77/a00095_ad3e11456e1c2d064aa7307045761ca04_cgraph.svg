@@ -129,7 +129,7 @@
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="../../db/d2c/a00466.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" target="_top" xlink:title="Converts a LogMode value to corresponding name. ">
+<g id="a_node11"><a xlink:href="../../d2/d9d/a00464.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" target="_top" xlink:title="Converts a LogMode value to corresponding name. ">
 <polygon fill="white" stroke="black" points="153.5,-0 153.5,-30 274.5,-30 274.5,-0 153.5,-0"/>
 <text text-anchor="start" x="161.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">stride::ContactLogMode</text>
 <text text-anchor="middle" x="214" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">::ToString</text>

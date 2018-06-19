@@ -1,5 +1,3 @@
-<map id="gengeopop::GeoGridPopulator" name="gengeopop::GeoGridPopulator">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="294,155,409,232"/>
-<area shape="rect" id="node7" href="$db/df3/a00034.html" title="Configuration data when generating a GeoGrid. " alt="" coords="297,622,476,714"/>
-<area shape="rect" id="node8" href="$d9/d34/a00476.html" title="{double\n||}" alt="" coords="738,325,797,403"/>
+<map id="gengeopop::K12SchoolPopulator" name="gengeopop::K12SchoolPopulator">
+<area shape="rect" id="node2" href="$d1/d22/a00057.html" title="An interface for populators that provide a partial solution. " alt="" coords="11,5,208,171"/>
 </map>

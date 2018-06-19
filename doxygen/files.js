@@ -381,149 +381,147 @@ var files =
     [ "PartialPopulator.h", "dd/db5/a00365.html", [
       [ "PartialPopulator", "d1/d22/a00057.html", "d1/d22/a00057" ]
     ] ],
-    [ "pchheader.cpp", "d2/d3e/a00366.html", null ],
-    [ "pchheader.h", "df/dc2/a00367.html", null ],
-    [ "Person.cpp", "d8/d21/a00368.html", null ],
-    [ "Person.h", "df/dee/a00369.html", [
+    [ "Person.cpp", "d2/d3e/a00366.html", null ],
+    [ "Person.h", "df/dc2/a00367.html", [
       [ "Person", "d0/d5e/a00136.html", "d0/d5e/a00136" ]
     ] ],
-    [ "PersonsFile.cpp", "d3/d30/a00370.html", null ],
-    [ "PersonsFile.h", "d6/d80/a00371.html", [
+    [ "PersonsFile.cpp", "d8/d21/a00368.html", null ],
+    [ "PersonsFile.h", "df/dee/a00369.html", [
       [ "PersonsFile", "de/d76/a00134.html", "de/d76/a00134" ]
     ] ],
-    [ "PersonsViewer.cpp", "db/d7e/a00372.html", null ],
-    [ "PersonsViewer.h", "dc/de3/a00373.html", [
+    [ "PersonsViewer.cpp", "d3/d30/a00370.html", null ],
+    [ "PersonsViewer.h", "d6/d80/a00371.html", [
       [ "PersonsViewer", "d1/d0d/a00171.html", "d1/d0d/a00171" ]
     ] ],
-    [ "Population.cpp", "d5/db5/a00374.html", null ],
-    [ "Population.h", "dd/dcb/a00375.html", [
+    [ "Population.cpp", "db/d7e/a00372.html", null ],
+    [ "Population.h", "dc/de3/a00373.html", [
       [ "Population", "d2/df5/a00137.html", "d2/df5/a00137" ]
     ] ],
-    [ "PopulationBuilder.cpp", "d6/db8/a00376.html", null ],
-    [ "PrimaryCommunity.cpp", "d4/d13/a00377.html", null ],
-    [ "PrimaryCommunity.h", "d7/d08/a00378.html", [
+    [ "PopulationBuilder.cpp", "d5/db5/a00374.html", null ],
+    [ "PrimaryCommunity.cpp", "dd/dcb/a00375.html", null ],
+    [ "PrimaryCommunity.h", "d6/db8/a00376.html", [
       [ "PrimaryCommunity", "d3/d8b/a00059.html", "d3/d8b/a00059" ]
     ] ],
-    [ "PrimaryCommunityPopulator.cpp", "d8/d95/a00379.html", null ],
-    [ "PrimaryCommunityPopulator.h", "d8/ddd/a00380.html", [
+    [ "PrimaryCommunityPopulator.cpp", "d4/d13/a00377.html", null ],
+    [ "PrimaryCommunityPopulator.h", "d7/d08/a00378.html", [
       [ "PrimaryCommunityPopulator", "d9/d73/a00060.html", "d9/d73/a00060" ]
     ] ],
-    [ "RangeIndexer.h", "de/d08/a00381.html", "de/d08/a00381" ],
-    [ "ReaderFactory.cpp", "d3/d45/a00382.html", null ],
-    [ "ReaderFactory.h", "da/dee/a00383.html", [
+    [ "RangeIndexer.h", "d8/d95/a00379.html", "d8/d95/a00379" ],
+    [ "ReaderFactory.cpp", "d8/ddd/a00380.html", null ],
+    [ "ReaderFactory.h", "de/d08/a00381.html", [
       [ "ReaderFactory", "df/d03/a00062.html", "df/d03/a00062" ]
     ] ],
-    [ "RNEngineType.cpp", "d2/d56/a00384.html", "d2/d56/a00384" ],
-    [ "RNEngineType.h", "d5/d05/a00385.html", "d5/d05/a00385" ],
-    [ "RNManager.cpp", "dd/df5/a00386.html", "dd/df5/a00386" ],
-    [ "RNManager.h", "db/db9/a00387.html", [
+    [ "RNEngineType.cpp", "d3/d45/a00382.html", "d3/d45/a00382" ],
+    [ "RNEngineType.h", "da/dee/a00383.html", "da/dee/a00383" ],
+    [ "RNManager.cpp", "d2/d56/a00384.html", "d2/d56/a00384" ],
+    [ "RNManager.h", "d5/d05/a00385.html", [
       [ "RNManager", "d1/db7/a00157.html", "d1/db7/a00157" ],
       [ "Info", "d6/db8/a00158.html", "d6/db8/a00158" ]
     ] ],
-    [ "RunConfigManager.cpp", "d9/dc1/a00388.html", null ],
-    [ "RunConfigManager.h", "dc/dc9/a00389.html", [
+    [ "RunConfigManager.cpp", "dd/df5/a00386.html", null ],
+    [ "RunConfigManager.h", "db/db9/a00387.html", [
       [ "RunConfigManager", "de/db9/a00159.html", "de/db9/a00159" ]
     ] ],
-    [ "SecondaryCommunity.cpp", "d9/d0a/a00390.html", null ],
-    [ "SecondaryCommunity.h", "db/d95/a00391.html", [
+    [ "SecondaryCommunity.cpp", "d9/dc1/a00388.html", null ],
+    [ "SecondaryCommunity.h", "dc/dc9/a00389.html", [
       [ "SecondaryCommunity", "d1/d6f/a00063.html", "d1/d6f/a00063" ]
     ] ],
-    [ "SecondaryCommunityPopulator.cpp", "d4/d27/a00392.html", null ],
-    [ "SecondaryCommunityPopulator.h", "da/dbf/a00393.html", [
+    [ "SecondaryCommunityPopulator.cpp", "d9/d0a/a00390.html", null ],
+    [ "SecondaryCommunityPopulator.h", "db/d95/a00391.html", [
       [ "SecondaryCommunityPopulator", "df/d5f/a00064.html", "df/d5f/a00064" ]
     ] ],
-    [ "SegmentedVector.h", "d9/dad/a00394.html", [
+    [ "SegmentedVector.h", "d4/d27/a00392.html", [
       [ "SegmentedVector", "d1/dc1/a00092.html", "d1/dc1/a00092" ]
     ] ],
-    [ "Sim.cpp", "db/dbc/a00395.html", null ],
-    [ "Sim.h", "d9/da1/a00396.html", [
+    [ "Sim.cpp", "da/dbf/a00393.html", null ],
+    [ "Sim.h", "d9/dad/a00394.html", [
       [ "Sim", "de/d14/a00139.html", "de/d14/a00139" ]
     ] ],
-    [ "SimBuilder.cpp", "d7/d93/a00397.html", null ],
-    [ "SimBuilder.h", "d9/dd1/a00398.html", [
+    [ "SimBuilder.cpp", "db/dbc/a00395.html", null ],
+    [ "SimBuilder.h", "d9/da1/a00396.html", [
       [ "SimBuilder", "d5/db1/a00140.html", "d5/db1/a00140" ]
     ] ],
-    [ "SimRunner.cpp", "d1/d53/a00399.html", null ],
-    [ "SimRunner.h", "d9/d95/a00400.html", [
+    [ "SimRunner.cpp", "d7/d93/a00397.html", null ],
+    [ "SimRunner.h", "d9/dd1/a00398.html", [
       [ "SimRunner", "d5/d4e/a00141.html", "d5/d4e/a00141" ]
     ] ],
-    [ "SimWorker.cpp", "d7/d00/a00401.html", null ],
-    [ "SimWorker.h", "d4/d6d/a00402.html", [
+    [ "SimWorker.cpp", "d1/d53/a00399.html", null ],
+    [ "SimWorker.h", "d9/d95/a00400.html", [
       [ "SimWorker", "d2/d82/a00142.html", "d2/d82/a00142" ]
     ] ],
-    [ "SliceIndexer.h", "d0/da0/a00403.html", "d0/da0/a00403" ],
-    [ "Stopwatch.h", "d9/de6/a00404.html", "d9/de6/a00404" ],
-    [ "StringUtils.h", "de/de8/a00405.html", "de/de8/a00405" ],
-    [ "Subject.cpp", "d1/d8b/a00406.html", null ],
-    [ "sim/event/Subject.h", "d1/d98/a00407.html", null ],
-    [ "sim/python/Subject.h", "dd/dea/a00408.html", [
+    [ "SliceIndexer.h", "d7/d00/a00401.html", "d7/d00/a00401" ],
+    [ "Stopwatch.h", "d4/d6d/a00402.html", "d4/d6d/a00402" ],
+    [ "StringUtils.h", "d0/da0/a00403.html", "d0/da0/a00403" ],
+    [ "Subject.cpp", "d9/de6/a00404.html", null ],
+    [ "sim/event/Subject.h", "de/de8/a00405.html", null ],
+    [ "sim/python/Subject.h", "d1/d8b/a00406.html", [
       [ "Subject", "d4/ddd/a00138.html", "d4/ddd/a00138" ]
     ] ],
-    [ "util/Subject.h", "de/d3d/a00409.html", [
+    [ "util/Subject.h", "d1/d98/a00407.html", [
       [ "Subject", "db/d44/a00162.html", "db/d44/a00162" ]
     ] ],
-    [ "SubMunicipalitiesCSVReader.cpp", "d8/d91/a00410.html", null ],
-    [ "SubMunicipalitiesCSVReader.h", "d2/db6/a00411.html", [
+    [ "SubMunicipalitiesCSVReader.cpp", "dd/dea/a00408.html", null ],
+    [ "SubMunicipalitiesCSVReader.h", "de/d3d/a00409.html", [
       [ "SubMunicipalitiesCSVReader", "de/de1/a00065.html", "de/de1/a00065" ]
     ] ],
-    [ "SubMunicipalitiesReader.cpp", "d9/d72/a00412.html", null ],
-    [ "SubMunicipalitiesReader.h", "da/d9c/a00413.html", [
+    [ "SubMunicipalitiesReader.cpp", "d8/d91/a00410.html", null ],
+    [ "SubMunicipalitiesReader.h", "d2/db6/a00411.html", [
       [ "SubMunicipalitiesReader", "d9/db3/a00066.html", "d9/db3/a00066" ]
     ] ],
-    [ "SummaryFile.cpp", "d4/dbc/a00414.html", null ],
-    [ "SummaryFile.h", "d0/dd6/a00415.html", [
+    [ "SummaryFile.cpp", "d9/d72/a00412.html", null ],
+    [ "SummaryFile.h", "da/d9c/a00413.html", [
       [ "SummaryFile", "d5/d5b/a00135.html", "d5/d5b/a00135" ]
     ] ],
-    [ "SummaryViewer.cpp", "df/d15/a00416.html", null ],
-    [ "SummaryViewer.h", "d8/de7/a00417.html", [
+    [ "SummaryViewer.cpp", "d4/dbc/a00414.html", null ],
+    [ "SummaryViewer.h", "d0/dd6/a00415.html", [
       [ "SummaryViewer", "d6/dfb/a00172.html", "d6/dfb/a00172" ]
     ] ],
-    [ "SurveySeeder.cpp", "de/df7/a00418.html", null ],
-    [ "SurveySeeder.h", "d3/d29/a00419.html", [
+    [ "SurveySeeder.cpp", "df/d15/a00416.html", null ],
+    [ "SurveySeeder.h", "d8/de7/a00417.html", [
       [ "SurveySeeder", "d7/dce/a00143.html", "d7/dce/a00143" ]
     ] ],
-    [ "SVIterator.h", "db/d4f/a00420.html", "db/d4f/a00420" ],
-    [ "TestCalibrationRunner.cpp", "d2/de1/a00421.html", null ],
-    [ "TestCalibrationRunner.h", "db/d43/a00422.html", [
+    [ "SVIterator.h", "de/df7/a00418.html", "de/df7/a00418" ],
+    [ "TestCalibrationRunner.cpp", "d3/d29/a00419.html", null ],
+    [ "TestCalibrationRunner.h", "db/d4f/a00420.html", [
       [ "TestCalibrationRunner", "da/da0/a00009.html", "da/da0/a00009" ]
     ] ],
-    [ "ThreadException.h", "d1/d05/a00423.html", [
+    [ "ThreadException.h", "d2/de1/a00421.html", [
       [ "ThreadException", "dc/ddf/a00067.html", "dc/ddf/a00067" ],
       [ "RunType", "da/d24/a00068.html", "da/d24/a00068" ],
       [ "RunType< void >", "d4/d31/a00069.html", "d4/d31/a00069" ]
     ] ],
-    [ "Threshold.h", "dc/df3/a00424.html", [
+    [ "Threshold.h", "db/d43/a00422.html", [
       [ "Threshold", "d5/da7/a00144.html", "d5/da7/a00144" ]
     ] ],
-    [ "TimeStamp.h", "dc/d2f/a00425.html", "dc/d2f/a00425" ],
-    [ "TimeToString.h", "d7/db9/a00426.html", [
+    [ "TimeStamp.h", "d1/d05/a00423.html", "d1/d05/a00423" ],
+    [ "TimeToString.h", "dc/df3/a00424.html", [
       [ "TimeToString", "d0/d48/a00165.html", "d0/d48/a00165" ]
     ] ],
-    [ "TransmissionProfile.cpp", "da/db6/a00427.html", null ],
-    [ "TransmissionProfile.h", "d4/dd3/a00428.html", [
+    [ "TransmissionProfile.cpp", "dc/d2f/a00425.html", null ],
+    [ "TransmissionProfile.h", "d7/db9/a00426.html", [
       [ "TransmissionProfile", "da/ddb/a00145.html", "da/ddb/a00145" ]
     ] ],
-    [ "TravellerProfile.cpp", "d4/d53/a00429.html", null ],
-    [ "TravellerProfile.h", "dc/d0c/a00430.html", [
+    [ "TravellerProfile.cpp", "da/db6/a00427.html", null ],
+    [ "TravellerProfile.h", "d4/dd3/a00428.html", [
       [ "TravellerProfile", "d9/db6/a00146.html", "d9/db6/a00146" ]
     ] ],
-    [ "TravellerProfileBuilder.cpp", "df/d70/a00431.html", null ],
-    [ "TravellerProfileBuilder.h", "d9/dd5/a00432.html", [
+    [ "TravellerProfileBuilder.cpp", "d4/d53/a00429.html", null ],
+    [ "TravellerProfileBuilder.h", "dc/d0c/a00430.html", [
       [ "TravellerProfileBuilder", "d0/d4a/a00147.html", "d0/d4a/a00147" ]
     ] ],
-    [ "Vaccination.h", "dd/d07/a00433.html", [
+    [ "Vaccination.h", "df/d70/a00431.html", [
       [ "Vaccination", "d9/d38/a00166.html", "d9/d38/a00166" ]
     ] ],
-    [ "Workplace.cpp", "d1/d7e/a00434.html", null ],
-    [ "Workplace.h", "d0/dc5/a00435.html", [
+    [ "Workplace.cpp", "d9/dd5/a00432.html", null ],
+    [ "Workplace.h", "dd/d07/a00433.html", [
       [ "Workplace", "d2/db1/a00070.html", "d2/db1/a00070" ]
     ] ],
-    [ "WorkplaceGenerator.cpp", "d4/d82/a00436.html", null ],
-    [ "WorkplaceGenerator.h", "d4/da8/a00437.html", [
+    [ "WorkplaceGenerator.cpp", "d1/d7e/a00434.html", null ],
+    [ "WorkplaceGenerator.h", "d0/dc5/a00435.html", [
       [ "WorkplaceGenerator", "d0/d89/a00071.html", "d0/d89/a00071" ]
     ] ],
-    [ "WorkplacePopulator.cpp", "dd/dfd/a00438.html", null ],
-    [ "WorkplacePopulator.h", "d9/d3a/a00439.html", [
+    [ "WorkplacePopulator.cpp", "d4/d82/a00436.html", null ],
+    [ "WorkplacePopulator.h", "d4/da8/a00437.html", [
       [ "WorkplacePopulator", "d6/d2c/a00072.html", "d6/d2c/a00072" ]
     ] ]
 ];

@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d7/db5/a00472.html#a01882a252a5e262d442f9a8b8f64e3ef" target="_top" xlink:title="Trim characters at both ends of string. ">
+<g id="a_node3"><a xlink:href="../../d0/d29/a00470.html#a01882a252a5e262d442f9a8b8f64e3ef" target="_top" xlink:title="Trim characters at both ends of string. ">
 <polygon fill="white" stroke="black" points="283.5,-87.5 283.5,-106.5 368.5,-106.5 368.5,-87.5 283.5,-87.5"/>
 <text text-anchor="middle" x="326" y="-94.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::Trim</text>
 </a>
@@ -43,7 +43,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d7/db5/a00472.html#a600b27c06281da416f50a129c50b19f2" target="_top" xlink:title="Split a string (in order of occurence) by splitting it on the given delimiters. ">
+<g id="a_node6"><a xlink:href="../../d0/d29/a00470.html#a600b27c06281da416f50a129c50b19f2" target="_top" xlink:title="Split a string (in order of occurence) by splitting it on the given delimiters. ">
 <polygon fill="white" stroke="black" points="283.5,-49.5 283.5,-68.5 368.5,-68.5 368.5,-49.5 283.5,-49.5"/>
 <text text-anchor="middle" x="326" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::Split</text>
 </a>
@@ -70,7 +70,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d7/db5/a00472.html#a2c5aacbb4d606af3e43a96e8aad692cf" target="_top" xlink:title="Trim characters at left end of string. ">
+<g id="a_node4"><a xlink:href="../../d0/d29/a00470.html#a2c5aacbb4d606af3e43a96e8aad692cf" target="_top" xlink:title="Trim characters at left end of string. ">
 <polygon fill="white" stroke="black" points="411.5,-106.5 411.5,-125.5 512.5,-125.5 512.5,-106.5 411.5,-106.5"/>
 <text text-anchor="middle" x="462" y="-113.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::TrimLeft</text>
 </a>
@@ -83,7 +83,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="../../d7/db5/a00472.html#a9fa614ccd671679a0e1feff6e0f6da33" target="_top" xlink:title="Trim characters at right end of string. ">
+<g id="a_node5"><a xlink:href="../../d0/d29/a00470.html#a9fa614ccd671679a0e1feff6e0f6da33" target="_top" xlink:title="Trim characters at right end of string. ">
 <polygon fill="white" stroke="black" points="408,-68.5 408,-87.5 516,-87.5 516,-68.5 408,-68.5"/>
 <text text-anchor="middle" x="462" y="-75.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::TrimRight</text>
 </a>
@@ -96,7 +96,7 @@
 </g>
 <!-- Node8 -->
 <g id="node8" class="node"><title>Node8</title>
-<g id="a_node8"><a xlink:href="../../d7/db5/a00472.html#a256d75fffdad0f4f49c6e58c69f76e20" target="_top" xlink:title="Builds a string representation of a value of type T. ">
+<g id="a_node8"><a xlink:href="../../d0/d29/a00470.html#a256d75fffdad0f4f49c6e58c69f76e20" target="_top" xlink:title="Builds a string representation of a value of type T. ">
 <polygon fill="white" stroke="black" points="411,-5.5 411,-24.5 513,-24.5 513,-5.5 411,-5.5"/>
 <text text-anchor="middle" x="462" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::ToString</text>
 </a>

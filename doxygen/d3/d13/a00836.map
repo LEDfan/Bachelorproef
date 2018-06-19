@@ -1,8 +1,4 @@
-<map id="SummaryFile.h" name="SummaryFile.h">
-<area shape="rect" id="node2" href="$d4/dbc/a00414.html" title="Implementation of the SummaryFile class. " alt="" coords="59,80,183,107"/>
-<area shape="rect" id="node3" href="$d8/de7/a00417.html" title="Observer for Persons output. " alt="" coords="207,80,336,107"/>
-<area shape="rect" id="node4" href="$d4/dce/a00337.html" title="Launcher.cpp" alt="" coords="5,155,104,181"/>
-<area shape="rect" id="node5" href="$d8/d00/a00186.html" title="Header for the command line controller. " alt="" coords="129,155,263,181"/>
-<area shape="rect" id="node6" href="$d5/df1/a00206.html" title="Header for the command line controller. " alt="" coords="287,155,405,181"/>
-<area shape="rect" id="node7" href="$df/d15/a00416.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="430,155,572,181"/>
+<map id="SurveySeeder.h" name="SurveySeeder.h">
+<area shape="rect" id="node2" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="543,88,667,115"/>
+<area shape="rect" id="node3" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="5,171,128,197"/>
 </map>

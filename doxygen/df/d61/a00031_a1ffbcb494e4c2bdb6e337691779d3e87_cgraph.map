@@ -1,4 +1,4 @@
 <map id="gengeopop::GeoGrid::InBox" name="gengeopop::GeoGrid::InBox">
 <area shape="rect" id="node2" href="$df/d61/a00031.html#aa4c75377c4a4c0376997e0851b68e886" title="Checks whether the GeoGrid is finalized and thus certain operations can(not) be used. " alt="" coords="213,5,355,46"/>
-<area shape="rect" id="node3" href="$d1/d0b/a00452.html#ac0751c01f18f5876055a60905f544670" title="Build a Collector, useful for type inference. " alt="" coords="195,71,373,97"/>
+<area shape="rect" id="node3" href="$de/df4/a00450.html#ac0751c01f18f5876055a60905f544670" title="Build a Collector, useful for type inference. " alt="" coords="195,71,373,97"/>
 </map>

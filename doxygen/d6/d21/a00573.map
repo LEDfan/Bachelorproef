@@ -1,5 +1,22 @@
-<map id="ContactCenterViewerBackend.h" name="ContactCenterViewerBackend.h">
-<area shape="rect" id="node2" href="$d6/d82/a00293.html" title="GuiController.cpp" alt="" coords="5,80,128,107"/>
-<area shape="rect" id="node3" href="$da/d31/a00234.html" title="ContactCenterViewerBackend.cpp" alt="" coords="153,80,375,107"/>
-<area shape="rect" id="node4" href="$db/ddc/a00353.html" title="Map.cpp" alt="" coords="400,80,472,107"/>
+<map id="ContactHandler.h" name="ContactHandler.h">
+<area shape="rect" id="node2" href="$d8/dfc/a00327.html" title="Header for the Infector class. " alt="" coords="215,80,291,107"/>
+<area shape="rect" id="node7" href="$da/d50/a00301.html" title="Header file for the HealthSeeder. " alt="" coords="359,80,469,107"/>
+<area shape="rect" id="node9" href="$d9/dad/a00394.html" title="Header for the Simulator class. " alt="" coords="1325,80,1380,107"/>
+<area shape="rect" id="node3" href="$de/dc8/a00325.html" title="Implementation of Infector algorithms. " alt="" coords="5,155,96,181"/>
+<area shape="rect" id="node4" href="$dd/d4e/a00329.html" title="Header for the InfectorMap. " alt="" coords="121,155,223,181"/>
+<area shape="rect" id="node6" href="$d8/d8e/a00344.html" title="Implementation of Infector algorithms. " alt="" coords="248,155,339,181"/>
+<area shape="rect" id="node5" href="$db/dbc/a00395.html" title="Implementation for the SimBuilder class. " alt="" coords="321,229,431,256"/>
+<area shape="rect" id="node8" href="$db/da2/a00300.html" title="Implementation for HelthSeeder class. " alt="" coords="414,155,540,181"/>
+<area shape="rect" id="node10" href="$d3/db1/a00200.html" title="Calibrator.cpp" alt="" coords="617,155,719,181"/>
+<area shape="rect" id="node11" href="$d9/d39/a00257.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="744,155,879,181"/>
+<area shape="rect" id="node12" href="$d9/d5e/a00295.html" title="GuiControllerBackend.cpp" alt="" coords="905,155,1079,181"/>
+<area shape="rect" id="node13" href="$d1/d53/a00399.html" title="SimWorker.cpp" alt="" coords="1104,155,1215,181"/>
+<area shape="rect" id="node14" href="$d3/dc9/a00355.html" title="MapViewer.cpp" alt="" coords="1240,155,1351,181"/>
+<area shape="rect" id="node15" href="$da/dbf/a00393.html" title="Implementation for the Simulator class. " alt="" coords="1375,155,1445,181"/>
+<area shape="rect" id="node16" href="$d7/d93/a00397.html" title="Implementation for SimRunner. " alt="" coords="1469,155,1580,181"/>
+<area shape="rect" id="node17" href="$dd/d4c/a00177.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1606,155,1740,181"/>
+<area shape="rect" id="node18" href="$dc/d31/a00208.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1765,155,1867,181"/>
+<area shape="rect" id="node19" href="$de/d55/a00323.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1891,155,2025,181"/>
+<area shape="rect" id="node20" href="$d3/d30/a00370.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2050,155,2184,181"/>
+<area shape="rect" id="node21" href="$d4/dbc/a00414.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2209,155,2351,181"/>
 </map>

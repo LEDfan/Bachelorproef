@@ -1,31 +1,12 @@
-<map id="SubMunicipalitiesCSVReader.cpp" name="SubMunicipalitiesCSVReader.cpp">
-<area shape="rect" id="node2" href="$d2/db6/a00411.html" title="SubMunicipalitiesCSVReader.h" alt="" coords="4224,80,4429,107"/>
-<area shape="rect" id="node77" href="$d0/d1f/a00247.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="4412,493,4493,520"/>
-<area shape="rect" id="node78" href="$de/dbc/a00249.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="4751,584,4839,611"/>
-<area shape="rect" id="node3" href="$da/d9c/a00413.html" title="SubMunicipalitiesReader.h" alt="" coords="4201,155,4377,181"/>
-<area shape="rect" id="node4" href="$d9/d2a/a00270.html" title="gengeopop/GeoGrid.h" alt="" coords="975,229,1123,256"/>
-<area shape="rect" id="node66" href="$d3/d93/a00341.html" title="Location.h" alt="" coords="1061,403,1143,429"/>
-<area shape="rect" id="node8" href="$dd/dcb/a00375.html" title="Header file for the core Population class. " alt="" coords="3035,312,3153,339"/>
-<area shape="rect" id="node20" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="2291,584,2424,611"/>
-<area shape="rect" id="node63" href="$dd/d1d/a00336.html" title="KdTree.h" alt="" coords="1188,584,1261,611"/>
-<area shape="rect" id="node74" href="$db/d12/a00268.html" title="GeoAggregator.h" alt="" coords="787,312,907,339"/>
-<area shape="rect" id="node9" href="$d8/df1/a00174.html" title="Base Class for PopBuilders. " alt="" coords="3802,493,3947,520"/>
-<area shape="rect" id="node13" href="$dd/de2/a00320.html" title="Initialize populations. " alt="" coords="3533,403,3667,429"/>
-<area shape="rect" id="node19" href="$d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2417,403,2572,429"/>
-<area shape="rect" id="node24" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2533,493,2691,520"/>
-<area shape="rect" id="node28" href="$df/dc2/a00367.html" title="util/pchheader.h" alt="" coords="2292,493,2407,520"/>
-<area shape="rect" id="node35" href="$d0/def/a00256.html" title="Initialize populations. " alt="" coords="3741,403,3904,429"/>
-<area shape="rect" id="node36" href="$d1/dd4/a00267.html" title="Initialize populations. " alt="" coords="3979,403,4124,429"/>
-<area shape="rect" id="node37" href="$df/dee/a00369.html" title="Header file for the Person class. " alt="" coords="2933,403,3032,429"/>
-<area shape="rect" id="node41" href="$db/db9/a00387.html" title="Interface of RNManager. " alt="" coords="3226,584,3349,611"/>
-<area shape="rect" id="node51" href="$dc/d52/a00183.html" title="Interface/Implementation of Any. " alt="" coords="4149,403,4225,429"/>
-<area shape="rect" id="node56" href="$de/d08/a00381.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="1989,403,2123,429"/>
-<area shape="rect" id="node14" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="2335,667,2497,693"/>
-<area shape="rect" id="node21" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="2572,667,2751,693"/>
-<area shape="rect" id="node29" href="$db/d4f/a00420.html" title="Interface/Implementation for SVIterator. " alt="" coords="471,667,584,693"/>
-<area shape="rect" id="node32" href="$d9/dad/a00394.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="874,584,1032,611"/>
-<area shape="rect" id="node38" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="3193,493,3313,520"/>
-<area shape="rect" id="node39" href="$dc/d0c/a00430.html" title="pool/TravellerProfile.h" alt="" coords="2919,493,3067,520"/>
-<area shape="rect" id="node42" href="$d5/d05/a00385.html" title="Interface of Random Engine Type. " alt="" coords="3883,667,4005,693"/>
-<area shape="rect" id="node79" href="$de/de8/a00405.html" title="Miscellaneous string utilities. " alt="" coords="4575,667,4689,693"/>
+<map id="SubMunicipalitiesReader.h" name="SubMunicipalitiesReader.h">
+<area shape="rect" id="node2" href="$da/d53/a00265.html" title="GenGeoPopController.h" alt="" coords="329,80,488,107"/>
+<area shape="rect" id="node7" href="$de/d08/a00381.html" title="ReaderFactory.h" alt="" coords="513,80,631,107"/>
+<area shape="rect" id="node9" href="$de/d3d/a00409.html" title="SubMunicipalitiesCSVReader.h" alt="" coords="656,80,861,107"/>
+<area shape="rect" id="node11" href="$d8/d91/a00410.html" title="SubMunicipalitiesReader.cpp" alt="" coords="886,80,1076,107"/>
+<area shape="rect" id="node3" href="$d3/dcc/a00264.html" title="GenGeoPopController.cpp" alt="" coords="335,155,509,181"/>
+<area shape="rect" id="node4" href="$df/d03/a00348.html" title="main.cpp" alt="" coords="535,155,608,181"/>
+<area shape="rect" id="node5" href="$d5/d35/a00266.html" title="Initialize populations: implementation. " alt="" coords="5,155,139,181"/>
+<area shape="rect" id="node6" href="$de/dab/a00319.html" title="Initialize populations: implementation. " alt="" coords="164,155,311,181"/>
+<area shape="rect" id="node8" href="$d8/ddd/a00380.html" title="ReaderFactory.cpp" alt="" coords="633,155,767,181"/>
+<area shape="rect" id="node10" href="$dd/dea/a00408.html" title="SubMunicipalitiesCSVReader.cpp" alt="" coords="791,155,1009,181"/>
 </map>

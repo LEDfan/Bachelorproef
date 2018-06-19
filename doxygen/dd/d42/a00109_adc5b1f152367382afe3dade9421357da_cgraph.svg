@@ -170,7 +170,7 @@ var sectionId = 'dynsection-1';
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d7/db5/a00472.html#aa45ab4a5a30f65dcd1bf25c3d095825b" target="_top" xlink:title="Builds a string with lower case characters only. ">
+<g id="a_node10"><a xlink:href="../../d0/d29/a00470.html#aa45ab4a5a30f65dcd1bf25c3d095825b" target="_top" xlink:title="Builds a string with lower case characters only. ">
 <polygon fill="white" stroke="black" points="346.5,-207.5 346.5,-226.5 449.5,-226.5 449.5,-207.5 346.5,-207.5"/>
 <text text-anchor="middle" x="398" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::ToLower</text>
 </a>

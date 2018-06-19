@@ -203,7 +203,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node9 -->
 <g id="node9" class="node"><title>Node9</title>
-<g id="a_node9"><a xlink:href="../../d7/d5e/a00467.html#af529300a78547c29c95b81ad8ac62afe" target="_top" xlink:title="Converts a string with name to Id. ">
+<g id="a_node9"><a xlink:href="../../db/de0/a00465.html#af529300a78547c29c95b81ad8ac62afe" target="_top" xlink:title="Converts a string with name to Id. ">
 <polygon fill="white" stroke="black" points="608,-120 608,-150 730,-150 730,-120 608,-120"/>
 <text text-anchor="start" x="616" y="-138" font-family="Helvetica,sans-Serif" font-size="10.00">stride::ContactPoolType</text>
 <text text-anchor="middle" x="669" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">::ToType</text>
@@ -217,7 +217,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d7/db5/a00472.html#a0c42ba6e336bed67e5a0bdd053802c2a" target="_top" xlink:title="stride::util::para_seed">
+<g id="a_node10"><a xlink:href="../../d0/d29/a00470.html#a0c42ba6e336bed67e5a0bdd053802c2a" target="_top" xlink:title="stride::util::para_seed">
 <polygon fill="white" stroke="black" points="614,-81.5 614,-100.5 724,-100.5 724,-81.5 614,-81.5"/>
 <text text-anchor="middle" x="669" y="-88.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::para_seed</text>
 </a>

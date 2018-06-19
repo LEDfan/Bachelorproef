@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d7/db5/a00472.html#a256d75fffdad0f4f49c6e58c69f76e20" target="_top" xlink:title="Builds a string representation of a value of type T. ">
+<g id="a_node2"><a xlink:href="../../d0/d29/a00470.html#a256d75fffdad0f4f49c6e58c69f76e20" target="_top" xlink:title="Builds a string representation of a value of type T. ">
 <polygon fill="white" stroke="black" points="128,-5.5 128,-24.5 230,-24.5 230,-5.5 128,-5.5"/>
 <text text-anchor="middle" x="179" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::ToString</text>
 </a>

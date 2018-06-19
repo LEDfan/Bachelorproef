@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['safe_5fcast',['safe_cast',['../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359',1,'stride::util']]],
+  ['safe_5fcast',['safe_cast',['../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359',1,'stride::util']]],
   ['sample',['Sample',['../d8/d17/a00114.html#a562b022d2c7f2836b4400e7d19e1b040',1,'stride::HealthSeeder']]],
   ['saveconfig',['SaveConfig',['../d9/da4/a00078.html#a4568f237cc4481a8e89141cf302c3361',1,'Launcher']]],
   ['savegeogridtofile',['SaveGeoGridToFile',['../d8/d84/a00001.html#a5d45762f589c8487fc302921b5384d9d',1,'Backend']]],
@@ -84,7 +84,7 @@ var searchData=
   ['size',['size',['../df/d61/a00031.html#ac9ad4de211352b09dfa99ebee6fe86cd',1,'gengeopop::GeoGrid::size()'],['../d1/dc1/a00092.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector::size()'],['../d1/dea/a00054.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe',1,'gengeopop::KdTree::Size()']]],
   ['sliceindexer',['SliceIndexer',['../de/d38/a00160.html#a9210f4ffebabcdad9931ad724214b673',1,'stride::util::SliceIndexer']]],
   ['sortmembers',['SortMembers',['../d4/d3a/a00101.html#a6c90e9734ee7c6566bdf1f4416e99fd8',1,'stride::ContactPool']]],
-  ['split',['Split',['../d7/db5/a00472.html#a600b27c06281da416f50a129c50b19f2',1,'stride::util']]],
+  ['split',['Split',['../d0/d29/a00470.html#a600b27c06281da416f50a129c50b19f2',1,'stride::util']]],
   ['start',['Start',['../d6/d7d/a00161.html#acaf0b5f9f645a7dd6420420443de5a96',1,'stride::util::Stopwatch']]],
   ['startinfection',['StartInfection',['../d3/d00/a00113.html#a5d85541b8e22aeaa75b364a454f59088',1,'stride::Health']]],
   ['stepday',['StepDay',['../db/df8/a00076.html#ae36c8a0c983cc8eb2b9363548ddb79e9',1,'GuiControllerBackend']]],

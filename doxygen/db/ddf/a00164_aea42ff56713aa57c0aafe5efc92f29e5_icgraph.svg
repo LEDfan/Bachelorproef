@@ -17,7 +17,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../d7/db5/a00472.html#a93f9f2ea967f7688a4ed4ef10852b566" target="_top" xlink:title="TimeStamp helper inserts string representation in output stream. ">
+<g id="a_node2"><a xlink:href="../../d0/d29/a00470.html#a93f9f2ea967f7688a4ed4ef10852b566" target="_top" xlink:title="TimeStamp helper inserts string representation in output stream. ">
 <polygon fill="white" stroke="black" points="152.5,-5.5 152.5,-24.5 265.5,-24.5 265.5,-5.5 152.5,-5.5"/>
 <text text-anchor="middle" x="209" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::operator&lt;&lt;</text>
 </a>

@@ -1,7 +1,4 @@
 <map id="Immunizer.h" name="Immunizer.h">
-<area shape="rect" id="node2" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="839,80,972,107"/>
-<area shape="rect" id="node13" href="$d9/dad/a00394.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="299,80,457,107"/>
-<area shape="rect" id="node3" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="1192,155,1371,181"/>
-<area shape="rect" id="node5" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="955,155,1117,181"/>
-<area shape="rect" id="node14" href="$db/d4f/a00420.html" title="Interface/Implementation for SVIterator. " alt="" coords="83,155,175,181"/>
+<area shape="rect" id="node2" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="543,88,667,115"/>
+<area shape="rect" id="node3" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="5,171,128,197"/>
 </map>

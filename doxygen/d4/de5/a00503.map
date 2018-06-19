@@ -1,26 +1,4 @@
-<map id="BeliefSeeder.cpp" name="BeliefSeeder.cpp">
-<area shape="rect" id="node2" href="$d7/d6e/a00190.html" title="Header file for the HealthSeeder. " alt="" coords="769,80,876,107"/>
-<area shape="rect" id="node7" href="$db/db9/a00387.html" title="Interface of RNManager. " alt="" coords="402,344,525,371"/>
-<area shape="rect" id="node19" href="$dd/dcb/a00375.html" title="Header file for the core Population class. " alt="" coords="1774,80,1892,107"/>
-<area shape="rect" id="node3" href="$d4/d6f/a00315.html" title="Header file for Imitation belief policy. " alt="" coords="741,155,904,197"/>
-<area shape="rect" id="node6" href="$d4/def/a00359.html" title="Header file for NoBelief class. " alt="" coords="553,155,716,197"/>
-<area shape="rect" id="node4" href="$da/d15/a00188.html" title="Header file for Belief. " alt="" coords="669,246,832,287"/>
-<area shape="rect" id="node8" href="$d5/d05/a00385.html" title="Interface of Random Engine Type. " alt="" coords="185,427,308,453"/>
-<area shape="rect" id="node20" href="$d8/df1/a00174.html" title="Base Class for PopBuilders. " alt="" coords="1455,253,1600,280"/>
-<area shape="rect" id="node23" href="$dd/de2/a00320.html" title="Initialize populations. " alt="" coords="2211,163,2344,189"/>
-<area shape="rect" id="node28" href="$d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="3101,163,3256,189"/>
-<area shape="rect" id="node33" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="3099,253,3257,280"/>
-<area shape="rect" id="node37" href="$df/dc2/a00367.html" title="util/pchheader.h" alt="" coords="3443,253,3557,280"/>
-<area shape="rect" id="node45" href="$d0/def/a00256.html" title="Initialize populations. " alt="" coords="1335,163,1497,189"/>
-<area shape="rect" id="node46" href="$d1/dd4/a00267.html" title="Initialize populations. " alt="" coords="1573,163,1717,189"/>
-<area shape="rect" id="node47" href="$df/dee/a00369.html" title="Header file for the Person class. " alt="" coords="2833,163,2932,189"/>
-<area shape="rect" id="node51" href="$dc/d52/a00183.html" title="Interface/Implementation of Any. " alt="" coords="1132,344,1208,371"/>
-<area shape="rect" id="node57" href="$de/d08/a00381.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="2369,163,2503,189"/>
-<area shape="rect" id="node24" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="2847,427,3009,453"/>
-<area shape="rect" id="node29" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="2719,344,2852,371"/>
-<area shape="rect" id="node30" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="2465,427,2644,453"/>
-<area shape="rect" id="node38" href="$db/d4f/a00420.html" title="Interface/Implementation for SVIterator. " alt="" coords="3627,427,3740,453"/>
-<area shape="rect" id="node42" href="$d9/dad/a00394.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="3433,344,3591,371"/>
-<area shape="rect" id="node48" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="2853,253,2973,280"/>
-<area shape="rect" id="node49" href="$dc/d0c/a00430.html" title="pool/TravellerProfile.h" alt="" coords="2579,253,2727,280"/>
+<map id="BeliefSeeder.h" name="BeliefSeeder.h">
+<area shape="rect" id="node2" href="$da/deb/a00189.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,80,125,107"/>
+<area shape="rect" id="node3" href="$db/dbc/a00395.html" title="Implementation for the SimBuilder class. " alt="" coords="150,80,260,107"/>
 </map>

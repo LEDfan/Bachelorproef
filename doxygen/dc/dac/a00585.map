@@ -1,9 +1,3 @@
-<map id="ContactPoolSys.h" name="ContactPoolSys.h">
-<area shape="rect" id="node2" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="256,155,389,181"/>
-<area shape="rect" id="node5" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="427,229,589,256"/>
-<area shape="rect" id="node13" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="546,80,704,107"/>
-<area shape="rect" id="node17" href="$df/dc2/a00367.html" title="util/pchheader.h" alt="" coords="972,80,1087,107"/>
-<area shape="rect" id="node3" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="80,229,259,256"/>
-<area shape="rect" id="node18" href="$db/d4f/a00420.html" title="Interface/Implementation for SVIterator. " alt="" coords="1201,229,1313,256"/>
-<area shape="rect" id="node22" href="$d9/dad/a00394.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="950,155,1108,181"/>
+<map id="ContactPoolType.cpp" name="ContactPoolType.cpp">
+<area shape="rect" id="node2" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="142,80,276,107"/>
 </map>

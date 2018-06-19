@@ -1,9 +1,4 @@
-<map id="BoxplotData.h" name="BoxplotData.h">
-<area shape="rect" id="node2" href="$dd/da2/a00192.html" title="Boxplot.h" alt="" coords="405,80,481,107"/>
-<area shape="rect" id="node7" href="$d3/d2a/a00195.html" title="BoxplotGenerator.h" alt="" coords="565,80,699,107"/>
-<area shape="rect" id="node3" href="$d9/dd0/a00191.html" title="Boxplot.cpp" alt="" coords="5,155,96,181"/>
-<area shape="rect" id="node4" href="$d7/da0/a00198.html" title="CalibrationRunner.cpp" alt="" coords="557,155,707,181"/>
-<area shape="rect" id="node5" href="$dc/d55/a00226.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="120,155,329,181"/>
-<area shape="rect" id="node6" href="$d2/de1/a00421.html" title="TestCalibrationRunner.cpp" alt="" coords="355,155,532,181"/>
-<area shape="rect" id="node8" href="$dc/d57/a00194.html" title="BoxplotGenerator.cpp" alt="" coords="731,155,879,181"/>
+<map id="BoxplotGenerator.h" name="BoxplotGenerator.h">
+<area shape="rect" id="node4" href="$d2/daf/a00346.html" title="Logging (spdlog) utilities. " alt="" coords="339,80,441,107"/>
+<area shape="rect" id="node8" href="$dd/df4/a00193.html" title="BoxplotData.h" alt="" coords="127,80,232,107"/>
 </map>

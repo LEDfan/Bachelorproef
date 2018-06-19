@@ -1,17 +1,3 @@
-<map id="InfectorExec.h" name="InfectorExec.h">
-<area shape="rect" id="node2" href="$dd/d4e/a00329.html" title="Header for the InfectorMap. " alt="" coords="198,80,300,107"/>
-<area shape="rect" id="node4" href="$d9/da1/a00396.html" title="Header for the Simulator class. " alt="" coords="848,80,903,107"/>
-<area shape="rect" id="node3" href="$d7/d93/a00397.html" title="Implementation for the SimBuilder class. " alt="" coords="5,155,115,181"/>
-<area shape="rect" id="node5" href="$d3/db1/a00200.html" title="Calibrator.cpp" alt="" coords="139,155,241,181"/>
-<area shape="rect" id="node6" href="$d9/d39/a00257.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="267,155,401,181"/>
-<area shape="rect" id="node7" href="$d9/d5e/a00295.html" title="GuiControllerBackend.cpp" alt="" coords="427,155,601,181"/>
-<area shape="rect" id="node8" href="$d7/d00/a00401.html" title="SimWorker.cpp" alt="" coords="627,155,737,181"/>
-<area shape="rect" id="node9" href="$d3/dc9/a00355.html" title="MapViewer.cpp" alt="" coords="763,155,873,181"/>
-<area shape="rect" id="node10" href="$db/dbc/a00395.html" title="Implementation for the Simulator class. " alt="" coords="898,155,968,181"/>
-<area shape="rect" id="node11" href="$d1/d53/a00399.html" title="Implementation for SimRunner. " alt="" coords="992,155,1103,181"/>
-<area shape="rect" id="node12" href="$dd/d4c/a00177.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1129,155,1263,181"/>
-<area shape="rect" id="node13" href="$dc/d31/a00208.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1287,155,1389,181"/>
-<area shape="rect" id="node14" href="$de/d55/a00323.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1414,155,1548,181"/>
-<area shape="rect" id="node15" href="$db/d7e/a00372.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1573,155,1707,181"/>
-<area shape="rect" id="node16" href="$df/d15/a00416.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1731,155,1873,181"/>
+<map id="InfectorMap.h" name="InfectorMap.h">
+<area shape="rect" id="node2" href="$db/dbc/a00395.html" title="Implementation for the SimBuilder class. " alt="" coords="5,80,115,107"/>
 </map>

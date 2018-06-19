@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -134,11 +134,11 @@ $(document).ready(function(){initNavTree('d4/d04/a00255_source.html','../../');}
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/def/a00256.html">DefaultPopBuilder.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dcb/a00375.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d29/a00419.html">pop/SurveySeeder.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de3/a00373.html">pop/Population.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/de7/a00417.html">pop/SurveySeeder.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/da9/a00263.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/db9/a00387.html">util/RNManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d05/a00385.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">util/StringUtils.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d2e/a00238.html">contact/ContactLogMode.h</a>&gt;</span></div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('d4/d04/a00255_source.html','../../');}
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> person_id = 0U;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">while</span> (getline(pop_file, line)) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> values                 = <a class="code" href="../../d7/db5/a00472.html#a600b27c06281da416f50a129c50b19f2">Split</a>(line, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> values                 = <a class="code" href="../../d0/d29/a00470.html#a600b27c06281da416f50a129c50b19f2">Split</a>(line, <span class="stringliteral">&quot;,&quot;</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> age                    = FromString&lt;unsigned int&gt;(values[0]);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> household_id           = FromString&lt;unsigned int&gt;(values[1]);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> school_id              = FromString&lt;unsigned int&gt;(values[2]);</div>
@@ -214,14 +214,14 @@ $(document).ready(function(){initNavTree('d4/d04/a00255_source.html','../../');}
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="../../d1/d09/a00077.html">IdSubscriptArray&lt;unsigned int&gt;</a> max_ids{0U};</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *pop) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="../../db/d2c/a00466.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> typ : <a class="code" href="../../d7/d5e/a00467.html#a19ba4d58aafc6ea7ff765e3a7cd54332">IdList</a>) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="../../d2/d9d/a00464.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> typ : <a class="code" href="../../db/de0/a00465.html#a19ba4d58aafc6ea7ff765e3a7cd54332">IdList</a>) {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">// Initialize poolSys with empty ContactPools (even for Id=0).</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="../../db/d2c/a00466.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> typ : <a class="code" href="../../d7/d5e/a00467.html#a19ba4d58aafc6ea7ff765e3a7cd54332">IdList</a>) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">for</span> (<a class="code" href="../../d2/d9d/a00464.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> typ : <a class="code" href="../../db/de0/a00465.html#a19ba4d58aafc6ea7ff765e3a7cd54332">IdList</a>) {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; max_ids[typ] + 1; i++) {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        pop-&gt;m_pool_sys[typ].emplace_back(<a class="code" href="../../d4/d3a/a00101.html">ContactPool</a>(i, typ));</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                }</div>
@@ -237,7 +237,7 @@ $(document).ready(function(){initNavTree('d4/d04/a00255_source.html','../../');}
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="comment">// Defensive measure: we have a pool for Id 0 and leave it empty.</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; p : *pop) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="../../db/d2c/a00466.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> typ : IdList) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordflow">for</span> (<a class="code" href="../../d2/d9d/a00464.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> typ : IdList) {</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> poolId = p.GetPoolId(typ);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        <span class="keywordflow">if</span> (poolId &gt; 0) {</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                                pop-&gt;m_pool_sys[typ][poolId].AddMember(&amp;p);</div>
@@ -249,31 +249,31 @@ $(document).ready(function(){initNavTree('d4/d04/a00255_source.html','../../');}
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;} <span class="comment">// namespace stride</span></div>
 <div class="ttc" id="a00256_html"><div class="ttname"><a href="../../d0/def/a00256.html">DefaultPopBuilder.h</a></div><div class="ttdoc">Initialize populations. </div></div>
+<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 <div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d21/a00240_source.html#l00037">ContactPool.h:37</a></div></div>
+<div class="ttc" id="a00464_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d2/d9d/a00464.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d2e/a00238_source.html#l00033">ContactLogMode.h:33</a></div></div>
 <div class="ttc" id="a00108_html_a3738040e683004b9ecefc9ba7608eba4"><div class="ttname"><a href="../../d1/dd6/a00108.html#a3738040e683004b9ecefc9ba7608eba4">stride::DefaultPopBuilder::MakePersons</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; MakePersons(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Generates pop&#39;s individuals and return pop. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d04/a00255_source.html#l00042">DefaultPopBuilder.cpp:42</a></div></div>
-<div class="ttc" id="a00466_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../db/d2c/a00466.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d2e/a00238_source.html#l00033">ContactLogMode.h:33</a></div></div>
-<div class="ttc" id="a00143_html"><div class="ttname"><a href="../../d7/dce/a00143.html">stride::SurveySeeder</a></div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d29/a00419_source.html#l00034">SurveySeeder.h:34</a></div></div>
-<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00375_html"><div class="ttname"><a href="../../dd/dcb/a00375.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00143_html"><div class="ttname"><a href="../../d7/dce/a00143.html">stride::SurveySeeder</a></div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/de7/a00417_source.html#l00034">SurveySeeder.h:34</a></div></div>
 <div class="ttc" id="a00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
 <div class="ttc" id="a00238_html"><div class="ttname"><a href="../../da/d2e/a00238.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
 <div class="ttc" id="a00314_html"><div class="ttname"><a href="../../d0/d39/a00314.html">IdSubscriptArray.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
-<div class="ttc" id="a00472_html_a600b27c06281da416f50a129c50b19f2"><div class="ttname"><a href="../../d7/db5/a00472.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Split a string (in order of occurence) by splitting it on the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/de8/a00405_source.html#l00046">StringUtils.h:46</a></div></div>
-<div class="ttc" id="a00143_html_a81b191380f9a2c93768ff0efcec47f6b"><div class="ttname"><a href="../../d7/dce/a00143.html#a81b191380f9a2c93768ff0efcec47f6b">stride::SurveySeeder::Seed</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df7/a00418_source.html#l00039">SurveySeeder.cpp:39</a></div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
+<div class="ttc" id="a00143_html_a81b191380f9a2c93768ff0efcec47f6b"><div class="ttname"><a href="../../d7/dce/a00143.html#a81b191380f9a2c93768ff0efcec47f6b">stride::SurveySeeder::Seed</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d15/a00416_source.html#l00039">SurveySeeder.cpp:39</a></div></div>
+<div class="ttc" id="a00417_html"><div class="ttname"><a href="../../d8/de7/a00417.html">SurveySeeder.h</a></div><div class="ttdoc">Header file for the SurveySeeder class. </div></div>
+<div class="ttc" id="a00470_html_a600b27c06281da416f50a129c50b19f2"><div class="ttname"><a href="../../d0/d29/a00470.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Split a string (in order of occurence) by splitting it on the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00046">StringUtils.h:46</a></div></div>
+<div class="ttc" id="a00465_html_a19ba4d58aafc6ea7ff765e3a7cd54332"><div class="ttname"><a href="../../db/de0/a00465.html#a19ba4d58aafc6ea7ff765e3a7cd54332">stride::ContactPoolType::IdList</a></div><div class="ttdeci">constexpr std::initializer_list&lt; Id &gt; IdList</div><div class="ttdoc">To allow iteration over the type ids. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/a00245_source.html#l00059">ContactPoolType.h:59</a></div></div>
 <div class="ttc" id="a00245_html"><div class="ttname"><a href="../../d6/d22/a00245.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
 <div class="ttc" id="a00077_html"><div class="ttname"><a href="../../d1/d09/a00077.html">stride::ContactPoolType::IdSubscriptArray&lt; unsigned int &gt;</a></div></div>
 <div class="ttc" id="a00153_html_aafd39e698c442fd0917915d085c9aa1a"><div class="ttname"><a href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a></div><div class="ttdeci">static boost::filesystem::path GetDataDir()</div><div class="ttdoc">/// Return data dir (only relevant when use_install_dirs mode is active) </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da9/a00263_source.html#l00077">FileSys.h:77</a></div></div>
-<div class="ttc" id="a00467_html_a19ba4d58aafc6ea7ff765e3a7cd54332"><div class="ttname"><a href="../../d7/d5e/a00467.html#a19ba4d58aafc6ea7ff765e3a7cd54332">stride::ContactPoolType::IdList</a></div><div class="ttdeci">constexpr std::initializer_list&lt; Id &gt; IdList</div><div class="ttdoc">To allow iteration over the type ids. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/a00245_source.html#l00059">ContactPoolType.h:59</a></div></div>
 <div class="ttc" id="a00108_html_a98f2494729bf1d46e947b302f3e1b3b1"><div class="ttname"><a href="../../d1/dd6/a00108.html#a98f2494729bf1d46e947b302f3e1b3b1">stride::DefaultPopBuilder::Build</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Build(std::shared_ptr&lt; Population &gt; pop, std::size_t regionId, std::string regionName)</div><div class="ttdoc">Build Population and return it afterwards. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d04/a00255_source.html#l00082">DefaultPopBuilder.cpp:82</a></div></div>
-<div class="ttc" id="a00419_html"><div class="ttname"><a href="../../d3/d29/a00419.html">SurveySeeder.h</a></div><div class="ttdoc">Header file for the SurveySeeder class. </div></div>
+<div class="ttc" id="a00385_html"><div class="ttname"><a href="../../d5/d05/a00385.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00373_html"><div class="ttname"><a href="../../dc/de3/a00373.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d4/d04/a00255.html">DefaultPopBuilder.cpp</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

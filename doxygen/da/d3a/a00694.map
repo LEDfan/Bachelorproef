@@ -1,6 +1,7 @@
-<map id="Imitation.h" name="Imitation.h">
-<area shape="rect" id="node2" href="$d7/d6e/a00190.html" title="Header file for the HealthSeeder. " alt="" coords="81,80,188,107"/>
-<area shape="rect" id="node5" href="$d5/db5/a00374.html" title="Core Population class. " alt="" coords="213,80,320,107"/>
-<area shape="rect" id="node3" href="$da/deb/a00189.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,155,125,181"/>
-<area shape="rect" id="node4" href="$d7/d93/a00397.html" title="Implementation for the SimBuilder class. " alt="" coords="150,155,260,181"/>
+<map id="Immunizer.h" name="Immunizer.h">
+<area shape="rect" id="node2" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="839,80,972,107"/>
+<area shape="rect" id="node13" href="$d4/d27/a00392.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="299,80,457,107"/>
+<area shape="rect" id="node3" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="1192,155,1371,181"/>
+<area shape="rect" id="node5" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="955,155,1117,181"/>
+<area shape="rect" id="node14" href="$de/df7/a00418.html" title="Interface/Implementation for SVIterator. " alt="" coords="83,155,175,181"/>
 </map>

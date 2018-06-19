@@ -1,6 +1,5 @@
-<map id="gengeopop::KdTree&lt; P &gt;" name="gengeopop::KdTree&lt; P &gt;">
-<area shape="rect" id="node4" href="$dc/dee/a00053.html" title="{gengeopop::kd::Node\l\&lt; P, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="344,635,491,800"/>
-<area shape="rect" id="node5" href="$d7/d46/a00002.html" title="A base class for all instanciations of a Node with D. " alt="" coords="454,6,663,157"/>
-<area shape="rect" id="node7" href="$dc/dee/a00053.html" title="A node in the KdTree. " alt="" coords="403,221,549,387"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="13,265,152,343"/>
+<map id="gengeopop::CollegePopulator" name="gengeopop::CollegePopulator">
+<area shape="rect" id="node2" href="$d1/d22/a00057.html" title="An interface for populators that provide a partial solution. " alt="" coords="463,721,660,871"/>
+<area shape="rect" id="node4" href="$d1/db7/a00157.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="587,446,744,655"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="607,147,723,224"/>
 </map>

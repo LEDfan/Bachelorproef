@@ -1,8 +1,5 @@
-<map id="gengeopop::Location" name="gengeopop::Location">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="751,161,867,239"/>
-<area shape="rect" id="node11" title="STL class. " alt="" coords="358,354,495,446"/>
-<area shape="rect" id="node6" href="$d9/d34/a00476.html" title="{double\n||}" alt="" coords="143,569,203,647"/>
-<area shape="rect" id="node14" title="STL class. " alt="" coords="216,361,315,439"/>
-<area shape="rect" id="node15" title="STL class. " alt="" coords="1361,569,1440,647"/>
-<area shape="rect" id="node16" title="STL class. " alt="" coords="1338,354,1464,446"/>
+<map id="gengeopop::GeoGridPopulator" name="gengeopop::GeoGridPopulator">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="294,155,409,232"/>
+<area shape="rect" id="node7" href="$db/df3/a00034.html" title="Configuration data when generating a GeoGrid. " alt="" coords="297,622,476,714"/>
+<area shape="rect" id="node8" href="$d5/d26/a00474.html" title="{double\n||}" alt="" coords="738,325,797,403"/>
 </map>

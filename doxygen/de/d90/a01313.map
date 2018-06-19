@@ -1,6 +1,6 @@
-<map id="stride::util::SliceIndexer&lt; T &gt;" name="stride::util::SliceIndexer&lt; T &gt;">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,163,120,240"/>
-<area shape="rect" id="node11" title="STL class. " alt="" coords="337,163,460,240"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="487,163,565,240"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="463,6,589,98"/>
+<map id="stride::util::Subject&lt; E &gt;" name="stride::util::Subject&lt; E &gt;">
+<area shape="rect" id="node4" href="$d6/d66/a00916.html" title="{const void\n||}" alt="" coords="5,147,87,224"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="112,147,245,224"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="269,147,392,224"/>
+<area shape="rect" id="node7" href="$df/da5/a00912.html" title="{CallbackType\n||}" alt="" coords="501,296,603,373"/>
 </map>

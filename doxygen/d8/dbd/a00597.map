@@ -1,7 +1,4 @@
-<map id="DaysOffInterface.h" name="DaysOffInterface.h">
-<area shape="rect" id="node2" href="$d0/da7/a00250.html" title="DaysOffAll class: everybody gets the day off. " alt="" coords="5,80,101,107"/>
-<area shape="rect" id="node3" href="$dc/ded/a00252.html" title="DaysOffNone class. " alt="" coords="126,80,239,107"/>
-<area shape="rect" id="node4" href="$d0/d3e/a00253.html" title="DaysOffAll class: everybody gets the day off. " alt="" coords="264,80,387,107"/>
-<area shape="rect" id="node5" href="$d7/d03/a00254.html" title="DaysOffStandard class. " alt="" coords="411,80,545,107"/>
-<area shape="rect" id="node6" href="$db/dbc/a00395.html" title="Implementation for the Simulator class. " alt="" coords="443,155,513,181"/>
+<map id="DaysOffSchool.h" name="DaysOffSchool.h">
+<area shape="rect" id="node2" href="$de/db1/a00197.html" title="Header file for the Calendar class. " alt="" coords="373,80,512,107"/>
+<area shape="rect" id="node9" href="$d3/d1a/a00251.html" title="Interface for DaysOff classes. " alt="" coords="536,80,723,107"/>
 </map>

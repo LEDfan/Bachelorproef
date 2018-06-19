@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('db/d53/a00202_source.html','../../');}
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keyword">auto</span> location = std::make_shared&lt;Location&gt;(id,                   <span class="comment">// id</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                           row.GetValue&lt;<span class="keywordtype">int</span>&gt;(1), <span class="comment">// province</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                           <span class="comment">// ignore x and y, not sure what they actually do</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                           <a class="code" href="../../d1/d0b/a00452.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(row.GetValue&lt;<span class="keywordtype">double</span>&gt;(6), <span class="comment">// longtitude</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                                           <a class="code" href="../../de/df4/a00450.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(row.GetValue&lt;<span class="keywordtype">double</span>&gt;(6), <span class="comment">// longtitude</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                      row.GetValue&lt;<span class="keywordtype">double</span>&gt;(5)  <span class="comment">// latitude</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                                                      ),</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                           row.GetValue(7));</div>
@@ -152,8 +152,8 @@ $(document).ready(function(){initNavTree('db/d53/a00202_source.html','../../');}
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00452_html_a787d85bc4a485c85bc62824e3434b953"><div class="ttname"><a href="../../d1/d0b/a00452.html#a787d85bc4a485c85bc62824e3434b953">gengeopop::Coordinate</a></div><div class="ttdeci">boost::geometry::model::point&lt; double, 2, boost::geometry::cs::geographic&lt; boost::geometry::degree &gt;&gt; Coordinate</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d93/a00341_source.html#l00017">Location.h:17</a></div></div>
 <div class="ttc" id="a00203_html"><div class="ttname"><a href="../../de/d79/a00203.html">CitiesCSVReader.h</a></div></div>
+<div class="ttc" id="a00450_html_a787d85bc4a485c85bc62824e3434b953"><div class="ttname"><a href="../../de/df4/a00450.html#a787d85bc4a485c85bc62824e3434b953">gengeopop::Coordinate</a></div><div class="ttdeci">boost::geometry::model::point&lt; double, 2, boost::geometry::cs::geographic&lt; boost::geometry::degree &gt;&gt; Coordinate</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d93/a00341_source.html#l00017">Location.h:17</a></div></div>
 <div class="ttc" id="a00016_html_ad26e6eacb61c4c71b400aa371ed54db9"><div class="ttname"><a href="../../d7/d7a/a00016.html#ad26e6eacb61c4c71b400aa371ed54db9">gengeopop::CitiesCSVReader::CitiesCSVReader</a></div><div class="ttdeci">CitiesCSVReader(std::unique_ptr&lt; std::istream &gt; inputStream)</div><div class="ttdoc">Construct the CitiesCSVReader with an istream containing the CSV data. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d53/a00202_source.html#l00007">CitiesCSVReader.cpp:7</a></div></div>
 <div class="ttc" id="a00016_html_afe702a1c1bd6e6d0313611e749ecac89"><div class="ttname"><a href="../../d7/d7a/a00016.html#afe702a1c1bd6e6d0313611e749ecac89">gengeopop::CitiesCSVReader::FillGeoGrid</a></div><div class="ttdeci">void FillGeoGrid(std::shared_ptr&lt; GeoGrid &gt; geoGrid) const override</div><div class="ttdoc">Add the found Locations to the provided GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d53/a00202_source.html#l00012">CitiesCSVReader.cpp:12</a></div></div>
 <div class="ttc" id="a00017_html"><div class="ttname"><a href="../../d4/d51/a00017.html">gengeopop::CitiesReader</a></div><div class="ttdoc">Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d13/a00205_source.html#l00014">CitiesReader.h:14</a></div></div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('db/d53/a00202_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../db/d53/a00202.html">CitiesCSVReader.cpp</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

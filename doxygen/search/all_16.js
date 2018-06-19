@@ -9,10 +9,10 @@ var searchData=
   ['initdefaultsgeogridimpl',['InitDefaultsGeoGridImpl',['../d8/d53/a00081.html#a961025dbd53e459b5657e0d517aa7f9f',1,'proto::GeoGrid']]],
   ['vaccinate',['Vaccinate',['../dd/d42/a00109.html#accb4b7832c08a4cc98973caf5aebf7f5',1,'stride::DiseaseSeeder']]],
   ['vaccination',['Vaccination',['../d9/d38/a00166.html',1,'stride']]],
-  ['vaccination_2eh',['Vaccination.h',['../dd/d07/a00433.html',1,'']]],
+  ['vaccination_2eh',['Vaccination.h',['../df/d70/a00431.html',1,'']]],
   ['vaccinelinkprobability',['vaccineLinkProbability',['../d9/da4/a00078.html#a2fe1a30cf7df717ab77f303ec8d4fb4f',1,'Launcher']]],
   ['vaccineprofile',['vaccineProfile',['../d9/da4/a00078.html#a46912c45b1eb910f29d25b372d8518e1',1,'Launcher']]],
   ['vaccinerate',['vaccineRate',['../d9/da4/a00078.html#a52509b1ca4c814355dcaca64b1462f5f',1,'Launcher']]],
   ['value_5ftype',['value_type',['../d1/dc1/a00092.html#a7882e74f6cb8dd40fe7f359daf0376c3',1,'stride::util::SegmentedVector']]],
-  ['variablestate',['VariableState',['../db/de0/a00465.html#a9d01e8d18496c1065ce04a29ec8b3470',1,'stride']]]
+  ['variablestate',['VariableState',['../d3/d5d/a00463.html#a9d01e8d18496c1065ce04a29ec8b3470',1,'stride']]]
 ];

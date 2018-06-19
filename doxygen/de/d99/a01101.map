@@ -1,0 +1,7 @@
+<map id="gengeopop::kd::BaseNode&lt; P &gt;" name="gengeopop::kd::BaseNode&lt; P &gt;">
+<area shape="rect" id="node2" href="$dc/dee/a00053.html" title="A node in the KdTree. " alt="" coords="5,235,184,415"/>
+<area shape="rect" id="node5" href="$dc/dee/a00053.html" title="{Node\&lt; P, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="208,235,347,415"/>
+<area shape="rect" id="node6" href="$d7/d46/a00002.html" title="{gengeopop::kd::BaseNode\l\&lt; geogrid_detail::KdTree2DPoint \&gt;\n||+ ~BaseNode()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="371,243,593,408"/>
+<area shape="rect" id="node3" href="$dc/dee/a00053.html" title="{gengeopop::kd::Node\l\&lt; geogrid_detail::KdTree2DPoint, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="261,493,499,688"/>
+<area shape="rect" id="node4" href="$dc/dee/a00053.html" title="{gengeopop::kd::Node\l\&lt; P, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="21,493,168,688"/>
+</map>

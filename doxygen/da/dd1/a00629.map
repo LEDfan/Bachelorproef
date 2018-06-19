@@ -1,32 +1,43 @@
-<map id="GeoGridConfig.cpp" name="GeoGridConfig.cpp">
-<area shape="rect" id="node2" href="$d0/d19/a00273.html" title="GeoGridConfig.h" alt="" coords="2033,80,2151,107"/>
-<area shape="rect" id="node3" href="$d1/d5d/a00311.html" title="io/HouseholdReader.h" alt="" coords="4003,155,4153,181"/>
-<area shape="rect" id="node79" href="$d5/d13/a00205.html" title="gengeopop/io/CitiesReader.h" alt="" coords="3755,304,3945,331"/>
-<area shape="rect" id="node81" href="$de/de8/a00405.html" title="Miscellaneous string utilities. " alt="" coords="4776,733,4891,760"/>
-<area shape="rect" id="node4" href="$dc/d0f/a00303.html" title="gengeopop/Household.h" alt="" coords="3748,229,3911,256"/>
-<area shape="rect" id="node68" href="$d3/d93/a00341.html" title="Location.h" alt="" coords="3719,552,3800,579"/>
-<area shape="rect" id="node5" href="$df/d17/a00231.html" title="ContactCenter.h" alt="" coords="3390,304,3508,331"/>
-<area shape="rect" id="node6" href="$d9/d2a/a00270.html" title="GeoGrid.h" alt="" coords="3186,379,3267,405"/>
-<area shape="rect" id="node10" href="$dd/dcb/a00375.html" title="Header file for the core Population class. " alt="" coords="1941,461,2059,488"/>
-<area shape="rect" id="node22" href="$d9/d21/a00240.html" title="Header for the core ContactPool class. " alt="" coords="1708,733,1841,760"/>
-<area shape="rect" id="node65" href="$dd/d1d/a00336.html" title="KdTree.h" alt="" coords="2877,733,2951,760"/>
-<area shape="rect" id="node76" href="$db/d12/a00268.html" title="GeoAggregator.h" alt="" coords="1303,461,1423,488"/>
-<area shape="rect" id="node11" href="$d8/df1/a00174.html" title="Base Class for PopBuilders. " alt="" coords="1061,643,1205,669"/>
-<area shape="rect" id="node15" href="$dd/de2/a00320.html" title="Initialize populations. " alt="" coords="1471,552,1604,579"/>
-<area shape="rect" id="node21" href="$d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1679,552,1835,579"/>
-<area shape="rect" id="node26" href="$d0/d39/a00314.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1383,643,1541,669"/>
-<area shape="rect" id="node30" href="$df/dc2/a00367.html" title="util/pchheader.h" alt="" coords="555,643,669,669"/>
-<area shape="rect" id="node37" href="$d0/def/a00256.html" title="Initialize populations. " alt="" coords="1063,552,1225,579"/>
-<area shape="rect" id="node38" href="$d1/dd4/a00267.html" title="Initialize populations. " alt="" coords="1301,552,1445,579"/>
-<area shape="rect" id="node39" href="$df/dee/a00369.html" title="Header file for the Person class. " alt="" coords="2557,552,2656,579"/>
-<area shape="rect" id="node43" href="$db/db9/a00387.html" title="Interface of RNManager. " alt="" coords="3557,733,3680,760"/>
-<area shape="rect" id="node53" href="$dc/d52/a00183.html" title="Interface/Implementation of Any. " alt="" coords="3077,552,3153,579"/>
-<area shape="rect" id="node58" href="$de/d08/a00381.html" title="Interface/Implementation for RangeIndexer. " alt="" coords="1867,552,2001,579"/>
-<area shape="rect" id="node16" href="$d6/d22/a00245.html" title="Definition of ContactPoolType. " alt="" coords="2055,816,2217,843"/>
-<area shape="rect" id="node23" href="$da/d2e/a00238.html" title="Header for the ContactLogMode class. " alt="" coords="2839,816,3017,843"/>
-<area shape="rect" id="node31" href="$db/d4f/a00420.html" title="Interface/Implementation for SVIterator. " alt="" coords="450,816,563,843"/>
-<area shape="rect" id="node34" href="$d9/dad/a00394.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="522,733,680,760"/>
-<area shape="rect" id="node40" href="$df/d95/a00299.html" title="Header for the Health class. " alt="" coords="2579,643,2699,669"/>
-<area shape="rect" id="node41" href="$dc/d0c/a00430.html" title="pool/TravellerProfile.h" alt="" coords="3394,643,3541,669"/>
-<area shape="rect" id="node44" href="$d5/d05/a00385.html" title="Interface of Random Engine Type. " alt="" coords="4296,816,4419,843"/>
+<map id="GeoGridConfig.h" name="GeoGridConfig.h">
+<area shape="rect" id="node2" href="$da/de7/a00210.html" title="College.cpp" alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="$d6/d43/a00216.html" title="Community.cpp" alt="" coords="120,80,235,107"/>
+<area shape="rect" id="node4" href="$d1/de1/a00213.html" title="CollegeGenerator.h" alt="" coords="993,155,1127,181"/>
+<area shape="rect" id="node7" href="$df/d03/a00348.html" title="main.cpp" alt="" coords="1623,229,1696,256"/>
+<area shape="rect" id="node8" href="$d9/d9b/a00363.html" title="PartialGenerator.h" alt="" coords="865,80,991,107"/>
+<area shape="rect" id="node9" href="$dd/df3/a00219.html" title="CommunityGenerator.h" alt="" coords="1152,155,1309,181"/>
+<area shape="rect" id="node13" href="$d0/da2/a00307.html" title="HouseholdGenerator.h" alt="" coords="1333,155,1485,181"/>
+<area shape="rect" id="node15" href="$d2/d0a/a00333.html" title="K12SchoolGenerator.h" alt="" coords="310,155,463,181"/>
+<area shape="rect" id="node18" href="$d0/dc5/a00435.html" title="WorkplaceGenerator.h" alt="" coords="488,155,640,181"/>
+<area shape="rect" id="node20" href="$da/d53/a00265.html" title="GenGeoPopController.h" alt="" coords="1603,80,1761,107"/>
+<area shape="rect" id="node21" href="$d5/d35/a00266.html" title="Initialize populations: implementation. " alt="" coords="1510,155,1644,181"/>
+<area shape="rect" id="node22" href="$de/dab/a00319.html" title="Initialize populations: implementation. " alt="" coords="1771,155,1917,181"/>
+<area shape="rect" id="node23" href="$d9/dd6/a00272.html" title="GeoGridConfig.cpp" alt="" coords="1837,80,1971,107"/>
+<area shape="rect" id="node24" href="$d0/d61/a00302.html" title="Household.cpp" alt="" coords="1995,80,2104,107"/>
+<area shape="rect" id="node25" href="$dd/dbb/a00330.html" title="K12School.cpp" alt="" coords="2129,80,2239,107"/>
+<area shape="rect" id="node26" href="$d3/dd5/a00215.html" title="CollegePopulator.h" alt="" coords="3082,155,3213,181"/>
+<area shape="rect" id="node27" href="$d3/dd1/a00214.html" title="CollegePopulator.cpp" alt="" coords="3156,229,3303,256"/>
+<area shape="rect" id="node28" href="$dd/db5/a00365.html" title="PartialPopulator.h" alt="" coords="2563,80,2688,107"/>
+<area shape="rect" id="node31" href="$d2/d71/a00309.html" title="HouseholdPopulator.h" alt="" coords="1942,155,2092,181"/>
+<area shape="rect" id="node33" href="$df/d91/a00335.html" title="K12SchoolPopulator.h" alt="" coords="2117,155,2267,181"/>
+<area shape="rect" id="node36" href="$d7/d08/a00378.html" title="PrimaryCommunityPopulator.h" alt="" coords="2292,155,2491,181"/>
+<area shape="rect" id="node38" href="$db/d95/a00391.html" title="SecondaryCommunityPopulator.h" alt="" coords="2517,155,2733,181"/>
+<area shape="rect" id="node40" href="$d4/da8/a00437.html" title="WorkplacePopulator.h" alt="" coords="3238,155,3388,181"/>
+<area shape="rect" id="node41" href="$d4/d82/a00436.html" title="WorkplacePopulator.cpp" alt="" coords="3361,229,3524,256"/>
+<area shape="rect" id="node42" href="$d9/dd5/a00432.html" title="Workplace.cpp" alt="" coords="3515,80,3624,107"/>
+<area shape="rect" id="node5" href="$dd/dc1/a00212.html" title="CollegeGenerator.cpp" alt="" coords="979,229,1127,256"/>
+<area shape="rect" id="node6" href="$d3/dcc/a00264.html" title="GenGeoPopController.cpp" alt="" coords="1722,229,1896,256"/>
+<area shape="rect" id="node11" href="$d3/d5e/a00275.html" title="GeoGridGenerator.h" alt="" coords="829,155,968,181"/>
+<area shape="rect" id="node17" href="$de/dd7/a00362.html" title="PartialGenerator.cpp" alt="" coords="664,155,804,181"/>
+<area shape="rect" id="node10" href="$dc/d9a/a00218.html" title="CommunityGenerator.cpp" alt="" coords="1152,229,1323,256"/>
+<area shape="rect" id="node12" href="$dd/d56/a00274.html" title="GeoGridGenerator.cpp" alt="" coords="803,229,955,256"/>
+<area shape="rect" id="node14" href="$d1/de3/a00306.html" title="HouseholdGenerator.cpp" alt="" coords="1347,229,1513,256"/>
+<area shape="rect" id="node16" href="$dc/d50/a00332.html" title="K12SchoolGenerator.cpp" alt="" coords="297,229,463,256"/>
+<area shape="rect" id="node19" href="$d1/d7e/a00434.html" title="WorkplaceGenerator.cpp" alt="" coords="487,229,653,256"/>
+<area shape="rect" id="node29" href="$d2/d04/a00281.html" title="GeoGridPopulator.h" alt="" coords="2921,155,3056,181"/>
+<area shape="rect" id="node35" href="$dc/d59/a00364.html" title="PartialPopulator.cpp" alt="" coords="2759,155,2897,181"/>
+<area shape="rect" id="node30" href="$d0/dcd/a00280.html" title="GeoGridPopulator.cpp" alt="" coords="2914,229,3064,256"/>
+<area shape="rect" id="node32" href="$d5/d0f/a00308.html" title="HouseholdPopulator.cpp" alt="" coords="1921,229,2084,256"/>
+<area shape="rect" id="node34" href="$da/d75/a00334.html" title="K12SchoolPopulator.cpp" alt="" coords="2109,229,2273,256"/>
+<area shape="rect" id="node37" href="$d4/d13/a00377.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="2299,229,2513,256"/>
+<area shape="rect" id="node39" href="$d9/d0a/a00390.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="2538,229,2768,256"/>
 </map>

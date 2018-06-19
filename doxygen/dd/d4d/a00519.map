@@ -1,8 +1,5 @@
-<map id="CalibrationRunner.h" name="CalibrationRunner.h">
-<area shape="rect" id="node2" href="$d7/da0/a00198.html" title="CalibrationRunner.cpp" alt="" coords="5,80,155,107"/>
-<area shape="rect" id="node3" href="$d9/d01/a00227.html" title="ConfigFileCalibrationRunner.h" alt="" coords="179,80,375,107"/>
-<area shape="rect" id="node6" href="$db/d43/a00422.html" title="TestCalibrationRunner.h" alt="" coords="400,80,563,107"/>
-<area shape="rect" id="node4" href="$dc/d55/a00226.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="115,155,324,181"/>
-<area shape="rect" id="node5" href="$d1/dc6/a00347.html" title="main.cpp" alt="" coords="349,155,423,181"/>
-<area shape="rect" id="node7" href="$d2/de1/a00421.html" title="TestCalibrationRunner.cpp" alt="" coords="449,155,625,181"/>
+<map id="Calibrator.h" name="Calibrator.h">
+<area shape="rect" id="node4" href="$d2/daf/a00346.html" title="Logging (spdlog) utilities. " alt="" coords="234,88,336,115"/>
+<area shape="rect" id="node8" href="$d5/d05/a00385.html" title="Interface of RNManager. " alt="" coords="798,88,921,115"/>
+<area shape="rect" id="node9" href="$da/dee/a00383.html" title="Interface of Random Engine Type. " alt="" coords="373,171,496,197"/>
 </map>

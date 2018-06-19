@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -137,9 +137,9 @@ $(document).ready(function(){initNavTree('d0/d48/a00351_source.html','../../');}
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/daa/a00187.html">sim/BaseController.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dd2/a00207.html">sim/CliController.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/da9/a00263.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/dc9/a00389.html">util/RunConfigManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">util/StringUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d2f/a00425.html">util/TimeStamp.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/db9/a00387.html">util/RunConfigManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d05/a00423.html">util/TimeStamp.h</a>&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;tclap/CmdLine.h&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -215,7 +215,7 @@ $(document).ready(function(){initNavTree('d0/d48/a00351_source.html','../../');}
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p_assignment : overrideArg.getValue()) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> v = <a class="code" href="../../d7/db5/a00472.html#a919ad6efcd17eb2bda30b1c6e044bc3c">util::Tokenize</a>(p_assignment, <span class="stringliteral">&quot;=&quot;</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> v = <a class="code" href="../../d0/d29/a00470.html#a919ad6efcd17eb2bda30b1c6e044bc3c">util::Tokenize</a>(p_assignment, <span class="stringliteral">&quot;=&quot;</span>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        configPt.put(<span class="stringliteral">&quot;run.&quot;</span> + v[0], v[1]);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
@@ -289,18 +289,18 @@ $(document).ready(function(){initNavTree('d0/d48/a00351_source.html','../../');}
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">return</span> exitStatus;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
 <div class="ttc" id="a00356_html"><div class="ttname"><a href="../../d6/de1/a00356.html">MapViewer.h</a></div></div>
-<div class="ttc" id="a00164_html"><div class="ttname"><a href="../../db/ddf/a00164.html">stride::util::TimeStamp</a></div><div class="ttdoc">Provides wall-clock time stamp using the time call. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d2f/a00425_source.html#l00036">TimeStamp.h:36</a></div></div>
+<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
+<div class="ttc" id="a00164_html"><div class="ttname"><a href="../../db/ddf/a00164.html">stride::util::TimeStamp</a></div><div class="ttdoc">Provides wall-clock time stamp using the time call. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d05/a00423_source.html#l00036">TimeStamp.h:36</a></div></div>
+<div class="ttc" id="a00423_html"><div class="ttname"><a href="../../d1/d05/a00423.html">TimeStamp.h</a></div><div class="ttdoc">TimeStamp class. </div></div>
 <div class="ttc" id="a00170_html"><div class="ttname"><a href="../../d5/dcb/a00170.html">stride::viewers::MapViewer</a></div><div class="ttdoc">A Viewer that visually shows the GeoGrids and associated information with Qt. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00356_source.html#l00011">MapViewer.h:11</a></div></div>
-<div class="ttc" id="a00472_html_a919ad6efcd17eb2bda30b1c6e044bc3c"><div class="ttname"><a href="../../d7/db5/a00472.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Tokenize(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Tokenize a string (in order of occurence) with the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/de8/a00405_source.html#l00055">StringUtils.h:55</a></div></div>
+<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
 <div class="ttc" id="a00187_html"><div class="ttname"><a href="../../d6/daa/a00187.html">BaseController.h</a></div></div>
 <div class="ttc" id="a00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 <div class="ttc" id="a00095_html_acbdf31ef7f947010a3c1cba494aa7fd0"><div class="ttname"><a href="../../d9/d77/a00095.html#acbdf31ef7f947010a3c1cba494aa7fd0">stride::BaseController::RegisterViewers</a></div><div class="ttdeci">virtual void RegisterViewers()</div><div class="ttdoc">Register the viewers of the SimRunner. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d00/a00186_source.html#l00112">BaseController.cpp:112</a></div></div>
 <div class="ttc" id="a00095_html_a69f449954b557b6418f36996253034a0"><div class="ttname"><a href="../../d9/d77/a00095.html#a69f449954b557b6418f36996253034a0">stride::BaseController::Control</a></div><div class="ttdeci">virtual void Control()=0</div><div class="ttdoc">Actual run of the simulator. </div></div>
 <div class="ttc" id="a00095_html_a904f58a60d934c8726f100a820c5322b"><div class="ttname"><a href="../../d9/d77/a00095.html#a904f58a60d934c8726f100a820c5322b">stride::BaseController::RegisterViewer</a></div><div class="ttdeci">void RegisterViewer(Targs &amp;&amp;...args)</div><div class="ttdoc">Register a viewer of type T with given args. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/a00187_source.html#l00051">BaseController.h:51</a></div></div>
-<div class="ttc" id="a00425_html"><div class="ttname"><a href="../../dc/d2f/a00425.html">TimeStamp.h</a></div><div class="ttdoc">TimeStamp class. </div></div>
 <div class="ttc" id="a00351_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="../../d0/d48/a00351.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Main program of the stride simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d48/a00351_source.html#l00043">sim/main.cpp:43</a></div></div>
-<div class="ttc" id="a00389_html"><div class="ttname"><a href="../../dc/dc9/a00389.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
+<div class="ttc" id="a00470_html_a919ad6efcd17eb2bda30b1c6e044bc3c"><div class="ttname"><a href="../../d0/d29/a00470.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Tokenize(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Tokenize a string (in order of occurence) with the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da0/a00403_source.html#l00055">StringUtils.h:55</a></div></div>
 <div class="ttc" id="a00294_html"><div class="ttname"><a href="../../d4/d5b/a00294.html">GuiController.h</a></div></div>
 <div class="ttc" id="a00095_html_aeeb79289441333395c55b949a8c775dd"><div class="ttname"><a href="../../d9/d77/a00095.html#aeeb79289441333395c55b949a8c775dd">stride::BaseController::GetLogger</a></div><div class="ttdeci">virtual std::shared_ptr&lt; spdlog::logger &gt; GetLogger() const </div><div class="ttdoc">Returns the logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d00/a00186_source.html#l00166">BaseController.cpp:166</a></div></div>
 <div class="ttc" id="a00207_html"><div class="ttname"><a href="../../de/dd2/a00207.html">CliController.h</a></div><div class="ttdoc">Header for the command line controller. </div></div>
@@ -310,7 +310,7 @@ $(document).ready(function(){initNavTree('d0/d48/a00351_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d0/d48/a00351.html">main.cpp</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -122,10 +122,10 @@ $(document).ready(function(){initNavTree('df/d03/a00348_source.html','../../');}
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d5e/a00275.html">gengeopop/generators/GeoGridGenerator.h</a>&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/da2/a00307.html">gengeopop/generators/HouseholdGenerator.h</a>&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d0a/a00333.html">gengeopop/generators/K12SchoolGenerator.h</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d4/da8/a00437.html">gengeopop/generators/WorkplaceGenerator.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/dc5/a00435.html">gengeopop/generators/WorkplaceGenerator.h</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d3/d58/a00285.html">gengeopop/io/GeoGridProtoWriter.h</a>&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d8/d0a/a00292.html">gengeopop/io/GeoGridWriterFactory.h</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/dee/a00383.html">gengeopop/io/ReaderFactory.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../de/d08/a00381.html">gengeopop/io/ReaderFactory.h</a>&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
@@ -133,9 +133,9 @@ $(document).ready(function(){initNavTree('df/d03/a00348_source.html','../../');}
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d04/a00281.html">gengeopop/populators/GeoGridPopulator.h</a>&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d71/a00309.html">gengeopop/populators/HouseholdPopulator.h</a>&gt;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/d91/a00335.html">gengeopop/populators/K12SchoolPopulator.h</a>&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d8/ddd/a00380.html">gengeopop/populators/PrimaryCommunityPopulator.h</a>&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/dbf/a00393.html">gengeopop/populators/SecondaryCommunityPopulator.h</a>&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d3a/a00439.html">gengeopop/populators/WorkplacePopulator.h</a>&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d7/d08/a00378.html">gengeopop/populators/PrimaryCommunityPopulator.h</a>&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../db/d95/a00391.html">gengeopop/populators/SecondaryCommunityPopulator.h</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d4/da8/a00437.html">gengeopop/populators/WorkplacePopulator.h</a>&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;spdlog/common.h&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/fmt/ostr.h&gt;</span></div>
@@ -282,37 +282,37 @@ $(document).ready(function(){initNavTree('df/d03/a00348_source.html','../../');}
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> exit_status;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
 <div class="ttc" id="a00034_html_a932e91e15c65933abb7934ecace53f35"><div class="ttname"><a href="../../db/df3/a00034.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a></div><div class="ttdeci">struct gengeopop::GeoGridConfig::@0 input</div><div class="ttdoc">INPUT. </div></div>
-<div class="ttc" id="a00393_html"><div class="ttname"><a href="../../da/dbf/a00393.html">SecondaryCommunityPopulator.h</a></div></div>
-<div class="ttc" id="a00439_html"><div class="ttname"><a href="../../d9/d3a/a00439.html">WorkplacePopulator.h</a></div></div>
 <div class="ttc" id="a00027_html"><div class="ttname"><a href="../../d0/d33/a00027.html">gengeopop::GenGeoPopController</a></div><div class="ttdoc">Controls the complete generation and population of a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/a00265_source.html#l00014">GenGeoPopController.h:14</a></div></div>
-<div class="ttc" id="a00158_html_a7280978393526b5420e330cd87888b41"><div class="ttname"><a href="../../d6/db8/a00158.html#a7280978393526b5420e330cd87888b41">stride::util::RNManager::Info::m_type</a></div><div class="ttdeci">std::string m_type</div><div class="ttdoc">Type id (see RNEngineType). </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00056">RNManager.h:56</a></div></div>
+<div class="ttc" id="a00391_html"><div class="ttname"><a href="../../db/d95/a00391.html">SecondaryCommunityPopulator.h</a></div></div>
+<div class="ttc" id="a00158_html_a7280978393526b5420e330cd87888b41"><div class="ttname"><a href="../../d6/db8/a00158.html#a7280978393526b5420e330cd87888b41">stride::util::RNManager::Info::m_type</a></div><div class="ttdeci">std::string m_type</div><div class="ttdoc">Type id (see RNEngineType). </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00056">RNManager.h:56</a></div></div>
 <div class="ttc" id="a00044_html"><div class="ttname"><a href="../../d5/df9/a00044.html">gengeopop::GeoGridWriterFactory</a></div><div class="ttdoc">A Factory for creating the correct implementation of a GeoGridWriter based on the filename extension...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/a00292_source.html#l00010">GeoGridWriterFactory.h:10</a></div></div>
 <div class="ttc" id="a00215_html"><div class="ttname"><a href="../../d3/dd5/a00215.html">CollegePopulator.h</a></div></div>
+<div class="ttc" id="a00435_html"><div class="ttname"><a href="../../d0/dc5/a00435.html">WorkplaceGenerator.h</a></div></div>
 <div class="ttc" id="a00335_html"><div class="ttname"><a href="../../df/d91/a00335.html">K12SchoolPopulator.h</a></div></div>
 <div class="ttc" id="a00348_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../df/d03/a00348.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d03/a00348_source.html#l00034">gengeopop/main.cpp:34</a></div></div>
 <div class="ttc" id="a00270_html"><div class="ttname"><a href="../../d9/d2a/a00270.html">GeoGrid.h</a></div></div>
-<div class="ttc" id="a00158_html_ae73dd6b56912771808eeb8d9aa095389"><div class="ttname"><a href="../../d6/db8/a00158.html#ae73dd6b56912771808eeb8d9aa095389">stride::util::RNManager::Info::m_state</a></div><div class="ttdeci">std::string m_state</div><div class="ttdoc">Long string reperesting current state. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00054">RNManager.h:54</a></div></div>
+<div class="ttc" id="a00158_html_ae73dd6b56912771808eeb8d9aa095389"><div class="ttname"><a href="../../d6/db8/a00158.html#ae73dd6b56912771808eeb8d9aa095389">stride::util::RNManager::Info::m_state</a></div><div class="ttdeci">std::string m_state</div><div class="ttdoc">Long string reperesting current state. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00054">RNManager.h:54</a></div></div>
 <div class="ttc" id="a00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">GeoGridGenerator.h</a></div></div>
 <div class="ttc" id="a00309_html"><div class="ttname"><a href="../../d2/d71/a00309.html">HouseholdPopulator.h</a></div></div>
-<div class="ttc" id="a00383_html"><div class="ttname"><a href="../../da/dee/a00383.html">ReaderFactory.h</a></div></div>
-<div class="ttc" id="a00158_html"><div class="ttname"><a href="../../d6/db8/a00158.html">stride::util::RNManager::Info</a></div><div class="ttdoc">POD representation of the RNManager&#39;s state. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00047">RNManager.h:47</a></div></div>
+<div class="ttc" id="a00158_html"><div class="ttname"><a href="../../d6/db8/a00158.html">stride::util::RNManager::Info</a></div><div class="ttdoc">POD representation of the RNManager&#39;s state. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00047">RNManager.h:47</a></div></div>
+<div class="ttc" id="a00381_html"><div class="ttname"><a href="../../de/d08/a00381.html">ReaderFactory.h</a></div></div>
 <div class="ttc" id="a00281_html"><div class="ttname"><a href="../../d2/d04/a00281.html">GeoGridPopulator.h</a></div></div>
 <div class="ttc" id="a00346_html"><div class="ttname"><a href="../../d2/daf/a00346.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
 <div class="ttc" id="a00217_html"><div class="ttname"><a href="../../df/d24/a00217.html">Community.h</a></div></div>
 <div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00014">GeoGridConfig.h:14</a></div></div>
 <div class="ttc" id="a00027_html_a5d80eb0492fba3112f7fb0571d386e30"><div class="ttname"><a href="../../d0/d33/a00027.html#a5d80eb0492fba3112f7fb0571d386e30">gengeopop::GenGeoPopController::ReadDataFiles</a></div><div class="ttdeci">void ReadDataFiles()</div><div class="ttdoc">Reads the data files. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcc/a00264_source.html#l00032">GenGeoPopController.cpp:32</a></div></div>
+<div class="ttc" id="a00378_html"><div class="ttname"><a href="../../d7/d08/a00378.html">PrimaryCommunityPopulator.h</a></div></div>
 <div class="ttc" id="a00034_html_ae5b9fde4c7f1f62339043b23f91850f5"><div class="ttname"><a href="../../db/df3/a00034.html#ae5b9fde4c7f1f62339043b23f91850f5">gengeopop::GeoGridConfig::populationSize</a></div><div class="ttdeci">unsigned int populationSize</div><div class="ttdoc">Absolute size of the population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00053">GeoGridConfig.h:53</a></div></div>
 <div class="ttc" id="a00044_html_a4992a30def6112ba16f8b76c7d5ea768"><div class="ttname"><a href="../../d5/df9/a00044.html#a4992a30def6112ba16f8b76c7d5ea768">gengeopop::GeoGridWriterFactory::CreateWriter</a></div><div class="ttdeci">std::shared_ptr&lt; GeoGridWriter &gt; CreateWriter(std::string filename) const </div><div class="ttdoc">Create a GeoGridWriter based on the provided extension in the filename. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/dd4/a00291_source.html#l00009">GeoGridWriterFactory.cpp:9</a></div></div>
-<div class="ttc" id="a00437_html"><div class="ttname"><a href="../../d4/da8/a00437.html">WorkplaceGenerator.h</a></div></div>
+<div class="ttc" id="a00437_html"><div class="ttname"><a href="../../d4/da8/a00437.html">WorkplacePopulator.h</a></div></div>
 <div class="ttc" id="a00155_html_a106af93dd3f814adf8b87ffaaf3ef3bb"><div class="ttname"><a href="../../d3/df8/a00155.html#a106af93dd3f814adf8b87ffaaf3ef3bb">stride::util::LogUtils::CreateCliLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateCliLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) commandline logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d48/a00345_source.html#l00032">LogUtils.cpp:32</a></div></div>
 <div class="ttc" id="a00213_html"><div class="ttname"><a href="../../d1/de1/a00213.html">CollegeGenerator.h</a></div></div>
-<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00041">RNManager.h:41</a></div></div>
 <div class="ttc" id="a00333_html"><div class="ttname"><a href="../../d2/d0a/a00333.html">K12SchoolGenerator.h</a></div></div>
 <div class="ttc" id="a00265_html"><div class="ttname"><a href="../../da/d53/a00265.html">GenGeoPopController.h</a></div></div>
 <div class="ttc" id="a00292_html"><div class="ttname"><a href="../../d8/d0a/a00292.html">GeoGridWriterFactory.h</a></div></div>
-<div class="ttc" id="a00158_html_abefb5eab599569a9ee18079889c2d11b"><div class="ttname"><a href="../../d6/db8/a00158.html#abefb5eab599569a9ee18079889c2d11b">stride::util::RNManager::Info::m_seed</a></div><div class="ttdeci">unsigned long m_seed</div><div class="ttdoc">Seed for the engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00051">RNManager.h:51</a></div></div>
-<div class="ttc" id="a00380_html"><div class="ttname"><a href="../../d8/ddd/a00380.html">PrimaryCommunityPopulator.h</a></div></div>
-<div class="ttc" id="a00157_html_a3faf18a9fdd2400012612a2cafde01a3"><div class="ttname"><a href="../../d1/db7/a00157.html#a3faf18a9fdd2400012612a2cafde01a3">stride::util::RNManager::GetInfo</a></div><div class="ttdeci">Info GetInfo() const </div><div class="ttdoc">Return the state of the random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df5/a00386_source.html#l00075">RNManager.cpp:75</a></div></div>
+<div class="ttc" id="a00158_html_abefb5eab599569a9ee18079889c2d11b"><div class="ttname"><a href="../../d6/db8/a00158.html#abefb5eab599569a9ee18079889c2d11b">stride::util::RNManager::Info::m_seed</a></div><div class="ttdeci">unsigned long m_seed</div><div class="ttdoc">Seed for the engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00051">RNManager.h:51</a></div></div>
+<div class="ttc" id="a00157_html_a3faf18a9fdd2400012612a2cafde01a3"><div class="ttname"><a href="../../d1/db7/a00157.html#a3faf18a9fdd2400012612a2cafde01a3">stride::util::RNManager::GetInfo</a></div><div class="ttdeci">Info GetInfo() const </div><div class="ttdoc">Return the state of the random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d56/a00384_source.html#l00075">RNManager.cpp:75</a></div></div>
 <div class="ttc" id="a00285_html"><div class="ttname"><a href="../../d3/d58/a00285.html">GeoGridProtoWriter.h</a></div></div>
 <div class="ttc" id="a00273_html"><div class="ttname"><a href="../../d0/d19/a00273.html">GeoGridConfig.h</a></div></div>
 <div class="ttc" id="a00219_html"><div class="ttname"><a href="../../dd/df3/a00219.html">CommunityGenerator.h</a></div></div>
@@ -323,7 +323,7 @@ $(document).ready(function(){initNavTree('df/d03/a00348_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../df/d03/a00348.html">main.cpp</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

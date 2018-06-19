@@ -1,5 +1,5 @@
-<map id="gengeopop::CollegeGenerator" name="gengeopop::CollegeGenerator">
-<area shape="rect" id="node2" href="$d9/d2e/a00056.html" title="An interface for generators that provide a partial solution. " alt="" coords="468,721,655,842"/>
-<area shape="rect" id="node4" href="$d1/db7/a00157.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="587,446,744,655"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="607,147,723,224"/>
+<map id="gengeopop::GeoGridGenerator" name="gengeopop::GeoGridGenerator">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="297,155,412,232"/>
+<area shape="rect" id="node7" href="$db/df3/a00034.html" title="Configuration data when generating a GeoGrid. " alt="" coords="300,622,479,714"/>
+<area shape="rect" id="node8" href="$d5/d26/a00474.html" title="{double\n||}" alt="" coords="741,325,800,403"/>
 </map>

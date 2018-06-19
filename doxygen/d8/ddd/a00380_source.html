@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PrimaryCommunityPopulator.h Source File</title>
+<title>Stride Reference Manual: ReaderFactory.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -109,38 +109,97 @@ $(document).ready(function(){initNavTree('d8/ddd/a00380_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PrimaryCommunityPopulator.h</div>  </div>
+<div class="title">ReaderFactory.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d8/ddd/a00380.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../GeoGridConfig.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/db5/a00365.html">PartialPopulator.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/// Populate primary Communities</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d9/d73/a00060.html">    9</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="../../d9/d73/a00060.html">PrimaryCommunityPopulator</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d22/a00057.html">PartialPopulator</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">PartialPopulator::PartialPopulator</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/d73/a00060.html#a20e841fc232bb6cd3a5b4ddf166187eb">Apply</a>(std::shared_ptr&lt;GeoGrid&gt; geogrid, <a class="code" href="../../db/df3/a00034.html">GeoGridConfig</a>&amp; geoGridConfig) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
-<div class="ttc" id="a00060_html_a20e841fc232bb6cd3a5b4ddf166187eb"><div class="ttname"><a href="../../d9/d73/a00060.html#a20e841fc232bb6cd3a5b4ddf166187eb">gengeopop::PrimaryCommunityPopulator::Apply</a></div><div class="ttdeci">void Apply(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</div><div class="ttdoc">Populate the given geogrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d95/a00379_source.html#l00013">PrimaryCommunityPopulator.cpp:13</a></div></div>
-<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">gengeopop::GeoGridConfig</a></div><div class="ttdoc">Configuration data when generating a GeoGrid. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d19/a00273_source.html#l00014">GeoGridConfig.h:14</a></div></div>
-<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">gengeopop::PartialPopulator</a></div><div class="ttdoc">An interface for populators that provide a partial solution. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db5/a00365_source.html#l00013">PartialPopulator.h:13</a></div></div>
-<div class="ttc" id="a00060_html"><div class="ttname"><a href="../../d9/d73/a00060.html">gengeopop::PrimaryCommunityPopulator</a></div><div class="ttdoc">Populate primary Communities. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddd/a00380_source.html#l00009">PrimaryCommunityPopulator.h:9</a></div></div>
-<div class="ttc" id="a00057_html_ab0d36a7eec42c951ab03d32db44566db"><div class="ttname"><a href="../../d1/d22/a00057.html#ab0d36a7eec42c951ab03d32db44566db">gengeopop::PartialPopulator::PartialPopulator</a></div><div class="ttdeci">PartialPopulator(stride::util::RNManager &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Construct with a RNManager and a logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d59/a00364_source.html#l00004">PartialPopulator.cpp:4</a></div></div>
-<div class="ttc" id="a00365_html"><div class="ttname"><a href="../../dd/db5/a00365.html">PartialPopulator.h</a></div></div>
+<a href="../../d8/ddd/a00380.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d08/a00381.html">ReaderFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d79/a00203.html">CitiesCSVReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d52/a00221.html">CommutesCSVReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d07/a00305.html">HouseholdCSVReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d3d/a00409.html">SubMunicipalitiesCSVReader.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem.hpp&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/d6a/a00261.html">util/Exception.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/da9/a00263.html">util/FileSys.h</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>gengeopop {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#a76eb18fa73415d684668d13833ba13c1">   13</a></span>&#160;std::shared_ptr&lt;CitiesReader&gt; <a class="code" href="../../df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755">ReaderFactory::CreateCitiesReader</a>(<span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755">CreateCitiesReader</a>(<a class="code" href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a>() / boost::filesystem::path(filename));</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755">   18</a></span>&#160;std::shared_ptr&lt;CitiesReader&gt; <a class="code" href="../../df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755">ReaderFactory::CreateCitiesReader</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> std::make_shared&lt;CitiesCSVReader&gt;(<a class="code" href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">OpenFile</a>(path));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71">   23</a></span>&#160;std::shared_ptr&lt;CommutesReader&gt; <a class="code" href="../../df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71">ReaderFactory::CreateCommutesReader</a>(<span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71">CreateCommutesReader</a>(<a class="code" href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a>() / boost::filesystem::path(filename));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#aab20bfa25fbeac22eb8e955f91507115">   28</a></span>&#160;std::shared_ptr&lt;CommutesReader&gt; <a class="code" href="../../df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71">ReaderFactory::CreateCommutesReader</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> std::make_shared&lt;CommutesCSVReader&gt;(<a class="code" href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">OpenFile</a>(path));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5">   33</a></span>&#160;std::shared_ptr&lt;HouseholdReader&gt; <a class="code" href="../../df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5">ReaderFactory::CreateHouseholdReader</a>(<span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5">CreateHouseholdReader</a>(<a class="code" href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a>() / boost::filesystem::path(filename));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#aca22bd8c41b3bd061cd3ab79c8c0dc55">   38</a></span>&#160;std::shared_ptr&lt;HouseholdReader&gt; <a class="code" href="../../df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5">ReaderFactory::CreateHouseholdReader</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> std::make_shared&lt;HouseholdCSVReader&gt;(<a class="code" href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">OpenFile</a>(path));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8">   43</a></span>&#160;std::shared_ptr&lt;SubMunicipalitiesReader&gt; <a class="code" href="../../df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8">ReaderFactory::CreateSubMunicipalitiesReader</a>(<span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8">CreateSubMunicipalitiesReader</a>(<a class="code" href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a>() / boost::filesystem::path(filename));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#ac25e323f919b9794479e5c964589359d">   48</a></span>&#160;std::shared_ptr&lt;SubMunicipalitiesReader&gt; <a class="code" href="../../df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8">ReaderFactory::CreateSubMunicipalitiesReader</a>(</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> boost::filesystem::path&amp; path)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> std::make_shared&lt;SubMunicipalitiesCSVReader&gt;(<a class="code" href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">OpenFile</a>(path));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">   54</a></span>&#160;std::unique_ptr&lt;std::istream&gt; <a class="code" href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">ReaderFactory::OpenFile</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> (!boost::filesystem::exists(path)) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d7/d9a/a00152.html">stride::util::Exception</a>(<span class="stringliteral">&quot;File not found: &quot;</span> + path.string());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> (path.extension().string() == <span class="stringliteral">&quot;.csv&quot;</span>) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">return</span> std::make_unique&lt;std::ifstream&gt;(path.string());</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="../../d7/d9a/a00152.html">stride::util::Exception</a>(<span class="stringliteral">&quot;Unsupported file extension: &quot;</span> + path.extension().string());</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace gengeopop</span></div>
+<div class="ttc" id="a00062_html_a5bd351c7082a71cba781c129490e6755"><div class="ttname"><a href="../../df/d03/a00062.html#a5bd351c7082a71cba781c129490e6755">gengeopop::ReaderFactory::CreateCitiesReader</a></div><div class="ttdeci">std::shared_ptr&lt; CitiesReader &gt; CreateCitiesReader(const boost::filesystem::path &amp;path)</div><div class="ttdoc">Create a CitiesReader based on an absolute Boost Filesystem Path pointing to the input file...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddd/a00380_source.html#l00018">ReaderFactory.cpp:18</a></div></div>
+<div class="ttc" id="a00062_html_a301c922d893444c635c375f4c0326568"><div class="ttname"><a href="../../df/d03/a00062.html#a301c922d893444c635c375f4c0326568">gengeopop::ReaderFactory::OpenFile</a></div><div class="ttdeci">std::unique_ptr&lt; std::istream &gt; OpenFile(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Create an istream based on the provided Boost Filesystem Path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddd/a00380_source.html#l00054">ReaderFactory.cpp:54</a></div></div>
+<div class="ttc" id="a00203_html"><div class="ttname"><a href="../../de/d79/a00203.html">CitiesCSVReader.h</a></div></div>
+<div class="ttc" id="a00221_html"><div class="ttname"><a href="../../dd/d52/a00221.html">CommutesCSVReader.h</a></div></div>
+<div class="ttc" id="a00062_html_aafc60dfb9e6337c0c57ec46cd9e02d71"><div class="ttname"><a href="../../df/d03/a00062.html#aafc60dfb9e6337c0c57ec46cd9e02d71">gengeopop::ReaderFactory::CreateCommutesReader</a></div><div class="ttdeci">std::shared_ptr&lt; CommutesReader &gt; CreateCommutesReader(const std::string &amp;filename)</div><div class="ttdoc">Create a CommutesReader based on an absolute Boost Filesystem Path pointing to the input file...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddd/a00380_source.html#l00023">ReaderFactory.cpp:23</a></div></div>
+<div class="ttc" id="a00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00409_html"><div class="ttname"><a href="../../de/d3d/a00409.html">SubMunicipalitiesCSVReader.h</a></div></div>
+<div class="ttc" id="a00261_html"><div class="ttname"><a href="../../dc/d6a/a00261.html">Exception.h</a></div></div>
+<div class="ttc" id="a00062_html_ab65132d784c62a45167c2dd8e7b097d8"><div class="ttname"><a href="../../df/d03/a00062.html#ab65132d784c62a45167c2dd8e7b097d8">gengeopop::ReaderFactory::CreateSubMunicipalitiesReader</a></div><div class="ttdeci">std::shared_ptr&lt; SubMunicipalitiesReader &gt; CreateSubMunicipalitiesReader(const std::string &amp;filename)</div><div class="ttdoc">Create a SubMunicipalitiesReader based on the filename of the input file, relative to the data direct...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddd/a00380_source.html#l00043">ReaderFactory.cpp:43</a></div></div>
+<div class="ttc" id="a00381_html"><div class="ttname"><a href="../../de/d08/a00381.html">ReaderFactory.h</a></div></div>
+<div class="ttc" id="a00305_html"><div class="ttname"><a href="../../d3/d07/a00305.html">HouseholdCSVReader.h</a></div></div>
+<div class="ttc" id="a00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">stride::util::Exception</a></div><div class="ttdoc">Basic exception class. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d6a/a00261_source.html#l00011">Exception.h:11</a></div></div>
+<div class="ttc" id="a00153_html_aafd39e698c442fd0917915d085c9aa1a"><div class="ttname"><a href="../../da/d01/a00153.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a></div><div class="ttdeci">static boost::filesystem::path GetDataDir()</div><div class="ttdoc">/// Return data dir (only relevant when use_install_dirs mode is active) </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da9/a00263_source.html#l00077">FileSys.h:77</a></div></div>
+<div class="ttc" id="a00062_html_afd1bf47bd92f5bf43cd032da257454b5"><div class="ttname"><a href="../../df/d03/a00062.html#afd1bf47bd92f5bf43cd032da257454b5">gengeopop::ReaderFactory::CreateHouseholdReader</a></div><div class="ttdeci">std::shared_ptr&lt; HouseholdReader &gt; CreateHouseholdReader(const std::string &amp;filename)</div><div class="ttdoc">Create a HouseholdReader based on the filename of the input file, relative to the data directory...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddd/a00380_source.html#l00033">ReaderFactory.cpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d8/ddd/a00380.html">PrimaryCommunityPopulator.h</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:41 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d8/ddd/a00380.html">ReaderFactory.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:13 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

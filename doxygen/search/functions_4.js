@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectiveage',['EffectiveAge',['../db/de0/a00465.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
+  ['effectiveage',['EffectiveAge',['../d3/d5d/a00463.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
   ['emitlocations',['EmitLocations',['../d8/d84/a00001.html#a613fb0cc751f55a428c18156fae84d15',1,'Backend']]],
   ['emplace',['emplace',['../db/d48/a00148.html#a8aee74d02cb317ad6a8212f9a84c9254',1,'stride::util::Any::emplace()'],['../d1/dc1/a00092.html#aadda0fa9cba3c25598d83fc335dab5e4',1,'stride::util::SegmentedVector::emplace()']]],
   ['emplace_5fback',['emplace_back',['../d1/dc1/a00092.html#a2cd11f9b95b20b69378fc9268c380096',1,'stride::util::SegmentedVector']]],

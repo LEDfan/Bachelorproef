@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('de/dbc/a00249_source.html','../../');}
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header file of base class for config that needs to be read from a file.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de8/a00405.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/da0/a00403.html">util/StringUtils.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/lexical_cast.hpp&gt;</span></div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('de/dbc/a00249_source.html','../../');}
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> * @return</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;template &lt;typename T, std::enable_if_t&lt;std::is_arithmetic&lt;T&gt;::value, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359">   74</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>(<span class="keyword">const</span> std::string&amp; val)</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359">   74</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>(<span class="keyword">const</span> std::string&amp; val)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (std::is_floating_point&lt;T&gt;::value) {</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> boost::numeric_cast&lt;T&gt;(boost::lexical_cast&lt;<span class="keywordtype">double</span>&gt;(val));</div>
@@ -201,7 +201,7 @@ $(document).ready(function(){initNavTree('de/dbc/a00249_source.html','../../');}
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * @return</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;template &lt;typename T, std::enable_if_t&lt;!std::is_arithmetic&lt;T&gt;::value, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>(<span class="keyword">const</span> std::string&amp; val)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>(<span class="keyword">const</span> std::string&amp; val)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> boost::lexical_cast&lt;T&gt;(val);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
@@ -218,27 +218,27 @@ $(document).ready(function(){initNavTree('de/dbc/a00249_source.html','../../');}
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../dd/db2/a00151.html#a6462fb781526ce386453ea4ee8e353e5">  105</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../dd/db2/a00151.html#a6462fb781526ce386453ea4ee8e353e5">CSVRow::GetValue</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>&lt;T&gt;(GetValue&lt;std::string&gt;(index));</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>&lt;T&gt;(GetValue&lt;std::string&gt;(index));</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">///</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../dd/db2/a00151.html#a70dfc26893fa920410a7e4a049a1578a">  112</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../dd/db2/a00151.html#a6462fb781526ce386453ea4ee8e353e5">CSVRow::GetValue</a>(<span class="keyword">const</span> std::string&amp; label)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>&lt;T&gt;(GetValue&lt;std::string&gt;(label));</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359">safe_cast</a>&lt;T&gt;(GetValue&lt;std::string&gt;(label));</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// namespace util</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// namespace stride</span></div>
 <div class="ttc" id="a00151_html_a8bec120b3295f500c637c4219ec5f873"><div class="ttname"><a href="../../dd/db2/a00151.html#a8bec120b3295f500c637c4219ec5f873">stride::util::CSVRow::operator==</a></div><div class="ttdeci">bool operator==(const CSVRow &amp;other) const </div><div class="ttdoc">Compare operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dd7/a00248_source.html#l00067">CSVRow.cpp:67</a></div></div>
-<div class="ttc" id="a00472_html_ab6efe1a2dbf4a57479e8c7faa00e3359"><div class="ttname"><a href="../../d7/db5/a00472.html#ab6efe1a2dbf4a57479e8c7faa00e3359">stride::util::safe_cast</a></div><div class="ttdeci">T safe_cast(const std::string &amp;val)</div><div class="ttdoc">Converts a string to an arithmetic type, in a safe manner. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00074">CSVRow.h:74</a></div></div>
+<div class="ttc" id="a00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 <div class="ttc" id="a00151_html_a6b1014a66c6a3301863d8a35a55b591e"><div class="ttname"><a href="../../dd/db2/a00151.html#a6b1014a66c6a3301863d8a35a55b591e">stride::util::CSVRow::operator=</a></div><div class="ttdeci">CSVRow &amp; operator=(const stride::util::CSVRow &amp;)=default</div></div>
 <div class="ttc" id="a00150_html"><div class="ttname"><a href="../../d9/d7d/a00150.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d1f/a00247_source.html#l00037">CSV.h:37</a></div></div>
 <div class="ttc" id="a00151_html_a6462fb781526ce386453ea4ee8e353e5"><div class="ttname"><a href="../../dd/db2/a00151.html#a6462fb781526ce386453ea4ee8e353e5">stride::util::CSVRow::GetValue</a></div><div class="ttdeci">T GetValue(size_t index) const </div><div class="ttdoc">Get value at index. When T is specified, StringUtils are used to try to convert the value to type T...</div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00105">CSVRow.h:105</a></div></div>
 <div class="ttc" id="a00151_html_a0ec2f92503adc2a968a848d3fddf087d"><div class="ttname"><a href="../../dd/db2/a00151.html#a0ec2f92503adc2a968a848d3fddf087d">stride::util::CSVRow::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const CSVRow &amp;row)</div><div class="ttdoc">Print to stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dd7/a00248_source.html#l00069">CSVRow.cpp:69</a></div></div>
 <div class="ttc" id="a00151_html_ab60a313ff2e75d0ae07bc7624c27a861"><div class="ttname"><a href="../../dd/db2/a00151.html#ab60a313ff2e75d0ae07bc7624c27a861">stride::util::CSVRow::CSVRow</a></div><div class="ttdeci">CSVRow(const CSV *parent, const std::vector&lt; std::string &gt; &amp;values)</div><div class="ttdoc">CSVRow initialized with values. Should no be called by user code. CSV has convenience functions...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dd7/a00248_source.html#l00038">CSVRow.cpp:38</a></div></div>
-<div class="ttc" id="a00405_html"><div class="ttname"><a href="../../de/de8/a00405.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 <div class="ttc" id="a00151_html_aa89bb5ef10f89f4eae23cc0536bf01c1"><div class="ttname"><a href="../../dd/db2/a00151.html#aa89bb5ef10f89f4eae23cc0536bf01c1">stride::util::CSVRow::m_parent</a></div><div class="ttdeci">const CSV * m_parent</div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00061">CSVRow.h:61</a></div></div>
+<div class="ttc" id="a00470_html_ab6efe1a2dbf4a57479e8c7faa00e3359"><div class="ttname"><a href="../../d0/d29/a00470.html#ab6efe1a2dbf4a57479e8c7faa00e3359">stride::util::safe_cast</a></div><div class="ttdeci">T safe_cast(const std::string &amp;val)</div><div class="ttdoc">Converts a string to an arithmetic type, in a safe manner. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00074">CSVRow.h:74</a></div></div>
 <div class="ttc" id="a00151_html_a6e59d67d64bb1bf8681d7718be92d74f"><div class="ttname"><a href="../../dd/db2/a00151.html#a6e59d67d64bb1bf8681d7718be92d74f">stride::util::CSVRow::m_values</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_values</div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00062">CSVRow.h:62</a></div></div>
 <div class="ttc" id="a00151_html"><div class="ttname"><a href="../../dd/db2/a00151.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dbc/a00249_source.html#l00037">CSVRow.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -247,7 +247,7 @@ $(document).ready(function(){initNavTree('de/dbc/a00249_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/dbc/a00249.html">CSVRow.h</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

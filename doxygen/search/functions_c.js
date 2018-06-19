@@ -7,5 +7,5 @@ var searchData=
   ['node',['Node',['../dc/dee/a00053.html#a02ba27ac4148503a9bdd015c6b7caaf8',1,'gengeopop::kd::Node']]],
   ['notify',['Notify',['../d4/ddd/a00138.html#a05aaf77e0b2520924f86a8b39c5a9f02',1,'stride::python::Subject::Notify()'],['../db/d44/a00162.html#a9496d626bbde63eb55836f0af402522c',1,'stride::util::Subject::Notify()']]],
   ['numberavailablethreads',['NumberAvailableThreads',['../da/d1e/a00149.html#a6b4240ce29160e778c69f9e246e1747d',1,'stride::util::ConfigInfo']]],
-  ['numoftypes',['NumOfTypes',['../d7/d5e/a00467.html#af724b7d598645a8c1054b66306dee629',1,'stride::ContactPoolType::NumOfTypes()'],['../d4/d4b/a00471.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
+  ['numoftypes',['NumOfTypes',['../db/de0/a00465.html#af724b7d598645a8c1054b66306dee629',1,'stride::ContactPoolType::NumOfTypes()'],['../dc/ddf/a00469.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
 ];

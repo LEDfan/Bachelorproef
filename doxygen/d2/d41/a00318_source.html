@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -133,18 +133,18 @@ $(document).ready(function(){initNavTree('d2/d41/a00318_source.html','../../');}
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Header for the Vaccinator class.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/db9/a00387.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d05/a00385.html">util/RNManager.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">   29</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fe">   29</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">None</a>   = 0U,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a> = 1U,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a> = 2U,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">None</a>   = 0U,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a> = 1U,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a> = 2U,</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/// Primary immunization profile: do nothing</span></div>
@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('d2/d41/a00318_source.html','../../');}
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/// Random immunization profile</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d8/d87/a00118.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a>&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d8/d87/a00118.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">Random</a>&gt;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunity_distribution,</div>
@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('d2/d41/a00318_source.html','../../');}
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/// Profile for cocoon vaccination strategy</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d9/d4b/a00117.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a>&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d9/d4b/a00117.html">   59</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/a00116.html">Immunizer</a>&lt;<a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fe">ImmunizationProfile</a>::<a class="code" href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">Cocoon</a>&gt;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">Administer</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunity_distribution,</div>
@@ -181,23 +181,23 @@ $(document).ready(function(){initNavTree('d2/d41/a00318_source.html','../../');}
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d9/d4b/a00117.html">Immunizer&lt;ImmunizationProfile::Cocoon&gt;</a>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">stride::ImmunizationProfile::None</a></div></div>
+<div class="ttc" id="a00463_html_add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea6adf97f83acf6453d4a6a4b1070f3754">stride::ImmunizationProfile::None</a></div></div>
 <div class="ttc" id="a00118_html"><div class="ttname"><a href="../../d8/d87/a00118.html">stride::Immunizer&lt; ImmunizationProfile::Random &gt;</a></div><div class="ttdoc">Random immunization profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00050">immunity/Immunizer.h:50</a></div></div>
-<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">stride::ImmunizationProfile::Cocoon</a></div></div>
-<div class="ttc" id="a00387_html"><div class="ttname"><a href="../../db/db9/a00387.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00463_html_add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae"><div class="ttname"><a href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea4a15b408bd69263798be7e433d449dae">stride::ImmunizationProfile::Cocoon</a></div></div>
+<div class="ttc" id="a00463_html_add8b5ebb9e886c003bf194783b4dd7fe"><div class="ttname"><a href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fe">stride::ImmunizationProfile</a></div><div class="ttdeci">ImmunizationProfile</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00029">immunity/Immunizer.h:29</a></div></div>
 <div class="ttc" id="a00117_html"><div class="ttname"><a href="../../d9/d4b/a00117.html">stride::Immunizer&lt; ImmunizationProfile::Cocoon &gt;</a></div><div class="ttdoc">Profile for cocoon vaccination strategy. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00059">immunity/Immunizer.h:59</a></div></div>
-<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fe"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fe">stride::ImmunizationProfile</a></div><div class="ttdeci">ImmunizationProfile</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00029">immunity/Immunizer.h:29</a></div></div>
-<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/db9/a00387_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00465_html_add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23"><div class="ttname"><a href="../../db/de0/a00465.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">stride::ImmunizationProfile::Random</a></div></div>
+<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d05/a00385_source.html#l00041">RNManager.h:41</a></div></div>
 <div class="ttc" id="a00116_html"><div class="ttname"><a href="../../d4/d3e/a00116.html">stride::Immunizer</a></div><div class="ttdoc">Deals with immunization strategies. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de0/a00317_source.html#l00036">disease/Immunizer.h:36</a></div></div>
 <div class="ttc" id="a00116_html_ae5bf03aebe76050242db382a0beab89b"><div class="ttname"><a href="../../d4/d3e/a00116.html#ae5bf03aebe76050242db382a0beab89b">stride::Immunizer::Administer</a></div><div class="ttdeci">static void Administer(const std::vector&lt; ContactPool &gt; &amp;, std::vector&lt; double &gt; &amp;, double, util::RNManager &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d41/a00318_source.html#l00041">immunity/Immunizer.h:41</a></div></div>
+<div class="ttc" id="a00463_html_add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23"><div class="ttname"><a href="../../d3/d5d/a00463.html#add8b5ebb9e886c003bf194783b4dd7fea64663f4646781c9c0110838b905daa23">stride::ImmunizationProfile::Random</a></div></div>
+<div class="ttc" id="a00385_html"><div class="ttname"><a href="../../d5/d05/a00385.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_6b2c953cb5563d633add466861f11f69.html">immunity</a></li><li class="navelem"><a class="el" href="../../d2/d41/a00318.html">Immunizer.h</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

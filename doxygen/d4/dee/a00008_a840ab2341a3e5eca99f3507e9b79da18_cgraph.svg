@@ -105,7 +105,7 @@ var sectionId = 'dynsection-2';
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../d7/db5/a00472.html#ae33774027798262390fbf95fbabc3f82" target="_top" xlink:title="Builds a value of type T representation from a string. ">
+<g id="a_node3"><a xlink:href="../../d0/d29/a00470.html#ae33774027798262390fbf95fbabc3f82" target="_top" xlink:title="Builds a value of type T representation from a string. ">
 <polygon fill="white" stroke="black" points="401.5,-103.5 401.5,-122.5 514.5,-122.5 514.5,-103.5 401.5,-103.5"/>
 <text text-anchor="middle" x="458" y="-110.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::FromString</text>
 </a>

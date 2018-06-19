@@ -20,7 +20,7 @@ var searchData=
   ['beliefseeder',['BeliefSeeder',['../d2/df5/a00137.html#afae93b872e0c2fe1b06b220da218827b',1,'stride::Population::BeliefSeeder()'],['../d1/d84/a00097.html#a10e523b7ce6b4d819812b0a75f1e443b',1,'stride::BeliefSeeder::BeliefSeeder()']]],
   ['beliefseeder_2ecpp',['BeliefSeeder.cpp',['../da/deb/a00189.html',1,'']]],
   ['beliefseeder_2eh',['BeliefSeeder.h',['../d7/d6e/a00190.html',1,'']]],
-  ['boostpoint',['BoostPoint',['../d7/d9f/a00454.html#a7a3cba9aa788599b9ff36152b6bca624',1,'gengeopop::geogrid_detail']]],
+  ['boostpoint',['BoostPoint',['../d1/d0b/a00452.html#a7a3cba9aa788599b9ff36152b6bca624',1,'gengeopop::geogrid_detail']]],
   ['borrowleft',['BorrowLeft',['../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098',1,'gengeopop::kd::BaseNode::BorrowLeft()'],['../dc/dee/a00053.html#a1feff6a9480fd9b7c2640934833ea467',1,'gengeopop::kd::Node::BorrowLeft()']]],
   ['borrowright',['BorrowRight',['../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4',1,'gengeopop::kd::BaseNode::BorrowRight()'],['../dc/dee/a00053.html#aa97b067c48e16c1303f9f909debac811',1,'gengeopop::kd::Node::BorrowRight()']]],
   ['borrowsplitchild',['BorrowSplitChild',['../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c',1,'gengeopop::kd::BaseNode::BorrowSplitChild()'],['../dc/dee/a00053.html#aa9f437cdb9e45dd8195e84867af839cf',1,'gengeopop::kd::Node::BorrowSplitChild()']]],

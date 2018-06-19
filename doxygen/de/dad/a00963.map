@@ -1,5 +1,7 @@
-<map id="gengeopop::HouseholdGenerator" name="gengeopop::HouseholdGenerator">
-<area shape="rect" id="node2" href="$d9/d2e/a00056.html" title="An interface for generators that provide a partial solution. " alt="" coords="468,721,655,842"/>
-<area shape="rect" id="node4" href="$d1/db7/a00157.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="587,446,744,655"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="607,147,723,224"/>
+<map id="gengeopop::PartialGenerator" name="gengeopop::PartialGenerator">
+<area shape="rect" id="node2" href="$db/db2/a00020.html" title="Generate Colleges. " alt="" coords="5,189,200,267"/>
+<area shape="rect" id="node3" href="$d3/d52/a00023.html" title="Generate Communities. " alt="" coords="225,189,441,267"/>
+<area shape="rect" id="node4" href="$d6/d2d/a00047.html" title="Generate Households. " alt="" coords="466,189,677,267"/>
+<area shape="rect" id="node5" href="$d2/d79/a00051.html" title="Generate K12Schools. " alt="" coords="703,189,916,267"/>
+<area shape="rect" id="node6" href="$d0/d89/a00071.html" title="Generate Workplaces. " alt="" coords="941,189,1152,267"/>
 </map>

@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a66777d</span>
+   &#160;<span id="projectnumber">- generated for commit c95ddb1</span>
    </div>
   </td>
  </tr>
@@ -139,10 +139,10 @@ $(document).ready(function(){initNavTree('d0/d81/a00180_source.html','../../');}
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="../../dc/d54/a00094.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile::AgeContactProfile</a>(<a class="code" href="../../d7/d5e/a00467.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, <span class="keyword">const</span> ptree&amp; contactPt)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    : std::array&lt;<a class="code" href="../../d9/d34/a00476.html">double</a>, <a class="code" href="../../db/de0/a00465.html#ae2682ff4058ec78d0809d073dcdea2d1">MaximumAge</a>() + 1&gt;()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="../../dc/d54/a00094.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile::AgeContactProfile</a>(<a class="code" href="../../db/de0/a00465.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, <span class="keyword">const</span> ptree&amp; contactPt)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    : std::array&lt;<a class="code" href="../../d5/d26/a00474.html">double</a>, <a class="code" href="../../d3/d5d/a00463.html#ae2682ff4058ec78d0809d073dcdea2d1">MaximumAge</a>() + 1&gt;()</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">string</span> key{string(<span class="stringliteral">&quot;matrices.&quot;</span>).append(<a class="code" href="../../d7/d5e/a00467.html#a0cf9d3425b406cd76acdc02ef9c0286d">ContactPoolType::ToString</a>(poolType))};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">string</span> key{string(<span class="stringliteral">&quot;matrices.&quot;</span>).append(<a class="code" href="../../db/de0/a00465.html#a0cf9d3425b406cd76acdc02ef9c0286d">ContactPoolType::ToString</a>(poolType))};</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0U;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; participant : contactPt.get_child(key)) {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordtype">double</span> totalContacts = 0;</div>
@@ -154,19 +154,19 @@ $(document).ready(function(){initNavTree('d0/d81/a00180_source.html','../../');}
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00476_html"><div class="ttname"><a href="../../d9/d34/a00476.html">double</a></div></div>
-<div class="ttc" id="a00467_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../d7/d5e/a00467.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/a00245_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00463_html_ae2682ff4058ec78d0809d073dcdea2d1"><div class="ttname"><a href="../../d3/d5d/a00463.html#ae2682ff4058ec78d0809d073dcdea2d1">stride::MaximumAge</a></div><div class="ttdeci">constexpr unsigned int MaximumAge()</div><div class="ttdoc">Maximum age for Persons. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00025">Age.h:25</a></div></div>
+<div class="ttc" id="a00465_html_a0cf9d3425b406cd76acdc02ef9c0286d"><div class="ttname"><a href="../../db/de0/a00465.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00047">ContactPoolType.cpp:47</a></div></div>
 <div class="ttc" id="a00094_html_abcac910ea28f2cefae9efd6f462aa34d"><div class="ttname"><a href="../../dc/d54/a00094.html#abcac910ea28f2cefae9efd6f462aa34d">stride::AgeContactProfile::AgeContactProfile</a></div><div class="ttdeci">AgeContactProfile()=default</div><div class="ttdoc">Need to keep the default constructor available. </div></div>
 <div class="ttc" id="a00181_html"><div class="ttname"><a href="../../d8/d64/a00181.html">AgeContactProfile.h</a></div><div class="ttdoc">Contact profile. </div></div>
-<div class="ttc" id="a00467_html_a0cf9d3425b406cd76acdc02ef9c0286d"><div class="ttname"><a href="../../d7/d5e/a00467.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d08/a00244_source.html#l00047">ContactPoolType.cpp:47</a></div></div>
-<div class="ttc" id="a00465_html_ae2682ff4058ec78d0809d073dcdea2d1"><div class="ttname"><a href="../../db/de0/a00465.html#ae2682ff4058ec78d0809d073dcdea2d1">stride::MaximumAge</a></div><div class="ttdeci">constexpr unsigned int MaximumAge()</div><div class="ttdoc">Maximum age for Persons. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00025">Age.h:25</a></div></div>
+<div class="ttc" id="a00474_html"><div class="ttname"><a href="../../d5/d26/a00474.html">double</a></div></div>
+<div class="ttc" id="a00465_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../db/de0/a00465.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d22/a00245_source.html#l00033">ContactPoolType.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d0/d81/a00180.html">AgeContactProfile.cpp</a></li>
-    <li class="footer">Generated on Mon Jun 18 2018 13:55:40 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jun 19 2018 13:13:12 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -101,7 +101,7 @@
 </g>
 <!-- Node31 -->
 <g id="node31" class="node"><title>Node31</title>
-<g id="a_node31"><a xlink:href="../../db/d2c/a00466.html#a12707c23b43baa1a0f5bed51db72756d" target="_top" xlink:title="Converts a string with name to LogMode value. ">
+<g id="a_node31"><a xlink:href="../../d2/d9d/a00464.html#a12707c23b43baa1a0f5bed51db72756d" target="_top" xlink:title="Converts a string with name to LogMode value. ">
 <polygon fill="white" stroke="black" points="130.5,-166 130.5,-196 251.5,-196 251.5,-166 130.5,-166"/>
 <text text-anchor="start" x="138.5" y="-184" font-family="Helvetica,sans-Serif" font-size="10.00">stride::ContactLogMode</text>
 <text text-anchor="middle" x="191" y="-173" font-family="Helvetica,sans-Serif" font-size="10.00">::ToMode</text>
@@ -348,7 +348,7 @@
 </g>
 <!-- Node28 -->
 <g id="node28" class="node"><title>Node28</title>
-<g id="a_node28"><a xlink:href="../../d7/db5/a00472.html#aa45ab4a5a30f65dcd1bf25c3d095825b" target="_top" xlink:title="Builds a string with lower case characters only. ">
+<g id="a_node28"><a xlink:href="../../d0/d29/a00470.html#aa45ab4a5a30f65dcd1bf25c3d095825b" target="_top" xlink:title="Builds a string with lower case characters only. ">
 <polygon fill="white" stroke="black" points="484.5,-132.5 484.5,-151.5 587.5,-151.5 587.5,-132.5 484.5,-132.5"/>
 <text text-anchor="middle" x="536" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">stride::util::ToLower</text>
 </a>
