@@ -31,6 +31,16 @@ public:
          * @param grid The grid we want to change to.
          */
         void SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids);
+
+        Q_INVOKABLE
+        /**
+         * Save the marker of the location in a region so we can edit it later.
+         * @param region The region of the location marker we are saving
+         * @param id the location id
+         * @param marker the pointer to the CustomMarker object in the MapViewer
+         */
+        void SaveMarker(int region, int id, QObject* marker);
+
         Q_INVOKABLE
         /**
          * Load a GeoGrid from JSON file, specified in the command line arguments
@@ -80,8 +90,10 @@ public:
          */
         void SelectArea(double slat, double slong, double elat, double elong);
 
-        /// The Same as SelectArea but does not clear selection first.
         Q_INVOKABLE
+        /**
+         * The Same as SelectArea but does not clear selection first.
+         */
         void SelectExtraInArea(double slat, double slong, double elat, double elong);
 
         Q_INVOKABLE
@@ -156,14 +168,6 @@ private:
          * Removes all locations from selection and unselection + re-render the map.
          */
         void ClearSelectionAndRender();
-
-        Q_INVOKABLE
-        /**
-         * Saves the CustomMarker QObject of a specific location so we can modify it later.
-         * @param region the region of the location
-         * @param id the id of the location
-         */
-        void SaveMarker(int region, int id, QObject* marker);
 
         /**
          * Update colors of Markers based on the value of m_selection and m_unselection.
