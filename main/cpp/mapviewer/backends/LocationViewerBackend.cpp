@@ -65,7 +65,7 @@ void LocationViewerBackend::ShowLocations(std::set<std::shared_ptr<gengeopop::Lo
 
 void LocationViewerBackend::UpdateInfected() { ShowLocations(m_locations); }
 
-LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent) {}
+LocationViewerBackend::LocationViewerBackend(QObject* parent) : QObject(parent), m_locations() {}
 
 QString LocationViewerBackend::NISToProvince(unsigned int id)
 {

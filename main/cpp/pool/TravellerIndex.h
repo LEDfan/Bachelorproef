@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ContactPool.h"
+#include "IdSubscriptArray.h"
 #include <spdlog/logger.h>
 
 #include <queue>
@@ -34,12 +35,13 @@ private:
          */
         struct TravellerInfo
         {
-                unsigned int        from;
-                ContactPool*        to;
-                Person*             person;
-                std::size_t         leaveDay;
-                ContactPoolType::Id type;
-                bool                operator>(const TravellerInfo& other) const { return leaveDay > other.leaveDay; }
+                unsigned int                            from;
+                ContactPool*                            to;
+                Person*                                 person;
+                std::size_t                             leaveDay;
+                ContactPoolType::Id                     type;
+                ContactPoolType::IdSubscriptArray<bool> original_in_pools;
+                bool operator>(const TravellerInfo& other) const { return leaveDay > other.leaveDay; }
         };
 
         std::shared_ptr<spdlog::logger> m_travelLogger; ///< Logger to which the travel information will be logged

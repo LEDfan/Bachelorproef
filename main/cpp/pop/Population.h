@@ -158,8 +158,9 @@ private:
         std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
-                                                     m_regionRanges; ///< Ranges over the people in different regions
-        std::vector<TravellerIndex>                  m_regionTravellerIndex;
+            m_regionRanges; ///< Ranges over the people in different regions
+        std::vector<TravellerIndex>
+                                                     m_regionTravellerIndex; ///< For each region keep a TravellerIndex which holds the travelling information
         std::unordered_map<std::string, std::size_t> m_regions; ///< Regios
 
         // Cannot make negative because size_t is unsigned, special check needed in the Create methods

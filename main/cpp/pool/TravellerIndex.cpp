@@ -32,7 +32,9 @@ void TravellerIndex::ReturnTravelers(std::size_t currentDay)
 
                 person->m_isTravelling = false;
 
-                // m_in_pools should not be changed
+                // restore presence in original contactpools
+                person->m_in_pools = travellerInfo.original_in_pools;
+
                 m_travelLogger->info("Person[{}] returns from travel, home_cp: {}, foreign_cp {}, type of travel was: "
                                      "{}, should return on {}, today is  {}",
                                      person->GetId(), travellerInfo.from, travellerInfo.to->GetId(),
@@ -47,11 +49,12 @@ void TravellerIndex::StartTravel(unsigned int from, stride::ContactPool* to, str
 
         TravellerInfo r{};
         // save the old id
-        r.from     = from;
-        r.to       = to;
-        r.person   = person;
-        r.leaveDay = leaveDay;
-        r.type     = type;
+        r.from              = from;
+        r.to                = to;
+        r.person            = person;
+        r.leaveDay          = leaveDay;
+        r.type              = type;
+        r.original_in_pools = person->m_in_pools;
 
         // update the new id
         person->m_pool_ids[type] = to->GetId();

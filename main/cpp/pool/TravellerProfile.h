@@ -35,9 +35,11 @@ public:
                               std::size_t currentDay);
 
 private:
+        /// Holds the actual travelling profile used to "generate" trips
         /// From region, to region, relative amount of people
         std::vector<std::vector<double>> m_data_recreation;
 
+        /// Holds the actual travelling profile used to "generate" trips
         /// From region, to region, relative amount of people
         std::vector<std::vector<double>> m_data_work;
 
@@ -53,15 +55,7 @@ private:
         std::size_t m_maxDays;
 
         /// Helper function to make a random choice based on a fraction
-        bool MakeChoice(double fraction)
-        {
-                std::vector<double> weights;
-                weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
-                weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
-
-                auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
-                return static_cast<bool>(dist());
-        }
+        bool MakeChoice(double fraction);
 };
 
 } // namespace stride

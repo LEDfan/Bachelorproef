@@ -89,22 +89,7 @@ public:
         void SetId(unsigned int id) { m_id = id; }
 
         /// Check if a person is present today in a given contactpool
-        bool IsInPool(const ContactPoolType::Id poolType, unsigned int poolId) const
-        {
-                /**
-                 * When travelling we can't remove this person from it's original CP, since there is no efficient way
-                 * to get a CP by its id. Hence this person will be in two CP's of type Work or PrimaryCommunity.
-                 * When travelling the m_pool_ids[Work] or m_pool_ids[PrimaryCommunity] will be updated to the new CP
-                 * in the other region. The m_in_pools will be set to false for all other CP's. This way the normal
-                 * behaviour for m_in_pools can be used for Work or PrimaryCommunity. In order to simulate the removal
-                 * of the original CP for work and PrimaryCommunity it's checked that the the CP is the CP this person
-                 * is currently in. (Thus when travelling at the other region)
-                 */
-                if (poolId != m_pool_ids[poolType]) {
-                        return false;
-                }
-                return m_in_pools[poolType];
-        }
+        bool IsInPool(const ContactPoolType::Id poolType, unsigned int poolId) const;
 
         /// Does this person participates in the social contact study?
         bool IsSurveyParticipant() const { return m_is_participant; }
