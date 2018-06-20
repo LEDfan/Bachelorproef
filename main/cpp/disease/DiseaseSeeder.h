@@ -45,11 +45,10 @@ public:
 
 private:
         /// Seed for vaccination/natural immunity.
-        template<typename T>
-        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                       T& immunityPools);
+        template <typename T>
+        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools);
 
-        template<typename T>
+        template <typename T>
         void SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogger);
 
 private:

@@ -127,9 +127,6 @@ int main(int argc, char** argv)
                         controller->RegisterViewers();
 
                         std::unique_ptr<std::thread> thread = nullptr;
-                        if (execArg.getValue() == "sim") {
-                                thread = std::make_unique<std::thread>([&controller]() { controller->Control(); });
-                        }
 
                         if (show_mapviewer.getValue()) {
 #if Qt5_FOUND
@@ -137,10 +134,12 @@ int main(int argc, char** argv)
                                         Q_INIT_RESOURCE(qml);
                                         int             i = 0;
                                         QGuiApplication app(i, nullptr);
-                                        auto            engine = std::make_unique<QQmlApplicationEngine>();
+                                        auto            localEngine = std::make_unique<QQmlApplicationEngine>();
                                         controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(),
-                                                                                       engine.get());
-                                        app.exec();
+                                                                                       localEngine.get());
+                                        thread =
+                                            std::make_unique<std::thread>([&controller]() { controller->Control(); });
+                                        QGuiApplication::exec();
                                 } else {
                                         controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
                                 }
@@ -148,17 +147,11 @@ int main(int argc, char** argv)
                                 std::cerr << "Can't run with mapviewer when Qt is not found" << std::endl;
 #endif
                         }
-                        if (execArg.getValue() == "sim") {
+                        if (thread) {
                                 thread->join();
                         } else {
                                 controller->Control();
                         }
-                }
-                // -----------------------------------------------------------------------------------------
-                // If geopop ...
-                // -----------------------------------------------------------------------------------------
-                else if (execArg.getValue() == "geopop") {
-                        cout << "Not implented here yet ..." << endl; // TODO
                 }
                 // -----------------------------------------------------------------------------------------
                 // If clean/dump ...

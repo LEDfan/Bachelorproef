@@ -4,6 +4,7 @@
 #include "GeoGrid.h"
 
 namespace gengeopop {
+/// Models a College as ContactCenter
 class College : public ContactCenter
 {
 public:

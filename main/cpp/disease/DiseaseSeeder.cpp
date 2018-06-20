@@ -43,10 +43,11 @@ DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RNManager& rnManager)
 {
 }
 
-void DiseaseSeeder::Seed(std::shared_ptr<Population> pop) {
-        boost::optional<const ptree &> regionsToSeed = m_config_pt.get_child_optional("run.regions_to_seed");
+void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
+{
+        boost::optional<const ptree&> regionsToSeed = m_config_pt.get_child_optional("run.regions_to_seed");
         if (regionsToSeed) {
-                for (const auto &region : m_config_pt.get_child("run.regions_to_seed")) {
+                for (const auto& region : m_config_pt.get_child("run.regions_to_seed")) {
                         std::size_t regionId = pop->GetRegionIdentifiers().at(region.second.data());
 
                         auto cps = pop->SliceOnRegion(regionId)[Id::Household];
@@ -74,19 +75,20 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop) {
                 SeedPop(*pop, pop->GetContactLogger());
         }
 }
-template<typename T>
-void DiseaseSeeder::SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogger) {
+template <typename T>
+void DiseaseSeeder::SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogger)
+{
         // --------------------------------------------------------------
         // Seed infected persons.
         // --------------------------------------------------------------
-        const auto sRate = m_config_pt.get<double>("run.seeding_rate");
+        const auto sRate   = m_config_pt.get<double>("run.seeding_rate");
         const auto sAgeMin = m_config_pt.get<double>("run.seeding_age_min", 1);
         const auto sAgeMax = m_config_pt.get<double>("run.seeding_age_max", 99);
 
         const auto popSize     = pop.size();
         const auto maxPopIndex = static_cast<unsigned int>(popSize - 1);
         auto       generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, maxPopIndex));
-//        auto&      logger      = pop.GetContactLogger();
+        //        auto&      logger      = pop.GetContactLogger();
 
         auto numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * sRate));
         while (numInfected > 0) {
@@ -99,9 +101,8 @@ void DiseaseSeeder::SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogge
         }
 }
 
-template<typename T>
-void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                              T& immunityPools)
+template <typename T>
+void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools)
 {
         std::vector<double> immunityDistribution;
         const double        linkProbability = 0;

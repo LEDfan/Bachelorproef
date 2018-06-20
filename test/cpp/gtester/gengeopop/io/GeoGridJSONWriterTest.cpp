@@ -59,16 +59,16 @@ bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
 TEST(GeoGridJSONWriterTest, locationTest)
 {
         auto geoGrid = GetGeoGrid();
-        geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove"));
-        geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0, 0, 0), "Gent"));
-        geoGrid->AddLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0, 0, 0), "Mons"));
+        geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
+        geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
+        geoGrid->AddLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test0.json"));
 }
 TEST(GeoGridJSONWriterTest, contactCentersTest)
 {
         auto geoGrid  = GetGeoGrid();
-        auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0, 0, 0), "Bavikhove");
+        auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<K12School>(0));
         location->AddContactCenter(std::make_shared<PrimaryCommunity>(1));
         location->AddContactCenter(std::make_shared<College>(2));

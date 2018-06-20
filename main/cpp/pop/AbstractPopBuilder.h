@@ -46,7 +46,7 @@ public:
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
                                                   std::string regionName) = 0;
 
-        virtual ~AbstractPopBuilder(){};
+        virtual ~AbstractPopBuilder() = default;
 
 protected:
         const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree.

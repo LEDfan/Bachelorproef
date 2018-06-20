@@ -103,8 +103,6 @@ set(LIB_SRC
         util/RNEngineType.cpp
         util/RNManager.cpp
         util/RunConfigManager.cpp
-        util/pchheader.h
-        util/pchheader.cpp
         util/Stopwatch.h
         util/StringUtils.h
         util/Subject.h
@@ -127,13 +125,10 @@ set(LIB_SRC
 #============================================================================
 add_library(libstride ${LIB_SRC})
 set_source_files_properties(BeliefSeeder.cpp PROPERTIES COMPILE_FLAGS "-Wno-unused-variable")
+set_source_files_properties(pop/Population.cpp PROPERTIES COMPILE_FLAGS "-Wno-missing-braces")
 target_link_libraries(libstride ${LIBS} libgengeopop libguicontroller)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-#============================================================================
-# Pre-compiled headers
-#============================================================================
-add_precompiled_header(libstride util/pchheader.h FORCEINCLUDE)
 
 #============================================================================
 # Build the Stride binary.

@@ -1,0 +1,23 @@
+%%!TEX root = ./UserManual.tex
+\chapter{Code quality}
+\label{chap:code-quality}
+
+To ensure good code quality all compiler warnings were fixed our in some rare cases suppressed. The following compilers should give no warnings:
+\begin{compactitem}
+    \item GCC 6.4.0 on Linux
+    \item GCC 7.3.0 on Linux
+    \item GCC 7.3.1 on Linux
+    \item GCC 8.1.1 on Linux
+    \item Clang 5.0.0 on Linux
+    \item Clang 5.0.1 on Linux
+    \item Clang 5.0.2 on Linux
+    \item Clang 6.0.0 on Linux
+    \item AppleClang 8.1.0 on Darwin-16.7.0
+    \item AppleClang 9.0.0 on Darwin-16.7.0
+    \item AppleClang 9.1.0 on Darwin-17.4.0
+\end{compactitem}
+
+Clang-format was used to ensure a consistent code-style throughout the project. The used clang-format is 5.0.1.
+
+The GUI's were manually tested on a macOS High Sierra system. We noticed that on one system, out of our control, an extra titlebar appeared. We were unable to reproduce this.
+The used Qt version is 5.11.0.

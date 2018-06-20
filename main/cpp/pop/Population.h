@@ -28,7 +28,7 @@
 #include "pop/GenPopBuilder.h"
 #include "pop/Person.h"
 #include "util/Any.h"
-#include "util/pchheader.h"
+#include "util/SegmentedVector.h"
 
 #include "util/RNManager.h"
 #include <boost/property_tree/ptree.hpp>
@@ -102,7 +102,7 @@ public:
         /// Return TravellerIndex for a specific regionId
         TravellerIndex& GetTravellerIndex(std::size_t regionId);
 
-        /// Let the travelers return to their original location
+        /// Let the travelling persons return to home
         void ReturnTravellers(std::size_t currentDay);
 
         ///
@@ -113,7 +113,7 @@ private:
         Population();
 
         /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
-        /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
+        /// due to guarding against data races in parallel use of SetBeliefPolicy. The DoubleChecked
         /// locking did not work in OpenMP parallel for's on Mac OSX.
         template <typename BeliefPolicy>
         void InitBeliefPolicy()
@@ -127,7 +127,7 @@ private:
 
         /// Assign the belief policy.
         /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
-        /// \param belief        belief object that wille be associated with the person
+        /// \param belief        belief object that will be associated with the person
         /// \param i             subscript to person associated with this belief object
         // Cannot follow my preference for declaration of required explicit specializations, because SWIG
         // does not like that. Hence include of the template method definition in the header file.
@@ -161,8 +161,9 @@ private:
         std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
         util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
-                                                     m_regionRanges; ///< Ranges over the people in different regions
-        std::vector<TravellerIndex>                  m_regionTravellerIndex;
+            m_regionRanges; ///< Ranges over the people in different regions
+        std::vector<TravellerIndex>
+                                                     m_regionTravellerIndex; ///< For each region keep a TravellerIndex which holds the travelling information
         std::unordered_map<std::string, std::size_t> m_regions; ///< Regios
 
         // Cannot make negative because size_t is unsigned, special check needed in the Create methods

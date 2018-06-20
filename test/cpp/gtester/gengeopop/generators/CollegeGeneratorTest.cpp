@@ -22,7 +22,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         config.calculated._1826_years_and_student = 9000;
 
         auto geoGrid = std::make_shared<GeoGrid>();
-        auto loc1    = std::make_shared<Location>(1, 4, 45000, Coordinate(0, 0, 0, 0), "Antwerpen");
+        auto loc1    = std::make_shared<Location>(1, 4, 45000, Coordinate(0, 0), "Antwerpen");
 
         geoGrid->AddLocation(loc1);
 
@@ -65,7 +65,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
                                9033,  31426, 33860, 4110,  50412, 25098, 40135};
         for (int size : sizes) {
                 geoGrid->AddLocation(
-                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0, 0, 0), "Size: " + std::to_string(size)));
+                    std::make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + std::to_string(size)));
         }
 
         collegeGenerator.Apply(geoGrid, config);

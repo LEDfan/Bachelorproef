@@ -6,6 +6,7 @@
 
 namespace gengeopop {
 
+/// Models a Community as ContactCenter
 class Community : public ContactCenter
 {
 public:

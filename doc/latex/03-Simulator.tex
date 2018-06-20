@@ -8,40 +8,52 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Workspace}
 
-By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}). 
-Compilation and installation of the software will create the following files and directories: (illustrated in Figure \ref{fig:workspace}):
+By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}).
+Compilation and installation of the software will create the following files and directories:
 
 \begin{compactitem}
-    \item Binaries 
+    \item Binaries
     		in directory \texttt{<project\_dir>/bin}
       	\begin{itemize}
         		\item $stride$: executable.
-		\item $gtester$: regression tests for the sequential code.
-        		\item $wrapper\_sim.py$: Python simulation wrapper  		
+        		\item $gtester$: regression tests for the sequential code.
+                \item $gengeopop$: generates the population and geographical grid.
+                \item $guilauncher$: tool to edit a simulation configuration and execute it
+                \item $mapviewer$: tool to visualize the population and geographical grid, can be directly used from $stride$ and $guilauncher$.
+                \item $calibration$: tool to run the simulator multiple times to generate statistical data. This can be used to calibrate test outcomes.
+        		\item $wrapper\_sim.py$: Python simulation wrapper
         \end{itemize}
     \item Configuration files (xml and json)
       	in directory \texttt{<project\_dir>/config}
       	\begin{itemize}
 		\item $run\_default.xml$: default configuration file for Stride to perform a Nassau simulation.
-        		\item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
-		\item $wrapper_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
-		\item ...
+        \item $run\_generate\_default.xml$: default configuration file for Stride to first generate a population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_import\_default.xml$: default configuration file for Stride to first import a population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_regions\_default.xml$: default configuration file for Stride to first generate several regions with their own population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_regions\_import.xml$: default configuration file for Stride to first import several regions with their own population and geographical grid and then perform a Nassau Simulation.
+        \item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
+		\item $wrapper\_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
+        \item \ldots
         \end{itemize}
     \item Data files (csv)
       	in directory \texttt{<project\_dir>/data}
       	\begin{itemize}
-        		\item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
+        \item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
 		\item $belgium\_population$: Relative Belgian population per city. Details are provided for all cities and for 13 major cities.
-		\item $contact\_matrix_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
-		\item $contact\_matrix_week$: Social contact rates, given the cluster type. Community clusters have week rates.
-		\item $contact\_matrix_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
+		\item $contact\_matrix\_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
+		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Community clusters have week rates.
+		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
 		\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
 		\item $holidays\_xxx$: Holiday characteristics for xxx.
-		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}. 
+		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}.
 		\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
-		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011. 
+		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011.
 
-		
+        \item $DE\_cities.csv$: German cities, fetched from \footnote{\url{https://en.wikipedia.org/wiki/List\_of\_cities\_and\_towns\_in\_Germany}}.
+        \item $FR\_cities.csv$: French cities, fetched from \footnote{\url{https://en.wikipedia.org/wiki/List\_of\_arrondissements\_of\_France}}.
+        \item $NL\_cities.csv$: Dutch cities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Tabel\_van\_Nederlandse\_gemeenten}}.
+        \item $wallonia\_cities.csv$: Walloon cities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Lijst\_van\_gemeenten\_in\_het\_Waals\_Gewest}}.
+        \item $submunicipalities.csv$: Belgian sub-municipalities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Lijst\_van\_gemeenten\_in\_het\_Vlaams\_Gewest}}.
         \end{itemize}
     \item Documentation files
       	in directory \texttt{./target/installed/doc}
@@ -65,16 +77,131 @@ From the workspace directory, the simulator can be started with default configur
 
 \item \texttt{-c} or \texttt{{-}-config}: The configuration file.
 
-\item \texttt{-r} or \texttt{{-}-r0}: To obtain the basic reproduction number, no tertiary infections.
+\item \texttt{-v} or \texttt{{-}-mapviewer}: Shows the MapViewer during simulation (only useful when using a GeoGrid).
 
 \end{compactitem}
+
+\section{Generating a population and geographical grid}
+
+
+From the workspace directory, the generation of a population and geographical grid (sometimes called GeoGrid) can be started with the default configuration using the command \mbox{``\texttt{./bin/gengeopop}''}. The following configuration options are available:
+
+\begin{description}
+    \item[\texttt{--populationSize}] \ \\
+        The size of the population to generate. By default a population of \texttt{6000000} is generated.
+    \item[\texttt{--fracActive}] \ \\
+        The fraction of people who are active, i.e. who are employed or students. By default \texttt{0.75} is used.
+    \item[\texttt{--fracStudentCommuting}] \ \\
+        The fraction of students commuting. By default \texttt{0.5} is used.
+    \item[\texttt{--fracActiveCommuting}] \ \\
+        The fraction of active people who commutes. By default \texttt{0.5} is used.
+    \item[\texttt{--frac1826Students}] \ \\
+        The fraction of 1826 years which are students. By default \texttt{0.5} is used.
+    \item[\texttt{--household}] \ \\
+        The file to read the household profiles from.
+    \item[\texttt{--commuting}] \ \\
+        The file to read the commuting information from.
+    \item[\texttt{--cities}] \ \\
+        The file to read the cities from.
+    \item[\texttt{--subMinicipalities}] \ \\
+        The file to read the sub-municipalities from.
+    \item[\texttt{--output}] \ \\
+        The file to write the GeoGrid to. By default this is \texttt{gengeopop.proto}
+    \item[\texttt{--state}] \ \\
+        The state to be used for initializing the random engine. This can be used to continue with the same state when generating multiple regions.
+    \item[\texttt{--rng\_type}] \ \\
+        The type of random engine to use by default \texttt{mrg2} is used. Available options are: \texttt{mrg2}, \texttt{mrg3}, \texttt{yarn2}, \texttt{yarn3}, \texttt{lgc64} and \texttt{lgc64\_shift}.
+    \item[\texttt{--seed}] \ \\
+        The seed to be used for the random engine. The default is \texttt{0}.
+    \item[\texttt{--loglevel}] \ \\
+        The loglevel to use, by default this is \texttt{info}.
+\end{description}
+
+\section{Using the MapViewer}
+
+The MapViewer component can be used to explore a generated GeoGrid.
+From the workspace directory, the MapViewer can be started by using \mbox{``\texttt{./bin/mapviewer}''}. No additional command line options are available.
+To open a GeoGrid use the menu option \texttt{File -> Open}. After loading the file, the viewport can be changed so that all markers are visible (\texttt{View -> Fit viewport}).
+The circular markers indicate a city or sub-municipality. The square markers indicate the ``parent'' city of sub-municipalities, they don't have a population.
+By clicking on the square marker, all the sub-municipalities will be selected.
+When one ore more cities is selected the details are shown in the right sidebar. For example a list of ContacCenters in the current selected Location. When a ContactCenter is clicked, the ContactPools of the clicked ContactCenter will be shown.
+When holding the Ctrl key and clicking multiple markers all clicked markers will be selected.  Multiple cities in a rectangle can be selected by holding the control key and left mouse button while dragging. Clicking on the map will deselect all cities. Hold the Alt key while panning the map to prevent deselection.
+Ctrl+ A can be used to select all cities, while Ctrl + F can be used to fit the viewport of the map so all cities are visible.
+To show commutes of a city, first enable the \texttt{View -> Show Commutes} option. The commutes between the selected cities will be shown.
+While simulating a blue marker indicates that no one is infected at that location. As soon as some people get infected the marker will become green, to eventually become red when more people are infected.
+The visible area of a map can be exported to an image file using \texttt{File -> Export to image}.
+
+When using the main Stride executable the mapviewer can be opened by passing the \texttt{-v} option.
+
+\section{Using the GuiLauncher}
+
+With the GuiLauncher component one can open a configuration file, change the parameters and then run the simulator. It's also possible to select which viewers to use (e.g. the MapViewer) and whether to use the GuiContrller (\ref{sec:guicontroller}). The changed configuration file can also be saved.
+
+From the workspace directory, the GuiLauncher can be started by using \mbox{``\texttt{./bin/mapviewer}''}. No additional command line options are available.
+The GuiLauncher should be straightforward to use.
+
+\section{Using the GuiController}
+\label{sec:guicontroller}
+
+The GuiController can be started when using the GuiLauncher. It makes it possible to control the simulation run.
+After clicking the ``Start`` button the simulation will start. The time between each simulated day can be changed by editing the value of the input field. The default is two seconds.
+It is also possible to advance the simulation multiple days, by choosing the amount of days and clicking the ``Multi-Step`` button.
+The ``Step`` button will always simulate one day.
+
+\section{Using the Calibrator}
+\label{sec:calibrator}
+
+The Calibrator is a tool designed to calibrate the scenario tests.
+It can also be used for running a simulation multiple times to gather statistical data.
+This data can then be written to a file or be used for generating boxplots.
+The following configuration options are available:
+
+\begin{description}
+    \item[\texttt{--config}] \ \\
+        Specifies the run configuration parameters to be used for the simulation.
+        If this is provided multiple times, the calibration is performed on all given simulations.
+        It may be either \texttt{-c file=<file>} \texttt{or -c name=<name>}.
+        The first option can be shortened to \texttt{-c <file>}, the second option accepts \texttt{TestsInfluenza}, \texttt{TestsMeasles} or \texttt{BenchMeasles} as  \texttt{<name}.
+    \item[\texttt{--testcases}] \ \\
+        Instead of providing the configuration files, you can also select multiple testcases to use for the simulation runs.
+        The default is \texttt{influenza\_a, influenza\_b, influenza\_c, measles\_16} and \texttt{r0\_12}.
+    \item[\texttt{--multiple}]\ \\
+        The amount of simulations to run for each testcase. For each simulation, a different seed will be used.
+    \item[\texttt{--single}]\ \\
+        Run the simulations with the fixed seeds to determine the exact values.
+    \item[\texttt{--output}]\ \\
+        Write the results of the calibration to a file with given filename.
+        This resulting file contains for each configuration and each step in the simulation the mean, standard deviation, exact value using the default seed and the values found with other seeds.
+        These values depend on the selected options, specifically \texttt{--multiple} and \texttt{--single}.
+    \item[\texttt{--write}]\ \\
+        Write boxplots to files in the current directory. This creates an image for each config or testcase.
+    \item[\texttt{--display}]\ \\
+        Display the boxplots for the last step.
+    \item[\texttt{--displayStep}]\ \\
+        Display the boxplots for a specified step.
+\end{description}
+
+Examples:\\
+To find the exact values for the testcases and write these to a file:\\
+
+\centerline{\texttt{calibration -s -o out.json}}
+
+To run a configuration file 10 times with a random seed and display the generated boxplot for the last step in the simulation:\\
+
+\centerline{\texttt{calibration -c run\_default.xml -m 10 -d}}
+
+To run the testcase \texttt{influenza\_a} 10 times, write the results to a file and for each step in the simulation write a boxplot to a file:\\
+
+\centerline{\texttt{calibration -t influenza\_a -m 10 -w -o out.json}}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sim Wrapper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Python Wrapper}
-A Python wrapper is provided to perform multiple runs with the C++ executable. 
-The wrapper is designed to be used with .json configuration files and examples are provided with the source code. 
+A Python wrapper is provided to perform multiple runs with the C++ executable.
+The wrapper is designed to be used with .json configuration files and examples are provided with the source code.
 For example: \\ \\
 \centerline{\texttt{./bin/wrapper\_sim --config ./config/wrapper\_default.json}} \\ \\
 will start the simulator with each configuration in the file.

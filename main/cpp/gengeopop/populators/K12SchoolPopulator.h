@@ -5,6 +5,7 @@
 
 namespace gengeopop {
 
+/// Populate K12Schools
 class K12SchoolPopulator : public PartialPopulator
 {
 public:

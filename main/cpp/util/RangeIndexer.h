@@ -118,7 +118,9 @@ public:
         }
 
         /// Retrieve reference to a range by its subscipt in the indexer.
-        range_type&       GetRange(std::size_t i) { return m_ranges.at(i); }
+        range_type& GetRange(std::size_t i) { return m_ranges.at(i); }
+
+        /// Retrieve reference to a range by its subscipt in the indexer.
         const range_type& GetRange(std::size_t i) const { return m_ranges.at(i); }
 
         /// Extend the (currently) last range to the right by `amount`

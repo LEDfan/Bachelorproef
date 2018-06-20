@@ -57,10 +57,9 @@ void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto
 void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coordinate,
                                          proto::GeoGrid_Location_Coordinate* protoCoordinate)
 {
-        protoCoordinate->set_x(coordinate.x);
-        protoCoordinate->set_y(coordinate.y);
-        protoCoordinate->set_longitude(coordinate.longitude);
-        protoCoordinate->set_latitude(coordinate.latitude);
+        using boost::geometry::get;
+        protoCoordinate->set_longitude(get<0>(coordinate));
+        protoCoordinate->set_latitude(get<1>(coordinate));
 }
 
 void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
@@ -97,11 +96,5 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
         protoPerson->set_gender(std::string(1, person->GetGender()));
-        protoPerson->set_k12school(person->GetK12SchoolId());
-        protoPerson->set_college(person->GetCollegeId());
-        protoPerson->set_household(person->GetHouseholdId());
-        protoPerson->set_workplace(person->GetWorkId());
-        protoPerson->set_primarycommunity(person->GetPrimaryCommunityId());
-        protoPerson->set_secondarycommunity(person->GetSecondaryCommunityId());
 }
 } // namespace gengeopop

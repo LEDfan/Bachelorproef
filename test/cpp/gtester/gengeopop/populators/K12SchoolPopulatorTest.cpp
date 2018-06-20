@@ -131,13 +131,13 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         // Brasschaat and Schoten are close to each oter and will both have students from both
         // Kortrijk will only have students going to Kortrijk
         auto brasschaat = *geoGrid->begin();
-        brasschaat->SetCoordinate(Coordinate(0, 0, 51.29227, 4.49419));
+        brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
 
         auto schoten = *(geoGrid->begin() + 1);
-        schoten->SetCoordinate(Coordinate(0, 0, 51.2497532, 4.4977063));
+        schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
 
         auto kortrijk = *(geoGrid->begin() + 2);
-        kortrijk->SetCoordinate(Coordinate(0, 0, 50.82900246, 3.264406009));
+        kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
         geoGrid->Finalize();
 

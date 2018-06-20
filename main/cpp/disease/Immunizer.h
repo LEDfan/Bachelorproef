@@ -23,29 +23,30 @@
 #include "pop/Person.h"
 #include "util/RNManager.h"
 
-#include <util/PartitionedSegmentedVector.h>
-#include <vector>
-#include <trng/uniform_int_dist.hpp>
 #include <trng/uniform01_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
+#include <util/SegmentedVector.h>
+#include <vector>
 
 namespace stride {
 
-//namespace util {
-//class RNManager;
+// namespace util {
+// class RNManager;
 //}
 
 /**
  * Deals with immunization strategies.
  */
-class Immunizer {
+class Immunizer
+{
 public:
-        ///
-        explicit Immunizer(util::RNManager &rnManager);
+        /// Constructor
+        explicit Immunizer(util::RNManager& rnManager);
 
         /// Random immunization.
-        template<typename T>
-        void Random(T& pools, std::vector<double> &immunityDistribution,
-                    double immunityLinkProbability) {
+        template <typename T>
+        void Random(T& pools, std::vector<double>& immunityDistribution, double immunityLinkProbability)
+        {
                 // Initialize a vector to count the population per age class [0-100].
                 std::vector<double> populationBrackets(100, 0.0);
 
@@ -53,8 +54,8 @@ public:
                 // note: focusing on measles, we expect the number of susceptible individuals
                 // to be less compared to the number of immune.
                 // TODO but this is a generic simulator
-                for (auto &c : pools) {
-                        for (const auto &p : c.GetPool()) {
+                for (auto& c : pools) {
+                        for (const auto& p : c.GetPool()) {
                                 if (p->GetHealth().IsSusceptible()) {
                                         p->GetHealth().SetImmune();
                                         populationBrackets[p->GetAge()]++;
@@ -63,9 +64,9 @@ public:
                 }
 
                 // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
-                const auto poolsSize = static_cast<int>(pools.size());
-                auto intGenerator = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, poolsSize));
-                auto uniform01Generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
+                const auto poolsSize          = static_cast<int>(pools.size());
+                auto       intGenerator       = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, poolsSize));
+                auto       uniform01Generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
 
                 // Calculate the number of susceptible individuals per age class.
                 unsigned int numSusceptible = 0;
@@ -77,8 +78,8 @@ public:
                 // Sample susceptible individuals, until all age-dependent quota are reached.
                 while (numSusceptible > 0) {
                         // random pool, random order of members
-                        const ContactPool &p_pool = pools[intGenerator()];
-                        const auto size = static_cast<unsigned int>(p_pool.GetSize());
+                        const ContactPool&        p_pool = pools[intGenerator()];
+                        const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
                         std::vector<unsigned int> indices(size);
                         for (unsigned int i = 0; i < size; i++) {
                                 indices[i] = i;
@@ -87,7 +88,7 @@ public:
 
                         // loop over members, in random order
                         for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
-                                Person &p = *p_pool.GetMember(indices[i_p]);
+                                Person& p = *p_pool.GetMember(indices[i_p]);
                                 // if p is immune and his/her age class has not reached the quota => make susceptible
                                 if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
                                         p.GetHealth().SetSusceptible();
@@ -103,9 +104,9 @@ public:
         }
 
         /// Cocoon immunization.
-        template<typename T>
-        void Cocoon(const T &pools, std::vector<double> &immunityDistribution,
-                    double immunityLinkProbability) {
+        template <typename T>
+        void Cocoon(const T& pools, std::vector<double>& immunityDistribution, double immunityLinkProbability)
+        {
 
                 /*
                  * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double
@@ -135,7 +136,7 @@ public:
         }
 
 private:
-        util::RNManager &m_rn_manager; ///< Random number manager.
+        util::RNManager& m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

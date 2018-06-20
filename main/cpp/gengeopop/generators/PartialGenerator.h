@@ -13,14 +13,20 @@ namespace gengeopop {
 class PartialGenerator
 {
 public:
+        /// Constructor with a RNManager and a logger
         explicit PartialGenerator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
+
+        /// Apply this PartialGenerator to the given geogrid, generating ContactCenters
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
-        virtual ~PartialGenerator(){};
+
+        /// Virtual destructor for inheritance
+        virtual ~PartialGenerator() = default;
 
 protected:
         stride::util::RNManager&        m_rnManager; ///< RnManager used by generators
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators
 
+        /// Make sure we're using a valid weight for random numbers
         void CheckWeight(const std::string& func, double weight)
         {
                 ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),

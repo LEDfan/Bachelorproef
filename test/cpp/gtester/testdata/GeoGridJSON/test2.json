@@ -6,8 +6,6 @@
             "province": "4",
             "population": "2500",
             "coordinate": {
-                "x": "0",
-                "y": "0",
                 "longitude": "0",
                 "latitude": "0"
             },

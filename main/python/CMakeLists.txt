@@ -41,7 +41,7 @@ swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)
 swig_link_libraries(stride PUBLIC libstride ${PYTHON_LIBRARIES})
 
 set_source_files_properties( ${swig_generated_file_fullname}
-    PROPERTIES COMPILE_FLAGS "-Wno-effc++ -Wno-cast-function-type -Wno-stringop-truncation")
+    PROPERTIES COMPILE_FLAGS "-Wno-effc++ -Wno-cast-function-type -Wno-stringop-truncation -Wno-self-assign")
 
 #================================================================================================
 # Install Python package.

@@ -1,8 +1,8 @@
 #pragma once
 
 #include <gengeopop/ContactCenter.h>
-#include <gengeopop/Coordinate.h>
 #include <gengeopop/GeoGrid.h>
+#include <gengeopop/Location.h>
 #include <gengeopop/io/proto/geogrid.pb.h>
 
 using namespace gengeopop;

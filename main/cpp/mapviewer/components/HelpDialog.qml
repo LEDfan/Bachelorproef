@@ -7,15 +7,31 @@ Dialog {
     title: "Help"
 
      contentItem: Text {
-        text: "Open a file using the context menu.\n
-                Select a single marker: Click on the marker
-                Select extra marker: Hold Control and press the marker.
-                Select Area: Hold control and drag over the area you want to select.
+        text: "
+                To open a file use the 'File -> Open' menu.\n
 
-                Select All: Ctrl + A
+                Cities are represented by markers. Circular markers are cities and sub-municipalities.
+                The (virtual) parent city of sub-municipalities is shown as a square. By clicking this
+                square all sub-municipalities of this parent city will be selected.
 
-                Show commutes: Click checkbox 'View > Show Commutes' then select cities.
-                The commutes between them will be shown"
+                Click on a marker to select it.
+                Hold the Ctrl key while clicking on markers to select multiple.
+                Hold the Ctrl key while dragging to select all the cities in a rectangle.
+                Hold the Ctrl and Shift key while dragging to select an additional rectangle.
+
+                Markers can be deselected by clicking on the map.
+                Hold the Alt key while panning the map to prevent deselection.
+
+                Ctrl + A can be used to select all cities.
+                Ctrl + F can be used to fit the viewport of the map so all cities are visible.
+
+                To show commutes of a city, first enable the 'View -> Show Commutes'.
+                The commutes between the selected cities will be shown.
+
+                While simulating the color a blue markers indicated that no one is infected at that location.
+                As soon as some people get infected the marker will become green, to eventually become red
+                when more people are infected.
+                "
         anchors.centerIn: parent
     }
 }

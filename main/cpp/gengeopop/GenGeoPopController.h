@@ -14,6 +14,7 @@ namespace gengeopop {
 class GenGeoPopController
 {
 public:
+        /// Create a GenGeoPopController
         GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
                             stride::util::RNManager& rnManager, std::string citiesFileName,
                             std::string commutingFileName, std::string householdFileName,

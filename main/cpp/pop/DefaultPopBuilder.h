@@ -41,11 +41,11 @@ public:
         /// Build Population and return it afterwards.
         /// The steps are:
         /// - Check input data.
-        /// - Read persons from file and instatiate them.
+        /// - Read persons from file and instantiate them.
         /// - Fill up the various type of contactpools.
         /// - Seed the population with contact survey participants.
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
-                                          std::string regionName);
+                                          std::string regionName) override;
 
 private:
         /// Generates pop's individuals and return pop.

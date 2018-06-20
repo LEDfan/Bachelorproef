@@ -75,12 +75,14 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
         }
 
-        if (configPt.get<bool>("run.travel_output_file", true)) {
-                const auto prefix = configPt.get<string>("run.output_prefix");
-                spdlog::register_logger(
-                    LogUtils::CreateFileLogger("travel_logger", FileSys::BuildPath(prefix, "travel_log.txt").string()));
-        } else {
-                spdlog::register_logger(LogUtils::CreateNullLogger("travel_logger"));
+        if (spdlog::get("travel_logger") == nullptr) {
+                if (configPt.get<bool>("run.travel_output_file", true)) {
+                        const auto prefix = configPt.get<string>("run.output_prefix");
+                        spdlog::register_logger(LogUtils::CreateFileLogger(
+                            "travel_logger", FileSys::BuildPath(prefix, "travel_log.txt").string()));
+                } else {
+                        spdlog::register_logger(LogUtils::CreateNullLogger("travel_logger"));
+                }
         }
 
         pop->m_belief_pt = configPt.get_child("run.belief_policy");
@@ -131,8 +133,7 @@ std::shared_ptr<Population> Population::Create()
         struct make_shared_enabler : public Population
         {
         };
-        auto r = make_shared<make_shared_enabler>();
-        r->m_belief_pt.add("name", "NoBelief");
+        auto r                  = make_shared<make_shared_enabler>();
         r->m_regions["Default"] = 0;
         r->m_regionTravellerIndex.emplace_back();
         return r;
@@ -173,15 +174,22 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
 
 void Population::UpdateRegion(std::size_t regionId)
 {
-        if (m_currentRegionId != regionId || (!m_have_inserted && m_currentRegionId == 0)) {
-                assert(regionId == m_currentRegionId + 1 || (!m_have_inserted && m_currentRegionId == 0 &&
-                                                             regionId == 0)); // TODO: what about empty regions?
+        auto update = [this](std::size_t regionId) {
                 m_regionRanges.SetRange(size(), regionId);
                 for (auto id : ContactPoolType::IdList) {
                         m_pool_sys_regions[id].SetRange(m_pool_sys[id].size(), regionId);
                 }
                 m_currentRegionId = regionId;
                 m_have_inserted   = true;
+        };
+
+        if (m_currentRegionId != regionId || (!m_have_inserted && m_currentRegionId == 0)) {
+                if (!m_have_inserted) {
+                        update(0);
+                }
+                for (std::size_t regId = m_currentRegionId + 1; regId <= regionId; regId++) {
+                        update(regId);
+                }
         }
 }
 
@@ -192,7 +200,7 @@ RegionSlicer Population::SliceOnRegion(std::size_t region_id) { return RegionSli
 Population::Population()
     : m_belief_pt(), m_beliefs(), m_pool_sys(),
       m_pool_sys_regions(BuildPoolSysRegions(ContactPoolType::IdPack, m_pool_sys)), m_contact_logger(), m_geoGrids(),
-      m_regions(), m_regionRanges(*this)
+      m_regionRanges(*this), m_regionTravellerIndex(), m_regions()
 {
 }
 
@@ -239,7 +247,8 @@ void Population::ReturnTravellers(std::size_t currentDay)
         }
 }
 
-boost::sub_range<util::SegmentedVector<Person>>& Population::GetPersonInRegion(std::size_t regionId) {
+boost::sub_range<util::SegmentedVector<Person>>& Population::GetPersonInRegion(std::size_t regionId)
+{
         return m_regionRanges.GetRange(regionId);
 }
 

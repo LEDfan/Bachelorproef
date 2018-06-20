@@ -118,11 +118,9 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
 
 Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
 {
-        const double x         = protoCoordinate.x();
-        const double y         = protoCoordinate.y();
         const double longitude = protoCoordinate.longitude();
         const double latitude  = protoCoordinate.latitude();
-        return {x, y, longitude, latitude};
+        return {longitude, latitude};
 }
 
 std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
