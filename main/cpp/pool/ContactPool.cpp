@@ -20,6 +20,7 @@
 
 #include "ContactPool.h"
 
+#include "ContactPoolType.h"
 #include "pop/Age.h"
 #include "pop/Person.h"
 
@@ -74,7 +75,6 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                         num_cases++;
                 }
         }
-
         return std::make_tuple(infectious_cases, num_cases);
 }
 
@@ -143,15 +143,19 @@ void ContactPool::Swap(std::size_t person1, std::size_t person2)
 {
         std::swap(m_members[person1], m_members[person2]);
         Person* pPerson1 = m_members[person1];
-        if (pPerson1->IsTravelling() && pPerson1->GetPoolId(m_pool_type) == m_pool_id) {
+        // Note that a simple check if the person is travelling and is present in this contactpool is not enough
+        // to know that it's an expat of this contactpool.
+        // E.g. person is travelling and in this contactpool (type work), but as expat in another contactpool (of type
+        // primaryCommunity)
+        if (m_expats.count(pPerson1)) {
                 // m_members[i_member] is an expat -> update map
-                m_expats[pPerson1] = person1;
+                m_expats.at(pPerson1) = person1;
                 assert(m_members[m_expats[pPerson1]] == pPerson1);
         }
         Person* pPerson2 = m_members[person2];
-        if (pPerson2->IsTravelling() && pPerson2->GetPoolId(m_pool_type) == m_pool_id) {
+        if (m_expats.count(pPerson2)) {
                 // m_members[i_member] is an expat -> update map
-                m_expats[pPerson2] = person2;
+                m_expats.at(pPerson2) = person2;
                 assert(m_members[m_expats[pPerson2]] == pPerson2);
         }
 }
