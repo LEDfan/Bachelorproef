@@ -30,10 +30,6 @@
 
 namespace stride {
 
-// namespace util {
-// class RNManager;
-//}
-
 /**
  * Deals with immunization strategies.
  */
