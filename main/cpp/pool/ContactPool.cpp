@@ -116,6 +116,9 @@ void ContactPool::UpdateExpatsAfterRemoval(std::vector<Person*>::iterator itAfte
                 }
                 assert(m_members[m_expats[expat.first]] == expat.first);
         }
+        if (m_index_immune == m_members.size() + 1) {
+                m_index_immune--;
+        }
 }
 
 void ContactPool::AddExpat(const Person* p)

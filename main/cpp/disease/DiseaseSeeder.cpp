@@ -46,32 +46,24 @@ DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RNManager& rnManager)
 void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 {
         boost::optional<const ptree&> regionsToSeed = m_config_pt.get_child_optional("run.regions_to_seed");
+        // --------------------------------------------------------------
+        // Population immunity (natural immunity & vaccination).
+        // --------------------------------------------------------------
+        const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
+        Vaccinate("immunity", immunityProfile, pop->GetContactPoolSys()[Id::Household]);
+
+        const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
+        Vaccinate("vaccine", vaccinationProfile, pop->GetContactPoolSys()[Id::Household]);
+
         if (regionsToSeed) {
                 for (const auto& region : m_config_pt.get_child("run.regions_to_seed")) {
+                        std::cout << "Seeding region" << region.second.data() << std::endl;
                         std::size_t regionId = pop->GetRegionIdentifiers().at(region.second.data());
 
                         auto cps = pop->SliceOnRegion(regionId)[Id::Household];
-                        // --------------------------------------------------------------
-                        // Population immunity (natural immunity & vaccination).
-                        // --------------------------------------------------------------
-                        const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
-                        Vaccinate("immunity", immunityProfile, cps);
-
-                        const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
-                        Vaccinate("vaccine", vaccinationProfile, cps);
-
                         SeedPop(pop->GetPersonInRegion(regionId), pop->GetContactLogger());
                 }
         } else {
-                // --------------------------------------------------------------
-                // Population immunity (natural immunity & vaccination).
-                // --------------------------------------------------------------
-                const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
-                Vaccinate("immunity", immunityProfile, pop->GetContactPoolSys()[Id::Household]);
-
-                const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
-                Vaccinate("vaccine", vaccinationProfile, pop->GetContactPoolSys()[Id::Household]);
-
                 SeedPop(*pop, pop->GetContactLogger());
         }
 }
