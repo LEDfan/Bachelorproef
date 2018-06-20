@@ -32,44 +32,4 @@ using namespace util;
 
 Immunizer::Immunizer(stride::util::RNManager& rnManager) : m_rn_manager(rnManager) {}
 
-// template<typename T>
-// void Immunizer::Random(const T& pools, std::vector<double>& immunityDistribution,
-//                       double immunityLinkProbability)
-//{
-//}
-
-// template<typename T>
-// void Immunizer::Cocoon(const T& /*pools*/,
-//                       std::vector<double>& /*immunity_distribution*/, double /*immunity_link_probability*/)
-//{
-/*
- * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double
-adult_age_min, double adult_age_max, double child_age_min, double child_age_max)
-{
-// Sampler for double in [0.0, 1.0).
-auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
-for (const auto& c : pools) {
-for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
-        Person& p = *c.GetMember(i_p);
-        if (p.GetHealth().IsSusceptible() && p.GetAge() >= adult_age_min &&
-            p.GetAge() <= adult_age_max) {
-
-                bool is_connected_to_target_age{false};
-                for (unsigned int i_p2 = 0; i_p2 < c.GetSize() && !is_connected_to_target_age; i_p2++) {
-                        const Person& p2 = *c.GetMember(i_p2);
-                        if (p2.GetAge() >= child_age_min && p2.GetAge() <= child_age_max) {
-                                is_connected_to_target_age = true;
-                        }
-                }
-                if (is_connected_to_target_age && uniform01_generator() < immunity_rate) {
-                        p.GetHealth().SetImmune();
-                }
-        }
-}
-}
-}
- *
-//         */
-//}
-
 } // namespace stride

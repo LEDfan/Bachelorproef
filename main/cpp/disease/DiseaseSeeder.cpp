@@ -57,7 +57,6 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 
         if (regionsToSeed) {
                 for (const auto& region : m_config_pt.get_child("run.regions_to_seed")) {
-                        std::cout << "Seeding region" << region.second.data() << std::endl;
                         std::size_t regionId = pop->GetRegionIdentifiers().at(region.second.data());
 
                         auto cps = pop->SliceOnRegion(regionId)[Id::Household];
@@ -80,7 +79,6 @@ void DiseaseSeeder::SeedPop(T& pop, std::shared_ptr<spdlog::logger> contactLogge
         const auto popSize     = pop.size();
         const auto maxPopIndex = static_cast<unsigned int>(popSize - 1);
         auto       generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, maxPopIndex));
-        //        auto&      logger      = pop.GetContactLogger();
 
         auto numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * sRate));
         while (numInfected > 0) {
