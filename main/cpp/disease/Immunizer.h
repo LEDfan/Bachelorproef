@@ -103,7 +103,6 @@ public:
         template <typename T>
         void Cocoon(const T& pools, std::vector<double>& immunityDistribution, double immunityLinkProbability)
         {
-
                 /*
                  * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double
         adult_age_min, double adult_age_max, double child_age_min, double child_age_max)

@@ -105,7 +105,7 @@ public:
         /// Let the travelling persons return to home
         void ReturnTravellers(std::size_t currentDay);
 
-        ///
+        /// Returns a boost subrange to the persons of a region
         boost::sub_range<util::SegmentedVector<Person>>& GetPersonInRegion(std::size_t regionId);
 
 private:

@@ -58,8 +58,6 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         if (regionsToSeed) {
                 for (const auto& region : m_config_pt.get_child("run.regions_to_seed")) {
                         std::size_t regionId = pop->GetRegionIdentifiers().at(region.second.data());
-
-                        auto cps = pop->SliceOnRegion(regionId)[Id::Household];
                         SeedPop(pop->GetPersonInRegion(regionId), pop->GetContactLogger());
                 }
         } else {
