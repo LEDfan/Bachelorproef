@@ -99,11 +99,14 @@ public:
         /// Create a new RegionSlicer for the given region id
         RegionSlicer SliceOnRegion(std::size_t region_id);
 
-        //// Get the TravellerIndex for the given region
+        /// Return TravellerIndex for a specific regionId
         TravellerIndex& GetTravellerIndex(std::size_t regionId);
 
         /// Let the travelling persons return to home
         void ReturnTravellers(std::size_t currentDay);
+
+        /// Returns a boost subrange to the persons of a region
+        boost::sub_range<util::SegmentedVector<Person>>& GetPersonInRegion(std::size_t regionId);
 
 private:
         /// Constructor, to be called by create
