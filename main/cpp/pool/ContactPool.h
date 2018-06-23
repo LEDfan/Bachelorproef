@@ -50,6 +50,7 @@ public:
         void AddMember(const Person* p);
 
         /// Add the given Person as an expat.
+        /// Should be thread safe (i.e. can be called from person while simulating)
         void AddExpat(const Person* p);
 
         /// Get member at index.
@@ -59,6 +60,7 @@ public:
         void RemoveMember(Person* pPerson);
 
         /// Remove an expat from the contactpool
+        /// Not guarenteed to be thread safe
         void RemoveExpat(Person* Person);
 
         /// Get the entire pool of members.
