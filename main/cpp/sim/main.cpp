@@ -18,8 +18,10 @@
  * Main program: command line handling.
  */
 
+#if Qt5_FOUND
 #include "guicontroller/GuiController.h"
 #include "mapviewer/MapViewer.h"
+#endif
 #include "sim/BaseController.h"
 #include "sim/CliController.h"
 #include "util/FileSys.h"
@@ -43,8 +45,10 @@ using namespace boost::property_tree;
 int main(int argc, char** argv)
 
 {
+#if Qt5_FOUND
         Q_INIT_RESOURCE(controllerqml);
         Q_INIT_RESOURCE(qml);
+#endif
         int exitStatus = EXIT_SUCCESS;
 
         try {
@@ -115,14 +119,18 @@ int main(int argc, char** argv)
                         configPt.sort();
 
                         std::unique_ptr<BaseController> controller = nullptr;
-                        QQmlApplicationEngine*          engine     = nullptr;
+#if Qt5_FOUND
+                        QQmlApplicationEngine* engine = nullptr;
+#endif
 
                         if (execArg.getValue() == "sim") {
                                 controller = std::make_unique<CliController>(configPt);
                         } else {
+#if Qt5_FOUND
                                 auto temp  = std::make_unique<GuiController>(configPt);
                                 engine     = temp->GetEngine();
                                 controller = std::move(temp);
+#endif
                         }
                         controller->RegisterViewers();
 

@@ -126,7 +126,11 @@ set(LIB_SRC
 add_library(libstride ${LIB_SRC})
 set_source_files_properties(BeliefSeeder.cpp PROPERTIES COMPILE_FLAGS "-Wno-unused-variable")
 set_source_files_properties(pop/Population.cpp PROPERTIES COMPILE_FLAGS "-Wno-missing-braces")
-target_link_libraries(libstride ${LIBS} libgengeopop libguicontroller)
+if(Qt5_FOUND)
+    target_link_libraries(libstride ${LIBS} libgengeopop libguicontroller)
+else()
+    target_link_libraries(libstride ${LIBS} libgengeopop)
+endif()
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 
