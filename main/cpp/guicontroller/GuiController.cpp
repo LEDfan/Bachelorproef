@@ -18,6 +18,7 @@
 #include <QtQml/QtQml>
 
 #include "GuiController.h"
+#include <QtWidgets/QApplication>
 #include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 namespace stride {

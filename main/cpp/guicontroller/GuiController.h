@@ -18,6 +18,7 @@
 #include <QApplication>
 #include <QtCore/QObject>
 #include <QtQml/QQmlApplicationEngine>
+#include <QtWidgets/QApplication>
 #include <memory>
 #include <thread>
 

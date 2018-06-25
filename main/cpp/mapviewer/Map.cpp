@@ -23,6 +23,7 @@
 
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
+#include <QtWidgets/QApplication>
 #include <utility>
 
 Q_DECLARE_METATYPE(std::shared_ptr<gengeopop::Location>)

@@ -16,6 +16,7 @@
 #include <QApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
+#include <QtWidgets/QApplication>
 
 #include <guilauncher/Launcher.h>
 

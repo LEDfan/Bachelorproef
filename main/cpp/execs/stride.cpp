@@ -22,6 +22,7 @@
 #if Qt5_FOUND
 #include "guicontroller/GuiController.h"
 #include "mapviewer/MapViewer.h"
+#include <QtWidgets/QApplication>
 #endif
 #include "sim/BaseController.h"
 #include "sim/CliController.h"
