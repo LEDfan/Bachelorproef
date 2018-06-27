@@ -101,7 +101,8 @@ public:
 
         /// Cocoon immunization.
         template <typename T>
-        void Cocoon(const T& pools, std::vector<double>& immunityDistribution, double immunityLinkProbability)
+        void Cocoon(const T& /*pools*/, std::vector<double>& /*immunityDistribution*/,
+                    double /*immunityLinkProbability*/)
         {
                 /*
                  * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double

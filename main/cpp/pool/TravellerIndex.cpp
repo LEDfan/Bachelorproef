@@ -20,6 +20,7 @@ void TravellerIndex::ReturnTravelers(std::size_t currentDay)
                 assert(travellerInfo.leaveDay == currentDay);
 
                 m_data.pop();
+
                 Person* person = travellerInfo.person;
 
                 m_travelLogger->flush();
@@ -72,6 +73,7 @@ void TravellerIndex::StartTravel(unsigned int from, stride::ContactPool* to, str
             "Person[{}] start travel, home_cp: {}, foreign_cp: {}, until day {}, type of travel is: {}",
             person->GetId(), from, to->GetId(), leaveDay, ContactPoolType::ToString(type));
 
+#pragma omp critical
         m_data.push(r);
 }
 

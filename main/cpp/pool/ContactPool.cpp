@@ -123,10 +123,13 @@ void ContactPool::UpdateExpatsAfterRemoval(std::vector<Person*>::iterator itAfte
 
 void ContactPool::AddExpat(const Person* p)
 {
-        AddMember(p);
-        std::size_t index = m_members.size() - 1;
-        m_expats[p]       = index;
-        assert(m_members[m_expats[p]] == p);
+#pragma omp critical
+        {
+                AddMember(p);
+                std::size_t index = m_members.size() - 1;
+                m_expats[p]       = index;
+                assert(m_members[m_expats[p]] == p);
+        }
 }
 
 void ContactPool::RemoveExpat(Person* person)

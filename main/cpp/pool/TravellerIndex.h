@@ -24,9 +24,11 @@ public:
         /// \p to is the foreign contactPool (same type as from)
         /// \p leaveDay is the day at which the person will return
         /// \p type is the type of the travel Work or PrimaryCommunity (i.e. recreational)
+        /// Should be thread safe (i.e. can be called from person while simulating)
         void StartTravel(unsigned int from, ContactPool* to, Person*, std::size_t leaveDay, ContactPoolType::Id type);
 
         /// Returns the travels at the given day
+        /// Not guarenteed to be thread safe
         void ReturnTravelers(std::size_t currentDay);
 
 private:
