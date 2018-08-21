@@ -8,7 +8,7 @@
 namespace stride {
 
 GuiController::GuiController(const boost::property_tree::ptree& configPt)
-    : BaseController(configPt), m_argc(std::make_shared<int>(0)),
+    : BaseController("GuiController", configPt), m_argc(std::make_shared<int>(0)),
       m_app(std::make_unique<QGuiApplication>(*m_argc, nullptr)), m_engine(std::make_unique<QQmlApplicationEngine>()),
       m_backend(nullptr)
 {

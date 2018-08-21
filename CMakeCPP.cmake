@@ -32,7 +32,7 @@ endif()
 #----------------------------------------------------------------------------
 # Compile flags
 #----------------------------------------------------------------------------
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 #
@@ -40,6 +40,10 @@ include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -pedantic -Weffc++")
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-unknown-pragmas")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
+set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas -Wno-unknown-warning-option -Wno-unevaluated-expression")
@@ -55,7 +59,6 @@ set(CMAKE_STATIC_LIBRARY_PREFIX "")
 if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
 	add_definitions( -D__APPLE__ )
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-unused-private-field")
 #
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
@@ -64,13 +67,23 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
 #
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
+#
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++1z")
 endif()
 
 #----------------------------------------------------------------------------
 # Standard math lib
 #----------------------------------------------------------------------------
 set(LIBS   ${LIBS}   m)
+
+#----------------------------------------------------------------------------
+# Random number stuff: pcg, randutils, trng
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/pcg/include)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/randutils/include)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/trng-4.20/include)
+set(LIBS ${LIBS} trng)
 
 #----------------------------------------------------------------------------
 # Spdlog Library (logging)
@@ -93,12 +106,6 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)
 set(LIBS ${LIBS} sha1)
-
-#----------------------------------------------------------------------------
-# Tina's Random Number Generator (TRNG) library and paths
-#----------------------------------------------------------------------------
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/trng-4.20/include)
-set(LIBS ${LIBS} trng)
 
 #----------------------------------------------------------------------------
 # Boost

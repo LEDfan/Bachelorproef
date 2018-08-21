@@ -28,7 +28,7 @@ void K12SchoolPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                 const std::vector<stride::ContactPool*>& classes =
                     GetContactPoolInIncreasingRadius<K12School>(geoGrid, loc);
 
-                auto dist = m_rnManager.GetGenerator(
+                auto dist = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));
 
                 // 2. for every student assign a class

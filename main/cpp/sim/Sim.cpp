@@ -26,6 +26,7 @@
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
 #include "sim/SimBuilder.h"
+#include "util/RnMan.h"
 #include "util/RunConfigManager.h"
 
 #include <omp.h>
@@ -37,26 +38,26 @@ using namespace trng;
 using namespace util;
 using namespace ContactLogMode;
 
-Sim::Sim(util::RNManager& rnManager)
+Sim::Sim(util::RnMan& rnMan)
     : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
-      m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr),
-      m_rn_manager(rnManager), m_transmission_profile(), m_travellerProfile(nullptr)
+      m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(rnMan),
+      m_transmission_profile(), m_travellerProfile(nullptr)
 {
 }
 
 std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
-                                 util::RNManager& rnManager)
+                                 util::RnMan& rnManager)
 {
         struct make_shared_enabler : public Sim
         {
-                explicit make_shared_enabler(util::RNManager& rnManager) : Sim(rnManager) {}
+                explicit make_shared_enabler(util::RnMan& rnManager) : Sim(rnManager) {}
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
         SimBuilder(configPt).Build(sim, std::move(pop));
         return sim;
 }
 
-std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop, util::RNManager& rnManager)
+std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop, util::RnMan& rnManager)
 {
         return Create(RunConfigManager::FromString(configString), std::move(pop), rnManager);
 }
@@ -78,8 +79,8 @@ void Sim::TimeStep()
 
 #pragma omp parallel num_threads(m_num_threads)
         {
-        // Update health status and presence/absence in pools
-        // depending on health status, work/school day.
+                // Update health status and presence/absence in pools
+                // depending on health status, work/school day.
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
                         population[i].Update(isWorkOff, isSchoolOff, m_travellerProfile, m_population,

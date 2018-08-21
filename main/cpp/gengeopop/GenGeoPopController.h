@@ -4,7 +4,7 @@
 #include <gengeopop/io/CommutesReader.h>
 #include <gengeopop/io/SubMunicipalitiesReader.h>
 #include <spdlog/logger.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 namespace gengeopop {
 
@@ -16,7 +16,7 @@ class GenGeoPopController
 public:
         /// Create a GenGeoPopController
         GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                            stride::util::RNManager& rnManager, std::string citiesFileName,
+                            stride::util::RnMan& rnManager, std::string citiesFileName,
                             std::string commutingFileName, std::string householdFileName,
                             std::string subMunicipalitiesFileName, std::string regionName);
 
@@ -38,7 +38,7 @@ public:
 private:
         GeoGridConfig& m_geoGridConfig; ///< The GeoGridConfig used to generate
 
-        stride::util::RNManager& m_rnManager; ///< The RNManager used
+        stride::util::RnMan& m_rnManager; ///< The RnMan used
 
         std::shared_ptr<GeoGrid> m_geoGrid; ///< The generated GeoGrid
 

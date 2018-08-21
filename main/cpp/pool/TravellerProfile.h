@@ -2,7 +2,7 @@
 
 #include "ContactPool.h"
 #include <trng/discrete_dist.hpp>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 #include <vector>
 
 namespace stride {
@@ -18,9 +18,9 @@ public:
         /// AmountOfTravel is a fraction 0-1 which indicates the change for a person to travel
         /// fractionWork indicates the amount of work travel
         TravellerProfile(std::size_t amountOfRegions, double amountOfTravel, double fractionWork,
-                         util::RNManager& rnManager, std::size_t maxDays);
+                         util::RnMan& rnManager, std::size_t maxDays);
 
-        explicit TravellerProfile(util::RNManager& rnManager)
+        explicit TravellerProfile(util::RnMan& rnManager)
             : m_data_recreation(), m_data_work(), m_amountOfTravel(), m_fractionWork(), m_rnManager(rnManager),
               m_maxDays(){};
 
@@ -49,7 +49,7 @@ private:
         /// A fraction 0-1 which indicates whether it's work travel or recreation
         double m_fractionWork;
 
-        util::RNManager& m_rnManager;
+        util::RnMan& m_rnManager;
 
         /// Maximum amount of days to travel
         std::size_t m_maxDays;

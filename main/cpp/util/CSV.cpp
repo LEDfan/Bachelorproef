@@ -37,8 +37,7 @@ const filesystem::path check(const filesystem::path& filename,
 {
         const filesystem::path file_path = canonical(complete(filename, root));
         if (!is_regular_file(file_path)) {
-                throw std::runtime_error(std::string(__func__) + ">File " + file_path.string() +
-                                         " not present. Aborting.");
+                throw runtime_error(string(__func__) + ">File " + file_path.string() + " not present. Aborting.");
         }
         return file_path;
 }
@@ -73,24 +72,31 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
 
 CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { ReadFromStream(inputStream); }
 
-CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
+CSV::CSV(const vector<string>& labels) : m_labels(labels), m_column_count(labels.size()) {}
 
-bool CSV::operator==(const CSV& other) const
+CSV::CSV(size_t columnCount) : m_labels(), m_column_count(columnCount)
 {
-        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
+        for (unsigned i = 1U; i < columnCount + 1; ++i) {
+                m_labels.emplace_back(ToString(i));
+        }
 }
 
-void CSV::AddRows(vector<vector<string>>& rows)
+void CSV::AddRows(const vector<vector<string>>& rows)
 {
         for (const vector<string>& row : rows) {
                 AddRow(row);
         }
 }
 
+bool CSV::operator==(const CSV& other) const
+{
+        return m_labels == other.m_labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
+}
+
 size_t CSV::GetIndexForLabel(const string& label) const
 {
-        for (unsigned int index = 0; index < labels.size(); ++index) {
-                if (labels.at(index) == label)
+        for (unsigned int index = 0; index < m_labels.size(); ++index) {
+                if (m_labels.at(index) == label)
                         return index;
         }
         throw runtime_error("Label: " + label + " not found in CSV");
@@ -103,21 +109,28 @@ void CSV::Write(const boost::filesystem::path& path) const
         if (!file.is_open()) {
                 throw runtime_error("Error opening csv file: " + path.string());
         }
+        file << *this;
+        file.close();
+}
 
-        for (unsigned int i = 0; i < labels.size(); ++i) {
-                const string& label = labels.at(i);
+void CSV::WriteLabels(boost::filesystem::ofstream& file) const
+{
+        for (unsigned int i = 0; i < m_labels.size(); ++i) {
+                const string& label = m_labels.at(i);
                 file << "\"" << label << "\"";
-                if (i != labels.size() - 1) {
+                if (i != m_labels.size() - 1) {
                         file << ",";
                 } else {
                         file << endl;
                 }
         }
+}
 
+void CSV::WriteRows(boost::filesystem::ofstream& file) const
+{
         for (const CSVRow& row : *this) {
                 file << row << endl;
         }
-        file.close();
 }
 
 void CSV::ReadFromStream(std::istream& inputStream)
@@ -144,7 +157,7 @@ void CSV::ReadFromStream(std::istream& inputStream)
         }
 }
 
-void CSV::AddRow(vector<string> values)
+void CSV::AddRow(const vector<string>& values)
 {
         CSVRow csvRow(this, values);
         this->push_back(csvRow);

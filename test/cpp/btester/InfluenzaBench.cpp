@@ -18,7 +18,7 @@
  * Implementation of Influenza runs for benchmarking.
  */
 
-#include "myhayai/BenchmarkRunner.hpp"
+#include "myhayai/BenchmarkRunner.h"
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
@@ -39,11 +39,10 @@ void InfluenzaBench()
                 return [s, configPt]() {
                         return Test([s, configPt]() {
                                 configPt->put("run.contact_log_level", s);
-                                RNManager rn_manager;
-                                rn_manager.Initialize(RNManager::Info(configPt->get<string>("run.rng_type", "mrg2"),
-                                                                      configPt->get<unsigned long>("run.rng_seed", 1UL),
-                                                                      configPt->get<string>("run.rng_state", ""),
-                                                                      configPt->get<unsigned int>("run.num_threads")));
+                                RnMan rn_manager;
+                                rn_manager.Initialize(RnMan::Info(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                                  configPt->get<string>("run.rng_state", ""),
+                                                                  configPt->get<unsigned int>("run.num_threads")));
                                 SimRunner(*configPt, Population::Create(*configPt, rn_manager), rn_manager).Run();
                         });
                 };

@@ -12,9 +12,6 @@
 #include <gengeopop/io/GeoGridProtoWriter.h>
 #include <gengeopop/io/GeoGridWriterFactory.h>
 #include <gengeopop/io/ReaderFactory.h>
-
-#include <boost/lexical_cast.hpp>
-#include <fstream>
 #include <gengeopop/populators/CollegePopulator.h>
 #include <gengeopop/populators/GeoGridPopulator.h>
 #include <gengeopop/populators/HouseholdPopulator.h>
@@ -22,7 +19,11 @@
 #include <gengeopop/populators/PrimaryCommunityPopulator.h>
 #include <gengeopop/populators/SecondaryCommunityPopulator.h>
 #include <gengeopop/populators/WorkplacePopulator.h>
+
+#include <boost/lexical_cast.hpp>
+#include <fstream>
 #include <iostream>
+#include <omp.h>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
 #include <util/LogUtils.h>
@@ -73,17 +74,14 @@ int main(int argc, char* argv[])
                 ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
                                                             "submunicipalities.csv", "OUTPUT FILE", cmd);
 
-                ValueArg<unsigned long> rng_seed("", "seed", "The seed to be used for the random engine", false, 0,
-                                                 "SEED", cmd);
-
-                ValueArg<std::string> rng_type("", "rng_type", "The type of random engine to use", false, "mrg2",
-                                               "RNG TYPE", cmd);
+                ValueArg<std::string> rng_seed("", "seed", "The seed to be used for the random engine", false,
+                                               "1,2,3,4", "SEED", cmd);
 
                 ValueArg<std::string> rng_state(
                     "", "state",
                     "The state to be used for initializing the random engine. This can be used to continue with the "
                     "same state when generating multiple regions.",
-                    false, "mrg2", "RNG TYPE", cmd);
+                    false, "", "RNG TYPE", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // --------------------------------------------------------------
@@ -104,13 +102,12 @@ int main(int argc, char* argv[])
                 geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommutingPeople.getValue();
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
-                stride::util::RNManager::Info info;
-                info.m_seed = rng_seed.getValue();
-                info.m_type = rng_type.getValue();
+                std::string state = "";
                 if (rng_state.isSet()) {
-                        info.m_state = rng_state.getValue();
+                        state = rng_state.getValue();
                 }
-                stride::util::RNManager rnManager(info);
+                stride::util::RnMan::Info info(rng_seed.getValue(), state, omp_get_num_threads());
+                stride::util::RnMan       rnManager(info);
 
                 GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
                                                         commutingFile.getValue(), houseHoldFile.getValue(),
@@ -122,11 +119,12 @@ int main(int argc, char* argv[])
                 genGeoPopController.ReadDataFiles();
                 logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
                 logger->info("The random engine is initialized with the following values:");
-                logger->info("Seed:\t{}", info.m_seed);
                 if (rng_state.isSet()) {
-                        logger->info("State:\t{}", info.m_state);
+                        logger->info("Seed:\t{}", info.m_state);
+                } else {
+                        logger->info("Seed:\t{}", info.m_seed_seq_init);
                 }
-                logger->info("Type:\t{}\n", info.m_type);
+                logger->info("Number of threads:\t{}", info.m_stream_count);
 
                 // --------------------------------------------------------------
                 // Generate Geo

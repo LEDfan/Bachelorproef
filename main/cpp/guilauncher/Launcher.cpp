@@ -12,11 +12,11 @@
 #include <sim/CliController.h>
 #include <util/FileSys.h>
 #include <util/TimeStamp.h>
-#include <viewers/AdoptedViewer.h>
+#include <viewers/AdoptedFileViewer.h>
 #include <viewers/CliViewer.h>
 #include <viewers/InfectedViewer.h>
-#include <viewers/PersonsViewer.h>
-#include <viewers/SummaryViewer.h>
+#include <viewers/PersonsFileViewer.h>
+#include <viewers/SummaryFileViewer.h>
 
 Launcher::Launcher() : m_configPath(), m_configPt(), m_configEditor() {}
 
@@ -50,19 +50,19 @@ void Launcher::Launch()
         std::unique_ptr<std::thread> thread = nullptr;
 
         if (m_showAdoptedViewer) {
-                controller->RegisterViewer<stride::viewers::AdoptedViewer>(controller->GetOutputPrefix());
+                controller->RegisterViewer<stride::viewers::AdoptedFileViewer>(controller->GetOutputPrefix());
         }
         if (m_showCliViewer) {
                 controller->RegisterViewer<stride::viewers::CliViewer>(controller->GetLogger());
         }
         if (m_showInfectedViewer) {
-                controller->RegisterViewer<stride::viewers::InfectedViewer>(controller->GetOutputPrefix());
+                controller->RegisterViewer<stride::viewers::InfectedViewer>();
         }
         if (m_showPersonsViewer) {
-                controller->RegisterViewer<stride::viewers::PersonsViewer>(controller->GetOutputPrefix());
+                controller->RegisterViewer<stride::viewers::PersonsFileViewer>(controller->GetOutputPrefix());
         }
         if (m_showSummaryViewer) {
-                controller->RegisterViewer<stride::viewers::SummaryViewer>(controller->GetOutputPrefix());
+                controller->RegisterViewer<stride::viewers::SummaryFileViewer>(controller->GetOutputPrefix());
         }
         if (m_showMapViewer) {
                 if (!engine) {

@@ -30,7 +30,7 @@ void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 return;
         }
 
-        auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
+        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
         for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
                 int                       locationId = dist();

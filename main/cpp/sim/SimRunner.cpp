@@ -30,7 +30,7 @@ using namespace std;
 
 namespace stride {
 
-SimRunner::SimRunner(const ptree& configPt, shared_ptr<Population> pop, util::RNManager& rnManager)
+SimRunner::SimRunner(const ptree& configPt, shared_ptr<Population> pop, util::RnMan& rnManager)
     : m_clock("total_clock"), m_config_pt(configPt), m_output_prefix(""), m_sim(nullptr)
 {
         m_clock.Start();

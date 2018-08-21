@@ -21,15 +21,18 @@
 #include "Immunizer.h"
 
 #include "pop/Person.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <numeric>
+#include <vector>
 
 namespace stride {
 
+using namespace std;
 using namespace util;
 
-Immunizer::Immunizer(stride::util::RNManager& rnManager) : m_rn_manager(rnManager) {}
+Immunizer::Immunizer(stride::util::RnMan& rnManager) : m_rn_manager(rnManager) {}
 
 } // namespace stride

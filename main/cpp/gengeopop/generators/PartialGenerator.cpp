@@ -2,7 +2,7 @@
 #include <spdlog/logger.h>
 
 namespace gengeopop {
-PartialGenerator::PartialGenerator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger)
+PartialGenerator::PartialGenerator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
     : m_rnManager(rn_manager), m_logger(std::move(logger))
 {
 }

@@ -21,6 +21,16 @@
 add_subdirectory(examples)
 
 #============================================================================
+# Scripts for 'Constact and Transmission' study
+#============================================================================
+add_subdirectory(cnt_and_transmission)
+
+#============================================================================
+# Scripts for 'Measles in Flanders' study
+#============================================================================
+add_subdirectory(measles_in_flanders)
+
+#============================================================================
 # Build & install the Swig files for python environment.
 #============================================================================
 set(SWIG_IFACE
@@ -30,10 +40,10 @@ set(SWIG_IFACE
 	swig/sim.i
 	swig/stride.i
 	swig/rnmanager.i
+	swig/transmissionprofile.i
 )
 
-
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 include(${SWIG_USE_FILE})
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../util/RNManager.h"
+#include "../../util/RnMan.h"
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
 #include <spdlog/logger.h>
@@ -13,8 +13,8 @@ namespace gengeopop {
 class PartialGenerator
 {
 public:
-        /// Constructor with a RNManager and a logger
-        explicit PartialGenerator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
+        /// Constructor with a RnMan and a logger
+        explicit PartialGenerator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger);
 
         /// Apply this PartialGenerator to the given geogrid, generating ContactCenters
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
@@ -23,7 +23,7 @@ public:
         virtual ~PartialGenerator() = default;
 
 protected:
-        stride::util::RNManager&        m_rnManager; ///< RnManager used by generators
+        stride::util::RnMan&            m_rnManager; ///< RnManager used by generators
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators
 
         /// Make sure we're using a valid weight for random numbers

@@ -7,13 +7,13 @@
 #include <util/CSV.h>
 #include <util/Exception.h>
 #include <util/FileSys.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 #include <utility>
 
 namespace stride {
 
 TravellerProfileBuilder::TravellerProfileBuilder(const boost::property_tree::ptree& configPt,
-                                                 util::RNManager& rnManager, std::shared_ptr<Population> pop)
+                                                 util::RnMan& rnManager, std::shared_ptr<Population> pop)
     : m_configPt(configPt), m_rnManager(rnManager), m_pop(std::move(pop))
 {
 }

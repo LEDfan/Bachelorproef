@@ -2,7 +2,7 @@
 #include <gengeopop/Household.h>
 #include <gengeopop/generators/HouseholdGenerator.h>
 #include <gtest/gtest.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 using namespace gengeopop;
 
@@ -11,9 +11,9 @@ namespace {
 TEST(HouseholdGeneratorTest, OneLocationTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -32,9 +32,9 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 TEST(HouseholdGeneratorTest, ZeroLocationTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -49,9 +49,9 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
 TEST(HouseholdGeneratorTest, FiveLocationsTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         HouseholdGenerator householdGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};

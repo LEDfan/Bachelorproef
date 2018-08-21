@@ -20,15 +20,12 @@
  */
 
 #include "AbstractPopBuilder.h"
-#include <boost/property_tree/ptree_fwd.hpp>
+#include "util/RnMan.h"
 #include <memory>
 
 namespace stride {
 
 class Population;
-namespace util {
-class RNManager;
-}
 
 /**
  * Initializes Population objects.

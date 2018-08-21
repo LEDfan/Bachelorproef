@@ -1,7 +1,7 @@
 import os
 import time
 
-from pystride.stride.stride import Population, RNManager
+from pystride.stride.stride import Population, RnMan
 
 import pystride
 from .Config import Config
@@ -71,15 +71,15 @@ class PyController:
         # Set correct links to data files in configuration
         self.linkData()
         # Create output directory and write configuration to file
-        os.makedirs(self.getOutputDirectory(), exist_ok=True)
-        self.runConfig.toFile(os.path.join(self.getOutputDirectory(), self.getOutputPrefix() + ".xml"))
+        os.makedirs(self.getOutputPrefix(), exist_ok=True)
+        self.runConfig.toFile(os.path.join(self.getOutputPrefix(), "config.xml"))
 
         # Create a random engine
         rng_type = self.runConfig.getParameter("run.rng_type", "mrg2")
         rng_seed = self.runConfig.getParameter("run.rng_seed", 1)
         rng_state = self.runConfig.getParameter("run.rng_state", "")
         rng_threads = self.runConfig.getParameter("run.rng_threads", 1)
-        rn_manager = RNManager()
+        rn_manager = RnMan()
         rn_manager.Initialize(rng_type, rng_seed, rng_state, rng_threads)
 
         # Build population and simulator

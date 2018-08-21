@@ -2,7 +2,7 @@
 #include <gengeopop/populators/HouseholdPopulator.h>
 #include <gtest/gtest.h>
 #include <util/LogUtils.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 using namespace gengeopop;
 
@@ -14,9 +14,9 @@ public:
 protected:
         virtual void SetUp()
         {
-                stride::util::RNManager::Info rnInfo;
-                rnInfo.m_seed = 2;
-                rnManager     = std::make_shared<stride::util::RNManager>(rnInfo);
+                stride::util::RnMan::Info rnInfo;
+                rnInfo.m_seed_seq_init = "1,2,3,4";
+                rnManager     = std::make_shared<stride::util::RnMan>(rnInfo);
                 std::shared_ptr<spdlog::logger> logger =
                     stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 logger->set_level(spdlog::level::off);
@@ -24,7 +24,7 @@ protected:
         }
 
         std::shared_ptr<HouseholdPopulator>      householdPopulator;
-        std::shared_ptr<stride::util::RNManager> rnManager;
+        std::shared_ptr<stride::util::RnMan> rnManager;
         GeoGridConfig                            config;
 };
 

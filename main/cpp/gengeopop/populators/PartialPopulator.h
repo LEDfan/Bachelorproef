@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../util/RNManager.h"
+#include "../../util/RnMan.h"
 #include <trng/discrete_dist.hpp>
 #include <gengeopop/GeoGrid.h>
 #include <gengeopop/GeoGridConfig.h>
@@ -13,8 +13,8 @@ namespace gengeopop {
 class PartialPopulator
 {
 public:
-        /// Construct with a RNManager and a logger
-        PartialPopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
+        /// Construct with a RnMan and a logger
+        PartialPopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger);
 
         /// Populate the given geogrid
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
@@ -23,7 +23,7 @@ public:
         virtual ~PartialPopulator() = default;
 
 protected:
-        stride::util::RNManager&        m_rnManager; ///< RnManager used by populators
+        stride::util::RnMan&        m_rnManager; ///< RnManager used by populators
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 
         /// Find contactpools in `geoGrid` in an exponentially increasing radius, starting at `startRadius`, around

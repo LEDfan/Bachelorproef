@@ -9,7 +9,7 @@ RegionSlicer::RegionSlicer(std::size_t region_id, RegionSlicer::Ranges& pool_sys
 
 RegionSlicer::Result RegionSlicer::operator[](ContactPoolType::Id type) const
 {
-        return m_pool_sys_regions[type].GetRange(m_region_id);
+        return m_pool_sys_regions[type].Get(m_region_id);
 }
 
 } // namespace stride

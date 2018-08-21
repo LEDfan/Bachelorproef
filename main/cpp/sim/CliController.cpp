@@ -22,36 +22,28 @@
 
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
-#include "util/ConfigInfo.h"
-#include "util/FileSys.h"
-#include "util/LogUtils.h"
-#include "util/TimeStamp.h"
-#include "viewers/AdoptedViewer.h"
-#include "viewers/CliViewer.h"
-#include "viewers/InfectedViewer.h"
-#include "viewers/PersonsViewer.h"
-#include "viewers/SummaryViewer.h"
-
-#include <boost/property_tree/xml_parser.hpp>
 #include <gengeopop/GeoGrid.h>
+
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 
 using namespace std;
 using namespace stride::util;
-using namespace boost::filesystem;
 using namespace boost::property_tree;
-using namespace boost::property_tree::xml_parser;
 
 namespace stride {
 
-CliController::CliController(const ptree& config_pt) : BaseController(config_pt) {}
+CliController::CliController(const ptree& config_pt) : BaseController("CliController", config_pt) {}
 
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
-        // Build population, instantiate SimRunner & register viewers & run.
+        // Prelims.
         // -----------------------------------------------------------------------------------------
+
+        LogStartup();
         m_runner->Run();
-        m_stride_logger->info("CliController shutting down.");
+        LogShutdown();
         spdlog::drop_all();
 }
 

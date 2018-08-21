@@ -21,7 +21,7 @@
 #include "SurveySeeder.h"
 
 #include "pop/Population.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform_int_dist.hpp>
 
@@ -32,18 +32,16 @@ using namespace std;
 
 namespace stride {
 
-SurveySeeder::SurveySeeder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
-{
-}
+SurveySeeder::SurveySeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
 
 shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
 {
         const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
-        if (log_level == "All" || log_level == "Susceptibles") {
+        if (log_level != "None") {
                 Population& population   = *pop;
                 auto&       logger       = population.GetContactLogger();
                 const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
-                auto        generator    = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_index));
+                auto        generator    = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, max_index));
                 const auto  participants = m_config_pt.get<unsigned int>("run.num_participants_survey");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
@@ -53,9 +51,11 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
-                                             p.GetPoolId(Id::Work));
+                                logger->info("[PART] {} {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(),
+                                             p.GetGender(), p.GetPoolId(Id::K12School), p.GetPoolId(Id::Work),
+                                             p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
+                                             p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
+                                             p.GetHealth().IsImmune());
                                 num_samples++;
                         }
                 }

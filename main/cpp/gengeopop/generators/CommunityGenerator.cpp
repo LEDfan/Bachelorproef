@@ -37,7 +37,7 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 return;
         }
 
-        auto dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
+        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
         for (int communityId = 0; communityId < amountOfCommunities * 2; communityId++) {
                 int                       locationId = dist();

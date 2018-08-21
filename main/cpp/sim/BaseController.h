@@ -14,9 +14,6 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
-#include "sim/SimRunner.h"
-#include "util/Stopwatch.h"
-
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -26,16 +23,17 @@
 #include <utility>
 #include <vector>
 
-namespace stride {
+#include "sim/SimRunner.h"
+#include "util/Stopwatch.h"
 
-class SimRunner;
+namespace stride {
 
 /// A base class for Controllers in the MVC model
 class BaseController
 {
 public:
         /// Straight initialization.
-        explicit BaseController(const boost::property_tree::ptree& configPt);
+        explicit BaseController(std::string name, const boost::property_tree::ptree& configPt);
 
         /// Virtual desctructor for overloading
         virtual ~BaseController() = default;
@@ -78,7 +76,13 @@ protected:
         virtual void LogSetup();
 
         /// Make the appropriate logger for cli environment and register as stride_logger.
-        virtual void MakeLogger();
+        void InstallLogger();
+
+        /// Logs info on setup for cli environment to stride_logger.
+        void LogShutdown();
+
+        /// Logs info on setup for cli environment to stride_logger.
+        void LogStartup();
 
         boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
         std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
@@ -86,7 +90,8 @@ protected:
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; ///< Working dir or install dir mode.
         std::shared_ptr<SimRunner>      m_runner;           ///< The SimRunner
-        util::RNManager                 m_rn_manager;       ///< The manager for random numbers
+        util::RnMan                     m_rn_manager;       ///< The manager for random numbers
+        std::string                     m_name;             ///< Contoller's name.
 };
 
 } // namespace stride

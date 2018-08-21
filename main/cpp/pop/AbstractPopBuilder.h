@@ -22,12 +22,12 @@
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 #include <spdlog/logger.h>
+#include <util/RnMan.h>
 
 namespace stride {
 
 class Population;
 namespace util {
-class RNManager;
 }
 
 /**
@@ -40,7 +40,7 @@ public:
         /// \param configPt    Property_tree with general configuration settings.
         /// \param rnManager   Random number manager for pop build process.
         AbstractPopBuilder(const boost::property_tree::ptree& configPt, const boost::property_tree::ptree& regionPt,
-                           util::RNManager& rnManager);
+                           util::RnMan& rnManager);
 
         /// Build Population and return it afterwards.
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop, std::size_t regionId,
@@ -51,7 +51,7 @@ public:
 protected:
         const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree.
         const boost::property_tree::ptree& m_region_pt;  ///< Configuration property tree of the region.
-        util::RNManager&                   m_rn_manager; ///< Random number generation management.
+        util::RnMan&                       m_rn_manager; ///< Random number generation management.
 };
 
 } // namespace stride

@@ -25,7 +25,7 @@
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>

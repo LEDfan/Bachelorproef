@@ -2,8 +2,8 @@
 
 #include "pool/ContactPool.h"
 #include "pool/IdSubscriptArray.h"
-#include "util/RangeIndexer.h"
 #include "util/SegmentedVector.h"
+#include "util/SliceIndexer.h"
 
 #include <boost/range.hpp>
 
@@ -18,7 +18,7 @@ public:
 
         /// The type for the ranges that can be indexed: first indexed by type, then by region id
         using Ranges =
-            ContactPoolType::IdSubscriptArray<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
+            ContactPoolType::IdSubscriptArray<util::SliceIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
 
         /// Constructor, with region id and a Ranges (where to index)
         /// Make sure that `pool_sys_regions` is still alive as long as you want to index this object

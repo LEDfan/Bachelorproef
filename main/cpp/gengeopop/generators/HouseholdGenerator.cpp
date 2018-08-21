@@ -20,7 +20,7 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 return;
         }
 
-        auto loc_dist = m_rnManager.GetGenerator(trng::discrete_dist(weights.begin(), weights.end()));
+        auto loc_dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
         for (unsigned int householdId = 0; householdId < geoGridConfig.calculated.households; householdId++) {
                 int                       locationId = loc_dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];

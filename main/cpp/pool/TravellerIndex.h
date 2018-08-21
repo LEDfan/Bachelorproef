@@ -50,7 +50,7 @@ private:
 
         /// min-heap to efficiently store the persons which are travelling. Indexed by the day they return (lowest
         /// first).
-        std::priority_queue<TravellerInfo, std::vector<TravellerInfo>, std::greater<>> m_data;
+        std::priority_queue<TravellerInfo, std::vector<TravellerInfo>, std::greater<TravellerInfo>> m_data;
 };
 
 } // namespace stride

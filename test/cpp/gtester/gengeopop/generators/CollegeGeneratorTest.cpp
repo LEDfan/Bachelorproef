@@ -2,7 +2,7 @@
 #include <gengeopop/generators/CollegeGenerator.h>
 #include <gengeopop/generators/K12SchoolGenerator.h>
 #include <gtest/gtest.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 #include "../../createlogger.h"
 
@@ -12,9 +12,9 @@ namespace {
 
 TEST(CollegeGeneratorTest, OneLocationTest)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegeGenerator collegeGenerator(rnManager, CreateLogger());
         GeoGridConfig    config{};
@@ -34,9 +34,9 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
 TEST(CollegeGeneratorTest, ZeroLocationTest)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegeGenerator collegeGenerator(rnManager, CreateLogger());
         GeoGridConfig    config{};
@@ -51,9 +51,9 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
 
 TEST(CollegeGeneratorTest, FiveLocationsTest)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegeGenerator collegeGenerator(rnManager, CreateLogger());
         GeoGridConfig    config{};

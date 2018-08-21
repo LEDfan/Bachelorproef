@@ -14,7 +14,7 @@ void HouseholdPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         m_logger->info("Starting to populate Households");
 
         unsigned int current_person_id = 0;
-        auto         household_dist    = m_rnManager.GetGenerator(trng::uniform_int_dist(
+        auto         household_dist    = m_rnManager[0].variate_generator(trng::uniform_int_dist(
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 const std::vector<std::shared_ptr<ContactCenter>>& households =

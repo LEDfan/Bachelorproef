@@ -23,7 +23,7 @@
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -35,7 +35,7 @@ using namespace util;
 using namespace boost::property_tree;
 
 AbstractPopBuilder::AbstractPopBuilder(const ptree& configPt, const boost::property_tree::ptree& regionPt,
-                                       RNManager& rnManager)
+                                       RnMan& rnManager)
     : m_config_pt(configPt), m_region_pt(regionPt), m_rn_manager(rnManager)
 {
 }

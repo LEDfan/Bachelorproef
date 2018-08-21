@@ -30,7 +30,6 @@
 #include "util/Any.h"
 #include "util/SegmentedVector.h"
 
-#include "util/RNManager.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <cassert>
@@ -41,7 +40,7 @@
 #include <pool/IdSubscriptArray.h>
 #include <spdlog/spdlog.h>
 #include <typeinfo>
-#include <util/RangeIndexer.h>
+#include <util/SliceIndexer.h>
 #include <vector>
 
 namespace gengeopop {
@@ -57,11 +56,10 @@ class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
-        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt,
-                                                  util::RNManager&                   rnManager);
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
 
         /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Population> Create(const std::string& configString, util::RNManager& rnManager);
+        static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager);
 
         /// Create an empty Population with NoBelief policy, used in gengeopop
         static std::shared_ptr<Population> Create();
@@ -106,7 +104,7 @@ public:
         void ReturnTravellers(std::size_t currentDay);
 
         /// Returns a boost subrange to the persons of a region
-        boost::sub_range<util::SegmentedVector<Person>>& GetPersonInRegion(std::size_t regionId);
+        boost::sliced_range<util::SegmentedVector<Person>>& GetPersonInRegion(std::size_t regionId);
 
 private:
         /// Constructor, to be called by create
@@ -140,7 +138,7 @@ private:
         /// Create a Population for the given region parameters
         static void CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
                                  const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
-                                 const std::string& name, stride::util::RNManager& rnManager);
+                                 const std::string& name, stride::util::RnMan& rnManager);
 
         /// Update m_currentRegionId and create new ranges in m_pool_sys_regions and m_regionRanges
         void UpdateRegion(std::size_t region_id);
@@ -152,7 +150,7 @@ private:
 
         // Placed separately to avoid overly long declarations
         using ContactPoolSysRanges =
-            ContactPoolType::IdSubscriptArray<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
+            ContactPoolType::IdSubscriptArray<util::SliceIndexer<util::SegmentedVector<ContactPool>, std::size_t>>;
 
         boost::property_tree::ptree m_belief_pt;        ///< Belief configuration
         util::Any                   m_beliefs;          ///< Holds belief data for the persons.
@@ -160,7 +158,7 @@ private:
         ContactPoolSysRanges        m_pool_sys_regions; ///< Holds sub_ranges for region indexin, by contactpool type
         std::shared_ptr<spdlog::logger>                  m_contact_logger; ///< Logger for contact/transmission.
         std::vector<std::shared_ptr<gengeopop::GeoGrid>> m_geoGrids;       ///< Associated geoGrid may be nullptr
-        util::RangeIndexer<util::SegmentedVector<Person>, std::size_t>
+        util::SliceIndexer<util::SegmentedVector<Person>, std::size_t>
             m_regionRanges; ///< Ranges over the people in different regions
         std::vector<TravellerIndex>
                                                      m_regionTravellerIndex; ///< For each region keep a TravellerIndex which holds the travelling information

@@ -2,7 +2,7 @@
 #include <gengeopop/Community.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gtest/gtest.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 using namespace gengeopop;
 
@@ -11,9 +11,9 @@ namespace {
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -32,9 +32,9 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 10;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -57,9 +57,9 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -74,9 +74,9 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CommunityGenerator communityGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};

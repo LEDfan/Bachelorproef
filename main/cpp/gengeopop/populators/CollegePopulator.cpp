@@ -32,7 +32,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                 ExcAssert(!nearByHighSchools.empty(),
                           "Did not find any HighSchool due to invalid input data in HighSchoolPopulator");
 
-                auto distNonCommuting = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                auto distNonCommuting = m_rnManager[0].variate_generator(trng::uniform_int_dist(
                     0, static_cast<trng::uniform_int_dist::result_type>(nearByHighSchools.size())));
 
                 // 2. find all highschools were students from this location commute to
@@ -49,7 +49,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                 std::function<trng::discrete_dist::result_type()> disCommuting;
 
                 if (!commutingWeights.empty()) {
-                        disCommuting = m_rnManager.GetGenerator(
+                        disCommuting = m_rnManager[0].variate_generator(
                             trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
                 }
 
@@ -80,7 +80,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                                                                             highSchool->end());
                                                 }
 
-                                                auto disPools = m_rnManager.GetGenerator(trng::uniform_int_dist(
+                                                auto disPools = m_rnManager[0].variate_generator(trng::uniform_int_dist(
                                                     0, static_cast<trng::uniform_int_dist::result_type>(
                                                            contactPools.size())));
 

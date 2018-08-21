@@ -11,7 +11,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E, Stijven S & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
 #============================================================================
@@ -26,46 +26,61 @@ add_definitions(-DGTEST_LANG_CXX11)
 #============================================================================
 set(EXEC gtester)
 set(SRC
-        BatchRuns.cpp
-        CSVTest.cpp
-        ScenarioData.cpp
-        UnitRange.cpp
-        UnitSVIterator.cpp
-        UnitSegmentedVector.cpp
-        UnitSlice.cpp
-        createlogger.h
-        ContactPool.cpp
-        gengeopop/generators/CollegeGeneratorTest.cpp
-        gengeopop/generators/CommunityGeneratorTest.cpp
-        gengeopop/generators/HouseholdGeneratorTest.cpp
-        gengeopop/generators/SchoolGeneratorTest.cpp
-        gengeopop/generators/WorkplaceGeneratorTest.cpp
-        gengeopop/io/CitiesCSVReaderTest.cpp
-        gengeopop/io/CommutesCSVReaderTest.cpp
-        gengeopop/io/GeoGridIOUtils.cpp
-        gengeopop/io/GeoGridJSONReaderTest.cpp
-        gengeopop/io/GeoGridJSONWriterTest.cpp
-        gengeopop/io/GeoGridProtoReaderTest.cpp
-        gengeopop/io/GeoGridProtoWriterTest.cpp
-        gengeopop/io/HouseholdCSVReaderTest.cpp
-        gengeopop/io/ReaderFactoryTest.cpp
-        gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
-        gengeopop/kdtree.cpp
-        gengeopop/populators/CommunityPopulatorTests.cpp
-        gengeopop/populators/HighSchoolPopulatorTest.cpp
-        gengeopop/populators/HouseholdPopulatorTest.cpp
-        gengeopop/populators/K12SchoolPopulatorTest.cpp
-        gengeopop/populators/WorkplacePopulatorTest.cpp
-        gengeopop/populators/createGeogrid.cpp
-        main.cpp
+    BatchRuns.cpp
+    CSVTest.cpp
+    ContactPool.cpp
+    ScenarioData.cpp
+    #---
+    UnitCsvTest.cpp
+    UnitIsIterator.cpp
+    UnitPtreeUtils.cpp
+    UnitPtreeUtilsHelper.h
+    UnitRnEngine.cpp
+    UnitRnMan.cpp
+    UnitSVIterator.cpp
+    UnitSegmentedVector.cpp
+    UnitSlice1.cpp
+    UnitSlice2.cpp
+    #---
+    createlogger.h
+    #---
+    gengeopop/generators/CollegeGeneratorTest.cpp
+    gengeopop/generators/CommunityGeneratorTest.cpp
+    gengeopop/generators/HouseholdGeneratorTest.cpp
+    gengeopop/generators/SchoolGeneratorTest.cpp
+    gengeopop/generators/WorkplaceGeneratorTest.cpp
+    gengeopop/io/CitiesCSVReaderTest.cpp
+    gengeopop/io/CommutesCSVReaderTest.cpp
+    gengeopop/io/GeoGridIOUtils.cpp
+    gengeopop/io/GeoGridJSONReaderTest.cpp
+    gengeopop/io/GeoGridJSONWriterTest.cpp
+    gengeopop/io/GeoGridProtoReaderTest.cpp
+    gengeopop/io/GeoGridProtoWriterTest.cpp
+    gengeopop/io/HouseholdCSVReaderTest.cpp
+    gengeopop/io/ReaderFactoryTest.cpp
+    gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
+    gengeopop/kdtree.cpp
+    gengeopop/populators/CommunityPopulatorTests.cpp
+    gengeopop/populators/HighSchoolPopulatorTest.cpp
+    gengeopop/populators/HouseholdPopulatorTest.cpp
+    gengeopop/populators/K12SchoolPopulatorTest.cpp
+    gengeopop/populators/WorkplacePopulatorTest.cpp
+    gengeopop/populators/createGeogrid.cpp
+    #---
+    myhayai/DeliveryMan.cpp
+    myhayai/MyhayaiTests.cpp
+    myhayai/class_delivery.cpp
+    myhayai/flex_delivery.cpp
+    #---
+    main.cpp
 )
 
 if (OPENMP_FOUND)
         set(SRC ${SRC} ParallelRuns.cpp)
 endif ()
 
-add_executable(${EXEC}   ${SRC} )
-target_link_libraries(${EXEC}    ${LIBS} gtest pthread libstride libgengeopop)
+add_executable(${EXEC} ${SRC})
+target_link_libraries(${EXEC} ${LIBS} gtest pthread libstride libgengeopop libmyhayai)
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 

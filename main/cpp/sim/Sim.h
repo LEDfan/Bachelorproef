@@ -24,7 +24,7 @@
 #include "contact/ContactLogMode.h"
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 #include <gengeopop/GeoGrid.h>
 
 #include <boost/property_tree/ptree.hpp>
@@ -44,11 +44,11 @@ class Sim
 public:
         /// Create Sim initialized by the configuration in property tree and population.
         static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
-                                           util::RNManager& rnManager);
+                                           util::RnMan& rnManager);
 
         /// For use in python environment: create using configuration string i.o ptree.
         static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop,
-                                           util::RNManager& rnManager);
+                                           util::RnMan& rnManager);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
@@ -61,31 +61,39 @@ public:
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 
         /// Get the random number manager.
-        util::RNManager& GetRNManager() { return m_rn_manager; }
+        util::RnMan& GetRnManager() { return m_rn_manager; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
 
+        /// Get the Sim configuration for the given attribute.
+        std::string GetConfigValue(const std::string& attribute) const
+        {
+                return m_config_pt.get<std::string>(attribute);
+        }
+
+        /// Get the stored transmission rate.
+        double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
+
 private:
         /// Constructor for empty Simulator.
-        explicit Sim(util::RNManager&);
+        explicit Sim(util::RnMan&);
 
         /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;
 
 private:
-        boost::property_tree::ptree m_config_pt;         ///< Configuration property tree
-        ContactLogMode::Id          m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
-        unsigned int                m_num_threads;       ///< The number of (OpenMP) threads.
-        bool                        m_track_index_case;  ///< General simulation or tracking index case.
-        std::string                 m_local_info_policy; ///< Local information policy name.
-
-        std::shared_ptr<Calendar>         m_calendar;         ///< Managment of calendar.
-        AgeContactProfiles                m_contact_profiles; ///< Contact profiles w.r.t age.
-        std::vector<ContactHandler>       m_handlers;         ///< Contact handlers (rng & rates).
-        InfectorExec*                     m_infector;         ///< Executes contacts/transmission loops in contact pool.
-        std::shared_ptr<Population>       m_population;       ///< Pointer to the Population.
-        util::RNManager&                  m_rn_manager;       ///< Random numbere generation management.
+        boost::property_tree::ptree       m_config_pt;         ///< Configuration property tree
+        ContactLogMode::Id                m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
+        unsigned int                      m_num_threads;       ///< The number of (OpenMP) threads.
+        bool                              m_track_index_case;  ///< General simulation or tracking index case.
+        std::string                       m_local_info_policy; ///< Local information policy name.
+        std::shared_ptr<Calendar>         m_calendar;          ///< Managment of calendar.
+        AgeContactProfiles                m_contact_profiles;  ///< Contact profiles w.r.t age.
+        std::vector<ContactHandler>       m_handlers;          ///< Contact handlers (rng & rates).
+        InfectorExec*                     m_infector;   ///< Executes contacts/transmission loops in contact pool.
+        std::shared_ptr<Population>       m_population; ///< Pointer to the Population.
+        util::RnMan&                      m_rn_manager; ///< Random number generation management.
         TransmissionProfile               m_transmission_profile; ///< Profile of disease.
         std::shared_ptr<TravellerProfile> m_travellerProfile;     ///< Profile of Traveller information
 };

@@ -26,9 +26,6 @@
 namespace stride {
 
 class Population;
-namespace util {
-class RNManager;
-}
 
 /**
  * Initializes Population objects.

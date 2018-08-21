@@ -21,10 +21,11 @@
 
 #include "pool/ContactPool.h"
 #include "pop/Person.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <numeric>
 #include <util/SegmentedVector.h>
 #include <vector>
 
@@ -37,7 +38,7 @@ class Immunizer
 {
 public:
         /// Constructor
-        explicit Immunizer(util::RNManager& rnManager);
+        explicit Immunizer(util::RnMan& rnManager);
 
         /// Random immunization.
         template <typename T>
@@ -61,8 +62,8 @@ public:
 
                 // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
                 const auto poolsSize          = static_cast<int>(pools.size());
-                auto       intGenerator       = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, poolsSize));
-                auto       uniform01Generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
+                auto       intGenerator       = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, poolsSize));
+                auto       uniform01Generator = m_rn_manager[0].variate_generator(trng::uniform01_dist<double>());
 
                 // Calculate the number of susceptible individuals per age class.
                 unsigned int numSusceptible = 0;
@@ -77,10 +78,8 @@ public:
                         const ContactPool&        p_pool = pools[intGenerator()];
                         const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
                         std::vector<unsigned int> indices(size);
-                        for (unsigned int i = 0; i < size; i++) {
-                                indices[i] = i;
-                        }
-                        m_rn_manager.RandomShuffle(indices.begin(), indices.end());
+                        iota(indices.begin(), indices.end(), 0U);
+                        m_rn_manager[0].shuffle(indices.begin(), indices.end());
 
                         // loop over members, in random order
                         for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
@@ -109,7 +108,7 @@ public:
         adult_age_min, double adult_age_max, double child_age_min, double child_age_max)
         {
         // Sampler for double in [0.0, 1.0).
-        auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        auto uniform01_generator = m_rn_manager[0].variate_generator(trng::uniform01_dist<double>());
         for (const auto& c : pools) {
                 for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
                         Person& p = *c.GetMember(i_p);
@@ -132,7 +131,7 @@ public:
         }
 
 private:
-        util::RNManager& m_rn_manager; ///< Random number manager.
+        util::RnMan& m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

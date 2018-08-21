@@ -25,7 +25,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <gengeopop/GeoGrid.h>
-#include <memory>
 #include <string>
 
 namespace stride {
@@ -47,7 +46,7 @@ public:
         /// Initialization with property tree.
         /// \param configPt config info for run and for config of simulator
         explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
-                           util::RNManager& rnManager);
+                           util::RnMan& rnManager);
 
         /// Destructor
         ~SimRunner() override = default;

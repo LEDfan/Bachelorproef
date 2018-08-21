@@ -20,23 +20,20 @@
 
 #include "util/SegmentedVector.h"
 
-#include <boost/range/algorithm.hpp>
-#include <boost/range/algorithm_ext.hpp>
-#include <boost/range/irange.hpp>
 #include <gtest/gtest.h>
+#include <numeric>
 
 using namespace std;
 using namespace stride::util;
 
-namespace SimPT_Sim {
-namespace Container {
-namespace Tests {
+namespace stride {
+namespace tests {
 
 class Base
 {
 public:
         virtual size_t Get1() const { return 0; }
-        virtual ~Base() {}
+        virtual ~Base() = default;
 };
 
 class Derived : public Base
@@ -50,7 +47,8 @@ public:
 TEST(UnitSVIterator, Size)
 {
         SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
+
         EXPECT_EQ(c.end() - c.begin(), c.size());
         EXPECT_EQ(c.begin() + c.size(), c.end());
         EXPECT_EQ(c.end() - c.size(), c.begin());
@@ -59,7 +57,8 @@ TEST(UnitSVIterator, Size)
 TEST(UnitSVIterator, Resize)
 {
         SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
+
         EXPECT_EQ(c.end() - c.begin(), c.size());
         EXPECT_EQ(c.begin() + c.size(), c.end());
         EXPECT_EQ(c.end() - c.size(), c.begin());
@@ -78,29 +77,31 @@ TEST(UnitSVIterator, Resize)
 TEST(UnitSVIterator, Loop1)
 {
         SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         int i = 0;
         for (auto it = c.begin(); it < c.end(); ++it) {
-                EXPECT_EQ(i++, *it);
+                EXPECT_EQ(i, *it);
+                i++;
         }
 }
 
 TEST(UnitSVIterator, Loop2)
 {
         SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         int i = 0;
         for (auto e : c) {
-                EXPECT_EQ(i++, e);
+                EXPECT_EQ(i, e);
+                i++;
         }
 }
 
 TEST(UnitSVIterator, Loop3)
 {
         SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         auto it = c.begin();
         for (size_t i = 0; i < c.size(); ++i) {
@@ -113,7 +114,7 @@ TEST(UnitSVIterator, Loop3)
 TEST(UnitSVIterator, End)
 {
         SegmentedVector<int, 4, false> c(5);
-        boost::range::copy(boost::irange(0, static_cast<int>(c.size())), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         auto it = c.end();
         for (size_t i = 0; i < 5; ++i) {
@@ -125,7 +126,7 @@ TEST(UnitSVIterator, End)
 TEST(UnitSVIterator, Direct1)
 {
         SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         auto it = c.begin();
         for (size_t i = 0; i < 5; ++i) {
@@ -142,6 +143,5 @@ TEST(UnitSVIterator, Direct1)
         EXPECT_EQ(c.begin() + 2, it);
 }
 
-} // namespace Tests
-} // namespace Container
-} // namespace SimPT_Sim
+} // namespace tests
+} // namespace stride

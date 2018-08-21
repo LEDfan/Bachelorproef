@@ -27,11 +27,11 @@
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/TimeStamp.h"
-#include "viewers/AdoptedViewer.h"
+#include "viewers/AdoptedFileViewer.h"
 #include "viewers/CliViewer.h"
 #include "viewers/InfectedViewer.h"
-#include "viewers/PersonsViewer.h"
-#include "viewers/SummaryViewer.h"
+#include "viewers/PersonsFileViewer.h"
+#include "viewers/SummaryFileViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <gengeopop/GeoGrid.h>
@@ -46,19 +46,18 @@ namespace stride {
 
 BaseController::BaseController()
     : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
-      m_runner(), m_rn_manager()
+      m_runner(), m_rn_manager(), m_name()
 {
-        m_rn_manager.Initialize(RNManager::Info{
-            m_config_pt.get<string>("run.rng_type", "mrg2"), m_config_pt.get<unsigned long>("run.rng_seed", 1UL),
-            m_config_pt.get<string>("run.rng_state", ""), m_config_pt.get<unsigned int>("run.num_threads")});
+        m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                                            m_config_pt.get<unsigned int>("run.num_threads")});
 
         auto pop = Population::Create(m_config_pt, m_rn_manager);
         m_runner = make_shared<SimRunner>(m_config_pt, pop, m_rn_manager);
 }
 
-BaseController::BaseController(const ptree& configPt)
+BaseController::BaseController(std::string name, const ptree& configPt)
     : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
-      m_runner(), m_rn_manager()
+      m_runner(), m_rn_manager(), m_name(name)
 {
         m_run_clock.Start();
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
@@ -66,12 +65,11 @@ BaseController::BaseController(const ptree& configPt)
 
         CheckEnv();
         CheckOutputPrefix();
-        MakeLogger();
         LogSetup();
+        InstallLogger();
 
-        m_rn_manager.Initialize(RNManager::Info{
-            m_config_pt.get<string>("run.rng_type", "mrg2"), m_config_pt.get<unsigned long>("run.rng_seed", 1UL),
-            m_config_pt.get<string>("run.rng_state", ""), m_config_pt.get<unsigned int>("run.num_threads")});
+        m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                                            m_config_pt.get<unsigned int>("run.num_threads")});
 
         auto pop = Population::Create(m_config_pt, m_rn_manager);
         m_runner = make_shared<SimRunner>(m_config_pt, pop, m_rn_manager);
@@ -99,16 +97,6 @@ void BaseController::CheckOutputPrefix()
         }
 }
 
-void BaseController::MakeLogger()
-{
-        const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-        const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
-        m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
-        m_stride_logger->set_level(spdlog::level::from_str(logLevel));
-        m_stride_logger->flush_on(spdlog::level::err);
-        spdlog::register_logger(m_stride_logger);
-}
-
 void BaseController::RegisterViewers()
 {
         // Command line viewer
@@ -119,31 +107,68 @@ void BaseController::RegisterViewers()
         // Adopted viewer
         if (m_config_pt.get<bool>("run.output_adopted", false)) {
                 m_stride_logger->info("registering AdoptedViewer,");
-                RegisterViewer<viewers::AdoptedViewer>(m_output_prefix);
+                RegisterViewer<viewers::AdoptedFileViewer>(m_output_prefix);
         }
 
         // Infection counts viewer
         if (m_config_pt.get<bool>("run.output_cases", false)) {
                 m_stride_logger->info("Registering InfectedViewer");
-                RegisterViewer<viewers::InfectedViewer>(m_output_prefix);
+                RegisterViewer<viewers::InfectedViewer>();
         }
 
         // Persons viewer
         if (m_config_pt.get<bool>("run.output_persons", false)) {
                 m_stride_logger->info("registering PersonsViewer.");
-                RegisterViewer<viewers::PersonsViewer>(m_output_prefix);
+                RegisterViewer<viewers::PersonsFileViewer>(m_output_prefix);
         }
 
         // Summary viewer
         if (m_config_pt.get<bool>("run.output_summary", false)) {
                 m_stride_logger->info("Registering SummaryViewer");
-                RegisterViewer<viewers::SummaryViewer>(m_output_prefix);
+                RegisterViewer<viewers::SummaryFileViewer>(m_output_prefix);
         }
 }
 
 void BaseController::LogSetup()
 {
-        m_stride_logger->info("BaseController stating up at: {}", TimeStamp().ToString());
+        m_stride_logger->info("{} stating up at: {}", m_name, TimeStamp().ToString());
+        m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
+        m_stride_logger->info("Creating dir:  {}", m_output_prefix);
+        m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());
+        m_stride_logger->trace("Current directory:   {}", FileSys::GetCurrentDir().string());
+        if (m_use_install_dirs) {
+                m_stride_logger->trace("Install directory:   {}", FileSys::GetRootDir().string());
+                m_stride_logger->trace("Config  directory:   {}", FileSys::GetConfigDir().string());
+                m_stride_logger->trace("Data    directory:   {}", FileSys::GetDataDir().string());
+        }
+        if (ConfigInfo::HaveOpenMP()) {
+                m_stride_logger->info("Max number OpenMP threads in this environment: {}",
+                                      ConfigInfo::NumberAvailableThreads());
+                m_stride_logger->info("Configured number of threads: {}",
+                                      m_config_pt.get<unsigned int>("run.num_threads"));
+        } else {
+                m_stride_logger->info("Not using OpenMP threads.");
+        }
+}
+
+void BaseController::InstallLogger()
+{
+        const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
+        const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
+        m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
+        m_stride_logger->set_level(spdlog::level::from_str(logLevel));
+        m_stride_logger->flush_on(spdlog::level::err);
+}
+
+void BaseController::LogShutdown()
+{
+        m_run_clock.Stop();
+        m_stride_logger->info("{} shutting down after: {}", m_name, m_run_clock.ToString());
+}
+
+void BaseController::LogStartup()
+{
+        m_stride_logger->info("{} starting up at: {}", m_name, TimeStamp().ToString());
         m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
         m_stride_logger->info("Creating dir:  {}", m_output_prefix);
         m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());

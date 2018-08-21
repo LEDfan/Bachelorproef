@@ -19,7 +19,7 @@
  * Header for the Vaccinator class.
  */
 
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -40,7 +40,7 @@ class Immunizer
 public:
         static void Administer(const std::vector<ContactPool>& /*pools*/,
                                std::vector<double>& /*immunity_distribution*/, double /*immunity_link_probability*/,
-                               util::RNManager& /*rn_manager*/)
+                               util::RnMan& /*rn_manager*/)
         {
         }
 };
@@ -51,7 +51,7 @@ class Immunizer<ImmunizationProfile::Random>
 {
 public:
         static void Administer(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
-                               double immunity_link_probability, util::RNManager& rn_manager);
+                               double immunity_link_probability, util::RnMan& rn_manager);
 };
 
 /// Profile for cocoon vaccination strategy
@@ -60,7 +60,7 @@ class Immunizer<ImmunizationProfile::Cocoon>
 {
 public:
         static void Administer(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
-                               double immunity_link_probability, util::RNManager& rn_manager);
+                               double immunity_link_probability, util::RnMan& rn_manager);
 };
 
 extern template class Immunizer<ImmunizationProfile::Random>;

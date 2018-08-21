@@ -2,7 +2,7 @@
 #include <gengeopop/generators/WorkplaceGenerator.h>
 #include <gtest/gtest.h>
 #include <tuple>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 #include "../../createlogger.h"
 using namespace gengeopop;
@@ -12,9 +12,9 @@ namespace {
 TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -30,9 +30,9 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 TEST(WorkplaceGeneratorTest, NoCommuting)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -68,9 +68,9 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
@@ -120,9 +120,9 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 TEST(WorkplaceGeneratorTest, TenCommuting)
 {
 
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};

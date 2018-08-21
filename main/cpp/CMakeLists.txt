@@ -28,97 +28,101 @@ add_subdirectory(guilauncher)
 # Sources. Includes headers to enable code insight by CLion.
 #============================================================================
 set(LIB_SRC
-        #---
-        behaviour/BeliefSeeder.cpp
-        behaviour/behaviour_policies/NoBehaviour.h
-        behaviour/behaviour_policies/Vaccination.h
-        behaviour/belief_policies/Belief.h
-        behaviour/belief_policies/HBM.h
-        behaviour/belief_policies/Imitation.h
-        behaviour/belief_policies/NoBelief.h
-        behaviour/belief_policies/Threshold.h
-        behaviour/information_policies/LocalDiscussion.h
-        behaviour/information_policies/NoGlobalInformation.h
-        behaviour/information_policies/NoLocalInformation.h
-        #---
-        calendar/Calendar.cpp
-        calendar/DaysOffAll.h
-        calendar/DaysOffInterface.h
-        calendar/DaysOffNone.h
-        calendar/DaysOffSchool.h
-        calendar/DaysOffStandard.h
-        #---
-        contact/AgeContactProfile.cpp
-        contact/AgeContactProfiles.h
-        contact/ContactHandler.h
-        contact/ContactLogMode.cpp
-        contact/Infector.cpp
-        contact/InfectorExec.h
-        contact/InfectorMap.h
-        contact/TransmissionProfile.cpp
-        #---
-        disease/DiseaseSeeder.cpp
-        disease/Health.cpp
-        disease/HealthSeeder.cpp
-        disease/Immunizer.cpp
-        #---
-        output/AdoptedFile.cpp
-        output/PersonsFile.cpp
-        output/SummaryFile.cpp
-        output/InfectedFile.cpp
-        #---
-        pool/ContactPool.cpp
-        pool/ContactPoolSys.h
-        pool/ContactPoolType.cpp
-        pool/IdSubscriptArray.h
-        pool/RegionSlicer.cpp
-        pool/TravellerProfile.cpp
-        pool/TravellerIndex.cpp
-        pool/TravellerProfileBuilder.cpp
-        #---
-        pop/Age.h
-        pop/Person.cpp
-        pop/Population.cpp
-        pop/DefaultPopBuilder.cpp
-        pop/AbstractPopBuilder.cpp
-        pop/ImportPopBuilder.cpp
-        pop/GenPopBuilder.cpp
-        pop/SurveySeeder.cpp
-        #---
-        sim/CliController.cpp
-        sim/BaseController.cpp
-        sim/SimRunner.cpp
-        sim/SimBuilder.cpp
-        sim/Sim.cpp
-        sim/event/Id.cpp
-        sim/event/Subject.cpp
-        #---
-        util/Any.h
-        util/ConfigInfo.cpp
-        util/CSV.cpp
-        util/CSVRow.cpp
-        util/FileSys.cpp
-        util/LogUtils.cpp
-        util/RangeIndexer.h
-        util/RNEngineType.cpp
-        util/RNManager.cpp
-        util/RunConfigManager.cpp
-        util/Stopwatch.h
-        util/StringUtils.h
-        util/Subject.h
-        util/SliceIndexer.h
-        util/TimeStamp.h
-        util/TimeToString.h
-        util/ExcAssert.h
-        util/Exception.cpp
-        #---
-        viewers/AdoptedViewer.cpp
-        viewers/CliViewer.cpp
-        viewers/PersonsViewer.cpp
-        viewers/SummaryViewer.cpp
-        viewers/InfectedViewer.cpp
-		#---
-        )
+    #---
+    behaviour/BeliefSeeder.cpp
+    behaviour/behaviour_policies/NoBehaviour.h
+    behaviour/behaviour_policies/Vaccination.h
+    behaviour/belief_policies/Belief.h
+    behaviour/belief_policies/HBM.h
+    behaviour/belief_policies/Imitation.h
+    behaviour/belief_policies/NoBelief.h
+    behaviour/belief_policies/Threshold.h
+    behaviour/information_policies/LocalDiscussion.h
+    behaviour/information_policies/NoGlobalInformation.h
+    behaviour/information_policies/NoLocalInformation.h
+    #---
+    calendar/Calendar.cpp
+    calendar/DaysOffAll.h
+    calendar/DaysOffInterface.h
+    calendar/DaysOffNone.h
+    calendar/DaysOffSchool.h
+    calendar/DaysOffStandard.h
+    #---
+    contact/AgeContactProfile.cpp
+    contact/AgeContactProfiles.h
+    contact/ContactHandler.h
+    contact/ContactLogMode.cpp
+    contact/Infector.cpp
+    contact/InfectorExec.h
+    contact/InfectorMap.h
+    contact/TransmissionProfile.cpp
+    #---
+    disease/DiseaseSeeder.cpp
+    disease/Health.cpp
+    disease/HealthSeeder.cpp
+    disease/Immunizer.cpp
+    #---
+    output/AdoptedFile.cpp
+    output/InfectedFile.cpp
+    output/PersonsFile.cpp
+    output/SummaryFile.cpp
+    #---
+    pool/ContactPool.cpp
+    pool/ContactPoolSys.h
+    pool/ContactPoolType.cpp
+    pool/IdSubscriptArray.h
+    pool/RegionSlicer.cpp
+    pool/TravellerIndex.cpp
+    pool/TravellerProfile.cpp
+    pool/TravellerProfileBuilder.cpp
+    #---
+    pop/AbstractPopBuilder.cpp
+    pop/Age.h
+    pop/DefaultPopBuilder.cpp
+    pop/GenPopBuilder.cpp
+    pop/ImportPopBuilder.cpp
+    pop/Person.cpp
+    pop/Population.cpp
+    pop/SurveySeeder.cpp
+    #---
+    sim/BaseController.cpp
+    sim/CliController.cpp
+    sim/Sim.cpp
+    sim/SimBuilder.cpp
+    sim/SimBuilder.cpp
+    sim/SimRunner.cpp
+    sim/StanController.cpp
+    sim/event/Id.cpp
+    sim/event/Subject.cpp
+    #---
+    util/Any.h
+    util/BoxPlotData.h
+    util/CSV.cpp
+    util/CSVRow.cpp
+    util/ConfigInfo.cpp
+    util/ExcAssert.h
+    util/Exception.cpp
+    util/FileSys.cpp
+    util/LogUtils.cpp
+    util/PtreeUtils.h
+    util/Rn.cpp
+    util/RnMan.h
+    util/RunConfigManager.cpp
+    util/SliceIndexer.h
+    util/Stopwatch.h
+    util/StringUtils.h
+    util/Subject.h
+    util/TimeStamp.h
+    util/TimeToString.h
+    util/is_iterator.h
+    #---
+    viewers/AdoptedFileViewer.cpp
+    viewers/CliViewer.cpp
+    viewers/InfectedFileViewer.cpp
+    viewers/InfectedViewer.cpp
+    viewers/PersonsFileViewer.cpp
+    viewers/SummaryFileViewer.cpp
+    )
 
 #============================================================================
 # Build the Stride library.
@@ -137,14 +141,19 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 #============================================================================
 # Build the Stride binary.
 #============================================================================
-add_executable(stride sim/main.cpp)
+add_executable(stride execs/main.cpp)
 
 if(Qt5_FOUND)
-	target_link_libraries(stride ${LIBS} libstride libgengeopop libmapviewer libguicontroller)
+    target_link_libraries(stride ${LIBS} libstride libgengeopop libmapviewer libguicontroller)
 else()
-	target_link_libraries(stride ${LIBS} libstride libgengeopop)
+    target_link_libraries(stride ${LIBS} libstride libgengeopop)
 endif()
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
+
+#============================================================================
+# Build the Myhayai library.
+#============================================================================
+add_subdirectory(myhayai)
 
 #============================================================================
 # Clean up.

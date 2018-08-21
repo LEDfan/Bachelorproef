@@ -27,7 +27,6 @@
 #include "pop/GenPopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
-#include "util/RNManager.h"
 #include "util/RunConfigManager.h"
 
 using namespace boost::property_tree;
@@ -44,8 +43,8 @@ struct PoolSysRegionsBuilder
         static auto Build(ContactPoolSys& sys)
         {
                 return std::move(
-                    std::array<util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>, sizeof...(ids)>{
-                        util::RangeIndexer<util::SegmentedVector<ContactPool>, std::size_t>(sys[ids])...});
+                    std::array<util::SliceIndexer<util::SegmentedVector<ContactPool>, std::size_t>, sizeof...(ids)>{
+                        util::SliceIndexer<util::SegmentedVector<ContactPool>, std::size_t>(sys[ids])...});
         }
 };
 
@@ -57,7 +56,7 @@ auto BuildPoolSysRegions(ContactPoolType::IDPack<ids...>, ContactPoolSys& sys)
 
 } // namespace
 
-std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RNManager& rnManager)
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager)
 {
         // --------------------------------------------------------------
         // Create (empty) population & and give it a ContactLogger.
@@ -120,7 +119,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         return pop;
 }
 
-std::shared_ptr<Population> Population::Create(const string& configString, util::RNManager& rnManager)
+std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan& rnManager)
 {
         return Create(RunConfigManager::FromString(configString), rnManager);
 }
@@ -175,9 +174,9 @@ void Population::CreatePerson(std::size_t regionId, unsigned int id, double age,
 void Population::UpdateRegion(std::size_t regionId)
 {
         auto update = [this](std::size_t regionId) {
-                m_regionRanges.SetRange(size(), regionId);
+                m_regionRanges.Set(size(), regionId);
                 for (auto id : ContactPoolType::IdList) {
-                        m_pool_sys_regions[id].SetRange(m_pool_sys[id].size(), regionId);
+                        m_pool_sys_regions[id].Set(m_pool_sys[id].size(), regionId);
                 }
                 m_currentRegionId = regionId;
                 m_have_inserted   = true;
@@ -219,7 +218,7 @@ ContactPool* Population::CreateContactPool(std::size_t regionId, ContactPoolType
 
 void Population::CreateRegion(const std::string& geopop_type, const boost::property_tree::ptree& configPt,
                               const boost::property_tree::ptree& regionPt, const std::shared_ptr<Population>& pop,
-                              const std::string& name, stride::util::RNManager& rnManager)
+                              const std::string& name, stride::util::RnMan& rnManager)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
@@ -247,9 +246,9 @@ void Population::ReturnTravellers(std::size_t currentDay)
         }
 }
 
-boost::sub_range<util::SegmentedVector<Person>>& Population::GetPersonInRegion(std::size_t regionId)
+boost::sliced_range<util::SegmentedVector<Person>>& Population::GetPersonInRegion(std::size_t regionId)
 {
-        return m_regionRanges.GetRange(regionId);
+        return m_regionRanges.Get(regionId);
 }
 
 } // namespace stride

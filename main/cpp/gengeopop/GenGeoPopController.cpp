@@ -18,7 +18,7 @@
 namespace gengeopop {
 
 GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                                         stride::util::RNManager& rnManager, std::string citiesFileName,
+                                         stride::util::RnMan& rnManager, std::string citiesFileName,
                                          std::string commutingFileName, std::string householdFileName,
                                          std::string subMunicipalitiesFileName, std::string regionName)
     : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr), m_population(nullptr),

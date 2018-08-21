@@ -15,7 +15,7 @@ class WorkplacePopulator : public PartialPopulator
 {
 public:
         /// Constructor
-        WorkplacePopulator(stride::util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> logger);
+        WorkplacePopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger);
 
         /// Populates the workplaces in geogrid with persons
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;

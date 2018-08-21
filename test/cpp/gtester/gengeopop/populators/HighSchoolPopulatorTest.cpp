@@ -5,7 +5,7 @@
 #include <gengeopop/populators/CollegePopulator.h>
 #include <gtest/gtest.h>
 #include <util/LogUtils.h>
-#include <util/RNManager.h>
+#include <util/RnMan.h>
 
 using namespace gengeopop;
 using namespace stride;
@@ -14,9 +14,9 @@ namespace {
 
 TEST(CollegePopulatorTest, NoPopulation)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         auto geoGrid = std::make_shared<GeoGrid>();
 
@@ -33,9 +33,9 @@ TEST(CollegePopulatorTest, NoPopulation)
 
 TEST(CollegePopulatorTest, NoStudents)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig    config{};
@@ -78,9 +78,9 @@ TEST(CollegePopulatorTest, NoStudents)
 
 TEST(CollegePopulatorTest, NotCommuting)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig    config{};
@@ -196,9 +196,9 @@ TEST(CollegePopulatorTest, NotCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommuting)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig    config{};
@@ -256,9 +256,9 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        stride::util::RNManager::Info rnInfo;
-        rnInfo.m_seed = 2;
-        stride::util::RNManager rnManager(rnInfo);
+        stride::util::RnMan::Info rnInfo;
+        rnInfo.m_seed_seq_init = "1,2,3,4";
+        stride::util::RnMan rnManager(rnInfo);
 
         CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig    config{};
