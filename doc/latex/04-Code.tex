@@ -1,0 +1,56 @@
+%%!TEX root = ./UserManual.tex
+\chapter{Code}
+\label{chap:code}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GenGeoPop
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{GenGeoPop}
+\label{section:gengeopop}
+
+\subsection{Background}
+\label{subsection:background}
+
+To explain the algorithms used for generating the geography of the countries and their respective population, we have to introduce some background concepts:
+
+\begin{description}
+    \item[ContactPool]:
+        A pool of persons that potentially come in contact with each other.
+        If they actually do and if a transmission of an infection occurs depends on the algorithms in the simulator.
+        We distinguish different types of ContactPools associated with work, school, community and households.
+        Note that there is a difference between the size of a school (for example 500 students) and the size of the ContactPools inside the school (20 students).
+    \item[ContactCenter]:
+        A group of one or more ContactPools of the same type.
+        This allows for a single College to contain multiple classes for example.
+        It is also used to contain a single ContactPool, for example in the case of a Household.
+    \item[K-12 student]: Part of the population from 3 until 18 years of age that are obligated (at least in Belgium) to attend a school. Students that skip or repeat years are not accounted for.
+    \item[College student]:
+        Persons older than 18 and younger than 26 years of age that attend a higher education. For simplicity we will group all forms of higher eduction into the same type of ContactCenter, a College. A fraction of college students will attend a college ``close to home'' and the others will attend a college ``far from home''.
+        Most educations don't last for 8 years, but using this number we compensate for changes in the field of study, doctoral studies, advanced masters and repeating a failed year of study.
+    \item[Employable]:
+        We consider people of ages 18 to 65 as employable. A fraction of people between 18 and 26 will attend a college, and the complementary fraction will be employable.
+    \item[Active population]:
+        The fraction of the employable part of the population that is actually working. A fraction of these workers will work ``close to home'' and the complementary fraction will commute to a workplace further away.
+    \item[Household profile]:
+        The composition of households in terms of the number of members and their age is an important factor in the simulation. In this case the profile is not defined by the age of its members or fractions, but through a set of reference households. This set contains a sample of households which are representative of the whole population in their composition.
+    \item[GeoGrid locations]:
+        Our data only allows for a very limited geographical resolution. We have the longitude and latitude of cities and municipalities (a distinction we will not make), which we shall use to create GeoGrid locations for the domicile of the households.
+        All households in the same location are mapped to the coordinates of the location's center. These locations with corresponding coordinates will form a grid that will contain the complete simulation area.
+\end{description}
+
+\subsection{Generating the geography}
+\label{subsection:gengeo}
+TODO
+
+\subsection{Generating the population}
+\label{subsection:genpop}
+TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Travel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Travel}
+\label{section:travel}
+TODO
