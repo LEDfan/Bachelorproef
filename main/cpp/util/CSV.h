@@ -104,10 +104,6 @@ public:
 
         const std::vector<std::string>& GetLabels() const;
 
-protected:
-        std::vector<std::string> labels;
-        size_t                   columnCount = 0;
-
 private:
         friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
 

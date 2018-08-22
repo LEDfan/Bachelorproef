@@ -48,6 +48,11 @@ BaseController::BaseController()
     : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
       m_runner(), m_rn_manager(), m_name()
 {
+        CheckEnv();
+        CheckOutputPrefix();
+        InstallLogger();
+        LogSetup();
+
         m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
                                             m_config_pt.get<unsigned int>("run.num_threads")});
 
@@ -65,8 +70,8 @@ BaseController::BaseController(std::string name, const ptree& configPt)
 
         CheckEnv();
         CheckOutputPrefix();
-        LogSetup();
         InstallLogger();
+        LogSetup();
 
         m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
                                             m_config_pt.get<unsigned int>("run.num_threads")});
@@ -158,6 +163,7 @@ void BaseController::InstallLogger()
         m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
+        spdlog::register_logger(m_stride_logger);
 }
 
 void BaseController::LogShutdown()

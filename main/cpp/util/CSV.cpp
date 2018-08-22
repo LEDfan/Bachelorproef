@@ -47,7 +47,8 @@ const filesystem::path check(const filesystem::path& filename,
 namespace stride {
 namespace util {
 
-CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels) : labels(), columnCount(0)
+CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels)
+    : m_labels(), m_column_count(0)
 {
         try {
                 boost::filesystem::path     full_path = check(path);
@@ -64,13 +65,13 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
                 if (optLabels.size() == 0) {
                         throw error;
                 } else {
-                        labels      = optLabels;
-                        columnCount = labels.size();
+                        m_labels       = optLabels;
+                        m_column_count = m_labels.size();
                 }
         }
 }
 
-CSV::CSV(std::istream& inputStream) : labels(), columnCount(0) { ReadFromStream(inputStream); }
+CSV::CSV(std::istream& inputStream) : m_labels(), m_column_count(0) { ReadFromStream(inputStream); }
 
 CSV::CSV(const vector<string>& labels) : m_labels(labels), m_column_count(labels.size()) {}
 
@@ -142,9 +143,9 @@ void CSV::ReadFromStream(std::istream& inputStream)
         line                                  = Trim(line);
         std::vector<std::string> headerLabels = Split(line, ","); // Split is bad! There is no option to escape ",".
         for (const std::string& label : headerLabels) {
-                labels.push_back(Trim(label, "\""));
+                m_labels.push_back(Trim(label, "\""));
         }
-        columnCount = labels.size();
+        m_column_count = m_labels.size();
 
         // body
         while (getline(inputStream, line)) {
@@ -163,7 +164,7 @@ void CSV::AddRow(const vector<string>& values)
         this->push_back(csvRow);
 }
 
-const std::vector<std::string>& CSV::GetLabels() const { return labels; }
+const std::vector<std::string>& CSV::GetLabels() const { return m_labels; }
 
 } // namespace util
 } // namespace stride
