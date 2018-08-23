@@ -67,10 +67,9 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
                 geoGrid->AddLocation(
                     std::make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + std::to_string(size)));
         }
-
         collegeGenerator.Apply(geoGrid, config);
 
-        std::vector<int> expectedSchoolCount{4, 4, 2, 2, 1, 0, 0, 0, 0, 2, 4, 0, 6, 0, 2};
+        std::vector<int> expectedSchoolCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expectedSchoolCount[i], geoGrid->Get(i)->GetContactCenters().size());
         }

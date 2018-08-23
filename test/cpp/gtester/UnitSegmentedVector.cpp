@@ -93,11 +93,13 @@ public:
         TestType(int i, std::string str, TraceMemory& t) : m_array{nullptr}, m_i(i), m_str(std::move(str)), m_t(t)
         {
                 m_t.Allocated();
+                m_array = new int[10];
         }
 
         TestType(const TestType& other) : m_array{nullptr}, m_i(other.m_i), m_str(other.m_str), m_t(other.m_t)
         {
                 m_t.Copied();
+                m_array = new int[10];
         }
 
         TestType(TestType&& other) noexcept

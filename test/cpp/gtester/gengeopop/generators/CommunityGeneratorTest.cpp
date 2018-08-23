@@ -48,7 +48,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         communityGenerator.Apply(geoGrid, config);
 
-        std::vector<int> expectedCount{991, 994, 1033, 1022, 1029, 998, 947, 995, 1015, 976};
+        std::vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
                 EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->GetContactCenters().size());
         }
@@ -99,19 +99,19 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         communityGenerator.Apply(geoGrid, config);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
-        EXPECT_EQ(centersOfLoc1.size(), 1050);
+        EXPECT_EQ(centersOfLoc1.size(), 1101);
 
         const auto& centersOfLoc2 = loc2->GetContactCenters();
-        EXPECT_EQ(centersOfLoc2.size(), 1089);
+        EXPECT_EQ(centersOfLoc2.size(), 1067);
 
         const auto& centersOfLoc3 = loc3->GetContactCenters();
-        EXPECT_EQ(centersOfLoc3.size(), 809);
+        EXPECT_EQ(centersOfLoc3.size(), 815);
 
         const auto& centersOfLoc4 = loc4->GetContactCenters();
-        EXPECT_EQ(centersOfLoc4.size(), 351);
+        EXPECT_EQ(centersOfLoc4.size(), 340);
 
         const auto& centersOfLoc5 = loc5->GetContactCenters();
-        EXPECT_EQ(centersOfLoc5.size(), 457);
+        EXPECT_EQ(centersOfLoc5.size(), 433);
 }
 
 } // namespace

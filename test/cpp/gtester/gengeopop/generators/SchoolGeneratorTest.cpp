@@ -81,19 +81,19 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         schoolGenerator.Apply(geoGrid, config);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
-        EXPECT_EQ(centersOfLoc1.size(), 417);
+        EXPECT_EQ(centersOfLoc1.size(), 444);
 
         const auto& centersOfLoc2 = loc2->GetContactCenters();
-        EXPECT_EQ(centersOfLoc2.size(), 444);
+        EXPECT_EQ(centersOfLoc2.size(), 416);
 
         const auto& centersOfLoc3 = loc3->GetContactCenters();
-        EXPECT_EQ(centersOfLoc3.size(), 335);
+        EXPECT_EQ(centersOfLoc3.size(), 330);
 
         const auto& centersOfLoc4 = loc4->GetContactCenters();
-        EXPECT_EQ(centersOfLoc4.size(), 132);
+        EXPECT_EQ(centersOfLoc4.size(), 133);
 
         const auto& centersOfLoc5 = loc5->GetContactCenters();
-        EXPECT_EQ(centersOfLoc5.size(), 174);
+        EXPECT_EQ(centersOfLoc5.size(), 179);
 }
 
 } // namespace

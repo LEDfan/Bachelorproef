@@ -61,7 +61,7 @@ set(SRC
     gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
     gengeopop/kdtree.cpp
     gengeopop/populators/CommunityPopulatorTests.cpp
-    gengeopop/populators/HighSchoolPopulatorTest.cpp
+    gengeopop/populators/CollegePopulatorTest.cpp
     gengeopop/populators/HouseholdPopulatorTest.cpp
     gengeopop/populators/K12SchoolPopulatorTest.cpp
     gengeopop/populators/WorkplacePopulatorTest.cpp
