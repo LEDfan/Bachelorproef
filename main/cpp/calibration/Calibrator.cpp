@@ -26,9 +26,12 @@ std::map<std::string, std::vector<unsigned int>> Calibrator::RunSingle(
 
 #pragma omp parallel for
         for (unsigned int config = 0; config < configs.size(); config++) {
-                auto rn_manager = CreateRnMan(configs[config].first);
-                auto pop        = stride::Population::Create(configs[config].first, rn_manager);
-                auto runner     = std::make_shared<stride::SimRunner>(configs[config].first, pop, rn_manager);
+                stride::util::RnMan rn_manager;
+                rn_manager.Initialize(
+                    stride::util::RnMan::Info{configs[config].first.get<std::string>("run.rng_seed", "1,2,3,4"), "",
+                                              configs[config].first.get<unsigned int>("run.num_threads")});
+                auto pop    = stride::Population::Create(configs[config].first, rn_manager);
+                auto runner = std::make_shared<stride::SimRunner>(configs[config].first, pop, rn_manager);
                 std::shared_ptr<stride::viewers::InfectedViewer> infectedViewer =
                     std::make_shared<stride::viewers::InfectedViewer>(runner);
                 runner->Register(infectedViewer,
@@ -64,9 +67,12 @@ std::map<std::string, std::vector<std::vector<unsigned int>>> Calibrator::RunMul
 
                         config_pt.put("run.rng_seed", seed);
                         logger->info("Starting the testcase {}, run {} of {} using seed {}", tag, i, count, seed);
-                        auto rn_manager = CreateRnMan(config_pt);
-                        auto pop        = stride::Population::Create(config_pt, rn_manager);
-                        auto runner     = std::make_shared<stride::SimRunner>(config_pt, pop, rn_manager);
+                        stride::util::RnMan rn_manager;
+                        rn_manager.Initialize(
+                            stride::util::RnMan::Info{config_pt.get<std::string>("run.rng_seed", "1,2,3,4"), "",
+                                                      config_pt.get<unsigned int>("run.num_threads")});
+                        auto pop    = stride::Population::Create(config_pt, rn_manager);
+                        auto runner = std::make_shared<stride::SimRunner>(config_pt, pop, rn_manager);
                         std::shared_ptr<stride::viewers::InfectedViewer> infectedViewer =
                             std::make_shared<stride::viewers::InfectedViewer>(runner);
                         runner->Register(infectedViewer, bind(&stride::viewers::InfectedViewer::Update, infectedViewer,
@@ -216,11 +222,4 @@ void Calibrator::WriteSingleResults(const std::map<std::string, std::vector<unsi
         WriteResults(results, std::map<std::string, std::vector<std::vector<unsigned int>>>(), filename);
 }
 
-stride::util::RnMan Calibrator::CreateRnMan(const boost::property_tree::ptree& config) const
-{
-        stride::util::RnMan rn_manager;
-        rn_manager.Initialize(stride::util::RnMan::Info{config.get<std::string>("run.rng_seed", "1,2,3,4"), "",
-                                                        config.get<unsigned int>("run.num_threads")});
-        return rn_manager;
-}
 } // namespace calibration
