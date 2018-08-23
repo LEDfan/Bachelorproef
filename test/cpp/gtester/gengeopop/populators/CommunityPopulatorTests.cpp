@@ -22,8 +22,8 @@ protected:
         {
                 stride::util::RnMan::Info rnInfo;
                 rnInfo.m_seed_seq_init = "1,2,3,4";
-                rnManager     = std::make_shared<stride::util::RnMan>(rnInfo);
-                logger        = stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                rnManager              = std::make_shared<stride::util::RnMan>(rnInfo);
+                logger                 = stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 logger->set_level(spdlog::level::off);
 
                 auto household   = std::make_shared<Household>(2);
@@ -142,14 +142,14 @@ protected:
 
         virtual void HouseholdTestCheck(std::shared_ptr<Community> community2) = 0;
 
-        std::shared_ptr<PartialPopulator>        communityPopulator;
+        std::shared_ptr<PartialPopulator>    communityPopulator;
         std::shared_ptr<stride::util::RnMan> rnManager;
-        GeoGridConfig                            config;
-        std::shared_ptr<Location>                location;
-        std::shared_ptr<CommunityType>           community;
-        std::shared_ptr<GeoGrid>                 geoGrid;
-        std::shared_ptr<stride::Person>          person;
-        std::shared_ptr<spdlog::logger>          logger;
+        GeoGridConfig                        config;
+        std::shared_ptr<Location>            location;
+        std::shared_ptr<CommunityType>       community;
+        std::shared_ptr<GeoGrid>             geoGrid;
+        std::shared_ptr<stride::Person>      person;
+        std::shared_ptr<spdlog::logger>      logger;
 };
 
 class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunity>

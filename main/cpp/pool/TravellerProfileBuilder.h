@@ -26,7 +26,7 @@ private:
                                      std::function<void(std::size_t, std::size_t, double)> updateMethod);
 
         const boost::property_tree::ptree& m_configPt;  ///< Configuration sued
-        util::RnMan&                   m_rnManager; ///< RnManager (passed to created TravellerProfile)
+        util::RnMan&                       m_rnManager; ///< RnManager (passed to created TravellerProfile)
         std::shared_ptr<Population>        m_pop;       ///< Population
 };
 

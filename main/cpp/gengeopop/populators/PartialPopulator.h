@@ -23,7 +23,7 @@ public:
         virtual ~PartialPopulator() = default;
 
 protected:
-        stride::util::RnMan&        m_rnManager; ///< RnManager used by populators
+        stride::util::RnMan&            m_rnManager; ///< RnManager used by populators
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 
         /// Find contactpools in `geoGrid` in an exponentially increasing radius, starting at `startRadius`, around

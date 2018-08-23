@@ -16,16 +16,16 @@ protected:
         {
                 stride::util::RnMan::Info rnInfo;
                 rnInfo.m_seed_seq_init = "1,2,3,4";
-                rnManager     = std::make_shared<stride::util::RnMan>(rnInfo);
+                rnManager              = std::make_shared<stride::util::RnMan>(rnInfo);
                 std::shared_ptr<spdlog::logger> logger =
                     stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 logger->set_level(spdlog::level::off);
                 householdPopulator = std::make_shared<HouseholdPopulator>(*rnManager.get(), logger);
         }
 
-        std::shared_ptr<HouseholdPopulator>      householdPopulator;
+        std::shared_ptr<HouseholdPopulator>  householdPopulator;
         std::shared_ptr<stride::util::RnMan> rnManager;
-        GeoGridConfig                            config;
+        GeoGridConfig                        config;
 };
 
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)

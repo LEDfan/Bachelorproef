@@ -16,9 +16,9 @@ class GenGeoPopController
 public:
         /// Create a GenGeoPopController
         GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                            stride::util::RnMan& rnManager, std::string citiesFileName,
-                            std::string commutingFileName, std::string householdFileName,
-                            std::string subMunicipalitiesFileName, std::string regionName);
+                            stride::util::RnMan& rnManager, std::string citiesFileName, std::string commutingFileName,
+                            std::string householdFileName, std::string subMunicipalitiesFileName,
+                            std::string regionName);
 
         /// Reads the data files
         void ReadDataFiles();

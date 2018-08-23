@@ -12,8 +12,8 @@
 
 namespace stride {
 
-TravellerProfileBuilder::TravellerProfileBuilder(const boost::property_tree::ptree& configPt,
-                                                 util::RnMan& rnManager, std::shared_ptr<Population> pop)
+TravellerProfileBuilder::TravellerProfileBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
+                                                 std::shared_ptr<Population> pop)
     : m_configPt(configPt), m_rnManager(rnManager), m_pop(std::move(pop))
 {
 }

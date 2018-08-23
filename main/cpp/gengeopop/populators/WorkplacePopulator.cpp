@@ -148,8 +148,8 @@ void WorkplacePopulator::CalculateCommutingLocations()
         }
 
         if (!commutingWeights.empty()) {
-                m_disCommuting =
-                    m_rnManager[0].variate_generator(trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                m_disCommuting = m_rnManager[0].variate_generator(
+                    trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
         }
 }
 
