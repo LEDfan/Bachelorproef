@@ -51,7 +51,7 @@ public:
         ~CliController() override = default;
 
         /// Actual run of the simulator.
-        void Control();
+        void Control() override;
 };
 
 } // namespace stride

@@ -35,13 +35,12 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 #pragma omp single
         {
                 for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
-                        stride::Person*              person;
                         const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
-#pragma omp task firstprivate(protoPerson, person)
+#pragma omp task firstprivate(protoPerson)
                         {
 #pragma omp critical
                                 {
-                                        person                    = ParsePerson(protoPerson);
+                                        stride::Person* person    = ParsePerson(protoPerson);
                                         m_people[person->GetId()] = person;
                                 }
                         }

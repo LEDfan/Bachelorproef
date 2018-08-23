@@ -38,12 +38,11 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
 #pragma omp single
         {
                 for (auto it = people.begin(); it != people.end(); it++) {
-                        stride::Person* person;
-#pragma omp task firstprivate(it, person)
+#pragma omp task firstprivate(it)
                         {
 #pragma omp critical
                                 {
-                                        person                    = ParsePerson(it->second.get_child(""));
+                                        stride::Person* person    = ParsePerson(it->second.get_child(""));
                                         m_people[person->GetId()] = person;
                                 }
                         }
