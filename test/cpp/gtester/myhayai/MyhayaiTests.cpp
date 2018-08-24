@@ -51,7 +51,7 @@ public:
         static void SetUpTestCase()
         {
                 class_delivery();
-                flex_delivery();
+                FlexDelivery();
                 BenchmarkRunner&   runner = BenchmarkRunner::Instance();
                 BenchControlHelper helper(runner.GetTestDescriptors(), vector<string>(), vector<string>({"Deluxe"}));
                 auto               pv = make_shared<PtreeViewer<chrono::milliseconds>>();
