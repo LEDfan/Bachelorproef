@@ -40,7 +40,7 @@ include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -pedantic -Weffc++")
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -lstdc++fs -Wall -Wextra -pedantic -Weffc++")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
@@ -113,6 +113,12 @@ set(LIBS ${LIBS} sha1)
 find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 set(LIBS   ${LIBS} ${Boost_LIBRARIES})
+
+#----------------------------------------------------------------------------
+# Filesystem
+#----------------------------------------------------------------------------
+
+set(LIBS ${LIBS} stdc++fs)
 
 #----------------------------------------------------------------------------
 # OpenMP

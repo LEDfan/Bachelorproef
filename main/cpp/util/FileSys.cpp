@@ -23,6 +23,7 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/xml_parser.hpp>
+#include <filesystem>
 #include <iostream>
 #include <string>
 
@@ -37,20 +38,19 @@
 #endif
 
 namespace {
-const auto empty_path = boost::filesystem::path();
+const auto empty_path = std::filesystem::path();
 }
 
 namespace stride {
 namespace util {
 
 using namespace std;
-using namespace boost::filesystem;
 using namespace boost::property_tree;
 using namespace boost::property_tree::xml_parser;
 
-boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, const std::string& filename)
+std::filesystem::path FileSys::BuildPath(const std::string& output_prefix, const std::string& filename)
 {
-        boost::filesystem::path p = output_prefix;
+        std::filesystem::path p = output_prefix;
         if (FileSys::IsDirectoryString(output_prefix)) {
                 // file <filename> in directory <output_prefix>
                 p /= filename;
@@ -111,27 +111,27 @@ FileSys::Dirs FileSys::Initialize()
                 if (GetModuleFileName(NULL, exePath, sizeof(exePath)) != 0)
                         ;
                 {
-                        dirs.m_exec_path = canonical(system_complete(exePath));
+                        dirs.m_exec_path = canonical(std::filesystem::absolute(exePath));
                 }
 #elif defined(__linux__)
                 char exePath[PATH_MAX];
                 auto size = static_cast<std::size_t>(::readlink("/proc/self/exe", exePath, sizeof(exePath)));
                 if (size > 0 && size < sizeof(exePath)) {
                         exePath[size]    = '\0';
-                        dirs.m_exec_path = canonical(system_complete(exePath));
+                        dirs.m_exec_path = canonical(std::filesystem::absolute(exePath));
                 }
 #elif defined(__APPLE__)
                 char     exePath[PATH_MAX];
                 uint32_t size = sizeof(exePath);
                 if (_NSGetExecutablePath(exePath, &size) == 0) {
-                        dirs.m_exec_path = canonical(system_complete(exePath));
+                        dirs.m_exec_path = canonical(std::filesystem::absolute(exePath));
                 }
 #endif
         }
 
         //------- Retrieving root and bin directory (the subdirectory of the install root)
         {
-                boost::filesystem::path exec_dir = dirs.m_exec_path.parent_path();
+                std::filesystem::path exec_dir = dirs.m_exec_path.parent_path();
                 if (!dirs.m_exec_path.empty()) {
 #if (__APPLE__)
                         if (exec_dir.filename().string() == "MacOS") {
@@ -170,7 +170,7 @@ FileSys::Dirs FileSys::Initialize()
         }
         //------- Current Dir
         {
-                dirs.m_current_dir = system_complete(current_path());
+                dirs.m_current_dir = std::filesystem::absolute(std::filesystem::current_path());
         }
         //------- Config Dir
         {
@@ -197,7 +197,7 @@ bool FileSys::IsDirectoryString(const string& s)
         return n != string::npos;
 }
 
-ptree FileSys::ReadPtreeFile(const boost::filesystem::path& f_p)
+ptree FileSys::ReadPtreeFile(const std::filesystem::path& f_p)
 {
         ptree ret;
         if (!exists(f_p) || !is_regular_file(f_p)) {
@@ -216,9 +216,9 @@ ptree FileSys::ReadPtreeFile(const boost::filesystem::path& f_p)
         return ret;
 }
 
-ptree FileSys::ReadPtreeFile(const string& f_n) { return ReadPtreeFile(system_complete(f_n)); }
+ptree FileSys::ReadPtreeFile(const string& f_n) { return ReadPtreeFile(std::filesystem::absolute(f_n)); }
 
-void FileSys::WritePtreeFile(const boost::filesystem::path& f_p, const boost::property_tree::ptree& pt)
+void FileSys::WritePtreeFile(const std::filesystem::path& f_p, const boost::property_tree::ptree& pt)
 {
         try {
                 write_xml(f_p.string(), pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
@@ -231,7 +231,7 @@ void FileSys::WritePtreeFile(const boost::filesystem::path& f_p, const boost::pr
 
 void FileSys::WritePtreeFile(const string& f_n, const boost::property_tree::ptree& pt)
 {
-        WritePtreeFile(system_complete(f_n), pt);
+        WritePtreeFile(std::filesystem::absolute(f_n), pt);
 }
 
 } // namespace util

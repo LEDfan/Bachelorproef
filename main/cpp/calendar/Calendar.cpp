@@ -27,7 +27,6 @@
 namespace stride {
 
 using namespace std;
-using namespace boost::filesystem;
 using namespace boost::property_tree::json_parser;
 using namespace stride::util;
 using boost::property_tree::ptree;
@@ -55,7 +54,7 @@ void Calendar::InitializeHolidays(const ptree& configPt)
         ptree holidaysPt;
         {
                 const string fName{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
-                const path   fPath{FileSys::GetDataDir() /= fName};
+                const std::filesystem::path fPath{FileSys::GetDataDir() /= fName};
                 if (!is_regular_file(fPath)) {
                         throw runtime_error(string(__func__) + "Holidays file " + fPath.string() + " not present.");
                 }

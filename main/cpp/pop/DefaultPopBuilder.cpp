@@ -28,6 +28,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <contact/ContactLogMode.h>
+#include <fstream>
 #include <pool/ContactPoolType.h>
 #include <pool/IdSubscriptArray.h>
 
@@ -45,13 +46,14 @@ std::shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Popul
         //------------------------------------------------
         const auto file_name        = m_config_pt.get<std::string>("run.population_file");
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-        const auto file_path        = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : file_name;
+        const auto file_path =
+            (use_install_dirs) ? FileSys::GetDataDir() /= file_name : std::filesystem::path(file_name);
         if (!is_regular_file(file_path)) {
                 throw std::runtime_error(std::string(__func__) + "> Population file " + file_path.string() +
                                          " not present.");
         }
 
-        boost::filesystem::ifstream pop_file;
+        std::ifstream pop_file;
         pop_file.open(file_path.string());
         if (!pop_file.is_open()) {
                 throw std::runtime_error(std::string(__func__) + "> Error opening population file " +

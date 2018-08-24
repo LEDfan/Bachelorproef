@@ -1,7 +1,5 @@
 #include "TravellerProfileBuilder.h"
 #include "util/CSV.h"
-#include <boost/filesystem/operations.hpp>
-#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <pop/Population.h>
 #include <util/CSV.h>
@@ -24,8 +22,8 @@ void TravellerProfileBuilder::AddTravellerInformation(
 {
         boost::optional<std::string> name = m_configPt.get_optional<std::string>(configParam);
         if (name) {
-                const boost::filesystem::path path = util::FileSys::GetDataDir() /= name.value();
-                if (!boost::filesystem::is_regular_file(path)) {
+                const std::filesystem::path path = util::FileSys::GetDataDir() /= name.value();
+                if (!std::filesystem::is_regular_file(path)) {
                         throw std::runtime_error(std::string(__func__) +
                                                  "Could not find file for travelling data: " + configParam);
                 }

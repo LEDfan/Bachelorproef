@@ -103,8 +103,9 @@ int main(int argc, char** argv)
                         configPt = RunConfigManager::Create(config);
                 } else {
                         config = regex_replace(config, regex(string("^file=")), string(""));
-                        const boost::filesystem::path configPath =
-                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;
+                        const std::filesystem::path configPath = (installedArg.getValue())
+                                                                     ? FileSys::GetConfigDir() /= config
+                                                                     : std::filesystem::path(config);
                         configPt = FileSys::ReadPtreeFile(configPath);
                 }
 
@@ -118,7 +119,7 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 if (execArg.getValue() == "sim" || execArg.getValue() == "simgui") {
                         if (configPt.get<string>("run.output_prefix", "").empty()) {
-                                configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
+                                configPt.put("run.output_prefix", TimeStamp().ToTag());
                         }
                         if (stanArg.isSet()) {
                                 configPt.put("run.stan_count", stanArg.getValue());

@@ -1,14 +1,14 @@
 #include "GeoGridWriterFactory.h"
 #include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
-#include <boost/filesystem.hpp>
+#include <filesystem>
 #include <iostream>
 #include <util/Exception.h>
 namespace gengeopop {
 
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string filename) const
 {
-        boost::filesystem::path path(filename);
+        std::filesystem::path path(filename);
 
         if (path.extension().string() == ".json") {
                 return std::make_shared<GeoGridJSONWriter>();

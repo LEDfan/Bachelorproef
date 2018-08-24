@@ -19,9 +19,8 @@
  * Interface for install directory queries.
  */
 
-#include <boost/filesystem.hpp>
-#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <filesystem>
 #include <functional>
 #include <string>
 
@@ -39,26 +38,26 @@ public:
         static bool IsDirectoryString(const std::string& s);
 
         /// Interpret prefix (directory or filename prefix) and return appropriate path.
-        static boost::filesystem::path BuildPath(const std::string& output_prefix, const std::string& filename);
+        static std::filesystem::path BuildPath(const std::string& output_prefix, const std::string& filename);
 
         /// Read ptree from file at path.
-        static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path& f_p);
+        static boost::property_tree::ptree ReadPtreeFile(const std::filesystem::path& f_p);
 
         /// Read ptree from file specified by name string.
         static boost::property_tree::ptree ReadPtreeFile(const std::string& f_n);
 
         /// Write ptree to file at path.
-        static void WritePtreeFile(const boost::filesystem::path& f_p, const boost::property_tree::ptree& pt);
+        static void WritePtreeFile(const std::filesystem::path& f_p, const boost::property_tree::ptree& pt);
 
         /// Write ptree to file specified by name string.
         static void WritePtreeFile(const std::string& f_n, const boost::property_tree::ptree& pt);
 
 public:
         /// Get path to the current directory.
-        static boost::filesystem::path GetCurrentDir() { return Get().m_current_dir; }
+        static std::filesystem::path GetCurrentDir() { return Get().m_current_dir; }
 
         /// Get path of the executable.
-        static boost::filesystem::path GetExecPath() { return Get().m_exec_path; }
+        static std::filesystem::path GetExecPath() { return Get().m_exec_path; }
 
 public:
         /// Verify that current dir is root dir and all install dirs are present.
@@ -68,19 +67,19 @@ public:
             std::function<void(const std::string&)> logger = std::function<void(const std::string&)>());
 
         /// Return bin dir (only relevant when use_install_dirs mode is active)
-        static boost::filesystem::path GetBinDir() { return Get().m_bin_dir; }
+        static std::filesystem::path GetBinDir() { return Get().m_bin_dir; }
 
         /// Return config dir (only relevant when use_install_dirs mode is active)
-        static boost::filesystem::path GetConfigDir() { return Get().m_config_dir; }
+        static std::filesystem::path GetConfigDir() { return Get().m_config_dir; }
 
         /// /// Return data dir (only relevant when use_install_dirs mode is active)
-        static boost::filesystem::path GetDataDir() { return Get().m_data_dir; }
+        static std::filesystem::path GetDataDir() { return Get().m_data_dir; }
 
         /// Return install root dir (only relevant when use_install_dirs mode is active)
-        static boost::filesystem::path GetRootDir() { return Get().m_root_dir; }
+        static std::filesystem::path GetRootDir() { return Get().m_root_dir; }
 
         /// Return tests dir (only relevant when use_install_dirs mode is active)
-        static boost::filesystem::path GetTestsDir() { return Get().m_tests_dir; }
+        static std::filesystem::path GetTestsDir() { return Get().m_tests_dir; }
 
 private:
         /// Using this to avoid global variables & their initialization.
@@ -90,15 +89,15 @@ private:
                     : m_current_dir(), m_exec_path(), m_bin_dir(), m_config_dir(), m_data_dir(), m_root_dir(),
                       m_tests_dir(){};
 
-                boost::filesystem::path m_current_dir;
-                boost::filesystem::path m_exec_path;
+                std::filesystem::path m_current_dir;
+                std::filesystem::path m_exec_path;
 
                 // only relevant when use_install_dirs mode is active
-                boost::filesystem::path m_bin_dir;
-                boost::filesystem::path m_config_dir;
-                boost::filesystem::path m_data_dir;
-                boost::filesystem::path m_root_dir;
-                boost::filesystem::path m_tests_dir;
+                std::filesystem::path m_bin_dir;
+                std::filesystem::path m_config_dir;
+                std::filesystem::path m_data_dir;
+                std::filesystem::path m_root_dir;
+                std::filesystem::path m_tests_dir;
         };
 
 private:

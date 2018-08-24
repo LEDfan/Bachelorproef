@@ -20,9 +20,6 @@
 
 #include "CSV.h"
 
-#include <boost/filesystem/fstream.hpp>
-
-using namespace boost;
 using namespace std;
 
 namespace {
@@ -33,9 +30,9 @@ namespace {
 /// @return the full path to the file if it exists
 /// @throws runtime error if file doesn't exist
 const filesystem::path check(const filesystem::path& filename,
-                             const filesystem::path& root = boost::filesystem::current_path())
+                             const filesystem::path& root = std::filesystem::current_path())
 {
-        const filesystem::path file_path = canonical(complete(filename, root));
+        const filesystem::path file_path = root / filename;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">File " + file_path.string() + " not present. Aborting.");
         }
@@ -47,12 +44,12 @@ const filesystem::path check(const filesystem::path& filename,
 namespace stride {
 namespace util {
 
-CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels)
+CSV::CSV(const std::filesystem::path& path, std::initializer_list<std::string> optLabels)
     : m_labels(), m_column_count(0)
 {
         try {
-                boost::filesystem::path     full_path = check(path);
-                boost::filesystem::ifstream file;
+                std::filesystem::path full_path = check(path);
+                std::ifstream         file;
                 file.open(full_path.string());
                 if (!file.is_open()) {
                         throw runtime_error("Error opening csv file: " + full_path.string());
@@ -103,9 +100,9 @@ size_t CSV::GetIndexForLabel(const string& label) const
         throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void CSV::Write(const boost::filesystem::path& path) const
+void CSV::Write(const std::filesystem::path& path) const
 {
-        boost::filesystem::ofstream file;
+        std::ofstream file;
         file.open(path.string());
         if (!file.is_open()) {
                 throw runtime_error("Error opening csv file: " + path.string());
@@ -114,7 +111,7 @@ void CSV::Write(const boost::filesystem::path& path) const
         file.close();
 }
 
-void CSV::WriteLabels(boost::filesystem::ofstream& file) const
+void CSV::WriteLabels(std::ofstream& file) const
 {
         for (unsigned int i = 0; i < m_labels.size(); ++i) {
                 const string& label = m_labels.at(i);
@@ -127,7 +124,7 @@ void CSV::WriteLabels(boost::filesystem::ofstream& file) const
         }
 }
 
-void CSV::WriteRows(boost::filesystem::ofstream& file) const
+void CSV::WriteRows(std::ofstream& file) const
 {
         for (const CSVRow& row : *this) {
                 file << row << endl;

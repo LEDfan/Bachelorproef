@@ -14,7 +14,6 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
-#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <spdlog/spdlog.h>

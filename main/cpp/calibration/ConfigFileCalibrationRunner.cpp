@@ -19,8 +19,8 @@ ConfigFileCalibrationRunner::ConfigFileCalibrationRunner(std::vector<std::string
                         configPt = stride::util::RunConfigManager::Create(config);
                 } else {
                         config = regex_replace(config, std::regex(std::string("^file=")), std::string(""));
-                        const boost::filesystem::path configPath = stride::util::FileSys::GetConfigDir() / config;
-                        configPt                                 = stride::util::FileSys::ReadPtreeFile(configPath);
+                        const std::filesystem::path configPath = stride::util::FileSys::GetConfigDir() / config;
+                        configPt                               = stride::util::FileSys::ReadPtreeFile(configPath);
                 }
                 configs.emplace_back(configPt, config);
         }

@@ -35,7 +35,6 @@
 namespace stride {
 
 using namespace boost::property_tree;
-using namespace boost::filesystem;
 using namespace std;
 using namespace util;
 using namespace ContactPoolType;
@@ -113,14 +112,16 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
 ptree SimBuilder::ReadAgeContactPtree()
 {
         const auto fn = m_config_pt.get<string>("run.age_contact_matrix_file", "contact_matrix.xml");
-        const auto fp = m_config_pt.get<bool>("run.use_install_dirs") ? FileSys::GetDataDir() /= fn : fn;
+        const auto fp =
+            m_config_pt.get<bool>("run.use_install_dirs") ? FileSys::GetDataDir() /= fn : std::filesystem::path(fn);
         return FileSys::ReadPtreeFile(fp);
 }
 
 ptree SimBuilder::ReadDiseasePtree()
 {
         const auto fn = m_config_pt.get<string>("run.disease_config_file");
-        const auto fp = m_config_pt.get<bool>("run.use_install_dirs") ? FileSys::GetDataDir() /= fn : fn;
+        const auto fp =
+            m_config_pt.get<bool>("run.use_install_dirs") ? FileSys::GetDataDir() /= fn : std::filesystem::path(fn);
         return FileSys::ReadPtreeFile(fp);
 }
 

@@ -7,12 +7,13 @@
 #include <QtCore/qdebug.h>
 #include <QtQml/QQmlProperty>
 
-#include <boost/filesystem.hpp>
 #include <boost/format.hpp>
 
 #include <QtCore/QTimer>
 #include <QtQuick/QQuickItem>
 #include <cmath>
+#include <filesystem>
+#include <fstream>
 #include <gengeopop/College.h>
 #include <gengeopop/K12School.h>
 #include <gengeopop/Location.h>
@@ -67,9 +68,9 @@ void Backend::SetGeoGrids(std::vector<std::shared_ptr<gengeopop::GeoGrid>> grids
 void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
 {
         for (int i = 1; i < args.size(); i++) {
-                boost::filesystem::path path(args[i].toStdString());
-                if (boost::filesystem::exists(path)) {
-                        path = boost::filesystem::canonical(path);
+                std::filesystem::path path(args[i].toStdString());
+                if (std::filesystem::exists(path)) {
+                        path = std::filesystem::canonical(path);
                         qDebug() << "Reading from " << path.c_str();
 
                         gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
@@ -161,9 +162,9 @@ void Backend::SaveGeoGridToFile(const QString& fileLoc, QObject* errorDialog)
                 gengeopop::GeoGridWriterFactory geoGridWriterFactory;
                 // We possibly have multiple grids, so we save them in their respective files.
                 for (const auto& grid : m_grids) {
-                        boost::filesystem::path filePath = filename;
-                        filePath /= boost::filesystem::path(std::string("grid_region_") + grid->GetRegionName() +
-                                                            std::string(".proto"));
+                        std::filesystem::path filePath = filename;
+                        filePath /= std::filesystem::path(std::string("grid_region_") + grid->GetRegionName() +
+                                                          std::string(".proto"));
                         std::shared_ptr<gengeopop::GeoGridWriter> writer =
                             geoGridWriterFactory.CreateWriter(filePath.string());
                         std::ofstream outputFile(filePath.string());

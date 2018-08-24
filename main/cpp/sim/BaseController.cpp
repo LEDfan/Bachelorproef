@@ -38,7 +38,6 @@
 
 using namespace std;
 using namespace stride::util;
-using namespace boost::filesystem;
 using namespace boost::property_tree;
 using namespace boost::property_tree::xml_parser;
 
@@ -93,11 +92,9 @@ void BaseController::CheckEnv()
 void BaseController::CheckOutputPrefix()
 {
         if (FileSys::IsDirectoryString(m_output_prefix)) {
-                try {
-                        create_directories(m_output_prefix);
-                } catch (exception& e) {
-                        cerr << "BaseController::Setup> Exception creating directory:  {}" << m_output_prefix << endl;
-                        throw;
+                if (!std::filesystem::create_directories(std::filesystem::current_path() / m_output_prefix)) {
+                        throw std::runtime_error("BaseController::Setup> Failed to create directory:  " +
+                                                 m_output_prefix);
                 }
         }
 }

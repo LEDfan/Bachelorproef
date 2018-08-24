@@ -24,9 +24,7 @@
 #include "util/StringUtils.h"
 #include "util/is_iterator.h"
 
-#include <boost/filesystem/fstream.hpp>
-#include <boost/filesystem/operations.hpp>
-#include <boost/filesystem/path.hpp>
+#include <filesystem>
 #include <fstream>
 #include <type_traits>
 #include <vector>
@@ -42,7 +40,7 @@ class CSV : protected std::vector<CSVRow>
 public:
         /// Initialize from file. If optLabels not specifed, the file is required. Otherwise initialize like second
         /// constructor.
-        explicit CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
+        explicit CSV(const std::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
 
         /// Initialize from inputstream.
         explicit CSV(std::istream& inputStream);
@@ -100,21 +98,21 @@ public:
         size_t GetIndexForLabel(const std::string& label) const;
 
         /// Write CSV to file.
-        void Write(const boost::filesystem::path& path) const;
+        void Write(const std::filesystem::path& path) const;
 
         const std::vector<std::string>& GetLabels() const;
 
 private:
-        friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
+        friend std::ofstream& operator<<(std::ofstream& ofs, const CSV& csv);
 
         /// Read data from input stream.
         void ReadFromStream(std::istream& inputStream);
 
         /// Write header with labels.
-        void WriteLabels(boost::filesystem::ofstream& file) const;
+        void WriteLabels(std::ofstream& file) const;
 
         /// Write the body of rows.
-        void WriteRows(boost::filesystem::ofstream& file) const;
+        void WriteRows(std::ofstream& file) const;
 
         std::vector<std::string> m_labels;
         size_t                   m_column_count = 0;
@@ -126,7 +124,7 @@ inline void CSV::AddRow(const T&... values)
         AddRow({ToString(values)...});
 }
 
-inline boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv)
+inline std::ofstream& operator<<(std::ofstream& ofs, const CSV& csv)
 {
         csv.WriteLabels(ofs);
         csv.WriteRows(ofs);

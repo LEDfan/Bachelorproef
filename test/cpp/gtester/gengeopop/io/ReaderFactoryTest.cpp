@@ -18,9 +18,8 @@ TEST(ReaderFactoryTest, TestCommutes)
             readerFactory.CreateCommutesReader(std::string("flanders_cities.csv"));
 
         EXPECT_NE(std::dynamic_pointer_cast<CommutesCSVReader>(res1), nullptr);
-        EXPECT_THROW(
-            readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/empty.txt"),
-            std::runtime_error);
+        EXPECT_THROW(readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+                     std::runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestCommutesFromFile)
@@ -28,7 +27,7 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
         ReaderFactory readerFactory;
 
         const std::shared_ptr<CommutesReader>& res2 =
-            readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/commutes.csv");
+            readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/commutes.csv");
 
         auto geoGrid = std::make_shared<GeoGrid>();
         geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
@@ -51,9 +50,9 @@ TEST(ReaderFactoryTest, TestCities)
 
         EXPECT_NE(std::dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/empty.txt"),
+        EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
                      std::runtime_error);
-        EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/random.txt"),
+        EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/random.txt"),
                      std::runtime_error);
 }
 
@@ -67,7 +66,7 @@ TEST(ReaderFactoryTest, TestHouseHolds)
         EXPECT_NE(std::dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
 
         EXPECT_THROW(
-            readerFactory.CreateHouseholdReader(stride::util::FileSys::GetTestsDir() / "/testdata/io/empty.txt"),
+            readerFactory.CreateHouseholdReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
             std::runtime_error);
 }
 
@@ -80,8 +79,8 @@ TEST(ReaderFactoryTest, TestSubMuns)
 
         EXPECT_NE(std::dynamic_pointer_cast<SubMunicipalitiesReader>(res1), nullptr);
 
-        EXPECT_THROW(readerFactory.CreateSubMunicipalitiesReader(stride::util::FileSys::GetTestsDir() /
-                                                                 "/testdata/io/empty.txt"),
-                     std::runtime_error);
+        EXPECT_THROW(
+            readerFactory.CreateSubMunicipalitiesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+            std::runtime_error);
 }
 } // namespace
