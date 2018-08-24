@@ -23,6 +23,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <string>
+#include <vector>
 
 namespace stride {
 namespace util {
