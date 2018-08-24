@@ -3,7 +3,16 @@
 #include "CommutesReader.h"
 #include "HouseholdReader.h"
 #include "SubMunicipalitiesReader.h"
+
+#if __has_include(<filesystem>)
 #include <filesystem>
+#else
+#include <experimental/filesystem>
+namespace std {
+namespace filesystem = std::experimental::filesystem;
+}
+#endif
+
 #include <string>
 
 namespace gengeopop {

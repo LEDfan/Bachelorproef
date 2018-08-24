@@ -9,10 +9,18 @@
 
 #include <boost/format.hpp>
 
+#if __has_include(<filesystem>)
+#include <filesystem>
+#else
+#include <experimental/filesystem>
+namespace std {
+namespace filesystem = std::experimental::filesystem;
+}
+#endif
+
 #include <QtCore/QTimer>
 #include <QtQuick/QQuickItem>
 #include <cmath>
-#include <filesystem>
 #include <fstream>
 #include <gengeopop/College.h>
 #include <gengeopop/K12School.h>

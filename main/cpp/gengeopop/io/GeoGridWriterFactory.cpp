@@ -1,7 +1,16 @@
 #include "GeoGridWriterFactory.h"
 #include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
+
+#if __has_include(<filesystem>)
 #include <filesystem>
+#else
+#include <experimental/filesystem>
+namespace std {
+namespace filesystem = std::experimental::filesystem;
+}
+#endif
+
 #include <iostream>
 #include <util/Exception.h>
 namespace gengeopop {

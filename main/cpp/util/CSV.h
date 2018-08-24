@@ -24,7 +24,15 @@
 #include "util/StringUtils.h"
 #include "util/is_iterator.h"
 
+#if __has_include(<filesystem>)
 #include <filesystem>
+#else
+#include <experimental/filesystem>
+namespace std {
+namespace filesystem = std::experimental::filesystem;
+}
+#endif
+
 #include <fstream>
 #include <type_traits>
 #include <vector>

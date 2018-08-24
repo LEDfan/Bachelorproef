@@ -20,7 +20,16 @@
  */
 
 #include <boost/property_tree/ptree.hpp>
+
+#if __has_include(<filesystem>)
 #include <filesystem>
+#else
+#include <experimental/filesystem>
+namespace std {
+namespace filesystem = std::experimental::filesystem;
+}
+#endif
+
 #include <functional>
 #include <string>
 

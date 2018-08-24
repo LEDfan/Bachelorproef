@@ -1,7 +1,16 @@
 #include "GeoGridReaderFactory.h"
 #include "GeoGridJSONReader.h"
 #include "GeoGridProtoReader.h"
+
+#if __has_include(<filesystem>)
 #include <filesystem>
+#else
+#include <experimental/filesystem>
+namespace std {
+namespace filesystem = std::experimental::filesystem;
+}
+#endif
+
 #include <fstream>
 #include <iostream>
 #include <util/Exception.h>
