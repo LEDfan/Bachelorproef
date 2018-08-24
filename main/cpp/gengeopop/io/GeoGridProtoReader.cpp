@@ -164,11 +164,11 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 #pragma omp single
         {
                 for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
-                        stride::ContactPool*                                     pool;
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
                             protoContactCenter.pools(idx);
-#pragma omp task firstprivate(protoContactPool, pool, typeId)
+#pragma omp task firstprivate(protoContactPool, typeId)
                         {
+                                stride::ContactPool* pool;
                                 e->Run([&protoContactPool, &pool, this, &typeId] {
                                         pool = ParseContactPool(protoContactPool, typeId);
                                 });

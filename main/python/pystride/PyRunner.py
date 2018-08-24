@@ -1,6 +1,6 @@
 import time
 
-from pystride.stride.stride import Sim
+from pystride.stride.stride import Sim, CreateSim
 
 from .Event import EventType, Event, SteppedEvent
 from .Stopwatch import Stopwatch
@@ -29,11 +29,17 @@ class PyRunner(Subject):
     def getSimulator(self):
         return self.simulator
 
-    def setup(self, run_config, population, rn_manager):
+    def setup(self, run_config):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
         self.runConfig = run_config
-        self.simulator = Sim.Create(self.runConfig.toString(), population, rn_manager)
+
+        rng_type = self.runConfig.getParameter("run.rng_type", "mrg2")
+        rng_seed = self.runConfig.getParameter("run.rng_seed", 1)
+        rng_state = self.runConfig.getParameter("run.rng_state", "")
+        rng_threads = self.runConfig.getParameter("run.rng_threads", 1)
+
+        self.simulator = CreateSim(self.runConfig.toString())
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
 
