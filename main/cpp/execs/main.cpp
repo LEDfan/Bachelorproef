@@ -119,7 +119,7 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 if (execArg.getValue() == "sim" || execArg.getValue() == "simgui") {
                         if (configPt.get<string>("run.output_prefix", "").empty()) {
-                                configPt.put("run.output_prefix", TimeStamp().ToTag());
+                                configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
                         if (stanArg.isSet()) {
                                 configPt.put("run.stan_count", stanArg.getValue());

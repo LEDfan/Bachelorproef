@@ -92,7 +92,7 @@ void BaseController::CheckEnv()
 void BaseController::CheckOutputPrefix()
 {
         if (FileSys::IsDirectoryString(m_output_prefix)) {
-                if (!std::filesystem::create_directories(std::filesystem::current_path() / m_output_prefix)) {
+                if (!FileSys::CreateDirectory(m_output_prefix)) {
                         throw std::runtime_error("BaseController::Setup> Failed to create directory:  " +
                                                  m_output_prefix);
                 }

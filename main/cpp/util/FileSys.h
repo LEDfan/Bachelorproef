@@ -46,6 +46,9 @@ public:
         /// at least one / (may be a trailing one).
         static bool IsDirectoryString(const std::string& s);
 
+        /// Create a directory relative to the current directory with the given path, returns if it was succesful.
+        static bool CreateDirectory(std::string s);
+
         /// Interpret prefix (directory or filename prefix) and return appropriate path.
         static std::filesystem::path BuildPath(const std::string& output_prefix, const std::string& filename);
 

@@ -23,7 +23,9 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/xml_parser.hpp>
+#include <algorithm>
 #include <iostream>
+#include <regex>
 #include <string>
 
 #if defined(WIN32)
@@ -58,6 +60,15 @@ std::filesystem::path FileSys::BuildPath(const std::string& output_prefix, const
                 p += "_" + filename;
         }
         return p;
+}
+
+bool FileSys::CreateDirectory(std::string s)
+{
+        if (std::regex_match(s, std::regex(".*/$"))) {
+                // Strip the trailing / to make it work with std::filesystem
+                s = std::regex_replace(s, std::regex("\\/$"), "");
+        }
+        return std::filesystem::create_directories(std::filesystem::current_path() / s);
 }
 
 bool FileSys::CheckInstallEnv(function<void(const string&)> logger)
