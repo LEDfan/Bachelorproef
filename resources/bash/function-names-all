@@ -48,7 +48,7 @@ for dir in "$@"; do
                   -o -name '*.hh' \
                   -o -name '*.hpp' | grep -v ".*immunity/Immunizer.h" | grep -v "behaviour" | grep -v "SegmentedVector" | grep -v "GeoAggregator.h" | grep -v "GeoGrid.h"); do
         echo $f
-        "${FMT}" -I `pwd`/main/cpp  -I `pwd`/main/resources/lib/spdlog/include -I `pwd`/main/resources/lib/date/include -I `pwd`/main/resources/lib/protobuf -I `pwd`/main/resources/lib/pcg/include -I `pwd`/main/resources/lib/trng-4.20/include -I $qtInclude/QtWidgets -I $qtInclude/QtCore/ -I $qtInclude/ -D __PIC__ ${f}
+        "${FMT}" -I `pwd`/main/cpp  -I `pwd`/main/resources/lib/spdlog/include -I `pwd`/main/resources/lib/randutils/include -I `pwd`/main/resources/lib/date/include -I `pwd`/main/resources/lib/protobuf -I `pwd`/main/resources/lib/pcg/include -I `pwd`/main/resources/lib/trng-4.20/include -I $qtInclude/QtWidgets -I $qtInclude/QtCore/ -I $qtInclude/ -D __PIC__ ${f}
         if [ $? -ne 0 ]; then
            EXIT=1
         fi
