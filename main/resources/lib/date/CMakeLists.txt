@@ -10,12 +10,11 @@ set( HEADER_FILES
 	${DATE_INCLUDE_DIRECTORY}/date/islamic.h
 	${DATE_INCLUDE_DIRECTORY}/date/iso_week.h
 	${DATE_INCLUDE_DIRECTORY}/date/julian.h
-	${DATE_INCLUDE_DIRECTORY}/date/tz.h
 	${DATE_INCLUDE_DIRECTORY}/date/tz_private.h
 )
 
 
-add_library( date ${HEADER_FILES} ${SOURCE_FOLDER}/tz.cpp )
+add_library( date ${HEADER_FILES} )
 target_link_libraries( date ${CMAKE_THREAD_LIBS_INIT} )
 target_include_directories(date PUBLIC include)
 
