@@ -58,7 +58,7 @@ public:
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& Set(std::size_t ibegin, std::size_t iend, const Key& name)
         {
-                check(name);
+                Check(name);
                 assert((0 <= ibegin && iend <= iend && iend <= boost::size(m_t)) && "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, iend));
                 m_map[name] = m_slices.size() - 1;
@@ -68,7 +68,7 @@ public:
         /// Set a range, where the end is the end of the container.
         range_type& Set(std::size_t ibegin, const Key& name)
         {
-                check(name);
+                Check(name);
                 assert(0 <= ibegin && ibegin <= boost::size(m_t) && "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
                 m_map[name] = m_slices.size() - 1;
@@ -77,7 +77,7 @@ public:
 
 private:
         /// Check key map for duplicate; throw iff duplicate.
-        void check(const Key& name)
+        void Check(const Key& name)
         {
                 if (m_map.find(name) != m_map.end()) {
                         throw std::range_error("Name is a duplicate: ");
@@ -115,7 +115,7 @@ public:
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& Set(std::size_t ibegin, std::size_t iend, const size_t& id)
         {
-                check(id);
+                Check(id);
                 assert((0 <= ibegin && iend <= iend && iend <= boost::size(m_t)) && "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, iend));
                 return m_slices.back();
@@ -124,7 +124,7 @@ public:
         /// Set a range, where the end is the end of the container.
         range_type& Set(std::size_t ibegin, const size_t& id)
         {
-                check(id);
+                Check(id);
                 assert(0 <= ibegin && ibegin <= boost::size(m_t) && "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
                 return m_slices.back();
@@ -135,7 +135,7 @@ public:
 
 private:
         // Also check if it's a valid key, throw iff not
-        void check(const size_t& id)
+        void Check(const size_t& id)
         {
                 if (m_slices.size() > 0 && id != m_slices.size()) {
                         throw std::range_error("Can only append when using std::size_t as key " + std::to_string(id));

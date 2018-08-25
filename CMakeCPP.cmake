@@ -110,7 +110,7 @@ set(LIBS ${LIBS} sha1)
 #----------------------------------------------------------------------------
 # Boost
 #----------------------------------------------------------------------------
-find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
+find_package(Boost COMPONENTS thread system REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 set(LIBS   ${LIBS} ${Boost_LIBRARIES})
 
@@ -119,6 +119,12 @@ set(LIBS   ${LIBS} ${Boost_LIBRARIES})
 #----------------------------------------------------------------------------
 
 set(LIBS ${LIBS} stdc++fs)
+
+#----------------------------------------------------------------------------
+# Date
+#----------------------------------------------------------------------------
+
+set(LIBS ${LIBS} date)
 
 #----------------------------------------------------------------------------
 # OpenMP

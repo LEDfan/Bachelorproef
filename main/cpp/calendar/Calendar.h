@@ -19,8 +19,8 @@
  * Header file for the Calendar class.
  */
 
-#include "boost/date_time/gregorian/gregorian.hpp"
 #include <boost/property_tree/ptree.hpp>
+#include <date/date.h>
 
 #include <algorithm>
 #include <cstdlib>
@@ -43,19 +43,22 @@ public:
         void AdvanceDay();
 
         /// Current day of the month in the simulated calendar.
-        std::size_t GetDay() const { return m_date.day(); }
+        std::size_t GetDay() const { return static_cast<unsigned int>(m_date.day()); }
 
         /// Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar.
-        std::size_t GetDayOfTheWeek() const { return m_date.day_of_week(); }
+        std::size_t GetDayOfTheWeek() const
+        {
+                return static_cast<unsigned>(static_cast<date::year_month_weekday>(m_date).weekday());
+        }
 
         /// Current month in the simulated calendar.
-        std::size_t GetMonth() const { return m_date.month(); }
+        std::size_t GetMonth() const { return static_cast<unsigned int>(m_date.month()); }
 
         /// Current simulated day since the start of the simulation.
         unsigned short int GetSimulationDay() const { return m_day; }
 
         /// Current year in the simulated calendar.
-        std::size_t GetYear() const { return m_date.year(); }
+        std::size_t GetYear() const { return static_cast<int>(m_date.year()); }
 
         /// Check if it's a holiday
         bool IsHoliday() const { return (std::find(m_holidays.begin(), m_holidays.end(), m_date) != m_holidays.end()); }
@@ -74,11 +77,13 @@ private:
         ///
         void InitializeHolidays(const boost::property_tree::ptree& configPt);
 
+        date::year_month_day ConvertFromString(const std::string& day);
+
 private:
-        boost::gregorian::date              m_date;            ///< Current simulated date.
-        unsigned short int                  m_day;             ///< Current day since start of simulation.
-        std::vector<boost::gregorian::date> m_holidays;        ///< Vector of general holidays
-        std::vector<boost::gregorian::date> m_school_holidays; ///< Vector of school holidays
+        date::year_month_day              m_date;            ///< Current simulated date.
+        unsigned short int                m_day;             ///< Current day since start of simulation.
+        std::vector<date::year_month_day> m_holidays;        ///< Vector of general holidays
+        std::vector<date::year_month_day> m_school_holidays; ///< Vector of school holidays
 };
 
 } // namespace stride

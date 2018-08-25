@@ -18,10 +18,13 @@
  * Implementation file for the Calendar class.
  */
 
+#include <chrono>
+#include <iomanip>
+#include <iostream>
+
 #include "Calendar.h"
 
 #include "util/FileSys.h"
-
 #include <boost/property_tree/json_parser.hpp>
 
 namespace stride {
@@ -36,8 +39,7 @@ Calendar::Calendar(const boost::property_tree::ptree& configPt)
 {
         const string start_date{configPt.get<string>("run.start_date", "2016-01-01")};
         // Set start date
-        m_date = boost::gregorian::from_simple_string(configPt.get<string>("run.start_date", "2016-01-01"));
-
+        m_date = ConvertFromString(start_date);
         // Set holidays & school holidays
         InitializeHolidays(configPt);
 }
@@ -45,9 +47,18 @@ Calendar::Calendar(const boost::property_tree::ptree& configPt)
 void Calendar::AdvanceDay()
 {
         m_day++;
-        m_date = m_date + boost::gregorian::date_duration(1);
+        m_date = static_cast<date::year_month_day>(static_cast<date::sys_days>(m_date) + date::days(1));
 }
 
+date::year_month_day Calendar::ConvertFromString(const std::string& day)
+{
+        std::tm           timeinfo;
+        std::stringstream ss(day);
+        ss >> std::get_time(&timeinfo, "%Y-%m-%d");
+        auto date = date::year{timeinfo.tm_year + 1900} / date::month{static_cast<unsigned int>(timeinfo.tm_mon + 1)} /
+                    date::day{static_cast<unsigned int>(timeinfo.tm_mday)};
+        return date;
+}
 void Calendar::InitializeHolidays(const ptree& configPt)
 {
         // Load json file
@@ -65,18 +76,23 @@ void Calendar::InitializeHolidays(const ptree& configPt)
         for (int i = 1; i < 13; i++) {
                 const auto month = to_string(i);
                 const auto year  = holidaysPt.get<string>("year", "2017");
-                const auto lead  = string(year).append("-").append(month).append("-");
 
                 // read in general holidays
                 for (const auto& date : holidaysPt.get_child("general." + month)) {
-                        const auto d = string(lead).append(date.second.get_value<string>());
-                        m_holidays.push_back(boost::gregorian::from_simple_string(d));
+                        std::stringstream d;
+                        /// Append zero's due to a bug in stdc++ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896
+                        d << year << "-" << std::setw(2) << std::setfill('0') << month << "-" << std::setw(2)
+                          << std::setfill('0') << date.second.get_value<string>();
+                        m_holidays.push_back(ConvertFromString(d.str()));
                 }
 
                 // read in school holidays
                 for (const auto& date : holidaysPt.get_child("school." + month)) {
-                        const string d = string(lead).append(date.second.get_value<string>());
-                        m_school_holidays.push_back(boost::gregorian::from_simple_string(d));
+                        std::stringstream d;
+                        /// Append zero's due to a bug in stdc++ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896
+                        d << year << "-" << std::setw(2) << std::setfill('0') << month << "-" << std::setw(2)
+                          << std::setfill('0') << date.second.get_value<string>();
+                        m_school_holidays.push_back(ConvertFromString(d.str()));
                 }
         }
 }
