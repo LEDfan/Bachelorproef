@@ -40,7 +40,7 @@ include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -lstdc++fs -Wall -Wextra -pedantic -Weffc++")
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -lstdc++fs -pthread -Wall -Wextra -pedantic -Weffc++")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
@@ -61,7 +61,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 #
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-command-line-argument -Wno-self-assign")
 	add_definitions(-D__extern_always_inline=inline)
 #
@@ -76,6 +75,13 @@ endif()
 # Standard math lib
 #----------------------------------------------------------------------------
 set(LIBS   ${LIBS}   m)
+
+#----------------------------------------------------------------------------
+# Threading
+#----------------------------------------------------------------------------
+
+find_package(Threads)
+set(LIBS ${LIBS} ${CMAKE_THREAD_LIBS_INIT})
 
 #----------------------------------------------------------------------------
 # Random number stuff: pcg, randutils, trng
@@ -110,9 +116,7 @@ set(LIBS ${LIBS} sha1)
 #----------------------------------------------------------------------------
 # Boost
 #----------------------------------------------------------------------------
-find_package(Boost COMPONENTS thread system REQUIRED)
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
-set(LIBS   ${LIBS} ${Boost_LIBRARIES})
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/include)
 
 #----------------------------------------------------------------------------
 # Filesystem
