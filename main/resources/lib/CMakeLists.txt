@@ -22,6 +22,5 @@ add_subdirectory(protobuf)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 add_subdirectory(sha1)
 add_subdirectory(trng-4.20)
-add_subdirectory(date)
 
 #############################################################################

@@ -124,7 +124,7 @@ set(LIBS ${LIBS} stdc++fs)
 # Date
 #----------------------------------------------------------------------------
 
-set(LIBS ${LIBS} date)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/date/include)
 
 #----------------------------------------------------------------------------
 # OpenMP
