@@ -38,20 +38,35 @@ matrix:
       addons: { apt: { packages: [*default_packages, clang-5.0, g++-6, gcc-6], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
 
     - os: osx
+      osx_image: xcode8.3
+      compiler: clang
+      env: CXX_NAME='c++'
+
+    - os: osx
+      osx_image: xcode9.2
+      compiler: clang
+      env: CXX_NAME='c++'
+
+    - os: osx
       osx_image: xcode9.3
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++' CXX_COMPILER_ID=LLVM BUILD_NAME="LLVM Clang"
+      env: CXX_NAME='clang++'
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "clang++" ]]; then
-      brew install --with-clang llvm@6
-      brew link --force --overwrite llvm@6
+        brew install llvm
+        brew link --force --overwrite llvm
+        export CC=/usr/local/opt/llvm/bin/clang
+        export CXX=/usr/local/opt/llvm/bin/clang++
+        export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+        export CPPFLAGS="-I/usr/local/opt/llvm/include"
+    else
+      # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
+      export CXX="$CXX_COMPILER_NAME"
     fi
-  # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
-  - export CXX="$CXX_COMPILER_NAME"
 
 install:
     #--------- Linux
@@ -72,9 +87,6 @@ install:
       sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs
       export CMAKE_PREFIX_PATH=/usr/local/opt/qt5:$CMAKE_PREFIX_PATH
       export LD_LIBRARY_PATH=/usr/local/opt/qt5/lib/
-      brew install llvm
-      export CC=/usr/local/opt/llvm/bin/clang
-      export CXX=/usr/local/opt/llvm/bin/clang++
     fi
     #--------- All platforms
   - |

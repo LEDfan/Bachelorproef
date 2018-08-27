@@ -125,7 +125,11 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/incl
 # Filesystem
 #----------------------------------------------------------------------------
 
-set(LIBS ${LIBS} stdc++fs)
+if(CMAKE_HOST_APPLE)
+    set(LIBS ${LIBS} c++experimental)
+else()
+    set(LIBS ${LIBS} stdc++fs)
+endif()
 
 #----------------------------------------------------------------------------
 # Date
