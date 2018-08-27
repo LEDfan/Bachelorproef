@@ -1,11 +1,6 @@
 language: cpp
 dist: trusty
 
-notifications:
-  email:
-    recipients:
-      - tobia@ledfan.be
-
 env:
   global:
     #- MAKEFLAGS="-j 2"
@@ -92,22 +87,6 @@ install:
   - |
     sudo pip install cmake
     export PATH=/usr/local/bin:$PATH # use version installed using pip
-    export BOOST_ROOT=$HOME/deps/boost_1_66_0
-    export BOOST_NO_SYSTEM_PATHS=ON
-    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
-      cd /tmp/
-      wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
-      tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
-      cd boost_1_66_0/
-      ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
-      ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
-      cd $TRAVIS_BUILD_DIR;
-    else
-      echo "Already have boost cache"
-    fi
-    export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
-    sudo rm -f /usr/local/lib/libboost*.dylib*
-    sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
 
 script:
   # Build stride and run tests
@@ -119,42 +98,3 @@ script:
       fi
       CMAKE_BUILD_TYPE=Debug make all
   - CMAKE_BUILD_TYPE=Debug make test
-
-after_success:
-    - |
-        cd ${TRAVIS_BUILD_DIR}
-        if [[ "$STRIDE_GENERATE_COVERAGE" == "True" ]]; then
-        lcov --directory . --capture --output-file coverage.info # capture coverage info
-        lcov --remove coverage.info '/usr/*' 'main/resources/*' 'test/resources/*' "${HOME}/boost_1_66_0_cache/\*\*" --output-file coverage.info # filter out system + boost
-        lcov --list coverage.info #debug info
-        bash <(curl -s https://codecov.io/bash) -f coverage.info -t f7c8a447-9ce0-48b8-bbe5-b80a4f607cd8 || echo "Codecov did not collect coverage reports"
-        fi
-
-after_script:
- - |
-    if [ -f ./cmake-build-debug/installed/tests/gtester_all.xml ]; then
-    wget https://github.com/LEDfan/xunit-viewer/files/1819066/xunit-viewer.tar.gz
-    tar -xf xunit-viewer.tar.gz
-    ./xunit-viewer/bin/xunit-viewer --output=test_detail.html --results=./cmake-build-debug/installed/tests/gtester_all.xml
-    git config --global user.email "bot@ledfan.be"
-    git config --global user.name "LEDfan-bot"
-    cp -r test_detail.html ../
-    git remote add origin-pages https://${GH_TOKEN}@github.com/LEDfan/bachelorproef.git > /dev/null 2>&1
-    git fetch origin-pages gh-pages
-    git checkout gh-pages
-    mkdir -p test_results/${TRAVIS_BRANCH}
-    mv ../test_detail.html test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html
-    LINK="https://ledfan.github.io/Bachelorproef/test_results/${TRAVIS_BRANCH}/${TRAVIS_JOB_NUMBER}-${BUILD_NAME}.html"
-    ./generate.py add $TRAVIS_BRANCH $TRAVIS_JOB_NUMBER $BUILD_NAME $LINK
-    ./generate.py render > test-results.md
-    git add test_results/* test-results.md test_results.json
-    git commit -m "Publish test results @ $LINK"
-    if [ "$TRAVIS_BRANCH" = "master" -a "$COMMIT_DOCS" = "YES" ]; then
-        rm -rf doxygen
-        mv cmake-build-debug/doc/doxygen/html doxygen
-        git add doxygen
-        git commit -m "Update doxygen for $TRAVIS_COMMIT"
-    fi
-    git push origin-pages gh-pages
-    echo -e "\e[0;32mTest report can be viewed at $LINK\e[0m"
-    fi
