@@ -24,17 +24,28 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                 // 1. find all communities in an area of 10-k*10 km
                 const auto& community_pools = GetContactPoolInIncreasingRadius<SecondaryCommunity>(geoGrid, loc);
 
-                // 2. for every household assign a community
-                const auto dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                    0, static_cast<trng::uniform_int_dist::result_type>(community_pools.size())));
+                // 2. find all households in this location
+                const auto& households = loc->GetContactCentersOfType<Household>();
 
-                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        stride::ContactPool* contactPool = household->GetPools()[0];
-                        const auto           pool        = dist();
-                        for (stride::Person* person : *contactPool) {
-                                found.insert(community_pools[pool]);
-                                community_pools[pool]->AddMember(person);
-                                person->SetSecondaryCommunityId(community_pools[pool]->GetId());
+                unsigned int households_per_community        = households.size() / community_pools.size();
+                unsigned int remainder                       = households.size() % community_pools.size();
+                unsigned int current_community               = 0;
+                unsigned int current_households_in_community = 0;
+                for (unsigned int i = 0; i < households.size(); i++) {
+                        stride::ContactPool* housePool = households[i]->GetPools()[0];
+                        if ((current_households_in_community == households_per_community &&
+                             (!remainder || current_community >= remainder)) ||
+                            (current_households_in_community == households_per_community + 1 &&
+                             (remainder && current_community < remainder))) {
+                                current_community++;
+                                current_households_in_community = 0;
+                        }
+                        current_households_in_community++;
+                        stride::ContactPool* communityPool = community_pools[current_community];
+                        for (stride::Person* person : *housePool) {
+                                found.insert(communityPool);
+                                communityPool->AddMember(person);
+                                person->SetSecondaryCommunityId(communityPool->GetId());
                         }
                 }
         }
