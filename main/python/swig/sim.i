@@ -3,7 +3,7 @@
 // headers for generated file
 %{
 #include "sim/Sim.h"
-extern stride::Sim CreateSim(std::string config);
+extern std::shared_ptr<stride::Sim> CreateSim(const std::string& config);
 %}
 
 %include <std_string.i>

@@ -45,6 +45,8 @@ Sim::Sim(util::RnMan& rnMan)
 {
 }
 
+Sim::Sim(std::shared_ptr<util::RnMan> rnMan) : Sim(*rnMan.get()) { m_rn_manager_ptr = rnMan; }
+
 std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
                                  util::RnMan& rnManager)
 {
@@ -57,9 +59,16 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, sh
         return sim;
 }
 
-std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop, util::RnMan& rnManager)
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
+                                 std::shared_ptr<util::RnMan> rnManager)
 {
-        return Create(RunConfigManager::FromString(configString), std::move(pop), rnManager);
+        struct make_shared_enabler : public Sim
+        {
+                explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(rnManager) {}
+        };
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
+        SimBuilder(configPt).Build(sim, std::move(pop));
+        return sim;
 }
 
 void Sim::TimeStep()

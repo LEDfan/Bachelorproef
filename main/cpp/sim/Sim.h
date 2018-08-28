@@ -46,9 +46,10 @@ public:
         static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
                                            util::RnMan& rnManager);
 
-        /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop,
-                                           util::RnMan& rnManager);
+        /// Also use a shared_ptr to an rnManager and make the returned Sim maintain ownership so it won't be destroyed
+        /// . It cannot be owned by the python environment since SWIG cannot handle the RnMan.
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                                           std::shared_ptr<util::RnMan> rnManager);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
@@ -79,21 +80,26 @@ private:
         /// Constructor for empty Simulator.
         explicit Sim(util::RnMan&);
 
+        /// Constructor for empty Simulator, used in Python environment
+        explicit Sim(std::shared_ptr<util::RnMan> rnMan);
+
         /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;
 
 private:
-        boost::property_tree::ptree       m_config_pt;         ///< Configuration property tree
-        ContactLogMode::Id                m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
-        unsigned int                      m_num_threads;       ///< The number of (OpenMP) threads.
-        bool                              m_track_index_case;  ///< General simulation or tracking index case.
-        std::string                       m_local_info_policy; ///< Local information policy name.
-        std::shared_ptr<Calendar>         m_calendar;          ///< Managment of calendar.
-        AgeContactProfiles                m_contact_profiles;  ///< Contact profiles w.r.t age.
-        std::vector<ContactHandler>       m_handlers;          ///< Contact handlers (rng & rates).
-        InfectorExec*                     m_infector;   ///< Executes contacts/transmission loops in contact pool.
-        std::shared_ptr<Population>       m_population; ///< Pointer to the Population.
-        util::RnMan&                      m_rn_manager; ///< Random number generation management.
+        boost::property_tree::ptree  m_config_pt;         ///< Configuration property tree
+        ContactLogMode::Id           m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
+        unsigned int                 m_num_threads;       ///< The number of (OpenMP) threads.
+        bool                         m_track_index_case;  ///< General simulation or tracking index case.
+        std::string                  m_local_info_policy; ///< Local information policy name.
+        std::shared_ptr<Calendar>    m_calendar;          ///< Managment of calendar.
+        AgeContactProfiles           m_contact_profiles;  ///< Contact profiles w.r.t age.
+        std::vector<ContactHandler>  m_handlers;          ///< Contact handlers (rng & rates).
+        InfectorExec*                m_infector;          ///< Executes contacts/transmission loops in contact pool.
+        std::shared_ptr<Population>  m_population;        ///< Pointer to the Population.
+        util::RnMan&                 m_rn_manager;        ///< Random number generation management.
+        std::shared_ptr<util::RnMan> m_rn_manager_ptr =
+            nullptr; ///< Used when created from the Python environment to keep it from being destructed.
         TransmissionProfile               m_transmission_profile; ///< Profile of disease.
         std::shared_ptr<TravellerProfile> m_travellerProfile;     ///< Profile of Traveller information
 };

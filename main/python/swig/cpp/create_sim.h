@@ -1,3 +1,3 @@
 #include <sim/Sim.h>
 
-stride::Sim CreateSim(std::string config);
+std::shared_ptr<stride::Sim> CreateSim(const std::string& config);
