@@ -42,7 +42,7 @@ std::shared_ptr<TravellerProfile> TravellerProfileBuilder::Build()
 {
         std::unordered_map<std::string, std::size_t> regions = m_pop->GetRegionIdentifiers();
 
-        double      amountOfTravel = m_configPt.get<double>("run.traveller_amount", 0.00001);
+        double      amountOfTravel = m_configPt.get<double>("run.traveller_amount", 0);
         double      fractionWork   = m_configPt.get<double>("run.traveller_fraction_work_travel", 0.5);
         std::size_t maxDuration    = m_configPt.get<std::size_t>("run.traveller_max_duration", 21);
 
