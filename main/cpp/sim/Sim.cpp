@@ -93,7 +93,7 @@ void Sim::TimeStep()
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
                         population[i].Update(isWorkOff, isSchoolOff, m_travellerProfile, m_population,
-                                             m_calendar->GetDay());
+                                             m_calendar->GetSimulationDay());
                 }
 
                 // Infector updates individuals for contacts & transmission within each pool.
@@ -113,7 +113,7 @@ void Sim::TimeStep()
                 }
         }
 
-        m_population->ReturnTravellers(m_calendar->GetDay());
+        m_population->ReturnTravellers(m_calendar->GetSimulationDay());
         m_population->GetContactLogger()->flush();
         m_calendar->AdvanceDay();
 }

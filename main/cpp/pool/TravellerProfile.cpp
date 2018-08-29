@@ -30,7 +30,7 @@ void TravellerProfile::AddTravelWork(std::size_t from, std::size_t to, double re
 bool TravellerProfile::PersonWillTravel(size_t currentRegion, std::shared_ptr<stride::Population> population,
                                         Person* person, std::size_t currentDay)
 {
-        if ((m_data_work.size() > 1 || m_data_recreation.size() > 1) && m_amountOfTravel > 0 &&
+        if ((m_data_work.size() > 0 || m_data_recreation.size() > 0) && m_amountOfTravel > 0 &&
             MakeChoice(m_amountOfTravel)) {
                 auto durationDist = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_maxDays)));
@@ -39,21 +39,28 @@ bool TravellerProfile::PersonWillTravel(size_t currentRegion, std::shared_ptr<st
                 std::size_t leaveDay = currentDay + duration;
 
                 std::function<trng::uniform_int_dist::result_type()> distRegion;
+                std::vector<double>                                  weights;
 
                 bool tripIsWork = MakeChoice(m_fractionWork);
 
                 ContactPoolType::Id type;
                 if (m_data_work.empty() || !tripIsWork) {
-                        type       = ContactPoolType::Id::PrimaryCommunity;
-                        distRegion = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                            0,
-                            static_cast<trng::uniform_int_dist::result_type>(m_data_recreation[currentRegion].size())));
+                        type    = ContactPoolType::Id::PrimaryCommunity;
+                        weights = m_data_recreation[currentRegion];
                 } else {
-                        type       = ContactPoolType::Id::Work;
-                        distRegion = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                            0, static_cast<trng::uniform_int_dist::result_type>(m_data_work[currentRegion].size())));
+                        type    = ContactPoolType::Id::Work;
+                        weights = m_data_work[currentRegion];
                 }
+                double sum = std::accumulate(weights.begin(), weights.end(), 0.0);
+                if (!sum)
+                        return false; // No weight information available for this origin region -> don't travel from
+                                      // this region and this type of trip
+                if (std::abs(sum - 1) > 0.001)
+                        throw std::runtime_error("Invalid travel information, the sum of relative values has to be "
+                                                 "equal to 1, instead it is " +
+                                                 std::to_string(sum) + ".");
 
+                distRegion = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
                 auto destinationRegion = static_cast<std::size_t>(distRegion());
 
                 auto pools = population->SliceOnRegion(destinationRegion)[type];
