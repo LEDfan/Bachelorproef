@@ -67,11 +67,9 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
 #pragma omp taskwait
         }
         e->Rethrow();
-        AddSubMunicipalities(m_geoGrid);
         AddCommutes(m_geoGrid);
         m_commutes.clear();
         m_people.clear();
-        m_subMunicipalities.clear();
         return m_geoGrid;
 } // namespace gengeopop
 
@@ -104,12 +102,6 @@ std::shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree:
 #pragma omp taskwait
         }
         e->Rethrow();
-
-        for (const auto& subMun : location.get_child("submunicipalities")) {
-#pragma omp critical
-                m_subMunicipalities.emplace_back(id,
-                                                 boost::lexical_cast<unsigned int>(subMun.second.get_child("").data()));
-        }
 
         if (location.count("commutes")) {
                 boost::property_tree::ptree commutes = location.get_child("commutes");

@@ -2,7 +2,6 @@
 #include "CitiesCSVReader.h"
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
-#include "SubMunicipalitiesCSVReader.h"
 #include <iostream>
 #include <util/Exception.h>
 #include <util/FileSys.h>
@@ -37,16 +36,6 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std:
 std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std::filesystem::path& path)
 {
         return std::make_shared<HouseholdCSVReader>(OpenFile(path));
-}
-
-std::shared_ptr<SubMunicipalitiesReader> ReaderFactory::CreateSubMunicipalitiesReader(const std::string& filename)
-{
-        return CreateSubMunicipalitiesReader(stride::util::FileSys::GetDataDir() / std::filesystem::path(filename));
-}
-
-std::shared_ptr<SubMunicipalitiesReader> ReaderFactory::CreateSubMunicipalitiesReader(const std::filesystem::path& path)
-{
-        return std::make_shared<SubMunicipalitiesCSVReader>(OpenFile(path));
 }
 
 std::unique_ptr<std::istream> ReaderFactory::OpenFile(const std::filesystem::path& path) const

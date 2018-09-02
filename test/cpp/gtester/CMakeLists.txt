@@ -58,7 +58,6 @@ set(SRC
     gengeopop/io/GeoGridProtoWriterTest.cpp
     gengeopop/io/HouseholdCSVReaderTest.cpp
     gengeopop/io/ReaderFactoryTest.cpp
-    gengeopop/io/SubMunicipalitiesCSVReaderTest.cpp
     gengeopop/kdtree.cpp
     gengeopop/populators/CommunityPopulatorTests.cpp
     gengeopop/populators/CollegePopulatorTest.cpp

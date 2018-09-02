@@ -42,8 +42,6 @@ set(GENGEOPOP_LIB
         io/GeoGridWriterFactory.cpp
         io/GeoGridReaderFactory.cpp
         io/GeoGridReader.cpp
-        io/SubMunicipalitiesReader.cpp
-        io/SubMunicipalitiesCSVReader.cpp
         GenGeoPopController.cpp)
 
 #============================================================================

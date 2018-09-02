@@ -67,16 +67,6 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
 
         CompareGeoGrid(geoGrid);
 }
-TEST(GeoGridProtoReaderTest, submunicipalityTest)
-{
-        proto::GeoGrid geoGrid;
-        auto           location        = geoGrid.add_locations();
-        auto           submunicipality = geoGrid.add_locations();
-        fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
-        fillLocation(2, 4, 2500, Coordinate(0, 0), "Gent", submunicipality);
-        location->add_submunicipalities(submunicipality->id());
-        CompareGeoGrid(geoGrid);
-}
 TEST(GeoGridProtoReaderTest, peopleTest)
 {
         proto::GeoGrid geoGrid;

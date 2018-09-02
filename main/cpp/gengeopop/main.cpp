@@ -71,9 +71,6 @@ int main(int argc, char* argv[])
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
                                                       "POPULATION SIZE", cmd);
 
-                ValueArg<std::string> subMunicipalitiesFile("x", "subMinicipalities", "subMinicipalitiesFile", false,
-                                                            "submunicipalities.csv", "OUTPUT FILE", cmd);
-
                 ValueArg<std::string> rng_seed("", "seed", "The seed to be used for the random engine", false,
                                                "1,2,3,4", "SEED", cmd);
 
@@ -110,8 +107,7 @@ int main(int argc, char* argv[])
                 stride::util::RnMan       rnManager(info);
 
                 GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
-                                                        commutingFile.getValue(), houseHoldFile.getValue(),
-                                                        subMunicipalitiesFile.getValue(), "Default");
+                                                        commutingFile.getValue(), houseHoldFile.getValue(), "Default");
 
                 // --------------------------------------------------------------
                 // Read input files.

@@ -27,16 +27,12 @@ public:
                            std::string regionName);
 
 protected:
-        /// Add the SubMunicipalities that were found while looping of the Locations to their parent municipality
-        void AddSubMunicipalities(std::shared_ptr<GeoGrid> geoGrid);
-
         /// Add the commutes that were found to their respective Locations symmetrically
         void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
 
         std::map<unsigned int, stride::Person*>
                                                                     m_people; ///< Store the persons (id->person) that were found while loping over the ContactPools
-        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;          ///< from, to, amount
-        std::vector<std::pair<unsigned int, unsigned int>>          m_subMunicipalities; //// first has submun second
+        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes; ///< from, to, amount
         std::size_t                                                 m_regionId; ///< RegionId, used to create persons
         std::string m_regionName; ///< RegionName, region name passed to GeoGrid
 

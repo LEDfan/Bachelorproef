@@ -66,10 +66,8 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         }
         e->Rethrow();
         AddCommutes(m_geoGrid);
-        AddSubMunicipalities(m_geoGrid);
         m_people.clear();
         m_commutes.clear();
-        m_subMunicipalities.clear();
         return m_geoGrid;
 } // namespace gengeopop
 
@@ -108,10 +106,6 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
                 m_commutes.emplace_back(std::make_tuple(id, commute.to(), commute.proportion()));
         }
 
-        for (int idx = 0; idx < protoLocation.submunicipalities_size(); idx++) {
-#pragma omp critical
-                m_subMunicipalities.emplace_back(std::make_pair(result->GetID(), protoLocation.submunicipalities(idx)));
-        }
         return result;
 } // namespace gengeopop
 

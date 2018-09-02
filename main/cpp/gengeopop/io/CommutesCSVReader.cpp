@@ -10,52 +10,6 @@ CommutesCSVReader::CommutesCSVReader(std::unique_ptr<std::istream> inputStream)
 {
 }
 
-double CommutesCSVReader::MunicipalityTotal(std::shared_ptr<Location> loc) const
-{
-        double total = 0;
-        for (const auto& sub : loc->GetSubMunicipalities()) {
-                total += sub->GetRelativePopulationSize();
-        }
-        return total;
-}
-
-void CommutesCSVReader::AddCommute(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
-                                   double proportion) const
-{
-        from->AddOutgoingCommutingLocation(to, proportion);
-        to->AddIncomingCommutingLocation(from, proportion);
-}
-
-void CommutesCSVReader::AddCommuteFrom(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
-                                       double proportion) const
-{
-        if (from->GetSubMunicipalities().size()) {
-                for (auto& subMunicipalityFrom : from->GetSubMunicipalities()) {
-                        AddCommuteTo(subMunicipalityFrom, to, proportion);
-                }
-        } else {
-                AddCommuteTo(from, to, proportion);
-        }
-}
-void CommutesCSVReader::AddCommuteTo(std::shared_ptr<Location> from, std::shared_ptr<Location> to,
-                                     double proportion) const
-{
-        double total_population = MunicipalityTotal(to);
-        if (to->GetSubMunicipalities().size()) {
-                if (total_population > 0) {
-                        double total_added = 0;
-                        for (auto& subMunicipalityTo : to->GetSubMunicipalities()) {
-                                double prop =
-                                    proportion * (subMunicipalityTo->GetRelativePopulationSize() / total_population);
-                                total_added += prop;
-                                AddCommute(from, subMunicipalityTo, prop);
-                        }
-                        assert(std::abs(total_added - proportion) < 0.01);
-                }
-        } else {
-                AddCommute(from, to, proportion);
-        }
-}
 void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
         // cols:
@@ -99,7 +53,8 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                             "Proportion of commutes from " + std::to_string(locFrom->GetID()) + " to " +
                                             std::to_string(locTo->GetID()) + " is invalid (0 <= proportion <= 1)");
                                 }
-                                AddCommuteFrom(locFrom, locTo, proportion);
+                                locFrom->AddOutgoingCommutingLocation(locTo, proportion);
+                                locTo->AddIncomingCommutingLocation(locFrom, proportion);
                         }
                 }
                 rowIndex++;

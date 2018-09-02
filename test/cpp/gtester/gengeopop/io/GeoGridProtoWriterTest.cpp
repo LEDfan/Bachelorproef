@@ -48,17 +48,6 @@ TEST(GeoGridProtoWriterTest, contactCentersTest)
 
         CompareGeoGrid(geoGrid);
 }
-TEST(GeoGridProtoWriterTest, submunicipalityTest)
-{
-        auto geoGrid         = GetGeoGrid();
-        auto location        = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
-        auto submunicipality = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0), "Gent");
-        submunicipality->AddContactCenter(std::make_shared<K12School>(0));
-        location->AddSubMunicipality(submunicipality);
-        geoGrid->AddLocation(location);
-
-        CompareGeoGrid(geoGrid);
-}
 TEST(GeoGridProtoWriterTest, peopleTest) { CompareGeoGrid(GetPopulatedGeoGrid()); }
 TEST(GeoGridProtoWriterTest, commutesTest) { CompareGeoGrid(GetCommutesGeoGrid()); }
 } // namespace

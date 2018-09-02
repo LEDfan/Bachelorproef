@@ -10,9 +10,7 @@ Dialog {
         text: "
                 To open a file use the 'File -> Open' menu.\n
 
-                Cities are represented by markers. Circular markers are cities and sub-municipalities.
-                The (virtual) parent city of sub-municipalities is shown as a square. By clicking this
-                square all sub-municipalities of this parent city will be selected.
+                Cities are represented by circular markers.
 
                 Click on a marker to select it.
                 Hold the Ctrl key while clicking on markers to select multiple.

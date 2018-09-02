@@ -55,7 +55,6 @@ Compilation and installation of the software will create the following files and
         \item $FR\_cities.csv$: French cities, fetched from \footnote{\url{https://en.wikipedia.org/wiki/List\_of\_arrondissements\_of\_France}}.
         \item $NL\_cities.csv$: Dutch cities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Tabel\_van\_Nederlandse\_gemeenten}}.
         \item $wallonia\_cities.csv$: Walloon cities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Lijst\_van\_gemeenten\_in\_het\_Waals\_Gewest}}.
-        \item $submunicipalities.csv$: Belgian sub-municipalities, fetched from \footnote{\url{https://nl.wikipedia.org/wiki/Lijst\_van\_gemeenten\_in\_het\_Vlaams\_Gewest}}.
         \end{itemize}
     \item Documentation files
       	in directory \texttt{./target/installed/doc}
@@ -105,8 +104,6 @@ From the workspace directory, the generation of a population and geographical gr
         The file to read the commuting information from.
     \item[\texttt{--cities}] \ \\
         The file to read the cities from.
-    \item[\texttt{--subMinicipalities}] \ \\
-        The file to read the sub-municipalities from.
     \item[\texttt{--output}] \ \\
         The file to write the GeoGrid to. By default this is \texttt{gengeopop.proto}
     \item[\texttt{--state}] \ \\
@@ -122,9 +119,7 @@ From the workspace directory, the generation of a population and geographical gr
 The MapViewer component can be used to explore a generated GeoGrid.
 From the workspace directory, the MapViewer can be started by using \mbox{``\texttt{./bin/mapviewer}''}. No additional command line options are available.
 To open a GeoGrid use the menu option \texttt{File -> Open}. After loading the file, the viewport can be changed so that all markers are visible (\texttt{View -> Fit viewport}).
-The circular markers indicate a city or sub-municipality. The square markers indicate the ``parent'' city of sub-municipalities, they don't have a population.
-By clicking on the square marker, all the sub-municipalities will be selected.
-When one ore more cities is selected the details are shown in the right sidebar. For example a list of ContacCenters in the current selected Location. When a ContactCenter is clicked, the ContactPools of the clicked ContactCenter will be shown.
+The circular markers indicate a city. When one ore more cities is selected the details are shown in the right sidebar. For example a list of ContacCenters in the current selected Location. When a ContactCenter is clicked, the ContactPools of the clicked ContactCenter will be shown.
 When holding the Ctrl key and clicking multiple markers all clicked markers will be selected.  Multiple cities in a rectangle can be selected by holding the control key and left mouse button while dragging. Clicking on the map will deselect all cities. Hold the Alt key while panning the map to prevent deselection.
 Ctrl+ A can be used to select all cities, while Ctrl + F can be used to fit the viewport of the map so all cities are visible.
 To show commutes of a city, first enable the \texttt{View -> Show Commutes} option. The commutes between the selected cities will be shown.

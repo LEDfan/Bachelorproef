@@ -117,15 +117,12 @@ ColumnLayout {
             }
         }
 
-        function addMarker(lat, lon, region, markerID, size, selected, specialmarker) {
+        function addMarker(lat, lon, region, markerID, size, selected) {
             var markerComp = Qt.createComponent("qrc:/components/CustomMarker.qml")
             var marker = markerComp.createObject()
             marker.sourceItem.width =  size
             marker.sourceItem.height =  size
             marker.sourceItem.radius =  size
-            if(specialmarker){
-                marker.sourceItem.radius =  0
-            }
             marker.anchorPoint.x = size/2
             marker.anchorPoint.y =  size/2
             marker.clicked.connect(markerClicked)

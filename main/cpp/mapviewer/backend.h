@@ -151,10 +151,8 @@ private:
 
         /**
          * Places a marker at the given coordinate
-         * @Param specialmarker Whether or not to display a special marker
          */
-        void PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected,
-                         bool specialmarker);
+        void PlaceMarker(gengeopop::Coordinate coordinate, int region, int id, unsigned int population, bool selected);
 
         /**
          * Places the markers on the map, according to the current checked boxes.

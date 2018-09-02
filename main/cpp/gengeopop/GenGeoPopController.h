@@ -2,7 +2,6 @@
 
 #include "GeoGridConfig.h"
 #include <gengeopop/io/CommutesReader.h>
-#include <gengeopop/io/SubMunicipalitiesReader.h>
 #include <spdlog/logger.h>
 #include <util/RnMan.h>
 
@@ -17,8 +16,7 @@ public:
         /// Create a GenGeoPopController
         GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
                             stride::util::RnMan& rnManager, std::string citiesFileName, std::string commutingFileName,
-                            std::string householdFileName, std::string subMunicipalitiesFileName,
-                            std::string regionName);
+                            std::string householdFileName, std::string regionName);
 
         /// Reads the data files
         void ReadDataFiles();
@@ -44,19 +42,16 @@ private:
 
         std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid
 
-        std::shared_ptr<CitiesReader>            m_citiesReader;            ///< The CitiesReader
-        std::shared_ptr<CommutesReader>          m_commutesReader;          ///< The CommutesReader
-        std::shared_ptr<HouseholdReader>         m_householdsReader;        ///< The HouseholdsReader
-        std::shared_ptr<SubMunicipalitiesReader> m_subMunicipalitiesReader; ///< The SubMunicipalitiesReader
-        std::shared_ptr<spdlog::logger>          m_logger;                  ///< The logger used
+        std::shared_ptr<CitiesReader>    m_citiesReader;     ///< The CitiesReader
+        std::shared_ptr<CommutesReader>  m_commutesReader;   ///< The CommutesReader
+        std::shared_ptr<HouseholdReader> m_householdsReader; ///< The HouseholdsReader
+        std::shared_ptr<spdlog::logger>  m_logger;           ///< The logger used
 
         std::string m_citiesFileName;     ///< Filename of the file which stores information about the cities
         std::string m_commutingFileName;  ///< Filename of the file which stores information about the commutes
         std::string m_householdsFileName; ///< Filename of the file which stores information about the households
-        std::string
-                    m_subMunicipalitiesFileName; ///< Filename of the file which stores information about the submunicipalities
-        std::size_t m_regionId;                  ///< RegionId, used to create persons
-        std::string m_regionName;                ///< RegionName
+        std::size_t m_regionId;           ///< RegionId, used to create persons
+        std::string m_regionName;         ///< RegionName
 };
 
 } // namespace gengeopop

@@ -67,9 +67,6 @@ public:
         /// Gets the amount of people infected in the contactpools of this location
         double GetInfectedCount() const;
 
-        /// Gets the ratio of infected persons in all contactPools of this location's subMunicipalities
-        double GetInfectedRatioOfSubmunicipalities() const;
-
         /// Given the total population calculates this location's population using the relative population of this
         /// location
         void CalculatePopulation(unsigned int totalPopulation);
@@ -79,9 +76,6 @@ public:
 
         /// Gets the relative population
         double GetRelativePopulationSize() const;
-
-        //// Gets the sum of the population of all sub municipalities
-        unsigned int GetPopulationOfSubmunicipalities() const;
 
         /// Gets a vector with the outgoing cities which people are commuting to + the proportion
         const std::vector<std::pair<std::shared_ptr<Location>, double>>& GetIncomingCommuningCities() const;
@@ -106,18 +100,6 @@ public:
 
         /// Gets the absolute amount of people going to this location
         int IncomingCommutingPeople(double fractionOfPopulationCommuting) const;
-
-        /// Add a sub-municipality to this location
-        void AddSubMunicipality(std::shared_ptr<Location> location);
-
-        /// Gets the sub-municipalities of this location
-        const std::set<std::shared_ptr<Location>>& GetSubMunicipalities() const;
-
-        /// Sets the parent of this sub-municipality, requires that this location doesn't have any sub-municipality
-        void SetParent(const std::shared_ptr<Location>& location);
-
-        /// Gets the parent of this sub-municipality
-        std::shared_ptr<Location> GetParent() const;
 
         /// Gets the Coordinate of this location
         const Coordinate& GetCoordinate() const;
@@ -147,10 +129,6 @@ private:
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
         ///< Outgoing commutes stored as pair of location and proportion relative to the this location
         std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
-        std::set<std::shared_ptr<Location>>
-            m_subMunicipalities; ///< Set of sub-municipalties, must be empty when m_parent is set
-        std::shared_ptr<Location>
-            m_parent; ///< Parent of this sub-municipality, must be nullptr when m_subMunicipalities is et
         std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>>
             m_contactCenterByType; ///< Stores the contact centers indexed by their type
 };

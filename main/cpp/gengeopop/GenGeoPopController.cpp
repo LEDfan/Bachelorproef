@@ -20,12 +20,11 @@ namespace gengeopop {
 GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
                                          stride::util::RnMan& rnManager, std::string citiesFileName,
                                          std::string commutingFileName, std::string householdFileName,
-                                         std::string subMunicipalitiesFileName, std::string regionName)
+                                         std::string regionName)
     : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr), m_population(nullptr),
-      m_citiesReader(nullptr), m_commutesReader(nullptr), m_householdsReader(nullptr),
-      m_subMunicipalitiesReader(nullptr), m_logger(std::move(logger)), m_citiesFileName(std::move(citiesFileName)),
-      m_commutingFileName(std::move(commutingFileName)), m_householdsFileName(std::move(householdFileName)),
-      m_subMunicipalitiesFileName(std::move(subMunicipalitiesFileName)), m_regionId(0), m_regionName(regionName)
+      m_citiesReader(nullptr), m_commutesReader(nullptr), m_householdsReader(nullptr), m_logger(std::move(logger)),
+      m_citiesFileName(std::move(citiesFileName)), m_commutingFileName(std::move(commutingFileName)),
+      m_householdsFileName(std::move(householdFileName)), m_regionId(0), m_regionName(regionName)
 {
 }
 
@@ -60,10 +59,6 @@ void GenGeoPopController::ReadDataFiles()
                 }
         }
 
-        if (m_subMunicipalitiesFileName != "") {
-                m_subMunicipalitiesReader = readerFactory.CreateSubMunicipalitiesReader(m_subMunicipalitiesFileName);
-                m_subMunicipalitiesReader->FillGeoGrid(m_geoGrid);
-        }
         if (m_commutingFileName != "") {
                 m_commutesReader->FillGeoGrid(m_geoGrid);
         }

@@ -414,11 +414,9 @@ ApplicationWindow {
                             gengeopopCitiesFileTitle.visible = visibility;
                             gengeopopCommutingFileTitle.visible = visibility;
                             gengeopopHouseholdFileTitle.visible = visibility;
-                            gengeopopSubmunicipalitiesFileTitle.visible = visibility;
                             gengeopopCitiesFile.visible = visibility;
                             gengeopopCommutingFile.visible = visibility;
                             gengeopopHouseholdFile.visible = visibility;
-                            gengeopopSubmunicipalitiesFile.visible = visibility;
                         }
 
                         function setGenGeopPopFileVisibility (visibility) {
@@ -555,26 +553,6 @@ ApplicationWindow {
                             }
                         }
                     }
-                    Label {
-                        text: "Submunicipalities File"
-                        id: gengeopopSubmunicipalitiesFileTitle
-                    }
-                    TextField {
-                        id: gengeopopSubmunicipalitiesFile
-                        objectName: "gengeopopSubmunicipalitiesFile"
-                        Layout.fillWidth: true
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
-                    }
-
-
-
                     Button {
                         text: "Save changes"
                         anchors.leftMargin: 20

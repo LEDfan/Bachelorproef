@@ -191,8 +191,6 @@ void Launcher::UpdateConfigForm()
                     "text", m_configPt.get<std::string>("run.geopop_gen.commuting_file").c_str());
                 m_configEditor.geopopHousehold->setProperty(
                     "text", m_configPt.get<std::string>("run.geopop_gen.household_file").c_str());
-                m_configEditor.geopopSubmunicipalities->setProperty(
-                    "text", m_configPt.get<std::string>("run.geopop_gen.submunicipalities_file").c_str());
         }
 }
 
@@ -314,8 +312,6 @@ void Launcher::UpdatePtree()
                                m_configEditor.geopopCommuting->property("text").toString().toStdString());
                 m_configPt.put("run.geopop_gen.household_file",
                                m_configEditor.geopopHousehold->property("text").toString().toStdString());
-                m_configPt.put("run.geopop_gen.submunicipalities_file",
-                               m_configEditor.geopopSubmunicipalities->property("text").toString().toStdString());
         }
 }
 
@@ -365,7 +361,6 @@ void Launcher::SetRootObject(QObject* rootObject)
         m_configEditor.geopopCities                  = rootObject->findChild<QObject*>("gengeopopCitiesFile");
         m_configEditor.geopopCommuting               = rootObject->findChild<QObject*>("gengeopopCommutingFile");
         m_configEditor.geopopHousehold               = rootObject->findChild<QObject*>("gengeopopHouseholdFile");
-        m_configEditor.geopopSubmunicipalities = rootObject->findChild<QObject*>("gengeopopSubmunicipalitiesFile");
 }
 
 void Launcher::LoadComboBox(QObject* comboBox, const char* value)

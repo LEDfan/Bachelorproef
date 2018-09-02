@@ -102,7 +102,6 @@
                 <cities_file>flanders_cities.csv</cities_file>
                 <commuting_file>flanders_commuting.csv</commuting_file>
                 <household_file>households_flanders.csv</household_file>
-                <submunicipalities_file>submunicipalities.csv</submunicipalities_file>
             </geopop_gen>
         </region>
     </regions>

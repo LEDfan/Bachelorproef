@@ -7,7 +7,7 @@ namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
     : m_id(id), m_name(std::move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),
       m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations(),
-      m_subMunicipalities(), m_parent(nullptr), m_contactCenterByType()
+      m_contactCenterByType()
 {
 }
 
@@ -70,25 +70,6 @@ unsigned int Location::GetSimulationPopulation() const
         return population;
 }
 
-double Location::GetInfectedRatioOfSubmunicipalities() const
-{
-        unsigned int infected   = 0;
-        unsigned int population = 0;
-        for (auto loc : m_subMunicipalities) {
-                for (const std::shared_ptr<gengeopop::ContactCenter>& cc : loc->GetContactCenters()) {
-                        auto r = cc->GetPopulationAndInfectedCount();
-                        population += r.first;
-                        infected += r.second;
-                }
-        }
-
-        if (population == 0) {
-                return 0;
-        }
-
-        return static_cast<double>(infected) / static_cast<double>(population);
-}
-
 const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }
 
 const Coordinate& Location::GetCoordinate() const { return m_coordinate; }
@@ -143,8 +124,6 @@ int Location::OutGoingCommutingPeople(double fractionOfPopulationCommuting) cons
 
 bool Location::operator==(const Location& other) const
 {
-        auto        sub1 = GetSubMunicipalities();
-        const auto& sub2 = other.GetSubMunicipalities();
 
         using boost::geometry::get;
         return GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
@@ -152,14 +131,7 @@ bool Location::operator==(const Location& other) const
                GetProvince() == other.GetProvince() && GetPopulation() == other.GetPopulation() &&
                GetContactCenters() == other.GetContactCenters() &&
                GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
-               GetOutgoingCommuningCities() == other.GetOutgoingCommuningCities() &&
-               ((!GetParent() && !other.GetParent()) ||
-                (GetParent() && other.GetParent() && *GetParent() == *other.GetParent())) &&
-               sub1.size() == sub2.size() &&
-               std::equal(sub1.begin(), sub1.end(), sub1.begin(), sub1.end(),
-                          [](std::shared_ptr<Location> lhs, std::shared_ptr<Location> rhs) {
-                                  return lhs->GetID() == rhs->GetID();
-                          });
+               GetOutgoingCommuningCities() == other.GetOutgoingCommuningCities();
 }
 
 void Location::CalculatePopulation(unsigned int totalPopulation)
@@ -168,34 +140,5 @@ void Location::CalculatePopulation(unsigned int totalPopulation)
 }
 void   Location::SetRelativePopulation(double relativePopulation) { m_relativePopulation = relativePopulation; }
 double Location::GetRelativePopulationSize() const { return m_relativePopulation; }
-
-void Location::AddSubMunicipality(std::shared_ptr<Location> location)
-{
-        if (m_parent) {
-                throw stride::util::Exception("Can't have parent and submunicipalities at the same time!");
-        }
-        m_subMunicipalities.emplace(std::move(location));
-}
-
-const std::set<std::shared_ptr<Location>>& Location::GetSubMunicipalities() const { return m_subMunicipalities; }
-
-std::shared_ptr<Location> Location::GetParent() const { return m_parent; }
-
-void Location::SetParent(const std::shared_ptr<Location>& location)
-{
-        if (!m_subMunicipalities.empty()) {
-                throw stride::util::Exception("Can't have parent and submunicipalities at the same time!");
-        }
-        m_parent = location;
-}
-
-unsigned int Location::GetPopulationOfSubmunicipalities() const
-{
-        unsigned int total = 0;
-        for (const auto& subMunicipality : m_subMunicipalities) {
-                total += subMunicipality->GetPopulation();
-        }
-        return total;
-}
 
 } // namespace gengeopop

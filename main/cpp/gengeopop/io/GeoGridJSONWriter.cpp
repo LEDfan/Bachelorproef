@@ -86,14 +86,6 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(std::shared_ptr<Loc
         }
         location_root.add_child("contactCenters", contactCenters);
 
-        boost::property_tree::ptree subMunicipalities;
-        for (const auto& subMunicipality : location->GetSubMunicipalities()) {
-                boost::property_tree::ptree person_root;
-                person_root.put("", subMunicipality->GetID());
-                subMunicipalities.push_back(std::make_pair("", person_root));
-        }
-        location_root.add_child("submunicipalities", subMunicipalities);
-
         return location_root;
 }
 

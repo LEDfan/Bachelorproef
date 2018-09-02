@@ -2,7 +2,6 @@
 #include "CitiesReader.h"
 #include "CommutesReader.h"
 #include "HouseholdReader.h"
-#include "SubMunicipalitiesReader.h"
 
 #if __has_include(<filesystem>)
 #include <filesystem>
@@ -42,12 +41,6 @@ public:
 
         /// Create a HouseholdReader based on an absolute Boost Filesystem Path pointing to the input file
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::filesystem::path& path);
-
-        /// Create a SubMunicipalitiesReader based on the filename of the input file, relative to the data directory
-        std::shared_ptr<SubMunicipalitiesReader> CreateSubMunicipalitiesReader(const std::string& filename);
-
-        /// Create a SubMunicipalitiesReader based on an absolute Boost Filesystem Path pointing to the input file
-        std::shared_ptr<SubMunicipalitiesReader> CreateSubMunicipalitiesReader(const std::filesystem::path& path);
 
 private:
         /// Create an istream based on the provided Boost Filesystem Path

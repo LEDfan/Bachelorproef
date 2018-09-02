@@ -144,6 +144,5 @@ private:
                 QObject* geopopCities                  = nullptr;
                 QObject* geopopCommuting               = nullptr;
                 QObject* geopopHousehold               = nullptr;
-                QObject* geopopSubmunicipalities       = nullptr;
         } m_configEditor; ///< The form objects in the QML that store the config
 };

@@ -36,7 +36,6 @@ message GeoGrid {
             required double proportion = 2;
         }
         repeated Commute commutes = 7;
-        repeated int64 submunicipalities = 8;
     }
     message Person {
         required int64 id = 1;
