@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -28,60 +28,36 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: kenton@google.com (Kenton Varda)
-//  Based on original Protocol Buffers design by
-//  Sanjay Ghemawat, Jeff Dean, and others.
+#include <google/protobuf/implicit_weak_message.h>
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_JAVANANO_ENUM_H__
-#define GOOGLE_PROTOBUF_COMPILER_JAVANANO_ENUM_H__
-
-#include <string>
-#include <vector>
-
-#include <google/protobuf/compiler/javanano/javanano_params.h>
-#include <google/protobuf/descriptor.h>
+#include <google/protobuf/stubs/once.h>
+#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
+#include <google/protobuf/wire_format_lite.h>
 
 namespace google {
 namespace protobuf {
-  namespace io {
-    class Printer;             // printer.h
-  }
+namespace internal {
+
+bool ImplicitWeakMessage::MergePartialFromCodedStream(io::CodedInputStream* input) {
+  io::StringOutputStream string_stream(&data_);
+  io::CodedOutputStream coded_stream(&string_stream, false);
+  return WireFormatLite::SkipMessage(input, &coded_stream);
 }
 
-namespace protobuf {
-namespace compiler {
-namespace javanano {
+::google::protobuf::internal::ExplicitlyConstructed<ImplicitWeakMessage>
+    implicit_weak_message_default_instance;
+GOOGLE_PROTOBUF_DECLARE_ONCE(implicit_weak_message_once_init_);
 
-class EnumGenerator {
- public:
-  explicit EnumGenerator(const EnumDescriptor* descriptor, const Params& params);
-  ~EnumGenerator();
+void InitImplicitWeakMessageDefaultInstance() {
+  implicit_weak_message_default_instance.DefaultConstruct();
+}
 
-  void Generate(io::Printer* printer);
+const ImplicitWeakMessage* ImplicitWeakMessage::default_instance() {
+  ::google::protobuf::GoogleOnceInit(&implicit_weak_message_once_init_,
+                 &InitImplicitWeakMessageDefaultInstance);
+  return &implicit_weak_message_default_instance.get();
+}
 
- private:
-  const Params& params_;
-  const EnumDescriptor* descriptor_;
-
-  // The proto language allows multiple enum constants to have the same numeric
-  // value.  Java, however, does not allow multiple enum constants to be
-  // considered equivalent.  We treat the first defined constant for any
-  // given numeric value as "canonical" and the rest as aliases of that
-  // canonical value.
-  vector<const EnumValueDescriptor*> canonical_values_;
-
-  struct Alias {
-    const EnumValueDescriptor* value;
-    const EnumValueDescriptor* canonical_value;
-  };
-  vector<Alias> aliases_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(EnumGenerator);
-};
-
-}  // namespace javanano
-}  // namespace compiler
+}  // namespace internal
 }  // namespace protobuf
-
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_JAVANANO_ENUM_H__

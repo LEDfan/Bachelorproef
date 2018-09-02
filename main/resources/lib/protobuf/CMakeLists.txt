@@ -59,18 +59,16 @@ set(libprotobuf_files
   google/protobuf/extension_set.cc
   google/protobuf/generated_message_table_driven_lite.cc
   google/protobuf/generated_message_util.cc
+  google/protobuf/implicit_weak_message.cc
   google/protobuf/io/coded_stream.cc
   google/protobuf/io/zero_copy_stream.cc
   google/protobuf/io/zero_copy_stream_impl_lite.cc
   google/protobuf/message_lite.cc
   google/protobuf/repeated_field.cc
-  google/protobuf/stubs/atomicops_internals_x86_gcc.cc
-  google/protobuf/stubs/atomicops_internals_x86_msvc.cc
   google/protobuf/stubs/bytestream.cc
   google/protobuf/stubs/common.cc
   google/protobuf/stubs/int128.cc
   google/protobuf/stubs/io_win32.cc
-  google/protobuf/stubs/once.cc
   google/protobuf/stubs/status.cc
   google/protobuf/stubs/statusor.cc
   google/protobuf/stubs/stringpiece.cc
@@ -139,12 +137,12 @@ set(libprotobuf_includes
   google/protobuf/arenastring.h
   google/protobuf/extension_set.h
   google/protobuf/generated_message_util.h
+  google/protobuf/implicit_weak_message.h
   google/protobuf/io/coded_stream.h
   google/protobuf/io/zero_copy_stream.h
   google/protobuf/io/zero_copy_stream_impl_lite.h
   google/protobuf/message_lite.h
   google/protobuf/repeated_field.h
-  google/protobuf/stubs/atomicops_internals_x86_msvc.h
   google/protobuf/stubs/bytestream.h
   google/protobuf/stubs/common.h
   google/protobuf/stubs/int128.h
