@@ -32,7 +32,7 @@ namespace {
 const filesystem::path check(const filesystem::path& filename,
                              const filesystem::path& root = std::filesystem::current_path())
 {
-        const filesystem::path file_path = root / filename;
+        const filesystem::path file_path = canonical(absolute(root / filename));
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">File " + file_path.string() + " not present. Aborting.");
         }

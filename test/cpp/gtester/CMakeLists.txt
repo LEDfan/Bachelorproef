@@ -79,7 +79,7 @@ if (OPENMP_FOUND)
 endif ()
 
 add_executable(${EXEC} ${SRC})
-target_link_libraries(${EXEC} ${LIBS} gtest pthread libstride libgengeopop libmyhayai)
+target_link_libraries(${EXEC} gtest pthread libstride libgengeopop libmyhayai ${LIBS})
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
