@@ -11,7 +11,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2018, Niels Aerens, Thomas Avé, Tobia De Koninck, Robin Jadoul
+#  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
 #############################################################################
 
 if(Qt5_FOUND)
