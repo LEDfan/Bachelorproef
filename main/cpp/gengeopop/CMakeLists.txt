@@ -92,13 +92,6 @@ target_link_libraries(libgengeopop ${LIBS} libprotobuf_insrc libproto libstride)
 set_property(TARGET libgengeopop PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 #============================================================================
-# Build and install the stride executable.
-#============================================================================
-add_executable(gengeopop main.cpp)
-target_link_libraries(gengeopop ${LIBS} libprotobuf_insrc libproto libstride libgengeopop)
-install(TARGETS gengeopop DESTINATION ${BIN_INSTALL_LOCATION})
-
-#============================================================================
 # Clean up.
 #============================================================================
 unset(GENGEOPOP_LIB)

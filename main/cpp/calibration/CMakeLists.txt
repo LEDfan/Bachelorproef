@@ -18,7 +18,6 @@
 # Build the Calibration executable
 #============================================================================
 set(SRC
-    main.cpp
     Calibrator.cpp
     Boxplot.cpp
     TestCalibrationRunner.cpp
@@ -28,14 +27,10 @@ set(SRC
 )
 
 if(Qt5Charts_FOUND)
-    add_executable(calibration ${SRC} BoxplotGenerator.cpp)
-    target_link_libraries(calibration ${LIBS} ${QT_LIBRARIES} libstride)
+    add_library(libcalibration ${SRC} BoxplotGenerator.cpp)
 else()
-    add_executable(calibration ${SRC})
-    target_link_libraries(calibration ${LIBS} libstride)
+    add_library(libcalibration ${SRC})
 endif()
-
-install(TARGETS calibration DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Clean up.

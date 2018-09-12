@@ -17,7 +17,7 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 
-#include "Launcher.h"
+#include <guilauncher/Launcher.h>
 
 void LaunchGui()
 {

@@ -23,6 +23,7 @@ add_subdirectory(calibration)
 add_subdirectory(mapviewer)
 add_subdirectory(guicontroller)
 add_subdirectory(guilauncher)
+add_subdirectory(execs)
 
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
@@ -137,18 +138,6 @@ else()
 endif()
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-
-#============================================================================
-# Build the Stride binary.
-#============================================================================
-add_executable(stride execs/main.cpp)
-
-if(Qt5_FOUND)
-    target_link_libraries(stride ${LIBS} libstride libgengeopop libmapviewer libguicontroller)
-else()
-    target_link_libraries(stride ${LIBS} libstride libgengeopop)
-endif()
-install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Build the Myhayai library.

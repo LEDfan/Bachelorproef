@@ -17,7 +17,7 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 
-#include "Map.h"
+#include <mapviewer/Map.h>
 
 int main(int, char* [])
 {

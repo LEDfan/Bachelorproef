@@ -16,7 +16,6 @@
 
 if(Qt5_FOUND)
     set(GUILAUNCHER_SRC
-        main.cpp
         Launcher.cpp
         Launcher.h
     )
@@ -26,10 +25,7 @@ if(Qt5_FOUND)
     #============================================================================
     # Build and link the guilauncher executable.
     #============================================================================
-    add_executable(guilauncher ${GUILAUNCHER_SRC} ${GUILAUNCHER_QT_RESOURCES})
-    target_link_libraries(guilauncher libgengeopop libmapviewer ${QT_LIBRARIES})
-
-    install(TARGETS guilauncher DESTINATION ${BIN_INSTALL_LOCATION})
+    add_library(libguilauncher ${GUILAUNCHER_SRC} ${GUILAUNCHER_QT_RESOURCES})
 
     unset(GUILAUNCHER_QT_RESOURCES)
     unset(GUILAUNCHER_SRC)

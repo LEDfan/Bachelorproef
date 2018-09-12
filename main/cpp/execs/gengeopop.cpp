@@ -13,11 +13,11 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include "Community.h"
-#include "GenGeoPopController.h"
-#include "GeoGrid.h"
-#include "GeoGridConfig.h"
 #include <tclap/CmdLine.h>
+#include <gengeopop/Community.h>
+#include <gengeopop/GenGeoPopController.h>
+#include <gengeopop/GeoGrid.h>
+#include <gengeopop/GeoGridConfig.h>
 #include <gengeopop/generators/CollegeGenerator.h>
 #include <gengeopop/generators/CommunityGenerator.h>
 #include <gengeopop/generators/GeoGridGenerator.h>

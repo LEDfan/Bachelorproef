@@ -13,10 +13,10 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include "Calibrator.h"
-#include "ConfigFileCalibrationRunner.h"
-#include "TestCalibrationRunner.h"
 #include <tclap/CmdLine.h>
+#include <calibration/Calibrator.h>
+#include <calibration/ConfigFileCalibrationRunner.h>
+#include <calibration/TestCalibrationRunner.h>
 #include <util/LogUtils.h>
 
 using namespace calibration;
