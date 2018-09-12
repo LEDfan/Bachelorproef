@@ -26,6 +26,7 @@ if(Qt5_FOUND)
     # Build and link the guilauncher executable.
     #============================================================================
     add_library(libguilauncher ${GUILAUNCHER_SRC} ${GUILAUNCHER_QT_RESOURCES})
+    target_compile_options(libguilauncher PUBLIC "-fPIC")
 
     unset(GUILAUNCHER_QT_RESOURCES)
     unset(GUILAUNCHER_SRC)

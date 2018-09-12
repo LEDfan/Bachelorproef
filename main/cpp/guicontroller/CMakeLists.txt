@@ -29,6 +29,7 @@ if(Qt5_FOUND)
 
     add_library(libguicontroller ${GUICONTROLLER_SRC} ${GUICONTROLLER_QT_RESOURCES})
     target_link_libraries(libguicontroller libgengeopop ${QT_LIBRARIES})
+    target_compile_options(libguicontroller PUBLIC "-fPIC")
 
     unset(GUICONTROLLER_SRC)
     unset(GUICONTROLLER_QT_RESOURCES)

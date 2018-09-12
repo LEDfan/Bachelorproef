@@ -33,6 +33,7 @@ if(Qt5_FOUND)
     #============================================================================
     add_library(libmapviewer ${MAPVIEWER_SRC} ${MAPVIEWER_QT_RESOURCES})
     target_link_libraries(libmapviewer libgengeopop ${QT_LIBRARIES})
+    target_compile_options(libmapviewer PUBLIC "-fPIC")
 
     unset(MAPVIEWER_QT_RESOURCES)
     unset(MAPVIEWER_SRC)
