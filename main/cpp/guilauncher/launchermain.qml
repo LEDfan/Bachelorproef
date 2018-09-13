@@ -29,7 +29,7 @@ ApplicationWindow {
     visible: true
     title: qsTr("Launcher")
     Component.onCompleted: updateWindowWidth()
-    height: 1400
+    height: 900
 
     FileDialog {
         id: configSelector
@@ -80,7 +80,7 @@ ApplicationWindow {
                 Layout.fillWidth: true
                 Layout.topMargin: 20
                 Layout.bottomMargin: 20
-                Layout.preferredHeight: 60
+                Layout.preferredHeight: 50
                 id: launchButton
 
                 onClicked: {
