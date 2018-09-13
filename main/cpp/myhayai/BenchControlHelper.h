@@ -34,9 +34,9 @@ class BenchControlHelper
 {
 public:
         /// Defaults.
-        explicit BenchControlHelper(const TestDescriptors& td,
-                           const std::vector<std::string>& positive = std::vector<std::string>(),
-                           const std::vector<std::string>& negative = std::vector<std::string>());
+        explicit BenchControlHelper(const TestDescriptors&          td,
+                                    const std::vector<std::string>& positive = std::vector<std::string>(),
+                                    const std::vector<std::string>& negative = std::vector<std::string>());
 
         /// Return the canonical names obtained after applying
         /// the positive and negative regex filters.

@@ -32,7 +32,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
-#define PROTOBUF_INTERNAL_EXPORT_protobuf_geogrid_2eproto 
+#define PROTOBUF_INTERNAL_EXPORT_protobuf_geogrid_2eproto
 
 namespace protobuf_geogrid_2eproto {
 // Internal implementation detail -- do not use these members.

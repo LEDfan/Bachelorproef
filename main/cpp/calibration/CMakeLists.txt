@@ -28,9 +28,11 @@ set(SRC
 
 if(Qt5Charts_FOUND)
     add_library(libcalibration ${SRC} BoxplotGenerator.cpp)
+    target_compile_options(libcalibration PUBLIC "-fPIC")
 else()
     add_library(libcalibration ${SRC})
 endif()
+
 
 #============================================================================
 # Clean up.
