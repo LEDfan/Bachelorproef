@@ -27,10 +27,6 @@ QVariant ContactCenterListModel::data(const QModelIndex& index, int role) const
         case Roles::IDRole: break;
 
         case Roles::TypeRole: return QString::fromStdString(center->GetType());
-
-        case Roles::PoolSize: return QString::number(center->GetPoolSize());
-
-        case Roles::MaxPools: return QString::number(center->GetMaxPools());
         }
         return QVariant();
 }
@@ -42,8 +38,6 @@ QHash<int, QByteArray> ContactCenterListModel::roleNames() const
         QHash<int, QByteArray> roles;
         roles[Roles::IDRole]   = "id";
         roles[Roles::TypeRole] = "type";
-        roles[Roles::PoolSize] = "poolSize";
-        roles[Roles::MaxPools] = "maxPools";
         return roles;
 }
 

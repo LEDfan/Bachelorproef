@@ -15,8 +15,8 @@
 
 #pragma once
 
+#include <QApplication>
 #include <QtCore/QObject>
-#include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <memory>
 #include <thread>
@@ -50,7 +50,7 @@ public:
 
 private:
         std::shared_ptr<int>                   m_argc;   ///< Used for initializing m_app, is always 0.
-        std::unique_ptr<QGuiApplication>       m_app;    ///< The main application that is used for the event loop.
+        std::unique_ptr<QApplication>          m_app;    ///< The main application that is used for the event loop.
         std::unique_ptr<QQmlApplicationEngine> m_engine; ///< The engine used to register QML files
         GuiControllerBackend* m_backend; ///< The backend used in the QML to control the behaviour of the simulation
 };

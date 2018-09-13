@@ -64,7 +64,7 @@ public:
         Q_INVOKABLE
         /**
          * Launch the simulation with the stored configuration.
-         * This requires the QGuiApplication to already be closed
+         * This requires the QApplication to already be closed
          */
         void Launch();
 

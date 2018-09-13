@@ -13,7 +13,7 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include <QtGui/QGuiApplication>
+#include <QApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 
@@ -24,7 +24,7 @@ namespace stride {
 
 GuiController::GuiController(const boost::property_tree::ptree& configPt)
     : BaseController("GuiController", configPt), m_argc(std::make_shared<int>(0)),
-      m_app(std::make_unique<QGuiApplication>(*m_argc, nullptr)), m_engine(std::make_unique<QQmlApplicationEngine>()),
+      m_app(std::make_unique<QApplication>(*m_argc, nullptr)), m_engine(std::make_unique<QQmlApplicationEngine>()),
       m_backend(nullptr)
 {
         qmlRegisterType<GuiControllerBackend>("io.bistromatics.backend", 1, 0, "Backend");

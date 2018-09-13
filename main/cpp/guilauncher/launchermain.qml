@@ -28,8 +28,7 @@ ApplicationWindow {
     id: window
     visible: true
     title: qsTr("Launcher")
-    Component.onCompleted: updateWindowWidth()
-    height: 900
+    Component.onCompleted: updateWindowSize()
 
     FileDialog {
         id: configSelector
@@ -45,8 +44,9 @@ ApplicationWindow {
         }
     }
 
-    function updateWindowWidth() {
+    function updateWindowSize() {
         window.width = launchButton.width + 80;
+        window.height = window.width * 1.2
     }
 
 
@@ -417,7 +417,7 @@ ApplicationWindow {
                                 setGenGeopPopGenerateVisibility(false)
                                 setGenGeopPopFileVisibility(true)
                             }
-                            updateWindowWidth();
+                            updateWindowSize();
                         }
                         function setGenGeopPopGenerateVisibility(visibility) {
                             gengeopopPopulationSizeTitle.visible = visibility;

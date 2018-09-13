@@ -21,7 +21,6 @@
 #include "models/ContactPoolListModel.h"
 #include <mapviewer/backends/ContactCenterViewerBackend.h>
 
-#include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 #include <utility>

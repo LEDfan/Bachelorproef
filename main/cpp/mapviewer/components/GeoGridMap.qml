@@ -45,7 +45,6 @@ ColumnLayout {
 
     Map {
         id: map
-        anchors.fill: parent
         plugin: mapPlugin
         zoomLevel: 8
         center: mapCenter

@@ -13,7 +13,7 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include <QtGui/QGuiApplication>
+#include <QApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 
@@ -22,9 +22,9 @@
 int main(int, char* [])
 {
         Q_INIT_RESOURCE(qml);
-        int             i = 0;
-        QGuiApplication app(i, nullptr);
-        auto            engine = std::make_unique<QQmlApplicationEngine>();
-        Map             m(engine.get());
+        int          i = 0;
+        QApplication app(i, nullptr);
+        auto         engine = std::make_unique<QQmlApplicationEngine>();
+        Map          m(engine.get());
         app.exec();
 }

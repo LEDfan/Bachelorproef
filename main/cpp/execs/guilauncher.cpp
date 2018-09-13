@@ -13,7 +13,7 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include <QtGui/QGuiApplication>
+#include <QApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 
@@ -28,8 +28,8 @@ void LaunchGui()
 
         int      i = 0;
         Launcher launcher;
-        { // Makes sure the QGuiApplication is destructed when launcher.launch() is called
-                QGuiApplication       app(i, nullptr);
+        { // Makes sure the QApplication is destructed when launcher.launch() is called
+                QApplication          app(i, nullptr);
                 QQmlApplicationEngine engine;
                 qmlRegisterType<Launcher>("io.bistromatics.launcher", 1, 0, "Launcher");
 

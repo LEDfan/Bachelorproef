@@ -150,14 +150,14 @@ int main(int argc, char** argv)
 #if Qt5_FOUND
                                 if (!engine) {
                                         Q_INIT_RESOURCE(qml);
-                                        int             i = 0;
-                                        QGuiApplication app(i, nullptr);
-                                        auto            localEngine = std::make_unique<QQmlApplicationEngine>();
+                                        int          i = 0;
+                                        QApplication app(i, nullptr);
+                                        auto         localEngine = std::make_unique<QQmlApplicationEngine>();
                                         controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(),
                                                                                        localEngine.get());
                                         thread =
                                             std::make_unique<std::thread>([&controller]() { controller->Control(); });
-                                        QGuiApplication::exec();
+                                        QApplication::exec();
                                 } else {
                                         controller->RegisterViewer<viewers::MapViewer>(controller->GetLogger(), engine);
                                 }

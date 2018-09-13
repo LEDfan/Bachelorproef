@@ -78,8 +78,6 @@ private:
         {
                 IDRole = Qt::UserRole + 1,
                 TypeRole,
-                PoolSize,
-                MaxPools
         };
 
         // The ContactCenters we are displaying
