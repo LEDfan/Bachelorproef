@@ -28,8 +28,8 @@ ApplicationWindow {
     id: window
     visible: true
     title: qsTr("Launcher")
-    width: 820
-    height: 850
+    Component.onCompleted: updateWindowWidth()
+    height: 1400
 
     FileDialog {
         id: configSelector
@@ -45,19 +45,25 @@ ApplicationWindow {
         }
     }
 
+    function updateWindowWidth() {
+        window.width = launchButton.width + 80;
+    }
+
+
     ScrollView {
         id: scrollView
         anchors.fill: parent
+        anchors.centerIn: parent
+        viewport.width: mainLayout.width
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 20
         anchors.leftMargin: 20
         anchors.bottomMargin: 20
+
         ColumnLayout {
             id: mainLayout
-            anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
-            anchors.left: parent.left
 
             Text {
                 id: strideTitle
@@ -70,10 +76,12 @@ ApplicationWindow {
 
             Button {
                 text:  "Launch"
-                anchors.top: strideTitle.bottom
-                anchors.margins: 20
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
+                Layout.topMargin: 20
+                Layout.bottomMargin: 20
+                Layout.preferredHeight: 60
+                id: launchButton
 
                 onClicked: {
                     launcher.SetConfig(
@@ -90,8 +98,6 @@ ApplicationWindow {
                 }
             }
             GridLayout {
-                anchors.top: parent.top
-                anchors.topMargin: 110
                 Layout.fillWidth: false
                 columns: 2
                 rowSpacing: 10
@@ -391,7 +397,6 @@ ApplicationWindow {
                         model: ["default", "generate", "import", "multi-region"]
                         onCurrentIndexChanged: {
                             if (currentIndex == 0 || currentIndex == 3) {
-                                window.width = 820
                                 setGenGeopPopFileVisibility(false)
                                 setGenGeopPopGenerateVisibility(false)
                                 if (currentIndex == 0) {
@@ -404,16 +409,15 @@ ApplicationWindow {
                             } else if (currentIndex == 1) {
                                 mapViewerCheckbox.checked = true
                                 mapViewerCheckbox.enabled = true
-                                window.width = 910
                                 setGenGeopPopFileVisibility(false)
                                 setGenGeopPopGenerateVisibility(true)
                             } else if (currentIndex == 2){
                                 mapViewerCheckbox.checked = true
                                 mapViewerCheckbox.enabled = true
-                                window.width = 820
                                 setGenGeopPopGenerateVisibility(false)
                                 setGenGeopPopFileVisibility(true)
                             }
+                            updateWindowWidth();
                         }
                         function setGenGeopPopGenerateVisibility(visibility) {
                             gengeopopPopulationSizeTitle.visible = visibility;
@@ -582,7 +586,7 @@ ApplicationWindow {
                 }
 
                 GridLayout {
-                    anchors.top: parent.top
+                    Layout.alignment: Qt.AlignTop
                     columns: 2
                     rowSpacing: 10
                     columnSpacing: 20
