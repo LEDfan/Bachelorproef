@@ -147,6 +147,14 @@ To make it easier to do this, we provided a CMake parameter and target that will
 For this to work, Stride needs to be compiled using the ``\texttt{STRIDE\_GEN\_PROTO=true}" argument.
 This will generate the code based on the \texttt{geogrid.proto} file and use that instead of the version included in the source directory.
 If you then want to copy this code to the correct location in the source, you can use ``\texttt{make proto}".
-If the version of \texttt{protobuf-c} you're using is significantly newer than the one included in this repository, you might also need to update the files stored \texttt{main/resources/lib/protobuf}.
+If the version of \texttt{protobuf-c} you're using is significantly newer than the \texttt{protobuf} included in this repository, you might also need to update the files stored \texttt{main/resources/lib/protobuf}.
+At the time of writing, this is done in the following way, although this may be subject to change:
+\begin{itemize}
+    \item Copy all files from \url{https://github.com/protocolbuffers/protobuf/tree/master/src/google/protobuf} to \texttt{main/resources/lib/protobuf/google/protobuf}.
+    \item Copy the \texttt{libprotobuf\_files} and \texttt{libprotobuf\_includes} from \url{https://github.com/protocolbuffers/protobuf/blob/master/cmake/libprotobuf.cmake} and \url{https://github.com/protocolbuffers/protobuf/blob/master/cmake/libprotobuf-lite.cmake}
+    \item Remove the prefix \texttt{\${protobuf\_source\_dir}/src/} from these listings.\\
+        For example \texttt{\${protobuf\_source\_dir}/src/google/protobuf/any.cc} becomes \texttt{google/protobuf/any.cc}.
+    \item Edit the \texttt{CMakeLists.text} at \texttt{main/resources/lib/protobuf} and replace the current values of \texttt{libprotobuf\_files} and \texttt{libprotobuf\_includes} with the ones we just obtained.
+\end{itemize}
 
 The classes that are responsible for reading and writing a GeoGrid to an \texttt{istream} containing the serialized data are the \texttt{GeoGridProtoReader} and \texttt{GeoGridProtoWriter} respectively.
