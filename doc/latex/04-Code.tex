@@ -103,4 +103,19 @@ Analogous to the creation of the ContactCenters, we have a partial populator tha
 
 \section{Travel}
 \label{section:travel}
-TODO
+The persons in the simulation also travel within different regions of the simulation for work or recreation.
+This can also be within the same region. You perform a simulation with multiple regions by using a config file based on ``run\_regions\_default.xml" or ``run\_regions\_import.xml", where currently the regions Flanders, Wallonia, The Netherlands, France and Germany are defined. Please note that the population sizes and fractions provided are not representative of the actual values.
+By using the option ``traveller\_amount" we can set the proportion of the population that is travelling at any given time.
+Likewise, the option ``traveller\_max\_duration" indicates the maximal duration of travel. The actual duration will be chosen using a uniform distribution between 1 day and the maximal duration.
+Finally, the option ``traveller\_fraction\_work\_travel" indicates the fraction of people that are travelling for work as opposed to recreationally.
+We also need to set the probability of travelling to a specific destination country from a given origin country, which can be different for work and recreational travel.
+We do this in the CSV files provided in the options ``traveller\_data\_work" and ``traveller\_data\_recreation" respectively, which can be found in the ``data" folder.
+
+After every day in the simulation, a person decides if it will start travelling based on a TravellerProfile, which contains all information provided by the aforementioned options.
+In this TravellerProfile it is also decided how long the stay will be, if it is a work or recreation related trip and where the person is travelling to, based on a discrete distribution of possible regions provided in the aforementioned CSV files. Within this chosen region, we select a random ContactPool based on the type of travel and add the traveller to this pool for the duration, removing him/her temporarily from the original ContactPools.
+In case of work related travel, the temporary ContactPool will be of the type ``Work" and for recreational travel it will be of the type ``PrimaryCommunity".
+All the information of this trip and the original ContactPools, which have to be restored after the trip ends, will then be stored in a TravellerIndex.
+This TravellerIndex is also responsible for returning travellers to their original state.
+At the end of each day, it will use a priority queue to efficiently determine if this is the end date for some travels.
+
+To support this functionality, we create a Population that consists of one GeoGrid for each region in the simulation. This allows us to easily loop over the complete population, spanning over multiple regions, and for example retrieve the total amount of infected persons. Multi-region support is only provided when using GenGeoPop to generate the population, since we use different GeoGrids to represent the different regions.
