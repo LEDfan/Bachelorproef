@@ -45,6 +45,8 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop, std
                                             std::string regionName)
 {
         auto stride_logger = spdlog::get("stride_logger");
+        if (!stride_logger)
+                stride_logger = LogUtils::CreateNullLogger("stride_logger");
 
         // --------------------------------------------------------------
         // Configure.
