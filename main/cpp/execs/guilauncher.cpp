@@ -22,28 +22,25 @@
 
 void LaunchGui()
 {
+        int          i = 0;
+        QApplication app(i, nullptr);
 
         Q_INIT_RESOURCE(qml);
         Q_INIT_RESOURCE(launcherqml);
         Q_INIT_RESOURCE(controllerqml);
 
-        int      i = 0;
         Launcher launcher;
-        { // Makes sure the QApplication is destructed when launcher.launch() is called
-                QApplication          app(i, nullptr);
-                QQmlApplicationEngine engine;
-                qmlRegisterType<Launcher>("io.bistromatics.launcher", 1, 0, "Launcher");
 
-                engine.rootContext()->setContextProperty("launcher", &launcher);
-                engine.load(QUrl(QStringLiteral("qrc:/launchermain.qml")));
-                if (engine.rootObjects().isEmpty())
-                        return;
+        QQmlApplicationEngine engine;
+        qmlRegisterType<Launcher>("io.bistromatics.launcher", 1, 0, "Launcher");
 
-                launcher.SetRootObject(engine.rootObjects().first());
+        engine.rootContext()->setContextProperty("launcher", &launcher);
+        engine.load(QUrl(QStringLiteral("qrc:/launchermain.qml")));
+        if (engine.rootObjects().isEmpty())
+                return;
 
-                app.exec();
-        }
-        // Wait for the launcher to close
+        launcher.SetRootObject(engine.rootObjects().first());
+        app.exec();
         launcher.Launch();
 }
 
