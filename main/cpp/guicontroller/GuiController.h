@@ -15,7 +15,6 @@
 
 #pragma once
 
-#include <QApplication>
 #include <QtCore/QObject>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtWidgets/QApplication>

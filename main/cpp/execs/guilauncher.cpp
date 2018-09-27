@@ -13,7 +13,6 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include <QApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QtQml>
 #include <QtWidgets/QApplication>
