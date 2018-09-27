@@ -18,14 +18,14 @@
 #include <QtQml/QtQml>
 
 #include "GuiController.h"
+#include <QtWidgets/QApplication>
 #include <mapviewer/backends/ContactCenterViewerBackend.h>
 
 namespace stride {
 
 GuiController::GuiController(const boost::property_tree::ptree& configPt)
     : BaseController("GuiController", configPt), m_argc(std::make_shared<int>(0)),
-      m_app(std::make_unique<QApplication>(*m_argc, nullptr)), m_engine(std::make_unique<QQmlApplicationEngine>()),
-      m_backend(nullptr)
+      m_engine(std::make_unique<QQmlApplicationEngine>()), m_backend(nullptr)
 {
         qmlRegisterType<GuiControllerBackend>("io.bistromatics.backend", 1, 0, "Backend");
         m_engine->load(QUrl(QStringLiteral("qrc:/controllermain.qml")));
@@ -37,7 +37,7 @@ GuiController::GuiController(const boost::property_tree::ptree& configPt)
         }
 }
 
-void GuiController::Control() { m_app->exec(); }
+void GuiController::Control() { qApp->exec(); }
 
 GuiController::~GuiController() {}
 

@@ -134,14 +134,6 @@ ApplicationWindow {
                     TextField {
                         objectName: "inputAgeContactMatrixFile"
                         Layout.fillWidth: true
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
 
                     Label { text: "Behaviour policy" }
@@ -169,14 +161,6 @@ ApplicationWindow {
                     TextField {
                         objectName: "inputDiseaseConfigFile"
                         Layout.fillWidth: true
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
 
                     Label { text: "Global Information Policy" }
@@ -190,14 +174,6 @@ ApplicationWindow {
                     TextField {
                         objectName: "inputHolidaysFile"
                         Layout.fillWidth: true
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
 
                     Label { text: "Immunity profile" }
@@ -258,14 +234,6 @@ ApplicationWindow {
                     TextField {
                         objectName: "inputOutputPrefix"
                         Layout.fillWidth: true
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
 
                     Label { text: "Output Summary" }
@@ -285,14 +253,6 @@ ApplicationWindow {
                     TextField {
                         objectName: "inputPopulationFile"
                         Layout.fillWidth: true
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
 
                     Label { text: "RNG Seed" }
@@ -346,14 +306,6 @@ ApplicationWindow {
                     Label { text: "Start date" }
                     TextField {
                         objectName: "inputStartDate"
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
 
                     Label { text: "Stride log level" }
@@ -452,14 +404,6 @@ ApplicationWindow {
                         id: gengeopopFile
                         Layout.fillWidth: true
                         objectName: "gengeopopFile"
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
                     // Begin Selected Generate
                     Label {
@@ -529,14 +473,6 @@ ApplicationWindow {
                         id: gengeopopCitiesFile
                         Layout.fillWidth: true
                         objectName: "gengeopopCitiesFile"
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
                     Label {
                         text: "Commuting File"
@@ -546,14 +482,6 @@ ApplicationWindow {
                         id: gengeopopCommutingFile
                         Layout.fillWidth: true
                         objectName: "gengeopopCommutingFile"
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
                     Label {
                         text: "Household File"
@@ -563,14 +491,6 @@ ApplicationWindow {
                         id: gengeopopHouseholdFile
                         Layout.fillWidth: true
                         objectName: "gengeopopHouseholdFile"
-                        style: TextFieldStyle {
-                            textColor: "black"
-                            background: Rectangle {
-                                color: "white"
-                                border.color: "#7C7C7C"
-                                border.width: 1
-                            }
-                        }
                     }
                     Button {
                         text: "Save changes"
