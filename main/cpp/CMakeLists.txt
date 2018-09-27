@@ -25,6 +25,7 @@ add_subdirectory(guicontroller)
 add_subdirectory(guilauncher)
 add_subdirectory(execs)
 
+
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
 #============================================================================

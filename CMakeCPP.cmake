@@ -49,22 +49,27 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
-set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas -Wno-unknown-warning-option -Wno-unevaluated-expression")
+set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS             "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
 set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g"   )
+
 # Prevents (static) libraries having a double "lib" prefix (when they are named libxxx).
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
 #----------------------------------------------------------------------------
-if(NOT CMAKE_HOST_APPLE )
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -lstdc++fs")
+if(NOT (CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE))
+    set(LIBS ${LIBS} stdc++fs)
+endif()
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-unknown-warning-option -Wno-unevaluated-expression")
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
 	add_definitions( -D__APPLE__ )
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    set(LIBS ${LIBS} c++fs)
 #
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-command-line-argument -Wno-self-assign")
@@ -72,11 +77,13 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
 #
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
-#
-elseif(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++1z")
 endif()
-
+if(CMAKE_HOST_APPLE)
+    SET(CMAKE_C_ARCHIVE_CREATE   "<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>")
+    SET(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>")
+    SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
+    SET(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
+endif()
 #----------------------------------------------------------------------------
 # Standard math lib
 #----------------------------------------------------------------------------
@@ -88,6 +95,14 @@ set(LIBS   ${LIBS}   m)
 
 find_package(Threads)
 set(LIBS ${LIBS} ${CMAKE_THREAD_LIBS_INIT})
+
+#============================================================================
+# Enable AUTOMOC/AUTORCC/AUTOUIC for preprocessing Qt related files
+#============================================================================
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
 #----------------------------------------------------------------------------
 # Random number stuff: pcg, randutils, trng
@@ -123,16 +138,6 @@ set(LIBS ${LIBS} sha1)
 # Boost
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/include)
-
-#----------------------------------------------------------------------------
-# Filesystem
-#----------------------------------------------------------------------------
-
-if(CMAKE_HOST_APPLE)
-    set(LIBS ${LIBS} c++experimental)
-else()
-    set(LIBS ${LIBS} stdc++fs)
-endif()
 
 #----------------------------------------------------------------------------
 # Date
@@ -204,9 +209,6 @@ if (Qt5_FOUND)
         ${Qt5Quick_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
     )
-    set(CMAKE_AUTOMOC ON)
-    set(CMAKE_AUTORCC ON)
-    set(CMAKE_AUTOUIC ON)
     if( CMAKE_BUILD_TYPE MATCHES "Release" )
         add_definitions( -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT )
     endif()
