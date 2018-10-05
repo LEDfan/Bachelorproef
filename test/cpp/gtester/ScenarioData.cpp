@@ -77,12 +77,12 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                           {"r0_8_gengeopop", 233.54134537593123}};
 
         std::map<std::string, unsigned int> targets_multiregion = {
-            {"influenza_a_multiregion", 6550},   {"influenza_b_multiregion", 0},      {"influenza_c_multiregion", 27},
+            {"influenza_a_multiregion", 6458},   {"influenza_b_multiregion", 0},      {"influenza_c_multiregion", 27},
             {"measles_16_multiregion", 3065371}, {"measles_60_multiregion", 3065704}, {"r0_0_multiregion", 6132},
             {"r0_12_multiregion", 603882},       {"r0_16_multiregion", 610245},       {"r0_4_multiregion", 225930},
             {"r0_8_multiregion", 567296}};
 
-        std::map<std::string, double> sigmas_multiregion = {{"influenza_a_multiregion", 102.22137741196799},
+        std::map<std::string, double> sigmas_multiregion = {{"influenza_a_multiregion", 160.16406432155748},
                                                             {"influenza_b_multiregion", 0.0},
                                                             {"influenza_c_multiregion", 0.0},
                                                             {"measles_16_multiregion", 1339.1634739642507},
