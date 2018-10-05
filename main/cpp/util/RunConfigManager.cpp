@@ -80,6 +80,91 @@ void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
         pt.put_child("run.geopop_gen", gengeopop_ptree.get_child("run.geopop_gen"));
 }
 
+void RunConfigManager::ConvertToMultiRegion(ptree& pt)
+{
+        std::string gengeopop_str   = R"###(
+<run>
+    <regions>
+        <region>
+            <name>WAAL</name>
+            <geopop_type>generate</geopop_type>
+            <geopop_gen>
+                <population_size>666000</population_size>
+                <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+                <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+                <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+                <fraction_1865_years_active>0.75</fraction_1865_years_active>
+                <cities_file>wallonia_cities.csv</cities_file>
+                <household_file>households_flanders.csv</household_file>
+            </geopop_gen>
+        </region>
+        <region>
+            <name>NL</name>
+            <geopop_type>generate</geopop_type>
+            <geopop_gen>
+                <population_size>600000</population_size>
+                <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+                <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+                <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+                <fraction_1865_years_active>0.75</fraction_1865_years_active>
+                <cities_file>NL_cities.csv</cities_file>
+                <household_file>households_flanders.csv</household_file>
+            </geopop_gen>
+        </region>
+        <region>
+            <name>FR</name>
+            <geopop_type>generate</geopop_type>
+            <geopop_gen>
+                <population_size>600000</population_size>
+                <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+                <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+                <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+                <fraction_1865_years_active>0.75</fraction_1865_years_active>
+                <cities_file>FR_cities.csv</cities_file>
+                <household_file>households_flanders.csv</household_file>
+            </geopop_gen>
+        </region>
+        <region>
+            <name>DE</name>
+            <geopop_type>generate</geopop_type>
+            <geopop_gen>
+                <population_size>600000</population_size>
+                <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+                <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+                <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+                <fraction_1865_years_active>0.75</fraction_1865_years_active>
+                <cities_file>DE_cities.csv</cities_file>
+                <household_file>households_flanders.csv</household_file>
+            </geopop_gen>
+        </region>
+        <region>
+            <name>VL</name>
+            <geopop_type>generate</geopop_type>
+            <geopop_gen>
+                <population_size>600000</population_size>
+                <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+                <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+                <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+                <fraction_1865_years_active>0.75</fraction_1865_years_active>
+                <cities_file>flanders_cities.csv</cities_file>
+                <commuting_file>flanders_commuting.csv</commuting_file>
+                <household_file>households_flanders.csv</household_file>
+            </geopop_gen>
+        </region>
+    </regions>
+    <traveller_amount>0.01</traveller_amount>
+    <traveller_fraction_work_travel>0.5</traveller_fraction_work_travel>
+    <traveller_max_duration>21</traveller_max_duration>
+</run>
+        )###";
+        ptree       gengeopop_ptree = FromString(gengeopop_str);
+        pt.put_child("run.regions", gengeopop_ptree.get_child("run.regions"));
+        pt.put_child("run.traveller_amount", gengeopop_ptree.get_child("run.traveller_amount"));
+        pt.put_child("run.traveller_fraction_work_travel",
+                     gengeopop_ptree.get_child("run.traveller_fraction_work_travel"));
+        pt.put_child("run.traveller_max_duration", gengeopop_ptree.get_child("run.traveller_max_duration"));
+}
+
 string RunConfigManager::CreateBenchInfluenza()
 {
         return R"###(

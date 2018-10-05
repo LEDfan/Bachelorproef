@@ -35,8 +35,14 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                             : RunConfigManager::Create("TestsMeasles");
         bool gengeopop = tag.size() > std::string("gengeopop").size() &&
                          tag.substr(tag.size() - std::string("gengeopop").size(), tag.size() - 1) == "gengeopop";
+
+        bool multiregion = tag.size() > std::string("multiregion").size() &&
+                           tag.substr(tag.size() - std::string("multiregion").size(), tag.size() - 1) == "multiregion";
+
         if (gengeopop)
                 RunConfigManager::ConvertToGenGeoPop(pt);
+        else if (multiregion)
+                RunConfigManager::ConvertToMultiRegion(pt);
 
         std::map<std::string, unsigned int> targets_default = {
             {"influenza_a", 1085U},  {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 599900U},
@@ -59,7 +65,6 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"measles_16_gengeopop", 599841}, {"measles_60_gengeopop", 600027}, {"r0_0_gengeopop", 1199},
             {"r0_12_gengeopop", 118125},      {"r0_16_gengeopop", 119442},      {"r0_4_gengeopop", 44391},
             {"r0_8_gengeopop", 111209}};
-
         std::map<std::string, double> sigmas_gengeopop = {{"influenza_a_gengeopop", 87.347638777473549},
                                                           {"influenza_b_gengeopop", 0},
                                                           {"influenza_c_gengeopop", 0},
@@ -71,18 +76,40 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                           {"r0_4_gengeopop", 919.14878556194594},
                                                           {"r0_8_gengeopop", 233.54134537593123}};
 
-        unsigned int target;
-        double       sigma;
+        std::map<std::string, unsigned int> targets_multiregion = {
+            {"influenza_a_multiregion", 6550},   {"influenza_b_multiregion", 0},      {"influenza_c_multiregion", 27},
+            {"measles_16_multiregion", 3065371}, {"measles_60_multiregion", 3065704}, {"r0_0_multiregion", 6132},
+            {"r0_12_multiregion", 603882},       {"r0_16_multiregion", 610245},       {"r0_4_multiregion", 225930},
+            {"r0_8_multiregion", 567296}};
+
+        std::map<std::string, double> sigmas_multiregion = {{"influenza_a_multiregion", 102.22137741196799},
+                                                            {"influenza_b_multiregion", 0.0},
+                                                            {"influenza_c_multiregion", 0.0},
+                                                            {"measles_16_multiregion", 1339.1634739642507},
+                                                            {"measles_60_multiregion", 1108.1696666124733},
+                                                            {"r0_0_multiregion", 2.5475478405713994},
+                                                            {"r0_12_multiregion", 241.95073878787804},
+                                                            {"r0_16_multiregion", 208.4690864372941},
+                                                            {"r0_4_multiregion", 1570.369526576468},
+                                                            {"r0_8_multiregion", 402.0301481232471}};
+        unsigned int                  target;
+        double                        sigma;
         if (gengeopop) {
                 target = targets_gengeopop[tag];
                 sigma  = sigmas_gengeopop[tag];
+        } else if (multiregion) {
+                target = targets_multiregion[tag];
+                sigma  = sigmas_multiregion[tag];
         } else {
                 target = targets_default[tag];
                 sigma  = sigmas_default[tag];
         }
         if (gengeopop) {
                 tag = tag.substr(0, tag.size() - std::string("_gengeopop").size());
+        } else if (multiregion) {
+                tag = tag.substr(0, tag.size() - std::string("_multiregion").size());
         }
+
         if (tag == "influenza_b") {
                 pt.put("run.seeding_rate", 0.0);
         }

@@ -58,6 +58,9 @@ public:
         ///
         static void ConvertToGenGeoPop(boost::property_tree::ptree&);
 
+        ///
+        static void ConvertToMultiRegion(boost::property_tree::ptree&);
+
 private:
         ///
         static std::string CreateBenchInfluenza();

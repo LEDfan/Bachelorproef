@@ -60,6 +60,10 @@ class BatchRunsGenGeoPop : public BatchRuns
 {
 };
 
+class BatchRunsMultiRegion : public BatchRuns
+{
+};
+
 void RunTest(tuple<ptree, unsigned int, double> d)
 {
         // -----------------------------------------------------------------------------------------
@@ -91,6 +95,8 @@ TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }
 
 TEST_P(BatchRunsGenGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_gengeopop")); }
 
+TEST_P(BatchRunsMultiRegion, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_multiregion")); }
+
 namespace {
 
 const char* tags_influenza[] = {"influenza_a", "influenza_b", "influenza_c"};
@@ -112,5 +118,11 @@ INSTANTIATE_TEST_CASE_P(influenza_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_i
 INSTANTIATE_TEST_CASE_P(measles_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_measles));
 
 INSTANTIATE_TEST_CASE_P(r0_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_r0));
+
+INSTANTIATE_TEST_CASE_P(influenza_multiregion, BatchRunsMultiRegion, ValuesIn(tags_influenza));
+
+INSTANTIATE_TEST_CASE_P(measles_multiregion, BatchRunsMultiRegion, ValuesIn(tags_measles));
+
+INSTANTIATE_TEST_CASE_P(r0_multiregion, BatchRunsMultiRegion, ValuesIn(tags_r0));
 
 } // namespace Tests
