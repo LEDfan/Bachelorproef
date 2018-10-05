@@ -33,7 +33,8 @@ TEST(CollegePopulatorTest, NoPopulation)
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
 
         geoGrid->AddLocation(std::make_shared<Location>(0, 0, 0));
 
@@ -57,7 +58,8 @@ TEST(CollegePopulatorTest, NoStudents)
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 0;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         auto location = *geoGrid->begin();
 
@@ -102,7 +104,8 @@ TEST(CollegePopulatorTest, NotCommuting)
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         auto location = *geoGrid->begin();
 
@@ -220,7 +223,8 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
 
         auto location = *geoGrid->begin();
 
@@ -280,7 +284,8 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));

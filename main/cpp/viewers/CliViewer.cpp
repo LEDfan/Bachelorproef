@@ -40,24 +40,26 @@ void CliViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::AtStart: {
-                const auto sim = m_runner->GetSim();
+                const auto sim = std::shared_ptr<SimRunner>(m_runner)->GetSim();
                 m_logger->info("   SimRunner at start:");
                 ostringstream ss;
-                write_xml(ss, m_runner->GetConfig(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+                write_xml(ss, std::shared_ptr<SimRunner>(m_runner)->GetConfig(),
+                          xml_writer_make_settings<ptree::key_type>(' ', 8));
                 m_logger->trace("Run config used:\n {}", ss.str());
                 m_logger->info("      Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
                                sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Stepped: {
-                const auto sim = m_runner->GetSim();
+                const auto sim = std::shared_ptr<SimRunner>(m_runner)->GetSim();
                 m_logger->info("      Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
                                sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Finished: {
-                const auto sim = m_runner->GetSim();
-                m_logger->info("   SimRunner done after: {}", m_runner->GetClock().ToString());
+                const auto sim = std::shared_ptr<SimRunner>(m_runner)->GetSim();
+                m_logger->info("   SimRunner done after: {}",
+                               std::shared_ptr<SimRunner>(m_runner)->GetClock().ToString());
                 break;
         }
         default: break;

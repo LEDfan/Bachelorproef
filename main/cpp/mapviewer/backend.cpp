@@ -49,11 +49,14 @@ namespace filesystem = std::experimental::filesystem;
 #include <utility>
 
 Backend::Backend(QObject* parent)
-    : QObject(parent), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection()
+    : QObject(parent), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection(), m_population()
 {
 }
 
-Backend::Backend(const Backend&) : QObject(), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection() {}
+Backend::Backend(const Backend&)
+    : QObject(), m_grids(), m_markers(), m_commutes(), m_selection(), m_unselection(), m_population()
+{
+}
 
 Backend& Backend::operator=(const Backend& b)
 {
@@ -64,10 +67,11 @@ Backend& Backend::operator=(const Backend& b)
 
 void Backend::LoadGeoGridFromFile(const QString& file, QObject* errorDialog)
 {
-        QUrl                                      info(file);
-        std::string                               filename = info.toLocalFile().toStdString();
-        gengeopop::GeoGridReaderFactory           factory;
-        std::shared_ptr<gengeopop::GeoGridReader> reader = factory.CreateReader(filename);
+        QUrl                            info(file);
+        std::string                     filename = info.toLocalFile().toStdString();
+        gengeopop::GeoGridReaderFactory factory;
+        m_population                                     = stride::Population::Create();
+        std::shared_ptr<gengeopop::GeoGridReader> reader = factory.CreateReader(filename, m_population.get());
         try {
                 SetGeoGrids({reader->Read()});
         } catch (const std::exception& e) {
@@ -96,9 +100,10 @@ void Backend::LoadGeoGridFromCommandLine(const QStringList& args)
                         path = std::filesystem::canonical(path);
                         qDebug() << "Reading from " << path.c_str();
 
-                        gengeopop::GeoGridReaderFactory           geoGridReaderFactory;
+                        gengeopop::GeoGridReaderFactory geoGridReaderFactory;
+                        m_population = stride::Population::Create();
                         std::shared_ptr<gengeopop::GeoGridReader> reader =
-                            geoGridReaderFactory.CreateReader(path.c_str());
+                            geoGridReaderFactory.CreateReader(path.c_str(), m_population.get());
 
                         try {
                                 m_grids.push_back(reader->Read());
@@ -315,7 +320,7 @@ void Backend::UpdateColorOfMarkers()
                         for (const auto& commute : loc->GetOutgoingCommuningCities()) {
                                 // If the other city is also selected
                                 if (m_selection.find({locID.first, commute.first->GetID()}) != m_selection.end()) {
-                                        ShowCommute(locID.first, loc, commute.first);
+                                        ShowCommute(locID.first, loc.get(), commute.first);
                                 }
                         }
                 }
@@ -383,8 +388,7 @@ void Backend::HideCommuteBetween(int region, const std::shared_ptr<gengeopop::Lo
         }
 }
 
-void Backend::ShowCommute(int region, const std::shared_ptr<gengeopop::Location>& loc1,
-                          const std::shared_ptr<gengeopop::Location>& loc2)
+void Backend::ShowCommute(int region, const gengeopop::Location* loc1, const gengeopop::Location* loc2)
 {
         QVariant                                    retVal;
         QObject*                                    commuteLine = nullptr;

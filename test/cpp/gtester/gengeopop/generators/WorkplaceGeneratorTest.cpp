@@ -36,7 +36,8 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 20000;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         workplaceGenerator.Apply(geoGrid, config);
 
         EXPECT_EQ(geoGrid->size(), 0);
@@ -56,7 +57,8 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
         config.input.fraction_1865_years_active      = 0.20;
         config.input.fraction_active_commutingPeople = 0;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
 
         std::vector<int> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
                                63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
@@ -94,7 +96,8 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         config.input.fraction_1865_years_active      = 0.20;
         config.input.fraction_active_commutingPeople = 0.10;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
 
         std::vector<int> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
                                63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
@@ -146,7 +149,8 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         config.input.fraction_1865_years_active      = 0.20;
         config.input.fraction_active_commutingPeople = 0.10;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
 
         std::vector<int> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
                                63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,

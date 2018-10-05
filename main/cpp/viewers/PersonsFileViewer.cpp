@@ -32,7 +32,7 @@ void PersonsFileViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::Finished: {
-                m_persons_file.Print(m_runner->GetSim()->GetPopulation());
+                m_persons_file.Print(std::shared_ptr<SimRunner>(m_runner)->GetSim()->GetPopulation());
                 break;
         }
         default: break;

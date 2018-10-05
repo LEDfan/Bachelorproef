@@ -117,7 +117,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
                 auto disPools = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(contactPools.size())));
 
-                m_workplacesInCity[loc] = {contactPools, disPools};
+                m_workplacesInCity[loc.get()] = {contactPools, disPools};
         }
 }
 
@@ -150,7 +150,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
         m_disCommuting = discreteDist();
 
         std::vector<double> commutingWeights;
-        for (const std::pair<std::shared_ptr<Location>, double>& commute : m_currentLoc->GetOutgoingCommuningCities()) {
+        for (const std::pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommuningCities()) {
                 const auto& Workplaces = commute.first->GetContactCentersOfType<Workplace>();
                 if (!Workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);

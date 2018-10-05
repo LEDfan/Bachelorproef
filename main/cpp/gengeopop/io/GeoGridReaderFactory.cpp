@@ -31,7 +31,8 @@ namespace filesystem = std::experimental::filesystem;
 #include <util/Exception.h>
 namespace gengeopop {
 
-std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string filename) const
+std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string filename, stride::Population* pop,
+                                                                  int regionId, std::string regionName) const
 {
         std::filesystem::path path(filename);
         if (!std::filesystem::exists(path)) {
@@ -39,9 +40,11 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
         }
 
         if (path.extension().string() == ".json") {
-                return std::make_shared<GeoGridJSONReader>(std::make_unique<std::ifstream>(path.string()));
+                return std::make_shared<GeoGridJSONReader>(std::make_unique<std::ifstream>(path.string()), pop,
+                                                           regionId, regionName);
         } else if (path.extension().string() == ".proto") {
-                return std::make_shared<GeoGridProtoReader>(std::make_unique<std::ifstream>(path.string()));
+                return std::make_shared<GeoGridProtoReader>(std::make_unique<std::ifstream>(path.string()), pop,
+                                                            regionId, regionName);
         } else {
                 throw stride::util::Exception("Unsupported file extension: " + path.extension().string());
         }

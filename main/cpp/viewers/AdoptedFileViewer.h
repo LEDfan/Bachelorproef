@@ -35,7 +35,7 @@ class AdoptedFileViewer
 public:
         /// Instantiate cases viewer.
         AdoptedFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
-            : m_adopted(), m_adopted_file(output_prefix), m_runner(std::move(runner))
+            : m_adopted(), m_adopted_file(output_prefix), m_runner(runner)
         {
         }
 
@@ -43,9 +43,9 @@ public:
         void Update(sim_event::Id id);
 
 private:
-        std::vector<unsigned int>  m_adopted;
-        output::AdoptedFile        m_adopted_file;
-        std::shared_ptr<SimRunner> m_runner;
+        std::vector<unsigned int> m_adopted;
+        output::AdoptedFile       m_adopted_file;
+        std::weak_ptr<SimRunner>  m_runner;
 };
 
 } // namespace viewers

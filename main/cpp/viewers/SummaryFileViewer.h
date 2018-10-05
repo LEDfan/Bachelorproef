@@ -35,7 +35,7 @@ class SummaryFileViewer
 public:
         /// Instantiate cases viewer.
         SummaryFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
-            : m_summary_file(output_prefix), m_runner(std::move(runner))
+            : m_summary_file(output_prefix), m_runner(runner)
         {
         }
 
@@ -43,8 +43,8 @@ public:
         void Update(sim_event::Id id);
 
 private:
-        output::SummaryFile        m_summary_file;
-        std::shared_ptr<SimRunner> m_runner;
+        output::SummaryFile      m_summary_file;
+        std::weak_ptr<SimRunner> m_runner;
 };
 
 } // namespace viewers

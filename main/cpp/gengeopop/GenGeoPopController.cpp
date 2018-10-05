@@ -36,19 +36,20 @@ GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger,
                                          stride::util::RnMan& rnManager, std::string citiesFileName,
                                          std::string commutingFileName, std::string householdFileName,
                                          std::string regionName)
-    : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr), m_population(nullptr),
-      m_citiesReader(nullptr), m_commutesReader(nullptr), m_householdsReader(nullptr), m_logger(std::move(logger)),
-      m_citiesFileName(std::move(citiesFileName)), m_commutingFileName(std::move(commutingFileName)),
-      m_householdsFileName(std::move(householdFileName)), m_regionId(0), m_regionName(regionName)
+    : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr),
+      m_population(stride::Population::Create()), m_citiesReader(nullptr), m_commutesReader(nullptr),
+      m_householdsReader(nullptr), m_logger(std::move(logger)), m_citiesFileName(std::move(citiesFileName)),
+      m_commutingFileName(std::move(commutingFileName)), m_householdsFileName(std::move(householdFileName)),
+      m_regionId(0), m_regionName(regionName)
 {
 }
 
 void GenGeoPopController::ReadDataFiles()
 {
-        if (m_population) {
-                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
+        if (m_regionId) {
+                m_geoGrid = std::make_shared<GeoGrid>(m_population.get(), m_regionId, m_regionName);
         } else {
-                m_geoGrid = std::make_shared<GeoGrid>();
+                m_geoGrid = std::make_shared<GeoGrid>(m_population.get());
         }
 
         ReaderFactory readerFactory;

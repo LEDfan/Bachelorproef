@@ -109,10 +109,16 @@ public:
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
 
         /// Construct with information about population and region (id + name)
-        GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId, std::string regionName);
+        GeoGrid(stride::Population* population, std::size_t regionId, std::string regionName);
 
         /// Constructor
-        GeoGrid();
+        GeoGrid(stride::Population* population);
+
+        /// No copy constructor
+        GeoGrid(const GeoGrid&) = delete;
+
+        /// No copy assignment
+        GeoGrid operator=(const GeoGrid&) = delete;
 
         /// Adds a location to this GeoGrid
         void AddLocation(std::shared_ptr<Location> location);
@@ -192,7 +198,7 @@ public:
         stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
 
         /// Get the population of this GeoGrid
-        std::shared_ptr<stride::Population> GetPopulation();
+        stride::Population* GetPopulation();
 
         /// Build a GeoAggregator with a predefined functor and given args for the Policy
         template <typename Policy, typename F>
@@ -208,8 +214,8 @@ private:
 
         std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid
         std::unordered_map<unsigned int, std::shared_ptr<Location>>
-                                            m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id
-        std::shared_ptr<stride::Population> m_population;         ///< Stores and Owns the population of this GeoGrid
+                            m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id
+        stride::Population* m_population;         ///< Stores, but does not take ownership
 
         bool m_finalized; ///< Is this finalized yet?
 

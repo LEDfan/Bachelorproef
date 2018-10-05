@@ -32,7 +32,7 @@ class InfectedViewer
 {
 public:
         /// Instantiate cases viewer.
-        InfectedViewer(std::shared_ptr<SimRunner> runner) : m_infected(), m_runner(std::move(runner)) {}
+        InfectedViewer(std::weak_ptr<SimRunner> runner) : m_infected(), m_runner(std::move(runner)) {}
 
         std::vector<unsigned int> GetInfectionCounts() { return m_infected; }
 
@@ -40,8 +40,8 @@ public:
         void Update(sim_event::Id id);
 
 private:
-        std::vector<unsigned int>  m_infected;
-        std::shared_ptr<SimRunner> m_runner;
+        std::vector<unsigned int> m_infected;
+        std::weak_ptr<SimRunner>  m_runner;
 };
 
 } // namespace viewers

@@ -17,8 +17,10 @@
 
 namespace gengeopop {
 
-GeoGridReader::GeoGridReader(std::unique_ptr<std::istream> inputStream)
-    : m_people(), m_commutes(), m_regionId(0), m_regionName("Default"), m_inputStream(std::move(inputStream))
+GeoGridReader::GeoGridReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop, std::size_t regionId,
+                             std::string regionName)
+    : m_people(), m_commutes(), m_regionId(regionId), m_regionName(regionName), m_inputStream(std::move(inputStream)),
+      m_population(pop)
 {
 }
 void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)
@@ -32,11 +34,4 @@ void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)
         }
 }
 
-void GeoGridReader::UsePopulation(const std::shared_ptr<stride::Population>& pop, std::size_t regionId,
-                                  std::string regionName)
-{
-        m_population = pop;
-        m_regionId   = regionId;
-        m_regionName = std::move(regionName);
-}
 } // namespace gengeopop

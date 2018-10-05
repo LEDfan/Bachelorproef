@@ -156,25 +156,25 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
         std::unique_ptr<std::stringstream> ss = std::make_unique<std::stringstream>();
         protoGrid.SerializeToOstream(ss.get());
         std::unique_ptr<std::istream> is(std::move(ss));
-
-        GeoGridProtoReader       reader(std::move(is));
-        std::shared_ptr<GeoGrid> geogrid = reader.Read();
+        auto                          pop = stride::Population::Create();
+        GeoGridProtoReader            reader(std::move(is), pop.get());
+        std::shared_ptr<GeoGrid>      geogrid = reader.Read();
         compareGeoGrid(geogrid, protoGrid);
 }
 
-std::shared_ptr<GeoGrid> GetGeoGrid()
+std::shared_ptr<GeoGrid> GetGeoGrid(stride::Population* pop)
 {
         GeoGridConfig config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
-        GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>());
+        GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>(pop));
         return geoGridGenerator.GetGeoGrid();
 }
 
-std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
+std::shared_ptr<GeoGrid> GetPopulatedGeoGrid(stride::Population* pop)
 {
-        auto geoGrid  = GetGeoGrid();
+        auto geoGrid  = GetGeoGrid(pop);
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
 
         auto school = std::make_shared<K12School>(0);
@@ -218,9 +218,9 @@ std::shared_ptr<GeoGrid> GetPopulatedGeoGrid()
         return geoGrid;
 }
 
-std::shared_ptr<GeoGrid> GetCommutesGeoGrid()
+std::shared_ptr<GeoGrid> GetCommutesGeoGrid(stride::Population* pop)
 {
-        auto geoGrid   = GetGeoGrid();
+        auto geoGrid   = GetGeoGrid(pop);
         auto bavikhove = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         auto gent      = std::make_shared<Location>(2, 4, 2500, Coordinate(0, 0), "Gent");
         auto mons      = std::make_shared<Location>(3, 4, 2500, Coordinate(0, 0), "Mons");

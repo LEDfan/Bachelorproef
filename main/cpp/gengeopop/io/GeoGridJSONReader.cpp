@@ -29,8 +29,9 @@
 
 namespace gengeopop {
 
-GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream)
-    : GeoGridReader(std::move(inputStream)), m_geoGrid(nullptr)
+GeoGridJSONReader::GeoGridJSONReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop,
+                                     std::size_t regionId, std::string regionName)
+    : GeoGridReader(std::move(inputStream), pop, regionId, regionName), m_geoGrid(nullptr)
 {
 }
 
@@ -43,11 +44,7 @@ std::shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                 throw stride::util::Exception(
                     "There was a problem parsing the JSON file, please check if it is not empty and it is valid JSON.");
         }
-        if (m_population) {
-                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
-        } else {
-                m_geoGrid = std::make_shared<GeoGrid>();
-        }
+        m_geoGrid   = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
         auto people = root.get_child("persons");
 #pragma omp parallel
 #pragma omp single

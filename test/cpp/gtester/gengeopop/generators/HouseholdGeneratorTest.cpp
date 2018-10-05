@@ -34,7 +34,8 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
 
@@ -55,7 +56,8 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         householdGenerator.Apply(geoGrid, config);
 
         EXPECT_EQ(geoGrid->size(), 0);
@@ -73,7 +75,8 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         config.calculated.households = 4000;
         config.input.populationSize  = 37542 * 100;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
         auto loc2    = std::make_shared<Location>(2, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");
         auto loc3    = std::make_shared<Location>(3, 4, 7460 * 100, Coordinate(0, 0), "Henegouwen");

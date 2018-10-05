@@ -53,7 +53,8 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
         householdType->AddPool(poolType);
         config.generated.household_types.push_back(householdType);
 
-        auto geoGrid   = std::make_shared<GeoGrid>();
+        auto pop       = stride::Population::Create();
+        auto geoGrid   = std::make_shared<GeoGrid>(pop.get());
         auto loc1      = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         auto household = std::make_shared<Household>();
         household->AddPool(new stride::ContactPool());
@@ -69,7 +70,8 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 {
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
 
         EXPECT_NO_THROW(householdPopulator->Apply(geoGrid, config));
 }
@@ -84,7 +86,8 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
         householdType->AddPool(poolType);
         config.generated.household_types.push_back(householdType);
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
 
         auto household1 = std::make_shared<Household>();
@@ -141,7 +144,8 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
                 config.generated.household_types.push_back(householdType);
         }
 
-        auto geoGrid   = std::make_shared<GeoGrid>();
+        auto pop       = stride::Population::Create();
+        auto geoGrid   = std::make_shared<GeoGrid>(pop.get());
         auto loc1      = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         auto household = std::make_shared<Household>();
         household->AddPool(new stride::ContactPool());

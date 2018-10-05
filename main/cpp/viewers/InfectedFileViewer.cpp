@@ -35,7 +35,7 @@ void InfectedFileViewer::Update(const sim_event::Id id)
         switch (id) {
         case Id::AtStart:
         case Id::Stepped: {
-                const auto pop = m_runner->GetSim()->GetPopulation();
+                const auto pop = std::shared_ptr<SimRunner>(m_runner)->GetSim()->GetPopulation();
                 m_infected.push_back(pop->GetInfectedCount());
                 break;
         }

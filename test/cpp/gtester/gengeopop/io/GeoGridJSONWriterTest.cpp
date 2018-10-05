@@ -58,7 +58,6 @@ bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
         GeoGridJSONWriter writer;
         std::stringstream ss;
         writer.Write(geoGrid, ss);
-
         boost::property_tree::ptree result;
         boost::property_tree::read_json(ss, result);
         sortTree(result);
@@ -73,7 +72,8 @@ bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
 
 TEST(GeoGridJSONWriterTest, locationTest)
 {
-        auto geoGrid = GetGeoGrid();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = GetGeoGrid(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
         geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
         geoGrid->AddLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
@@ -82,7 +82,8 @@ TEST(GeoGridJSONWriterTest, locationTest)
 }
 TEST(GeoGridJSONWriterTest, contactCentersTest)
 {
-        auto geoGrid  = GetGeoGrid();
+        auto pop      = stride::Population::Create();
+        auto geoGrid  = GetGeoGrid(pop.get());
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<K12School>(0));
         location->AddContactCenter(std::make_shared<PrimaryCommunity>(1));
@@ -94,6 +95,14 @@ TEST(GeoGridJSONWriterTest, contactCentersTest)
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test1.json"));
 }
 
-TEST(GeoGridJSONWriterTest, peopleTest) { EXPECT_TRUE(compareGeoGrid(GetPopulatedGeoGrid(), "test2.json")); }
-TEST(GeoGridJSONWriterTest, commutesTest) { EXPECT_TRUE(compareGeoGrid(GetCommutesGeoGrid(), "test7.json")); }
+TEST(GeoGridJSONWriterTest, peopleTest)
+{
+        auto pop = stride::Population::Create();
+        EXPECT_TRUE(compareGeoGrid(GetPopulatedGeoGrid(pop.get()), "test2.json"));
+}
+TEST(GeoGridJSONWriterTest, commutesTest)
+{
+        auto pop = stride::Population::Create();
+        EXPECT_TRUE(compareGeoGrid(GetCommutesGeoGrid(pop.get()), "test7.json"));
+}
 } // namespace

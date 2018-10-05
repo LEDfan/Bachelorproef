@@ -36,7 +36,8 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         config.input.populationSize               = 45000;
         config.calculated._1826_years_and_student = 9000;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 45000, Coordinate(0, 0), "Antwerpen");
 
         geoGrid->AddLocation(loc1);
@@ -58,7 +59,8 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         config.input.populationSize               = 10000;
         config.calculated._1826_years_and_student = 2000;
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         collegeGenerator.Apply(geoGrid, config);
 
         EXPECT_EQ(geoGrid->size(), 0);
@@ -75,7 +77,8 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         config.input.populationSize               = 399992;
         config.calculated._1826_years_and_student = 79998;
 
-        auto             geoGrid = std::make_shared<GeoGrid>();
+        auto             pop     = stride::Population::Create();
+        auto             geoGrid = std::make_shared<GeoGrid>(pop.get());
         std::vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
                                9033,  31426, 33860, 4110,  50412, 25098, 40135};
         for (int size : sizes) {

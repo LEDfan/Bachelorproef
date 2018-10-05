@@ -93,7 +93,7 @@ public:
         double GetRelativePopulationSize() const;
 
         /// Gets a vector with the outgoing cities which people are commuting to + the proportion
-        const std::vector<std::pair<std::shared_ptr<Location>, double>>& GetIncomingCommuningCities() const;
+        const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
 
         /**
          * Adds a Location and a proportion to the incoming commutng vector
@@ -102,7 +102,7 @@ public:
         void AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
         /// @return a vector with the outgoing cities which people are commuting to + the proportion
-        const std::vector<std::pair<std::shared_ptr<Location>, double>>& GetOutgoingCommuningCities() const;
+        const std::vector<std::pair<Location*, double>>& GetOutgoingCommuningCities() const;
 
         /**
          * Adds a Location and a proportion to the incoming commuting vector
@@ -141,9 +141,9 @@ private:
         Coordinate   m_coordinate;         ///< Coordinate
         std::vector<std::shared_ptr<ContactCenter>> m_contactCenters; ///< All contactCenters
         /// Incomming commutes stored as pair of location and proportion relative to the given location
-        std::vector<std::pair<std::shared_ptr<Location>, double>> m_incomingCommutingLocations;
+        std::vector<std::pair<Location*, double>> m_incomingCommutingLocations;
         ///< Outgoing commutes stored as pair of location and proportion relative to the this location
-        std::vector<std::pair<std::shared_ptr<Location>, double>> m_outgoingCommutingLocations;
+        std::vector<std::pair<Location*, double>> m_outgoingCommutingLocations;
         std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>>
             m_contactCenterByType; ///< Stores the contact centers indexed by their type
 };

@@ -33,7 +33,7 @@ class CliViewer
 public:
         /// Instantiate cli viewer.
         CliViewer(std::shared_ptr<SimRunner> runner, std::shared_ptr<spdlog::logger> logger)
-            : m_logger(std::move(logger)), m_runner(std::move(runner))
+            : m_logger(std::move(logger)), m_runner(runner)
         {
         }
 
@@ -42,7 +42,7 @@ public:
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
-        std::shared_ptr<SimRunner>      m_runner;
+        std::weak_ptr<SimRunner>        m_runner;
 };
 
 } // namespace viewers

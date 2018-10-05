@@ -45,7 +45,7 @@ private:
         std::shared_ptr<GeoGrid> m_geoGrid;       ///< The GeoGrid which will be populated
         GeoGridConfig            m_geoGridConfig; ///< The GeoGridConfig used during populating
 
-        std::unordered_map<std::shared_ptr<Location>, std::pair<std::vector<stride::ContactPool*>, discreteDist>>
+        std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, discreteDist>>
             m_workplacesInCity; ///< For each location store the workplaces and a distribution to choose a random one
 
         /// Fills the m_workplacesInCity map
@@ -62,9 +62,8 @@ private:
         /// Calculates the workplaces which are nearby to m_currentLoc
         void CalculateNearbyWorkspaces();
 
-        std::vector<std::shared_ptr<Location>>
-                     m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to
-        discreteDist m_disCommuting;       ///< distribution to choose from m_commutingLocations
+        std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to
+        discreteDist           m_disCommuting;       ///< distribution to choose from m_commutingLocations
 
         /// Calculates the workplaces to which persons from m_currentLoc may commute to
         void CalculateCommutingLocations();

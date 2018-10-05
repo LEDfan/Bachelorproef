@@ -51,9 +51,9 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                     0, static_cast<trng::uniform_int_dist::result_type>(nearByHighSchools.size())));
 
                 // 2. find all highschools were students from this location commute to
-                std::vector<std::shared_ptr<Location>> commutingHighSchools;
-                std::vector<double>                    commutingWeights;
-                for (const std::pair<std::shared_ptr<Location>, double>& commute : loc->GetOutgoingCommuningCities()) {
+                std::vector<Location*> commutingHighSchools;
+                std::vector<double>    commutingWeights;
+                for (const std::pair<Location*, double>& commute : loc->GetOutgoingCommuningCities()) {
                         const auto& highSchools = commute.first->GetContactCentersOfType<College>();
                         if (!highSchools.empty()) {
                                 commutingHighSchools.push_back(commute.first);

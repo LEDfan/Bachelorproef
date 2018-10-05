@@ -30,8 +30,9 @@
 
 namespace gengeopop {
 
-GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream)
-    : GeoGridReader(std::move(inputStream)), m_geoGrid()
+GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop,
+                                       std::size_t regionId, std::string regionName)
+    : GeoGridReader(std::move(inputStream), pop, regionId, regionName), m_geoGrid()
 {
 }
 
@@ -41,11 +42,7 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw stride::util::Exception("Failed to parse Proto file");
         }
-        if (m_population) {
-                m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
-        } else {
-                m_geoGrid = std::make_shared<GeoGrid>();
-        }
+        m_geoGrid = std::make_shared<GeoGrid>(m_population, m_regionId, m_regionName);
 #pragma omp parallel
 #pragma omp single
         {

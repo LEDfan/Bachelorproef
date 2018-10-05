@@ -44,7 +44,8 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
         const std::shared_ptr<CommutesReader>& res2 =
             readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/commutes.csv");
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
         geoGrid->AddLocation(std::make_shared<Location>(22, 0, 1000));
 

@@ -30,10 +30,17 @@ class GeoGridProtoReader : public GeoGridReader
 {
 public:
         /// Construct the GeoGridJSONReader with the istream which contains the Protobuf information
-        GeoGridProtoReader(std::unique_ptr<std::istream> inputStream);
+        GeoGridProtoReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop, std::size_t regionId = 0,
+                           std::string regionName = "Default");
 
         /// Actually perform the read and return the GeoGrid
         std::shared_ptr<GeoGrid> Read() override;
+
+        /// No copy constructor
+        GeoGridProtoReader(const GeoGridProtoReader&) = delete;
+
+        /// No copy assignement
+        GeoGridProtoReader operator=(const GeoGridProtoReader&) = delete;
 
 private:
         /// Create a Location based on the provided protobuf Location

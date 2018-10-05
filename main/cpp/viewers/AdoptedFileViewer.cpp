@@ -34,12 +34,12 @@ void AdoptedFileViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::AtStart: {
-                const auto pop = m_runner->GetSim()->GetPopulation();
+                const auto pop = std::shared_ptr<SimRunner>(m_runner)->GetSim()->GetPopulation();
                 m_adopted.push_back(pop->GetAdoptedCount());
                 break;
         }
         case Id::Stepped: {
-                const auto pop = m_runner->GetSim()->GetPopulation();
+                const auto pop = std::shared_ptr<SimRunner>(m_runner)->GetSim()->GetPopulation();
                 m_adopted.push_back(pop->GetAdoptedCount());
                 break;
         }

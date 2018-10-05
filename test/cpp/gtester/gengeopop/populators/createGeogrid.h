@@ -19,4 +19,4 @@
 #include <gengeopop/GeoGridConfig.h>
 
 std::shared_ptr<gengeopop::GeoGrid> CreateGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
-                                                  int personCount);
+                                                  int personCount, stride::Population* pop);

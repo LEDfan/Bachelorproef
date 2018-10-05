@@ -35,7 +35,8 @@ TEST(WorkplacePopulatorTest, NoPopulation)
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
 
-        auto geoGrid = std::make_shared<GeoGrid>();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
 
         geoGrid->AddLocation(std::make_shared<Location>(0, 0, 0));
 
@@ -59,7 +60,8 @@ TEST(WorkplacePopulatorTest, NoActive)
         config.input.fraction_1865_years_active           = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         auto location = *geoGrid->begin();
 
@@ -96,7 +98,8 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
@@ -196,7 +199,8 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         // only commuting
         auto schoten = *(geoGrid->begin());
@@ -274,7 +278,8 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3);
+        auto pop     = stride::Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));

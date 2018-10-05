@@ -28,10 +28,17 @@ class GeoGridJSONReader : public GeoGridReader
 {
 public:
         /// Construct the GeoGridJSONReader with the istream which contains the JSON
-        GeoGridJSONReader(std::unique_ptr<std::istream> inputStream);
+        GeoGridJSONReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop, std::size_t regionId = 0,
+                          std::string regionName = "Default");
 
         /// Actually perform the read and return the GeoGrid
         std::shared_ptr<GeoGrid> Read();
+
+        /// No copy constructor
+        GeoGridJSONReader(const GeoGridJSONReader&) = delete;
+
+        /// No copy assignement
+        GeoGridJSONReader operator=(const GeoGridJSONReader&) = delete;
 
 private:
         /// Create a Location based on the information stored in the provided boost property tree

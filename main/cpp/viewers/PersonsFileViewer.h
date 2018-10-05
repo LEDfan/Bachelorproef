@@ -35,7 +35,7 @@ class PersonsFileViewer
 public:
         /// Instantiate cases viewer.
         PersonsFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
-            : m_persons_file(output_prefix), m_runner(std::move(runner))
+            : m_persons_file(output_prefix), m_runner(runner)
         {
         }
 
@@ -43,8 +43,8 @@ public:
         void Update(sim_event::Id id);
 
 private:
-        output::PersonsFile        m_persons_file;
-        std::shared_ptr<SimRunner> m_runner;
+        output::PersonsFile      m_persons_file;
+        std::weak_ptr<SimRunner> m_runner;
 };
 
 } // namespace viewers

@@ -35,11 +35,11 @@ void SummaryFileViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::Finished: {
-                const auto configPt = m_runner->GetConfig();
-                const auto sim      = m_runner->GetSim();
-                const auto pop      = m_runner->GetSim()->GetPopulation();
-                const auto dur      = duration_cast<milliseconds>(m_runner->GetClock().Get());
-                const auto milli    = static_cast<unsigned int>(dur.count());
+                const auto configPt = std::shared_ptr<SimRunner>(m_runner)->GetConfig();
+                const auto sim      = std::shared_ptr<SimRunner>(m_runner)->GetSim();
+                const auto pop      = std::shared_ptr<SimRunner>(m_runner)->GetSim()->GetPopulation();
+                const auto dur   = duration_cast<milliseconds>(std::shared_ptr<SimRunner>(m_runner)->GetClock().Get());
+                const auto milli = static_cast<unsigned int>(dur.count());
                 m_summary_file.Print(configPt, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
                                      sim->GetTransmissionProfile().GetRate(), milli, milli);
                 break;

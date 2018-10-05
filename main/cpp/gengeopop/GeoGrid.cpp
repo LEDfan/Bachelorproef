@@ -22,14 +22,15 @@
 
 namespace gengeopop {
 
-GeoGrid::GeoGrid()
-    : m_locations(), m_locationsToIdIndex(), m_population(stride::Population::Create()), m_finalized(false), m_tree(),
-      m_regionId(0), m_regionName("Default")
+GeoGrid::GeoGrid(stride::Population* population)
+    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree(), m_regionId(0),
+      m_regionName("Default")
+
 {
 }
 
-GeoGrid::GeoGrid(std::shared_ptr<stride::Population> population, std::size_t regionId, std::string regionName)
-    : m_locations(), m_locationsToIdIndex(), m_population(std::move(population)), m_finalized(false), m_tree(),
+GeoGrid::GeoGrid(stride::Population* population, std::size_t regionId, std::string regionName)
+    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree(),
       m_regionId(regionId), m_regionName(std::move(regionName))
 
 {
@@ -130,7 +131,7 @@ std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::share
         return result;
 }
 
-std::shared_ptr<stride::Population> GeoGrid::GetPopulation() { return m_population; }
+stride::Population* GeoGrid::GetPopulation() { return m_population; }
 
 void GeoGrid::CheckFinalized(const std::string& functionName) const
 {

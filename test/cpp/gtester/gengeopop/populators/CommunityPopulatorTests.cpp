@@ -49,7 +49,8 @@ protected:
                 household->AddPool(contactPool);
                 location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
                 location->AddContactCenter(household);
-                geoGrid = std::make_shared<GeoGrid>();
+                auto pop = stride::Population::Create();
+                geoGrid  = std::make_shared<GeoGrid>(pop.get());
                 geoGrid->AddLocation(location);
 
                 community = std::make_shared<CommunityType>(1);
@@ -72,14 +73,16 @@ protected:
 
         void ZeroCommunitiesTest()
         {
-                geoGrid = std::make_shared<GeoGrid>();
+                auto pop = stride::Population::Create();
+                geoGrid  = std::make_shared<GeoGrid>(pop.get());
                 geoGrid->Finalize();
                 EXPECT_NO_THROW(communityPopulator->Apply(geoGrid, config));
         }
 
         void EmptyLocationTest()
         {
-                geoGrid  = std::make_shared<GeoGrid>();
+                auto pop = stride::Population::Create();
+                geoGrid  = std::make_shared<GeoGrid>(pop.get());
                 location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
                 location->AddContactCenter(community);
                 geoGrid->AddLocation(location);

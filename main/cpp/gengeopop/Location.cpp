@@ -95,24 +95,24 @@ Location::iterator Location::begin() { return m_contactCenters.begin(); }
 
 Location::iterator Location::end() { return m_contactCenters.end(); }
 
-const std::vector<std::pair<std::shared_ptr<Location>, double>>& Location::GetIncomingCommuningCities() const
+const std::vector<std::pair<Location*, double>>& Location::GetIncomingCommuningCities() const
 {
         return m_incomingCommutingLocations;
 }
 
 void Location::AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion)
 {
-        m_incomingCommutingLocations.emplace_back(location, proportion);
+        m_incomingCommutingLocations.emplace_back(location.get(), proportion);
 }
 
-const std::vector<std::pair<std::shared_ptr<Location>, double>>& Location::GetOutgoingCommuningCities() const
+const std::vector<std::pair<Location*, double>>& Location::GetOutgoingCommuningCities() const
 {
         return m_outgoingCommutingLocations;
 }
 
 void Location::AddOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion)
 {
-        m_outgoingCommutingLocations.emplace_back(location, proportion);
+        m_outgoingCommutingLocations.emplace_back(location.get(), proportion);
 }
 
 int Location::IncomingCommutingPeople(double fractionOfPopulationCommuting) const

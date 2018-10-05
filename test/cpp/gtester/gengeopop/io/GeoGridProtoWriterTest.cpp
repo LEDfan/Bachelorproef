@@ -31,19 +31,20 @@ using namespace gengeopop;
 
 namespace {
 
-std::shared_ptr<GeoGrid> GetGeoGrid()
+std::shared_ptr<GeoGrid> GetGeoGrid(stride::Population* pop)
 {
         GeoGridConfig config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
-        GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>());
+        GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>(pop));
         return geoGridGenerator.GetGeoGrid();
 }
 
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        auto geoGrid = GetGeoGrid();
+        auto pop     = stride::Population::Create();
+        auto geoGrid = GetGeoGrid(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
         geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
         geoGrid->AddLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
@@ -52,7 +53,8 @@ TEST(GeoGridProtoWriterTest, locationTest)
 }
 TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
-        auto geoGrid  = GetGeoGrid();
+        auto pop      = stride::Population::Create();
+        auto geoGrid  = GetGeoGrid(pop.get());
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<K12School>(0));
         location->AddContactCenter(std::make_shared<PrimaryCommunity>(1));
@@ -63,6 +65,14 @@ TEST(GeoGridProtoWriterTest, contactCentersTest)
 
         CompareGeoGrid(geoGrid);
 }
-TEST(GeoGridProtoWriterTest, peopleTest) { CompareGeoGrid(GetPopulatedGeoGrid()); }
-TEST(GeoGridProtoWriterTest, commutesTest) { CompareGeoGrid(GetCommutesGeoGrid()); }
+TEST(GeoGridProtoWriterTest, peopleTest)
+{
+        auto pop = stride::Population::Create();
+        CompareGeoGrid(GetPopulatedGeoGrid(pop.get()));
+}
+TEST(GeoGridProtoWriterTest, commutesTest)
+{
+        auto pop = stride::Population::Create();
+        CompareGeoGrid(GetCommutesGeoGrid(pop.get()));
+}
 } // namespace

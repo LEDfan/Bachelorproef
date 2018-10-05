@@ -24,7 +24,8 @@ namespace {
 
 std::shared_ptr<GeoGrid> getExpectedGeoGrid()
 {
-        std::shared_ptr<GeoGrid> geoGrid = std::make_shared<GeoGrid>();
+        auto                     pop     = stride::Population::Create();
+        std::shared_ptr<GeoGrid> geoGrid = std::make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
         geoGrid->AddLocation(std::make_shared<Location>(22, 0, 800));
         geoGrid->AddLocation(std::make_shared<Location>(23, 0, 900));
@@ -70,7 +71,8 @@ TEST(CommutesCSVReaderTest, test1)
                                 "0,611,0,0\n";      // to 24
 
         std::shared_ptr<GeoGrid> expectedGeoGrid = getExpectedGeoGrid();
-        std::shared_ptr<GeoGrid> geoGrid         = std::make_shared<GeoGrid>();
+        auto                     pop             = stride::Population::Create();
+        std::shared_ptr<GeoGrid> geoGrid         = std::make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
         geoGrid->AddLocation(std::make_shared<Location>(22, 0, 800));
         geoGrid->AddLocation(std::make_shared<Location>(23, 0, 900));

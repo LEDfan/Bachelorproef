@@ -29,18 +29,20 @@ using boost::geometry::get;
 
 namespace {
 
-std::shared_ptr<GeoGrid> getGeoGridForFile(std::string filename)
+std::shared_ptr<GeoGrid> getGeoGridForFile(std::string filename, stride::Population* pop)
 {
         auto file = std::make_unique<std::ifstream>();
         file->open(stride::util::FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/" + filename);
-        GeoGridJSONReader geoGridJSONReader(std::move(file));
+
+        GeoGridJSONReader geoGridJSONReader(std::move(file), pop);
         auto              geoGrid = geoGridJSONReader.Read();
         return geoGrid;
 }
 
 TEST(GeoGridJSONReaderTest, locationsTest)
 {
-        auto geoGrid = getGeoGridForFile("test0.json");
+        auto pop     = stride::Population::Create();
+        auto geoGrid = getGeoGridForFile("test0.json", pop.get());
 
         std::map<unsigned int, std::shared_ptr<Location>> locations;
 
@@ -76,7 +78,8 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 
 TEST(GeoGridJSONReaderTest, commutesTest)
 {
-        auto geoGrid = getGeoGridForFile("test7.json");
+        auto pop     = stride::Population::Create();
+        auto geoGrid = getGeoGridForFile("test7.json", pop.get());
 
         std::map<unsigned int, std::shared_ptr<Location>> locations;
 
@@ -88,10 +91,9 @@ TEST(GeoGridJSONReaderTest, commutesTest)
         auto location2 = locations[2];
         auto location3 = locations[3];
 
-        auto sortLoc = [](std::vector<std::pair<std::shared_ptr<Location>, double>> loc) {
+        auto sortLoc = [](std::vector<std::pair<Location*, double>> loc) {
                 std::sort(std::begin(loc), std::end(loc),
-                          [](const std::pair<std::shared_ptr<Location>, double>& a,
-                             const std::pair<std::shared_ptr<Location>, double>& b) {
+                          [](const std::pair<Location*, double>& a, const std::pair<Location*, double>& b) {
                                   return a.first->GetID() < b.first->GetID();
                           });
                 return loc;
@@ -140,7 +142,8 @@ TEST(GeoGridJSONReaderTest, commutesTest)
 
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
-        auto                        geoGrid        = getGeoGridForFile("test1.json");
+        auto                        pop            = stride::Population::Create();
+        auto                        geoGrid        = getGeoGridForFile("test1.json", pop.get());
         auto                        location       = geoGrid->Get(0);
         auto                        contactCenters = location->GetContactCenters();
         std::map<std::string, bool> found          = {{"K12School", false},
@@ -160,7 +163,8 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 
 void runPeopleTest(std::string filename)
 {
-        auto                       geoGrid  = getGeoGridForFile(filename);
+        auto                       pop      = stride::Population::Create();
+        auto                       geoGrid  = getGeoGridForFile(filename, pop.get());
         auto                       location = geoGrid->Get(0);
         std::map<int, std::string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
                                           {3, "College"},   {4, "Household"},         {5, "Workplace"}};
@@ -196,17 +200,27 @@ TEST(GeoGridJSONReaderTest, intTest) { runPeopleTest("test3.json"); }
 TEST(GeoGridJSONReaderTest, emptyStreamTest)
 {
         auto              instream = std::make_unique<std::istringstream>("");
-        GeoGridJSONReader geoGridJSONReader(std::move(instream));
+        auto              pop      = stride::Population::Create();
+        GeoGridJSONReader geoGridJSONReader(std::move(instream), pop.get());
         EXPECT_THROW(geoGridJSONReader.Read(), stride::util::Exception);
 }
 
-TEST(GeoGridJSONReaderTest, invalidTypeTest) { EXPECT_THROW(getGeoGridForFile("test4.json"), stride::util::Exception); }
+TEST(GeoGridJSONReaderTest, invalidTypeTest)
+{
+        auto pop = stride::Population::Create();
+        EXPECT_THROW(getGeoGridForFile("test4.json", pop.get()), stride::util::Exception);
+}
 
 TEST(GeoGridJSONReaderTest, invalidPersonTest)
 {
-        EXPECT_THROW(getGeoGridForFile("test5.json"), stride::util::Exception);
+        auto pop = stride::Population::Create();
+        EXPECT_THROW(getGeoGridForFile("test5.json", pop.get()), stride::util::Exception);
 }
 
-TEST(GeoGridJSONReaderTest, invalidJSONTest) { EXPECT_THROW(getGeoGridForFile("test6.json"), stride::util::Exception); }
+TEST(GeoGridJSONReaderTest, invalidJSONTest)
+{
+        auto pop = stride::Population::Create();
+        EXPECT_THROW(getGeoGridForFile("test6.json", pop.get()), stride::util::Exception);
+}
 
 } // namespace

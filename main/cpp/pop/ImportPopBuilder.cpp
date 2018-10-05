@@ -50,11 +50,10 @@ shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop, 
         std::string importFile = m_region_pt.get<std::string>("geopop_import_file");
 
         GeoGridReaderFactory                  geoGridReaderFactory;
-        const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile);
+        const std::shared_ptr<GeoGridReader>& reader =
+            geoGridReaderFactory.CreateReader(importFile, pop.get(), regionId, regionName);
 
         stride_logger->debug("Importing population from " + importFile);
-
-        reader->UsePopulation(pop, regionId, regionName);
 
         pop->m_geoGrids.push_back(reader->Read());
         for (const auto& grid : pop->m_geoGrids) {

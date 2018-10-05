@@ -35,7 +35,7 @@ class InfectedFileViewer
 public:
         /// Instantiate cases viewer.
         InfectedFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
-            : m_infected(), m_infected_file(output_prefix), m_runner(std::move(runner))
+            : m_infected(), m_infected_file(output_prefix), m_runner(runner)
         {
         }
 
@@ -43,9 +43,9 @@ public:
         void Update(sim_event::Id id);
 
 private:
-        std::vector<unsigned int>  m_infected;
-        output::InfectedFile       m_infected_file;
-        std::shared_ptr<SimRunner> m_runner;
+        std::vector<unsigned int> m_infected;
+        output::InfectedFile      m_infected_file;
+        std::weak_ptr<SimRunner>  m_runner;
 };
 
 } // namespace viewers

@@ -162,7 +162,8 @@ private:
         bool                          m_showCommutes = false;
         std::set<std::pair<int, int>> m_selection; ///< The currently selected locations (id of region, id of location)
         std::set<std::pair<int, int>>
-            m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
+                                            m_unselection; ///< Items which must be unselected until the next UpdateColorOfMarkres call
+        std::shared_ptr<stride::Population> m_population; ///< Population used when importing the GeoGrid from a file
 
         /**
          * Places a marker at the given coordinate
@@ -225,8 +226,7 @@ private:
          * Shows the commute from loc1 to loc2 on the map.
          * @param loc1
          */
-        void ShowCommute(int region, const std::shared_ptr<gengeopop::Location>& loc1,
-                         const std::shared_ptr<gengeopop::Location>&);
+        void ShowCommute(int region, const gengeopop::Location* loc1, const gengeopop::Location*);
 
         /**
          * Updates the health color of the location on the map so it represents the current situation.
